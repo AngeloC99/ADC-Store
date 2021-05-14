@@ -10,7 +10,7 @@ Il progetto prevede la progettazione e l'implementazione di un'applicazione web 
 Essa permette agli utenti di effettuare la propria spesa online e di scegliere le modalità di consegna/ritiro.
 L'applicazione nasce dalla necessità della catena di supermercati di digitalizzare i servizi offerti ai clienti. L’importanza di tale digitalizzazione risulta evidente per far fronte alle difficoltà poste dall’attuale pandemia, sia nei confronti dell’attività, che ne risulta agevolata, sia verso i clienti, che possono effettuare la spesa comodamente da casa, senza necessità di spostamenti.
 
-##Tipologie di utenti
+## Tipologie di utenti
 
 - *Amministratore*
 
@@ -24,7 +24,7 @@ L'applicazione nasce dalla necessità della catena di supermercati di digitalizz
 
 	Possono visualizzare i prodotti in vendita ed effettuare la registrazione per avere accesso alle funzionalità offerte agli utenti registrati.
 
-##Requisiti
+## Requisiti
 
 - Architetturali: applicazione web distribuita su tre livelli (*presentation*, *application* e *data management*).
 
