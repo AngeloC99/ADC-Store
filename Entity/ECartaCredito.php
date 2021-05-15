@@ -63,8 +63,7 @@ class ECartaCredito
      * Restituisce il titolare della carta di credito.
      * @return string
      */
-    public function getTitolare(): string
-    {
+    public function getTitolare(): string {
         return $this->titolare;
     }
 
@@ -72,8 +71,7 @@ class ECartaCredito
      * Restituisce il numero della carta di credito.
      * @return string
      */
-    public function getNumero(): string
-    {
+    public function getNumero(): string {
         return $this->numero;
     }
 
@@ -81,8 +79,7 @@ class ECartaCredito
      * Restituisce il circuito della carta di credito.
      * @return string
      */
-    public function getCircuito(): string
-    {
+    public function getCircuito(): string {
         return $this->circuito;
     }
 
@@ -90,8 +87,7 @@ class ECartaCredito
      * Restituisce la scadenza della carta di credito.
      * @return DateTime
      */
-    public function getScadenza(): DateTime
-    {
+    public function getScadenza(): DateTime {
         return $this->scadenza;
     }
 
@@ -99,8 +95,7 @@ class ECartaCredito
      * Restituisce il cvv della carta di credito.
      * @return int
      */
-    public function getCvv(): int
-    {
+    public function getCvv(): int {
         return $this->cvv;
     }
 
@@ -108,8 +103,7 @@ class ECartaCredito
      * Restituisce l'ammontare presente nella carta di credito.
      * @return float
      */
-    public function getAmmontare(): float
-    {
+    public function getAmmontare(): float {
         return $this->ammontare;
     }
 
@@ -117,8 +111,7 @@ class ECartaCredito
      * Imposta una nuova data di scadenza per la carta di credito.
      * @param DateTime $scadenza
      */
-    public function setScadenza(DateTime $scadenza): void
-    {
+    public function setScadenza(DateTime $scadenza): void {
         $this->scadenza = $scadenza;
     }
 
@@ -126,8 +119,7 @@ class ECartaCredito
      * Imposta il nuovo cvv per la carta di credito.
      * @param int $cvv
      */
-    public function setCvv(int $cvv): void
-    {
+    public function setCvv(int $cvv): void {
         $this->cvv = $cvv;
     }
 
@@ -135,8 +127,7 @@ class ECartaCredito
      * Imposta il nuovo ammontare presente nella carta di credito.
      * @param float $ammontare
      */
-    public function setAmmontare(float $ammontare): void
-    {
+    public function setAmmontare(float $ammontare): void {
         $this->ammontare = $ammontare;
     }
 
