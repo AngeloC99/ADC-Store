@@ -83,31 +83,31 @@ class EArticolo
     /**
      * @return int
      */
-    public function getQuantità(): int
+    public function getQuantita(): int
     {
         return $this->quantità;
     }
 
     /**
-     * @param int $quantità
+     * @param int $quantita
      */
-    public function setQuantità(int $quantità): void
+    public function setQuantita(int $quantita): void
     {
-        $this->quantità = $quantità;
+        $this->quantita = $quantita;
     }
 
     /**
-     * @return Immagine
+     * @return EImmagine
      */
-    public function getFoto(): Immagine
+    public function getFoto(): EImmagine
     {
         return $this->foto;
     }
 
     /**
-     * @param Immagine $foto
+     * @param EImmagine $foto
      */
-    public function setFoto(Immagine $foto): void
+    public function setFoto(EImmagine $foto): void
     {
         $this->foto = $foto;
     }

@@ -50,7 +50,7 @@ class ECartaCredito
      * @param int $cvv
      * @param float $ammontare
      */
-    public function __constructor(string $titolare, string $numero, string $circuito, DateTime $scadenza, int $cvv, float $ammontare) {
+    public function __construct(string $titolare, string $numero, string $circuito, DateTime $scadenza, int $cvv, float $ammontare) {
         $this->titolare = $titolare;
         $this->numero = $numero;
         $this->circuito = $circuito;

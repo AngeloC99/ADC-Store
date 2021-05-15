@@ -49,7 +49,7 @@ class EIndirizzo
      * @param string $provincia
      * @param bool $predefinito
      */
-    public function __constructor(string $via, int $numero, string $comune, string $provincia, bool $predefinito) {
+    public function __construct(string $via, int $numero, string $comune, string $provincia, string $cap, bool $predefinito) {
         $this->via = $via;
         $this->numero = $numero;
         $this->comune = $comune;

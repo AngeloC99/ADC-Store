@@ -37,7 +37,7 @@ class EPersona
      * @param string $email
      * @param string $password
      */
-    public  function __constructor(string $nome, string $cognome, string $email, string $password){
+    public function __construct(string $nome, string $cognome, string $email, string $password){
         $this->nome = $nome;
         $this->cognome = $cognome;
         $this->email = $email;
@@ -117,12 +117,12 @@ class EPersona
     }
 
     /**
-     * Metodo che serve a modificare la quantità di un prodotto
+     * Metodo che serve a modificare la quantità di un articolo
+     * @param EArticolo $articolo
      * @param int $quantita
-     * @param Eprodotto $p
      */
-    public function modificaQuantita(int $quantita, Eprodotto $p){
-        $p.setQuantita($quantita);
+    public function modificaQuantita(EArticolo $articolo, int $quantita, ){
+        $articolo->setQuantita($quantita);
     }
 
 
