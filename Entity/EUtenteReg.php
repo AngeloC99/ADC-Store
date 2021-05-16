@@ -47,6 +47,10 @@ class EUtenteReg extends EPersona
     {
         parent::__construct($nome, $cognome, $email, $password);
         $this->punti = 0;
+        $this->carteSalvate = array();
+        $this->carrelliSalvati = array();
+        $this->buoniSconto = array();
+        $this->indirizzi = array();
     }
 
     /**
@@ -65,6 +69,18 @@ class EUtenteReg extends EPersona
         $this->punti = $punti;
     }
 
+     /**
+      * Meetodo per impostare i buoni sconto dell'utente
+     * @param array $buoniSconto
+     */
+     public function setBuoniSconto(array $buoniSconto): void
+     {
+
+         $this->buoniSconto = $buoniSconto;
+     }
+
+
+
     /**
      * Metodo per poter inserire una nuova carta di credito
      * @param string $titolare
@@ -76,11 +92,20 @@ class EUtenteReg extends EPersona
      */
     public function inserisciCarta(string $titolare, string $numero, string $circuito, DateTime $scadenza, int $cvv, float $ammontare): void{
         $carta = new ECartaCredito($titolare, $numero, $circuito, $scadenza, $cvv, $ammontare);
-        $this->carteSalvate[] = $carta;
+        $number = $carta->getNumero();
+        $this->carteSalvate[$number] = $carta;
     }
 
-    public function inserisciIndirizzo(string $via, string $numero, string $comune, string $provincia, bool $predefinito): void {
-        $ind = new EIndirizzo($via, $numero, $comune,$provincia,$predefinito);
+    /**
+     * Metodo per poter inserire un nuovo indirizzo
+     * @param string $via
+     * @param string $numero
+     * @param string $comune
+     * @param string $provincia
+     * @param bool $predefinito
+     */
+    public function inserisciIndirizzo(string $via, string $numero, string $comune, string $provincia, string $cap, bool $predefinito): void {
+        $ind = new EIndirizzo($via, $numero, $comune,$provincia,$cap,$predefinito);
         $this->indirizzi[] = $ind;
     }
 
@@ -131,9 +156,9 @@ class EUtenteReg extends EPersona
     /**
      * Metodo per poter ottenere uno specifico buono sconto
      * @param int $codice
-     * @return EBuono
+     * @return EBuonoSconto
      */
-    public function getBuonoSconto(int $codice): EBuono{
+    public function getBuonoSconto(int $codice): EBuonoSconto{
         return $this->buoniSconto[$codice];
     }
 
@@ -168,7 +193,8 @@ class EUtenteReg extends EPersona
     }
 
     /**
-     * Metodo che applica un buono sconto a un certo ordine riducendone il totale
+     * Metodo che applica un buono sconto a un certo ordine riducendone il totale ed elimina il buono
+     * utilizzato dai buoni che possiede l'utente
      * @param EOrdine $ordine
      * @param EBuonoSconto $buono
      */
@@ -180,14 +206,23 @@ class EUtenteReg extends EPersona
             $nuovotot = $ordine->getPrezzoTotale() - $buono->getAmmontare();
             $ordine->setPrezzoTotale($nuovotot);
         }
+        $codice = $buono->getCodice();
+        $arraybuoni = $this->getBuoniSconto();
+        unset($arraybuoni[$codice]);
+        $this->setBuoniSconto($arraybuoni);
+
 
     }
 
 
+    /**
+     * Metodo che serve a impostare un indirizzo come predefinito
+     * @param EIndirizzo $indirizzo
+     */
     public function setIndirizzoPredefinito(EIndirizzo $indirizzo): void
     {
         foreach ($this->indirizzi as $k => $v) {
-            if ($v == $indirizzo)
+            if ($indirizzo->getNumero() == $v->getNumero() && $indirizzo->getVia() == $v->getVia() && $indirizzo->getCap() == $v->getCap())
                 {
                     $v->setPredefinito(true);
                 }

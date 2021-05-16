@@ -7,14 +7,16 @@ class EBuonoSconto
     private int $ammontare;
     private bool $percentuale;
     private String $codice;
+    private string $messaggio;
     private string $scadenza; //data formattata come stringa dal metodo date (in collab. con mktime per ottenere timestamp)
 
     //COSTRUTTORE:
-    public function __construct(bool $b,int $a)
+    public function __construct(bool $b,int $a, string $m)
     {
         $this->percentuale=$b;
         $this->ammontare=$a;
         $this->codice=uniqid("BS");
+        $this->messaggio = $m;
         $scadenza = mktime(0, 0, 0, date("m")+1, date("d"),   date("Y")); //timestamp della data di scadenza rispetto alla data corrente (scadenza: un mese dalla creazione)
         $this->scadenza=date('d/m/Y',$scadenza);
 

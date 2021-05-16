@@ -118,4 +118,12 @@ class EOrdine
         $this->indirizzo = $indirizzo;
     }
 
+    /**
+     * @param float $prezzoTotale
+     */
+    public function setPrezzoTotale(float $prezzoTotale): void
+    {
+        $this->prezzoTotale = $prezzoTotale;
+    }
+
 }

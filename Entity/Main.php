@@ -3,7 +3,9 @@
 require_once "Utility.php";
 
 
-$indi = new EIndirizzo("marconi",34,"ace","Aq",588,false);
-$nome = $indi->getNumero();
-print($nome);
+$utente = new EUtenteReg("mario", "rossi", "mariorossi@gmail.com", "password");
+print_r($utente->getCarteSalvate());
+$data = new DateTime();
+$utente->inserisciCarta("mario", "123", "visa", $data, 456,87.50);
+print_r($utente->getCarteSalvate());
 

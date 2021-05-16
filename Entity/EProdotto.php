@@ -8,7 +8,7 @@ class EProdotto extends EArticolo
     private string $tipologia;
 
     //COSTRUTTORE:
-    public function __construct(string $n, string $m, string $d, int $q, Immagine $f,int $p,string $t)
+    public function __construct(string $n, string $m, string $d, int $q, EImmagine $f,int $p,string $t)
     {
         parent::__construct($n, $m, $d, $q, $f);
         $this->prezzo=$p;
