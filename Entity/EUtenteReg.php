@@ -16,25 +16,25 @@ class EUtenteReg extends EPersona
      * Array che contiene tutte le carte di credito inserire dall'utente
      * @var array
      */
-    private array $carteSalvate = array();
+    private array $carteSalvate = array(ECartaCredito::class);
 
     /**
      * Array che contiene tutti i carrelli salvati dall'utente
      * @var array
      */
-    private array $carrelliSalvati = array();
+    private array $carrelliSalvati = array(ECarrello::class);
 
     /**
      * Array che contiene tutti i buoni sconto posseduti dall'utente
      * @var array
      */
-    private array $buoniSconto = array();
+    private array $buoniSconto = array(EBuonoSconto::class);
 
     /**
      * Array che contiene tutti gli indirizzi salvati dall'utene
      * @var array
      */
-    private array $indirizzi = array();
+    private array $indirizzi = array(EIndirizzo::class);
 
 
     /**
@@ -43,7 +43,7 @@ class EUtenteReg extends EPersona
      * @param string $email
      * @param string $password
      */
-    public function __constructor(string $nome, string $cognome, string $email, string $password)
+    public function __construct(string $nome, string $cognome, string $email, string $password)
     {
         parent::__construct($nome, $cognome, $email, $password);
         $this->punti = 0;
@@ -96,18 +96,6 @@ class EUtenteReg extends EPersona
         $this->carteSalvate[$number] = $carta;
     }
 
-    /**
-     * Metodo per poter inserire un nuovo indirizzo
-     * @param string $via
-     * @param string $numero
-     * @param string $comune
-     * @param string $provincia
-     * @param bool $predefinito
-     */
-    public function inserisciIndirizzo(string $via, string $numero, string $comune, string $provincia, string $cap, bool $predefinito): void {
-        $ind = new EIndirizzo($via, $numero, $comune,$provincia,$cap,$predefinito);
-        $this->indirizzi[] = $ind;
-    }
 
     /**
      * Metodo per poter regalare dei punti ad un altro utente
@@ -117,7 +105,7 @@ class EUtenteReg extends EPersona
      */
     public function regalarePunti(int $puntidaregalare, EUtenteReg $utente, string $messaggio): void{
         if ($this->punti < $puntidaregalare){
-            print("Impossibile");
+            print("Impossibile"); //GESTIRE ECCEZIONE
 
         }
         else{
@@ -170,6 +158,10 @@ class EUtenteReg extends EPersona
         return $this->indirizzi;
     }
 
+    public function setIndirizzi(array $newindirizzi): void {
+        $this->indirizzi = $newindirizzi;
+}
+
     /**
      * Metodo che ritorna solo l'indirizzo predefinito
      * @return EIndirizzo
@@ -219,14 +211,19 @@ class EUtenteReg extends EPersona
      * Metodo che serve a impostare un indirizzo come predefinito
      * @param EIndirizzo $indirizzo
      */
-    public function setIndirizzoPredefinito(EIndirizzo $indirizzo): void
+    public function setIndirizzoPredefinito(string $via,int $numero,string $comune,string $provincia,int $cap,bool $predefinito): void
     {
-        foreach ($this->indirizzi as $k => $v) {
-            if ($indirizzo->getNumero() == $v->getNumero() && $indirizzo->getVia() == $v->getVia() && $indirizzo->getCap() == $v->getCap())
+        $ind = new EIndirizzo($via, $numero, $comune,$provincia,$cap,$predefinito);
+        $array = $this->getIndirizzi();
+        foreach ($array as $k => $v) {
+            if ($v->isPredefinito())
                 {
-                    $v->setPredefinito(true);
+                    $v->setPredefinito(false);
                 }
             }
+        $ind->setPredefinito(true);
+        $array[] = $ind;
+        $this->setIndirizzi($array);
         }
     }
 

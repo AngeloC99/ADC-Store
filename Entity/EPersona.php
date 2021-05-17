@@ -116,14 +116,7 @@ class EPersona
         $this->password = $password;
     }
 
-    /**
-     * Metodo che serve a modificare la quantità di un articolo
-     * @param EArticolo $articolo
-     * @param int $quantita
-     */
-    public function modificaQuantita(EArticolo $articolo, int $quantita, ){
-        $articolo->setQuantita($quantita);
-    }
+
 
 
 

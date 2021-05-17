@@ -7,7 +7,7 @@ class EPremio extends EArticolo
     private int $prezzoInPunti;
 
     //COSTRUTTORE:
-    public function __construct(string $n, string $m, string $d, int $q, Immagine $f,int $pp)
+    public function __construct(string $n, string $m, string $d, int $q, EImmagine $f,int $pp)
     {
         parent::__construct($n, $m, $d, $q, $f);
         $this->prezzoInPunti=$pp;

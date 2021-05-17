@@ -34,12 +34,13 @@ class EAmministratore extends EPersona
      * @param EUtenteReg $utente
      * @param string $messaggio
      */
-    public function preparaBuono(int $ammontare, EUtenteReg $utente, string $messaggio){
-        $buono = new EBuonoSconto($ammontare, $messaggio);
+    public function preparaBuono(bool $percentuale,int $ammontare, string $messaggio,EUtenteReg $utente){
+        $buono = new EBuonoSconto($percentuale,$ammontare, $messaggio);
         $array = $utente->getBuoniSconto();
         $codice = $buono->getCodice();
         $array[$codice] = $buono;
         $utente->setBuoniSconto($array);
+        //DA COMPLETARE CON EMAIL ECC
 
     }
 
@@ -70,6 +71,15 @@ class EAmministratore extends EPersona
     public function aggiungiPremio(string $nome, string $descrizione, int $quantita, int $punti, string $marca, EImmagine $immagine){
         $premio = new EPremio($nome, $marca, $descrizione, $quantita, $immagine, $punti);
         //Richiamo a classe Foundation
+    }
+
+    /**
+     * Metodo che serve a modificare la quantità di un articolo
+     * @param EArticolo $articolo
+     * @param int $quantita
+     */
+    public function modificaQuantita(EArticolo $articolo, int $quantita, ){
+        $articolo->setQuantita($quantita);
     }
 
 }

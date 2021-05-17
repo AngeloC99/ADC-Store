@@ -8,16 +8,16 @@ class EArticolo
     private string $nome;
     private string $marca;
     private string $descrizione;
-    private int $quantità;
-    private Immagine $foto;
+    private int $quantita;
+    private EImmagine $foto;
 
     //COSTRUTTORE:
-    public function __construct(string $n, string $m,string $d, int $q,Immagine $f) {
+    public function __construct(string $n, string $m,string $d, int $q,EImmagine $f) {
         $this->id=uniqid('Art'); //genera un id alfanumerico univoco avente come prefisso quello specificato come parametro
         $this->nome=$n;
         $this->marca=$m;
         $this->descrizione=$d;
-        $this->quantità=$q;
+        $this->quantita=$q;
         $this->foto=$f;
     }
 
@@ -85,7 +85,7 @@ class EArticolo
      */
     public function getQuantita(): int
     {
-        return $this->quantità;
+        return $this->quantita;
     }
 
     /**
