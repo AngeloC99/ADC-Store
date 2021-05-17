@@ -119,7 +119,8 @@ class EUtenteReg extends EPersona
      */
     public function aggiungiCarrelloSalvato(ECarrello $carrello, string $nome): void {
         $carrello->setNome($nome);
-        $this->carrelliSalvati[] = $carrello;
+        $codice = $carrello->getId();
+        $this->carrelliSalvati[$codice] = $carrello;
     }
 
     /**
@@ -155,6 +156,10 @@ class EUtenteReg extends EPersona
         return $this->indirizzi;
     }
 
+    /**
+     * Metodo per settare un nuovo array di indirizzi
+     * @param array $newindirizzi
+     */
     public function setIndirizzi(array $newindirizzi): void {
         $this->indirizzi = $newindirizzi;
 }
