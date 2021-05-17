@@ -197,7 +197,7 @@ class EUtenteReg extends EPersona
      * utilizzato dai buoni che possiede l'utente
      * @param EOrdine $ordine
      * @param EBuonoSconto $buono
-     */
+
     public function applicaBuono(EOrdine $ordine, EBuonoSconto $buono): void {
         if( $ordine->getPrezzoTotale() < $buono->getAmmontare()){
             $ordine->setPrezzoTotale(0);
@@ -212,7 +212,7 @@ class EUtenteReg extends EPersona
         $this->setBuoniSconto($arraybuoni);
 
 
-    }
+    } */
 
 
     /**

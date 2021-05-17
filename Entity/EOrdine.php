@@ -120,10 +120,10 @@ class EOrdine
 
     /**
      * @param float $prezzoTotale
-     */
+
     public function setPrezzoTotale(float $prezzoTotale): void
     {
         $this->prezzoTotale = $prezzoTotale;
-    }
+    } */
 
 }
