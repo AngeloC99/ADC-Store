@@ -70,7 +70,7 @@ class EUtenteReg extends EPersona
     }
 
      /**
-      * Meetodo per impostare i buoni sconto dell'utente
+      * Metodo per impostare i buoni sconto dell'utente
      * @param array $buoniSconto
      */
      public function setBuoniSconto(array $buoniSconto): void
@@ -78,8 +78,6 @@ class EUtenteReg extends EPersona
 
          $this->buoniSconto = $buoniSconto;
      }
-
-
 
     /**
      * Metodo per poter inserire una nuova carta di credito
@@ -95,7 +93,6 @@ class EUtenteReg extends EPersona
         $number = $carta->getNumero();
         $this->carteSalvate[$number] = $carta;
     }
-
 
     /**
      * Metodo per poter regalare dei punti ad un altro utente
@@ -185,27 +182,26 @@ class EUtenteReg extends EPersona
     }
 
     /**
-     * Metodo che applica un buono sconto a un certo ordine riducendone il totale ed elimina il buono
+     * Metodo che applica un buono sconto ad un certo ordine riducendone il totale ed elimina il buono
      * utilizzato dai buoni che possiede l'utente
      * @param EOrdine $ordine
      * @param EBuonoSconto $buono
-
-    public function applicaBuono(EOrdine $ordine, EBuonoSconto $buono): void {
-        if( $ordine->getPrezzoTotale() < $buono->getAmmontare()){
+     */
+    public function applicaBuono(EOrdine $ordine, EBuonoSconto $buonoSconto): void {
+        if ($ordine->getPrezzoTotale() <= $buonoSconto->getAmmontare()) {
             $ordine->setPrezzoTotale(0);
         }
-        else{
-            $nuovotot = $ordine->getPrezzoTotale() - $buono->getAmmontare();
-            $ordine->setPrezzoTotale($nuovotot);
+        else {
+            if ($buonoSconto->isPercentuale() == true) {
+                $ordine->setPrezzoTotale(($ordine->getPrezzoTotale() * $buonoSconto->getAmmontare()) / 100);          // Se il buono è in percentuale
+            }
+            else $ordine->setPrezzoTotale(($ordine->getPrezzoTotale() - $buonoSconto->getAmmontare()));
         }
-        $codice = $buono->getCodice();
+        $codice = $buonoSconto->getCodice();
         $arraybuoni = $this->getBuoniSconto();
         unset($arraybuoni[$codice]);
         $this->setBuoniSconto($arraybuoni);
-
-
-    } */
-
+    }
 
     /**
      * Metodo che serve a impostare un indirizzo come predefinito

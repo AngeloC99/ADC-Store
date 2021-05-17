@@ -5,7 +5,6 @@
  * Class ECartaCredito
  * @access public
  * @package Entity
- * @author Angelo Casciani
  */
 
 class ECartaCredito

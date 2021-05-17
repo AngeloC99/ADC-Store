@@ -5,7 +5,6 @@
  * Class EIndirizzo
  * @access public
  * @package Entity
- * @author Angelo Casciani
  */
 
 class EIndirizzo

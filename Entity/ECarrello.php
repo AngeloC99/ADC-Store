@@ -5,21 +5,15 @@
  * Class ECarrello
  * @access public
  * @package Entity
- * @author Angelo Casciani
  */
 
 class ECarrello
 {
     /**
-     * Contatore di classe per l'assegnazione di un id progressivo al carrello.
-     * @var int
-     */
-    private static int $contatore = 0;
-    /**
      * Identificativo del carrello.
-     * @var int
+     * @var string
      */
-    private int $id;
+    private string $id;
     /**
      * Nome assegnato al carrello salvato.
      * @var string
@@ -31,7 +25,7 @@ class ECarrello
      */
     private bool $default;
     /**
-     * Lista di prodotti inseriti nel carrello.
+     * Lista di prodotti (tramite gli id) inseriti nel carrello, con le rispettive quantità come valori.
      * @var array
      */
     private array $prodotti;
@@ -45,7 +39,7 @@ class ECarrello
      * Costruttore della classe ECarrello.
      */
     public function __constructor() {
-        $this->id = self::$contatore++;
+        $this->id = uniqid('Car');
         $this->nome = "";
         $this->default = false;
         $this->prodotti = array();
@@ -54,9 +48,9 @@ class ECarrello
 
     /**
      * Restituisce l'identificativo del carrello.
-     * @return int
+     * @return string
      */
-    public function getId(): int {
+    public function getId(): string {
         return $this->id;
     }
 
@@ -85,6 +79,16 @@ class ECarrello
     }
 
     /**
+     * Reperisce il prodotto desiderato con i suoi dettagli a partire dall'identificativo che lo caratterizza.
+     * @param string $id
+     */
+    public function getProdottoById(string $id){
+        // Richiamo a Foundation
+        // $prodotto = new EProdotto($nome, $marca, $descrizione, $quantita, $immagine, $prezzo, $tipologia);
+        // return $prodotto;
+    }
+
+    /**
      * Restituisce il prezzo attuale del carrello, in base ai prezzi dei prodotti in esso contenuti.
      * @return float
      */
@@ -109,12 +113,35 @@ class ECarrello
     }
 
     /**
-     * Aggiunge un prodotto alla lista di prodotti presenti nel carrello
+     * Aggiunge un prodotto alla lista di prodotti presenti nel carrello.
+     * @param EProdotto $p
+     * @param int $quantitaRichiesta
+     */
+    public function aggiungiProdotto(EProdotto $p, int $quantitaRichiesta): void {
+        if ($p->getQuantita() >= $quantitaRichiesta) {
+            $this->prodotti[$p->getId()] = $quantitaRichiesta;
+            $this->prezzoTot += $p->getPrezzo() * $quantitaRichiesta;
+
+            // Richiamo a Foundation per salvare il prodotto
+
+        }
+        else print("Quantità non disponibile!");
+    }
+
+    /**
+     * Modifica la quantità di un prodotto presente nel carrello.
      * @param EProdotto $p
      * @param int $quantita
      */
-    public function aggiungiProdotto(EProdotto $p, int $quantita): void {
-        $this->prodotti[$p->getId()] = $quantita;
-        $this->prezzoTot += $p->getPrezzo();
+    public function modificaQuantita(EProdotto $p, int $quantita): void {
+        if ($p->getQuantita() >= $quantita) {
+            $differenzaPrezzo = ($this->prodotti[$p->getId()] - $quantita) * $p->getPrezzo();
+            $this->prodotti[$p->getId()] = $quantita;
+            $this->prezzoTot += $differenzaPrezzo;
+
+            // Richiamo a Foundation per salvare la modifica al carrello
+
+        }
+        else print("Quantità non disponibile!");
     }
 }

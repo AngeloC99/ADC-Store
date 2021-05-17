@@ -5,21 +5,15 @@
  * Class EOrdine
  * @access public
  * @package Entity
- * @author Angelo Casciani
  */
 
 class EOrdine
 {
     /**
-     * Contatore di classe per l'assegnazione di un id progressivo al carrello.
-     * @var int
-     */
-    private static int $contatore = 0;
-    /**
      * Codice identificativo dell'ordine d'acquisto.
-     * @var int
+     * @var string
      */
-    private int $id;
+    private string $id;
     /**
      * Data nella quale è stato compiuto l'ordine.
      * @var DateTime
@@ -47,7 +41,7 @@ class EOrdine
      * @param EIndirizzo $indirizzo
      */
     public function __construct(ECarrello $carrello, EIndirizzo $indirizzo) {
-        $this->id = self::$contatore++;
+        $this->id = uniqid('Ord');
         $this->dataAcquisto = new DateTime("now");
         $this->prezzoTotale = $carrello->getPrezzoTot();
         $this->carrello = $carrello;
@@ -56,9 +50,9 @@ class EOrdine
 
     /**
      * Restituisce l'identificativo dell'ordine.
-     * @return int
+     * @return string
      */
-    public function getId(): int {
+    public function getId(): string {
         return $this->id;
     }
 
@@ -95,13 +89,10 @@ class EOrdine
     }
 
     /**
-     * Imposta il nuovo prezzo da corrispondere per l'ordine effettuato, a fronte dell'applicazione di un buono sconto.
-     * @param EBuonoSconto ...$buonoSconto
+     * @param float $prezzoTotale
      */
-    public function applicaSconti(EBuonoSconto ...$buonoSconto): void {
-        foreach ($buonoSconto as $sconto) {
-            $this->prezzoTotale -= (float) $sconto->getAmmontare();
-        }
+    public function setPrezzoTotale(float $prezzoTotale): void {
+        $this->prezzoTotale = $prezzoTotale;
     }
 
     /**
@@ -117,13 +108,5 @@ class EOrdine
     public function setIndirizzo(EIndirizzo $indirizzo): void {
         $this->indirizzo = $indirizzo;
     }
-
-    /**
-     * @param float $prezzoTotale
-
-    public function setPrezzoTotale(float $prezzoTotale): void
-    {
-        $this->prezzoTotale = $prezzoTotale;
-    } */
 
 }
