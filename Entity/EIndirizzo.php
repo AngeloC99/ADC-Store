@@ -18,7 +18,7 @@ class EIndirizzo
      * Numero all'interno della via che identifica l'indirizzo.
      * @var int
      */
-    private int $numero;
+    private int $numerocivico;
     /**
      * Comune nel quale si trova l'indirizzo.
      * @var string
@@ -53,7 +53,7 @@ class EIndirizzo
     public function __construct(string $via, int $numero, string $comune, string $provincia, string $cap, bool $predefinito) {
 
         $this->via = $via;
-        $this->numero = $numero;
+        $this->numerocivico = $numero;
         $this->comune = $comune;
         $this->provincia = $provincia;
         $this->cap = $cap;
@@ -81,7 +81,7 @@ class EIndirizzo
      * @return int
      */
     public function getNumero(): int {
-        return $this->numero;
+        return $this->numerocivico;
     }
 
     /**
@@ -89,7 +89,7 @@ class EIndirizzo
      * @param int $numero
      */
     public function setNumero(int $numero): void {
-        $this->numero = $numero;
+        $this->numerocivico = $numero;
     }
 
     /**

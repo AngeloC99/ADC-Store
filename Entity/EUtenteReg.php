@@ -190,7 +190,7 @@ class EUtenteReg extends EPersona
      * Metodo che applica un buono sconto ad un certo ordine riducendone il totale ed elimina il buono
      * utilizzato dai buoni che possiede l'utente
      * @param EOrdine $ordine
-     * @param EBuonoSconto $buono
+     * @param EBuonoSconto $buonoSconto
      */
     public function applicaBuono(EOrdine $ordine, EBuonoSconto $buonoSconto): void {
         if ($ordine->getPrezzoTotale() <= $buonoSconto->getAmmontare()) {
@@ -208,11 +208,17 @@ class EUtenteReg extends EPersona
         $this->setBuoniSconto($arraybuoni);
     }
 
+
     /**
-     * Metodo che serve a impostare un indirizzo come predefinito
-     * @param EIndirizzo $indirizzo
+     * Metodo che crea un indirizzo e lo setta come predefinito
+     * @param string $via
+     * @param int $numero
+     * @param string $comune
+     * @param string $provincia
+     * @param int $cap
+     * @param bool $predefinito
      */
-    public function setIndirizzoPredefinito(string $via,int $numero,string $comune,string $provincia,int $cap,bool $predefinito): void
+    public function setIndirizzoPredefinito(string $via, int $numero, string $comune, string $provincia, int $cap, bool $predefinito): void
     {
         $ind = new EIndirizzo($via, $numero, $comune,$provincia,$cap,$predefinito);
         $array = $this->getIndirizzi();
