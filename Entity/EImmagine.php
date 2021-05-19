@@ -1,19 +1,51 @@
 <?php
 
 
+/**
+ * La classe EImmagine implementa l'immagine associata ai vari articoli.
+ */
 class EImmagine
 {
     //ATTRIBUTI:
+    /**
+     * Nome dell'immagine.
+     * @var string
+     */
     private string $nome;
+    /**
+     * Formato dell'immagine.
+     * @var string
+     */
     private string $formato;
+    /**
+     * Dimensione dell'immagine (in byte).
+     * @var int|float
+     */
     private int $byte;
+    /**
+     * Larghezza in pixel dell'immagine.
+     * @var int|mixed
+     */
     private int $larghezza;
+    /**
+     * Altezza in pixel dell'immagine
+     * @var int|mixed
+     */
     private int $altezza;
+    /**
+     * MIME dell'immagine.
+     * @var string|mixed
+     */
     private string $mime;
 
 
 
     //COSTRUTTORE:
+
+    /**
+     * EImmagine costruttore.
+     * @param string $full_name
+     */
     public function __construct(string $full_name){
         $array=explode("\\",$full_name);  //separo le varie componenti del nome intero del file
         $var1=count($array);
@@ -37,6 +69,7 @@ class EImmagine
 
     //METODI:
     /**
+     * Restituisce il nome dell'immagine.
      * @return string
      */
     public function getNome(): string
@@ -45,14 +78,7 @@ class EImmagine
     }
 
     /**
-     * @param string $nome
-     */
-    public function setNome(string $nome): void
-    {
-        $this->nome = $nome;
-    }
-
-    /**
+     * Restituisce il formato dell'immagine.
      * @return mixed|string
      */
     public function getFormato()
@@ -61,14 +87,7 @@ class EImmagine
     }
 
     /**
-     * @param mixed|string $formato
-     */
-    public function setFormato($formato): void
-    {
-        $this->formato = $formato;
-    }
-
-    /**
+     * Restituisce la dimensione (in byte) dell'immagine.
      * @return float|int
      */
     public function getByte()
@@ -77,14 +96,7 @@ class EImmagine
     }
 
     /**
-     * @param float|int $byte
-     */
-    public function setByte($byte): void
-    {
-        $this->byte = $byte;
-    }
-
-    /**
+     * Restituisce la larghezza dell'immagine.
      * @return int|mixed
      */
     public function getLarghezza()
@@ -93,14 +105,7 @@ class EImmagine
     }
 
     /**
-     * @param int|mixed $larghezza
-     */
-    public function setLarghezza($larghezza): void
-    {
-        $this->larghezza = $larghezza;
-    }
-
-    /**
+     * Restituisce l'altezza dell'immagine.
      * @return int|mixed
      */
     public function getAltezza()
@@ -109,29 +114,12 @@ class EImmagine
     }
 
     /**
-     * @param int|mixed $altezza
-     */
-    public function setAltezza($altezza): void
-    {
-        $this->altezza = $altezza;
-    }
-
-    /**
+     * Restituisce il MIME dell'immagine.
      * @return mixed|string
      */
     public function getMime()
     {
         return $this->mime;
     }
-
-    /**
-     * @param mixed|string $mime
-     */
-    public function setMime($mime): void
-    {
-        $this->mime = $mime;
-    }
-
-
 }
 ?>

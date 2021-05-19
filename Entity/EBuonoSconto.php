@@ -1,30 +1,62 @@
 <?php
 
 
+/**
+ * La classe EBuonoSconto modella i buoni sconto. Questi buoni vengono creati dall'amministratore che provvede ad inoltrarli a determinati clienti da lui selezionati.
+ */
 class EBuonoSconto
 {
     //ATTRIBUTI:
+    /**
+     * Valore del buono.
+     * @var int
+     */
     private int $ammontare;
+    /**
+     * Booleano che indica se il valore del buono è percentuale (xx%) oppure assoluto (xx€).
+     * @var bool
+     */
     private bool $percentuale;
+    /**
+     * Identificativo univoco del buono.
+     * @var String
+     */
     private String $codice;
+    /**
+     * Eventuale messaggio per l'utente destinatario.
+     * @var string
+     */
     private string $messaggio;
-    private string $scadenza; //data formattata come stringa dal metodo date (in collab. con mktime per ottenere timestamp)
+    /**
+     * Data di scadenza.
+     * @var DateTime
+     */
+    private DateTime $scadenza;
 
     //COSTRUTTORE:
-    public function __construct(bool $b,int $a, string $m)
+
+    /**
+     * EBuonoSconto costruttore.
+     * @param bool $b
+     * @param int $a
+     * @param string $m
+     */
+    public function __construct(bool $b, int $a, string $m)
     {
         $this->percentuale=$b;
         $this->ammontare=$a;
         $this->codice=uniqid("BS");
         $this->messaggio = $m;
-        $scadenza = mktime(0, 0, 0, date("m")+1, date("d"),   date("Y")); //timestamp della data di scadenza rispetto alla data corrente (scadenza: un mese dalla creazione)
-        $this->scadenza=date('d/m/Y',$scadenza);
+        $data = new DateTime('now');
+        $data->modify('+1 month');
+        $this->scadenza=$data;
 
     }
 
     //METODI:
 
     /**
+     * Restituisce l'ammontare (il valore) del buono.
      * @return int
      */
     public function getAmmontare(): int
@@ -33,6 +65,7 @@ class EBuonoSconto
     }
 
     /**
+     * Restituisce il codice del buono.
      * @return string
      */
     public function getCodice(): string
@@ -41,19 +74,55 @@ class EBuonoSconto
     }
 
     /**
-     * @return false|string
+     * Restituisce la data di scadenza del buono (oggetto DateTime).
+     * @return DateTime
      */
-    public function getScadenza()
+    public function getScadenza(): DateTime
     {
         return $this->scadenza;
     }
 
     /**
+     * Restituisce true se l'ammontare è in percentuale, false altrimenti.
      * @return bool
      */
-    public function isPercentuale(): bool  //se viene restituito false,al totale a cui viene applicato il buono, viene tolto quanto specificato nel parametro $ammotare,se viene restituito true va fatta la percentuale...
+    public function isPercentuale(): bool
     {
         return $this->percentuale;
+    }
+
+    /**
+     * Restituisce l'eventuale messaggio del buono.
+     * @return string
+     */
+    public function getMessaggio(): string
+    {
+        return $this->messaggio;
+    }
+
+
+    /**
+     * Restituisce il buono in formato stringa.
+     * @return string
+     */
+    public function __toString(): string
+    {
+        $s='Codice del buono: '.$this->codice;
+        if($this->percentuale==false){
+            $s=$s."\n".'Valore: '."-".$this->ammontare."€";
+        }
+        else{
+            $s=$s."\n".'Valore: '."-".$this->ammontare."%";
+        }
+        $s=$s."\n"."Scade il: ".$this->scadenza->format('d-m-Y');
+        if($this->messaggio=="")
+        {
+            return $s;
+        }
+        else{
+            $s=$s."\n"."MESSAGGIO: ".$this->messaggio;
+            return $s;
+        }
     }
 }
 ?>

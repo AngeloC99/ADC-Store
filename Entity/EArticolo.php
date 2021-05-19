@@ -1,31 +1,69 @@
 <?php
 
 
+/**
+ * La classe EArticolo modella i vari articoli ovvero premi e prodotti.
+ * E' la superclasse di EPremio ed EProdotto.
+ */
 class EArticolo
 {
     //ATTRIBUTI:
-    private int $id;
+    /**
+     * Identificativo univoco dell'articolo.
+     * @var string
+     */
+    private string $id;
+    /**
+     * Nome dell'articolo.
+     * @var string
+     */
     private string $nome;
+    /**
+     * Marca dell'articolo.
+     * @var string
+     */
     private string $marca;
+    /**
+     * Descrizione dell'articolo.
+     * @var string
+     */
     private string $descrizione;
+    /**
+     * Quantità dell'articolo.
+     * @var int
+     */
     private int $quantita;
-    private EImmagine $foto;
+    /**
+     * Immagine dell'articolo
+     * @var EImmagine
+     */
+    private EImmagine $immagine;
 
     //COSTRUTTORE:
-    public function __construct(string $n, string $m,string $d, int $q,EImmagine $f) {
+
+    /**
+     * EArticolo costruttore.
+     * @param string $n
+     * @param string $m
+     * @param string $d
+     * @param int $q
+     * @param EImmagine $i
+     */
+    public function __construct(string $n, string $m, string $d, int $q, EImmagine $i) {
         $this->id=uniqid('Art'); //genera un id alfanumerico univoco avente come prefisso quello specificato come parametro
         $this->nome=$n;
         $this->marca=$m;
         $this->descrizione=$d;
         $this->quantita=$q;
-        $this->foto=$f;
+        $this->immagine=$i;
     }
 
     //METODI:
 
 
     /**
-     * @return int|string
+     * Restituisce l'identificativo dell'articolo.
+     * @return string
      */
     public function getId()
     {
@@ -33,6 +71,7 @@ class EArticolo
     }
 
     /**
+     * Restituisce il nome dell'articolo.
      * @return string
      */
     public function getNome(): string
@@ -41,6 +80,7 @@ class EArticolo
     }
 
     /**
+     * Setta il nome dell'articolo.
      * @param string $nome
      */
     public function setNome(string $nome): void
@@ -49,6 +89,7 @@ class EArticolo
     }
 
     /**
+     * Restituisce la marca dell'articolo.
      * @return string
      */
     public function getMarca(): string
@@ -57,6 +98,7 @@ class EArticolo
     }
 
     /**
+     * Setta la marca dell'articolo.
      * @param string $marca
      */
     public function setMarca(string $marca): void
@@ -65,6 +107,7 @@ class EArticolo
     }
 
     /**
+     * Restituisce la descrizione dell'articolo.
      * @return string
      */
     public function getDescrizione(): string
@@ -73,6 +116,7 @@ class EArticolo
     }
 
     /**
+     * Setta la descrizione dell'articolo.
      * @param string $descrizione
      */
     public function setDescrizione(string $descrizione): void
@@ -81,6 +125,7 @@ class EArticolo
     }
 
     /**
+     * Restituisce la quantità dell'articolo.
      * @return int
      */
     public function getQuantita(): int
@@ -89,6 +134,7 @@ class EArticolo
     }
 
     /**
+     * Setta la quantità dell'articolo.
      * @param int $quantita
      */
     public function setQuantita(int $quantita): void
@@ -97,19 +143,21 @@ class EArticolo
     }
 
     /**
+     * restituisce l'oggetto EImmagine relativo all'immagine dell'articolo.
      * @return EImmagine
      */
-    public function getFoto(): EImmagine
+    public function getImmagine(): EImmagine
     {
-        return $this->foto;
+        return $this->immagine;
     }
 
     /**
+     * Setta l'immagine dell'articolo.
      * @param EImmagine $foto
      */
-    public function setFoto(EImmagine $foto): void
+    public function setImmagine(EImmagine $img): void
     {
-        $this->foto = $foto;
+        $this->immagine = $img;
     }
 
 
