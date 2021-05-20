@@ -32,5 +32,22 @@ $carrello->aggiungiProdotto($prod1, 2);
 $carrello->aggiungiProdotto($prod2, 1);
 $carrello->aggiungiProdotto($prod3, 3);
 print_r($carrello);
+print("\n");
 
-print $imm->getByte();
+//print $imm->getByte();
+
+// Testing metodo ConfermaOrdine()
+
+$utente2 = new EUtenteReg("gianni", "rossi", "giannirossi@gmail.com", "password");
+$indirizzo = new EIndirizzo("Via Roma", 169, "Avezzano", "Aq", "67054", true);
+
+$carta = new ECartaCredito("Giovanni Rossi", "87329873284732", "MasterCard", new DateTime(2022-01-31), 123,305.50);
+print($carta->getAmmontare());
+print("\n");
+$ordine = new EOrdine($carrello,$indirizzo);
+print($ordine->getPrezzoTotale());
+print("\n");
+$utente2->ConfermaOrdine($ordine,$carta);
+print($carta->getAmmontare());
+
+

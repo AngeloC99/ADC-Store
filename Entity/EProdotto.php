@@ -10,9 +10,9 @@ class EProdotto extends EArticolo
     //ATTRIBUTI:
     /**
      * Prezzo del prodotto.
-     * @var int
+     * @var float
      */
-    private int $prezzo;
+    private float $prezzo;
     /**
      * Tipologia del prodotto.
      * @var string
@@ -29,10 +29,10 @@ class EProdotto extends EArticolo
      * @param string $d
      * @param int $q
      * @param EImmagine $f
-     * @param int $p
+     * @param float $p
      * @param string $t
      */
-    public function __construct(string $n, string $m, string $d, int $q, EImmagine $f, int $p, string $t)
+    public function __construct(string $n, string $m, string $d, int $q, EImmagine $f, float $p, string $t)
     {
         parent::__construct($n, $m, $d, $q, $f);
         $this->prezzo=$p;
@@ -43,18 +43,18 @@ class EProdotto extends EArticolo
 
     /**
      * Restituisce il prezzo del prodotto.
-     * @return int
+     * @return float
      */
-    public function getPrezzo(): int
+    public function getPrezzo(): float
     {
         return $this->prezzo;
     }
 
     /**
      * Setta il prezzo del prodotto.
-     * @param int $prezzo
+     * @param float $prezzo
      */
-    public function setPrezzo(int $prezzo): void
+    public function setPrezzo(float $prezzo): void
     {
         $this->prezzo = $prezzo;
     }

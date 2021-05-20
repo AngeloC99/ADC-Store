@@ -232,6 +232,22 @@ class EUtenteReg extends EPersona
         $array[] = $ind;
         $this->setIndirizzi($array);
         }
+
+
+    public function ConfermaOrdine(EOrdine $ordine, ECartaCredito $carta){
+        if($carta->getAmmontare() < $ordine->getPrezzoTotale()){
+            print("Eccezione"); //ECCEZIONE DA GESTIRE
+        }
+        else {
+            $prezzo = $ordine->getPrezzoTotale();
+            $punticorr = (int) $prezzo;
+            $punti = $this->getPunti();
+            $this->setPunti($punticorr + $prezzo);
+            $carta->setAmmontare($carta->getAmmontare() - $prezzo);
+        }
+
+    }
+
     }
 
 
