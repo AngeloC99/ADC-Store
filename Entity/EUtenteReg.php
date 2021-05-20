@@ -242,7 +242,7 @@ class EUtenteReg extends EPersona
             $prezzo = $ordine->getPrezzoTotale();
             $punticorr = (int) $prezzo;
             $punti = $this->getPunti();
-            $this->setPunti($punticorr + $prezzo);
+            $this->setPunti($punticorr + $punti);
             $carta->setAmmontare($carta->getAmmontare() - $prezzo);
         }
 
