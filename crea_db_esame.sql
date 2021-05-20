@@ -17,7 +17,10 @@ CREATE TABLE Premio(
 	descrizione VARCHAR(100) NOT NULL,
 	quantita INT NOT NULL,
 	marca VARCHAR(15) NOT NULL,
-	PRIMARY KEY (id)
+	nomeImmagine VARCHAR(50),
+	PRIMARY KEY (id),
+    FOREIGN KEY (nomeImmagine) REFERENCES Immagine(nome)
+    ON UPDATE CASCADE ON DELETE CASCADE
 );
 
 CREATE TABLE CartaCredito(
@@ -100,8 +103,11 @@ CREATE TABLE Prodotto(
     tipologia VARCHAR(20) NOT NULL,
     quantita INT NOT NULL,
     marca VARCHAR(15) NOT NULL,
-    prezzo INT,
-	PRIMARY KEY (id)
+    prezzo INT NOT NULL,
+    nomeImmagine VARCHAR(50),
+	PRIMARY KEY (id),
+    FOREIGN KEY (nomeImmagine) REFERENCES Immagine(nome)
+    ON UPDATE CASCADE ON DELETE CASCADE
 );
 
 CREATE TABLE Contiene(
@@ -124,6 +130,16 @@ CREATE TABLE Ordine(
 	ON UPDATE CASCADE ON DELETE CASCADE
 );
 
+CREATE TABLE Immagine(
+    nome VARCHAR(50) NOT NULL,
+    formato VARCHAR(25) NOT NULL,
+    byte BLOB NOT NULL,
+    dimensione VARCHAR(25) NOT NULL,
+    larghezza INT NOT NULL,
+    altezza INT NOT NULL,
+    mime VARCHAR(30) NOT NULL,
+    PRIMARY KEY (nome)
+);
 
 
 
