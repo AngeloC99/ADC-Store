@@ -21,7 +21,7 @@ class EImmagine
      * Dimensione dell'immagine (in byte).
      * @var int|float
      */
-    private int $byte;
+    private int $size;
     /**
      * Larghezza in pixel dell'immagine.
      * @var int|mixed
@@ -37,7 +37,11 @@ class EImmagine
      * @var string|mixed
      */
     private string $mime;
-
+    /**
+     * Immagine codificata secondo Base64.
+     * @var string
+     */
+    private string $byte;
 
 
     //COSTRUTTORE:
@@ -62,17 +66,18 @@ class EImmagine
                 $s=$s.$name_array[$i]." ";
             } //imposto il nome
             $this->nome=$s; //imposto il nome
-
         }
+
+        $immagine = file_get_contents($name);
+        $this->byte = base64_encode($immagine);
         $info=getimagesize($full_name);  //recupero le info dall'immagine corrispondente al nome del file fornito
         $numero=$info[2];
         $control=array(1=>'GIF',2=>'JPG', 3 => 'PNG', 4 => 'SWF', 5 => 'PSD', 6 => 'BMP', 7 => 'TIFF_I' , 8 => 'TIFF_M' , 9 => 'CPM', 10 => 'JP2',11 => 'JPX', 12 => 'JB2',13 => 'SWC', 14 => 'IFF', 15 => 'WBMP', 16 => 'XBM');
         $this->formato=$control[$numero];
-        $this->byte=($info['bits'])/8;  //imposto i byte dell'immagine dividendo i bits recuperati per 8
+        $this->size=($info['bits'])/8;  //imposto i byte dell'immagine dividendo i bits recuperati per 8
         $this->larghezza=$info[0];
         $this->altezza=$info[1];
         $this->mime=$info['mime']; //imposto il MIME dell'immagine per poter recuperare in seguito questa informazione per settare il Content-Type per l'HTTP
-
     }
 
     //METODI:
@@ -98,9 +103,9 @@ class EImmagine
      * Restituisce la dimensione (in byte) dell'immagine.
      * @return float|int
      */
-    public function getByte()
+    public function getSize()
     {
-        return $this->byte;
+        return $this->size;
     }
 
     /**
@@ -129,5 +134,15 @@ class EImmagine
     {
         return $this->mime;
     }
+
+    /**
+     * Restituisce l'immagine codificata in base64.
+     * @return string
+     */
+    public function getByte(): string
+    {
+        return $this->byte;
+    }
 }
+
 ?>

@@ -21,7 +21,8 @@ $utente->setIndirizzoPredefinito("Via Roma", 147, "Rieti", "Rieti", "02100", tru
 print_r($utente->getIndirizzoPredefinito());
 
 // Testing EProdotto ed ECarrello
-$imm = new EImmagine(".\Entity\latteRoma.jpg");
+$imm = new EImmagine("https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.carrefour.it%2Fon%2Fdemandware.static%2F-%2FSites-carrefour-master-catalog-IT%2Fdefault%2Fdw11998463%2Flarge%2FLATTEFRESCOAQCENROMAML500-0000080662594-1.png&f=1&nofb=1");
+//print_r($imm);
 $prod1 = new EProdotto("Latte","Centrale di Roma","Latte intero", 200, $imm, 1.50, "Latte");
 $prod2 = new EProdotto("Petto di pollo","Amadori","Pollo di alta qualità", 50, $imm, 3.50, "Carne");
 $prod3 = new EProdotto("Yogurt","Muller","Yogurt alla vaniglia", 80, $imm, 0.70, "Yogurt");
@@ -31,3 +32,5 @@ $carrello->aggiungiProdotto($prod1, 2);
 $carrello->aggiungiProdotto($prod2, 1);
 $carrello->aggiungiProdotto($prod3, 3);
 print_r($carrello);
+
+print $imm->getByte();

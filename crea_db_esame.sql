@@ -10,6 +10,17 @@ CREATE TABLE Amministratore (
     PRIMARY KEY (email)
 );
 
+CREATE TABLE Immagine(
+    nome VARCHAR(50) NOT NULL,
+    formato VARCHAR(25) NOT NULL,
+    size INT NOT NULL,
+    byte BLOB NOT NULL,
+    larghezza INT NOT NULL,
+    altezza INT NOT NULL,
+    mime VARCHAR(30) NOT NULL,
+    PRIMARY KEY (nome)
+);
+
 CREATE TABLE Premio(
 	id CHAR(15) NOT NULL,
 	punti INT NOT NULL,
@@ -128,17 +139,6 @@ CREATE TABLE Ordine(
 	PRIMARY KEY (id),
 	FOREIGN KEY (idcarrello) REFERENCES Carrello(id)
 	ON UPDATE CASCADE ON DELETE CASCADE
-);
-
-CREATE TABLE Immagine(
-    nome VARCHAR(50) NOT NULL,
-    formato VARCHAR(25) NOT NULL,
-    byte BLOB NOT NULL,
-    dimensione VARCHAR(25) NOT NULL,
-    larghezza INT NOT NULL,
-    altezza INT NOT NULL,
-    mime VARCHAR(30) NOT NULL,
-    PRIMARY KEY (nome)
 );
 
 

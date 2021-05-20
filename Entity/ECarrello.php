@@ -38,7 +38,7 @@ class ECarrello
     /**
      * Costruttore della classe ECarrello.
      */
-    public function __constructor() {
+    public function __construct() {
         $this->id = uniqid('Car');
         $this->nome = "";
         $this->default = false;
