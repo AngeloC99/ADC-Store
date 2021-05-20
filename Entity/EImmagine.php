@@ -44,26 +44,34 @@ class EImmagine
 
     /**
      * EImmagine costruttore.
-     * @param string $full_name
+     * @param string $name
      */
-    public function __construct(string $full_name){
-        $array=explode("\\",$full_name);  //separo le varie componenti del nome intero del file
-        $var1=count($array);
-        $parola=$array[$var1-1];  //prelevo l'ultima componente corrispondente a nome+formato dell'immagine
-        $array2=explode(".",$parola);  //essendo il formato denotato con .xxx separo in corrispondenza del "."
-        $var2=count($array2);
-        $s ="";   //inizializzo stringa vuota
-        for ($i=0;$i<=$var2-2;++$i){   //escludo il formato dal nome facendo arrivare il ciclo for fino al penulimo elemento dell'array
-            $s=$s.$array2[i]." ";
+    public function __construct(string $name){
+        $check=str_contains($name,'http'||'https');  //altri protocolli?
+        if ($check==true){ //si tratta di un'immagine in rete:
+            $full_name=$name;
+            $this->nome='WebImage';
         }
-        $this->nome=$s; //imposto il nome
-        $this->formato=$array2[$var2-1]; //recupero l'ultimo elemento dell'array2 che rappresenta proprio il formato (corrisponde infatti all'ultimo elemento del file_name)
+        else{  //si tratta di un'immagine in un path locale:
+            $name_array=explode(".",$name);
+            $index=count($name_array);
+            $name="\\".$name.".".$name_array[$index-1]; //stringa del tipo \nome.formato
+            $full_name=__DIR__.$name;
+            $s ="";   //inizializzo stringa vuota
+            for ($i=0;$i<=$index-2;++$i){   //escludo il formato dal nome facendo arrivare il ciclo for fino al penulimo elemento dell'array
+                $s=$s.$name_array[$i]." ";
+            } //imposto il nome
+            $this->nome=$s; //imposto il nome
+
+        }
         $info=getimagesize($full_name);  //recupero le info dall'immagine corrispondente al nome del file fornito
+        $numero=$info[2];
+        $control=array(1=>'GIF',2=>'JPG', 3 => 'PNG', 4 => 'SWF', 5 => 'PSD', 6 => 'BMP', 7 => 'TIFF_I' , 8 => 'TIFF_M' , 9 => 'CPM', 10 => 'JP2',11 => 'JPX', 12 => 'JB2',13 => 'SWC', 14 => 'IFF', 15 => 'WBMP', 16 => 'XBM');
+        $this->formato=$control[$numero];
         $this->byte=($info['bits'])/8;  //imposto i byte dell'immagine dividendo i bits recuperati per 8
         $this->larghezza=$info[0];
         $this->altezza=$info[1];
-        $this->mime=$info['mime'];  //imposto il MIME dell'immagine per poter recuperare in seguito questa informazione per settare il Content-Type per l'HTTP
-
+        $this->mime=$info['mime']; //imposto il MIME dell'immagine per poter recuperare in seguito questa informazione per settare il Content-Type per l'HTTP
 
     }
 
