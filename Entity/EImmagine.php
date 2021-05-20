@@ -54,7 +54,7 @@ class EImmagine
         $var2=count($array2);
         $s ="";   //inizializzo stringa vuota
         for ($i=0;$i<=$var2-2;++$i){   //escludo il formato dal nome facendo arrivare il ciclo for fino al penulimo elemento dell'array
-            $s=$s.$array2[i]." ";
+            $s=$s.$array2[$i]." ";
         }
         $this->nome=$s; //imposto il nome
         $this->formato=$array2[$var2-1]; //recupero l'ultimo elemento dell'array2 che rappresenta proprio il formato (corrisponde infatti all'ultimo elemento del file_name)
