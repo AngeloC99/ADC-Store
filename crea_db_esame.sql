@@ -5,7 +5,7 @@ USE progettodiesame;
 CREATE TABLE Amministratore (
     email VARCHAR(30) NOT NULL,
     nome VARCHAR(15) NOT NULL,
-    cognome CHAR(20) NOT NULL,
+    cognome VARCHAR(20) NOT NULL,
     password VARCHAR(15) NOT NULL,
     PRIMARY KEY (email)
 );
@@ -22,7 +22,7 @@ CREATE TABLE Immagine(
 );
 
 CREATE TABLE Premio(
-	id CHAR(15) NOT NULL,
+	id CHAR(16) NOT NULL,
 	punti INT NOT NULL,
 	nome VARCHAR(15) NOT NULL,
 	descrizione VARCHAR(100) NOT NULL,
@@ -35,7 +35,7 @@ CREATE TABLE Premio(
 );
 
 CREATE TABLE CartaCredito(
-	numero VARCHAR(19) NOT NULL,
+	numero CHAR(19) NOT NULL,
 	titolare VARCHAR(25) NOT NULL,
 	circuito VARCHAR(15) NOT NULL,
 	cvv INT NOT NULL,
@@ -47,7 +47,7 @@ CREATE TABLE CartaCredito(
 CREATE TABLE Indirizzo(
 	via VARCHAR(25) NOT NULL,
 	numerocivico INT NOT NULL,
-	cap VARCHAR(5) NOT NULL,
+	cap CHAR(5) NOT NULL,
 	comune VARCHAR(25) NOT NULL,
 	provincia CHAR(2) NOT NULL,
 	predefinito BOOLEAN,
@@ -58,7 +58,7 @@ CREATE TABLE Indirizzo(
 CREATE TABLE UtenteReg(
     email VARCHAR(30) NOT NULL,
     nome VARCHAR(15) NOT NULL,
-    cognome CHAR(20) NOT NULL,
+    cognome VARCHAR(20) NOT NULL,
     password VARCHAR(15) NOT NULL,
     punti INT NOT NULL,
 	PRIMARY KEY (email)
@@ -69,7 +69,7 @@ CREATE TABLE UtenteSalvaIndirizzo(
 	mailutente VARCHAR(30) NOT NULL,
 	via VARCHAR(25) NOT NULL,
 	numerocivico INT NOT NULL,
-	cap VARCHAR(5) NOT NULL,
+	cap CHAR(5) NOT NULL,
 	PRIMARY KEY (mailutente,via,numerocivico,cap),
 	FOREIGN KEY (mailutente) REFERENCES UtenteReg(email)
 	ON UPDATE CASCADE ON DELETE CASCADE,
@@ -80,7 +80,7 @@ CREATE TABLE UtenteSalvaIndirizzo(
 
 CREATE TABLE UtenteUsaCarta(
     mailutente VARCHAR(30) NOT NULL,
-    numerocarta VARCHAR(19) NOT NULL,
+    numerocarta CHAR(19) NOT NULL,
 	PRIMARY KEY (mailutente,numerocarta),
 	FOREIGN KEY (mailutente) REFERENCES UtenteReg(email)
 	ON UPDATE CASCADE ON DELETE CASCADE,
@@ -89,7 +89,7 @@ CREATE TABLE UtenteUsaCarta(
 );
 
 CREATE TABLE Carrello(
-    id CHAR(15) NOT NULL,
+    id CHAR(16) NOT NULL,
     nome VARCHAR(15) NOT NULL,
     mailutente VARCHAR(30) NOT NULL,
 	PRIMARY KEY (id),
@@ -99,7 +99,7 @@ CREATE TABLE Carrello(
 );
 
 CREATE TABLE BuonoSconto(
-    codice CHAR(6) NOT NULL,
+    codice CHAR(15) NOT NULL,
     ammontare INT NOT NULL,
     scadenza DATE NOT NULL,
     mailutente VARCHAR(30) NOT NULL,
@@ -108,22 +108,22 @@ CREATE TABLE BuonoSconto(
 );
 
 CREATE TABLE Prodotto(
-    id CHAR(15) NOT NULL,
+    id CHAR(16) NOT NULL,
     nome VARCHAR(15) NOT NULL,
     descrizione VARCHAR(100) NOT NULL,
     tipologia VARCHAR(20) NOT NULL,
     quantita INT NOT NULL,
     marca VARCHAR(15) NOT NULL,
     prezzo INT,
-    nomeImmagine VARCHAR(50),
+    nomeImmagine VARCHAR(20),
     PRIMARY KEY (id),
     FOREIGN KEY (nomeImmagine) REFERENCES Immagine(nome)
     ON UPDATE CASCADE ON DELETE CASCADE
 );
 
 CREATE TABLE Contiene(
-    idcarrello CHAR(15) NOT NULL,
-    idprodotto CHAR(15) NOT NULL,
+    idcarrello CHAR(16) NOT NULL,
+    idprodotto CHAR(16) NOT NULL,
 	PRIMARY KEY (idcarrello,idprodotto),
 	FOREIGN KEY (idcarrello) REFERENCES Carrello(id)
 	ON UPDATE CASCADE ON DELETE CASCADE,
@@ -132,10 +132,10 @@ CREATE TABLE Contiene(
 );
 
 CREATE TABLE Ordine(
-    id CHAR(15) NOT NULL,
+    id CHAR(16) NOT NULL,
     dataacquisto DATE NOT NULL,
     prezzototale INT NOT NULL,
-    idcarrello CHAR(15) NOT NULL,    
+    idcarrello CHAR(16) NOT NULL,    
 	PRIMARY KEY (id),
 	FOREIGN KEY (idcarrello) REFERENCES Carrello(id)
 	ON UPDATE CASCADE ON DELETE CASCADE
