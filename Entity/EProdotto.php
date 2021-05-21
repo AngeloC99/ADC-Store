@@ -9,6 +9,11 @@ class EProdotto extends EArticolo
 {
     //ATTRIBUTI:
     /**
+     * Identificativo univoco dell'articolo.
+     * @var string
+     */
+    private string $id;
+    /**
      * Prezzo del prodotto.
      * @var float
      */
@@ -35,11 +40,21 @@ class EProdotto extends EArticolo
     public function __construct(string $n, string $m, string $d, int $q, EImmagine $f, float $p, string $t)
     {
         parent::__construct($n, $m, $d, $q, $f);
+        $this->id=uniqid('PRO'); //genera un id alfanumerico univoco avente come prefisso quello specificato come parametro
         $this->prezzo=$p;
         $this->tipologia=$t;
     }
 
     //METODI:
+    /**
+     * Restituisce l'identificativo dell'articolo.
+     * @return string
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
 
     /**
      * Restituisce il prezzo del prodotto.

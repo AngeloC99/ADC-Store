@@ -9,6 +9,11 @@ class EPremio extends EArticolo
 {
     //ATTRIBUTI:
     /**
+     * Identificativo univoco dell'articolo.
+     * @var string
+     */
+    private string $id;
+    /**
      * Punti necessari per l'acquisto del premio.
      * @var int
      */
@@ -29,10 +34,20 @@ class EPremio extends EArticolo
     public function __construct(string $n, string $m, string $d, int $q, EImmagine $f, int $pp)
     {
         parent::__construct($n, $m, $d, $q, $f);
+        $this->id=uniqid('PRE'); //genera un id alfanumerico univoco avente come prefisso quello specificato come parametro
         $this->prezzoInPunti=$pp;
     }
 
     //METODI:
+
+    /**
+     * Restituisce l'identificativo dell'articolo.
+     * @return string
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
 
     /**
      * Restituisce i punti necessari all'acquisto del premio.
