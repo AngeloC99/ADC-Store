@@ -9,11 +9,6 @@ class EArticolo
 {
     //ATTRIBUTI:
     /**
-     * Identificativo univoco dell'articolo.
-     * @var string
-     */
-    private string $id;
-    /**
      * Nome dell'articolo.
      * @var string
      */
@@ -50,7 +45,6 @@ class EArticolo
      * @param EImmagine $i
      */
     public function __construct(string $n, string $m, string $d, int $q, EImmagine $i) {
-        $this->id=uniqid('Art'); //genera un id alfanumerico univoco avente come prefisso quello specificato come parametro
         $this->nome=$n;
         $this->marca=$m;
         $this->descrizione=$d;
@@ -60,15 +54,6 @@ class EArticolo
 
     //METODI:
 
-
-    /**
-     * Restituisce l'identificativo dell'articolo.
-     * @return string
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
 
     /**
      * Restituisce il nome dell'articolo.
