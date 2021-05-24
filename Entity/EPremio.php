@@ -67,7 +67,11 @@ class EPremio extends EArticolo
         $this->prezzoInPunti = $prezzoInPunti;
     }
 
-    public function setId(string $id){
+    /**
+     * Imposta l'ID del premio
+     * @param string $id
+     */
+    public function setId(string $id): void{
         $this->id = $id;
     }
 
