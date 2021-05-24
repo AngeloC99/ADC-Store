@@ -109,4 +109,8 @@ class EOrdine
         $this->indirizzo = $indirizzo;
     }
 
+    public function setId(string $id){
+        $this->id = $id;
+    }
+
 }

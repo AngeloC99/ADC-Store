@@ -67,6 +67,10 @@ class EPremio extends EArticolo
         $this->prezzoInPunti = $prezzoInPunti;
     }
 
+    public function setId(string $id){
+        $this->id = $id;
+    }
+
 }
 
 ?>
