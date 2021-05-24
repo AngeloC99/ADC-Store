@@ -76,9 +76,20 @@ class FProdotto implements FBase
 
     public static function update($obj) : bool{
         $pdo=FConnectionDB::connect();
-        $stmt = $pdo->prepare("UPDATE Prodotto SET nome = $obj->getNome(), descrizione = $obj->getDescrizione(), tipologia = $obj->getTipologia(), quantita = $obj->getQuantita, marca = $obj->getMarca(), prezzo = $obj->getPrezzo() WHERE id=?");
-        $ris = $stmt->execute([$obj->getId()]);
-        return $ris;
-
+        $stmt0=$pdo->prepare("SELECT * FROM Prodotto WHERE id=?");
+        $stmt0->execute([$obj->getId()]);
+        $rows=$stmt0->fetchAll(PDO::FETCH_ASSOC);
+        $nomeOldImg=$rows['nomeImmagine'];
+        $stmt1 = $pdo->prepare("UPDATE Prodotto SET nome = $obj->getNome(), descrizione = $obj->getDescrizione(), tipologia = $obj->getTipologia(), quantita = $obj->getQuantita, marca = $obj->getMarca(), prezzo = $obj->getPrezzo() WHERE id=?");
+        $ris1 = $stmt1->execute([$obj->getId()]);
+        //conseguente update dell'immagine:
+        $stmt2=$pdo->prepare("UPDATE Immagine SET formato = $obj->getImmagine()->getFormato(), size = $obj->getImmagine()->getSize(), byte = $obj->getImmagine()->getByte(), larghezza = $obj->getImmagine()->getLarghezza(), altezza = $obj->getImmagine()->getAltezza(), mime = $obj->getImmagine()->getMime() WHERE nome=?");
+        $ris2 = $stmt2->execute([$nomeOldImg]);
+        if ($ris1=true & $ris2=true){
+            return true;
+        }
+        else{
+            return false;
+        }
     }
 }
