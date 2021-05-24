@@ -14,10 +14,10 @@ class FPersistentManager
 
     /** Metodo che permette di aggiornare un oggetto nel db
      */
-    public static function update(object $obj) : bool {
-        $Eclass = get_class($obj);
+    public static function update(object $obj1, object $obj2) : bool {
+        $Eclass = get_class($obj1);
         $Fclass = str_replace("E", "F", $Eclass);
-        $ris=$Fclass::update($obj);
+        $ris=$Fclass::update($obj1, $obj2);
         return $ris;
     }
 

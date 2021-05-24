@@ -46,5 +46,5 @@ interface FBase
      * @param object $obj
      * @return bool
      */
-    public static function update($obj): bool;
+    public static function update($obj1, $obj2): bool;
 }
