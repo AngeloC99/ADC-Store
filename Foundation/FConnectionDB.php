@@ -1,14 +1,14 @@
 <?php
 
-
+require_once 'configDB.php';
 class FConnectionDB
 {
     private static $instance=null;  //con Singleton
 
-    private function __construct (string $hostname, string $dbname, string $user, string $pass)
+    private function __construct ()
     {
         try {
-            $this->instance = new PDO ("mysql:host=".$hostname.";dbname=".$dbname,$user,$pass);
+            $this->instance = new PDO ("mysql:host=".$GLOBALS['hostname'].";dbname=".$GLOBALS['dbname'],$GLOBALS['user'],$GLOBALS['pass']);
 
         } catch (PDOException $e) {
             echo "Errore: " . $e->getMessage();
@@ -20,10 +20,10 @@ class FConnectionDB
     /**
      * @return PDO
      */
-    public static function connect(string $hostname, string $dbname, string $user, string $pass): PDO
+    public static function connect(): PDO
     {
         if (self::$instance == null) {
-            self::$instance = new FConnectionDB( $hostname,  $dbname,  $user,  $pass);
+            self::$instance = new FConnectionDB();
         }
         return self::$instance;
     }
