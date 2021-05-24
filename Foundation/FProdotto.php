@@ -7,11 +7,7 @@ class FProdotto implements FBase
 {
 
     public static function exist(string $key)  : bool {
-        $hostname=$GLOBALS['hostname'];
-        $dbname=$GLOBALS['dbname'];
-        $user=$GLOBALS['user'];
-        $pass=$GLOBALS['pass'];
-        $pdo=FConnectionDB::connect($hostname,$dbname,$user,$pass);
+        $pdo=FConnectionDB::connect();
        $ris=$pdo->prepare("SELECT * FROM Prodotto WHERE id=?");
        $ris->execute([$key]);
        $rows=$ris->fetchAll(PDO::FETCH_ASSOC);
@@ -24,13 +20,8 @@ class FProdotto implements FBase
 
     }
 
-    public static function delete(string $key) : bool
-    {
-        $hostname=$GLOBALS['hostname'];
-        $dbname=$GLOBALS['dbname'];
-        $user=$GLOBALS['user'];
-        $pass=$GLOBALS['pass'];
-        $pdo=FConnectionDB::connect($hostname,$dbname,$user,$pass);
+    public static function delete(string $key) : bool{
+        $pdo=FConnectionDB::connect();
         $ris=$pdo->prepare("DELETE FROM Prodotto WHERE id=?");
         $ris->execute([$key]);
         return $ris;
@@ -39,11 +30,7 @@ class FProdotto implements FBase
 
     public static function load(string $nome) : EProdotto
     {
-        $hostname=$GLOBALS['hostname'];
-        $dbname=$GLOBALS['dbname'];
-        $user=$GLOBALS['user'];
-        $pass=$GLOBALS['pass'];
-        $pdo=FConnectionDB::connect($hostname,$dbname,$user,$pass);
+        $pdo=FConnectionDB::connect();
         $ris=$pdo->prepare("SELECT * FROM Prodotto WHERE nome=?");
         $ris->execute([$nome]);
         $rows=$ris->fetchAll(PDO::FETCH_ASSOC);
@@ -73,11 +60,7 @@ class FProdotto implements FBase
 
     public static function store($obj) : bool
     {
-        $hostname=$GLOBALS['hostname'];
-        $dbname=$GLOBALS['dbname'];
-        $user=$GLOBALS['user'];
-        $pass=$GLOBALS['pass'];
-        $pdo=FConnectionDB::connect($hostname,$dbname,$user,$pass);
+        $pdo=FConnectionDB::connect();
         $query="INSERT INTO Prodotto VALUES(':id',':nome',':des',':tip',':quant',':marca',':prezzo',':nomeImg')";
         $stmt=$pdo->prepare($query);
         $stmt->bindParam(':id',$obj->getId());
@@ -93,11 +76,7 @@ class FProdotto implements FBase
     }
 
     public static function update($obj) : bool{
-        $hostname=$GLOBALS['hostname'];
-        $dbname=$GLOBALS['dbname'];
-        $user=$GLOBALS['user'];
-        $pass=$GLOBALS['pass'];
-        $pdo=FConnectionDB::connect($hostname,$dbname,$user,$pass);
+        $pdo=FConnectionDB::connect();
         $stmt = $pdo->prepare("UPDATE Prodotto SET nome = $obj->getNome(), descrizione = $obj->getDescrizione(), tipologia = $obj->getTipologia(), quantita = $obj->getQuantita, marca = $obj->getMarca(), prezzo = $obj->getPrezzo() WHERE id=?");
         $ris = $stmt->execute([$obj->getId()]);
         return $ris;
