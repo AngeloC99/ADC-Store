@@ -71,7 +71,7 @@ class FUtenteReg implements FBase
         }
     }
 
-    public static function update($obj1, $obj2) : bool{
+    public static function update($obj1, $obj2=null) : bool{
         $con = new FConnectionDB();
         $pdo = $con->connect();
 
