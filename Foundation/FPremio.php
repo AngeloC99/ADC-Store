@@ -57,16 +57,9 @@ class FPremio implements FBase
     public static function store($obj): bool
     {
         $pdo=FConnectionDB::connect();
-        $query="INSERT INTO Premio VALUES(':id',':punti',':nome',':desc',':quant',':marca',':nomeImg')";
+        $query="INSERT INTO Premio VALUES(?,?,?,?,?,?,?)";
         $stmt=$pdo->prepare($query);
-        $stmt->bindParam(':id',$obj->getId());
-        $stmt->bindParam(':nome',$obj->getNome());
-        $stmt->bindParam(':desc',$obj->getDescrizione());
-        $stmt->bindParam(':quant',$obj->getQuantita());
-        $stmt->bindParam(':marca',$obj->getMarca());
-        $stmt->bindParam(':punti',$obj->getPrezzoInPunti());
-        $stmt->bindParam(':nomeImg',$obj->getImmagine()->getNome());
-        $ris=$stmt->execute();
+        $ris=$stmt->execute([$obj->getId(),$obj->getPrezzoInPunti(),$obj->getNome(),$obj->getDescrizione(),$obj->getQuantita(),$obj->getMarca(),$obj->getImmagine()->getNome()]);
         $ris2=FImmagine::store($obj->getImmagine());
         if ($ris==true & $ris2==true){
             return true;
@@ -77,16 +70,12 @@ class FPremio implements FBase
 
     }
 
-    public static function update($obj): bool
+    public static function update($obj): bool //parametro di FBase da discutere
     {
         $pdo=FConnectionDB::connect();
-        $stmt0=$pdo->prepare("SELECT * FROM Premio WHERE id=?");
-        $stmt0->execute([$obj->getId()]);
-        $rows=$stmt0->fetchAll(PDO::FETCH_ASSOC);
-        $nomeOldImg=$rows['nomeImmagine'];
-        $stmt1 = $pdo->prepare("UPDATE Premio SET punti = $obj->getPrezzoInPunti(), nome = $obj->getNome(), descrizione = $obj->getDescrizione(), quantita = $obj->getQuantita, marca = $obj->getMarca(), nomeImmagine = $obj->getImmagine()->getNome() WHERE id=?");
+        $stmt1 = $pdo->prepare("UPDATE Premio SET punti = $obj->getPrezzoInPunti(), nome = $obj->getNome(), descrizione = $obj->getDescrizione(), quantita = $obj->getQuantita(), marca = $obj->getMarca(), nomeImmagine = $obj->getImmagine()->getNome() WHERE id=?");
         $ris1 = $stmt1->execute([$obj->getId()]);
-        $ris2 = FImmagine::update($nomeOldImg);
+        $ris2 = FImmagine::update($obj->getImmagine());
         if ($ris1==true & $ris2==true){
             return true;
         }
