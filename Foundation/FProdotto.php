@@ -1,6 +1,7 @@
 <?php
 
 require_once 'configDB.php';
+require_once 'Entity/Utility.php';
 
 class FProdotto implements FBase
 {
@@ -70,7 +71,7 @@ class FProdotto implements FBase
 
     }
 
-    public static function store(EProdotto $prod) : bool
+    public static function store($obj) : bool
     {
         $hostname=$GLOBALS['hostname'];
         $dbname=$GLOBALS['dbname'];
@@ -79,23 +80,27 @@ class FProdotto implements FBase
         $pdo=FConnectionDB::connect($hostname,$dbname,$user,$pass);
         $query="INSERT INTO Prodotto VALUES(':id',':nome',':des',':tip',':quant',':marca',':prezzo',':nomeImg')";
         $stmt=$pdo->prepare($query);
-        $stmt->bindParam(':id',$prod->getId());
-        $stmt->bindParam(':nome',$prod->getNome());
-        $stmt->bindParam(':desc',$prod->getDescrizione());
-        $stmt->bindParam(':tip',$prod->getTipologia());
-        $stmt->bindParam(':quant',$prod->getQuantita());
-        $stmt->bindParam(':marca',$prod->getMarca());
-        $stmt->bindParam(':prezzo',$prod->getPrezzo());
-        $stmt->bindParam(':nomeImg',$prod->getImmagine()->getNome());
+        $stmt->bindParam(':id',$obj->getId());
+        $stmt->bindParam(':nome',$obj->getNome());
+        $stmt->bindParam(':desc',$obj->getDescrizione());
+        $stmt->bindParam(':tip',$obj->getTipologia());
+        $stmt->bindParam(':quant',$obj->getQuantita());
+        $stmt->bindParam(':marca',$obj->getMarca());
+        $stmt->bindParam(':prezzo',$obj->getPrezzo());
+        $stmt->bindParam(':nomeImg',$obj->getImmagine()->getNome());
         $ris=$stmt->execute();
         return $ris;
     }
 
-    public static function update(EProdotto $prod) : bool{
+    public static function update($obj) : bool{
         $hostname=$GLOBALS['hostname'];
         $dbname=$GLOBALS['dbname'];
         $user=$GLOBALS['user'];
         $pass=$GLOBALS['pass'];
         $pdo=FConnectionDB::connect($hostname,$dbname,$user,$pass);
+        $stmt = $pdo->prepare("UPDATE Prodotto SET nome = $obj->getNome(), descrizione = $obj->getDescrizione(), tipologia = $obj->getTipologia(), quantita = $obj->getQuantita, marca = $obj->getMarca(), prezzo = $obj->getPrezzo() WHERE id=?");
+        $ris = $stmt->execute([$obj->getId()]);
+        return $ris;
+
     }
 }
