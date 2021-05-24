@@ -17,8 +17,8 @@ interface FBase
     public static function exist(string $key): bool;
 
     /**
-     * Cancella tutte le n-uple di una tabella nel database aventi per chiave primaria il valore passato come
-     * argomento. Ritorna un valore booleano che indica l'esito dell'operazione.
+     * Cancella tutte le n-uple di una tabella nel database aventi come chiave primaria il valore passato come
+     * argomento. Ritorna un valore booleano che indica l'esito dell'operazione
      * @param string $key
      * @return bool
      */
@@ -34,7 +34,7 @@ interface FBase
 
     /**
      * Memorizza in una tabella del database le informazioni riguardanti l'oggetto passato come argomento.
-     * Ritorna un valore booleano che indica l'esito dell'operazione.
+     * Ritorna un valore booleano che indica l'esito dell'operazione
      * @param object $obj
      * @return bool
      */
