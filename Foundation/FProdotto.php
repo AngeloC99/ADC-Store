@@ -1,6 +1,5 @@
 <?php
 
-require_once 'configDB.php';
 require_once 'Entity/Utility.php';
 
 class FProdotto implements FBase
