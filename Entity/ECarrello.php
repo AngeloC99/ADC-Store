@@ -144,4 +144,14 @@ class ECarrello
         }
         else print("Quantità non disponibile!");
     }
+
+    /**
+     * Imposta l'identificativo del carrello.
+     * @param string $id
+     */
+    public function setId(string $id): void {
+        $this->id = $id;
+    }
+
+
 }

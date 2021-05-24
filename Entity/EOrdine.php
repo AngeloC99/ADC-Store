@@ -109,4 +109,12 @@ class EOrdine
         $this->indirizzo = $indirizzo;
     }
 
+    /**
+     * Imposta l'ID del carrello
+     * @param string $id
+     */
+    public function setId(string $id): void{
+        $this->id = $id;
+    }
+
 }

@@ -92,8 +92,15 @@ class EProdotto extends EArticolo
         $this->tipologia = $tipologia;
     }
 
-}
+    /**
+     * Imposta l'identificativo del prodotto.
+     * @param string $id
+     */
+    public function setId(string $id): void {
+        $this->id = $id;
+    }
 
+}
 ?>
 
 
