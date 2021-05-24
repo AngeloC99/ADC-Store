@@ -1,15 +1,14 @@
 <?php
 
 require_once '../autoloader.php';
-
 class FProdotto implements FBase
 {
 
     public static function exist(string $key)  : bool {
-        $pdo=FConnectionDB::connect();
-       $ris=$pdo->prepare("SELECT * FROM Prodotto WHERE id=?");
-       $ris->execute([$key]);
-       $rows=$ris->fetchAll(PDO::FETCH_ASSOC);
+       $pdo=FConnectionDB::connect();
+       $stmt=$pdo->prepare("SELECT * FROM Prodotto WHERE id=?");
+       $stmt->execute([$key]);
+       $rows=$stmt->fetchAll(PDO::FETCH_ASSOC);
        if(count($rows)==0){
            return false;
        }
@@ -21,18 +20,28 @@ class FProdotto implements FBase
 
     public static function delete(string $key) : bool{
         $pdo=FConnectionDB::connect();
-        $ris=$pdo->prepare("DELETE FROM Prodotto WHERE id=?");
-        $ris->execute([$key]);
-        return $ris;
+        $stmt=$pdo->prepare("SELECT * FROM Prodotto WHERE id=?");
+        $stmt->execute([$key]);
+        $rows=$stmt->fetchAll(PDO::FETCH_ASSOC);
+        $nomeImm=$rows['nomeImmagine'];
+        $stmt=$pdo->prepare("DELETE FROM Prodotto WHERE id=?");
+        $ris=$stmt->execute([$key]);
+        $ris2=FImmagine::delete($nomeImm);
+        if ($ris==true & $ris2==true){
+            return true;
+        }
+        else{
+            return false;
+        }
 
     }
 
     public static function load(string $nome) : EProdotto
     {
         $pdo=FConnectionDB::connect();
-        $ris=$pdo->prepare("SELECT * FROM Prodotto WHERE nome=?");
-        $ris->execute([$nome]);
-        $rows=$ris->fetchAll(PDO::FETCH_ASSOC);
+        $stmt=$pdo->prepare("SELECT * FROM Prodotto WHERE nome=?");
+        $stmt->execute([$nome]);
+        $rows=$stmt->fetchAll(PDO::FETCH_ASSOC);
         $marca=$rows['marca'];
         $desc=$rows['descrizione'];
         $tip=$rows['tipologia'];
@@ -40,17 +49,7 @@ class FProdotto implements FBase
         $prezzo=$rows['prezzo'];
         $id=$rows['id'];
         $img=$rows['nomeImmagine'];
-        $ris2=$pdo->prepare("SELECT * FROM Immagine WHERE nome=?");
-        $ris2->execute([$img]);
-        $rows2=$ris2->fetchAll(PDO::FETCH_ASSOC);
-        $imm=new EImmagine($img);
-        $imm->setFormato($rows2['formato']);
-        $imm->setSize($rows2['size']);
-        $imm->setByte($rows2['byte']);
-        $imm->setFormato($rows2['formato']);
-        $imm->setLarghezza($rows2['larghezza']);
-        $imm->setAltezza($rows2['altezza']);
-        $imm->setMime($rows2['mime']);
+        $imm=FImmagine::load($img);
         $prod= new EProdotto($nome,$marca,$desc,$quant,$imm,$prezzo,$tip);
         $prod->setId($id);
         return $prod;
@@ -71,7 +70,13 @@ class FProdotto implements FBase
         $stmt->bindParam(':prezzo',$obj->getPrezzo());
         $stmt->bindParam(':nomeImg',$obj->getImmagine()->getNome());
         $ris=$stmt->execute();
-        return $ris;
+        $ris2=FImmagine::store($obj->getImmagine());
+        if ($ris==true & $ris2==true){
+            return true;
+        }
+        else{
+            return false;
+        }
     }
 
     public static function update($obj) : bool{
@@ -82,10 +87,8 @@ class FProdotto implements FBase
         $nomeOldImg=$rows['nomeImmagine'];
         $stmt1 = $pdo->prepare("UPDATE Prodotto SET nome = $obj->getNome(), descrizione = $obj->getDescrizione(), tipologia = $obj->getTipologia(), quantita = $obj->getQuantita, marca = $obj->getMarca(), prezzo = $obj->getPrezzo() WHERE id=?");
         $ris1 = $stmt1->execute([$obj->getId()]);
-        //conseguente update dell'immagine:
-        $stmt2=$pdo->prepare("UPDATE Immagine SET formato = $obj->getImmagine()->getFormato(), size = $obj->getImmagine()->getSize(), byte = $obj->getImmagine()->getByte(), larghezza = $obj->getImmagine()->getLarghezza(), altezza = $obj->getImmagine()->getAltezza(), mime = $obj->getImmagine()->getMime() WHERE nome=?");
-        $ris2 = $stmt2->execute([$nomeOldImg]);
-        if ($ris1=true & $ris2=true){
+        $ris2 = FImmagine::update($nomeOldImg);
+        if ($ris1==true & $ris2==true){
             return true;
         }
         else{
