@@ -21,9 +21,19 @@ class FPremio implements FBase
     public static function delete(string $key): bool
     {
         $pdo=FConnectionDB::connect();
+        $stmt=$pdo->prepare("SELECT * FROM Premio WHERE id=?");
+        $stmt->execute([$key]);
+        $rows=$stmt->fetchAll(PDO::FETCH_ASSOC);
+        $nomeImm=$rows['nomeImmagine'];
         $stmt=$pdo->prepare("DELETE FROM Premio WHERE id=?");
         $ris=$stmt->execute([$key]);
-        return $ris;
+        $ris2=FImmagine::delete($nomeImm);
+        if ($ris==true & $ris2==true){
+            return true;
+        }
+        else{
+            return false;
+        }
     }
 
     public static function load(string $nome) :EPremio
@@ -38,17 +48,7 @@ class FPremio implements FBase
         $marca=$rows['marca'];
         $id=$rows['id'];
         $img=$rows['nomeImmagine'];
-        $stmt2=$pdo->prepare("SELECT * FROM Immagine WHERE nome=?");
-        $stmt2->execute([$img]);
-        $rows2=$stmt2->fetchAll(PDO::FETCH_ASSOC);
-        $imm=new EImmagine($img);
-        $imm->setFormato($rows2['formato']);
-        $imm->setSize($rows2['size']);
-        $imm->setByte($rows2['byte']);
-        $imm->setFormato($rows2['formato']);
-        $imm->setLarghezza($rows2['larghezza']);
-        $imm->setAltezza($rows2['altezza']);
-        $imm->setMime($rows2['mime']);
+        $imm=FImmagine::load($img);
         $premio= new EPremio($nome,$marca,$desc,$quant,$imm,$punti);
         $premio->setId($id);
         return $premio;
@@ -67,13 +67,8 @@ class FPremio implements FBase
         $stmt->bindParam(':punti',$obj->getPrezzoInPunti());
         $stmt->bindParam(':nomeImg',$obj->getImmagine()->getNome());
         $ris=$stmt->execute();
-        //Conseguente store dell'immagine:
-        $imm=$obj->getImmagine();
-        $query2="INSERT INTO Immagine VALUES(':nome',':formato',':size',':byte',':larghezza',':altezza',':mime')";
-        $stmt2=$pdo->prepare($query2);
-        $ris2=$stmt2->execute([$imm->getNome(),$imm->getFormato(),$imm->getSize(),$imm->getByte(),$imm->getLarghezza(),$imm->getAltezza(),$imm->getMime()]);
-
-        if ($ris1=true & $ris2=true){
+        $ris2=FImmagine::store($obj->getImmagine());
+        if ($ris==true & $ris2==true){
             return true;
         }
         else{
@@ -91,11 +86,8 @@ class FPremio implements FBase
         $nomeOldImg=$rows['nomeImmagine'];
         $stmt1 = $pdo->prepare("UPDATE Premio SET punti = $obj->getPrezzoInPunti(), nome = $obj->getNome(), descrizione = $obj->getDescrizione(), quantita = $obj->getQuantita, marca = $obj->getMarca(), nomeImmagine = $obj->getImmagine()->getNome() WHERE id=?");
         $ris1 = $stmt1->execute([$obj->getId()]);
-        //conseguente update dell'immagine:
-        $stmt2=$pdo->prepare("UPDATE Immagine SET formato = $obj->getImmagine()->getFormato(), size = $obj->getImmagine()->getSize(), byte = $obj->getImmagine()->getByte(), larghezza = $obj->getImmagine()->getLarghezza(), altezza = $obj->getImmagine()->getAltezza(), mime = $obj->getImmagine->getMime() WHERE nome=?");
-        $ris2 = $stmt2->execute([$nomeOldImg]);
-
-        if ($ris1=true & $ris2=true){
+        $ris2 = FImmagine::update($nomeOldImg);
+        if ($ris1==true & $ris2==true){
             return true;
         }
         else{
