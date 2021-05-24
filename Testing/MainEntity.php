@@ -1,6 +1,6 @@
 <?php
 
-require_once "Utility.php";
+require_once "../autoloader.php";
 
 
 $utente = new EUtenteReg("mario", "rossi", "mariorossi@gmail.com", "password");
