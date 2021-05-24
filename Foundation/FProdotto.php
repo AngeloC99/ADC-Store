@@ -1,6 +1,6 @@
 <?php
 
-require_once 'Entity/Utility.php';
+require_once '../autoloader.php';
 
 class FProdotto implements FBase
 {
