@@ -143,6 +143,64 @@ class EImmagine
     {
         return $this->byte;
     }
+
+    /**
+     * @param string $nome
+     */
+    public function setNome(string $nome): void
+    {
+        $this->nome = $nome;
+    }
+
+    /**
+     * @param string $formato
+     */
+    public function setFormato(string $formato): void
+    {
+        $this->formato = $formato;
+    }
+
+    /**
+     * @param float|int $size
+     */
+    public function setSize(float|int $size): void
+    {
+        $this->size = $size;
+    }
+
+    /**
+     * @param int|mixed $larghezza
+     */
+    public function setLarghezza(mixed $larghezza): void
+    {
+        $this->larghezza = $larghezza;
+    }
+
+    /**
+     * @param int|mixed $altezza
+     */
+    public function setAltezza(mixed $altezza): void
+    {
+        $this->altezza = $altezza;
+    }
+
+    /**
+     * @param mixed|string $mime
+     */
+    public function setMime(mixed $mime): void
+    {
+        $this->mime = $mime;
+    }
+
+    /**
+     * @param string $byte
+     */
+    public function setByte(string $byte): void
+    {
+        $this->byte = $byte;
+    }
+
+
 }
 
 ?>
