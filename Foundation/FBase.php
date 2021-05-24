@@ -40,11 +40,11 @@ interface FBase
      */
     public static function store($obj): bool;
 
+
     /**
-     * Aggiorna le informazioni inerenti ad un oggetto nel database con il nuovo oggetto passato come argomento.
-     * Ritorna un valore booleano che indica l'esito dell'operazione.
-     * @param object $obj
+     * @param $obj1
+     * @param null $obj2  //valore di default del secondo parametro: se viene fornito un oggetto esso viene sovrascritto
      * @return bool
      */
-    public static function update($obj1, $obj2): bool;
+    public static function update($obj1, $obj2=null): bool;
 }
