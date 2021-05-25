@@ -44,10 +44,9 @@ class EImmagine
     private string $byte;
 
 
-    //COSTRUTTORE:
-
+    //COSTRUTTORE 1:
     /**
-     * EImmagine costruttore.
+     * Per recupero dell'immagine dal web o su file-system locale.
      * @param string $name
      */
     public function __construct(string $name){
@@ -79,6 +78,22 @@ class EImmagine
         $this->altezza=$info[1];
         $this->mime=$info['mime']; //imposto il MIME dell'immagine per poter recuperare in seguito questa informazione per settare il Content-Type per l'HTTP
     }
+    //COSTRUTTORE 2:
+    /**
+     * Per istanziare un'immagine con parametri forniti direttamente (utile per load in FImmagine)
+     * @param string $name
+     */
+    public function __construct2(string $n,string $f,string $s,string $b,string $l,string $a,string $m)
+    {
+        $this->nome=$n;
+        $this->formato=$f;
+        $this->byte=$b;
+        $this->larghezza=$l;
+        $this->altezza=$a;
+        $this->mime=$m;
+        $this->size=$s;
+    }
+
 
     //METODI:
     /**
