@@ -7,14 +7,9 @@ class FPremio implements FBase
     {
         $pdo=FConnectionDB::connect();
         $stmt=$pdo->prepare("SELECT * FROM Premio WHERE id=?");
-        $stmt->execute([$key]);
-        $rows=$stmt->fetchAll(PDO::FETCH_ASSOC);
-        if(count($rows)==0){
-            return false;
-        }
-        else{
-            return true;
-        }
+        $ris=$stmt->execute([$key]);  //se non esiste non va a buon fine la SELECT e viene restituito false, true se invece esiste e quindi la SELECT va a buon fine.
+        return $ris;
+
 
     }
 
@@ -70,12 +65,12 @@ class FPremio implements FBase
 
     }
 
-    public static function update($obj): bool //parametro di FBase da discutere
+    public static function update($obj1,$obj2=null): bool //parametro di FBase da discutere
     {
         $pdo=FConnectionDB::connect();
-        $stmt1 = $pdo->prepare("UPDATE Premio SET punti = $obj->getPrezzoInPunti(), nome = $obj->getNome(), descrizione = $obj->getDescrizione(), quantita = $obj->getQuantita(), marca = $obj->getMarca(), nomeImmagine = $obj->getImmagine()->getNome() WHERE id=?");
-        $ris1 = $stmt1->execute([$obj->getId()]);
-        $ris2 = FImmagine::update($obj->getImmagine());
+        $stmt1 = $pdo->prepare("UPDATE Premio SET punti = $obj1->getPrezzoInPunti(), nome = $obj1->getNome(), descrizione = $obj1->getDescrizione(), quantita = $obj1->getQuantita(), marca = $obj1->getMarca(), nomeImmagine = $obj1->getImmagine()->getNome() WHERE id=?");
+        $ris1 = $stmt1->execute([$obj1->getId()]);
+        $ris2 = FImmagine::update($obj1->getImmagine());
         if ($ris1==true & $ris2==true){
             return true;
         }

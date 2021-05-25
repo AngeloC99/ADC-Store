@@ -7,14 +7,8 @@ class FProdotto implements FBase
     public static function exist(string $key)  : bool {
        $pdo=FConnectionDB::connect();
        $stmt=$pdo->prepare("SELECT * FROM Prodotto WHERE id=?");
-       $stmt->execute([$key]);
-       $rows=$stmt->fetchAll(PDO::FETCH_ASSOC);
-       if(count($rows)==0){
-           return false;
-       }
-       else{
-           return true;
-       }
+       $ris=$stmt->execute([$key]);
+       return $ris;
 
     }
 
@@ -82,15 +76,11 @@ class FProdotto implements FBase
         }
     }
 
-    public static function update($obj) : bool{
+    public static function update($obj1,$obj2=null) : bool{
         $pdo=FConnectionDB::connect();
-        $stmt0=$pdo->prepare("SELECT * FROM Prodotto WHERE id=?");
-        $stmt0->execute([$obj->getId()]);
-        $rows=$stmt0->fetchAll(PDO::FETCH_ASSOC);
-        $nomeOldImg=$rows['nomeImmagine'];
-        $stmt1 = $pdo->prepare("UPDATE Prodotto SET nome = $obj->getNome(), descrizione = $obj->getDescrizione(), tipologia = $obj->getTipologia(), quantita = $obj->getQuantita, marca = $obj->getMarca(), prezzo = $obj->getPrezzo() WHERE id=?");
-        $ris1 = $stmt1->execute([$obj->getId()]);
-        $ris2 = FImmagine::update($nomeOldImg);
+        $stmt1 = $pdo->prepare("UPDATE Prodotto SET nome = $obj1->getNome(), descrizione = $obj1->getDescrizione(), tipologia = $obj1->getTipologia(), quantita = $obj1->getQuantita, marca = $obj1->getMarca(), prezzo = $obj1->getPrezzo() WHERE id=?");
+        $ris1 = $stmt1->execute([$obj1->getId()]);
+        $ris2 = FImmagine::update($obj1->getImmagine());
         if ($ris1==true & $ris2==true){
             return true;
         }
