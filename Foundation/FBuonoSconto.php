@@ -15,7 +15,7 @@ class FBuonoSconto
     public static function delete(string $key): bool
     {
         $pdo=FConnectionDB::connect();
-        $stmt=$pdo->prepare("DELETE FROM Immagine WHERE codice=?");
+        $stmt=$pdo->prepare("DELETE FROM BuonoSconto WHERE codice=?");
         $ris=$stmt->execute([$key]);
         return $ris;
     }
