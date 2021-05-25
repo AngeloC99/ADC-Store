@@ -152,6 +152,4 @@ class ECarrello
     public function setId(string $id): void {
         $this->id = $id;
     }
-
-
 }

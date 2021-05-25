@@ -125,6 +125,7 @@ CREATE TABLE Prodotto(
 CREATE TABLE Contiene(
     idcarrello CHAR(16) NOT NULL,
     idprodotto CHAR(16) NOT NULL,
+    quantitaNelCarrello INT NOT NULL,
 	PRIMARY KEY (idcarrello,idprodotto),
 	FOREIGN KEY (idcarrello) REFERENCES Carrello(id)
 	ON UPDATE CASCADE ON DELETE CASCADE,
@@ -136,10 +137,15 @@ CREATE TABLE Ordine(
     id CHAR(16) NOT NULL,
     dataacquisto DATE NOT NULL,
     prezzototale INT NOT NULL,
-    idcarrello CHAR(16) NOT NULL,    
+    idcarrello CHAR(16) NOT NULL,
+    viaConsegna VARCHAR(25) NOT NULL,
+    numerocivicoConsegna INT NOT NULL,
+    capConsegna CHAR(5) NOT NULL,
 	PRIMARY KEY (id),
 	FOREIGN KEY (idcarrello) REFERENCES Carrello(id)
-	ON UPDATE CASCADE ON DELETE CASCADE
+	ON UPDATE CASCADE ON DELETE CASCADE,
+    FOREIGN KEY (viaConsegna,numerocivicoConsegna,capConsegna) REFERENCES Indirizzo(via,numerocivico,cap)
+    ON UPDATE CASCADE ON DELETE CASCADE
 );
 
 

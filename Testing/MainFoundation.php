@@ -34,8 +34,19 @@ $db->update($utente2, $utente);
 //$ada = $db->load("adarossi@gmail.com", "FUtenteReg");
 //print($ada->getNome());
 
+// Testing classe FIndirizzo
 
-
-
-
-
+//$indirizzo = new EIndirizzo("Via Roma", 169, "Avezzano", "Aq", "67054", true);
+$fInd = new FIndirizzo();
+//$ind1 = new EIndirizzo("Via Milano", 1, "Roma", "Rm", "00433", false);
+//$ind2 = new EIndirizzo("Via Strampelli", 144, "Rieti", "Ri", "02100", false);
+//$fInd->store($ind1);
+//$fInd->store($ind2);
+//$indirizzi = $fInd->prelevaIndirizzi();
+//print_r($indirizzi);
+//print_r($fInd->exist("Via Roma", 169, "67054"));
+//$ind = $fInd->load("Via Roma", 169, "67054");
+//print_r($ind);
+//$fInd->delete("Via Roma", 169, "Avezz");
+//$ind = new EIndirizzo("Via Milano", 1, "Rieti", "Ri", "00433", false);
+//$fInd->update($ind);
