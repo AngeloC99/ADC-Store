@@ -101,6 +101,7 @@ CREATE TABLE Carrello(
 CREATE TABLE BuonoSconto(
     codice CHAR(15) NOT NULL,
     ammontare INT NOT NULL,
+    percentuale BOOLEAN NOT NULL,
     scadenza DATE NOT NULL,
     mailutente VARCHAR(30) NOT NULL,
 	PRIMARY KEY (codice),
