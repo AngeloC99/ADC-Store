@@ -41,7 +41,7 @@ class EBuonoSconto
      * @param int $a
      * @param string $m
      */
-    public function __construct(bool $b, int $a, string $m)
+    public function __construct(bool $b, int $a, string $m='')
     {
         $this->percentuale=$b;
         $this->ammontare=$a;
@@ -124,5 +124,14 @@ class EBuonoSconto
             return $s;
         }
     }
+
+    /**
+     * @param DateTime $scadenza
+     */
+    public function setScadenza(DateTime $scadenza): void
+    {
+        $this->scadenza = $scadenza;
+    }
+
 }
 ?>
