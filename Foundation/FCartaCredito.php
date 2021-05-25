@@ -97,7 +97,7 @@ class FCartaCredito
         $stmt = $pdo->prepare("DELETE FROM CartaCredito WHERE numero = :numero");
         $ris = $stmt->execute([':numero' => $numero]);
         $stmt1 = $pdo->prepare("DELETE FROM UtenteUsaCarta WHERE mailutente = :mailutente AND numerocarta = :numerocarta");
-        $ris1 = $stmt1->execute(array(':mailutente' => $mailutente,':numerocarta' => $numero)]);
+        $ris1 = $stmt1->execute(array(':mailutente' => $mailutente,':numerocarta' => $numero));
         return $ris AND $ris1;
     }
 

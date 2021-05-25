@@ -4,16 +4,19 @@
 class FConnectionDB
 {
     private static $instance=null;  //con Singleton
+    private static $db;
 
 
     public function __construct ()
     {
-        try {
-            self::$instance = new PDO ("mysql:host=".$GLOBALS['hostname'].";dbname=".$GLOBALS['dbname'],$GLOBALS['user'],$GLOBALS['pass']);
+        if (!isset(self::$db)) {
+            try {
+                self::$db = new PDO ("mysql:host=" . $GLOBALS['hostname'] . ";dbname=" . $GLOBALS['dbname'], $GLOBALS['user'], $GLOBALS['pass']);
 
-        } catch (PDOException $e) {
-            echo "Errore: " . $e->getMessage();
-            die;
+            } catch (PDOException $e) {
+                echo "Errore nel costruttore di FConnectionDB: " . $e->getMessage();
+                die;
+            }
         }
 
     }
@@ -26,6 +29,6 @@ class FConnectionDB
         if (self::$instance == null) {
             self::$instance = new FConnectionDB();
         }
-        return self::$instance;
+        return self::$db;
     }
 }

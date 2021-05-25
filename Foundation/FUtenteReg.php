@@ -4,11 +4,10 @@
 class FUtenteReg implements FBase
 {
     public static function exist(string $email)  : bool {
-        $con = new FConnectionDB();
-        $pdo = $con->connect();
-        $query = "SELECT * FROM UtenteReg WHERE email=?";
+        $pdo = FConnectionDB::connect();
+        $query = "SELECT * FROM UtenteReg WHERE email= :email";
         $stmt = $pdo->prepare($query);
-        $stmt->execute([$email]);
+        $stmt->execute([":email" => $email]);
         $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
         if(count($rows)==0){
             return false;
@@ -20,11 +19,10 @@ class FUtenteReg implements FBase
     }
 
     public static function delete(string $email) : bool{
-        $con = new FConnectionDB();
-        $pdo = $con->connect();
-        $query = "DELETE FROM UtenteReg WHERE email=?";
+        $pdo = FConnectionDB::connect();
+        $query = "DELETE FROM UtenteReg WHERE email= :email";
         $stmt = $pdo->prepare($query);
-        $ris = $stmt->execute([$email]);
+        $ris = $stmt->execute([":email" => $email]);
         if ($ris==true){
             return true;
         }
@@ -36,11 +34,10 @@ class FUtenteReg implements FBase
 
     public static function load(string $email) : EUtenteReg
     {
-        $con = new FConnectionDB();
-        $pdo = $con->connect();
-        $query = "SELECT * FROM UtenteReg WHERE email=?";
+        $pdo = FConnectionDB::connect();
+        $query = "SELECT * FROM UtenteReg WHERE email= :email";
         $stmt = $pdo->prepare($query);
-        $stmt->execute([$email]);
+        $stmt->execute(["email" => $email]);
         $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
         $nome=$rows[0]['nome'];
         $cognome=$rows[0]['cognome'];
@@ -57,11 +54,15 @@ class FUtenteReg implements FBase
 
     public static function store($obj) : bool
     {
-        $con = new FConnectionDB();
-        $pdo = $con->connect();
-        $query="INSERT INTO UtenteReg VALUES(?,?,?,?,?)";
+        $pdo = FConnectionDB::connect();
+        $query="INSERT INTO UtenteReg VALUES(:email,:nome,:cognome,:password,:punti)";
         $stmt=$pdo->prepare($query);
-        $ris = $stmt->execute(array($obj->getEmail(), $obj->getNome(), $obj->getCognome(), $obj->getPassword(), $obj->getPunti()));
+        $ris = $stmt->execute(array(
+            ":email" => $obj->getEmail(),
+            "nome" => $obj->getNome(),
+            "cognome" => $obj->getCognome(),
+            "password" => $obj->getPassword(),
+            ":punti" => $obj->getPunti()));
 
         if ($ris==true ){
             return true;
@@ -72,12 +73,16 @@ class FUtenteReg implements FBase
     }
 
     public static function update($obj1, $obj2=null) : bool{
-        $con = new FConnectionDB();
-        $pdo = $con->connect();
-
-        $query = "UPDATE UtenteReg SET nome = ?, cognome = ?, email = ?, password = ?, punti = ?  WHERE email = ?";
+        $pdo = FConnectionDB::connect();
+        $query = "UPDATE UtenteReg SET nome = :nome, cognome = :cognome, email = :email, password = :password, punti = :punti  WHERE email = :email2";
         $stmt=$pdo->prepare($query);
-        $ris = $stmt->execute(array($obj2->getNome(),$obj2->getCognome(), $obj2->getEmail(),$obj2->getPassword(), $obj2->getPunti(), $obj1->getEmail()));
+        $ris = $stmt->execute(array(
+            ":nome" => $obj2->getNome(),
+            ":cognome" => $obj2->getCognome(),
+            ":email" => $obj2->getEmail(),
+            ":password" => $obj2->getPassword(),
+            ":punti" => $obj2->getPunti(),
+            ":email2" => $obj1->getEmail()));
 
         if ($ris==true){
             return true;
@@ -85,6 +90,24 @@ class FUtenteReg implements FBase
         else{
             return false;
         }
+    }
+
+    public static function prelevaUtenti() : array {
+        $pdo = FConnectionDB::connect();
+        $query = "SELECT * FROM UtenteReg";
+        $stmt=$pdo->prepare($query);
+        $stmt->execute();
+        $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $utenti = array();
+        foreach ($rows as $row) {
+            $user = new EUtenteReg($row['nome'],
+                $row['cognome'],
+                $row['email'],
+                $row['password']);
+                $utenti[] = $user;
+        }
+        return $utenti;
+
     }
 
 }

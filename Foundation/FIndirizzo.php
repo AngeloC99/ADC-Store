@@ -69,7 +69,7 @@ class FIndirizzo
 
         $query1 = "INSERT INTO UtenteSalvaIndirizzo VALUES(:mailutente, :via, :numero, :cap)";
         $stmt1 = $pdo->prepare($query1);
-        $ris1 = $stmt->execute(array(
+        $ris1 = $stmt1->execute(array(
             ':via' => $indirizzo->getVia(),
             ':numero' => $indirizzo->getNumero(),
             ':cap' => $indirizzo->getCap(),
@@ -116,7 +116,7 @@ class FIndirizzo
         $ris1 = $stmt1->execute(array(
             ':via' => $via,
             ':numero' => $numerocivico,
-            ':cap' => $cap
+            ':cap' => $cap,
             ':mailutente' => $mailutente));
         return $ris AND $ris1;
     }

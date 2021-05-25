@@ -25,22 +25,27 @@ $admin2 = new EAmministratore("Luca", "Rossi", "lucarossi@gmail.com", "paperino"
 $utente = new EUtenteReg("Ada", "Bianchi", "adarossi@gmail.com", "pluto");
 $utente2 = new EUtenteReg("Angus", "Young", "angusyoung@gmail.com", "rock");
 $db = new FPersistentManager();
-$bool = $db->exist("angusyoung@gmail.com", "FUtenteReg");
-print($bool);
-$db->update($utente2, $utente);
+//$futente->store($utente);
+//$bool = $db->exist("adarossi@gmail.com", "FUtenteReg");
+//print($bool);
+//$db->update($utente2, $utente);
 //$db->store($utente);
+//$db->store($utente2);
 //$futente->store($utente);
 //$db->delete("adarossi@gmail.com","FUtenteReg");
 //$ada = $db->load("adarossi@gmail.com", "FUtenteReg");
 //print($ada->getNome());
+$futente = new FUtenteReg();
+$utenti = $futente->prelevaUtenti();
+print_r($utenti);
 
 // Testing classe FIndirizzo
 
 //$indirizzo = new EIndirizzo("Via Roma", 169, "Avezzano", "Aq", "67054", true);
 $fInd = new FIndirizzo();
-//$ind1 = new EIndirizzo("Via Milano", 1, "Roma", "Rm", "00433", false);
-//$ind2 = new EIndirizzo("Via Strampelli", 144, "Rieti", "Ri", "02100", false);
-//$fInd->store($ind1);
+$ind1 = new EIndirizzo("Via Milano", 1, "Roma", "Rm", "00433", false);
+$ind2 = new EIndirizzo("Via Strampelli", 144, "Rieti", "Ri", "02100", false);
+$fInd->store($ind1, "adarossi@gmail.com");
 //$fInd->store($ind2);
 //$indirizzi = $fInd->prelevaIndirizzi();
 //print_r($indirizzi);
