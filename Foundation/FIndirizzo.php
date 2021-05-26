@@ -50,11 +50,10 @@ class FIndirizzo implements FBase
 
     /**
      * Memorizza un'istanza di EIndirizzo sul database e restituisce un booleano che indica l'esito dell'operazione.
-     * @param EIndirizzo $indirizzo
-     * @param string $mailutente
+     * @param $indirizzo
      * @return bool
      */
-    public static function store(EIndirizzo $indirizzo, string $mailutente): bool {
+    public static function store($indirizzo): bool {
         $pdo = FConnectionDB::connect();
         $query = "INSERT INTO Indirizzo VALUES(:via, :numero, :cap, :comune, :provincia, :predefinito)";
         $stmt = $pdo->prepare($query);
@@ -65,15 +64,7 @@ class FIndirizzo implements FBase
             ':comune' => $indirizzo->getComune(),
             ':provincia' => $indirizzo->getProvincia(),
             ':predefinito' => $indirizzo->isPredefinito()));
-
-        $query1 = "INSERT INTO UtenteSalvaIndirizzo VALUES(:mailutente, :via, :numero, :cap)";
-        $stmt1 = $pdo->prepare($query1);
-        $ris1 = $stmt1->execute(array(
-            ':via' => $indirizzo->getVia(),
-            ':numero' => $indirizzo->getNumero(),
-            ':cap' => $indirizzo->getCap(),
-            ':mailutente' => $mailutente));
-        return $ris AND $ris1;
+        return $ris;
     }
 
     /**
@@ -97,43 +88,32 @@ class FIndirizzo implements FBase
 
     /**
      * Cancella un'istanza di EIndirizzo sul database e restituisce un booleano che indica l'esito dell'operazione.
-     * @param string $via
-     * @param int $numerocivico
-     * @param string $cap
-     * @param string $mailutente
+     * @param $via
+     * @param $numerocivico
+     * @param $cap
      * @return bool
      */
-    public static function delete(string $via, int $numerocivico, string $cap, string $mailutente): bool {
+    public static function delete($via, $numerocivico, $cap): bool {
         $pdo = FConnectionDB::connect();
         $stmt = $pdo->prepare("DELETE FROM Indirizzo WHERE via = :via AND numerocivico = :numero AND cap = :cap");
         $ris = $stmt->execute(array(
             ':via' => $via,
             ':numero' => $numerocivico,
             ':cap' => $cap));
-
-        $stmt1 = $pdo->prepare("DELETE FROM UtenteSalvaIndirizzo WHERE via = :via AND numerocivico = :numero AND cap = :cap AND mailutente = :mailutente");
-        $ris1 = $stmt1->execute(array(
-            ':via' => $via,
-            ':numero' => $numerocivico,
-            ':cap' => $cap,
-            ':mailutente' => $mailutente));
-        return $ris AND $ris1;
+        return $ris;
     }
 
     /**
-     * Restituisce tutte le istanze di EIndirizzo presenti nell'apposita tabella del database ed appartenenti ad un
-     * determinato utente.
-     * @param string $mailutente
+     * Restituisce tutte le istanze di EIndirizzo presenti nell'apposita tabella del database.
      * @return array
      */
-    public static function prelevaIndirizzi(string $mailutente): array {
+    public static function prelevaIndirizzi(): array {
         $pdo = FConnectionDB::connect();
         $stmt = $pdo->prepare("SELECT * FROM UtenteSalvaIndirizzo INNER JOIN Indirizzo 
                             ON UtenteSalvaIndirizzo.via = Indirizzo.via AND
                                UtenteSalvaIndirizzo.numerocivico = Indirizzo.numerocivico AND
-                               UtenteSalvaIndirizzo.cap = Indirizzo.cap
-                               WHERE UtenteSalvaIndirizzo.mailutente = :mailutente");
-        $stmt->execute([':mailutente' => $mailutente]);
+                               UtenteSalvaIndirizzo.cap = Indirizzo.cap");
+        $stmt->execute();
         $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
         $indirizzi = array();
         foreach ($rows as $row) {

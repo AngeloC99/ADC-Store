@@ -40,21 +40,16 @@ class FCarrello implements FBase
         $carrello = new ECarrello();
         $carrello->setId($id);
         $carrello->setNome($nome);
-
-
-        // MAIL ?????
-
         self::prelevaProdottiDalCarrello($carrello);
         return $carrello;
     }
 
     /**
      * Memorizza un'istanza di ECarrello sul database e restituisce un booleano che indica l'esito dell'operazione.
-     * @param ECarrello $carrello
-     * @param string $mailutente
+     * @param $carrello
      * @return bool
      */
-    public static function store(ECarrello $carrello, string $mailutente): bool {
+    public static function store(ECarrello $carrello): bool {
         $pdo = FConnectionDB::connect();
         $query = "INSERT INTO Carrello VALUES(:id, :nome, :mailutente)";
         $stmt = $pdo->prepare($query);

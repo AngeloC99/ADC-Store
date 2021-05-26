@@ -3,7 +3,7 @@
 
 class FUtenteReg implements FBase
 {
-    public static function exist(string $email,string $key2='', string $key3='')  : bool {
+    public static function exist($email, $key2 = null, $key3 = null)  : bool {
         $pdo = FConnectionDB::connect();
         $query = "SELECT * FROM UtenteReg WHERE email= :email";
         $stmt = $pdo->prepare($query);
@@ -18,7 +18,7 @@ class FUtenteReg implements FBase
 
     }
 
-    public static function delete(string $email,string $key2='', string $key3='') : bool{
+    public static function delete($email, $key2 = null, $key3 = null) : bool{
         $pdo = FConnectionDB::connect();
         $query = "DELETE FROM UtenteReg WHERE email= :email";
         $stmt = $pdo->prepare($query);
@@ -32,7 +32,7 @@ class FUtenteReg implements FBase
 
     }
 
-    public static function load(string $email,string $key2='', string $key3='') : EUtenteReg
+    public static function load($email, $key2 = null, $key3 = null) : EUtenteReg
     {
         $pdo = FConnectionDB::connect();
         $query = "SELECT * FROM UtenteReg WHERE email= :email";
@@ -107,7 +107,139 @@ class FUtenteReg implements FBase
                 $utenti[] = $user;
         }
         return $utenti;
+    }
 
+    public static function salvaIndirizzoUtente(EIndirizzo $indirizzo, string $mailutente): bool {
+        $ris = FIndirizzo::store($indirizzo);
+
+        $pdo = FConnectionDB::connect();
+        $query = "INSERT INTO UtenteSalvaIndirizzo VALUES(:mailutente, :via, :numero, :cap)";
+        $stmt = $pdo->prepare($query);
+        $ris1 = $stmt->execute(array(
+            ':via' => $indirizzo->getVia(),
+            ':numero' => $indirizzo->getNumero(),
+            ':cap' => $indirizzo->getCap(),
+            ':mailutente' => $mailutente));
+
+        return $ris AND $ris1;
+    }
+
+    public static function eliminaIndirizzoUtente(string $via, string $numerocivico, string $cap, string $mailutente): bool {
+        $ris = FIndirizzo::delete($via, $numerocivico, $cap);
+
+        $pdo = FConnectionDB::connect();
+        $query = "DELETE FROM UtenteSalvaIndirizzo 
+                WHERE via = :via AND numerocivico = :numero AND cap = :cap AND mailutente = :mailutente";
+        $stmt = $pdo->prepare($query);
+        $ris1 = $stmt->execute(array(
+            ':via' => $via,
+            ':numero' => $numerocivico,
+            ':cap' => $cap,
+            ':mailutente' => $mailutente));
+
+        return $ris AND $ris1;
+    }
+
+    /**
+     * Restituisce tutte le istanze di EIndirizzo presenti nell'apposita tabella del database ed appartenenti ad un
+     * determinato EUtenteReg.
+     * @param string $mailutente
+     * @return array
+     */
+    public static function prelevaIndirizziUtente(string $mailutente): array {
+        $pdo = FConnectionDB::connect();
+        $stmt = $pdo->prepare("SELECT * FROM UtenteSalvaIndirizzo INNER JOIN Indirizzo 
+                            ON UtenteSalvaIndirizzo.via = Indirizzo.via AND
+                               UtenteSalvaIndirizzo.numerocivico = Indirizzo.numerocivico AND
+                               UtenteSalvaIndirizzo.cap = Indirizzo.cap
+                               WHERE UtenteSalvaIndirizzo.mailutente = :mailutente");
+        $stmt->execute([':mailutente' => $mailutente]);
+        $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $indirizzi = array();
+        foreach ($rows as $row) {
+            $ind = new EIndirizzo($row['via'],
+                $row['numerocivico'],
+                $row['comune'],
+                $row['provincia'],
+                $row['cap'],
+                $row['predefinito']);
+            $indirizzi[] = $ind;
+        }
+        return $indirizzi;
+    }
+
+    public static function salvaCartaUtente(ECartaCredito $carta, string $mailutente): bool {
+        $ris = FCartaCredito::store($carta);
+
+        $pdo = FConnectionDB::connect();
+        $query = "INSERT INTO UtenteUsaCarta VALUES(:mailutente, :numerocarta)";
+        $stmt = $pdo->prepare($query);
+        $ris1 = $stmt->execute(array(
+            ':mailutente' => $mailutente,
+            ':numerocarta' => $carta->getNumero()));
+
+        return $ris AND $ris1;
+    }
+
+    public static function eliminaCartaUtente(string $numero, string $mailutente): bool {
+        $ris = FCartaCredito::delete($numero);
+
+        $pdo = FConnectionDB::connect();
+        $query = "DELETE FROM UtenteUsaCarta WHERE mailutente = :mailutente AND numerocarta = :numerocarta";
+        $stmt = $pdo->prepare($query);
+        $ris1 = $stmt->execute(array(':mailutente' => $mailutente,':numerocarta' => $numero));
+
+        return $ris AND $ris1;
+    }
+
+    /**
+     * Restituisce tutte le istanze di ECartaCredito presenti nell'apposita tabella del database ed appartenenti ad un
+     * determinato utente.
+     * @param string $mailutente
+     * @return array
+     */
+    public static function prelevaCarteUtente(string $mailutente): array {
+        $pdo = FConnectionDB::connect();
+        $stmt = $pdo->prepare("SELECT * FROM CartaCredito INNER JOIN UtenteUsaCarta 
+                                ON CartaCredito.numero = UtenteUsaCarta.numero 
+                                WHERE UtenteUsaCarta.mailutente = :mailutente");
+        $stmt->execute([':mailutente' => $mailutente]);
+        $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $carte = array();
+        foreach ($rows as $row) {
+            $carta = new ECartaCredito($row['titolare'],
+                $row['numero'],
+                $row['circuito'],
+                $row['scadenza'],
+                $row['cvv'],
+                $row['ammontare']);
+            $carte[] = $carta;
+        }
+        return $carte;
+    }
+
+    public static function salvaCarrelloUtente(ECarrello $carrello, string $mailutente): bool {
+        $ris = FCarrello::store($carrello);
+
+        $pdo = FConnectionDB::connect();
+        $query = "INSERT INTO UtenteUsaCarta VALUES(:mailutente, :numerocarta)";
+        $stmt = $pdo->prepare($query);
+        $ris1 = $stmt->execute(array(
+            ':mailutente' => $mailutente,
+            ':numerocarta' => $carta->getNumero()));
+
+        return $ris AND $ris1;
+    }
+
+    public static function eliminaCarrelloUtente(string $numero, string $mailutente): bool {
+        $ris = FCartaCredito::delete($via, $numerocivico, $cap);
+
+        $pdo = FConnectionDB::connect();
+        $query = "DELETE FROM UtenteUsaCarta WHERE mailutente = :mailutente AND numerocarta = :numerocarta";
+        $stmt = $pdo->prepare($query);
+        $ris1 = $stmt->execute(array(':mailutente' => $mailutente,':numerocarta' => $numero));
+
+        return $ris AND $ris1;
     }
 
 }
