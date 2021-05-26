@@ -3,7 +3,7 @@
 
 class FUtenteReg implements FBase
 {
-    public static function exist(string $email)  : bool {
+    public static function exist(string $email,string $key2='', string $key3='')  : bool {
         $pdo = FConnectionDB::connect();
         $query = "SELECT * FROM UtenteReg WHERE email= :email";
         $stmt = $pdo->prepare($query);
@@ -18,7 +18,7 @@ class FUtenteReg implements FBase
 
     }
 
-    public static function delete(string $email) : bool{
+    public static function delete(string $email,string $key2='', string $key3='') : bool{
         $pdo = FConnectionDB::connect();
         $query = "DELETE FROM UtenteReg WHERE email= :email";
         $stmt = $pdo->prepare($query);
@@ -32,7 +32,7 @@ class FUtenteReg implements FBase
 
     }
 
-    public static function load(string $email) : EUtenteReg
+    public static function load(string $email,string $key2='', string $key3='') : EUtenteReg
     {
         $pdo = FConnectionDB::connect();
         $query = "SELECT * FROM UtenteReg WHERE email= :email";

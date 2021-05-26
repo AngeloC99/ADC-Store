@@ -1,18 +1,18 @@
 <?php
 
 
-class FBuonoSconto
+class FBuonoSconto implements FBase
 {
-    public static function exist(string $key): bool
+    public static function exist(string $key,string $key2='', string $key3=''): bool
     {
         $pdo=FConnectionDB::connect();
-        $stmt=$pdo->prepare("SELECT * FROM Immagine WHERE codice=?");
+        $stmt=$pdo->prepare("SELECT * FROM BuonoSconto WHERE codice=?");
         $ris=$stmt->execute([$key]);
         return $ris;
 
     }
 
-    public static function delete(string $key): bool
+    public static function delete(string $key,string $key2='', string $key3=''): bool
     {
         $pdo=FConnectionDB::connect();
         $stmt=$pdo->prepare("DELETE FROM BuonoSconto WHERE codice=?");
@@ -20,7 +20,7 @@ class FBuonoSconto
         return $ris;
     }
 
-    public static function load(string $key) : EBuonoSconto
+    public static function load(string $key,string $key2='', string $key3='') : EBuonoSconto
     {
         $pdo=FConnectionDB::connect();
         $stmt=$pdo->prepare("SELECT * FROM BuonoSconto WHERE codice=?");
@@ -45,7 +45,7 @@ class FBuonoSconto
 
     }
 
-    public static function update($bs1,$bs2=null): bool //parametro di FBase da discutere
+    public static function update($bs1): bool //parametro di FBase da discutere
     {
         $pdo=FConnectionDB::connect();
         $stmt1 = $pdo->prepare("UPDATE BuonoSconto SET ammontare = $bs1->getAmmontare(), percentuale = $bs1->isPercentuale(), scadenza = $bs1->getScadenza(), mailutente = ?????? WHERE codice=?");

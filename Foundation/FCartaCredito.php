@@ -15,7 +15,7 @@ class FCartaCredito
      * @param string $numero
      * @return bool
      */
-    public static function exist(string $numero): bool {
+    public static function exist(string $numero,string $key2='', string $key3=''): bool {
         $pdo = FConnectionDB::connect();
         $stmt = $pdo->prepare("SELECT * FROM CartaCredito WHERE numero=:numero");
         $ris = $stmt->execute([':numero' => $numero]);
@@ -27,7 +27,7 @@ class FCartaCredito
      * @param string $numero
      * @return ECartaCredito
      */
-    public static function load(string $numero) : ECartaCredito {
+    public static function load(string $numero,string $key2='', string $key3='') : ECartaCredito {
         $pdo = FConnectionDB::connect();
         $stmt = $pdo->prepare("SELECT * FROM CartaCredito WHERE numero=:numero");
         $stmt->execute([':numero' => $numero]);

@@ -14,7 +14,7 @@ interface FBase
      * @param string $key
      * @return bool
      */
-    public static function exist(string $key): bool;
+    public static function exist(string $key1, string $key2='', string $key3=''): bool;
 
     /**
      * Cancella tutte le n-uple di una tabella nel database aventi come chiave primaria il valore passato come
@@ -22,7 +22,7 @@ interface FBase
      * @param string $key
      * @return bool
      */
-    public static function delete(string $key): bool;
+    public static function delete(string $key1, string $key2='', string $key3=''): bool;
 
     /**
      * Restituisce tutte le n-uple di una tabella nel database aventi per chiave primaria il valore passato come
@@ -30,7 +30,7 @@ interface FBase
      * @param string $key
      * @return object
      */
-    public static function load(string $key);
+    public static function load(string $key1, string $key2='', string $key3='');
 
     /**
      * Memorizza in una tabella del database le informazioni riguardanti l'oggetto passato come argomento.
@@ -43,8 +43,7 @@ interface FBase
 
     /**
      * @param $obj1
-     * @param null $obj2  //valore di default del secondo parametro: se viene fornito un oggetto esso viene sovrascritto
      * @return bool
      */
-    public static function update($obj1, $obj2=null): bool;
+    public static function update($obj): bool;
 }

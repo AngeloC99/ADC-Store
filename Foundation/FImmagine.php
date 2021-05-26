@@ -3,7 +3,7 @@
 
 class FImmagine implements FBase
 {
-    public static function exist(string $key): bool
+    public static function exist(string $key,string $key2='', string $key3=''): bool
     {
         $pdo=FConnectionDB::connect();
         $stmt=$pdo->prepare("SELECT * FROM Immagine WHERE nome=?");
@@ -12,7 +12,7 @@ class FImmagine implements FBase
 
     }
 
-    public static function delete(string $key): bool
+    public static function delete(string $key,string $key2='', string $key3=''): bool
     {
         $pdo=FConnectionDB::connect();
         $stmt=$pdo->prepare("DELETE FROM Immagine WHERE nome=?");
@@ -20,7 +20,7 @@ class FImmagine implements FBase
         return $ris;
     }
 
-    public static function load(string $nome) : EImmagine
+    public static function load(string $nome,string $key2='', string $key3='') : EImmagine
     {
         $pdo=FConnectionDB::connect();
         $stmt=$pdo->prepare("SELECT * FROM Premio WHERE nome=?");
@@ -46,7 +46,7 @@ class FImmagine implements FBase
 
     }
 
-    public static function update($img1,$img2=null): bool //parametro di FBase da discutere
+    public static function update($img1): bool //parametro di FBase da discutere
     {
         $pdo=FConnectionDB::connect();
         $stmt1 = $pdo->prepare("UPDATE Immagine SET formato = $img1->getFormato(), size = $img1->getSize(), byte = $img1->getByte(), larghezza = $img1->getLarghezza(), altezza = $img1->getAltezza(), mime = $img1->Mime() WHERE nome=?");

@@ -3,7 +3,7 @@
 require_once '../autoloader.php';
 class FPremio implements FBase
 {
-    public static function exist(string $key): bool
+    public static function exist(string $key,string $key2='', string $key3=''): bool
     {
         $pdo=FConnectionDB::connect();
         $stmt=$pdo->prepare("SELECT * FROM Premio WHERE id=?");
@@ -13,7 +13,7 @@ class FPremio implements FBase
 
     }
 
-    public static function delete(string $key): bool
+    public static function delete(string $key,string $key2='', string $key3=''): bool
     {
         $pdo=FConnectionDB::connect();
         $stmt=$pdo->prepare("SELECT * FROM Premio WHERE id=?");
@@ -31,7 +31,7 @@ class FPremio implements FBase
         }
     }
 
-    public static function load(string $nome) :EPremio
+    public static function load(string $nome,string $key2='', string $key3='') :EPremio
     {
         $pdo=FConnectionDB::connect();
         $stmt=$pdo->prepare("SELECT * FROM Premio WHERE nome=?");
@@ -65,7 +65,7 @@ class FPremio implements FBase
 
     }
 
-    public static function update($obj1,$obj2=null): bool //parametro di FBase da discutere
+    public static function update($obj1): bool //parametro di FBase da discutere
     {
         $pdo=FConnectionDB::connect();
         $stmt1 = $pdo->prepare("UPDATE Premio SET punti = $obj1->getPrezzoInPunti(), nome = $obj1->getNome(), descrizione = $obj1->getDescrizione(), quantita = $obj1->getQuantita(), marca = $obj1->getMarca(), nomeImmagine = $obj1->getImmagine()->getNome() WHERE id=?");

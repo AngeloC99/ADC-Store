@@ -7,7 +7,7 @@
  * @package Foundation
  */
 
-class FCarrello
+class FCarrello implements FBase
 {
     /**
      * Restituisce un booleano che indica la presenza o meno di una determinata istanza di ECarrello nell'apposita
@@ -15,7 +15,7 @@ class FCarrello
      * @param string $id
      * @return bool
      */
-    public static function exist(string $id): bool {
+    public static function exist(string $id,string $key2='', string $key3=''): bool {
         $pdo = FConnectionDB::connect();
         $stmt = $pdo->prepare("SELECT * FROM Carrello WHERE id = :id");
         $ris = $stmt->execute([':id' => $id]);
@@ -27,7 +27,7 @@ class FCarrello
      * @param string $id
      * @return ECarrello
      */
-    public static function load(string $id) : ECarrello {
+    public static function load(string $id,string $key2='', string $key3='') : ECarrello {
         $pdo = FConnectionDB::connect();
         $stmt = $pdo->prepare("SELECT * FROM Carrello WHERE id = :id");
         $stmt->execute([':id' => $id]);
@@ -80,7 +80,7 @@ class FCarrello
      * @param string $id
      * @return bool
      */
-    public static function delete(string $id): bool {
+    public static function delete(string $id,string $key2='', string $key3=''): bool {
         $pdo = FConnectionDB::connect();
         $stmt = $pdo->prepare("DELETE FROM Carrello WHERE id = :id");
         $ris = $stmt->execute([':id' => $id]);

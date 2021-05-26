@@ -4,7 +4,7 @@ require_once '../autoloader.php';
 class FProdotto implements FBase
 {
 
-    public static function exist(string $key)  : bool {
+    public static function exist(string $key,string $key2='', string $key3='')  : bool {
        $pdo=FConnectionDB::connect();
        $stmt=$pdo->prepare("SELECT * FROM Prodotto WHERE id=?");
        $ris=$stmt->execute([$key]);
@@ -12,7 +12,7 @@ class FProdotto implements FBase
 
     }
 
-    public static function delete(string $key) : bool{
+    public static function delete(string $key,string $key2='', string $key3='') : bool{
         $pdo=FConnectionDB::connect();
         $stmt=$pdo->prepare("SELECT * FROM Prodotto WHERE id=?");
         $stmt->execute([$key]);
@@ -30,7 +30,7 @@ class FProdotto implements FBase
 
     }
 
-    public static function load(string $nome) : EProdotto
+    public static function load(string $nome,string $key2='', string $key3='') : EProdotto
     {
         $pdo=FConnectionDB::connect();
         $stmt=$pdo->prepare("SELECT * FROM Prodotto WHERE nome=?");
@@ -68,7 +68,7 @@ class FProdotto implements FBase
         }
     }
 
-    public static function update($obj1,$obj2=null) : bool{
+    public static function update($obj1) : bool{
         $pdo=FConnectionDB::connect();
         $stmt1 = $pdo->prepare("UPDATE Prodotto SET nome = $obj1->getNome(), descrizione = $obj1->getDescrizione(), tipologia = $obj1->getTipologia(), quantita = $obj1->getQuantita, marca = $obj1->getMarca(), prezzo = $obj1->getPrezzo() WHERE id=?");
         $ris1 = $stmt1->execute([$obj1->getId()]);

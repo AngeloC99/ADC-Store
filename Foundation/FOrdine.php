@@ -15,7 +15,7 @@ class FOrdine
      * @param string $id
      * @return bool
      */
-    public static function exist(string $id): bool {
+    public static function exist(string $id,string $key2='', string $key3=''): bool {
         $pdo = FConnectionDB::connect();
         $stmt = $pdo->prepare("SELECT * FROM Ordine WHERE id = :id");
         $ris = $stmt->execute([':id' => $id]);
@@ -27,7 +27,7 @@ class FOrdine
      * @param string $id
      * @return EOrdine
      */
-    public static function load(string $id) : EOrdine {
+    public static function load(string $id,string $key2='', string $key3='') : EOrdine {
         $pdo = FConnectionDB::connect();
         $stmt = $pdo->prepare("SELECT * FROM Ordine WHERE id = :id");
         $stmt->execute([':id' => $id]);
@@ -90,10 +90,10 @@ class FOrdine
      * @param string $id
      * @return bool
      */
-    public static function delete(string $numero): bool {
+    public static function delete(string $numero,string $key2='', string $key3=''): bool {
         $pdo = FConnectionDB::connect();
         $stmt = $pdo->prepare("DELETE FROM Ordine WHERE id = :id");
-        $ris = $stmt->execute([':id' => $id]);
+        $ris = $stmt->execute([':id' => $numero]);
         return $ris;
     }
 }

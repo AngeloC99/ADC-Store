@@ -3,7 +3,7 @@
 
 class FAmministratore implements FBase
 {
-    public static function exist(string $email)  : bool {
+    public static function exist(string $email, string $key2='', string $key3='')  : bool {
         $pdo = FConnectionDB::connect();
         $query = "SELECT * FROM amministratore WHERE email= :email";
         $stmt = $pdo->prepare($query);
@@ -18,7 +18,7 @@ class FAmministratore implements FBase
 
     }
 
-    public static function delete(string $email) : bool{
+    public static function delete(string $email,string $key2='', string $key3='') : bool{
         $pdo = FConnectionDB::connect();
         $query = "DELETE FROM amministratore WHERE email= :email";
         $stmt = $pdo->prepare($query);
@@ -32,7 +32,7 @@ class FAmministratore implements FBase
 
     }
 
-    public static function load(string $email) : EAmministratore
+    public static function load(string $email,string $key2='', string $key3='') : EAmministratore
     {
         $pdo = FConnectionDB::connect();
         $query = "SELECT * FROM amministratore WHERE email= :email";
