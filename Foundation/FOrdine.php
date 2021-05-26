@@ -3,7 +3,6 @@
 /**
  * La classe FOrdine garantisce la permanenza dei dati per la classe EOrdine.
  * Class FOrdine
- * @access public
  * @package Foundation
  */
 
@@ -12,10 +11,12 @@ class FOrdine implements FBase
     /**
      * Restituisce un booleano che indica la presenza o meno di una determinata istanza di EOrdine nell'apposita
      * tabella del database.
-     * @param string $id
+     * @param $id
+     * @param $key2
+     * @param $key3
      * @return bool
      */
-    public static function exist(string $id,string $key2='', string $key3=''): bool {
+    public static function exist($id, $key2 = null, $key3 = null): bool {
         $pdo = FConnectionDB::connect();
         $stmt = $pdo->prepare("SELECT * FROM Ordine WHERE id = :id");
         $ris = $stmt->execute([':id' => $id]);
@@ -24,10 +25,12 @@ class FOrdine implements FBase
 
     /**
      * Carica in RAM l'istanza di EOrdine che possiede la chiave primaria fornita.
-     * @param string $id
+     * @param $id
+     * @param $key2
+     * @param $key3
      * @return EOrdine
      */
-    public static function load(string $id,string $key2='', string $key3='') : EOrdine {
+    public static function load($id, $key2 = null, $key3 = null) : EOrdine {
         $pdo = FConnectionDB::connect();
         $stmt = $pdo->prepare("SELECT * FROM Ordine WHERE id = :id");
         $stmt->execute([':id' => $id]);
@@ -38,18 +41,20 @@ class FOrdine implements FBase
         $via = $rows[0]['viaConsegna'];
         $numero = $rows[0]['numerocivicoConsegna'];
         $cap = $rows[0]['capConsegna'];
-        $carrello = FCarrello::load($id);
+        $carrello = FCarrello::load($idCarr);
         $ind = FIndirizzo::load($via, $numero, $cap);
-        $ordine = new EOrdine($carrello,$ind);
-        return $ordine;
+        $ris = new EOrdine($carrello, $ind);
+        $ris->setPrezzoTotale($prezzo);
+        $ris->setDataAcquisto($data);
+        return $ris;
     }
 
     /**
      * Memorizza un'istanza di EOrdine sul database e restituisce un booleano che indica l'esito dell'operazione.
-     * @param EOrdine $ordine
+     * @param $ordine
      * @return bool
      */
-    public static function store(EOrdine $ordine): bool {
+    public static function store($ordine): bool {
         $pdo = FConnectionDB::connect();
         $query = "INSERT INTO Ordine VALUES(:id, :dataacquisto, :prezzototale, :idcarrello, :viaConsegna, :numerocivicoConsegna, :capConsegna)";
         $stmt = $pdo->prepare($query);
@@ -67,10 +72,10 @@ class FOrdine implements FBase
     /**
      * Aggiorna i valori di un'istanza di EOrdine sul database e restituisce un booleano che indica l'esito
      * dell'operazione.
-     * @param EOrdine $ordine
+     * @param $ordine
      * @return bool
      */
-    public static function update(EOrdine $ordine): bool {
+    public static function update($ordine): bool {
         $pdo = FConnectionDB::connect();
         $stmt = $pdo->prepare("UPDATE Ordine SET dataacquisto = :dataacquisto, prezzototale= :prezzototale, 
                         idcarrello = :idcarrello, viaConsegna = :viaConsegna, numerocivicoConsegna = :numerocivicoConsegna,
@@ -81,19 +86,22 @@ class FOrdine implements FBase
             ':idcarrello' => $ordine->getCarrello()->getId(),
             ':viaConsegna' => $ordine->getIndirizzo()->getVia(),
             ':numerocivicoConsegna' => $ordine->getIndirizzo()->getNumero(),
-            ':capConsegna' => $ordine->getIndirizzo()->getCap()));
+            ':capConsegna' => $ordine->getIndirizzo()->getCap(),
+            ':id' => $ordine->getId()));
         return $ris;
     }
 
     /**
      * Cancella un'istanza di EOrdine sul database e restituisce un booleano che indica l'esito dell'operazione.
-     * @param string $id
+     * @param $id
+     * @param $key2
+     * @param $key3
      * @return bool
      */
-    public static function delete(string $numero,string $key2='', string $key3=''): bool {
+    public static function delete($id, $key2 = null, $key3 = null): bool {
         $pdo = FConnectionDB::connect();
         $stmt = $pdo->prepare("DELETE FROM Ordine WHERE id = :id");
-        $ris = $stmt->execute([':id' => $numero]);
+        $ris = $stmt->execute([':id' => $id]);
         return $ris;
     }
 }

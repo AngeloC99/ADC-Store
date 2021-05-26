@@ -3,7 +3,6 @@
 /**
  * La classe FCarrello garantisce la permanenza dei dati per la classe ECarrello.
  * Class FCarrello
- * @access public
  * @package Foundation
  */
 
@@ -12,10 +11,12 @@ class FCarrello implements FBase
     /**
      * Restituisce un booleano che indica la presenza o meno di una determinata istanza di ECarrello nell'apposita
      * tabella del database.
-     * @param string $id
+     * @param $id
+     * @param $key2
+     * @param $key3
      * @return bool
      */
-    public static function exist(string $id,string $key2='', string $key3=''): bool {
+    public static function exist($id, $key2 = null, $key3 = null): bool {
         $pdo = FConnectionDB::connect();
         $stmt = $pdo->prepare("SELECT * FROM Carrello WHERE id = :id");
         $ris = $stmt->execute([':id' => $id]);
@@ -24,10 +25,12 @@ class FCarrello implements FBase
 
     /**
      * Carica in RAM l'istanza di ECarrello che possiede la chiave primaria fornita.
-     * @param string $id
+     * @param $id
+     * @param $key2
+     * @param $key3
      * @return ECarrello
      */
-    public static function load(string $id,string $key2='', string $key3='') : ECarrello {
+    public static function load($id, $key2 = null, $key3 = null) : ECarrello {
         $pdo = FConnectionDB::connect();
         $stmt = $pdo->prepare("SELECT * FROM Carrello WHERE id = :id");
         $stmt->execute([':id' => $id]);
@@ -37,6 +40,8 @@ class FCarrello implements FBase
         $carrello = new ECarrello();
         $carrello->setId($id);
         $carrello->setNome($nome);
+
+
         // MAIL ?????
 
         self::prelevaProdottiDalCarrello($carrello);
@@ -64,10 +69,10 @@ class FCarrello implements FBase
     /**
      * Aggiorna i valori di un'istanza di ECarrello sul database e restituisce un booleano che indica l'esito
      * dell'operazione.
-     * @param ECarrello $carrello
+     * @param $carrello
      * @return bool
      */
-    public static function update(ECarrello $carrello): bool {
+    public static function update($carrello): bool {
         $pdo = FConnectionDB::connect();
         $stmt = $pdo->prepare("UPDATE Carrello SET nome = :nome WHERE id = :id");
         $ris = $stmt->execute([':nome' => $carrello->getNome()]);
@@ -77,10 +82,12 @@ class FCarrello implements FBase
 
     /**
      * Cancella un'istanza di ECarrello sul database e restituisce un booleano che indica l'esito dell'operazione.
-     * @param string $id
+     * @param $id
+     * @param $key2
+     * @param $key3
      * @return bool
      */
-    public static function delete(string $id,string $key2='', string $key3=''): bool {
+    public static function delete($id, $key2 = null, $key3 = null): bool {
         $pdo = FConnectionDB::connect();
         $stmt = $pdo->prepare("DELETE FROM Carrello WHERE id = :id");
         $ris = $stmt->execute([':id' => $id]);
@@ -124,8 +131,8 @@ class FCarrello implements FBase
         $stmt->execute([':idcarrello' => $carrello->getId()]);
         $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
         foreach ($rows as $row) {
-            $prod = FProdotto::load(row['nome']);
-            $carrello->aggiungiProdotto($prod, row['quantitaNelCarrello']);
+            $prod = FProdotto::load($row['nome']);
+            $carrello->aggiungiProdotto($prod, $row['quantitaNelCarrello']);
         }
     }
 
@@ -135,7 +142,7 @@ class FCarrello implements FBase
      */
     private static function salvaProdottiNelCarrello(ECarrello $carrello): void {
         $pdo = FConnectionDB::connect();
-        $stmt = $pdo->prepare("INSERT INTO Contiene VALUES (:idcarrello, :idprodotto, :quantitaNelCarrello");
+        $stmt = $pdo->prepare("INSERT INTO Contiene VALUES (:idcarrello, :idprodotto, :quantitaNelCarrello)");
         foreach ($carrello->getProdotti() as $idprod => $quantita) {
             $stmt->execute(array(':idcarrello' => $carrello->getId(),
                             ':idprodotto' => $idprod,

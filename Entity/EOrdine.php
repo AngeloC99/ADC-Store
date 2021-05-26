@@ -89,6 +89,7 @@ class EOrdine
     }
 
     /**
+     * Imposta il prezzo totale dell'ordine.
      * @param float $prezzoTotale
      */
     public function setPrezzoTotale(float $prezzoTotale): void {
@@ -96,6 +97,7 @@ class EOrdine
     }
 
     /**
+     * Imposta il carrello acquistato tramite l'ordine.
      * @param ECarrello $carrello
      */
     public function setCarrello(ECarrello $carrello): void {
@@ -103,6 +105,7 @@ class EOrdine
     }
 
     /**
+     * Imposta l'indirizzo di consegna dell'ordine.
      * @param EIndirizzo $indirizzo
      */
     public function setIndirizzo(EIndirizzo $indirizzo): void {
@@ -110,11 +113,18 @@ class EOrdine
     }
 
     /**
-     * Imposta l'ID del carrello
+     * Imposta l'ID dell'ordine.
      * @param string $id
      */
-    public function setId(string $id): void{
+    public function setId(string $id): void {
         $this->id = $id;
     }
 
+    /**
+     * Imposta la data di acquisto del carrello.
+     * @param DateTime $dataAcquisto
+     */
+    public function setDataAcquisto(DateTime $dataAcquisto): void {
+        $this->dataAcquisto = $dataAcquisto;
+    }
 }

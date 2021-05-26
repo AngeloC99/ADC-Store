@@ -3,19 +3,20 @@
 /**
  * La classe FCartaCredito garantisce la permanenza dei dati per la classe ECartaCredito.
  * Class FCartaCredito
- * @access public
  * @package Foundation
  */
 
-class FCartaCredito
+class FCartaCredito implements FBase
 {
     /**
      * Restituisce un booleano che indica la presenza o meno di una determinata istanza di ECartaCredito nell'apposita
      * tabella del database.
-     * @param string $numero
+     * @param $numero
+     * @param $key2
+     * @param $key3
      * @return bool
      */
-    public static function exist(string $numero,string $key2='', string $key3=''): bool {
+    public static function exist($numero, $key2 = null, $key3 = null): bool {
         $pdo = FConnectionDB::connect();
         $stmt = $pdo->prepare("SELECT * FROM CartaCredito WHERE numero=:numero");
         $ris = $stmt->execute([':numero' => $numero]);
@@ -24,10 +25,12 @@ class FCartaCredito
 
     /**
      * Carica in RAM l'istanza di ECartaCredito che possiede la chiave primaria fornita.
-     * @param string $numero
+     * @param $numero
+     * @param $key2
+     * @param $key3
      * @return ECartaCredito
      */
-    public static function load(string $numero,string $key2='', string $key3='') : ECartaCredito {
+    public static function load($numero, $key2 = null, $key3 = null) : ECartaCredito {
         $pdo = FConnectionDB::connect();
         $stmt = $pdo->prepare("SELECT * FROM CartaCredito WHERE numero=:numero");
         $stmt->execute([':numero' => $numero]);

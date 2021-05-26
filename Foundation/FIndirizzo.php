@@ -3,21 +3,20 @@
 /**
  * La classe FIndirizzo garantisce la permanenza dei dati per la classe EIndirizzo.
  * Class FIndirizzo
- * @access public
  * @package Foundation
  */
 
-class FIndirizzo
+class FIndirizzo implements FBase
 {
     /**
      * Restituisce un booleano che indica la presenza o meno di una determinata istanza di EIndirizzo nell'apposita
      * tabella del database.
-     * @param string $via
-     * @param int $numerocivico
-     * @param string $cap
+     * @param $via
+     * @param $numerocivico
+     * @param $cap
      * @return bool
      */
-    public static function exist(string $via, int $numerocivico, string $cap): bool {
+    public static function exist($via,  $numerocivico, $cap): bool {
         $pdo = FConnectionDB::connect();
         $stmt = $pdo->prepare("SELECT * FROM Indirizzo WHERE via=:via AND numerocivico = :numero AND cap = :cap");
         $ris = $stmt->execute(array(
@@ -29,12 +28,12 @@ class FIndirizzo
 
     /**
      * Carica in RAM l'istanza di EIndirizzo che possiede la chiave primaria fornita.
-     * @param string $via
-     * @param int $numerocivico
-     * @param string $cap
+     * @param $via
+     * @param $numerocivico
+     * @param $cap
      * @return EIndirizzo
      */
-    public static function load(string $via, int $numerocivico, string $cap) : EIndirizzo {
+    public static function load($via, $numerocivico, $cap) : EIndirizzo {
         $pdo = FConnectionDB::connect();
         $stmt = $pdo->prepare("SELECT * FROM Indirizzo WHERE via = :via AND numerocivico = :numero AND cap = :cap");
         $stmt->execute(array(
@@ -80,10 +79,10 @@ class FIndirizzo
     /**
      * Aggiorna i valori di un'istanza di EIndirizzo sul database e restituisce un booleano che indica l'esito
      * dell'operazione.
-     * @param EIndirizzo $indirizzo
+     * @param $indirizzo
      * @return bool
      */
-    public static function update(EIndirizzo $indirizzo): bool {
+    public static function update($indirizzo): bool {
         $pdo = FConnectionDB::connect();
         $stmt = $pdo->prepare("UPDATE Indirizzo SET comune = :comune, provincia = :provincia, predefinito = :predefinito WHERE via=:via AND numerocivico=:numero AND cap=:cap");
         $ris = $stmt->execute(array(
