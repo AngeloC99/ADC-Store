@@ -7,7 +7,7 @@
  * @package Foundation
  */
 
-class FOrdine
+class FOrdine implements FBase
 {
     /**
      * Restituisce un booleano che indica la presenza o meno di una determinata istanza di EOrdine nell'apposita
