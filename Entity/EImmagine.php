@@ -8,6 +8,10 @@ class EImmagine
 {
     //ATTRIBUTI:
     /**
+     * Id:
+     */
+    private string $id;
+    /**
      * Nome dell'immagine.
      * @var string
      */
@@ -66,7 +70,7 @@ class EImmagine
             } //imposto il nome
             $this->nome=$s; //imposto il nome
         }
-
+        $this->id=uniqid('I');
         $immagine = file_get_contents($name);
         $this->byte = base64_encode($immagine);
         $info=getimagesize($full_name);  //recupero le info dall'immagine corrispondente al nome del file fornito
@@ -78,22 +82,6 @@ class EImmagine
         $this->altezza=$info[1];
         $this->mime=$info['mime']; //imposto il MIME dell'immagine per poter recuperare in seguito questa informazione per settare il Content-Type per l'HTTP
     }
-    //COSTRUTTORE 2:
-    /**
-     * Per istanziare un'immagine con parametri forniti direttamente (utile per load in FImmagine)
-     * @param string $name
-     */
-    public function __construct2(string $n,string $f,string $s,string $b,string $l,string $a,string $m)
-    {
-        $this->nome=$n;
-        $this->formato=$f;
-        $this->byte=$b;
-        $this->larghezza=$l;
-        $this->altezza=$a;
-        $this->mime=$m;
-        $this->size=$s;
-    }
-
 
     //METODI:
     /**
@@ -213,6 +201,14 @@ class EImmagine
     public function setByte(string $byte): void
     {
         $this->byte = $byte;
+    }
+
+    public function getId() : string{
+        return $this->id;
+    }
+
+    public function setId(string $s){
+        $this->id=$s;
     }
 
 
