@@ -3,7 +3,7 @@
 
 class FBuonoSconto implements FBase
 {
-    public static function exist(string $key,string $key2='', string $key3=''): bool
+    public static function exist($key, $key2, $key3): bool
     {
         $pdo=FConnectionDB::connect();
         $stmt=$pdo->prepare("SELECT * FROM BuonoSconto WHERE codice=?");
@@ -12,7 +12,7 @@ class FBuonoSconto implements FBase
 
     }
 
-    public static function delete(string $key,string $key2='', string $key3=''): bool
+    public static function delete($key, $key2, $key3): bool
     {
         $pdo=FConnectionDB::connect();
         $stmt=$pdo->prepare("DELETE FROM BuonoSconto WHERE codice=?");
@@ -20,7 +20,7 @@ class FBuonoSconto implements FBase
         return $ris;
     }
 
-    public static function load(string $key,string $key2='', string $key3='') : EBuonoSconto
+    public static function load($key, $key2, $key3) : EBuonoSconto
     {
         $pdo=FConnectionDB::connect();
         $stmt=$pdo->prepare("SELECT * FROM BuonoSconto WHERE codice=?");
@@ -28,29 +28,28 @@ class FBuonoSconto implements FBase
         $rows=$stmt->fetchAll(PDO::FETCH_ASSOC);
         $a=$rows['ammontare'];
         $s=$rows['scadenza'];
-        //$e=$rows['mailutente'];  //l'email serve per recuperare un buono ????????? perchè per istanziarlo non serve
-        $p=$rows['percentuale']; //nuovo campo nella tabella BuonoSconto
+        $p=$rows['percentuale'];
         $bs=new EBuonoSconto($p,$a);
         $bs->setScadenza($s);
         return $bs;
     }
 
-    public static function store($bs): bool
-    {
-        $pdo=FConnectionDB::connect();
-        $query="INSERT INTO BuonoSconto VALUES(?,?,?,?,?)";
-        $stmt=$pdo->prepare($query);
-        $ris=$stmt->execute([$bs->getCodice(),$bs->getAmmontare(),$bs->isPercentuale(),$bs->getScadenza(),$EMAIL??????]);
+    public static function store($bs, $mailutente): bool {
+        $pdo = FConnectionDB::connect();
+        $query = "INSERT INTO BuonoSconto VALUES(:cod, :amm, :perc, :scad, :mailutente)";
+        $stmt = $pdo->prepare($query);
+        $stmt->bindParam(':cod',$bs->getCodice());
+        $stmt->bindParam(':amm',$bs->getAmmontare());
+        $ris = $stmt->bindParam(':perc',$bs->isPercentuale());
+        $stmt->bindParam(':scad',$bs->getScadenza());
+        $stmt->bindParam(':mailutente',$mailutente);
+        $ris=$stmt->execute();
         return $ris;
-
     }
 
-    public static function update($bs1): bool //parametro di FBase da discutere
+    public static function update($bs1): bool
     {
-        $pdo=FConnectionDB::connect();
-        $stmt1 = $pdo->prepare("UPDATE BuonoSconto SET ammontare = $bs1->getAmmontare(), percentuale = $bs1->isPercentuale(), scadenza = $bs1->getScadenza(), mailutente = ?????? WHERE codice=?");
-        $ris1 = $stmt1->execute([$bs1->getCodice()]);
-        return $ris1;
+        return false; //il buono non puo' essere aggiornato in alcun modo.
     }
 
 }
