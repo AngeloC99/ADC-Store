@@ -58,16 +58,24 @@ $fInd->store($ind1, "adarossi@gmail.com");
 */
 
 //Testin classe FProdotto:
-$pr=new FPersistentManager();
+$pm=new FPersistentManager();
 $imm=new EImmagine('https://www.centralelattediroma.it/wp-content/uploads/2019/01/lattefresco_prova2.png');
+echo $imm->getId();
 //$imm2=new EImmagine('https://www.zooplus.it/magazine/wp-content/uploads/2020/10/1-32-768x512.jpg');
 $prod1 = new EProdotto("Latte","Centrale di Roma","Latte intero", 200, $imm, 1.50, "Latte");
-//$pr->store($imm,null);
+$pm->store($prod1);
+echo $pm->exist('FProdotto',$prod1->getId());
+/**$imm_rec=$pm->load('FImmagine',$id);
+echo $imm_rec->getNome();
+echo $imm_rec->getSize();
+*/
 //'https://www.zooplus.it/magazine/wp-content/uploads/2020/10/1-32-768x512.jpg'
 //$ris=$pr->exist($imm2->getId(),null,null,'FImmagine');
-$pr->store($prod1);
+//$pm->store($prod1);
 //$ris2=$pr->delete('FImmagine',$prod1->getImmagine()->getId());
 //echo $imm->getId();
 //echo $ris2;
+//$premio=new EPremio('Penna','Bic','Penna Bic di colore Nero',3,$imm,10);
+//$pm->store($premio);
 
 
