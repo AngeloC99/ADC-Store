@@ -3,7 +3,7 @@
 
 class FUtenteReg implements FBase
 {
-    public static function exist($email, $key2 = null, $key3 = null)  : bool {
+    public static function exist($email, $key2, $key3)  : bool {
         $pdo = FConnectionDB::connect();
         $query = "SELECT * FROM UtenteReg WHERE email= :email";
         $stmt = $pdo->prepare($query);
@@ -18,7 +18,7 @@ class FUtenteReg implements FBase
 
     }
 
-    public static function delete($email, $key2 = null, $key3 = null) : bool{
+    public static function delete($email, $key2, $key3) : bool{
         $pdo = FConnectionDB::connect();
         $query = "DELETE FROM UtenteReg WHERE email= :email";
         $stmt = $pdo->prepare($query);
@@ -32,7 +32,7 @@ class FUtenteReg implements FBase
 
     }
 
-    public static function load($email, $key2 = null, $key3 = null) : EUtenteReg
+    public static function load($email, $key2, $key3) : EUtenteReg
     {
         $pdo = FConnectionDB::connect();
         $query = "SELECT * FROM UtenteReg WHERE email= :email";
@@ -52,7 +52,7 @@ class FUtenteReg implements FBase
 
     }
 
-    public static function store($obj, $mailutente = null) : bool
+    public static function store($obj, $mailutente) : bool
     {
         $pdo = FConnectionDB::connect();
         $query="INSERT INTO UtenteReg VALUES(:email,:nome,:cognome,:password,:punti)";
@@ -72,17 +72,16 @@ class FUtenteReg implements FBase
         }
     }
 
-    public static function update($obj1, $obj2=null) : bool{
+    public static function update($obj1) : bool{
         $pdo = FConnectionDB::connect();
-        $query = "UPDATE UtenteReg SET nome = :nome, cognome = :cognome, email = :email, password = :password, punti = :punti  WHERE email = :email2";
+        $query = "UPDATE UtenteReg SET nome = :nome, cognome = :cognome, email = :email, password = :password, punti = :punti  WHERE email = :email";
         $stmt=$pdo->prepare($query);
         $ris = $stmt->execute(array(
-            ":nome" => $obj2->getNome(),
-            ":cognome" => $obj2->getCognome(),
-            ":email" => $obj2->getEmail(),
-            ":password" => $obj2->getPassword(),
-            ":punti" => $obj2->getPunti(),
-            ":email2" => $obj1->getEmail()));
+            ":nome" => $obj1->getNome(),
+            ":cognome" => $obj1->getCognome(),
+            ":password" => $obj1->getPassword(),
+            ":punti" => $obj1->getPunti(),
+            ":email" => $obj1->getEmail()));
 
         if ($ris==true){
             return true;
