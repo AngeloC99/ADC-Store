@@ -52,9 +52,10 @@ class FOrdine implements FBase
     /**
      * Memorizza un'istanza di EOrdine sul database e restituisce un booleano che indica l'esito dell'operazione.
      * @param $ordine
+     * @param $mailutente
      * @return bool
      */
-    public static function store($ordine): bool {
+    public static function store($ordine, $mailutente = null): bool {
         $pdo = FConnectionDB::connect();
         $query = "INSERT INTO Ordine VALUES(:id, :dataacquisto, :prezzototale, :idcarrello, :viaConsegna, :numerocivicoConsegna, :capConsegna)";
         $stmt = $pdo->prepare($query);

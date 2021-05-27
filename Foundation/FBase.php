@@ -43,9 +43,10 @@ interface FBase
      * Memorizza in una tabella del database le informazioni riguardanti l'oggetto passato come argomento.
      * Ritorna un valore booleano che indica l'esito dell'operazione.
      * @param $obj
+     * @param $mailutente
      * @return bool
      */
-    public static function store($obj): bool;
+    public static function store($obj, $mailutente): bool;
 
 
     /**

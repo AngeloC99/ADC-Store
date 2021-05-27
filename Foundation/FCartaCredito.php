@@ -47,9 +47,10 @@ class FCartaCredito implements FBase
     /**
      * Memorizza un'istanza di ECartaCredito sul database e restituisce un booleano che indica l'esito dell'operazione.
      * @param $carta
+     * @param $mailutente
      * @return bool
      */
-    public static function store($carta): bool {
+    public static function store($carta, $mailutente = null): bool {
         $pdo = FConnectionDB::connect();
         $query = "INSERT INTO CartaCredito VALUES(:numero, :titolare, :circuito, :cvv, :ammontare, :scadenza)";
         $stmt = $pdo->prepare($query);

@@ -52,7 +52,7 @@ class FUtenteReg implements FBase
 
     }
 
-    public static function store($obj) : bool
+    public static function store($obj, $mailutente = null) : bool
     {
         $pdo = FConnectionDB::connect();
         $query="INSERT INTO UtenteReg VALUES(:email,:nome,:cognome,:password,:punti)";
@@ -216,30 +216,6 @@ class FUtenteReg implements FBase
             $carte[] = $carta;
         }
         return $carte;
-    }
-
-    public static function salvaCarrelloUtente(ECarrello $carrello, string $mailutente): bool {
-        $ris = FCarrello::store($carrello);
-
-        $pdo = FConnectionDB::connect();
-        $query = "INSERT INTO UtenteUsaCarta VALUES(:mailutente, :numerocarta)";
-        $stmt = $pdo->prepare($query);
-        $ris1 = $stmt->execute(array(
-            ':mailutente' => $mailutente,
-            ':numerocarta' => $carta->getNumero()));
-
-        return $ris AND $ris1;
-    }
-
-    public static function eliminaCarrelloUtente(string $numero, string $mailutente): bool {
-        $ris = FCartaCredito::delete($via, $numerocivico, $cap);
-
-        $pdo = FConnectionDB::connect();
-        $query = "DELETE FROM UtenteUsaCarta WHERE mailutente = :mailutente AND numerocarta = :numerocarta";
-        $stmt = $pdo->prepare($query);
-        $ris1 = $stmt->execute(array(':mailutente' => $mailutente,':numerocarta' => $numero));
-
-        return $ris AND $ris1;
     }
 
 }

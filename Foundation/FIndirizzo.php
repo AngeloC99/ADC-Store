@@ -51,9 +51,10 @@ class FIndirizzo implements FBase
     /**
      * Memorizza un'istanza di EIndirizzo sul database e restituisce un booleano che indica l'esito dell'operazione.
      * @param $indirizzo
+     * @param $mailutente
      * @return bool
      */
-    public static function store($indirizzo): bool {
+    public static function store($indirizzo, $mailutente = null): bool {
         $pdo = FConnectionDB::connect();
         $query = "INSERT INTO Indirizzo VALUES(:via, :numero, :cap, :comune, :provincia, :predefinito)";
         $stmt = $pdo->prepare($query);
