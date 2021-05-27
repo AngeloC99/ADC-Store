@@ -2,7 +2,7 @@
 
 require_once "../autoloader.php";
 require_once '../configDB.php';
-
+/**
 $imm = new EImmagine("https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.carrefour.it%2Fon%2Fdemandware.static%2F-%2FSites-carrefour-master-catalog-IT%2Fdefault%2Fdw11998463%2Flarge%2FLATTEFRESCOAQCENROMAML500-0000080662594-1.png&f=1&nofb=1");
 $prod1 = new EProdotto("Latte","Centrale di Roma","Latte intero", 200, $imm, 1.50, "Latte");
 $prod2 = new EProdotto("Petto di pollo","Amadori","Pollo di alta qualità", 50, $imm, 3.50, "Carne");
@@ -55,3 +55,19 @@ $fInd->store($ind1, "adarossi@gmail.com");
 //$fInd->delete("Via Roma", 169, "Avezz");
 //$ind = new EIndirizzo("Via Milano", 1, "Rieti", "Ri", "00433", false);
 //$fInd->update($ind);
+*/
+
+//Testin classe FProdotto:
+$pr=new FPersistentManager();
+$imm=new EImmagine('https://www.centralelattediroma.it/wp-content/uploads/2019/01/lattefresco_prova2.png');
+//$imm2=new EImmagine('https://www.zooplus.it/magazine/wp-content/uploads/2020/10/1-32-768x512.jpg');
+$prod1 = new EProdotto("Latte","Centrale di Roma","Latte intero", 200, $imm, 1.50, "Latte");
+//$pr->store($imm,null);
+//'https://www.zooplus.it/magazine/wp-content/uploads/2020/10/1-32-768x512.jpg'
+//$ris=$pr->exist($imm2->getId(),null,null,'FImmagine');
+$pr->store($prod1);
+//$ris2=$pr->delete('FImmagine',$prod1->getImmagine()->getId());
+//echo $imm->getId();
+//echo $ris2;
+
+
