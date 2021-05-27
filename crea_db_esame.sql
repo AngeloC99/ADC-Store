@@ -11,6 +11,7 @@ CREATE TABLE Amministratore (
 );
 
 CREATE TABLE Immagine(
+    id CHAR(16) NOT NULL,
     nome VARCHAR(50) NOT NULL,
     formato VARCHAR(25) NOT NULL,
     size INT NOT NULL,
@@ -18,7 +19,7 @@ CREATE TABLE Immagine(
     larghezza INT NOT NULL,
     altezza INT NOT NULL,
     mime VARCHAR(30) NOT NULL,
-    PRIMARY KEY (nome)
+    PRIMARY KEY (id)
 );
 
 CREATE TABLE Premio(
@@ -28,9 +29,9 @@ CREATE TABLE Premio(
 	descrizione VARCHAR(100) NOT NULL,
 	quantita INT NOT NULL,
 	marca VARCHAR(15) NOT NULL,
-    nomeImmagine VARCHAR(50),
+    idImm CHAR(16) NOT NULL,
     PRIMARY KEY (id),
-    FOREIGN KEY (nomeImmagine) REFERENCES Immagine(nome)
+    FOREIGN KEY (idImm) REFERENCES Immagine(id)
     ON UPDATE CASCADE ON DELETE CASCADE
 );
 
@@ -116,9 +117,9 @@ CREATE TABLE Prodotto(
     quantita INT NOT NULL,
     marca VARCHAR(15) NOT NULL,
     prezzo INT,
-    nomeImmagine VARCHAR(20),
+    idImmagine CHAR(16) NOT NULL,
     PRIMARY KEY (id),
-    FOREIGN KEY (nomeImmagine) REFERENCES Immagine(nome)
+    FOREIGN KEY (idImmagine) REFERENCES Immagine(id)
     ON UPDATE CASCADE ON DELETE CASCADE
 );
 
