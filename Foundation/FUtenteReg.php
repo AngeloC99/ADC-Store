@@ -55,13 +55,13 @@ class FUtenteReg implements FBase
     public static function store($obj, $mailutente) : bool
     {
         $pdo = FConnectionDB::connect();
-        $query="INSERT INTO UtenteReg VALUES(:email,:nome,:cognome,:password,:punti)";
+        $query="INSERT INTO UtenteReg VALUES(:email,:nome,:cognome,:pw,:punti)";
         $stmt=$pdo->prepare($query);
         $ris = $stmt->execute(array(
             ":email" => $obj->getEmail(),
-            "nome" => $obj->getNome(),
-            "cognome" => $obj->getCognome(),
-            "password" => $obj->getPassword(),
+            ":nome" => $obj->getNome(),
+            ":cognome" => $obj->getCognome(),
+            ":pw" => $obj->getPassword(),
             ":punti" => $obj->getPunti()));
 
         if ($ris==true ){

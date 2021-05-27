@@ -4,15 +4,21 @@ require_once '../autoloader.php';
 class FProdotto implements FBase
 {
 
-    public static function exist(string $key,string $key2='', string $key3='')  : bool {
+    public static function exist($key, $key2, $key3)  : bool {
        $pdo=FConnectionDB::connect();
        $stmt=$pdo->prepare("SELECT * FROM Prodotto WHERE id=?");
-       $ris=$stmt->execute([$key]);
-       return $ris;
+       $stmt->execute([$key]);
+        $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        if(count($rows)==0){
+            return false;
+        }
+        else{
+            return true;
+        }
 
     }
 
-    public static function delete(string $key,string $key2='', string $key3='') : bool{
+    public static function delete($key, $key2, $key3) : bool{
         $pdo=FConnectionDB::connect();
         $stmt=$pdo->prepare("SELECT * FROM Prodotto WHERE id=?");
         $stmt->execute([$key]);
@@ -21,51 +27,46 @@ class FProdotto implements FBase
         $stmt=$pdo->prepare("DELETE FROM Prodotto WHERE id=?");
         $ris=$stmt->execute([$key]);
         $ris2=FImmagine::delete($nomeImm);
-        if ($ris==true & $ris2==true){
-            return true;
-        }
-        else{
-            return false;
-        }
+        return $ris && $ris2;
 
     }
 
-    public static function load(string $nome,string $key2='', string $key3='') : EProdotto
+    public static function load($key1, $key2, $key3) : EProdotto
     {
         $pdo=FConnectionDB::connect();
-        $stmt=$pdo->prepare("SELECT * FROM Prodotto WHERE nome=?");
-        $stmt->execute([$nome]);
+        $stmt=$pdo->prepare("SELECT * FROM Prodotto WHERE id=?");
+        $stmt->execute([$key1]);
         $rows=$stmt->fetchAll(PDO::FETCH_ASSOC);
-        $marca=$rows['marca'];
-        $desc=$rows['descrizione'];
-        $tip=$rows['tipologia'];
-        $quant=$rows['quantita'];
-        $prezzo=$rows['prezzo'];
-        $id=$rows['id'];
-        $img=$rows['nomeImmagine'];
-        $imm=FImmagine::load($img);
+        $marca=$rows[0]['marca'];
+        $desc=$rows[0]['descrizione'];
+        $tip=$rows[0]['tipologia'];
+        $quant=$rows[0]['quantita'];
+        $prezzo=$rows[0]['prezzo'];
+        $nome=$rows[0]['nome'];
+        $idImm=$rows[0]['idImmagine'];
+        $imm=FImmagine::load($idImm,$key2,$key3);
         $prod= new EProdotto($nome,$marca,$desc,$quant,$imm,$prezzo,$tip);
-        $prod->setId($id);
+        $prod->setId($key1);
         return $prod;
 
     }
 
-    public static function store($obj) : bool
+    public static function store($obj,$mailutente) : bool
     {
-        //$pdo=FConnectionDB::connect();
-        $con = new FConnectionDB();
-        $pdo = $con->connect();
-        $query="INSERT INTO prodotto VALUES(?,?,?,?,?,?,?,?)";
+        $pdo=FConnectionDB::connect();
+        $ris2=FImmagine::store($obj->getImmagine(),$mailutente);
+        $query="INSERT INTO Prodotto VALUES(:id,:n,:d,:t,:q,:m,:p,:idImm)";
         $stmt=$pdo->prepare($query);
-        $ris = $stmt->execute(array($obj->getId(), $obj->getNome(), $obj->getDescrizione(), $obj->getTipologia(), $obj->getQuantita(), $obj->getMarca(), $obj->getPrezzo(), $obj->getImmagine()->getNome()));
-        //$ris=$stmt->execute();
-        $ris2=FImmagine::store($obj->getImmagine());
-        if ($ris==true & $ris2==true){
-            return true;
-        }
-        else{
-            return false;
-        }
+        $ris = $stmt->execute(array(
+            ":id"=>$obj->getId(),
+            ":n"=>$obj->getNome(),
+            ":d"=>$obj->getDescrizione(),
+            ":t"=>$obj->getTipologia(),
+            ":q"=>$obj->getQuantita(),
+            ":m"=>$obj->getMarca(),
+            ":p"=>$obj->getPrezzo(),
+            ":idImm" => $obj->getImmagine()->getId()));
+        return $ris && $ris2;
     }
 
     public static function update($obj1) : bool{
@@ -73,11 +74,6 @@ class FProdotto implements FBase
         $stmt1 = $pdo->prepare("UPDATE Prodotto SET nome = $obj1->getNome(), descrizione = $obj1->getDescrizione(), tipologia = $obj1->getTipologia(), quantita = $obj1->getQuantita, marca = $obj1->getMarca(), prezzo = $obj1->getPrezzo() WHERE id=?");
         $ris1 = $stmt1->execute([$obj1->getId()]);
         $ris2 = FImmagine::update($obj1->getImmagine());
-        if ($ris1==true & $ris2==true){
-            return true;
-        }
-        else{
-            return false;
-        }
+        return $ris1 && $ris2;
     }
 }

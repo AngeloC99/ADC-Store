@@ -3,7 +3,7 @@
 require_once '../autoloader.php';
 class FPremio implements FBase
 {
-    public static function exist(string $key,string $key2='', string $key3=''): bool
+    public static function exist($key, $key2, $key3): bool
     {
         $pdo=FConnectionDB::connect();
         $stmt=$pdo->prepare("SELECT * FROM Premio WHERE id=?");
@@ -13,7 +13,7 @@ class FPremio implements FBase
 
     }
 
-    public static function delete(string $key,string $key2='', string $key3=''): bool
+    public static function delete($key, $key2, $key3): bool
     {
         $pdo=FConnectionDB::connect();
         $stmt=$pdo->prepare("SELECT * FROM Premio WHERE id=?");
@@ -23,15 +23,10 @@ class FPremio implements FBase
         $stmt=$pdo->prepare("DELETE FROM Premio WHERE id=?");
         $ris=$stmt->execute([$key]);
         $ris2=FImmagine::delete($nomeImm);
-        if ($ris==true & $ris2==true){
-            return true;
-        }
-        else{
-            return false;
-        }
+        return $ris && $ris2;
     }
 
-    public static function load(string $nome,string $key2='', string $key3='') :EPremio
+    public static function load($nome, $key2, $key3) :EPremio
     {
         $pdo=FConnectionDB::connect();
         $stmt=$pdo->prepare("SELECT * FROM Premio WHERE nome=?");
@@ -49,19 +44,21 @@ class FPremio implements FBase
         return $premio;
     }
 
-    public static function store($obj): bool
+    public static function store($obj,$mailutente): bool
     {
         $pdo=FConnectionDB::connect();
-        $query="INSERT INTO Premio VALUES(?,?,?,?,?,?,?)";
+        $query="INSERT INTO Premio VALUES(:id,:p,:n,:d,:q,:m,:nimm)";
         $stmt=$pdo->prepare($query);
-        $ris=$stmt->execute([$obj->getId(),$obj->getPrezzoInPunti(),$obj->getNome(),$obj->getDescrizione(),$obj->getQuantita(),$obj->getMarca(),$obj->getImmagine()->getNome()]);
+        $stmt->bindParam(':id',$obj->getId());
+        $stmt->bindParam(':p',$obj->getPrezzoInPunti());
+        $stmt->bindParam(':n',$obj->getNome());
+        $stmt->bindParam(':d',$obj->getDescrizione());
+        $stmt->bindParam(':q',$obj->getQuantita());
+        $stmt->bindParam(':m',$obj->getMarca());
+        $stmt->bindParam(':nimm',$obj->getImmagine()->getNome());
+        $ris=$stmt->execute();
         $ris2=FImmagine::store($obj->getImmagine());
-        if ($ris==true & $ris2==true){
-            return true;
-        }
-        else{
-            return false;
-        }
+        return $ris && $ris2;
 
     }
 
@@ -71,11 +68,6 @@ class FPremio implements FBase
         $stmt1 = $pdo->prepare("UPDATE Premio SET punti = $obj1->getPrezzoInPunti(), nome = $obj1->getNome(), descrizione = $obj1->getDescrizione(), quantita = $obj1->getQuantita(), marca = $obj1->getMarca(), nomeImmagine = $obj1->getImmagine()->getNome() WHERE id=?");
         $ris1 = $stmt1->execute([$obj1->getId()]);
         $ris2 = FImmagine::update($obj1->getImmagine());
-        if ($ris1==true & $ris2==true){
-            return true;
-        }
-        else{
-            return false;
-        }
+        return $ris1 && $ris2;
     }
 }
