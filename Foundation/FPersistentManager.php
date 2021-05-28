@@ -7,8 +7,9 @@ class FPersistentManager
     {
     }
 
-    /** Metodo che permette di salvare un oggetto sul db
- */
+    /**
+     * Metodo che permette di salvare un oggetto sul database.
+     */
     public static function store(object $obj,$mailutente=null) : bool {
         $Eclass = get_class($obj);
         $Fclass = str_replace("E", "F", $Eclass);
@@ -16,7 +17,8 @@ class FPersistentManager
         return $ris;
     }
 
-    /** Metodo che permette di aggiornare un oggetto nel db
+    /**
+     * Metodo che permette di aggiornare un oggetto nel database.
      */
     public static function update(object $obj) : bool {
         $Eclass = get_class($obj);

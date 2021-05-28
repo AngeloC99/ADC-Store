@@ -75,7 +75,7 @@ class FIndirizzo
      */
     public static function update(EIndirizzo $indirizzo): bool {
         $pdo = FConnectionDB::connect();
-        $stmt = $pdo->prepare("UPDATE Indirizzo SET comune = :comune, provincia = :provincia, predefinito = :predefinito WHERE via=:via AND numerocivico=:numero AND cap=:cap");
+        $stmt = $pdo->prepare("UPDATE Indirizzo SET cap=:cap, comune = :comune, provincia = :provincia, predefinito = :predefinito WHERE via=:via AND numerocivico=:numero");
         $ris = $stmt->execute(array(
             ':via' => $indirizzo->getVia(),
             ':numero' => $indirizzo->getNumero(),
