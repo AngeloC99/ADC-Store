@@ -9,14 +9,12 @@ class FConnectionDB
 
     public function __construct ()
     {
-        if (!isset(self::$db)) {
             try {
                 self::$db = new PDO ("mysql:host=" . $GLOBALS['hostname'] . ";dbname=" . $GLOBALS['dbname'], $GLOBALS['user'], $GLOBALS['pass']);
 
             } catch (PDOException $e) {
                 echo "Errore nel costruttore di FConnectionDB: " . $e->getMessage();
                 die;
-            }
         }
 
     }
