@@ -1,9 +1,9 @@
 <?php
 
 
-class FAmministratore implements FBase
+class FAmministratore
 {
-    public static function exist(string $email, string $key2='', string $key3='')  : bool {
+    public static function exist(string $email)  : bool {
         $pdo = FConnectionDB::connect();
         $query = "SELECT * FROM amministratore WHERE email= :email";
         $stmt = $pdo->prepare($query);
@@ -18,7 +18,7 @@ class FAmministratore implements FBase
 
     }
 
-    public static function delete(string $email,string $key2='', string $key3='') : bool{
+    public static function delete(string $email) : bool{
         $pdo = FConnectionDB::connect();
         $query = "DELETE FROM amministratore WHERE email= :email";
         $stmt = $pdo->prepare($query);
@@ -32,7 +32,7 @@ class FAmministratore implements FBase
 
     }
 
-    public static function load(string $email,string $key2='', string $key3='') : EAmministratore
+    public static function load(string $email) : EAmministratore
     {
         $pdo = FConnectionDB::connect();
         $query = "SELECT * FROM amministratore WHERE email= :email";
@@ -69,17 +69,16 @@ class FAmministratore implements FBase
         }
     }
 
-    public static function update($obj1, $obj2) : bool{
+    public static function update($obj) : bool{
         $pdo = FConnectionDB::connect();
 
-        $query = "UPDATE amministratore SET nome = :nome, cognome = :cognome, email = :email, password = :password  WHERE email = :email2";
+        $query = "UPDATE amministratore SET nome = :nome, cognome = :cognome, password = :password  WHERE email = :email";
         $stmt=$pdo->prepare($query);
         $ris = $stmt->execute(array(
-            ":nome" => $obj2->getNome(),
-            ":cognome" => $obj2->getCognome(),
-            ":email" => $obj2->getEmail(),
-            ":password" => $obj2->getPassword(),
-            ":email2" => $obj1->getEmail()));
+            ":nome" => $obj->getNome(),
+            ":cognome" => $obj->getCognome(),
+            ":password" => $obj->getPassword(),
+            ":email" => $obj->getEmail()));
 
         if ($ris==true){
             return true;

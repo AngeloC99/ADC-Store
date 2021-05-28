@@ -3,7 +3,7 @@
 
 class FUtenteReg
 {
-    public static function exist($email, $key2, $key3)  : bool {
+    public static function exist($email)  : bool {
         $pdo = FConnectionDB::connect();
         $query = "SELECT * FROM UtenteReg WHERE email= :email";
         $stmt = $pdo->prepare($query);
@@ -18,7 +18,7 @@ class FUtenteReg
 
     }
 
-    public static function delete($email, $key2, $key3) : bool{
+    public static function delete($email) : bool{
         $pdo = FConnectionDB::connect();
         $query = "DELETE FROM UtenteReg WHERE email= :email";
         $stmt = $pdo->prepare($query);
@@ -32,7 +32,7 @@ class FUtenteReg
 
     }
 
-    public static function load($email, $key2, $key3) : EUtenteReg
+    public static function load($email) : EUtenteReg
     {
         $pdo = FConnectionDB::connect();
         $query = "SELECT * FROM UtenteReg WHERE email= :email";
@@ -52,7 +52,7 @@ class FUtenteReg
 
     }
 
-    public static function store($obj, $mailutente) : bool
+    public static function store($obj) : bool
     {
         $pdo = FConnectionDB::connect();
         $query="INSERT INTO UtenteReg VALUES(:email,:nome,:cognome,:pw,:punti)";
@@ -74,7 +74,7 @@ class FUtenteReg
 
     public static function update($obj1) : bool{
         $pdo = FConnectionDB::connect();
-        $query = "UPDATE UtenteReg SET nome = :nome, cognome = :cognome, email = :email, password = :password, punti = :punti  WHERE email = :email";
+        $query = "UPDATE UtenteReg SET nome = :nome, cognome = :cognome, password = :password, punti = :punti  WHERE email = :email";
         $stmt=$pdo->prepare($query);
         $ris = $stmt->execute(array(
             ":nome" => $obj1->getNome(),
