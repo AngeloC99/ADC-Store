@@ -40,7 +40,7 @@ CREATE TABLE CartaCredito(
 	titolare VARCHAR(25) NOT NULL,
 	circuito VARCHAR(15) NOT NULL,
 	cvv INT NOT NULL,
-	ammontare INT NOT NULL,
+	ammontare FLOAT NOT NULL,
 	scadenza DATE NOT NULL,
 	PRIMARY KEY (numero)
 );

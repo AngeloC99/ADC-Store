@@ -38,26 +38,10 @@ $db = new FPersistentManager();
 $futente = new FUtenteReg();
 $utenti = $futente->prelevaUtenti();
 print_r($utenti);
-
-// Testing classe FIndirizzo
-
-//$indirizzo = new EIndirizzo("Via Roma", 169, "Avezzano", "Aq", "67054", true);
-$fInd = new FIndirizzo();
-$ind1 = new EIndirizzo("Via Milano", 1, "Roma", "Rm", "00433", false);
-$ind2 = new EIndirizzo("Via Strampelli", 144, "Rieti", "Ri", "02100", false);
-$fInd->store($ind1, "adarossi@gmail.com");
-//$fInd->store($ind2);
-//$indirizzi = $fInd->prelevaIndirizzi();
-//print_r($indirizzi);
-//print_r($fInd->exist("Via Roma", 169, "67054"));
-//$ind = $fInd->load("Via Roma", 169, "67054");
-//print_r($ind);
-//$fInd->delete("Via Roma", 169, "Avezz");
-//$ind = new EIndirizzo("Via Milano", 1, "Rieti", "Ri", "00433", false);
-//$fInd->update($ind);
 */
 
-//Testin classe FProdotto:
+/**
+//Testing classe FProdotto:
 $pm=new FPersistentManager();
 $imm=new EImmagine('https://www.centralelattediroma.it/wp-content/uploads/2019/01/lattefresco_prova2.png');
 echo $imm->getId();
@@ -68,7 +52,7 @@ echo $pm->exist('FProdotto',$prod1->getId());
 /**$imm_rec=$pm->load('FImmagine',$id);
 echo $imm_rec->getNome();
 echo $imm_rec->getSize();
-*/
+
 //'https://www.zooplus.it/magazine/wp-content/uploads/2020/10/1-32-768x512.jpg'
 //$ris=$pr->exist($imm2->getId(),null,null,'FImmagine');
 //$pm->store($prod1);
@@ -77,5 +61,41 @@ echo $imm_rec->getSize();
 //echo $ris2;
 //$premio=new EPremio('Penna','Bic','Penna Bic di colore Nero',3,$imm,10);
 //$pm->store($premio);
+ */
 
+// Testing classe FIndirizzo
 
+$indirizzo = new EIndirizzo("Via Roma", 169, "Avezzano", "Aq", "67054", true);
+//$ind1 = new EIndirizzo("Via Milano", 1, "Roma", "Rm", "00118", false);
+//$ind2 = new EIndirizzo("Via Strampelli", 144, "Rieti", "Ri", "02100", false);
+//FIndirizzo::store($ind1);
+//FIndirizzo::store($ind2);
+//FIndirizzo::store($indirizzo);
+//print FIndirizzo::exist("Via Milano", 1, "00433");
+//print "\n";
+//$ind1 = FIndirizzo::load("Via Milano", 1, "00118");
+//var_dump($ind1);
+//$indirizzi = FIndirizzo::prelevaIndirizzi();
+//print_r($indirizzi);
+//FIndirizzo::delete("Via Roma", 169, "67054");
+//$ind = new EIndirizzo("Via Milano", 1, "Rieti", "Ri", "02100", true);
+//FIndirizzo::update($ind);
+
+//FPersistentManager::update($indirizzo);
+
+// Testing classe FCartaCredito
+
+//$carta1 = new ECartaCredito("Roberto Roberti", "1234567891234567", "MasterCard", new DateTime('January 2025'), 123, 350.5);
+//$carta3 = new ECartaCredito("Mario Mari", "2638475910293485", "AmericanExpress", new DateTime('June 2023'), 653, 746.0);
+//FCartaCredito::store($carta1);
+//FCartaCredito::store($carta3);
+//print FCartaCredito::exist( "1234567891234567");
+//$carta1 = FCartaCredito::load("1234567891234567");
+//var_dump($carta1);
+//$carte = FCartaCredito::prelevaCarte();
+//print_r($carte);
+//FCartaCredito::delete("2638475910293485");
+//$carta = new ECartaCredito("Roberto Filistini", "1234567891234567", "AmericanExpress", new DateTime('October 2028'), 246, 1000.5);
+//FCartaCredito::update($carta);
+
+// Testing classe FOrdine

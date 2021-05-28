@@ -35,7 +35,7 @@ class FCartaCredito
         $circ = $rows[0]['circuito'];
         $cvv = $rows[0]['cvv'];
         $amm = $rows[0]['ammontare'];
-        $scad = $rows[0]['scadenza'];
+        $scad = new DateTime($rows[0]['scadenza']);
         $carta = new ECartaCredito($tit,$numero,$circ,$scad,$cvv,$amm);
         return $carta;
     }
@@ -55,7 +55,7 @@ class FCartaCredito
             ':circuito' => $carta->getCircuito(),
             ':cvv' => $carta->getCvv(),
             ':ammontare' => $carta->getAmmontare(),
-            ':scadenza' => $carta->getScadenza()));
+            ':scadenza' => $carta->getScadenza()->format('y-m-d')));
         return $ris;
     }
 
@@ -75,7 +75,7 @@ class FCartaCredito
             ':circuito' => $carta->getCircuito(),
             ':cvv' => $carta->getCvv(),
             ':ammontare' => $carta->getAmmontare(),
-            ':scadenza' => $carta->getScadenza()));
+            ':scadenza' => $carta->getScadenza()->format('y-m-d')));
         return $ris;
     }
 
@@ -105,7 +105,7 @@ class FCartaCredito
             $carta = new ECartaCredito($row['titolare'],
                 $row['numero'],
                 $row['circuito'],
-                $row['scadenza'],
+                new DateTime($row['scadenza']),
                 $row['cvv'],
                 $row['ammontare']);
             $carte[] = $carta;
