@@ -6,17 +6,17 @@
  * @package Foundation
  */
 
-class FIndirizzo implements FBase
+class FIndirizzo
 {
     /**
      * Restituisce un booleano che indica la presenza o meno di una determinata istanza di EIndirizzo nell'apposita
      * tabella del database.
-     * @param $via
-     * @param $numerocivico
-     * @param $cap
+     * @param string $via
+     * @param int $numerocivico
+     * @param string $cap
      * @return bool
      */
-    public static function exist($via,  $numerocivico, $cap): bool {
+    public static function exist(string $via, int $numerocivico, string $cap): bool {
         $pdo = FConnectionDB::connect();
         $stmt = $pdo->prepare("SELECT * FROM Indirizzo WHERE via=:via AND numerocivico = :numero AND cap = :cap");
         $ris = $stmt->execute(array(
@@ -28,12 +28,12 @@ class FIndirizzo implements FBase
 
     /**
      * Carica in RAM l'istanza di EIndirizzo che possiede la chiave primaria fornita.
-     * @param $via
-     * @param $numerocivico
-     * @param $cap
+     * @param string $via
+     * @param int $numerocivico
+     * @param string $cap
      * @return EIndirizzo
      */
-    public static function load($via, $numerocivico, $cap) : EIndirizzo {
+    public static function load(string $via, int $numerocivico, string $cap) : EIndirizzo {
         $pdo = FConnectionDB::connect();
         $stmt = $pdo->prepare("SELECT * FROM Indirizzo WHERE via = :via AND numerocivico = :numero AND cap = :cap");
         $stmt->execute(array(
@@ -50,11 +50,10 @@ class FIndirizzo implements FBase
 
     /**
      * Memorizza un'istanza di EIndirizzo sul database e restituisce un booleano che indica l'esito dell'operazione.
-     * @param $indirizzo
-     * @param $mailutente
+     * @param EIndirizzo $indirizzo
      * @return bool
      */
-    public static function store($indirizzo, $mailutente = null): bool {
+    public static function store(EIndirizzo $indirizzo): bool {
         $pdo = FConnectionDB::connect();
         $query = "INSERT INTO Indirizzo VALUES(:via, :numero, :cap, :comune, :provincia, :predefinito)";
         $stmt = $pdo->prepare($query);
@@ -71,10 +70,10 @@ class FIndirizzo implements FBase
     /**
      * Aggiorna i valori di un'istanza di EIndirizzo sul database e restituisce un booleano che indica l'esito
      * dell'operazione.
-     * @param $indirizzo
+     * @param EIndirizzo $indirizzo
      * @return bool
      */
-    public static function update($indirizzo): bool {
+    public static function update(EIndirizzo $indirizzo): bool {
         $pdo = FConnectionDB::connect();
         $stmt = $pdo->prepare("UPDATE Indirizzo SET comune = :comune, provincia = :provincia, predefinito = :predefinito WHERE via=:via AND numerocivico=:numero AND cap=:cap");
         $ris = $stmt->execute(array(
@@ -89,12 +88,12 @@ class FIndirizzo implements FBase
 
     /**
      * Cancella un'istanza di EIndirizzo sul database e restituisce un booleano che indica l'esito dell'operazione.
-     * @param $via
-     * @param $numerocivico
-     * @param $cap
+     * @param string $via
+     * @param int $numerocivico
+     * @param string $cap
      * @return bool
      */
-    public static function delete($via, $numerocivico, $cap): bool {
+    public static function delete(string $via, int $numerocivico, string $cap): bool {
         $pdo = FConnectionDB::connect();
         $stmt = $pdo->prepare("DELETE FROM Indirizzo WHERE via = :via AND numerocivico = :numero AND cap = :cap");
         $ris = $stmt->execute(array(
@@ -110,10 +109,7 @@ class FIndirizzo implements FBase
      */
     public static function prelevaIndirizzi(): array {
         $pdo = FConnectionDB::connect();
-        $stmt = $pdo->prepare("SELECT * FROM UtenteSalvaIndirizzo INNER JOIN Indirizzo 
-                            ON UtenteSalvaIndirizzo.via = Indirizzo.via AND
-                               UtenteSalvaIndirizzo.numerocivico = Indirizzo.numerocivico AND
-                               UtenteSalvaIndirizzo.cap = Indirizzo.cap");
+        $stmt = $pdo->prepare("SELECT * FROM Indirizzo");
         $stmt->execute();
         $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
         $indirizzi = array();

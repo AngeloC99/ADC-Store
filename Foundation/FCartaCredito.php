@@ -6,17 +6,15 @@
  * @package Foundation
  */
 
-class FCartaCredito implements FBase
+class FCartaCredito
 {
     /**
      * Restituisce un booleano che indica la presenza o meno di una determinata istanza di ECartaCredito nell'apposita
      * tabella del database.
-     * @param $numero
-     * @param $key2
-     * @param $key3
+     * @param string $numero
      * @return bool
      */
-    public static function exist($numero, $key2 = null, $key3 = null): bool {
+    public static function exist(string $numero): bool {
         $pdo = FConnectionDB::connect();
         $stmt = $pdo->prepare("SELECT * FROM CartaCredito WHERE numero=:numero");
         $ris = $stmt->execute([':numero' => $numero]);
@@ -25,12 +23,10 @@ class FCartaCredito implements FBase
 
     /**
      * Carica in RAM l'istanza di ECartaCredito che possiede la chiave primaria fornita.
-     * @param $numero
-     * @param $key2
-     * @param $key3
+     * @param string $numero
      * @return ECartaCredito
      */
-    public static function load($numero, $key2 = null, $key3 = null) : ECartaCredito {
+    public static function load(string $numero) : ECartaCredito {
         $pdo = FConnectionDB::connect();
         $stmt = $pdo->prepare("SELECT * FROM CartaCredito WHERE numero=:numero");
         $stmt->execute([':numero' => $numero]);
@@ -46,11 +42,10 @@ class FCartaCredito implements FBase
 
     /**
      * Memorizza un'istanza di ECartaCredito sul database e restituisce un booleano che indica l'esito dell'operazione.
-     * @param $carta
-     * @param $mailutente
+     * @param ECartaCredito $carta
      * @return bool
      */
-    public static function store($carta, $mailutente = null): bool {
+    public static function store(ECartaCredito $carta): bool {
         $pdo = FConnectionDB::connect();
         $query = "INSERT INTO CartaCredito VALUES(:numero, :titolare, :circuito, :cvv, :ammontare, :scadenza)";
         $stmt = $pdo->prepare($query);
@@ -67,10 +62,10 @@ class FCartaCredito implements FBase
     /**
      * Aggiorna i valori di un'istanza di ECartaCredito sul database e restituisce un booleano che indica l'esito
      * dell'operazione.
-     * @param $carta
+     * @param ECartaCredito $carta
      * @return bool
      */
-    public static function update($carta): bool {
+    public static function update(ECartaCredito $carta): bool {
         $pdo = FConnectionDB::connect();
         $stmt = $pdo->prepare("UPDATE CartaCredito SET titolare = :titolare, circuito = :circuito, 
                             cvv = :cvv, ammontare = :ammontare, scadenza = :scadenza WHERE numero = :numero");
@@ -86,12 +81,10 @@ class FCartaCredito implements FBase
 
     /**
      * Cancella un'istanza di ECartaCredito sul database e restituisce un booleano che indica l'esito dell'operazione.
-     * @param $numero
-     * @param $key2
-     * @param $key3
+     * @param string $numero
      * @return bool
      */
-    public static function delete($numero, $key2 = null, $key3 = null): bool {
+    public static function delete(string $numero): bool {
         $pdo = FConnectionDB::connect();
         $stmt = $pdo->prepare("DELETE FROM CartaCredito WHERE numero = :numero");
         $ris = $stmt->execute([':numero' => $numero]);
@@ -104,8 +97,7 @@ class FCartaCredito implements FBase
      */
     public static function prelevaCarte(): array {
         $pdo = FConnectionDB::connect();
-        $stmt = $pdo->prepare("SELECT * FROM CartaCredito INNER JOIN UtenteUsaCarta 
-                                ON CartaCredito.numero = UtenteUsaCarta.numero");
+        $stmt = $pdo->prepare("SELECT * FROM CartaCredito");
         $stmt->execute();
         $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
         $carte = array();

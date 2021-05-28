@@ -6,17 +6,15 @@
  * @package Foundation
  */
 
-class FOrdine implements FBase
+class FOrdine
 {
     /**
      * Restituisce un booleano che indica la presenza o meno di una determinata istanza di EOrdine nell'apposita
      * tabella del database.
-     * @param $id
-     * @param $key2
-     * @param $key3
+     * @param string $id
      * @return bool
      */
-    public static function exist($id, $key2 = null, $key3 = null): bool {
+    public static function exist(string $id): bool {
         $pdo = FConnectionDB::connect();
         $stmt = $pdo->prepare("SELECT * FROM Ordine WHERE id = :id");
         $ris = $stmt->execute([':id' => $id]);
@@ -25,12 +23,10 @@ class FOrdine implements FBase
 
     /**
      * Carica in RAM l'istanza di EOrdine che possiede la chiave primaria fornita.
-     * @param $id
-     * @param $key2
-     * @param $key3
+     * @param string $id
      * @return EOrdine
      */
-    public static function load($id, $key2 = null, $key3 = null) : EOrdine {
+    public static function load(string $id) : EOrdine {
         $pdo = FConnectionDB::connect();
         $stmt = $pdo->prepare("SELECT * FROM Ordine WHERE id = :id");
         $stmt->execute([':id' => $id]);
@@ -51,11 +47,10 @@ class FOrdine implements FBase
 
     /**
      * Memorizza un'istanza di EOrdine sul database e restituisce un booleano che indica l'esito dell'operazione.
-     * @param $ordine
-     * @param $mailutente
+     * @param EOrdine $ordine
      * @return bool
      */
-    public static function store($ordine, $mailutente = null): bool {
+    public static function store(EOrdine $ordine): bool {
         $pdo = FConnectionDB::connect();
         $query = "INSERT INTO Ordine VALUES(:id, :dataacquisto, :prezzototale, :idcarrello, :viaConsegna, :numerocivicoConsegna, :capConsegna)";
         $stmt = $pdo->prepare($query);
@@ -73,10 +68,10 @@ class FOrdine implements FBase
     /**
      * Aggiorna i valori di un'istanza di EOrdine sul database e restituisce un booleano che indica l'esito
      * dell'operazione.
-     * @param $ordine
+     * @param EOrdine $ordine
      * @return bool
      */
-    public static function update($ordine): bool {
+    public static function update(EOrdine $ordine): bool {
         $pdo = FConnectionDB::connect();
         $stmt = $pdo->prepare("UPDATE Ordine SET dataacquisto = :dataacquisto, prezzototale= :prezzototale, 
                         idcarrello = :idcarrello, viaConsegna = :viaConsegna, numerocivicoConsegna = :numerocivicoConsegna,
@@ -94,12 +89,10 @@ class FOrdine implements FBase
 
     /**
      * Cancella un'istanza di EOrdine sul database e restituisce un booleano che indica l'esito dell'operazione.
-     * @param $id
-     * @param $key2
-     * @param $key3
+     * @param string $id
      * @return bool
      */
-    public static function delete($id, $key2 = null, $key3 = null): bool {
+    public static function delete(string $id): bool {
         $pdo = FConnectionDB::connect();
         $stmt = $pdo->prepare("DELETE FROM Ordine WHERE id = :id");
         $ris = $stmt->execute([':id' => $id]);

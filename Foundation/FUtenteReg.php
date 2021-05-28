@@ -1,7 +1,7 @@
 <?php
 
 
-class FUtenteReg implements FBase
+class FUtenteReg
 {
     public static function exist($email, $key2, $key3)  : bool {
         $pdo = FConnectionDB::connect();
@@ -108,6 +108,14 @@ class FUtenteReg implements FBase
         return $utenti;
     }
 
+
+    /**
+     * Salva un indirizzo associato ad un utente nel database e restituisce un valore booleano che indica l'esito
+     * dell'operazione.
+     * @param EIndirizzo $indirizzo
+     * @param string $mailutente
+     * @return bool
+     */
     public static function salvaIndirizzoUtente(EIndirizzo $indirizzo, string $mailutente): bool {
         $ris = FIndirizzo::store($indirizzo);
 
@@ -123,6 +131,15 @@ class FUtenteReg implements FBase
         return $ris AND $ris1;
     }
 
+    /**
+     * Elimina l'indirizzo che l'utente vuole cancellare dal database e restituisce un valore booleano che indica l'esito
+     * dell'operazione.
+     * @param string $via
+     * @param string $numerocivico
+     * @param string $cap
+     * @param string $mailutente
+     * @return bool
+     */
     public static function eliminaIndirizzoUtente(string $via, string $numerocivico, string $cap, string $mailutente): bool {
         $ris = FIndirizzo::delete($via, $numerocivico, $cap);
 
@@ -167,6 +184,13 @@ class FUtenteReg implements FBase
         return $indirizzi;
     }
 
+    /**
+     * Salva una carta di credito associata ad un utente nel database e restituisce un valore booleano che indica
+     * l'esito dell'operazione.
+     * @param ECartaCredito $carta
+     * @param string $mailutente
+     * @return bool
+     */
     public static function salvaCartaUtente(ECartaCredito $carta, string $mailutente): bool {
         $ris = FCartaCredito::store($carta);
 
@@ -180,6 +204,13 @@ class FUtenteReg implements FBase
         return $ris AND $ris1;
     }
 
+    /**
+     * Elimina la carta di credito che l'utente vuole cancellare dal database e restituisce un valore booleano che
+     * indica l'esito dell'operazione.
+     * @param string $numero
+     * @param string $mailutente
+     * @return bool
+     */
     public static function eliminaCartaUtente(string $numero, string $mailutente): bool {
         $ris = FCartaCredito::delete($numero);
 

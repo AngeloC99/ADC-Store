@@ -6,17 +6,15 @@
  * @package Foundation
  */
 
-class FCarrello implements FBase
+class FCarrello
 {
     /**
      * Restituisce un booleano che indica la presenza o meno di una determinata istanza di ECarrello nell'apposita
      * tabella del database.
      * @param $id
-     * @param $key2
-     * @param $key3
      * @return bool
      */
-    public static function exist($id, $key2 = null, $key3 = null): bool {
+    public static function exist($id): bool {
         $pdo = FConnectionDB::connect();
         $stmt = $pdo->prepare("SELECT * FROM Carrello WHERE id = :id");
         $ris = $stmt->execute([':id' => $id]);
@@ -26,17 +24,15 @@ class FCarrello implements FBase
     /**
      * Carica in RAM l'istanza di ECarrello che possiede la chiave primaria fornita.
      * @param $id
-     * @param $key2
-     * @param $key3
      * @return ECarrello
      */
-    public static function load($id, $key2 = null, $key3 = null) : ECarrello {
+    public static function load($id) : ECarrello {
         $pdo = FConnectionDB::connect();
         $stmt = $pdo->prepare("SELECT * FROM Carrello WHERE id = :id");
         $stmt->execute([':id' => $id]);
         $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
         $nome = $rows[0]['nome'];
-        $mail = $rows[0]['mailutente'];
+        //$mail = $rows[0]['mailutente'];
         $carrello = new ECarrello();
         $carrello->setId($id);
         $carrello->setNome($nome);
@@ -80,11 +76,9 @@ class FCarrello implements FBase
     /**
      * Cancella un'istanza di ECarrello sul database e restituisce un booleano che indica l'esito dell'operazione.
      * @param $id
-     * @param $key2
-     * @param $key3
      * @return bool
      */
-    public static function delete($id, $key2 = null, $key3 = null): bool {
+    public static function delete($id): bool {
         $pdo = FConnectionDB::connect();
         $stmt = $pdo->prepare("DELETE FROM Carrello WHERE id = :id");
         $ris = $stmt->execute([':id' => $id]);
