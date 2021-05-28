@@ -31,4 +31,8 @@ class FConnectionDB
         }
         return self::$db;
     }
+
+    public static function closeConnection(){
+        self::$instance = null;
+    }
 }

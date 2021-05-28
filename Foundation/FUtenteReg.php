@@ -3,19 +3,30 @@
 
 class FUtenteReg
 {
-    public static function exist($email)  : bool {
-        $pdo = FConnectionDB::connect();
-        $query = "SELECT * FROM UtenteReg WHERE email= :email";
-        $stmt = $pdo->prepare($query);
-        $stmt->execute([":email" => $email]);
-        $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        if(count($rows)==0){
+    public static function exist($email)  : bool
+    {
+        try {
+            $pdo = FConnectionDB::connect();
+            $pdo->beginTransaction();
+            $query = "SELECT * FROM UtenteReg WHERE email= :email";
+            $stmt = $pdo->prepare($query);
+            $stmt->execute([":email" => $email]);
+            $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            $pdo->commit();
+            FConnectionDB::closeConnection();
+
+            if (count($rows) == 0){
+                return false;
+            }
+            else{
+                return true;
+            }
+
+        } catch (PDOException $e){
+            print("ATTENTION ERROR: ") . $e->getMessage();
+            $pdo->rollBack();
             return false;
         }
-        else{
-            return true;
-        }
-
     }
 
     public static function delete($email) : bool{
@@ -91,23 +102,6 @@ class FUtenteReg
         }
     }
 
-    public static function prelevaUtenti() : array {
-        $pdo = FConnectionDB::connect();
-        $query = "SELECT * FROM UtenteReg";
-        $stmt=$pdo->prepare($query);
-        $stmt->execute();
-        $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        $utenti = array();
-        foreach ($rows as $row) {
-            $user = new EUtenteReg($row['nome'],
-                $row['cognome'],
-                $row['email'],
-                $row['password']);
-                $utenti[] = $user;
-        }
-        return $utenti;
-    }
-
 
     /**
      * Salva un indirizzo associato ad un utente nel database e restituisce un valore booleano che indica l'esito
@@ -118,7 +112,6 @@ class FUtenteReg
      */
     public static function salvaIndirizzoUtente(EIndirizzo $indirizzo, string $mailutente): bool {
         $ris = FIndirizzo::store($indirizzo);
-
         $pdo = FConnectionDB::connect();
         $query = "INSERT INTO UtenteSalvaIndirizzo VALUES(:mailutente, :via, :numero, :cap)";
         $stmt = $pdo->prepare($query);

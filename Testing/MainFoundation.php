@@ -2,7 +2,7 @@
 
 require_once "../autoloader.php";
 require_once '../configDB.php';
-/**
+
 $imm = new EImmagine("https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.carrefour.it%2Fon%2Fdemandware.static%2F-%2FSites-carrefour-master-catalog-IT%2Fdefault%2Fdw11998463%2Flarge%2FLATTEFRESCOAQCENROMAML500-0000080662594-1.png&f=1&nofb=1");
 $prod1 = new EProdotto("Latte","Centrale di Roma","Latte intero", 200, $imm, 1.50, "Latte");
 $prod2 = new EProdotto("Petto di pollo","Amadori","Pollo di alta qualità", 50, $imm, 3.50, "Carne");
@@ -26,8 +26,8 @@ $utente = new EUtenteReg("Ada", "Bianchi", "adarossi@gmail.com", "pluto");
 $utente2 = new EUtenteReg("Angus", "Young", "angusyoung@gmail.com", "rock");
 $db = new FPersistentManager();
 //$futente->store($utente);
-//$bool = $db->exist("adarossi@gmail.com", "FUtenteReg");
-//print($bool);
+$bool = $db->exist("FUtenteReg", "angusyoung@gmail.com");
+print($bool);
 //$db->update($utente2, $utente);
 //$db->store($utente);
 //$db->store($utente2);
@@ -35,10 +35,10 @@ $db = new FPersistentManager();
 //$db->delete("adarossi@gmail.com","FUtenteReg");
 //$ada = $db->load("adarossi@gmail.com", "FUtenteReg");
 //print($ada->getNome());
-$futente = new FUtenteReg();
-$utenti = $futente->prelevaUtenti();
-print_r($utenti);
-*/
+//$futente = new FUtenteReg();
+//$utenti = $futente->prelevaUtenti();
+//print_r($utenti);
+
 
 /**
 //Testing classe FProdotto:
