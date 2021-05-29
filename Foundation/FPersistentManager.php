@@ -43,8 +43,8 @@ class FPersistentManager
         return $ris;
     }
 
-    public function prelevaUtenti(){
-        FUtenteReg::prelevaUtenti();
+    public function prelevaUtenti() : array{
+        return FUtenteReg::prelevaUtenti();
     }
 
 

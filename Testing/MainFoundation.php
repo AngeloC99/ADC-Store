@@ -36,8 +36,8 @@ $admin2 = new EAmministratore("Luca", "Rossi", "lucarossi@gmail.com", "paperino"
 $utente = new EUtenteReg("Ada", "Bianchi", "adarossi@gmail.com", "pluto");
 $utente2 = new EUtenteReg("Angus", "Young", "angusyoung@gmail.com", "rock");
 $db = new FPersistentManager();
-$bool = $db->exist("FUtenteReg", "angusyoung@gmail.com");
-print($bool);
+//$bool = $db->exist("FUtenteReg", "angusyoung@gmail.com");
+//print($bool);
 //$futente->store($utente);
 //$bool = $db->exist("FUtenteReg", "angusyoung@gmail.com");
 //print($bool);
@@ -48,9 +48,8 @@ print($bool);
 //$db->delete("adarossi@gmail.com","FUtenteReg");
 //$ada = $db->load("adarossi@gmail.com", "FUtenteReg");
 //print($ada->getNome());
-//$futente = new FUtenteReg();
-//$utenti = $futente->prelevaUtenti();
-//print_r($utenti);
+$utenti = $db->prelevaUtenti();
+print_r($utenti);
 
 
 /**
@@ -146,6 +145,6 @@ print FOrdine::exist( $ordine1->getId());
 
 // Testing dei metodi che coinvolgono più tabelle FUtenteReg
 //$db->store($utente);
-FUtenteReg::salvaIndirizzoUtente($indirizzo,$utente->getEmail());
+//FUtenteReg::salvaIndirizzoUtente($indirizzo,$utente->getEmail());
 //FUtenteReg::salvaCartaUtente($carta1,$utente->getEmail());
 
