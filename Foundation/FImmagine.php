@@ -1,7 +1,7 @@
 <?php
 
 
-class FImmagine implements FBase
+class FImmagine
 {
     public static function exist($key, $key2, $key3): bool
     {

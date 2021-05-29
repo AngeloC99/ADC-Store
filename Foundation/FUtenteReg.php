@@ -111,17 +111,27 @@ class FUtenteReg
      * @return bool
      */
     public static function salvaIndirizzoUtente(EIndirizzo $indirizzo, string $mailutente): bool {
-        $ris = FIndirizzo::store($indirizzo);
-        $pdo = FConnectionDB::connect();
-        $query = "INSERT INTO UtenteSalvaIndirizzo VALUES(:mailutente, :via, :numero, :cap)";
-        $stmt = $pdo->prepare($query);
-        $ris1 = $stmt->execute(array(
-            ':via' => $indirizzo->getVia(),
-            ':numero' => $indirizzo->getNumero(),
-            ':cap' => $indirizzo->getCap(),
-            ':mailutente' => $mailutente));
 
-        return $ris AND $ris1;
+        // NON VENGONO AGGIORNATE LE TABELLE CON LA TRANSACTION!!!!!
+
+        try {
+            $pdo = FConnectionDB::connect();
+            $pdo->beginTransaction();
+            $ris = FIndirizzo::store($indirizzo);
+            $query = "INSERT INTO UtenteSalvaIndirizzo VALUES(:mailutente, :via, :numero, :cap)";
+            $stmt = $pdo->prepare($query);
+            $ris1 = $stmt->execute(array(
+                ':via' => $indirizzo->getVia(),
+                ':numero' => $indirizzo->getNumero(),
+                ':cap' => $indirizzo->getCap(),
+                ':mailutente' => $mailutente));
+            return $ris AND $ris1;
+
+        } catch(PDOException $e) {
+            print("ATTENTION ERROR: ") . $e->getMessage();
+            $pdo->rollBack();
+            return false;
+        }
     }
 
     /**
@@ -186,7 +196,6 @@ class FUtenteReg
      */
     public static function salvaCartaUtente(ECartaCredito $carta, string $mailutente): bool {
         $ris = FCartaCredito::store($carta);
-
         $pdo = FConnectionDB::connect();
         $query = "INSERT INTO UtenteUsaCarta VALUES(:mailutente, :numerocarta)";
         $stmt = $pdo->prepare($query);
