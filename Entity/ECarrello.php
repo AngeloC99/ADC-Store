@@ -118,7 +118,17 @@ class ECarrello
      * @param int $quantitaRichiesta
      */
     public function aggiungiProdotto(EProdotto $p, int $quantitaRichiesta): void {
-        if ($p->getQuantita() >= $quantitaRichiesta) {
+        if (array_key_exists($p->getId(), $this->getProdotti())) {
+            if ($p->getQuantita() >= $quantitaRichiesta) {
+                $differenzaPrezzo = $quantitaRichiesta * $p->getPrezzo();
+                $this->prodotti[$p->getId()] += $quantitaRichiesta;
+                $this->prezzoTot += $differenzaPrezzo;
+
+
+                // Richiamo a Foundation per salvare il prodotto
+            }
+        }
+        else if ($p->getQuantita() >= $quantitaRichiesta) {
             $this->prodotti[$p->getId()] = $quantitaRichiesta;
             $this->prezzoTot += $p->getPrezzo() * $quantitaRichiesta;
 

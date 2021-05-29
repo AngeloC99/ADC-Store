@@ -1,7 +1,6 @@
 <?php
 
-require_once '../autoloader.php';
-class FProdotto implements FBase
+class FProdotto
 {
 
     public static function exist($key, $key2, $key3)  : bool {

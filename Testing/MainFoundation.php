@@ -3,12 +3,21 @@
 require_once "../autoloader.php";
 require_once '../configDB.php';
 
-/*
+
+
 $imm = new EImmagine("https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.carrefour.it%2Fon%2Fdemandware.static%2F-%2FSites-carrefour-master-catalog-IT%2Fdefault%2Fdw11998463%2Flarge%2FLATTEFRESCOAQCENROMAML500-0000080662594-1.png&f=1&nofb=1");
 $prod1 = new EProdotto("Latte","Centrale di Roma","Latte intero", 200, $imm, 1.50, "Latte");
 $prod2 = new EProdotto("Petto di pollo","Amadori","Pollo di alta qualità", 50, $imm, 3.50, "Carne");
 $prod3 = new EProdotto("Yogurt","Muller","Yogurt alla vaniglia", 80, $imm, 0.70, "Yogurt");
-*/
+
+
+$imm1 = new EImmagine("https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.carrefour.it%2Fon%2Fdemandware.static%2F-%2FSites-carrefour-master-catalog-IT%2Fdefault%2Fdw11998463%2Flarge%2FLATTEFRESCOAQCENROMAML500-0000080662594-1.png&f=1&nofb=1");
+$imm2 = new EImmagine("https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.carrefour.it%2Fon%2Fdemandware.static%2F-%2FSites-carrefour-master-catalog-IT%2Fdefault%2Fdw11998463%2Flarge%2FLATTEFRESCOAQCENROMAML500-0000080662594-1.png&f=1&nofb=1");
+$imm3 = new EImmagine("https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.carrefour.it%2Fon%2Fdemandware.static%2F-%2FSites-carrefour-master-catalog-IT%2Fdefault%2Fdw11998463%2Flarge%2FLATTEFRESCOAQCENROMAML500-0000080662594-1.png&f=1&nofb=1");
+$prod1 = new EProdotto("Latte","Centrale di Roma","Latte intero", 200, $imm1, 1.50, "Latte");
+$prod2 = new EProdotto("Petto di pollo","Amadori","Pollo di alta qualità", 50, $imm2, 3.50, "Carne");
+$prod3 = new EProdotto("Yogurt","Muller","Yogurt alla vaniglia", 80, $imm3, 0.70, "Yogurt");
+
 
 $admin = new EAmministratore("Mario", "Rossi", "mariorossi@gmail.com", "pippo");
 $admin2 = new EAmministratore("Luca", "Rossi", "lucarossi@gmail.com", "paperino");
@@ -29,6 +38,9 @@ $utente2 = new EUtenteReg("Angus", "Young", "angusyoung@gmail.com", "rock");
 $db = new FPersistentManager();
 $bool = $db->exist("FUtenteReg", "angusyoung@gmail.com");
 print($bool);
+//$futente->store($utente);
+//$bool = $db->exist("FUtenteReg", "angusyoung@gmail.com");
+//print($bool);
 //$db->update($utente2, $utente);
 //$db->store($utente);
 //$db->store($utente2);
@@ -67,6 +79,7 @@ echo $imm_rec->getSize();
 // Testing classe FIndirizzo
 
 $indirizzo = new EIndirizzo("Via Roma", 169, "Avezzano", "Aq", "67054", true);
+$ind = new EIndirizzo("Via Strampelli", 144, "Rieti", "Ri", "02100", true);
 //$ind1 = new EIndirizzo("Via Milano", 1, "Roma", "Rm", "00118", false);
 //$ind2 = new EIndirizzo("Via Strampelli", 144, "Rieti", "Ri", "02100", false);
 //FIndirizzo::store($ind1);
@@ -86,7 +99,7 @@ $indirizzo = new EIndirizzo("Via Roma", 169, "Avezzano", "Aq", "67054", true);
 
 // Testing classe FCartaCredito
 
-//$carta1 = new ECartaCredito("Roberto Roberti", "1234567891234567", "MasterCard", new DateTime('January 2025'), 123, 350.5);
+$carta1 = new ECartaCredito("Roberto Roberti", "1234567891234567", "MasterCard", new DateTime('January 2025'), 123, 350.5);
 //$carta3 = new ECartaCredito("Mario Mari", "2638475910293485", "AmericanExpress", new DateTime('June 2023'), 653, 746.0);
 //FCartaCredito::store($carta1);
 //FCartaCredito::store($carta3);
@@ -99,4 +112,40 @@ $indirizzo = new EIndirizzo("Via Roma", 169, "Avezzano", "Aq", "67054", true);
 //$carta = new ECartaCredito("Roberto Filistini", "1234567891234567", "AmericanExpress", new DateTime('October 2028'), 246, 1000.5);
 //FCartaCredito::update($carta);
 
+// Testing classe FCarrello
+/*
+$carrello = new ECarrello();
+$carrello->aggiungiProdotto($prod1, 4);
+$carrello->aggiungiProdotto($prod2, 1);
+$carrello->aggiungiProdotto($prod3, 2);
+$carrello->aggiungiProdotto($prod1, 7);
+
+$db->store($prod1);
+$db->store($prod2);
+$db->store($prod3);
+$db->store($utente);
+$db->store($indirizzo);
+$db->store($ind);
+
+$db->store($carrello, $utente->getEmail());
+print "\n";
+print FCarrello::exist($carrello->getId());
+
+
 // Testing classe FOrdine
+
+$ordine1 = new EOrdine($carrello, $ind);
+$ordine2 = new EOrdine($carrello, $indirizzo);
+
+
+$db->store($ordine1);
+$db->store($ordine2);
+print "\n";
+print FOrdine::exist( $ordine1->getId());
+*/
+
+// Testing dei metodi che coinvolgono più tabelle FUtenteReg
+//$db->store($utente);
+FUtenteReg::salvaIndirizzoUtente($indirizzo,$utente->getEmail());
+//FUtenteReg::salvaCartaUtente($carta1,$utente->getEmail());
+
