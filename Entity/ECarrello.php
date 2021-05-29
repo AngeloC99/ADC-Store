@@ -124,6 +124,7 @@ class ECarrello
                 $this->prodotti[$p->getId()] += $quantitaRichiesta;
                 $this->prezzoTot += $differenzaPrezzo;
 
+
                 // Richiamo a Foundation per salvare il prodotto
             }
         }
