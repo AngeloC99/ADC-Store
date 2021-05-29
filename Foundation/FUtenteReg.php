@@ -5,28 +5,21 @@ class FUtenteReg
 {
     public static function exist($email)  : bool
     {
-        try {
-            $pdo = FConnectionDB::connect();
-            $pdo->beginTransaction();
-            $query = "SELECT * FROM UtenteReg WHERE email= :email";
-            $stmt = $pdo->prepare($query);
-            $stmt->execute([":email" => $email]);
-            $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
-            $pdo->commit();
-            FConnectionDB::closeConnection();
 
-            if (count($rows) == 0){
-                return false;
-            }
-            else{
-                return true;
-            }
+        $pdo = FConnectionDB2::connect();
+        $query = "SELECT * FROM UtenteReg WHERE email= :email";
+        $stmt = $pdo->prepare($query);
+        $stmt->execute([":email" => $email]);
+        $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        FConnectionDB2::closeConnection();
 
-        } catch (PDOException $e){
-            print("ATTENTION ERROR: ") . $e->getMessage();
-            $pdo->rollBack();
+        if (count($rows) == 0){
             return false;
         }
+        else{
+            return true;
+        }
+
     }
 
     public static function delete($email) : bool{
