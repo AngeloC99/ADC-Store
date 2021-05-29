@@ -118,22 +118,21 @@ class ECarrello
      * @param int $quantitaRichiesta
      */
     public function aggiungiProdotto(EProdotto $p, int $quantitaRichiesta): void {
-        if ($p->getQuantita() >= $quantitaRichiesta) {
-            $this->prodotti[$p->getId()] = $quantitaRichiesta;
-            $this->prezzoTot += $p->getPrezzo() * $quantitaRichiesta;
-
-            // Richiamo a Foundation per salvare il prodotto
-
-        }
-        else if (array_key_exists($p->getId(), $this->getProdotti())) {
+        if (array_key_exists($p->getId(), $this->getProdotti())) {
             if ($p->getQuantita() >= $quantitaRichiesta) {
-                print "ENTRATO NELL'IF";
                 $differenzaPrezzo = $quantitaRichiesta * $p->getPrezzo();
                 $this->prodotti[$p->getId()] += $quantitaRichiesta;
                 $this->prezzoTot += $differenzaPrezzo;
 
                 // Richiamo a Foundation per salvare il prodotto
             }
+        }
+        else if ($p->getQuantita() >= $quantitaRichiesta) {
+            $this->prodotti[$p->getId()] = $quantitaRichiesta;
+            $this->prezzoTot += $p->getPrezzo() * $quantitaRichiesta;
+
+            // Richiamo a Foundation per salvare il prodotto
+
         }
         else print("Quantità non disponibile!");
     }
@@ -143,7 +142,7 @@ class ECarrello
      * @param EProdotto $p
      * @param int $quantita
      */
-    public function modificaQuantita(EProdotto $p, int $quantita): void {    // Forse NON serve perchè o si aggiunge o si toglie il prodotto
+    public function modificaQuantita(EProdotto $p, int $quantita): void {
         if ($p->getQuantita() >= $quantita) {
             $differenzaPrezzo = ($this->prodotti[$p->getId()] - $quantita) * $p->getPrezzo();
             $this->prodotti[$p->getId()] = $quantita;
