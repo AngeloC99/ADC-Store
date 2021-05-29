@@ -43,23 +43,11 @@ class FPersistentManager
         return $ris;
     }
 
-    public function prelevaUtenti() : array {
-        $pdo = FConnectionDB::connect();
-        $query = "SELECT * FROM UtenteReg";
-        $stmt=$pdo->prepare($query);
-        $stmt->execute();
-        $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        $utenti = array();
-        foreach ($rows as $row) {
-            $user = new EUtenteReg(
-                $row['nome'],
-                $row['cognome'],
-                $row['email'],
-                $row['password']);
-            $utenti[] = $user;
-        }
-        return $utenti;
+    public function prelevaUtenti(){
+        FUtenteReg::prelevaUtenti();
     }
+
+
 }
 
 
