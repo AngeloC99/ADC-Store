@@ -125,6 +125,16 @@ class ECarrello
             // Richiamo a Foundation per salvare il prodotto
 
         }
+        else if (array_key_exists($p->getId(), $this->getProdotti())) {
+            if ($p->getQuantita() >= $quantitaRichiesta) {
+                print "ENTRATO NELL'IF";
+                $differenzaPrezzo = $quantitaRichiesta * $p->getPrezzo();
+                $this->prodotti[$p->getId()] += $quantitaRichiesta;
+                $this->prezzoTot += $differenzaPrezzo;
+
+                // Richiamo a Foundation per salvare il prodotto
+            }
+        }
         else print("Quantità non disponibile!");
     }
 
@@ -133,7 +143,7 @@ class ECarrello
      * @param EProdotto $p
      * @param int $quantita
      */
-    public function modificaQuantita(EProdotto $p, int $quantita): void {
+    public function modificaQuantita(EProdotto $p, int $quantita): void {    // Forse NON serve perchè o si aggiunge o si toglie il prodotto
         if ($p->getQuantita() >= $quantita) {
             $differenzaPrezzo = ($this->prodotti[$p->getId()] - $quantita) * $p->getPrezzo();
             $this->prodotti[$p->getId()] = $quantita;

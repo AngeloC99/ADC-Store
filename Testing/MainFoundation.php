@@ -99,3 +99,12 @@ $indirizzo = new EIndirizzo("Via Roma", 169, "Avezzano", "Aq", "67054", true);
 //FCartaCredito::update($carta);
 
 // Testing classe FOrdine
+
+$carrello = new ECarrello();
+$carrello->aggiungiProdotto($prod1, 4);
+$carrello->aggiungiProdotto($prod2, 1);
+$carrello->aggiungiProdotto($prod3, 2);
+$ind = new EIndirizzo("Via Strampelli", 144, "Rieti", "Ri", "02100", true);
+$ordine = new EOrdine($carrello, $ind);
+$carrello->aggiungiProdotto($prod1, 6);
+

@@ -31,7 +31,7 @@ class FOrdine
         $stmt = $pdo->prepare("SELECT * FROM Ordine WHERE id = :id");
         $stmt->execute([':id' => $id]);
         $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        $data = $rows[0]['dataacquisto'];
+        $data = new DateTime($rows[0]['dataacquisto']);
         $prezzo = $rows[0]['prezzototale'];
         $idCarr = $rows[0]['idcarrello'];
         $via = $rows[0]['viaConsegna'];
@@ -56,7 +56,7 @@ class FOrdine
         $stmt = $pdo->prepare($query);
         $ris = $stmt->execute(array(
             ':id' => $ordine->getId(),
-            ':dataacquisto' => $ordine->getDataAcquisto(),
+            ':dataacquisto' => $ordine->getDataAcquisto()->format('y-m-d'),
             ':prezzototale' => $ordine->getPrezzoTotale(),
             ':idcarrello' => $ordine->getCarrello()->getId(),
             ':viaConsegna' => $ordine->getIndirizzo()->getVia(),
@@ -77,7 +77,7 @@ class FOrdine
                         idcarrello = :idcarrello, viaConsegna = :viaConsegna, numerocivicoConsegna = :numerocivicoConsegna,
                         capConsegna = :capConsegna WHERE id = :id");
         $ris = $stmt->execute(array(
-            ':dataacquisto' => $ordine->getDataAcquisto(),
+            ':dataacquisto' => $ordine->getDataAcquisto()->format('y-m-d'),
             ':prezzototale' => $ordine->getPrezzoTotale(),
             ':idcarrello' => $ordine->getCarrello()->getId(),
             ':viaConsegna' => $ordine->getIndirizzo()->getVia(),
