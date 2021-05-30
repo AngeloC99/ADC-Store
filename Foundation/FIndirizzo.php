@@ -19,11 +19,22 @@ class FIndirizzo
     public static function exist(string $via, int $numerocivico, string $cap): bool {
         $pdo = FConnectionDB::connect();
         $stmt = $pdo->prepare("SELECT * FROM Indirizzo WHERE via=:via AND numerocivico = :numero AND cap = :cap");
-        $ris = $stmt->execute(array(
+        $stmt->execute(array(
             ':via' => $via,
             ':numero' => $numerocivico,
             ':cap' => $cap));
-        return $ris;
+
+        $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        FConnectionDB::closeConnection();
+
+        if (count($rows) == 0){
+            return false;
+        }
+        else{
+            return true;
+        }
+
     }
 
     /**
@@ -41,6 +52,8 @@ class FIndirizzo
             ':numero' => $numerocivico,
             ':cap' => $cap));
         $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        FConnectionDB::closeConnection();
         $com = $rows[0]['comune'];
         $prov = $rows[0]['provincia'];
         $pred = $rows[0]['predefinito'];
@@ -64,6 +77,8 @@ class FIndirizzo
             ':comune' => $indirizzo->getComune(),
             ':provincia' => $indirizzo->getProvincia(),
             ':predefinito' => $indirizzo->isPredefinito()));
+
+        FConnectionDB::closeConnection();
         return $ris;
     }
 
@@ -83,6 +98,8 @@ class FIndirizzo
             ':provincia' => $indirizzo->getProvincia(),
             ':cap' => $indirizzo->getCap(),
             ':predefinito' => $indirizzo->isPredefinito()));
+
+        FConnectionDB::closeConnection();
         return $ris;
     }
 
@@ -100,6 +117,8 @@ class FIndirizzo
             ':via' => $via,
             ':numero' => $numerocivico,
             ':cap' => $cap));
+
+        FConnectionDB::closeConnection();
         return $ris;
     }
 
@@ -112,6 +131,8 @@ class FIndirizzo
         $stmt = $pdo->prepare("SELECT * FROM Indirizzo");
         $stmt->execute();
         $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        FConnectionDB::closeConnection();
         $indirizzi = array();
         foreach ($rows as $row) {
             $ind = new EIndirizzo($row['via'],

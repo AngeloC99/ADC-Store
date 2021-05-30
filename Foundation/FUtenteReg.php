@@ -1,17 +1,30 @@
 <?php
 
 
+/**
+ * La classe FUtenteReg garantisce la permanenza dei dati per la classe EUtenteReg.
+ * Class FCarrello
+ * @package Foundation
+ */
+
 class FUtenteReg
 {
+    /**
+     * Restituisce un booleano che indica la presenza o meno di una determinata istanza di EUtenteReg nell'apposita
+     * tabella del database.
+     * @param $email
+     * @return bool
+     */
     public static function exist($email)  : bool
     {
 
-        $pdo = FConnectionDB2::connect();
+        $pdo = FConnectionDB::connect();
         $query = "SELECT * FROM UtenteReg WHERE email= :email";
         $stmt = $pdo->prepare($query);
         $stmt->execute([":email" => $email]);
         $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        FConnectionDB2::closeConnection();
+
+        FConnectionDB::closeConnection();
 
         if (count($rows) == 0){
             return false;
@@ -22,20 +35,27 @@ class FUtenteReg
 
     }
 
+    /**
+     * Cancella un'istanza di EUtenteReg sul database e restituisce un booleano che indica l'esito dell'operazione.
+     * @param $email
+     * @return bool
+     */
     public static function delete($email) : bool{
         $pdo = FConnectionDB::connect();
         $query = "DELETE FROM UtenteReg WHERE email= :email";
         $stmt = $pdo->prepare($query);
         $ris = $stmt->execute([":email" => $email]);
-        if ($ris==true){
-            return true;
-        }
-        else{
-            return false;
-        }
+
+        FConnectionDB::closeConnection();
+        return $ris;
 
     }
 
+    /**
+     * Carica in RAM l'istanza di EUtenteReg che possiede la chiave primaria fornita.
+     * @param $email
+     * @return EUtenteReg
+     */
     public static function load($email) : EUtenteReg
     {
         $pdo = FConnectionDB::connect();
@@ -43,6 +63,8 @@ class FUtenteReg
         $stmt = $pdo->prepare($query);
         $stmt->execute(["email" => $email]);
         $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        FConnectionDB::closeConnection();
         $nome=$rows[0]['nome'];
         $cognome=$rows[0]['cognome'];
         $email=$rows[0]['email'];
@@ -56,6 +78,11 @@ class FUtenteReg
 
     }
 
+    /**
+     * Memorizza un'istanza di EUtenteReg sul database e restituisce un booleano che indica l'esito dell'operazione.
+     * @param $obj
+     * @return bool
+     */
     public static function store($obj) : bool
     {
         $pdo = FConnectionDB::connect();
@@ -68,39 +95,46 @@ class FUtenteReg
             ":pw" => $obj->getPassword(),
             ":punti" => $obj->getPunti()));
 
-        if ($ris==true ){
-            return true;
-        }
-        else{
-            return false;
-        }
+        FConnectionDB::closeConnection();
+        return $ris;
+
+
     }
 
-    public static function update($obj1) : bool{
+    /**
+     * Aggiorna i valori di un'istanza di EUtenteReg sul database e restituisce un booleano che indica l'esito
+     * @param $obj
+     * @return bool
+     */
+    public static function update($obj) : bool{
         $pdo = FConnectionDB::connect();
         $query = "UPDATE UtenteReg SET nome = :nome, cognome = :cognome, password = :password, punti = :punti  WHERE email = :email";
         $stmt=$pdo->prepare($query);
         $ris = $stmt->execute(array(
-            ":nome" => $obj1->getNome(),
-            ":cognome" => $obj1->getCognome(),
-            ":password" => $obj1->getPassword(),
-            ":punti" => $obj1->getPunti(),
-            ":email" => $obj1->getEmail()));
+            ":nome" => $obj->getNome(),
+            ":cognome" => $obj->getCognome(),
+            ":password" => $obj->getPassword(),
+            ":punti" => $obj->getPunti(),
+            ":email" => $obj->getEmail()));
 
-        if ($ris==true){
-            return true;
-        }
-        else{
-            return false;
-        }
+        FConnectionDB::closeConnection();
+
+        return $ris;
+
     }
 
+    /**
+     * Restituisce tutti gli utenti registrati che sono nella tabella UtenteReg
+     * @return array
+     */
     public static function prelevaUtenti() : array {
         $pdo = FConnectionDB::connect();
         $query = "SELECT * FROM UtenteReg";
         $stmt=$pdo->prepare($query);
         $stmt->execute();
         $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        FConnectionDB::closeConnection();
         $utenti = array();
         foreach ($rows as $row) {
             $user = new EUtenteReg(
@@ -125,7 +159,6 @@ class FUtenteReg
         try {
             $pdo = FConnectionDB::connect();
             $pdo->beginTransaction();
-            $ris = FIndirizzo::store($indirizzo);
             $query = "INSERT INTO UtenteSalvaIndirizzo VALUES(:mailutente, :via, :numero, :cap)";
             $stmt = $pdo->prepare($query);
             $ris1 = $stmt->execute(array(
@@ -133,7 +166,11 @@ class FUtenteReg
                 ':numero' => $indirizzo->getNumero(),
                 ':cap' => $indirizzo->getCap(),
                 ':mailutente' => $mailutente));
+
+            FConnectionDB::closeConnection();
+            $ris = FIndirizzo::store($indirizzo);
             $pdo->commit();
+
 
             return $ris AND $ris1;
 
@@ -157,7 +194,6 @@ class FUtenteReg
         try {
             $pdo = FConnectionDB::connect();
             $pdo->beginTransaction();
-            $ris = FIndirizzo::delete($via, $numerocivico, $cap);
             $query = "DELETE FROM UtenteSalvaIndirizzo 
                 WHERE via = :via AND numerocivico = :numero AND cap = :cap AND mailutente = :mailutente";
             $stmt = $pdo->prepare($query);
@@ -166,6 +202,10 @@ class FUtenteReg
                 ':numero' => $numerocivico,
                 ':cap' => $cap,
                 ':mailutente' => $mailutente));
+
+            FConnectionDB::closeConnection();
+
+            $ris = FIndirizzo::delete($via, $numerocivico, $cap);
             $pdo->commit();
 
             return $ris AND $ris1;
@@ -186,13 +226,15 @@ class FUtenteReg
      */
     public static function prelevaIndirizzi(string $mailutente): array {
         $pdo = FConnectionDB::connect();
-        $stmt = $pdo->prepare("SELECT * FROM UtenteSalvaIndirizzo INNER JOIN Indirizzo 
+        $stmt = $pdo->prepare("SELECT * FROM Indirizzo INNER JOIN UtenteSalvaIndirizzo 
                             ON UtenteSalvaIndirizzo.via = Indirizzo.via AND
                                UtenteSalvaIndirizzo.numerocivico = Indirizzo.numerocivico AND
                                UtenteSalvaIndirizzo.cap = Indirizzo.cap
                                WHERE UtenteSalvaIndirizzo.mailutente = :mailutente");
         $stmt->execute([':mailutente' => $mailutente]);
         $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        FConnectionDB::closeConnection();
         $indirizzi = array();
         foreach ($rows as $row) {
             $ind = new EIndirizzo($row['via'],
@@ -217,13 +259,17 @@ class FUtenteReg
         try {
             $pdo = FConnectionDB::connect();
             $pdo->beginTransaction();
-            $ris = FCartaCredito::store($carta);
             $query = "INSERT INTO UtenteUsaCarta VALUES(:mailutente, :numerocarta)";
             $stmt = $pdo->prepare($query);
             $ris1 = $stmt->execute(array(
                 ':mailutente' => $mailutente,
                 ':numerocarta' => $carta->getNumero()));
+
+            FConnectionDB::closeConnection();
+
+            $ris = FCartaCredito::store($carta);
             $pdo->commit();
+
 
             return $ris AND $ris1;
 
@@ -245,10 +291,12 @@ class FUtenteReg
         try {
             $pdo = FConnectionDB::connect();
             $pdo->beginTransaction();
-            $ris = FCartaCredito::delete($numero);
             $query = "DELETE FROM UtenteUsaCarta WHERE mailutente = :mailutente AND numerocarta = :numerocarta";
             $stmt = $pdo->prepare($query);
             $ris1 = $stmt->execute(array(':mailutente' => $mailutente,':numerocarta' => $numero));
+
+            FConnectionDB::closeConnection();
+            $ris = FCartaCredito::delete($numero);
             $pdo->commit();
 
             return $ris AND $ris1;
@@ -273,6 +321,8 @@ class FUtenteReg
                                 WHERE UtenteUsaCarta.mailutente = :mailutente");
         $stmt->execute([':mailutente' => $mailutente]);
         $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        FConnectionDB::closeConnection();
         $carte = array();
         foreach ($rows as $row) {
             $carta = new ECartaCredito($row['titolare'],

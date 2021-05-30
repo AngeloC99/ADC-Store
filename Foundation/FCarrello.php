@@ -18,7 +18,16 @@ class FCarrello
         $pdo = FConnectionDB::connect();
         $stmt = $pdo->prepare("SELECT * FROM Carrello WHERE id = :id");
         $ris = $stmt->execute([':id' => $id]);
-        return $ris;
+        $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        FConnectionDB::closeConnection();
+
+        if (count($rows) == 0){
+            return false;
+        }
+        else{
+            return true;
+        }
     }
 
     /**
@@ -40,6 +49,7 @@ class FCarrello
             $carrello->setNome($nome);
             self::prelevaProdottiDalCarrello($carrello);
             $pdo->commit();
+            FConnectionDB::closeConnection();
 
             return $carrello;
 
@@ -66,10 +76,13 @@ class FCarrello
                 ':id' => $carrello->getId(),
                 ':nome' => $carrello->getNome(),
                 ':mailutente' => $mailutente));
+
+            FConnectionDB::closeConnection();
             self::salvaProdottiNelCarrello($carrello);
             $pdo->commit();
 
             return $ris;
+
         } catch(PDOException $e) {
             print("ATTENTION ERROR: ") . $e->getMessage();
             $pdo->rollBack();
@@ -89,6 +102,8 @@ class FCarrello
             $pdo->beginTransaction();
             $stmt = $pdo->prepare("UPDATE Carrello SET nome = :nome WHERE id = :id");
             $ris = $stmt->execute([':nome' => $carrello->getNome()]);
+
+            FConnectionDB::closeConnection();
             self::salvaProdottiNelCarrello($carrello);
             $pdo->commit();
 
@@ -116,6 +131,8 @@ class FCarrello
             $ris1 = $stmt1->execute([':idcarrello' => $id]);
             $pdo->commit();
 
+            FConnectionDB::closeConnection();
+
             return $ris AND $ris1;
 
         } catch(PDOException $e) {
@@ -134,11 +151,11 @@ class FCarrello
         try {
             $pdo = FConnectionDB::connect();
             $pdo->beginTransaction();
-            $stmt = $pdo->prepare("SELECT * FROM Carrello INNER JOIN UtenteUsaCarta 
-                                ON CartaCredito.numero = UtenteUsaCarta.numero 
-                                WHERE UtenteUsaCarta.mailutente = :mailutente");
+            $stmt = $pdo->prepare("SELECT * FROM Carrello WHERE mailutente = :mailutente");
             $stmt->execute([':mailutente' => $mailutente]);
             $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            $pdo->commit();
+            FConnectionDB::closeConnection();
             $carrelli = array();
             foreach ($rows as $row) {
                 $car = new ECarrello();
@@ -147,7 +164,6 @@ class FCarrello
                 self::prelevaProdottiDalCarrello($car);
                 $carrelli[] = $car;
             }
-            $pdo->commit();
 
             return $carrelli;
 
@@ -163,20 +179,22 @@ class FCarrello
      * @param ECarrello $carrello
      * @return void
      */
-    private static function prelevaProdottiDalCarrello(ECarrello $carrello): void {
+    private static function prelevaProdottiDalCarrello(ECarrello $carrello): bool {
         try {
             $pdo = FConnectionDB::connect();
             $pdo->beginTransaction();
             $stmt = $pdo->prepare("SELECT * FROM Prodotto INNER JOIN Contiene 
                                 ON Prodotto.id = Contiene.idprodotto 
                                 WHERE Contiene.idcarrello = :idcarrello");
-            $stmt->execute([':idcarrello' => $carrello->getId()]);
+            $ris = $stmt->execute([':idcarrello' => $carrello->getId()]);
             $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            $pdo->commit();
+            FConnectionDB::closeConnection();
             foreach ($rows as $row) {
                 $prod = FProdotto::load($row['nome']);
                 $carrello->aggiungiProdotto($prod, $row['quantitaNelCarrello']);
             }
-            $pdo->commit();
+            return $ris;
 
         } catch(PDOException $e) {
             print("ATTENTION ERROR: ") . $e->getMessage();
@@ -190,21 +208,19 @@ class FCarrello
      * @param ECarrello $carrello
      * @return void
      */
-    private static function salvaProdottiNelCarrello(ECarrello $carrello): void {
-        try {
-            $pdo = FConnectionDB::connect();
-            $pdo->beginTransaction();
-            $stmt = $pdo->prepare("INSERT INTO Contiene VALUES (:idcarrello, :idprodotto, :quantitaNelCarrello)");
-            foreach ($carrello->getProdotti() as $idprod => $quantita) {
-                $stmt->execute(array(':idcarrello' => $carrello->getId(),
-                    ':idprodotto' => $idprod,
-                    ':quantitaNelCarrello' => $quantita));
-            }
-            $pdo->commit();
-        } catch(PDOException $e) {
-            print("ATTENTION ERROR: ") . $e->getMessage();
-            $pdo->rollBack();
-            return false;
+    private static function salvaProdottiNelCarrello(ECarrello $carrello): bool
+    {
+        $pdo = FConnectionDB::connect();
+        $stmt = $pdo->prepare("INSERT INTO Contiene VALUES (:idcarrello, :idprodotto, :quantitaNelCarrello)");
+        foreach ($carrello->getProdotti() as $idprod => $quantita) {
+            $ris = $stmt->execute(array(':idcarrello' => $carrello->getId(),
+                ':idprodotto' => $idprod,
+                ':quantitaNelCarrello' => $quantita));
         }
+        FConnectionDB::closeConnection();
+
+        return $ris;
     }
-}
+
+        }
+

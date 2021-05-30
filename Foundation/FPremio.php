@@ -1,37 +1,50 @@
 <?php
 
-require_once '../autoloader.php';
-class FPremio implements FBase
+
+class FPremio
 {
-    public static function exist($key, $key2, $key3): bool
+    public static function exist($key): bool
     {
         $pdo=FConnectionDB::connect();
-        $stmt=$pdo->prepare("SELECT * FROM Premio WHERE id=?");
-        $ris=$stmt->execute([$key]);  //se non esiste non va a buon fine la SELECT e viene restituito false, true se invece esiste e quindi la SELECT va a buon fine.
-        return $ris;
+        $stmt=$pdo->prepare("SELECT * FROM Premio WHERE id=:id");
+        $ris=$stmt->execute([":id" => $key]);  //se non esiste non va a buon fine la SELECT e viene restituito false, true se invece esiste e quindi la SELECT va a buon fine.
+        $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        FConnectionDB::closeConnection();
+
+        if (count($rows) == 0){
+            return false;
+        }
+        else{
+            return true;
+        }
 
 
     }
 
-    public static function delete($key, $key2, $key3): bool
+    public static function delete($key): bool
     {
         $pdo=FConnectionDB::connect();
-        $stmt=$pdo->prepare("SELECT * FROM Premio WHERE id=?");
-        $stmt->execute([$key]);
+        $stmt=$pdo->prepare("SELECT * FROM Premio WHERE id=:id");
+        $stmt->execute(["id" => $key]);
         $rows=$stmt->fetchAll(PDO::FETCH_ASSOC);
         $nomeImm=$rows['nomeImmagine'];
-        $stmt=$pdo->prepare("DELETE FROM Premio WHERE id=?");
-        $ris=$stmt->execute([$key]);
+        $stmt=$pdo->prepare("DELETE FROM Premio WHERE id=:id");
+        $ris=$stmt->execute([":id" => $key]);
+
+        FConnectionDB::closeConnection();
         $ris2=FImmagine::delete($nomeImm);
         return $ris && $ris2;
     }
 
-    public static function load($nome, $key2, $key3) :EPremio
+    public static function load($nome) :EPremio
     {
         $pdo=FConnectionDB::connect();
-        $stmt=$pdo->prepare("SELECT * FROM Premio WHERE nome=?");
-        $stmt->execute([$nome]);
+        $stmt=$pdo->prepare("SELECT * FROM Premio WHERE nome=:nome");
+        $stmt->execute([":nome" => $nome]);
         $rows=$stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        FConnectionDB::closeConnection();
         $punti=$rows['punti'];
         $desc=$rows['descrizione'];
         $quant=$rows['quantita'];
@@ -44,30 +57,41 @@ class FPremio implements FBase
         return $premio;
     }
 
-    public static function store($obj,$mailutente): bool
+    public static function store($obj): bool
     {
         $pdo=FConnectionDB::connect();
         $query="INSERT INTO Premio VALUES(:id,:p,:n,:d,:q,:m,:nimm)";
         $stmt=$pdo->prepare($query);
-        $stmt->bindParam(':id',$obj->getId());
-        $stmt->bindParam(':p',$obj->getPrezzoInPunti());
-        $stmt->bindParam(':n',$obj->getNome());
-        $stmt->bindParam(':d',$obj->getDescrizione());
-        $stmt->bindParam(':q',$obj->getQuantita());
-        $stmt->bindParam(':m',$obj->getMarca());
-        $stmt->bindParam(':nimm',$obj->getImmagine()->getNome());
-        $ris=$stmt->execute();
+        $ris=$stmt->execute(array(
+            ":id" => $obj->getId(),
+            ":p" => $obj->getPrezzoInPunti(),
+            ":n" => $obj->getNome(),
+            ":d" => $obj->getDescrizione(),
+            ":q" => $obj->getQuantita(),
+            ":m" => $obj->getMarca(),
+            ":nimm" => $obj->getImmagine()->getNome()));
+
+        FConnectionDB::closeConnection();
         $ris2=FImmagine::store($obj->getImmagine());
         return $ris && $ris2;
 
     }
 
-    public static function update($obj1): bool //parametro di FBase da discutere
+    public static function update($obj): bool //parametro di FBase da discutere
     {
         $pdo=FConnectionDB::connect();
-        $stmt1 = $pdo->prepare("UPDATE Premio SET punti = $obj1->getPrezzoInPunti(), nome = $obj1->getNome(), descrizione = $obj1->getDescrizione(), quantita = $obj1->getQuantita(), marca = $obj1->getMarca(), nomeImmagine = $obj1->getImmagine()->getNome() WHERE id=?");
-        $ris1 = $stmt1->execute([$obj1->getId()]);
-        $ris2 = FImmagine::update($obj1->getImmagine());
+        $stmt = $pdo->prepare("UPDATE Premio SET punti = :p, nome = :n, descrizione = :d, quantita = :q, marca = :m, nomeImmagine = :nimm WHERE id= :id");
+        $ris1 = $stmt->execute(array(
+            ":p" => $obj->getPrezzoInPunti(),
+            ":n" => $obj->getNome(),
+            ":d" => $obj->getDescrizione(),
+            ":q" => $obj->getQuantita(),
+            ":m" => $obj->getMarca(),
+            ":nimm" => $obj->getImmagine()->getNome(),
+            ":id" => $obj->getId()));
+
+        FConnectionDB::closeConnection();
+        $ris2 = FImmagine::update($obj->getImmagine());
         return $ris1 && $ris2;
     }
 }

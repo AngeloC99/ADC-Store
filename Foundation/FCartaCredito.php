@@ -14,11 +14,20 @@ class FCartaCredito
      * @param string $numero
      * @return bool
      */
-    public static function exist(string $numero): bool {
+    public static function exist(string $numero): bool
+    {
         $pdo = FConnectionDB::connect();
         $stmt = $pdo->prepare("SELECT * FROM CartaCredito WHERE numero=:numero");
         $ris = $stmt->execute([':numero' => $numero]);
-        return $ris;
+        $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        FConnectionDB::closeConnection();
+
+        if (count($rows) == 0) {
+            return false;
+        } else {
+            return true;
+        }
     }
 
     /**
@@ -31,6 +40,8 @@ class FCartaCredito
         $stmt = $pdo->prepare("SELECT * FROM CartaCredito WHERE numero=:numero");
         $stmt->execute([':numero' => $numero]);
         $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        FConnectionDB::closeConnection();
         $tit = $rows[0]['titolare'];
         $circ = $rows[0]['circuito'];
         $cvv = $rows[0]['cvv'];
@@ -56,6 +67,8 @@ class FCartaCredito
             ':cvv' => $carta->getCvv(),
             ':ammontare' => $carta->getAmmontare(),
             ':scadenza' => $carta->getScadenza()->format('y-m-d')));
+
+        FConnectionDB::closeConnection();
         return $ris;
     }
 
@@ -76,6 +89,8 @@ class FCartaCredito
             ':cvv' => $carta->getCvv(),
             ':ammontare' => $carta->getAmmontare(),
             ':scadenza' => $carta->getScadenza()->format('y-m-d')));
+
+        FConnectionDB::closeConnection();
         return $ris;
     }
 
@@ -88,6 +103,8 @@ class FCartaCredito
         $pdo = FConnectionDB::connect();
         $stmt = $pdo->prepare("DELETE FROM CartaCredito WHERE numero = :numero");
         $ris = $stmt->execute([':numero' => $numero]);
+
+        FConnectionDB::closeConnection();
         return $ris;
     }
 
@@ -100,6 +117,8 @@ class FCartaCredito
         $stmt = $pdo->prepare("SELECT * FROM CartaCredito");
         $stmt->execute();
         $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        FConnectionDB::closeConnection();
         $carte = array();
         foreach ($rows as $row) {
             $carta = new ECartaCredito($row['titolare'],

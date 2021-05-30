@@ -18,7 +18,16 @@ class FOrdine
         $pdo = FConnectionDB::connect();
         $stmt = $pdo->prepare("SELECT * FROM Ordine WHERE id = :id");
         $ris = $stmt->execute([':id' => $id]);
-        return $ris;
+        $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        FConnectionDB::closeConnection();
+
+        if (count($rows) == 0){
+            return false;
+        }
+        else{
+            return true;
+        }
     }
 
 
@@ -35,6 +44,8 @@ class FOrdine
             $stmt = $pdo->prepare("SELECT * FROM Ordine WHERE id = :id");
             $stmt->execute([':id' => $id]);
             $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+            FConnectionDB::closeConnection();
             $data = new DateTime($rows[0]['dataacquisto']);
             $prezzo = $rows[0]['prezzototale'];
             $idCarr = $rows[0]['idcarrello'];
@@ -73,6 +84,8 @@ class FOrdine
             ':viaConsegna' => $ordine->getIndirizzo()->getVia(),
             ':numerocivicoConsegna' => $ordine->getIndirizzo()->getNumero(),
             ':capConsegna' => $ordine->getIndirizzo()->getCap()));
+
+        FConnectionDB::closeConnection();
         return $ris;
     }
 
@@ -95,6 +108,8 @@ class FOrdine
             ':numerocivicoConsegna' => $ordine->getIndirizzo()->getNumero(),
             ':capConsegna' => $ordine->getIndirizzo()->getCap(),
             ':id' => $ordine->getId()));
+
+        FConnectionDB::closeConnection();
         return $ris;
     }
 
@@ -107,6 +122,8 @@ class FOrdine
         $pdo = FConnectionDB::connect();
         $stmt = $pdo->prepare("DELETE FROM Ordine WHERE id = :id");
         $ris = $stmt->execute([':id' => $id]);
+
+        FConnectionDB::closeConnection();
         return $ris;
     }
 }

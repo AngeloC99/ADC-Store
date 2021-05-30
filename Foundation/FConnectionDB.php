@@ -3,35 +3,33 @@
 
 class FConnectionDB
 {
-    private static $instance=null;  //con Singleton
-    private static $db;
+    private static $instance;
 
+    public function __construct() {}
 
-    public function __construct ()
-    {
+    public static function connect() {
+
+        if (!isset(self::$instance)) {
+
             try {
-                self::$db = new PDO ("mysql:host=" . $GLOBALS['hostname'] . ";dbname=" . $GLOBALS['dbname'], $GLOBALS['user'], $GLOBALS['pass']);
+                self::$instance = new PDO ("mysql:host=" . $GLOBALS['hostname'] . ";dbname=" . $GLOBALS['dbname'], $GLOBALS['user'], $GLOBALS['pass']);
 
             } catch (PDOException $e) {
                 echo "Errore nel costruttore di FConnectionDB: " . $e->getMessage();
                 die;
+            }
         }
+        return self::$instance;
 
-    }
-
-    /**
-     * @return PDO
-     */
-    public static function connect(): PDO
-    {
-        if (self::$instance == null) {
-            self::$instance = new FConnectionDB();
         }
-        return self::$db;
-    }
 
     public static function closeConnection(){
         self::$instance = null;
-        self::$db = null;
     }
-}
+
+    }
+
+
+
+
+
