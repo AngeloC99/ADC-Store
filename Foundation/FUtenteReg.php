@@ -121,10 +121,7 @@ class FUtenteReg
      * @param string $mailutente
      * @return bool
      */
-    public static function salvaIndirizzoUtente(EIndirizzo $indirizzo, string $mailutente): bool {
-
-        // NON VENGONO AGGIORNATE LE TABELLE CON LA TRANSACTION!!!!!
-
+    public static function salvaIndirizzo(EIndirizzo $indirizzo, string $mailutente): bool {
         try {
             $pdo = FConnectionDB::connect();
             $pdo->beginTransaction();
@@ -137,6 +134,7 @@ class FUtenteReg
                 ':cap' => $indirizzo->getCap(),
                 ':mailutente' => $mailutente));
             $pdo->commit();
+
             return $ris AND $ris1;
 
         } catch(PDOException $e) {
@@ -150,25 +148,34 @@ class FUtenteReg
      * Elimina l'indirizzo che l'utente vuole cancellare dal database e restituisce un valore booleano che indica l'esito
      * dell'operazione.
      * @param string $via
-     * @param string $numerocivico
+     * @param int $numerocivico
      * @param string $cap
      * @param string $mailutente
      * @return bool
      */
-    public static function eliminaIndirizzoUtente(string $via, string $numerocivico, string $cap, string $mailutente): bool {
-        $ris = FIndirizzo::delete($via, $numerocivico, $cap);
-
-        $pdo = FConnectionDB::connect();
-        $query = "DELETE FROM UtenteSalvaIndirizzo 
+    public static function eliminaIndirizzo(string $via, int $numerocivico, string $cap, string $mailutente): bool {
+        try {
+            $pdo = FConnectionDB::connect();
+            $pdo->beginTransaction();
+            $ris = FIndirizzo::delete($via, $numerocivico, $cap);
+            $query = "DELETE FROM UtenteSalvaIndirizzo 
                 WHERE via = :via AND numerocivico = :numero AND cap = :cap AND mailutente = :mailutente";
-        $stmt = $pdo->prepare($query);
-        $ris1 = $stmt->execute(array(
-            ':via' => $via,
-            ':numero' => $numerocivico,
-            ':cap' => $cap,
-            ':mailutente' => $mailutente));
+            $stmt = $pdo->prepare($query);
+            $ris1 = $stmt->execute(array(
+                ':via' => $via,
+                ':numero' => $numerocivico,
+                ':cap' => $cap,
+                ':mailutente' => $mailutente));
+            $pdo->commit();
 
-        return $ris AND $ris1;
+            return $ris AND $ris1;
+
+        } catch(PDOException $e) {
+            print("ATTENTION ERROR: ") . $e->getMessage();
+            $pdo->rollBack();
+            return false;
+        }
+
     }
 
     /**
@@ -177,7 +184,7 @@ class FUtenteReg
      * @param string $mailutente
      * @return array
      */
-    public static function prelevaIndirizziUtente(string $mailutente): array {
+    public static function prelevaIndirizzi(string $mailutente): array {
         $pdo = FConnectionDB::connect();
         $stmt = $pdo->prepare("SELECT * FROM UtenteSalvaIndirizzo INNER JOIN Indirizzo 
                             ON UtenteSalvaIndirizzo.via = Indirizzo.via AND
@@ -206,16 +213,25 @@ class FUtenteReg
      * @param string $mailutente
      * @return bool
      */
-    public static function salvaCartaUtente(ECartaCredito $carta, string $mailutente): bool {
-        $ris = FCartaCredito::store($carta);
-        $pdo = FConnectionDB::connect();
-        $query = "INSERT INTO UtenteUsaCarta VALUES(:mailutente, :numerocarta)";
-        $stmt = $pdo->prepare($query);
-        $ris1 = $stmt->execute(array(
-            ':mailutente' => $mailutente,
-            ':numerocarta' => $carta->getNumero()));
+    public static function salvaCarta(ECartaCredito $carta, string $mailutente): bool {
+        try {
+            $pdo = FConnectionDB::connect();
+            $pdo->beginTransaction();
+            $ris = FCartaCredito::store($carta);
+            $query = "INSERT INTO UtenteUsaCarta VALUES(:mailutente, :numerocarta)";
+            $stmt = $pdo->prepare($query);
+            $ris1 = $stmt->execute(array(
+                ':mailutente' => $mailutente,
+                ':numerocarta' => $carta->getNumero()));
+            $pdo->commit();
 
-        return $ris AND $ris1;
+            return $ris AND $ris1;
+
+        } catch(PDOException $e) {
+            print("ATTENTION ERROR: ") . $e->getMessage();
+            $pdo->rollBack();
+            return false;
+        }
     }
 
     /**
@@ -225,15 +241,23 @@ class FUtenteReg
      * @param string $mailutente
      * @return bool
      */
-    public static function eliminaCartaUtente(string $numero, string $mailutente): bool {
-        $ris = FCartaCredito::delete($numero);
+    public static function eliminaCarta(string $numero, string $mailutente): bool {
+        try {
+            $pdo = FConnectionDB::connect();
+            $pdo->beginTransaction();
+            $ris = FCartaCredito::delete($numero);
+            $query = "DELETE FROM UtenteUsaCarta WHERE mailutente = :mailutente AND numerocarta = :numerocarta";
+            $stmt = $pdo->prepare($query);
+            $ris1 = $stmt->execute(array(':mailutente' => $mailutente,':numerocarta' => $numero));
+            $pdo->commit();
 
-        $pdo = FConnectionDB::connect();
-        $query = "DELETE FROM UtenteUsaCarta WHERE mailutente = :mailutente AND numerocarta = :numerocarta";
-        $stmt = $pdo->prepare($query);
-        $ris1 = $stmt->execute(array(':mailutente' => $mailutente,':numerocarta' => $numero));
+            return $ris AND $ris1;
 
-        return $ris AND $ris1;
+        } catch(PDOException $e) {
+            print("ATTENTION ERROR: ") . $e->getMessage();
+            $pdo->rollBack();
+            return false;
+        }
     }
 
     /**
@@ -242,7 +266,7 @@ class FUtenteReg
      * @param string $mailutente
      * @return array
      */
-    public static function prelevaCarteUtente(string $mailutente): array {
+    public static function prelevaCarte(string $mailutente): array {
         $pdo = FConnectionDB::connect();
         $stmt = $pdo->prepare("SELECT * FROM CartaCredito INNER JOIN UtenteUsaCarta 
                                 ON CartaCredito.numero = UtenteUsaCarta.numero 

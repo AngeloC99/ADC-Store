@@ -79,16 +79,6 @@ class ECarrello
     }
 
     /**
-     * Reperisce il prodotto desiderato con i suoi dettagli a partire dall'identificativo che lo caratterizza.
-     * @param string $id
-     */
-    public function getProdottoById(string $id){
-        // Richiamo a Foundation
-        // $prodotto = new EProdotto($nome, $marca, $descrizione, $quantita, $immagine, $prezzo, $tipologia);
-        // return $prodotto;
-    }
-
-    /**
      * Restituisce il prezzo attuale del carrello, in base ai prezzi dei prodotti in esso contenuti.
      * @return float
      */
@@ -123,17 +113,11 @@ class ECarrello
                 $differenzaPrezzo = $quantitaRichiesta * $p->getPrezzo();
                 $this->prodotti[$p->getId()] += $quantitaRichiesta;
                 $this->prezzoTot += $differenzaPrezzo;
-
-
-                // Richiamo a Foundation per salvare il prodotto
             }
         }
         else if ($p->getQuantita() >= $quantitaRichiesta) {
             $this->prodotti[$p->getId()] = $quantitaRichiesta;
             $this->prezzoTot += $p->getPrezzo() * $quantitaRichiesta;
-
-            // Richiamo a Foundation per salvare il prodotto
-
         }
         else print("Quantità non disponibile!");
     }
@@ -148,9 +132,6 @@ class ECarrello
             $differenzaPrezzo = ($this->prodotti[$p->getId()] - $quantita) * $p->getPrezzo();
             $this->prodotti[$p->getId()] = $quantita;
             $this->prezzoTot += $differenzaPrezzo;
-
-            // Richiamo a Foundation per salvare la modifica al carrello
-
         }
         else print("Quantità non disponibile!");
     }

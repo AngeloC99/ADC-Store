@@ -21,28 +21,39 @@ class FOrdine
         return $ris;
     }
 
+
     /**
      * Carica in RAM l'istanza di EOrdine che possiede la chiave primaria fornita.
      * @param string $id
      * @return EOrdine
+     * @throws Exception
      */
     public static function load(string $id) : EOrdine {
-        $pdo = FConnectionDB::connect();
-        $stmt = $pdo->prepare("SELECT * FROM Ordine WHERE id = :id");
-        $stmt->execute([':id' => $id]);
-        $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        $data = new DateTime($rows[0]['dataacquisto']);
-        $prezzo = $rows[0]['prezzototale'];
-        $idCarr = $rows[0]['idcarrello'];
-        $via = $rows[0]['viaConsegna'];
-        $numero = $rows[0]['numerocivicoConsegna'];
-        $cap = $rows[0]['capConsegna'];
-        $carrello = FCarrello::load($idCarr);
-        $ind = FIndirizzo::load($via, $numero, $cap);
-        $ris = new EOrdine($carrello, $ind);
-        $ris->setPrezzoTotale($prezzo);
-        $ris->setDataAcquisto($data);
-        return $ris;
+        try {
+            $pdo = FConnectionDB::connect();
+            $pdo->beginTransaction();
+            $stmt = $pdo->prepare("SELECT * FROM Ordine WHERE id = :id");
+            $stmt->execute([':id' => $id]);
+            $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            $data = new DateTime($rows[0]['dataacquisto']);
+            $prezzo = $rows[0]['prezzototale'];
+            $idCarr = $rows[0]['idcarrello'];
+            $via = $rows[0]['viaConsegna'];
+            $numero = $rows[0]['numerocivicoConsegna'];
+            $cap = $rows[0]['capConsegna'];
+            $carrello = FCarrello::load($idCarr);
+            $ind = FIndirizzo::load($via, $numero, $cap);
+            $ris = new EOrdine($carrello, $ind);
+            $ris->setPrezzoTotale($prezzo);
+            $ris->setDataAcquisto($data);
+            $pdo->commit();
+
+            return $ris;
+
+        } catch(PDOException $e) {
+            print("ATTENTION ERROR: ") . $e->getMessage();
+            $pdo->rollBack();
+        }
     }
 
     /**

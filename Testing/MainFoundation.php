@@ -144,7 +144,10 @@ print FOrdine::exist( $ordine1->getId());
 */
 
 // Testing dei metodi che coinvolgono più tabelle FUtenteReg
-//$db->store($utente);
-//FUtenteReg::salvaIndirizzoUtente($indirizzo,$utente->getEmail());
-//FUtenteReg::salvaCartaUtente($carta1,$utente->getEmail());
 
+//$db->store($utente);
+//FUtenteReg::salvaIndirizzo($indirizzo,$utente->getEmail());
+//FUtenteReg::salvaCarta($carta1,$utente->getEmail());
+//FUtenteReg::eliminaIndirizzo($indirizzo->getVia(),$indirizzo->getNumero(), $indirizzo->getCap(), $utente->getEmail());
+//FUtenteReg::salvaIndirizzo($ind,$utente->getEmail());
+//var_dump(FUtenteReg::prelevaIndirizzi($utente->getEmail()));
