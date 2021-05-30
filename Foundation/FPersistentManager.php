@@ -1,7 +1,8 @@
 <?php
 
 /**
- * La classe FPersistentManager si presenta come interfaccia fra le classi del package Foundation e le classi Controller che la interrogano per effettuare le operazioni CRUD sul database.
+ * Il FPersistentManager è l'unica classe accessibile agli strati superiori dello strato Foundation e gestisce la
+ * persistenza di tutti gli oggetti appartenenti al package Entity.
  * Class FPersistentManager
  * @access public
  */
