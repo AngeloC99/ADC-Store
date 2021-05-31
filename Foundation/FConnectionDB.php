@@ -4,7 +4,6 @@ class FConnectionDB
 {
     private static $instance;
 
-    //public function __construct() {}
 
     public static function connect() {
 
@@ -14,7 +13,7 @@ class FConnectionDB
                 self::$instance = new PDO ("mysql:host=" . $GLOBALS['hostname'] . ";dbname=" . $GLOBALS['dbname'], $GLOBALS['user'], $GLOBALS['pass']);
 
             } catch (PDOException $e) {
-                echo "Errore nel costruttore di FConnectionDB: " . $e->getMessage();
+                echo "Errore in FConnectionDB: " . $e->getMessage();
                 die;
             }
         }
@@ -22,9 +21,6 @@ class FConnectionDB
 
         }
 
-    public static function closeConnection(){
-        self::$instance = null;
-    }
 
     }
 

@@ -24,8 +24,6 @@ class FUtenteReg
         $stmt->execute([":email" => $email]);
         $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-        FConnectionDB::closeConnection();
-
         if (count($rows) == 0){
             return false;
         }
@@ -46,7 +44,6 @@ class FUtenteReg
         $stmt = $pdo->prepare($query);
         $ris = $stmt->execute([":email" => $email]);
 
-        FConnectionDB::closeConnection();
         return $ris;
 
     }
@@ -64,7 +61,6 @@ class FUtenteReg
         $stmt->execute(["email" => $email]);
         $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-        FConnectionDB::closeConnection();
         $nome=$rows[0]['nome'];
         $cognome=$rows[0]['cognome'];
         $email=$rows[0]['email'];
@@ -94,8 +90,7 @@ class FUtenteReg
             ":cognome" => $obj->getCognome(),
             ":pw" => $obj->getPassword(),
             ":punti" => $obj->getPunti()));
-
-        FConnectionDB::closeConnection();
+        ;
         return $ris;
 
 
@@ -117,8 +112,6 @@ class FUtenteReg
             ":punti" => $obj->getPunti(),
             ":email" => $obj->getEmail()));
 
-        FConnectionDB::closeConnection();
-
         return $ris;
 
     }
@@ -134,7 +127,6 @@ class FUtenteReg
         $stmt->execute();
         $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-        FConnectionDB::closeConnection();
         $utenti = array();
         foreach ($rows as $row) {
             $user = new EUtenteReg(
@@ -167,7 +159,6 @@ class FUtenteReg
                 ':cap' => $indirizzo->getCap(),
                 ':mailutente' => $mailutente));
 
-            FConnectionDB::closeConnection();
             $ris = FIndirizzo::store($indirizzo);
             $pdo->commit();
 
@@ -203,7 +194,6 @@ class FUtenteReg
                 ':cap' => $cap,
                 ':mailutente' => $mailutente));
 
-            FConnectionDB::closeConnection();
 
             $ris = FIndirizzo::delete($via, $numerocivico, $cap);
             $pdo->commit();
@@ -234,7 +224,6 @@ class FUtenteReg
         $stmt->execute([':mailutente' => $mailutente]);
         $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-        FConnectionDB::closeConnection();
         $indirizzi = array();
         foreach ($rows as $row) {
             $ind = new EIndirizzo($row['via'],
@@ -265,8 +254,6 @@ class FUtenteReg
                 ':mailutente' => $mailutente,
                 ':numerocarta' => $carta->getNumero()));
 
-            FConnectionDB::closeConnection();
-
             $ris = FCartaCredito::store($carta);
             $pdo->commit();
 
@@ -295,7 +282,6 @@ class FUtenteReg
             $stmt = $pdo->prepare($query);
             $ris1 = $stmt->execute(array(':mailutente' => $mailutente,':numerocarta' => $numero));
 
-            FConnectionDB::closeConnection();
             $ris = FCartaCredito::delete($numero);
             $pdo->commit();
 
@@ -322,7 +308,6 @@ class FUtenteReg
         $stmt->execute([':mailutente' => $mailutente]);
         $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-        FConnectionDB::closeConnection();
         $carte = array();
         foreach ($rows as $row) {
             $carta = new ECartaCredito($row['titolare'],

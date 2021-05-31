@@ -21,7 +21,7 @@ class FAmministratore
         $stmt->execute([":email" => $email]);
         $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-        FConnectionDB::closeConnection();
+        //FConnectionDB::closeConnection();
 
         if(count($rows)==0){
             return false;
@@ -43,7 +43,6 @@ class FAmministratore
         $stmt = $pdo->prepare($query);
         $ris = $stmt->execute(["email" => $email]);
 
-        FConnectionDB::closeConnection();
         return $ris;
 
     }
@@ -61,7 +60,6 @@ class FAmministratore
         $stmt->execute(["email" => $email]);
         $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-        FConnectionDB::closeConnection();
         $nome=$rows[0]['nome'];
         $cognome=$rows[0]['cognome'];
         $email=$rows[0]['email'];
@@ -89,8 +87,6 @@ class FAmministratore
             "cognome" => $obj->getCognome(),
             "password" => $obj->getPassword()));
 
-        FConnectionDB::closeConnection();
-
         return $ris;
     }
 
@@ -109,7 +105,6 @@ class FAmministratore
             ":password" => $obj->getPassword(),
             ":email" => $obj->getEmail()));
 
-        FConnectionDB::closeConnection();
         return $ris;
 
 
