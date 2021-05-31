@@ -159,32 +159,64 @@ print FOrdine::exist( $ordine1->getId());
 // Testing classe FBuonoSconto
 $db=new FPersistentManager();
 $buono=new EBuonoSconto(true,15);
-$buono2=new EBuonoSconto(false,10);
-$buono3=new EBuonoSconto(true,50);
+//$buono2=new EBuonoSconto(false,10);
+//$buono3=new EBuonoSconto(true,50);
+//$buono->setScadenza(new DateTime('now'));
+//$db->update($buono);
 $db->store($buono,$utente->getEmail());
+//$db->rimuoviBuoniScaduti($buono->getCodice());
 /*$ris=$db->exist('FBuonoSconto',$buono->getCodice());
 echo $ris;
 echo $db->delete('FBuonoSconto',$buono->getCodice());
-
 $db->store($buono2,$utente->getEmail());
 $db->store($buono3,$utente->getEmail());
 print_r($db->prelevaBuoni());
 $brec=$db->load('FBuonoSconto',$buono3->getCodice());
-var_dump($brec);*/
-
+var_dump($brec);
+*/
 //Testing classe FImmagine
-
+/*
 $db=new FPersistentManager();
-/*$imm=new EImmagine('padella.jpg');
+$imm=new EImmagine('padella.jpg');
 $db->store($imm);
 $imrec=$db->load('FImmagine',$imm->getId());
 var_dump($imrec);
- */
- // Testing FProdotto:
-$imm=new EImmagine('https://www.centralelattediroma.it/wp-content/uploads/2019/01/lattefresco_prova2.png');
-//var_dump($imm);  //funziona solo con particolari uml!!
-$prod=new EProdotto('Latte','Centrale del latte di Roma','latte fresco',25,$imm,0.80,'latte');
-echo $db->exist('FProdotto',$prod->getId());
-$db->store($prod);
+*/
+/**
 
+ // Testing classe FProdotto:
+/**
+$imm=new EImmagine('baci-perugina.jpg');
+$imm2=new EImmagine('arrosticini-ovino-classici-2-scaled.jpg');
+$imm3=new EImmagine('lattefresco_prova2.png');
+//var_dump($imm);  //funziona solo con particolari url!!
+$prod3=new EProdotto('Latte','Centrale del latte di Roma','latte fresco',25,$imm3,0.80,'latte');
+//$id=$prod->getId();
+$prod2=new EProdotto('Arrosticini','Ciccia buona','arrosticini divini',200,$imm2,1.00,'carne');
+$prod=new EProdotto('Baci Perugina','Perugina','baci perugina extra fondente',15,$imm,6.50,'dolci');
+$db->store($prod);
+$db->store($prod2);
+$db->store($prod3);
+//print_r($db->prelevaProdotti());
+//echo $db->delete('FProdotto',$id);
+//$prod->setQuantita($prod->getQuantita()-5);
+//$db->update($prod);
+//print_r($db->prelevaProdottiByTip('carne'));*/
+
+/**
+// Testing classe FPremio:
+$imm2=new EImmagine('arrosticini-ovino-classici-2-scaled.jpg');
+$imm=new EImmagine('padella.jpg');
+$premio=new EPremio('Padella','MarcaBuona','padella antiaderente 20cm',10,$imm,120);
+$premio2=new EPremio('tostapane','Tostapane Tostabene','tostapane piccolo','5',$imm2,500);
+$db->store($premio);
+$db->store($premio2);
+$utente->setPunti(80);
+//print_r($db->prelevaPremiFiltrati($utente->getPunti()));
+//echo $db->exist('FPremio',$premio->getId());
+//$db->delete('FPremio',$premio->getId());
+//echo ($db->load('FPremio',$premio->getId()))->getPrezzoInPunti();
+//$premio->setPrezzoInPunti(100);
+//echo $db->update($premio);
+//print_r($db->prelevaPremi());*/
 
