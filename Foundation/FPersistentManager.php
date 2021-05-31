@@ -169,20 +169,55 @@ class FPersistentManager
         return FIndirizzo::prelevaIndirizzi();
     }
 
+    /**
+     * Preleva tutte le n-uple della tabella BuonoSconto e risveglia in RAM le istanze di EBuonoSconto corrispondenti.
+     * @return array
+     */
     public function prelevaBuoni(): array{
         return FBuonoSconto::prelevaBuoni();
     }
 
-    public function prelevaPremiFiltrati(): array {
-        return FPremio::PrelevaPerPunti();
+    /**
+     * Preleva tutte le n-uple della tabella Premio (aventi prezzo in punti minore o uguale del valore passato come parametro) e risveglia in RAM le istanze di EPremio corrispondenti.
+     * @param int $punti
+     * @return array
+     */
+    public function prelevaPremiFiltrati(int $punti): array {
+        return FPremio::prelevaPerPunti($punti);
     }
 
+    /**
+     * Preleva tutte le n-uple della tabella Premio e risveglia in RAM le istanze di EPremio corrispondenti.
+     * @return array
+     */
+    public function prelevaPremi(): array{
+        return FPremio::prelevaPremi();
+    }
+
+    /**
+     * Preleva tutte le n-uple della tabella Prodotto e risveglia in RAM le istanze di EProdotto corrispondenti.
+     * @return array
+     */
     public function prelevaProdotti(): array {
         return FProdotto::prelevaProdotti();
     }
 
+    /**
+     * Preleva tutte le n-uple della tabella Prodotto (aventi la tipologia specificata come pramatro) e risveglia in RAM le istanze di EProdotto corrispondenti.
+     * @param string $tip
+     * @return array
+     */
     public function prelevaProdottiByTip(string $tip): array{
         return FProdotto::prelevaPerTipologia($tip);
+    }
+
+    /**
+     * Rimuove dalla tabella BuonoSconto l'n-upla corrispondente alla chiave fornita come parametro se la data di scadenza del buono coincide con la data odierna.
+     * @param string $key
+     * @return bool
+     */
+    public function rimuoviBuoniScaduti(string $key): bool{
+        return FBuonoSconto::deleteBuoniScaduti($key);
     }
 
 }
