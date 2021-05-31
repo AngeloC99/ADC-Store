@@ -169,6 +169,22 @@ class FPersistentManager
         return FIndirizzo::prelevaIndirizzi();
     }
 
+    public function prelevaBuoni(): array{
+        return FBuonoSconto::prelevaBuoni();
+    }
+
+    public function prelevaPremiFiltrati(): array {
+        return FPremio::PrelevaPerPunti();
+    }
+
+    public function prelevaProdotti(): array {
+        return FProdotto::prelevaProdotti();
+    }
+
+    public function prelevaProdottiByTip(string $tip): array{
+        return FProdotto::prelevaPerTipologia($tip);
+    }
+
 }
 
 
