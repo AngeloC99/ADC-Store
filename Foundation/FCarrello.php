@@ -92,7 +92,7 @@ class FCarrello
             $pdo = FConnectionDB::connect();
             $pdo->beginTransaction();
             $stmt = $pdo->prepare("UPDATE Carrello SET nome = :nome WHERE id = :id");
-            $ris = $stmt->execute([':nome' => $carrello->getNome()]);
+            $ris = $stmt->execute([':nome' => $carrello->getNome(), ':id' => $carrello->getId()]);
             self::salvaProdottiNelCarrello($carrello);
             $pdo->commit();
 
