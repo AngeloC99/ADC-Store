@@ -1,16 +1,14 @@
 <?php
 
 
-class FBuonoSconto implements FBase
+class FBuonoSconto
 {
-    public static function exist($key): bool
+    public static function exist(string $key): bool
     {
         $pdo=FConnectionDB::connect();
         $stmt=$pdo->prepare("SELECT * FROM BuonoSconto WHERE codice=:cod");
-        $ris=$stmt->execute([":cod" => $key]);
+        $stmt->execute([":cod" => $key]);
         $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-        FConnectionDB::closeConnection();
 
         if (count($rows) == 0){
             return false;
@@ -21,33 +19,30 @@ class FBuonoSconto implements FBase
 
     }
 
-    public static function delete($key): bool
+    public static function delete(string $key): bool
     {
         $pdo=FConnectionDB::connect();
         $stmt=$pdo->prepare("DELETE FROM BuonoSconto WHERE codice=:cod");
         $ris=$stmt->execute([":cod" => $key]);
 
-        FConnectionDB::closeConnection();
         return $ris;
     }
 
-    public static function load($key) : EBuonoSconto
+    public static function load(string $key) : EBuonoSconto
     {
         $pdo=FConnectionDB::connect();
         $stmt=$pdo->prepare("SELECT * FROM BuonoSconto WHERE codice=:cod");
         $stmt->execute([":cod" => $key]);
         $rows=$stmt->fetchAll(PDO::FETCH_ASSOC);
-
-        FConnectionDB::closeConnection();
-        $a=$rows['ammontare'];
-        $s=$rows['scadenza'];
-        $p=$rows['percentuale'];
+        $a=$rows[0]['ammontare'];
+        $s=DateTime::createFromFormat('Y-m-d',$rows[0]['scadenza']);
+        $p=$rows[0]['percentuale'];
         $bs=new EBuonoSconto($p,$a);
         $bs->setScadenza($s);
         return $bs;
     }
 
-    public static function store($bs, $mailutente): bool {
+    public static function store(EBuonoSconto $bs, string $mailutente): bool {
         $pdo = FConnectionDB::connect();
         $query = "INSERT INTO BuonoSconto VALUES(:cod, :amm, :perc, :scad, :mailutente)";
         $stmt = $pdo->prepare($query);
@@ -55,16 +50,31 @@ class FBuonoSconto implements FBase
             ":cod" => $bs->getCodice(),
             ":amm" => $bs->getAmmontare(),
             ":perc" => $bs->isPercentuale(),
-            ":scad" => $bs->getScadenza(),
+            ":scad" => $bs->getScadenza()->format('Y-m-d'),
             ":mailutente" => $mailutente));
 
-        FConnectionDB::closeConnection();
         return $ris;
     }
 
-    public static function update($bs1): bool
+    public static function update(EBuonoSconto $bs1): bool
     {
         return false; //il buono non puo' essere aggiornato in alcun modo.
+    }
+
+    public static function prelevaBuoni(): array {
+        $pdo=FConnectionDB::connect();
+        $stmt=$pdo->prepare("SELECT * FROM BuonoSconto");
+        $stmt->execute();
+        $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $buoni = array();
+        foreach ($rows as $row) {
+            $buono=new EBuonoSconto($row['percentuale'],$row['ammontare']);
+            $buono->setScadenza(DateTime::createFromFormat('Y-m-d',$row['scadenza']));
+            $buono->setCodice($row['codice']);
+            $buoni[] = $buono;
+        }
+        return $buoni;
+
     }
 
 }

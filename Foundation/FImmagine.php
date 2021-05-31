@@ -3,15 +3,13 @@
 
 class FImmagine
 {
-    public static function exist($key): bool
+    public static function exist(string $key): bool
     {
         $pdo = FConnectionDB::connect();
         $query = "SELECT * FROM Immagine WHERE id= :id";
         $stmt = $pdo->prepare($query);
         $stmt->execute([':id' => $key]);
         $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-        FConnectionDB::closeConnection();
         if(count($rows)==0){
             return false;
         }
@@ -20,13 +18,11 @@ class FImmagine
         }
     }
 
-    public static function delete($key): bool
+    public static function delete(string $key): bool
     {
         $pdo=FConnectionDB::connect();
         $stmt=$pdo->prepare("DELETE FROM Immagine WHERE id=:id");
         $ris=$stmt->execute([':id' => $key]);
-
-        FConnectionDB::closeConnection();
         return $ris;
     }
 
@@ -36,8 +32,6 @@ class FImmagine
         $stmt=$pdo->prepare("SELECT * FROM Immagine WHERE id=:id");
         $stmt->execute([':id' => $key]);
         $rows=$stmt->fetchAll(PDO::FETCH_ASSOC);
-
-        FConnectionDB::closeConnection();
         $f=$rows[0]['formato'];
         $n=$rows[0]['nome'];
         $s=$rows[0]['size'];
@@ -45,18 +39,12 @@ class FImmagine
         $l=$rows[0]['larghezza'];
         $a=$rows[0]['altezza'];
         $m=$rows[0]['mime'];
-        $imm=new EImmagine($n);
-        $imm->setFormato($f);
-        $imm->setSize($s);
-        $imm->setByte($b);
-        $imm->setLarghezza($l);
-        $imm->setAltezza($a);
-        $imm->setMime($m);
+        $imm=new EImmagine($n,$f,$s,$b,$l,$a,$m);
         $imm->setId($key);
         return $imm;
     }
 
-    public static function store($img): bool
+    public static function store(EImmagine $img): bool
     {
         $pdo=FConnectionDB::connect();
         $query="INSERT INTO Immagine VALUES(:id,:n,:f,:s,:b,:l,:a,:m)";
@@ -70,8 +58,6 @@ class FImmagine
             ":l" => $img->getLarghezza(),
             ":a" => $img->getAltezza(),
             ":m" => $img->getMime()));
-
-        FConnectionDB::closeConnection();
         return $ris;
 
     }
@@ -89,9 +75,33 @@ class FImmagine
             ":a" => $img->getAltezza(),
             ":m" => $img->getMime(),
             ":id" => $img->getId()));
-
-        FConnectionDB::closeConnection();
         return $ris;
+    }
+
+    public static function prelevaImmagini() : array {
+        $pdo = FConnectionDB::connect();
+        $stmt = $pdo->prepare("SELECT * FROM Immagine");
+        $stmt->execute();
+        $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $immagini=array();
+        foreach ($rows as $row){
+            $imm=new EImmagine($row['nome']);
+            $imm->setId($row['id']);
+            $imm->setMime($row['mime']);
+            $imm->setLarghezza(($row['larghezza']));
+            $imm->setAltezza($row['altezza']);
+            $imm->setByte($row['byte']);
+            $imm->setFormato($row['formato']);
+            $imm->setSize($row['size']);
+            $key=$row['id'];
+            $immagini[$key]=$imm;
+
+        }
+        return $immagini;
+
+
+
+
     }
 
 }
