@@ -1,11 +1,10 @@
 <?php
 
-
 class FConnectionDB
 {
     private static $instance;
 
-    public function __construct() {}
+    //public function __construct() {}
 
     public static function connect() {
 
