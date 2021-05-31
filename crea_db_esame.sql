@@ -29,9 +29,10 @@ CREATE TABLE Premio(
 	descrizione VARCHAR(100) NOT NULL,
 	quantita INT NOT NULL,
 	marca VARCHAR(15) NOT NULL,
-    idImm CHAR(16) NOT NULL,
+    idImmagine CHAR(16) NOT NULL,
     PRIMARY KEY (id),
-    FOREIGN KEY (idImm) REFERENCES Immagine(id)
+    INDEX (punti),
+    FOREIGN KEY (idImmagine) REFERENCES Immagine(id)
     ON UPDATE CASCADE ON DELETE CASCADE
 );
 
@@ -119,6 +120,7 @@ CREATE TABLE Prodotto(
     prezzo INT,
     idImmagine CHAR(16) NOT NULL,
     PRIMARY KEY (id),
+    INDEX (tipologia),
     FOREIGN KEY (idImmagine) REFERENCES Immagine(id)
     ON UPDATE CASCADE ON DELETE CASCADE
 );
