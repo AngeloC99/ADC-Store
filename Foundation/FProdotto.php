@@ -1,8 +1,20 @@
 <?php
 
+/**
+ * Class FProdotto
+ *  La classe FProdotto gestisce la permanenza dei dati per la classe EProdotto.
+ * @package Foundation
+ */
 class FProdotto
 {
 
+
+    /**
+     * Restituisce un booleano che indica la presenza o meno di una determinata istanza di EProdotto nell'apposita
+     * tabella del database.
+     * @param $key
+     * @return bool
+     */
     public static function exist($key)  : bool {
        $pdo=FConnectionDB::connect();
        $stmt=$pdo->prepare("SELECT * FROM Prodotto WHERE id=:id");
@@ -17,6 +29,11 @@ class FProdotto
 
     }
 
+    /**
+     * Cancella un'istanza di EProdotto sul database e restituisce un booleano che indica l'esito dell'operazione.
+     * @param $key
+     * @return bool
+     */
     public static function delete($key) : bool{
         try{
         $pdo=FConnectionDB::connect();
@@ -28,6 +45,7 @@ class FProdotto
         $stmt=$pdo->prepare("DELETE FROM Prodotto WHERE id=:id");
         $ris=$stmt->execute([":id" => $key]);
         $ris2=FImmagine::delete($idImm);
+        $pdo->commit();
         return $ris && $ris2;
         }
         catch (PDOException $e){
@@ -37,11 +55,16 @@ class FProdotto
 
     }
 
+    /**
+     * Carica in RAM l'istanza di EProdotto che possiede la chiave primaria fornita.
+     * @param $key1
+     * @return EProdotto
+     */
     public static function load($key1) : EProdotto
     {
         $pdo=FConnectionDB::connect();
-        $stmt=$pdo->prepare("SELECT * FROM Prodotto WHERE id=?");
-        $stmt->execute([$key1]);
+        $stmt=$pdo->prepare("SELECT * FROM Prodotto WHERE id=:id");
+        $stmt->execute([':id'=>$key1]);
         $rows=$stmt->fetchAll(PDO::FETCH_ASSOC);
         $marca=$rows[0]['marca'];
         $desc=$rows[0]['descrizione'];
@@ -57,6 +80,10 @@ class FProdotto
 
     }
 
+    /**
+     * Memorizza un'istanza di EProdotto sul database e restituisce un booleano che indica l'esito dell'operazione.     * @param EProdotto $obj
+     * @return bool
+     */
     public static function store(EProdotto $obj) : bool
     {
         try{
@@ -74,6 +101,7 @@ class FProdotto
             ":m"=>$obj->getMarca(),
             ":p"=>$obj->getPrezzo(),
             ":idImm" => $obj->getImmagine()->getId()]);
+        $pdo->commit();
         return $ris && $ris2;
         }
         catch (PDOException $e){
@@ -82,6 +110,12 @@ class FProdotto
         }
     }
 
+    /**
+     * Aggiorna i valori di un'istanza di EProdotto sul database e restituisce un booleano che indica l'esito
+     * dell'operazione.
+     * @param $obj1
+     * @return bool
+     */
     public static function update($obj1) : bool{
         try{
         $pdo=FConnectionDB::connect();
@@ -89,6 +123,7 @@ class FProdotto
         $stmt1 = $pdo->prepare("UPDATE Prodotto SET nome = :nome, descrizione = :des, tipologia = :tip, quantita = :quant, marca = :marca, prezzo = :prezzo WHERE id=:id");
         $ris1 = $stmt1->execute([':nome'=>$obj1->getNome(), ':des'=>$obj1->getDescrizione(),':tip'=>$obj1->getTipologia(),':quant'=>$obj1->getQuantita(),':marca'=>$obj1->getMarca(),':prezzo'=>$obj1->getPrezzo(),':id'=>$obj1->getId()]);
         $ris2 = FImmagine::update($obj1->getImmagine());
+        $pdo->commit();
         return $ris1 && $ris2;
         }
         catch (PDOException $e){
@@ -98,6 +133,10 @@ class FProdotto
 
     }
 
+    /**
+     * Recupera tutti i dati contenuti nella tabella Prodotto, per fornirli ricorsivamente al costruttore di EProdotto , per poter restituire tutte le istanze corrispondenti.
+     * @return array
+     */
     public static function prelevaProdotti() : array {
         try{
             $pdo = FConnectionDB::connect();
@@ -117,6 +156,7 @@ class FProdotto
                     $row['tipologia']);
                 $prodotti[]=$prod;
         }
+            $pdo->commit();
             return $prodotti;
         }
         catch (PDOException $e){
@@ -126,6 +166,12 @@ class FProdotto
 
 
     }
+
+    /**
+     * Recupera tutti i dati (filtrati mediante la tipologia) contenuti nella tabella Prodotto, per fornirli ricorsivamente al costruttore di EProdotto , per poter poi restituire tutte le istanze corrispondenti alla ricerca effettuata.
+     * @param string $tip
+     * @return array
+     */
     public static function prelevaPerTipologia(string $tip) : array {
         try{
             $pdo = FConnectionDB::connect();
@@ -145,6 +191,7 @@ class FProdotto
                     $row['tipologia']);
                 $prodotti[]=$prod;
             }
+            $pdo->commit();
             return $prodotti;
         }
         catch (PDOException $e){

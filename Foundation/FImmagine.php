@@ -1,8 +1,18 @@
 <?php
 
 
+/**
+ * Class FImmagine
+ * La classe FImmagine gestisce la permanenza dei dati per la classe EImmagine.
+ */
 class FImmagine
 {
+    /**
+     * Restituisce un booleano che indica la presenza o meno di una determinata istanza di EImmagine nell'apposita
+     * tabella del database.
+     * @param string $key
+     * @return bool
+     */
     public static function exist(string $key): bool
     {
         $pdo = FConnectionDB::connect();
@@ -18,6 +28,11 @@ class FImmagine
         }
     }
 
+    /**
+     * Cancella un'istanza di EImmagine sul database e restituisce un booleano che indica l'esito dell'operazione.
+     * @param string $key
+     * @return bool
+     */
     public static function delete(string $key): bool
     {
         $pdo=FConnectionDB::connect();
@@ -26,6 +41,11 @@ class FImmagine
         return $ris;
     }
 
+    /**
+     * Carica in RAM l'istanza di EImmagine che possiede la chiave primaria fornita.
+     * @param $key
+     * @return EImmagine
+     */
     public static function load($key) : EImmagine
     {
         $pdo=FConnectionDB::connect();
@@ -44,6 +64,11 @@ class FImmagine
         return $imm;
     }
 
+    /**
+     * Memorizza un'istanza di EImmagine sul database e restituisce un booleano che indica l'esito dell'operazione.
+     * @param EImmagine $img
+     * @return bool
+     */
     public static function store(EImmagine $img): bool
     {
         $pdo=FConnectionDB::connect();
@@ -62,6 +87,12 @@ class FImmagine
 
     }
 
+    /**
+     * Aggiorna i valori di un'istanza di EImmagine sul database e restituisce un booleano che indica l'esito
+     * dell'operazione.
+     * @param $img
+     * @return bool
+     */
     public static function update($img): bool
     {
         $pdo=FConnectionDB::connect();
@@ -78,6 +109,10 @@ class FImmagine
         return $ris;
     }
 
+    /**
+     * Recupera tutti i dati contenuti nella tabella Immagine, per fornirli ricorsivamente al costruttore di EImmagine , per poter poi restituire tutte le istanze corrispondenti.
+     * @return array
+     */
     public static function prelevaImmagini() : array {
         $pdo = FConnectionDB::connect();
         $stmt = $pdo->prepare("SELECT * FROM Immagine");
@@ -85,14 +120,8 @@ class FImmagine
         $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
         $immagini=array();
         foreach ($rows as $row){
-            $imm=new EImmagine($row['nome']);
+            $imm=new EImmagine($row['nome'],$row['formato'],$row['size'],$row['byte'],$row['larghezza'],$row['altezza'],$row['mime']);
             $imm->setId($row['id']);
-            $imm->setMime($row['mime']);
-            $imm->setLarghezza(($row['larghezza']));
-            $imm->setAltezza($row['altezza']);
-            $imm->setByte($row['byte']);
-            $imm->setFormato($row['formato']);
-            $imm->setSize($row['size']);
             $key=$row['id'];
             $immagini[$key]=$imm;
 
