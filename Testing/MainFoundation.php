@@ -19,10 +19,10 @@ $prod2 = new EProdotto("Petto di pollo","Amadori","Pollo di alta qualità", 50, 
 $prod3 = new EProdotto("Yogurt","Muller","Yogurt alla vaniglia", 80, $imm3, 0.70, "Yogurt");
 */
 
-$admin = new EAmministratore("Mario", "Rossi", "mariorossi@gmail.com", "pippo");
-$admin2 = new EAmministratore("Luca", "Rossi", "lucarossi@gmail.com", "paperino");
+//$admin = new EAmministratore("Mario", "Rossi", "mariorossi@gmail.com", "pippo");
+//$admin2 = new EAmministratore("Luca", "Rossi", "lucarossi@gmail.com", "paperino");
 
-$db = new FPersistentManager();
+//$db = new FPersistentManager();
 //$db->store($admin);
 //$db->store($admin2);
 
@@ -34,7 +34,7 @@ $db = new FPersistentManager();
 //print($bool);
 
 $utente = new EUtenteReg("Ada", "Bianchi", "adarossi@gmail.com", "pluto");
-$utente2 = new EUtenteReg("Angus", "Young", "angusyoung@gmail.com", "rock");
+//$utente2 = new EUtenteReg("Angus", "Young", "angusyoung@gmail.com", "rock");
 
 //$bool = $db->exist("FUtenteReg", "angusyoung@gmail.com");
 //print($bool);
@@ -154,3 +154,37 @@ print FOrdine::exist( $ordine1->getId());
 //FUtenteReg::eliminaIndirizzo($indirizzo->getVia(),$indirizzo->getNumero(), $indirizzo->getCap(), $utente->getEmail());
 //FUtenteReg::salvaIndirizzo($ind,$utente->getEmail());
 //var_dump(FUtenteReg::prelevaIndirizzi($utente->getEmail()));
+
+/*
+// Testing classe FBuonoSconto
+$db=new FPersistentManager();
+$buono=new EBuonoSconto(true,15);
+$buono2=new EBuonoSconto(false,10);
+$buono3=new EBuonoSconto(true,50);
+$db->store($buono,$utente->getEmail());
+/*$ris=$db->exist('FBuonoSconto',$buono->getCodice());
+echo $ris;
+echo $db->delete('FBuonoSconto',$buono->getCodice());
+
+$db->store($buono2,$utente->getEmail());
+$db->store($buono3,$utente->getEmail());
+print_r($db->prelevaBuoni());
+$brec=$db->load('FBuonoSconto',$buono3->getCodice());
+var_dump($brec);*/
+
+//Testing classe FImmagine
+
+$db=new FPersistentManager();
+/*$imm=new EImmagine('padella.jpg');
+$db->store($imm);
+$imrec=$db->load('FImmagine',$imm->getId());
+var_dump($imrec);
+ */
+ // Testing FProdotto:
+$imm=new EImmagine('https://www.centralelattediroma.it/wp-content/uploads/2019/01/lattefresco_prova2.png');
+//var_dump($imm);  //funziona solo con particolari uml!!
+$prod=new EProdotto('Latte','Centrale del latte di Roma','latte fresco',25,$imm,0.80,'latte');
+echo $db->exist('FProdotto',$prod->getId());
+$db->store($prod);
+
+
