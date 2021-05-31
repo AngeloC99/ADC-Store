@@ -133,5 +133,14 @@ class EBuonoSconto
         $this->scadenza = $scadenza;
     }
 
+    /**
+     * @param String $codice
+     */
+    public function setCodice(string $codice): void
+    {
+        $this->codice = $codice;
+    }
+
+
 }
 ?>
