@@ -21,13 +21,8 @@ class FCartaCredito
         $ris = $stmt->execute([':numero' => $numero]);
         $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-        FConnectionDB::closeConnection();
-
-        if (count($rows) == 0) {
-            return false;
-        } else {
-            return true;
-        }
+        if (count($rows) == 0) { return false; }
+        else { return true; }
     }
 
     /**
@@ -40,8 +35,6 @@ class FCartaCredito
         $stmt = $pdo->prepare("SELECT * FROM CartaCredito WHERE numero=:numero");
         $stmt->execute([':numero' => $numero]);
         $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-        FConnectionDB::closeConnection();
         $tit = $rows[0]['titolare'];
         $circ = $rows[0]['circuito'];
         $cvv = $rows[0]['cvv'];
@@ -68,7 +61,6 @@ class FCartaCredito
             ':ammontare' => $carta->getAmmontare(),
             ':scadenza' => $carta->getScadenza()->format('y-m-d')));
 
-        FConnectionDB::closeConnection();
         return $ris;
     }
 
@@ -90,7 +82,6 @@ class FCartaCredito
             ':ammontare' => $carta->getAmmontare(),
             ':scadenza' => $carta->getScadenza()->format('y-m-d')));
 
-        FConnectionDB::closeConnection();
         return $ris;
     }
 
@@ -104,7 +95,6 @@ class FCartaCredito
         $stmt = $pdo->prepare("DELETE FROM CartaCredito WHERE numero = :numero");
         $ris = $stmt->execute([':numero' => $numero]);
 
-        FConnectionDB::closeConnection();
         return $ris;
     }
 
@@ -117,8 +107,6 @@ class FCartaCredito
         $stmt = $pdo->prepare("SELECT * FROM CartaCredito");
         $stmt->execute();
         $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-        FConnectionDB::closeConnection();
         $carte = array();
         foreach ($rows as $row) {
             $carta = new ECartaCredito($row['titolare'],

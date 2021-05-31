@@ -20,14 +20,8 @@ class FCarrello
         $ris = $stmt->execute([':id' => $id]);
         $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-        FConnectionDB::closeConnection();
-
-        if (count($rows) == 0){
-            return false;
-        }
-        else{
-            return true;
-        }
+        if (count($rows) == 0) { return false; }
+        else { return true; }
     }
 
     /**
@@ -49,7 +43,6 @@ class FCarrello
             $carrello->setNome($nome);
             self::prelevaProdottiDalCarrello($carrello);
             $pdo->commit();
-            FConnectionDB::closeConnection();
 
             return $carrello;
 
@@ -76,8 +69,6 @@ class FCarrello
                 ':id' => $carrello->getId(),
                 ':nome' => $carrello->getNome(),
                 ':mailutente' => $mailutente));
-
-            FConnectionDB::closeConnection();
             self::salvaProdottiNelCarrello($carrello);
             $pdo->commit();
 
@@ -102,8 +93,6 @@ class FCarrello
             $pdo->beginTransaction();
             $stmt = $pdo->prepare("UPDATE Carrello SET nome = :nome WHERE id = :id");
             $ris = $stmt->execute([':nome' => $carrello->getNome()]);
-
-            FConnectionDB::closeConnection();
             self::salvaProdottiNelCarrello($carrello);
             $pdo->commit();
 
@@ -131,8 +120,6 @@ class FCarrello
             $ris1 = $stmt1->execute([':idcarrello' => $id]);
             $pdo->commit();
 
-            FConnectionDB::closeConnection();
-
             return $ris AND $ris1;
 
         } catch(PDOException $e) {
@@ -155,7 +142,6 @@ class FCarrello
             $stmt->execute([':mailutente' => $mailutente]);
             $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
             $pdo->commit();
-            FConnectionDB::closeConnection();
             $carrelli = array();
             foreach ($rows as $row) {
                 $car = new ECarrello();
@@ -189,7 +175,6 @@ class FCarrello
             $ris = $stmt->execute([':idcarrello' => $carrello->getId()]);
             $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
             $pdo->commit();
-            FConnectionDB::closeConnection();
             foreach ($rows as $row) {
                 $prod = FProdotto::load($row['nome']);
                 $carrello->aggiungiProdotto($prod, $row['quantitaNelCarrello']);
@@ -208,8 +193,7 @@ class FCarrello
      * @param ECarrello $carrello
      * @return void
      */
-    private static function salvaProdottiNelCarrello(ECarrello $carrello): bool
-    {
+    private static function salvaProdottiNelCarrello(ECarrello $carrello): bool {
         $pdo = FConnectionDB::connect();
         $stmt = $pdo->prepare("INSERT INTO Contiene VALUES (:idcarrello, :idprodotto, :quantitaNelCarrello)");
         foreach ($carrello->getProdotti() as $idprod => $quantita) {
@@ -217,10 +201,9 @@ class FCarrello
                 ':idprodotto' => $idprod,
                 ':quantitaNelCarrello' => $quantita));
         }
-        FConnectionDB::closeConnection();
 
         return $ris;
     }
 
-        }
+}
 

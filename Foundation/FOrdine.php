@@ -22,12 +22,8 @@ class FOrdine
 
         FConnectionDB::closeConnection();
 
-        if (count($rows) == 0){
-            return false;
-        }
-        else{
-            return true;
-        }
+        if (count($rows) == 0) { return false; }
+        else { return true; }
     }
 
 
@@ -85,7 +81,6 @@ class FOrdine
             ':numerocivicoConsegna' => $ordine->getIndirizzo()->getNumero(),
             ':capConsegna' => $ordine->getIndirizzo()->getCap()));
 
-        FConnectionDB::closeConnection();
         return $ris;
     }
 
@@ -109,7 +104,6 @@ class FOrdine
             ':capConsegna' => $ordine->getIndirizzo()->getCap(),
             ':id' => $ordine->getId()));
 
-        FConnectionDB::closeConnection();
         return $ris;
     }
 
@@ -123,7 +117,6 @@ class FOrdine
         $stmt = $pdo->prepare("DELETE FROM Ordine WHERE id = :id");
         $ris = $stmt->execute([':id' => $id]);
 
-        FConnectionDB::closeConnection();
         return $ris;
     }
 }

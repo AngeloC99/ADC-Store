@@ -23,17 +23,10 @@ class FIndirizzo
             ':via' => $via,
             ':numero' => $numerocivico,
             ':cap' => $cap));
-
         $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-        FConnectionDB::closeConnection();
-
-        if (count($rows) == 0){
-            return false;
-        }
-        else{
-            return true;
-        }
+        if (count($rows) == 0) { return false; }
+        else { return true; }
 
     }
 
@@ -52,8 +45,6 @@ class FIndirizzo
             ':numero' => $numerocivico,
             ':cap' => $cap));
         $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-        FConnectionDB::closeConnection();
         $com = $rows[0]['comune'];
         $prov = $rows[0]['provincia'];
         $pred = $rows[0]['predefinito'];
@@ -78,7 +69,6 @@ class FIndirizzo
             ':provincia' => $indirizzo->getProvincia(),
             ':predefinito' => $indirizzo->isPredefinito()));
 
-        FConnectionDB::closeConnection();
         return $ris;
     }
 
@@ -99,7 +89,6 @@ class FIndirizzo
             ':cap' => $indirizzo->getCap(),
             ':predefinito' => $indirizzo->isPredefinito()));
 
-        FConnectionDB::closeConnection();
         return $ris;
     }
 
@@ -118,7 +107,6 @@ class FIndirizzo
             ':numero' => $numerocivico,
             ':cap' => $cap));
 
-        FConnectionDB::closeConnection();
         return $ris;
     }
 
