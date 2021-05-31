@@ -48,39 +48,74 @@ class EImmagine
     private string $byte;
 
 
+
     //COSTRUTTORE 1:
     /**
      * Per recupero dell'immagine dal web o su file-system locale.
      * @param string $name
      */
-    public function __construct(string $name){
-        $check=str_contains($name,'http'||'https');  //altri protocolli?
+    public function __construct(string $nome,$formato=null,$size=null,$byte=null,$larghezza=null,$altezza=null,$mime=null){ //se su path locale: nome del tipo prova.jpg
+        $check=str_contains($nome,'http'||'https');  //altri protocolli?
+
         if ($check==true){ //si tratta di un'immagine in rete:
-            $full_name=$name;
+            $full_name=$nome;
             $this->nome='WebImage';
         }
         else{  //si tratta di un'immagine in un path locale:
-            $name_array=explode(".",$name);
-            $index=count($name_array);
-            $name="\\".$name.".".$name_array[$index-1]; //stringa del tipo \nome.formato
-            $full_name=__DIR__.$name;
-            $s ="";   //inizializzo stringa vuota
-            for ($i=0;$i<=$index-2;++$i){   //escludo il formato dal nome facendo arrivare il ciclo for fino al penulimo elemento dell'array
-                $s=$s.$name_array[$i]." ";
-            } //imposto il nome
-            $this->nome=$s; //imposto il nome
+            $name_array=explode(".",$nome);
+            $this->nome=$name_array[0];
+            $nome="\\".$nome; //stringa del tipo \nome.formato
+            $full_name=__DIR__.$nome;
+
         }
+
         $this->id=uniqid('I');
-        $immagine = file_get_contents($name);
+
+        if ($byte==null){
+        $immagine = file_get_contents($full_name);
         $this->byte = base64_encode($immagine);
+        }
+        else{
+            $this->byte=$byte;
+        }
+
         $info=getimagesize($full_name);  //recupero le info dall'immagine corrispondente al nome del file fornito
-        $numero=$info[2];
-        $control=array(1=>'GIF',2=>'JPG', 3 => 'PNG', 4 => 'SWF', 5 => 'PSD', 6 => 'BMP', 7 => 'TIFF_I' , 8 => 'TIFF_M' , 9 => 'CPM', 10 => 'JP2',11 => 'JPX', 12 => 'JB2',13 => 'SWC', 14 => 'IFF', 15 => 'WBMP', 16 => 'XBM');
-        $this->formato=$control[$numero];
-        $this->size=($info['bits'])/8;  //imposto i byte dell'immagine dividendo i bits recuperati per 8
-        $this->larghezza=$info[0];
-        $this->altezza=$info[1];
-        $this->mime=$info['mime']; //imposto il MIME dell'immagine per poter recuperare in seguito questa informazione per settare il Content-Type per l'HTTP
+
+        if ($formato==null){
+            $numero=$info[2];
+            $control=array(1=>'GIF',2=>'JPG', 3 => 'PNG', 4 => 'SWF', 5 => 'PSD', 6 => 'BMP', 7 => 'TIFF_I' , 8 => 'TIFF_M' , 9 => 'CPM', 10 => 'JP2',11 => 'JPX', 12 => 'JB2',13 => 'SWC', 14 => 'IFF', 15 => 'WBMP', 16 => 'XBM');
+            $this->formato=$control[$numero];
+        }
+        else{
+            $this->formato=$formato;
+        }
+
+        if ($size==null){
+            $this->size=($info['bits'])/8;
+        }
+        else{
+            $this->size=$size;
+        }
+        if ($larghezza==null){
+            $this->larghezza=$info[0];
+        }
+        else{
+            $this->larghezza=$larghezza;
+        }
+
+        if($altezza==null){
+            $this->altezza=$info[1];
+        }
+        else{
+            $this->altezza=$altezza;
+        }
+
+        if($mime==null){
+            $this->mime=$info['mime']; //imposto il MIME dell'immagine per poter recuperare in seguito questa informazione per settare il Content-Type per l'HTTP
+        }
+        else{
+            $this->mime=$mime;
+        }
     }
 
     //METODI:
@@ -210,6 +245,8 @@ class EImmagine
     public function setId(string $s){
         $this->id=$s;
     }
+
+
 
 
 }
