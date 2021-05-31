@@ -14,6 +14,14 @@ function myautoload($class_name) {
             $class = "Foundation/".$class_name.".php";
             include_once ($class);
             break;
+        case 'C':
+            $class = "Controller/".$class_name.".php";
+            include_once ($class);
+            break;
+        case 'V':
+            $class = "View/".$class_name.".php";
+            include_once ($class);
+            break;
     }
 }
 
