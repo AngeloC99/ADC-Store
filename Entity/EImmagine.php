@@ -49,9 +49,9 @@ class EImmagine
 
 
 
-    //COSTRUTTORE 1:
+    //COSTRUTTORE:
     /**
-     * Per recupero dell'immagine dal web o su file-system locale.
+     * Per recupero dell'immagine dal web o da file-system locale (o tramite eventuali parametri forniti che vanno a sovrascrivere quelli di default).
      * @param string $name
      */
     public function __construct(string $nome,$formato=null,$size=null,$byte=null,$larghezza=null,$altezza=null,$mime=null){ //se su path locale: nome del tipo prova.jpg
@@ -183,6 +183,7 @@ class EImmagine
     }
 
     /**
+     * Setta il nome dell'immagine.
      * @param string $nome
      */
     public function setNome(string $nome): void
@@ -191,6 +192,7 @@ class EImmagine
     }
 
     /**
+     * Setta il formato dell'immagine
      * @param string $formato
      */
     public function setFormato(string $formato): void
@@ -199,6 +201,7 @@ class EImmagine
     }
 
     /**
+     * Setta la dimensione (in byte) dell'immagine.
      * @param float|int $size
      */
     public function setSize(float|int $size): void
@@ -207,6 +210,7 @@ class EImmagine
     }
 
     /**
+     * Setta la larghezza dell'immagine.
      * @param int|mixed $larghezza
      */
     public function setLarghezza(mixed $larghezza): void
@@ -215,6 +219,7 @@ class EImmagine
     }
 
     /**
+     * Setta l'altezza dell'immagine.
      * @param int|mixed $altezza
      */
     public function setAltezza(mixed $altezza): void
@@ -223,6 +228,7 @@ class EImmagine
     }
 
     /**
+     * Setta il mime dell'immagine.
      * @param mixed|string $mime
      */
     public function setMime(mixed $mime): void
@@ -231,6 +237,7 @@ class EImmagine
     }
 
     /**
+     * Setta la codifica in base64 dell'immagine.
      * @param string $byte
      */
     public function setByte(string $byte): void
@@ -238,10 +245,19 @@ class EImmagine
         $this->byte = $byte;
     }
 
+    /**
+     * Restituisce l'id dell'immagine.
+     * @return string
+     */
+
     public function getId() : string{
         return $this->id;
     }
 
+    /**
+     * Setta l'id dell'immagine.
+     * @param string $s
+     */
     public function setId(string $s){
         $this->id=$s;
     }
