@@ -117,7 +117,7 @@ CREATE TABLE Prodotto(
     tipologia VARCHAR(20) NOT NULL,
     quantita INT NOT NULL,
     marca VARCHAR(15) NOT NULL,
-    prezzo INT,
+    prezzo FLOAT NOT NULL,
     idImmagine CHAR(16) NOT NULL,
     PRIMARY KEY (id),
     INDEX (tipologia),
