@@ -50,12 +50,12 @@ class FOrdine
             $ris->setDataAcquisto($data);
             $pdo->commit();
 
-            return $ris;
-
         } catch(PDOException $e) {
             print("ATTENTION ERROR: ") . $e->getMessage();
             $pdo->rollBack();
         }
+        return $ris;
+
     }
 
     /**
@@ -113,8 +113,8 @@ class FOrdine
         $stmt = $pdo->prepare("SELECT * FROM Ordine where dataacquisto <= :data"); //recupera tutti gli ordini effettuati meno di un mese fa
         $stmt2 = $pdo->prepare("SELECT * FROM Ordine where dataacquisto > :data");
         $datarif=new DateTime('-1 month');
-        $stmt->execute(':data',$datarif->format('Y-m-d'));
-        $stmt2->execute(':data',$datarif->format('Y-m-d'));
+        $stmt->execute([':data',$datarif->format('Y-m-d')]);
+        $stmt2->execute([':data',$datarif->format('Y-m-d')]);
         $rows=$stmt->fetchAll(PDO::FETCH_ASSOC); //ordini precedenti alla data di riferimento
         $rows2=$stmt2->fetchAll(PDO::FETCH_ASSOC); //ordini successivi
         $utenti=array();
@@ -124,12 +124,13 @@ class FOrdine
             }
         }
         $pdo->commit();
-        return $utenti;
         }
         catch (PDOException $e){
             print("ATTENTION ERROR: ") . $e->getMessage();
             $pdo->rollBack();
         }
+        return $utenti;
+
     }
     /**
      * Cancella un'istanza di EOrdine sul database e restituisce un booleano che indica l'esito dell'operazione.
