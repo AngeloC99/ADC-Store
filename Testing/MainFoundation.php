@@ -29,7 +29,7 @@ $pm = FPersistentManager::getInstance();
 //print($bool);
 
 $utente = new EUtenteReg("Ada", "Bianchi", "adarossi@gmail.com", "pluto");
-//$utente2 = new EUtenteReg("Angus", "Young", "angusyoung@gmail.com", "rock");
+$utente2 = new EUtenteReg("Angus", "Young", "angusyoung@gmail.com", "rock");
 
 //$bool = $pm->exist("FUtenteReg", "angusyoung@gmail.com");
 //$bool = FUtenteReg::exist("angusyoung@gmail.com");
@@ -113,31 +113,43 @@ $carta3 = new ECartaCredito("Mario Mari", "2638475910293485", "AmericanExpress",
 // Testing classe FCarrello
 
 $carrello = new ECarrello();
+$carrello2=new ECarrello();
+$carrello3= new ECarrello();
+$carrello2->aggiungiProdotto($prod1, 4);
+$carrello2->aggiungiProdotto($prod2, 1);
+
 $carrello->aggiungiProdotto($prod1, 4);
 $carrello->aggiungiProdotto($prod2, 1);
 $carrello->aggiungiProdotto($prod3, 2);
 $carrello->aggiungiProdotto($prod1, 7);
-/*
-$db->store($prod1);
-$db->store($prod2);
-$db->store($prod3);
-$db->store($utente);
-$db->store($indirizzo);
-$db->store($ind);
 
-$db->store($carrello, $utente->getEmail());
-print "\n";
+$carrello3->aggiungiProdotto($prod3, 2);
+$carrello3->aggiungiProdotto($prod1, 7);
+
+$pm->store($prod1);
+$pm->store($prod2);
+$pm->store($prod3);
+$pm->store($utente);
+$pm->store($indirizzo);
+$pm->store($ind);
+$pm->store($utente2);
+
+$pm->store($carrello2,$utente2->getEmail());
+$pm->store($carrello, $utente->getEmail());
+/*print "\n";
 print FCarrello::exist($carrello->getId());
 */
 
 // Testing classe FOrdine
 
-$ordine1 = new EOrdine($carrello, $ind);
+$ordine1 = new EOrdine($carrello2, $ind);
+//$ordine1->setDataAcquisto(new DateTime("-2 month"));
 $ordine2 = new EOrdine($carrello, $indirizzo);
-
 /*
-$db->store($ordine1);
-$db->store($ordine2);
+$pm->store($ordine1);
+$pm->store($ordine2);
+var_dump($pm->prelevaUtentiInattivi());
+/*
 print "\n";
 print FOrdine::exist( $ordine1->getId());
 */
