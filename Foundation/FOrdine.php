@@ -49,13 +49,12 @@ class FOrdine
             $ris->setPrezzoTotale($prezzo);
             $ris->setDataAcquisto($data);
             $pdo->commit();
+            return $ris;
 
         } catch(PDOException $e) {
             print("ATTENTION ERROR: ") . $e->getMessage();
             $pdo->rollBack();
         }
-        return $ris;
-
     }
 
     /**
@@ -103,35 +102,42 @@ class FOrdine
     }
 
     /**
-     * Risveglia in RAM la lista degli utenti meno attivi ovvero quelli che hanno effettuato l'ultimo ordine più di un mese fa.
+     * Risveglia in RAM la lista degli utenti meno attivi, ovvero quelli che hanno effettuato l'ultimo ordine più di
+     * un mese fa.
      * @return array
      */
-    public static function recuperoUtentiInattivi(): array{
-        try{
+    public static function recuperaUtentiInattivi(): array{
+        try {
         $pdo = FConnectionDB::connect();
         $pdo->beginTransaction();
-        $stmt = $pdo->prepare("SELECT * FROM Ordine where dataacquisto <= :data"); //recupera tutti gli ordini effettuati meno di un mese fa
-        $stmt2 = $pdo->prepare("SELECT * FROM Ordine where dataacquisto > :data");
-        $datarif=new DateTime('-1 month');
+        //recupera tutti gli ordini effettuati meno di un mese fa
+        $stmt = $pdo->prepare("SELECT * FROM Ordine INNER JOIN Carrello 
+                            ON Ordine.idcarrello = Carrello.id
+                            WHERE dataacquisto <= :data");
+        $stmt2 = $pdo->prepare("SELECT * FROM Ordine INNER JOIN Carrello 
+                            ON Ordine.idcarrello = Carrello.id
+                            WHERE dataacquisto > :data");
+        $datarif = new DateTime('-1 month');
         $stmt->execute([':data',$datarif->format('Y-m-d')]);
         $stmt2->execute([':data',$datarif->format('Y-m-d')]);
-        $rows=$stmt->fetchAll(PDO::FETCH_ASSOC); //ordini precedenti alla data di riferimento
-        $rows2=$stmt2->fetchAll(PDO::FETCH_ASSOC); //ordini successivi
-        $utenti=array();
+        $rows = $stmt->fetchAll(PDO::FETCH_ASSOC); //ordini precedenti alla data di riferimento
+        $rows2 = $stmt2->fetchAll(PDO::FETCH_ASSOC); //ordini successivi
+        $utenti = array();
         foreach ($rows as $row){
-            if (in_array($row['idUtente'],$rows2)==false){
-                $utenti[]=FUtenteReg::load($row['idUtente']);
+            if (in_array($row['mailutente'],$rows2) == false){
+                $utenti[] = FUtenteReg::load($row['mailutente']);
             }
         }
         $pdo->commit();
+
+        return $utenti;
         }
         catch (PDOException $e){
             print("ATTENTION ERROR: ") . $e->getMessage();
             $pdo->rollBack();
         }
-        return $utenti;
-
     }
+
     /**
      * Cancella un'istanza di EOrdine sul database e restituisce un booleano che indica l'esito dell'operazione.
      * @param string $id

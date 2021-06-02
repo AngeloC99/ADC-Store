@@ -106,6 +106,14 @@ class FPersistentManager
     }
 
     /**
+     * Preleva tutti gli utenti che non effettuano ordini da più di un mese.
+     * @return array
+     */
+    public function prelevaUtentiInattivi() : array {
+        return FOrdine::recuperaUtentiInattivi();
+    }
+
+    /**
      * Salva un'indirizzo fornito da un utente nel database.
      * @param EIndirizzo $indirizzo
      * @param EUtenteReg $utente
