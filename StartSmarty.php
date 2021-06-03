@@ -1,12 +1,9 @@
 <?php
 
 require('smarty-libs/Smarty.class.php');
-
 class StartSmarty {
 
-    static function configuration(){
-    
-
+    public static function configuration(){
     $smarty = new Smarty();
 
     // definizione directory di lavoro di Smarty 

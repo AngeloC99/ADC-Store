@@ -22,8 +22,14 @@
     <!-- Flag icon-->
     <link rel="stylesheet" type="text/css" href="../assets/css/flag-icon.css">
 
-    <!-- jsgrid css-->
-    <link rel="stylesheet" type="text/css" href="../assets/css/jsgrid.css">
+    <!-- Themify icon-->
+    <link rel="stylesheet" type="text/css" href="../assets/css/themify-icons.css">
+
+    <!-- owlcarousel css-->
+    <link rel="stylesheet" type="text/css" href="../assets/css/owlcarousel.css">
+
+    <!-- Rating css-->
+    <link rel="stylesheet" type="text/css" href="../assets/css/rating.css">
 
     <!-- Bootstrap css-->
     <link rel="stylesheet" type="text/css" href="../assets/css/bootstrap.css">
@@ -114,7 +120,7 @@
             </div>
         </div>
     </div>
-    <!-- Page Header Ends-->
+    <!-- Page Header Ends -->
 
     <!-- Page Body Start-->
     <div class="page-body-wrapper">
@@ -122,7 +128,7 @@
         <!-- Page Sidebar Start-->
         <div class="page-sidebar">
             <div class="main-header-left d-none d-lg-block">
-                <div class="logo-wrapper"><a href="index.html"><img  class="blur-up lazyloaded" src="../assets/images/dashboard/multikart-logo.png" alt=""></a></div>
+                <div class="logo-wrapper"><a href="index.html"><img class="blur-up lazyloaded" src="../assets/images/dashboard/multikart-logo.png" alt=""></a></div>
             </div>
             <div class="sidebar custom-scrollbar">
                 <div class="sidebar-user text-center">
@@ -142,8 +148,8 @@
                                 <ul class="sidebar-submenu">
                                     <li><a href="category.html"><i class="fa fa-circle"></i>Category</a></li>
                                     <li><a href="category-sub.html"><i class="fa fa-circle"></i>Sub Category</a></li>
-                                    <li><a href="product-list.html"><i class="fa fa-circle"></i>Product List</a></li>
-                                    <li><a href="product-detail.html"><i class="fa fa-circle"></i>Product Detail</a></li>
+                                    <li><a href="product-list.tpl"><i class="fa fa-circle"></i>Product List</a></li>
+                                    <li><a href="product-detail.tpl"><i class="fa fa-circle"></i>Product Detail</a></li>
                                     <li><a href="add-product.html"><i class="fa fa-circle"></i>Add Product</a></li>
                                 </ul>
                             </li>
@@ -168,7 +174,7 @@
                     </li>
                     <li><a class="sidebar-header" href=""><i data-feather="tag"></i><span>Coupons</span><i class="fa fa-angle-right pull-right"></i></a>
                         <ul class="sidebar-submenu">
-                            <li><a href="coupon-list.html"><i class="fa fa-circle"></i>List Coupons</a></li>
+                            <li><a href="coupon-list.tpl"><i class="fa fa-circle"></i>List Coupons</a></li>
                             <li><a href="coupon-create.html"><i class="fa fa-circle"></i>Create Coupons </a></li>
                         </ul>
                     </li>
@@ -302,7 +308,7 @@
                     <div class="row">
                         <div class="col-lg-6">
                             <div class="page-header-left">
-                                <h3>List Coupons
+                                <h3>Product Detail
                                     <small>Multikart Admin panel</small>
                                 </h3>
                             </div>
@@ -310,8 +316,8 @@
                         <div class="col-lg-6">
                             <ol class="breadcrumb pull-right">
                                 <li class="breadcrumb-item"><a href="index.html"><i data-feather="home"></i></a></li>
-                                <li class="breadcrumb-item">Coupons</li>
-                                <li class="breadcrumb-item active">List Coupons</li>
+                                <li class="breadcrumb-item">Physical</li>
+                                <li class="breadcrumb-item active">Product Detail</li>
                             </ol>
                         </div>
                     </div>
@@ -321,14 +327,91 @@
 
             <!-- Container-fluid starts-->
             <div class="container-fluid">
-                <div class="row">
-                    <div class="col-sm-12">
-                        <div class="card">
-                            <div class="card-header">
-                                <h5>Products Category</h5>
+                <div class="card">
+                    <div class="row product-page-main card-body">
+                        <div class="col-xl-4">
+                            <div class="product-slider owl-carousel owl-theme" id="sync1">
+                                <div class="item"><img src="../assets/images/pro3/2.jpg" alt="" class="blur-up lazyloaded"></div>
+                                <div class="item"><img src="../assets/images/pro3/27.jpg" alt="" class="blur-up lazyloaded"></div>
+                                <div class="item"><img src="../assets/images/pro3/1.jpg" alt="" class="blur-up lazyloaded"></div>
+                                <div class="item"><img src="../assets/images/pro3/27.jpg" alt="" class="blur-up lazyloaded"></div>
+                                <div class="item"><img src="../assets/images/pro3/2.jpg" alt="" class="blur-up lazyloaded"></div>
+                                <div class="item"><img src="../assets/images/pro3/1.jpg" alt="" class="blur-up lazyloaded"></div>
+                                <div class="item"><img src="../assets/images/pro3/27.jpg" alt="" class="blur-up lazyloaded"></div>
+                                <div class="item"><img src="../assets/images/pro3/2.jpg" alt="" class="blur-up lazyloaded"></div>
                             </div>
-                            <div class="card-body">
-                                <div id="batchDelete" class="category-table order-table"></div>
+                            <div class="owl-carousel owl-theme" id="sync2">
+                                <div class="item"><img src="../assets/images/pro3/2.jpg" alt="" class="blur-up lazyloaded"></div>
+                                <div class="item"><img src="../assets/images/pro3/27.jpg" alt="" class="blur-up lazyloaded"></div>
+                                <div class="item"><img src="../assets/images/pro3/1.jpg" alt="" class="blur-up lazyloaded"></div>
+                                <div class="item"><img src="../assets/images/pro3/27.jpg" alt="" class="blur-up lazyloaded"></div>
+                                <div class="item"><img src="../assets/images/pro3/2.jpg" alt="" class="blur-up lazyloaded"></div>
+                                <div class="item"><img src="../assets/images/pro3/1.jpg" alt="" class="blur-up lazyloaded"></div>
+                                <div class="item"><img src="../assets/images/pro3/27.jpg" alt="" class="blur-up lazyloaded"></div>
+                                <div class="item"><img src="../assets/images/pro3/2.jpg" alt="" class="blur-up lazyloaded"></div>
+                            </div>
+                        </div>
+                        <div class="col-xl-8">
+                            <div class="product-page-details product-right mb-0">
+                                <h2>WOMEN PINK SHIRT</h2>
+                                <select id="u-rating-fontawesome-o" name="rating" data-current-rating="5" autocomplete="off">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                </select>
+
+                                <hr>
+                                <h6 class="product-title">product details</h6>
+                                <p>Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque ipsa, quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt, explicabo. Nemo enim ipsam voluptatem,</p>
+                                <div class="product-price digits mt-2">
+                                    <h3>$26.00 <del>$350.00</del></h3>
+                                </div>
+                                <ul class="color-variant">
+                                    <li class="bg-light0"></li>
+                                    <li class="bg-light1"></li>
+                                    <li class="bg-light2"></li>
+                                </ul>
+                                <hr>
+                                <h6 class="product-title size-text">select size <span class="pull-right"><a href="" data-toggle="modal" data-target="#sizemodal">size chart</a></span></h6>
+                                <div class="modal fade" id="sizemodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">Sheer Straight Kurta</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                            </div>
+                                            <div class="modal-body"><img src="../assets/images/size-chart.jpg" alt="" class="img-fluid blur-up lazyloaded"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="size-box">
+                                    <ul>
+                                        <li class="active"><a href="#">s</a></li>
+                                        <li><a href="#">m</a></li>
+                                        <li><a href="#">l</a></li>
+                                        <li><a href="#">xl</a></li>
+                                    </ul>
+                                </div>
+                                <div class="add-product-form">
+                                    <h6 class="product-title">quantity</h6>
+                                    <fieldset class="qty-box mt-2 ml-0">
+                                        <div class="input-group">
+                                            <input class="touchspin" type="text" value="1">
+                                        </div>
+                                    </fieldset>
+                                </div>
+                                <hr>
+                                <h6 class="product-title">Time Reminder</h6>
+                                <div class="timer">
+                                    <p id="demo"><span>25 <span class="padding-l">:</span> <span class="timer-cal">Days</span> </span><span>22 <span class="padding-l">:</span> <span class="timer-cal">Hrs</span> </span><span>13 <span class="padding-l">:</span> <span class="timer-cal">Min</span> </span><span>57 <span class="timer-cal">Sec</span></span>
+                                    </p>
+                                </div>
+                                <div class="m-t-15">
+                                    <button class="btn btn-primary m-r-10" type="button">Add To Cart</button>
+                                    <button class="btn btn-secondary" type="button">Buy Now</button>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -371,10 +454,18 @@
 <!-- Sidebar jquery-->
 <script src="../assets/js/sidebar-menu.js"></script>
 
-<!-- Jsgrid js-->
-<script src="../assets/js/jsgrid/jsgrid.min.js"></script>
-<script src="../assets/js/jsgrid/griddata-discount-coupon.js"></script>
-<script src="../assets/js/jsgrid/jsgrid-discount-coupon.js"></script>
+<!-- Touchspin Js-->
+<script src="../assets/js/touchspin/vendors.min.js"></script>
+<script src="../assets/js/touchspin/touchspin.js"></script>
+<script src="../assets/js/touchspin/input-groups.min.js"></script>
+
+<!-- Rating Js-->
+<script src="../assets/js/rating/jquery.barrating.js"></script>
+<script src="../assets/js/rating/rating-script.js"></script>
+
+<!-- Owlcarousel js-->
+<script src="../assets/js/owlcarousel/owl.carousel.js"></script>
+<script src="../assets/js/dashboard/product-carousel.js"></script>
 
 <!--Customizer admin-->
 <script src="../assets/js/admin-customizer.js"></script>
