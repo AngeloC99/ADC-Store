@@ -18,4 +18,6 @@ class VHome
         $this->smarty->assign($rif,$valore);
     }
 
+
+
 }
