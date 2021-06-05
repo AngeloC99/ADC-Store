@@ -143,9 +143,9 @@ print FCarrello::exist($carrello->getId());
 // Testing classe FOrdine
 
 $ordine1 = new EOrdine($carrello2, $ind);
-//$ordine1->setDataAcquisto(new DateTime("-2 month"));
+$ordine1->setDataAcquisto(new DateTime("-2 month"));
 $ordine2 = new EOrdine($carrello, $indirizzo);
-/*
+
 $pm->store($ordine1);
 $pm->store($ordine2);
 var_dump($pm->prelevaUtentiInattivi());

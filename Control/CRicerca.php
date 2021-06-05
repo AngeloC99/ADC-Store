@@ -1,8 +1,9 @@
 <?php
 
 
-class CRicerca
-{
+class CRicerca{
+
+
     public static function recuperaProdotti() :array{
         $pm=new FPersistentManager();
         return $pm->prelevaProdotti();

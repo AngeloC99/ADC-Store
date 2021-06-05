@@ -137,7 +137,7 @@ class FOrdine
         $utenti=array();
         foreach ($old as $us){
             if (in_array($us,$new)==false){
-                $utenti[]=$us;
+                $utenti[$us->getEmail()]=$us;
             }
         }
         $pdo->commit();

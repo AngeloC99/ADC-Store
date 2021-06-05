@@ -15,7 +15,7 @@ function myautoload($class_name) {
             include_once ($class);
             break;
         case 'C':
-            $class = "Controller/".$class_name.".php";
+            $class = "Control/".$class_name.".php";
             include_once ($class);
             break;
         case 'V':
