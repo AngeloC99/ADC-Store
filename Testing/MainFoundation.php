@@ -111,7 +111,7 @@ $carta3 = new ECartaCredito("Mario Mari", "2638475910293485", "AmericanExpress",
 //FCartaCredito::update($carta);
 
 // Testing classe FCarrello
-
+/*
 $carrello = new ECarrello();
 $carrello2=new ECarrello();
 $carrello3= new ECarrello();
@@ -136,9 +136,9 @@ $pm->store($utente2);
 
 $pm->store($carrello2,$utente2->getEmail());
 $pm->store($carrello, $utente->getEmail());
-/*print "\n";
+print "\n";
 print FCarrello::exist($carrello->getId());
-*/
+
 
 // Testing classe FOrdine
 
@@ -149,7 +149,7 @@ $ordine2 = new EOrdine($carrello, $indirizzo);
 $pm->store($ordine1);
 $pm->store($ordine2);
 var_dump($pm->prelevaUtentiInattivi());
-/*
+
 print "\n";
 print FOrdine::exist( $ordine1->getId());
 */
@@ -227,4 +227,18 @@ var_dump($imrec);
 //$premio->setPrezzoInPunti(100);
 //echo $db->update($premio);
 //print_r($db->prelevaPremi());*/
+
+
+// Testing salvataggio sicuro delle password degli utenti
+$pass = "pluto";
+//$passCifrata = password_hash($pass,PASSWORD_DEFAULT);
+$u = new EUtenteReg("Alberto", "Angela", "angelaalberto@libero.it", $pass);
+$pm = FPersistentManager::getInstance();
+//$pm->store($u);
+//$pm->delete("FUtenteReg", $u->getEmail());
+//$u1 = $pm->load("FUtenteReg", $u->getEmail(), "papero");
+//var_dump($u1);
+//print(password_verify($pass, $passCifrata));
+$u->setPassword("giovannino");
+$pm->update($u);
 

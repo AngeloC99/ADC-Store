@@ -49,11 +49,13 @@ class FUtenteReg
     }
 
     /**
-     * Carica in RAM l'istanza di EUtenteReg che possiede la chiave primaria fornita.
+     * Carica in RAM l'istanza di EUtenteReg che possiede la chiave primaria fornita e verifica che la password sia
+     * quella corretta, confrontandola con l'hash salvato sul database.
      * @param $email
-     * @return EUtenteReg
+     * @param $password
+     * @return EUtenteReg|null
      */
-    public static function load($email) : EUtenteReg
+    public static function load($email, $password) : EUtenteReg | null
     {
         $pdo = FConnectionDB::connect();
         $query = "SELECT * FROM UtenteReg WHERE email= :email";
@@ -61,21 +63,24 @@ class FUtenteReg
         $stmt->execute(["email" => $email]);
         $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-        $nome=$rows[0]['nome'];
-        $cognome=$rows[0]['cognome'];
-        $email=$rows[0]['email'];
-        $password=$rows[0]['password'];
+        $nome = $rows[0]['nome'];
+        $cognome = $rows[0]['cognome'];
+        $email = $rows[0]['email'];
+        $hash = $rows[0]['password'];
         $punti = $rows[0]['punti'];
 
-        $user = new EUtenteReg($nome,$cognome,$email,$password);
-        $user->setPunti($punti);
+        if(password_verify($password, $hash)) {
+            $utente = new EUtenteReg($nome,$cognome,$email,$password);
+            $utente->setPunti($punti);
 
-        return $user;
-
+            return $utente;
+        }
+        else return null;
     }
 
     /**
-     * Memorizza un'istanza di EUtenteReg sul database e restituisce un booleano che indica l'esito dell'operazione.
+     * Memorizza un'istanza di EUtenteReg sul database cifrandone la password e restituisce un booleano che indica
+     * l'esito dell'operazione.
      * @param $obj
      * @return bool
      */
@@ -88,12 +93,10 @@ class FUtenteReg
             ":email" => $obj->getEmail(),
             ":nome" => $obj->getNome(),
             ":cognome" => $obj->getCognome(),
-            ":pw" => $obj->getPassword(),
+            ":pw" => password_hash($obj->getPassword(), PASSWORD_DEFAULT),
             ":punti" => $obj->getPunti()));
-        ;
+
         return $ris;
-
-
     }
 
     /**
@@ -108,7 +111,7 @@ class FUtenteReg
         $ris = $stmt->execute(array(
             ":nome" => $obj->getNome(),
             ":cognome" => $obj->getCognome(),
-            ":password" => $obj->getPassword(),
+            ":password" => password_hash($obj->getPassword(), PASSWORD_DEFAULT),
             ":punti" => $obj->getPunti(),
             ":email" => $obj->getEmail()));
 

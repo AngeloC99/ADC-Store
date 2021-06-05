@@ -54,7 +54,7 @@ class FPersistentManager
      * @param null $key3
      * @return object
      */
-    public function load(string $Fclass, $key1, $key2=null, $key3=null) : object{
+    public function load(string $Fclass, $key1, $key2=null, $key3=null) {
         $object = $Fclass::load($key1,$key2,$key3);
         return $object;
     }
