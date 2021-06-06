@@ -60,11 +60,11 @@ class FPremio
      * @param string $nome
      * @return EPremio
      */
-    public static function load(string $key) :EPremio
+    public static function load(string $id) :EPremio
     {
         $pdo=FConnectionDB::connect();
         $stmt=$pdo->prepare("SELECT * FROM Premio WHERE id=:id");
-        $stmt->execute([":id" => $key]);
+        $stmt->execute([":id" => $id]);
         $rows=$stmt->fetchAll(PDO::FETCH_ASSOC);
         $punti=$rows[0]['punti'];
         $desc=$rows[0]['descrizione'];
@@ -74,7 +74,7 @@ class FPremio
         $idImm=$rows[0]['idImmagine'];
         $imm=FImmagine::load($idImm);
         $premio= new EPremio($nome,$marca,$desc,$quant,$imm,$punti);
-        $premio->setId($key);
+        $premio->setId($id);
         return $premio;
 
     }
@@ -193,6 +193,7 @@ class FPremio
                     $row['quantita'],
                     $immagini[$row['idImmagine']],
                     $row['punti']);
+                $premio->setId($row['id']);
                 $premi[]=$premio;
             }
             $pdo->commit();

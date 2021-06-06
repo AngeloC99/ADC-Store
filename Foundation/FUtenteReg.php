@@ -55,7 +55,7 @@ class FUtenteReg
      * @param $password
      * @return EUtenteReg|null
      */
-    public static function load($email, $password) : EUtenteReg | null
+    public static function load(string $email, string $password) : EUtenteReg | null
     {
         $pdo = FConnectionDB::connect();
         $query = "SELECT * FROM UtenteReg WHERE email= :email";
@@ -137,7 +137,8 @@ class FUtenteReg
                 $row['cognome'],
                 $row['email'],
                 $row['password']);
-            $utenti[] = $user;
+            $key = $row['email'];
+            $utenti[$key] = $user;
         }
         return $utenti;
     }
@@ -319,7 +320,9 @@ class FUtenteReg
                 $row['scadenza'],
                 $row['cvv'],
                 $row['ammontare']);
-            $carte[] = $carta;
+            $key=$row['numero'];
+            $carte[$key]=$carta;
+
         }
         return $carte;
     }

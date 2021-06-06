@@ -10,13 +10,15 @@ require('C:\Users\rommy\OneDrive\Desktop\CORSI 3.2\Programmazione Web\PROGETTO E
 class CInviareBuoni
 {
     public static function recuperaClienti(): array{
-        $pm=new FPersistentManager();
+        $pm = FPersistentManager::getInstance();
         return $pm->prelevaUtentiInattivi();
     }
 
-    public static function selezionaCliente(string $email){
-        $array=self::recuperaClienti();
-        return $array[$email];
+    public static function selezionaCliente(string $email): EUtenteReg {
+        //$array=self::recuperaClienti();
+        //return $array[$email];
+        $pm = FPersistentManager::getInstance();
+        return $pm->load("FUtenteReg",$email);
     }
 
     //public static function inviaBuono(bool $p,int $a,string $m='',EUtenteReg $utente){

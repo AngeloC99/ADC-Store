@@ -14,7 +14,7 @@ class CGestioneIndirizzi
      * @param EUtenteReg $utente
      * @return array
      */
-    public static function recuperaIndirizzi(EUtenteReg $utente) {
+    public static function recuperaIndirizzi(EUtenteReg $utente): array {
         $pm = FPersistentManager::getInstance();
         return $pm->prelevaIndirizziUtente($utente);
     }
@@ -30,7 +30,7 @@ class CGestioneIndirizzi
      * @param string $provincia
      * @param EUtenteReg $utente
      */
-    public static function aggiungiCarta(string $via, int $numero, string $cap, string $comune, string $provincia, EUtenteReg $utente): void {
+    public static function aggiungiIndirizzo(string $via, int $numero, string $cap, string $comune, string $provincia, EUtenteReg $utente): void {
         $pm = FPersistentManager::getInstance();
         $indirizzo = new EIndirizzo($via,$numero,$comune,$provincia,$cap,true);
         $pm->salvaIndirizzoUtente($indirizzo, $utente);
@@ -41,7 +41,7 @@ class CGestioneIndirizzi
      * @param EIndirizzo $indirizzo
      * @param EUtenteReg $utente
      */
-    public static function rimuoviCarta(EIndirizzo $indirizzo, EUtenteReg $utente): void {
+    public static function rimuoviIndirizzo(EIndirizzo $indirizzo, EUtenteReg $utente): void {
         $pm = FPersistentManager::getInstance();
         $pm->eliminaIndirizzoUtente($indirizzo, $utente);
     }

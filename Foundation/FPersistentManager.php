@@ -16,10 +16,6 @@ class FPersistentManager
      */
     private static $instance;
 
-    /**
-     * FPersistentManager constructor.
-     */
-    public function __construct() {}
 
     /**
      * Implementa il metodo getInstance() del Singleton.

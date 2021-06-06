@@ -3,12 +3,12 @@
 require_once "../autoloader.php";
 require_once '../configDB.php';
 
-$imm1 = new EImmagine("https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.carrefour.it%2Fon%2Fdemandware.static%2F-%2FSites-carrefour-master-catalog-IT%2Fdefault%2Fdw11998463%2Flarge%2FLATTEFRESCOAQCENROMAML500-0000080662594-1.png&f=1&nofb=1");
-$imm2 = new EImmagine("https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.carrefour.it%2Fon%2Fdemandware.static%2F-%2FSites-carrefour-master-catalog-IT%2Fdefault%2Fdw11998463%2Flarge%2FLATTEFRESCOAQCENROMAML500-0000080662594-1.png&f=1&nofb=1");
-$imm3 = new EImmagine("https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.carrefour.it%2Fon%2Fdemandware.static%2F-%2FSites-carrefour-master-catalog-IT%2Fdefault%2Fdw11998463%2Flarge%2FLATTEFRESCOAQCENROMAML500-0000080662594-1.png&f=1&nofb=1");
-$prod1 = new EProdotto("Latte","Centrale di Roma","Latte intero", 200, $imm1, 1.50, "Latte");
-$prod2 = new EProdotto("Petto di pollo","Amadori","Pollo di alta qualità", 50, $imm2, 3.50, "Carne");
-$prod3 = new EProdotto("Yogurt","Muller","Yogurt alla vaniglia", 80, $imm3, 0.70, "Yogurt");
+//$imm1 = new EImmagine("https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.carrefour.it%2Fon%2Fdemandware.static%2F-%2FSites-carrefour-master-catalog-IT%2Fdefault%2Fdw11998463%2Flarge%2FLATTEFRESCOAQCENROMAML500-0000080662594-1.png&f=1&nofb=1");
+//$imm2 = new EImmagine("https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.carrefour.it%2Fon%2Fdemandware.static%2F-%2FSites-carrefour-master-catalog-IT%2Fdefault%2Fdw11998463%2Flarge%2FLATTEFRESCOAQCENROMAML500-0000080662594-1.png&f=1&nofb=1");
+//$imm3 = new EImmagine("https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.carrefour.it%2Fon%2Fdemandware.static%2F-%2FSites-carrefour-master-catalog-IT%2Fdefault%2Fdw11998463%2Flarge%2FLATTEFRESCOAQCENROMAML500-0000080662594-1.png&f=1&nofb=1");
+//$prod1 = new EProdotto("Latte","Centrale di Roma","Latte intero", 200, $imm1, 1.50, "Latte");
+//$prod2 = new EProdotto("Petto di pollo","Amadori","Pollo di alta qualità", 50, $imm2, 3.50, "Carne");
+//$prod3 = new EProdotto("Yogurt","Muller","Yogurt alla vaniglia", 80, $imm3, 0.70, "Yogurt");
 
 //FPersistentManager::getInstance()->store($prod1);
 $pm = FPersistentManager::getInstance();
@@ -31,6 +31,9 @@ $pm = FPersistentManager::getInstance();
 $utente = new EUtenteReg("Ada", "Bianchi", "adarossi@gmail.com", "pluto");
 $utente2 = new EUtenteReg("Angus", "Young", "angusyoung@gmail.com", "rock");
 
+//$utente->setPunti(100);
+//$utente2->setPunti(120);
+
 //$bool = $pm->exist("FUtenteReg", "angusyoung@gmail.com");
 //$bool = FUtenteReg::exist("angusyoung@gmail.com");
 //echo((string) $bool);
@@ -38,9 +41,8 @@ $utente2 = new EUtenteReg("Angus", "Young", "angusyoung@gmail.com", "rock");
 //$bool = $pm->exist("FUtenteReg", "angusyoung@gmail.com");
 //print($bool);
 //$db->update($utente2, $utente);
-//$db->store($utente);
-//$db->store($utente2);
-//$futente->store($utente);
+$pm->store($utente);
+$pm->store($utente2);
 //$db->delete("adarossi@gmail.com","FUtenteReg");
 //$ada = $db->load("adarossi@gmail.com", "FUtenteReg");
 //print($ada->getNome());
@@ -223,7 +225,9 @@ var_dump($imrec);
 //print_r($db->prelevaPremiFiltrati($utente->getPunti()));
 //echo $db->exist('FPremio',$premio->getId());
 //$db->delete('FPremio',$premio->getId());
-//echo ($db->load('FPremio',$premio->getId()))->getPrezzoInPunti();
+//echo $premio->getId();
+//$prova = $pm->load('FPremio','PRE60bce9f709f58');
+//print (var_dump($prova));
 //$premio->setPrezzoInPunti(100);
 //echo $db->update($premio);
 //print_r($db->prelevaPremi());*/
@@ -233,12 +237,12 @@ var_dump($imrec);
 $pass = "pluto";
 //$passCifrata = password_hash($pass,PASSWORD_DEFAULT);
 $u = new EUtenteReg("Alberto", "Angela", "angelaalberto@libero.it", $pass);
-$pm = FPersistentManager::getInstance();
+//$pm = FPersistentManager::getInstance();
 //$pm->store($u);
 //$pm->delete("FUtenteReg", $u->getEmail());
 //$u1 = $pm->load("FUtenteReg", $u->getEmail(), "papero");
 //var_dump($u1);
 //print(password_verify($pass, $passCifrata));
-$u->setPassword("giovannino");
-$pm->update($u);
+//$u->setPassword("giovannino");
+//$pm->update($u);
 

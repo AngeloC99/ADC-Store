@@ -52,7 +52,7 @@ class FAmministratore
      * @param string $email
      * @return EAmministratore
      */
-    public static function load(string $email) : EAmministratore
+    public static function load(string $email, string $password) : EAmministratore | null
     {
         $pdo = FConnectionDB::connect();
         $query = "SELECT * FROM amministratore WHERE email= :email";
@@ -63,12 +63,16 @@ class FAmministratore
         $nome=$rows[0]['nome'];
         $cognome=$rows[0]['cognome'];
         $email=$rows[0]['email'];
-        $password=$rows[0]['password'];
+        $hash=$rows[0]['password'];
 
-        $admin = new EAmministratore($nome,$cognome,$email,$password);
+        if(password_verify($password,$hash)) {
+            $admin = new EAmministratore($nome,$cognome,$email,$password);
+            return $admin;
+        }
+        else{
 
-        return $admin;
-
+        return null;
+        }
     }
 
     /**
@@ -85,7 +89,7 @@ class FAmministratore
             ":email" => $obj->getEmail(),
             "nome" => $obj->getNome(),
             "cognome" => $obj->getCognome(),
-            "password" => $obj->getPassword()));
+            ":password" => password_hash($obj->getPassword(), PASSWORD_DEFAULT)));
 
         return $ris;
     }
@@ -102,7 +106,7 @@ class FAmministratore
         $ris = $stmt->execute(array(
             ":nome" => $obj->getNome(),
             ":cognome" => $obj->getCognome(),
-            ":password" => $obj->getPassword(),
+            ":password" => password_hash($obj->getPassword(), PASSWORD_DEFAULT),
             ":email" => $obj->getEmail()));
 
         return $ris;

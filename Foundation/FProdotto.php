@@ -154,6 +154,7 @@ class FProdotto
                     $immagini[$row['idImmagine']],
                     $row['prezzo'],
                     $row['tipologia']);
+                $prod->setId($row['id']);
                 $prodotti[]=$prod;
         }
             $pdo->commit();

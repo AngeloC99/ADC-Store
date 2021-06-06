@@ -5,17 +5,17 @@ class CRicerca{
 
 
     public static function recuperaProdotti() :array{
-        $pm=new FPersistentManager();
+        $pm = FPersistentManager::getInstance();
         return $pm->prelevaProdotti();
     }
 
     public static function cercaProdotto(string $tipologia) : array{
-        $pm=new FPersistentManager();
+        $pm = FPersistentManager::getInstance();
         return $pm->prelevaProdottiByTip($tipologia);
     }
 
-    public static function selezionaProdotto(string $id) {
-        $pm=new FPersistentManager();
+    public static function selezionaProdotto(string $id): EProdotto {
+        $pm = FPersistentManager::getInstance();
         return $pm->load('FProdotto',$id);
     }
 }
