@@ -34,13 +34,14 @@ class EAmministratore extends EPersona
      * @param EUtenteReg $utente
      * @param string $messaggio
      */
-    public function preparaBuono(bool $percentuale,int $ammontare, string $messaggio,EUtenteReg $utente){
+    public function preparaBuono(bool $percentuale,int $ammontare, string $messaggio){ //tolto utente come parametro
         $buono = new EBuonoSconto($percentuale,$ammontare, $messaggio);
-        $array = $utente->getBuoniSconto();
-        $codice = $buono->getCodice();
-        $array[$codice] = $buono;
-        $utente->setBuoniSconto($array);
+        //$array = $utente->getBuoniSconto();
+        //$codice = $buono->getCodice();
+        //$array[$codice] = $buono;
+        //$utente->setBuoniSconto($array);
         //DA COMPLETARE CON EMAIL ECC
+        return $buono;
 
     }
 
