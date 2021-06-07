@@ -11,43 +11,50 @@ class CGestioneBuoni
 {
 
     public static function recuperaBuoni(){
-        $pm=new FPersistentManager();
+        $pm = FPersistentManager::getInstance();
         return $pm->prelevaBuoni();
     }
 
-
     //public static function inviaBuono(bool $p,int $a,string $m='',EUtenteReg $utente){
-       // $admin; //come facciamo, lo istanziamo qui o se ne occupa CAdmin??
-       // $buono=$admin->preparaBuono($p,$a,$m,$utente);  //come lo inviamo all'utente??
-     public static function inviaBuono(): bool{
-            $mail = new PHPMailer();
-            $mail->IsSMTP(); // enable SMTP
-            $mail->SMTPDebug = SMTP::DEBUG_SERVER;
-            $mail->SMTPOptions = array(
-                'ssl' => array(
-                    'verify_peer' => false,
-                    'verify_peer_name' => false,
-                    'allow_self_signed' => true
-                )
-            );
-            $mail->SMTPAuth = true;
-            $mail->Host = "smtp.gmail.com";
-            $mail->Port = 587; // or 587
-            $mail->IsHTML(true);
-            $mail->Username = "la vostra email";
-            $mail->Password = "la vostra password";
-            $mail->SetFrom("sempre la vostra email");
-            $mail->Subject = "BUONO SCONTO";
-            $mail->Body = "Questo è un regalo solo per te!";
-            $mail->AddAddress("email destinatario");
-            $mail->msgHTML(file_get_contents( 'C:\Users\rommy\OneDrive\Desktop\CORSI 3.2\Programmazione Web\PROGETTO ESAME\PHP\Smarty\smarty-dir\templates\email-temp.html'));
-            if(!$mail->Send()) {
-                return false;
-            } else {
-                return true;
-            }
-
+    // $admin; //come facciamo, lo istanziamo qui o se ne occupa CAdmin??
+    // $buono=$admin->preparaBuono($p,$a,$m,$utente);  //come lo inviamo all'utente??
+    public static function inviaBuono(EAmministratore $admin,bool $percentuale,int $ammontare, string $messaggio,EUtenteReg $utente): bool{
+        $buono=$admin->preparaBuono($percentuale,$ammontare,$messaggio);
+        $mail = new PHPMailer();
+        $mail->IsSMTP(); // enable SMTP
+        $mail->SMTPDebug = SMTP::DEBUG_SERVER;
+        $mail->SMTPOptions = array(
+            'ssl' => array(
+                'verify_peer' => false,
+                'verify_peer_name' => false,
+                'allow_self_signed' => true
+            )
+        );
+        $mail->SMTPAuth = true;
+        $mail->Host = "smtp.gmail.com";
+        $mail->Port = 587;
+        $mail->IsHTML(true);
+        $mail->Username = "xxx";  //qui va email dell'admin
+        $mail->Password = "xxx";  //qui va pw account gmail dell'admin
+        $mail->SetFrom("xxx");
+        $mail->Subject = "ADC Store - BUONO SCONTO";
+        $mail->AddAddress($utente->getEmail());
+        //setta i valori del buono nell'email ...ancora da risolvere
+        $v=new VGestioneBuoni();
+        $mail->Body = $v->datiBsEmail($buono);
+        //$mail->msgHTML($v->datiBsEmail($buono));
+        if(!$mail->Send()) {
+            return false;
+        } else {
+            return true;
         }
+
+    }
+    public static function preparaBuonoPerInvio(EAmministratore $admin,bool $percentuale,int $ammontare, string $messaggio): EBuonoSconto{
+        return $admin->preparaBuono($percentuale,$ammontare,$messaggio);
+
+    }
+
 
 
 }
