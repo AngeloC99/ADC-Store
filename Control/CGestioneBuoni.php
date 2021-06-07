@@ -7,24 +7,19 @@ require('C:\Users\rommy\OneDrive\Desktop\CORSI 3.2\Programmazione Web\PROGETTO E
 require('C:\Users\rommy\OneDrive\Desktop\CORSI 3.2\Programmazione Web\PROGETTO ESAME\PHP\PHPMailer-master\src\Exception.php');
 require('C:\Users\rommy\OneDrive\Desktop\CORSI 3.2\Programmazione Web\PROGETTO ESAME\PHP\PHPMailer-master\src\SMTP.php');
 
-class CInviareBuoni
+class CGestioneBuoni
 {
-    public static function recuperaClienti(): array{
-        $pm = FPersistentManager::getInstance();
-        return $pm->prelevaUtentiInattivi();
+
+    public static function recuperaBuoni(){
+        $pm=new FPersistentManager();
+        return $pm->prelevaBuoni();
     }
 
-    public static function selezionaCliente(string $email): EUtenteReg {
-        //$array=self::recuperaClienti();
-        //return $array[$email];
-        $pm = FPersistentManager::getInstance();
-        return $pm->load("FUtenteReg",$email);
-    }
 
     //public static function inviaBuono(bool $p,int $a,string $m='',EUtenteReg $utente){
        // $admin; //come facciamo, lo istanziamo qui o se ne occupa CAdmin??
        // $buono=$admin->preparaBuono($p,$a,$m,$utente);  //come lo inviamo all'utente??
-     public static function invia(): bool{
+     public static function inviaBuono(): bool{
             $mail = new PHPMailer();
             $mail->IsSMTP(); // enable SMTP
             $mail->SMTPDebug = SMTP::DEBUG_SERVER;

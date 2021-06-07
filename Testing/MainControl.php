@@ -1,12 +1,12 @@
 <?php
 require_once "../autoloader.php";
 require_once '../configDB.php';
-//echo CInviareBuoni::invia();
+//echo CGestioneBuoni::invia();
 
 
 // TESTING CGESTIONEPUNTI
 
-//$premio = CGestionePunti::selezionaPremio('PRE60bceb5e1e0ed');
+//$premio = CGestionePunti::selezionaPremio('PRE60bdceeb42dde');
 //echo var_dump($premio);
 
 //$pm = FPersistentManager::getInstance();
@@ -22,3 +22,20 @@ require_once '../configDB.php';
 //print_r($premi);
 //$imm = new EImmagine("https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.carrefour.it%2Fon%2Fdemandware.static%2F-%2FSites-carrefour-master-catalog-IT%2Fdefault%2Fdw11998463%2Flarge%2FLATTEFRESCOAQCENROMAML500-0000080662594-1.png&f=1&nofb=1");
 //CGestionePunti::aggiungiPremio('Padella','MarcaBuona','padella antiaderente 20cm',10,$imm,120);
+
+
+//TESTING CGESTIONEPRODOTTI
+
+//CGestioneProdotti::modificaPrezzo('PRO60bde87e4148a', 2.50);
+//CGestioneProdotti::modificaQuantita('PRO60bde87e4148a', 60);
+//$imm=new EImmagine('baci-perugina.jpg');
+//$prod=new EProdotto('Baci Perugina','Perugina','baci perugina extra fondente',15,$imm,6.50,'dolci');
+//CGestioneProdotti::aggiungiProdotto('Baci Perugina','Perugina','baci perugina extra fondente',15,$imm,6.50,'dolci');
+//$prodotto = CGestioneProdotti::selezionaProdotto('PRO60bdee4383fb9');
+//var_dump($prodotto);
+
+
+//TESTING CRICE
+
+$arr = CRicerca::selezionaProdotto('PRO60bdf24cb1383');
+var_dump($arr);

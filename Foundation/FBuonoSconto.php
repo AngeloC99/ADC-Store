@@ -107,7 +107,7 @@ class FBuonoSconto
             $buono=new EBuonoSconto($row['percentuale'],$row['ammontare']);
             $buono->setScadenza(DateTime::createFromFormat('Y-m-d',$row['scadenza']));
             $buono->setCodice($row['codice']);
-            $buoni[] = $buono;
+            $buoni[$row['codice']] = $buono;
         }
         return $buoni;
 

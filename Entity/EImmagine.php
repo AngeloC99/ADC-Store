@@ -62,8 +62,8 @@ class EImmagine
             $this->nome='WebImage';
         }
         else{  //si tratta di un'immagine in un path locale:
-            $name_array=explode(".",$nome);
-            $this->nome=$name_array[0];
+            //$name_array=explode(".",$nome);
+            $this->nome=$nome;
             $nome="\\".$nome; //stringa del tipo \nome.formato
             $full_name=__DIR__.$nome;
 

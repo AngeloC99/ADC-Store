@@ -162,7 +162,8 @@ class FPremio
                     $row['quantita'],
                     $immagini[$row['idImmagine']],
                     $row['punti']);
-                $premi[]=$premio;
+                $premio->setId($row['id']);
+                $premi[$row['id']]=$premio;
             }
             $pdo->commit();
             return $premi;
@@ -194,7 +195,7 @@ class FPremio
                     $immagini[$row['idImmagine']],
                     $row['punti']);
                 $premio->setId($row['id']);
-                $premi[]=$premio;
+                $premi[$row['id']]=$premio;
             }
             $pdo->commit();
             return $premi;

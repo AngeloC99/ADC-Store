@@ -115,7 +115,7 @@ class FCartaCredito
                 new DateTime($row['scadenza']),
                 $row['cvv'],
                 $row['ammontare']);
-            $carte[] = $carta;
+            $carte[$row['numero']] = $carta;
         }
         return $carte;
     }

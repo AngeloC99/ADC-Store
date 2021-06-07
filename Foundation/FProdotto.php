@@ -155,7 +155,7 @@ class FProdotto
                     $row['prezzo'],
                     $row['tipologia']);
                 $prod->setId($row['id']);
-                $prodotti[]=$prod;
+                $prodotti[$row['id']]=$prod;
         }
             $pdo->commit();
             return $prodotti;
@@ -190,7 +190,8 @@ class FProdotto
                     $immagini[$row['idImmagine']],
                     $row['prezzo'],
                     $row['tipologia']);
-                $prodotti[]=$prod;
+                $prod->setId($row['id']);
+                $prodotti[$row['id']]=$prod;
             }
             $pdo->commit();
             return $prodotti;

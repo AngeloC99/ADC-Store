@@ -52,10 +52,9 @@ class FUtenteReg
      * Carica in RAM l'istanza di EUtenteReg che possiede la chiave primaria fornita e verifica che la password sia
      * quella corretta, confrontandola con l'hash salvato sul database.
      * @param $email
-     * @param $password
-     * @return EUtenteReg|null
+     * @return EUtenteReg
      */
-    public static function load(string $email, string $password) : EUtenteReg | null
+    public static function load(string $email) : EUtenteReg
     {
         $pdo = FConnectionDB::connect();
         $query = "SELECT * FROM UtenteReg WHERE email= :email";
@@ -69,13 +68,11 @@ class FUtenteReg
         $hash = $rows[0]['password'];
         $punti = $rows[0]['punti'];
 
-        if(password_verify($password, $hash)) {
-            $utente = new EUtenteReg($nome,$cognome,$email,$password);
-            $utente->setPunti($punti);
+        $utente = new EUtenteReg($nome,$cognome,$email,$hash);
+        $utente->setPunti($punti);
 
-            return $utente;
-        }
-        else return null;
+        return $utente;
+
     }
 
     /**
@@ -111,7 +108,7 @@ class FUtenteReg
         $ris = $stmt->execute(array(
             ":nome" => $obj->getNome(),
             ":cognome" => $obj->getCognome(),
-            ":password" => password_hash($obj->getPassword(), PASSWORD_DEFAULT),
+            ":password" => $obj->getPassword(),
             ":punti" => $obj->getPunti(),
             ":email" => $obj->getEmail()));
 

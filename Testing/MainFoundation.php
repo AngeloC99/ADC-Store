@@ -41,8 +41,8 @@ $utente2 = new EUtenteReg("Angus", "Young", "angusyoung@gmail.com", "rock");
 //$bool = $pm->exist("FUtenteReg", "angusyoung@gmail.com");
 //print($bool);
 //$db->update($utente2, $utente);
-$pm->store($utente);
-$pm->store($utente2);
+//$pm->store($utente);
+//$pm->store($utente2);
 //$db->delete("adarossi@gmail.com","FUtenteReg");
 //$ada = $db->load("adarossi@gmail.com", "FUtenteReg");
 //print($ada->getNome());
@@ -195,17 +195,17 @@ var_dump($imrec);
 
 
 // Testing classe FProdotto:
-//$imm=new EImmagine('baci-perugina.jpg');
-//$imm2=new EImmagine('arrosticini-ovino-classici-2-scaled.jpg');
-//$imm3=new EImmagine('lattefresco_prova2.png');
+$imm=new EImmagine('baci-perugina.jpg');
+$imm2=new EImmagine('arrosticini-ovino-classici-2-scaled.jpg');
+$imm3=new EImmagine('lattefresco_prova2.png');
 //var_dump($imm);  //funziona solo con particolari url!!
-//$prod3=new EProdotto('Latte','Centrale del latte di Roma','latte fresco',25,$imm3,0.80,'latte');
+$prod3=new EProdotto('Latte','Centrale del latte di Roma','latte fresco',25,$imm3,0.80,'latte');
 //$id=$prod->getId();
-//$prod2=new EProdotto('Arrosticini','Ciccia buona','arrosticini divini',200,$imm2,1.00,'carne');
-//$prod=new EProdotto('Baci Perugina','Perugina','baci perugina extra fondente',15,$imm,6.50,'dolci');
-//$db->store($prod);
-//$db->store($prod2);
-//$db->store($prod3);
+$prod2=new EProdotto('Arrosticini','Ciccia buona','arrosticini divini',200,$imm2,1.00,'carne');
+$prod=new EProdotto('Baci Perugina','Perugina','baci perugina extra fondente',15,$imm,6.50,'dolci');
+//$pm->store($prod);
+//$pm->store($prod2);
+//$pm->store($prod3);
 //print_r($db->prelevaProdotti());
 //echo $db->delete('FProdotto',$id);
 //$prod->setQuantita($prod->getQuantita()-5);
@@ -216,7 +216,7 @@ var_dump($imrec);
 // Testing classe FPremio:
 //$imm2=new EImmagine('arrosticini-ovino-classici-2-scaled.jpg');
 //$imm=new EImmagine('padella.jpg');
-//$premio=new EPremio('Padella','MarcaBuona','padella antiaderente 20cm',10,$imm,120);
+//$premio=new EPremio('Padella','MarcaBuona','padella antiaderente 20cm',10,$imm1,120);
 //$premio2=new EPremio('tostapane','Tostapane Tostabene','tostapane piccolo','5',$imm2,500);
 //$pm->store($premio);
 //$pm->store($premio2);

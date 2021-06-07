@@ -7,6 +7,10 @@ require('..\PHPMailer-master\src\Exception.php');
 require('..\PHPMailer-master\src\SMTP.php');
 
 
+/**
+ * Classe Controller per gestire premi e punti
+ * Class CGestionePunti
+ */
 class CGestionePunti
 {
     /**
@@ -88,7 +92,7 @@ class CGestionePunti
                 return true;
             }
         }
-        else{   //gestire eccezione si non si hanno abbastanza punti
+        else{   //gestire eccezione si non si hanno abbastanza punti (con template dedicato)
             print('ciao');
 
         };
