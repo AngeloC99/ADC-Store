@@ -37,5 +37,11 @@ require_once '../configDB.php';
 
 //TESTING CRICE
 
-$arr = CRicerca::selezionaProdotto('PRO60bdf24cb1383');
-var_dump($arr);
+//$arr = CRicerca::selezionaProdotto('PRO60bdf24cb1383');
+//var_dump($arr);
+
+
+// TESTING CGestioneBuoni
+$admin = new EAmministratore("Mario", "Rossi", "mariorossi@gmail.com", "pippo");
+$utente = new EUtenteReg("Ada", "Bianchi", "xxx", "pluto");
+CGestioneBuoni::inviaBuono($admin,true,10,"Vieni a spendere i soldi sul nostro sito!",$utente);
