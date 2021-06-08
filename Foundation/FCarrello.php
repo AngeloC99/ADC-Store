@@ -32,7 +32,7 @@ class FCarrello
     public static function load($id) : ECarrello {
         try {
             $pdo = FConnectionDB::connect();
-            $pdo->beginTransaction();
+            //$pdo->beginTransaction();
             $stmt = $pdo->prepare("SELECT * FROM Carrello WHERE id = :id");
             $stmt->execute([':id' => $id]);
             $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -48,7 +48,7 @@ class FCarrello
 
         } catch(PDOException $e) {
             print("ATTENTION ERROR: ") . $e->getMessage();
-            $pdo->rollBack();
+            //$pdo->rollBack();
         }
     }
 
@@ -174,9 +174,9 @@ class FCarrello
                                 WHERE Contiene.idcarrello = :idcarrello");
             $ris = $stmt->execute([':idcarrello' => $carrello->getId()]);
             $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
-            $pdo->commit();
+            //$pdo->commit();
             foreach ($rows as $row) {
-                $prod = FProdotto::load($row['nome']);
+                $prod = FProdotto::load($row['id']);
                 $carrello->aggiungiProdotto($prod, $row['quantitaNelCarrello']);
             }
             return $ris;

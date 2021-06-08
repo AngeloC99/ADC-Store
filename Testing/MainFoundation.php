@@ -113,48 +113,60 @@ $carta3 = new ECartaCredito("Mario Mari", "2638475910293485", "AmericanExpress",
 //FCartaCredito::update($carta);
 
 // Testing classe FCarrello
-/*
-$carrello = new ECarrello();
-$carrello2=new ECarrello();
-$carrello3= new ECarrello();
-$carrello2->aggiungiProdotto($prod1, 4);
-$carrello2->aggiungiProdotto($prod2, 1);
 
-$carrello->aggiungiProdotto($prod1, 4);
-$carrello->aggiungiProdotto($prod2, 1);
-$carrello->aggiungiProdotto($prod3, 2);
-$carrello->aggiungiProdotto($prod1, 7);
+$imm=new EImmagine('baci-perugina.jpg');
+$imm2=new EImmagine('arrosticini-ovino-classici-2-scaled.jpg');
+$imm3=new EImmagine('lattefresco_prova2.png');
 
-$carrello3->aggiungiProdotto($prod3, 2);
-$carrello3->aggiungiProdotto($prod1, 7);
+$prod1 = new EProdotto("Latte","Centrale di Roma","Latte intero", 200, $imm3, 1.50, "Latte");
+$prod2 = new EProdotto("Petto di pollo","Amadori","Pollo di alta qualità", 50, $imm2, 3.50, "Carne");
+$prod3 = new EProdotto("Yogurt","Muller","Yogurt alla vaniglia", 80, $imm, 0.70, "Yogurt");
 
-$pm->store($prod1);
-$pm->store($prod2);
-$pm->store($prod3);
-$pm->store($utente);
-$pm->store($indirizzo);
-$pm->store($ind);
-$pm->store($utente2);
+//$carrello = new ECarrello();
+//$carrello2=new ECarrello();
+//print($carrello2->getId());
+//$carrello3= new ECarrello();
+//carrello2->aggiungiProdotto($prod1, 4);
+//$prodotto = $pm->load('FProdotto','PRO60bfae0d207bc');
+//$carrello2->aggiungiProdotto($prodotto, 1);
 
-$pm->store($carrello2,$utente2->getEmail());
-$pm->store($carrello, $utente->getEmail());
-print "\n";
-print FCarrello::exist($carrello->getId());
+//$carrello->aggiungiProdotto($prod1, 4);
+//$carrello->aggiungiProdotto($prod2, 1);
+//$carrello->aggiungiProdotto($prod3, 2);
+//$carrello->aggiungiProdotto($prod1, 7);
+
+//$carrello3->aggiungiProdotto($prod3, 2);
+//$carrello3->aggiungiProdotto($prod1, 7);
+
+//$pm->store($prod1);
+//$pm->store($prod2);
+//$pm->store($prod3);
+//$pm->store($utente);
+//$pm->store($indirizzo);
+//$pm->store($ind);
+//$pm->store($utente2);$pm->store($carrello2,$utente2->getEmail());
+//$pm->store($carrello, $utente->getEmail());
+//$pm->store($carrello3,$utente->getEmail());
+//print "\n";
+//print FCarrello::exist($carrello->getId());
+
+$cart = $pm->load('FCarrello','Car60bfae0d208d6');
+var_dump($cart);
 
 
 // Testing classe FOrdine
 
-$ordine1 = new EOrdine($carrello2, $ind);
-$ordine1->setDataAcquisto(new DateTime("-2 month"));
-$ordine2 = new EOrdine($carrello, $indirizzo);
+//$ordine1 = new EOrdine($carrello2, $ind);
+//$ordine1->setDataAcquisto(new DateTime("-2 month"));
+//$ordine2 = new EOrdine($carrello, $indirizzo);
 
-$pm->store($ordine1);
-$pm->store($ordine2);
-var_dump($pm->prelevaUtentiInattivi());
+//$pm->store($ordine1);
+//$pm->store($ordine2);
+//var_dump($pm->prelevaUtentiInattivi());
 
-print "\n";
-print FOrdine::exist( $ordine1->getId());
-*/
+//print "\n";
+//print FOrdine::exist( $ordine1->getId());
+
 
 // Testing dei metodi che coinvolgono più tabelle FUtenteReg
 
@@ -195,14 +207,14 @@ var_dump($imrec);
 
 
 // Testing classe FProdotto:
-$imm=new EImmagine('baci-perugina.jpg');
-$imm2=new EImmagine('arrosticini-ovino-classici-2-scaled.jpg');
-$imm3=new EImmagine('lattefresco_prova2.png');
+//$imm=new EImmagine('baci-perugina.jpg');
+//$imm2=new EImmagine('arrosticini-ovino-classici-2-scaled.jpg');
+//$imm3=new EImmagine('lattefresco_prova2.png');
 //var_dump($imm);  //funziona solo con particolari url!!
-$prod3=new EProdotto('Latte','Centrale del latte di Roma','latte fresco',25,$imm3,0.80,'latte');
+//$prod3=new EProdotto('Latte','Centrale del latte di Roma','latte fresco',25,$imm3,0.80,'latte');
 //$id=$prod->getId();
-$prod2=new EProdotto('Arrosticini','Ciccia buona','arrosticini divini',200,$imm2,1.00,'carne');
-$prod=new EProdotto('Baci Perugina','Perugina','baci perugina extra fondente',15,$imm,6.50,'dolci');
+//$prod2=new EProdotto('Arrosticini','Ciccia buona','arrosticini divini',200,$imm2,1.00,'carne');
+//$prod=new EProdotto('Baci Perugina','Perugina','baci perugina extra fondente',15,$imm,6.50,'dolci');
 //$pm->store($prod);
 //$pm->store($prod2);
 //$pm->store($prod3);
