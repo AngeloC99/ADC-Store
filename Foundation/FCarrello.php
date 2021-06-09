@@ -32,7 +32,7 @@ class FCarrello
     public static function load($id) : ECarrello {
         try {
             $pdo = FConnectionDB::connect();
-            //$pdo->beginTransaction();
+            $pdo->beginTransaction();
             $stmt = $pdo->prepare("SELECT * FROM Carrello WHERE id = :id");
             $stmt->execute([':id' => $id]);
             $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -41,14 +41,14 @@ class FCarrello
             $carrello = new ECarrello();
             $carrello->setId($id);
             $carrello->setNome($nome);
-            self::prelevaProdottiDalCarrello($carrello);
+            self::prelevaProdottiDalCarrello($carrello, $pdo);
             $pdo->commit();
 
             return $carrello;
 
         } catch(PDOException $e) {
             print("ATTENTION ERROR: ") . $e->getMessage();
-            //$pdo->rollBack();
+            $pdo->rollBack();
         }
     }
 
@@ -147,7 +147,7 @@ class FCarrello
                 $car = new ECarrello();
                 $car->setId($row['id']);
                 $car->setNome($row['nome']);
-                self::prelevaProdottiDalCarrello($car);
+                self::prelevaProdottiDalCarrello($car, $pdo);
                 $carrelli[$row['id']] = $car;
             }
 
@@ -165,27 +165,17 @@ class FCarrello
      * @param ECarrello $carrello
      * @return void
      */
-    private static function prelevaProdottiDalCarrello(ECarrello $carrello): bool {
-        try {
-            $pdo = FConnectionDB::connect();
-            $pdo->beginTransaction();
+    private static function prelevaProdottiDalCarrello(ECarrello $carrello, PDO $pdo): bool {
             $stmt = $pdo->prepare("SELECT * FROM Prodotto INNER JOIN Contiene 
                                 ON Prodotto.id = Contiene.idprodotto 
                                 WHERE Contiene.idcarrello = :idcarrello");
             $ris = $stmt->execute([':idcarrello' => $carrello->getId()]);
             $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
-            //$pdo->commit();
             foreach ($rows as $row) {
                 $prod = FProdotto::load($row['id']);
                 $carrello->aggiungiProdotto($prod, $row['quantitaNelCarrello']);
             }
             return $ris;
-
-        } catch(PDOException $e) {
-            print("ATTENTION ERROR: ") . $e->getMessage();
-            $pdo->rollBack();
-            return false;
-        }
     }
 
     /**

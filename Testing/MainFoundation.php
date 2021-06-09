@@ -113,7 +113,7 @@ $carta3 = new ECartaCredito("Mario Mari", "2638475910293485", "AmericanExpress",
 //FCartaCredito::update($carta);
 
 // Testing classe FCarrello
-
+/*
 $imm=new EImmagine('baci-perugina.jpg');
 $imm2=new EImmagine('arrosticini-ovino-classici-2-scaled.jpg');
 $imm3=new EImmagine('lattefresco_prova2.png');
@@ -121,36 +121,39 @@ $imm3=new EImmagine('lattefresco_prova2.png');
 $prod1 = new EProdotto("Latte","Centrale di Roma","Latte intero", 200, $imm3, 1.50, "Latte");
 $prod2 = new EProdotto("Petto di pollo","Amadori","Pollo di alta qualità", 50, $imm2, 3.50, "Carne");
 $prod3 = new EProdotto("Yogurt","Muller","Yogurt alla vaniglia", 80, $imm, 0.70, "Yogurt");
+$pm->store($prod1);
+$pm->store($prod2);
+$pm->store($prod3);
+$pm->store($utente);
+$pm->store($indirizzo);
+$pm->store($ind);
+$pm->store($utente2);
 
-//$carrello = new ECarrello();
-//$carrello2=new ECarrello();
+$carrello = new ECarrello();
+$carrello2=new ECarrello();
 //print($carrello2->getId());
 //$carrello3= new ECarrello();
-//carrello2->aggiungiProdotto($prod1, 4);
+$carrello2->aggiungiProdotto($prod1, 4);
 //$prodotto = $pm->load('FProdotto','PRO60bfae0d207bc');
-//$carrello2->aggiungiProdotto($prodotto, 1);
+$carrello2->aggiungiProdotto($prod2, 4);
 
-//$carrello->aggiungiProdotto($prod1, 4);
-//$carrello->aggiungiProdotto($prod2, 1);
-//$carrello->aggiungiProdotto($prod3, 2);
-//$carrello->aggiungiProdotto($prod1, 7);
+$carrello->aggiungiProdotto($prod1, 4);
+$carrello->aggiungiProdotto($prod2, 1);
+$carrello->aggiungiProdotto($prod3, 2);
+$carrello->aggiungiProdotto($prod1, 7);
 
 //$carrello3->aggiungiProdotto($prod3, 2);
 //$carrello3->aggiungiProdotto($prod1, 7);
 
-//$pm->store($prod1);
-//$pm->store($prod2);
-//$pm->store($prod3);
-//$pm->store($utente);
-//$pm->store($indirizzo);
-//$pm->store($ind);
-//$pm->store($utente2);$pm->store($carrello2,$utente2->getEmail());
-//$pm->store($carrello, $utente->getEmail());
+
+$pm->store($carrello2,$utente2->getEmail());
+$pm->store($carrello, $utente->getEmail());
+*/
 //$pm->store($carrello3,$utente->getEmail());
 //print "\n";
 //print FCarrello::exist($carrello->getId());
 
-$cart = $pm->load('FCarrello','Car60bfae0d208d6');
+$cart = $pm->load('FCarrello','Car60c065edcc2f7');
 var_dump($cart);
 
 
