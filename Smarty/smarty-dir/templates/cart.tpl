@@ -750,95 +750,13 @@
                             </tr>
                             {/section}
                         </tbody>
-                        <tbody>
-                            <tr>
-                                <td>
-                                    <a href="#"><img src="Smarty/smarty-dir/assets/images/pro3/1.jpg" alt=""></a>
-                                </td>
-                                <td><a href="#">cotton shirt</a>
-                                    <div class="mobile-cart-content row">
-                                        <div class="col-xs-3">
-                                            <div class="qty-box">
-                                                <div class="input-group">
-                                                    <input type="number" name="quantity"
-                                                        class="form-control input-number" value="1">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-xs-3">
-                                            <h2 class="td-color">$63.00</h2>
-                                        </div>
-                                        <div class="col-xs-3">
-                                            <h2 class="td-color"><a href="#" class="icon"><i class="ti-close"></i></a>
-                                            </h2>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>
-                                    <h2>$63.00</h2>
-                                </td>
-                                <td>
-                                    <div class="qty-box">
-                                        <div class="input-group">
-                                            <input type="number" name="quantity" class="form-control input-number"
-                                                value="1">
-                                        </div>
-                                    </div>
-                                </td>
-                                <td><a href="#" class="icon"><i class="ti-close"></i></a></td>
-                                <td>
-                                    <h2 class="td-color">$4539.00</h2>
-                                </td>
-                            </tr>
-                        </tbody>
-                        <tbody>
-                            <tr>
-                                <td>
-                                    <a href="#"><img src="Smarty/smarty-dir/assets/images/pro3/1.jpg" alt=""></a>
-                                </td>
-                                <td><a href="#">cotton shirt</a>
-                                    <div class="mobile-cart-content row">
-                                        <div class="col-xs-3">
-                                            <div class="qty-box">
-                                                <div class="input-group">
-                                                    <input type="number" name="quantity"
-                                                        class="form-control input-number" value="1">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-xs-3">
-                                            <h2 class="td-color">$63.00</h2>
-                                        </div>
-                                        <div class="col-xs-3">
-                                            <h2 class="td-color"><a href="#" class="icon"><i class="ti-close"></i></a>
-                                            </h2>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>
-                                    <h2>$63.00</h2>
-                                </td>
-                                <td>
-                                    <div class="qty-box">
-                                        <div class="input-group">
-                                            <input type="number" name="quantity" class="form-control input-number"
-                                                value="1">
-                                        </div>
-                                    </div>
-                                </td>
-                                <td><a href="#" class="icon"><i class="ti-close"></i></a></td>
-                                <td>
-                                    <h2 class="td-color">$4539.00</h2>
-                                </td>
-                            </tr>
-                        </tbody>
                     </table>
                     <table class="table cart-table table-responsive-md">
                         <tfoot>
                             <tr>
                                 <td>total price :</td>
                                 <td>
-                                    <h2>$6935.00</h2>
+                                    <h2>€{$prezzoTot}</h2>
                                 </td>
                             </tr>
                         </tfoot>

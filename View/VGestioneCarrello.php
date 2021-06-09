@@ -8,16 +8,6 @@ class VGestioneCarrello
         $carrello->setNome("Bel Carrello");
         $prodotti = $carrello->getProdotti();
         $pm = FPersistentManager::getInstance();
-/*
-        foreach ($prodotti as $idProd => $quantita) {
-            $prod = $pm->load("FProdotto", $idProd);
-            $smarty->assign('nomeProdotto', $prod->getNome());
-            $smarty->assign('prezzo', $prod->getPrezzo());
-            $smarty->assign('quantita', $quantita);
-            $smarty->assign('totProd', $quantita*$prod->getPrezzo());
-        }
-
-*/
         $arrProdotti = array();
         foreach ($prodotti as $idProd => $quantita) {
             $prod = $pm->load("FProdotto", $idProd);
@@ -32,6 +22,7 @@ class VGestioneCarrello
         $smarty->assign('prodotti', $arrProdotti);
 
         $smarty->assign('cart',$carrello->getNome());
+        $smarty->assign('prezzoTot', $carrello->getPrezzoTot());
         $smarty->display('cart.tpl');
     }
 }

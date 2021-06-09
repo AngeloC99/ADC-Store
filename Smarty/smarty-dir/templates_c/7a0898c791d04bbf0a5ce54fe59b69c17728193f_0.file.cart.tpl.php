@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-06-09 13:05:31
+/* Smarty version 3.1.39, created on 2021-06-09 14:13:17
   from 'C:\Users\angel\public_html\ADC-Store\Smarty\smarty-dir\templates\cart.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_60c0a07ba15bf0_58196217',
+  'unifunc' => 'content_60c0b05d0c39a7_81938186',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '7a0898c791d04bbf0a5ce54fe59b69c17728193f' => 
     array (
       0 => 'C:\\Users\\angel\\public_html\\ADC-Store\\Smarty\\smarty-dir\\templates\\cart.tpl',
-      1 => 1623236730,
+      1 => 1623240775,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_60c0a07ba15bf0_58196217 (Smarty_Internal_Template $_smarty_tpl) {
+function content_60c0b05d0c39a7_81938186 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en">
 
@@ -787,95 +787,14 @@ for ($__section_prod_0_iteration = 1, $_smarty_tpl->tpl_vars['__smarty_section_p
 }
 ?>
                         </tbody>
-                        <tbody>
-                            <tr>
-                                <td>
-                                    <a href="#"><img src="Smarty/smarty-dir/assets/images/pro3/1.jpg" alt=""></a>
-                                </td>
-                                <td><a href="#">cotton shirt</a>
-                                    <div class="mobile-cart-content row">
-                                        <div class="col-xs-3">
-                                            <div class="qty-box">
-                                                <div class="input-group">
-                                                    <input type="number" name="quantity"
-                                                        class="form-control input-number" value="1">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-xs-3">
-                                            <h2 class="td-color">$63.00</h2>
-                                        </div>
-                                        <div class="col-xs-3">
-                                            <h2 class="td-color"><a href="#" class="icon"><i class="ti-close"></i></a>
-                                            </h2>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>
-                                    <h2>$63.00</h2>
-                                </td>
-                                <td>
-                                    <div class="qty-box">
-                                        <div class="input-group">
-                                            <input type="number" name="quantity" class="form-control input-number"
-                                                value="1">
-                                        </div>
-                                    </div>
-                                </td>
-                                <td><a href="#" class="icon"><i class="ti-close"></i></a></td>
-                                <td>
-                                    <h2 class="td-color">$4539.00</h2>
-                                </td>
-                            </tr>
-                        </tbody>
-                        <tbody>
-                            <tr>
-                                <td>
-                                    <a href="#"><img src="Smarty/smarty-dir/assets/images/pro3/1.jpg" alt=""></a>
-                                </td>
-                                <td><a href="#">cotton shirt</a>
-                                    <div class="mobile-cart-content row">
-                                        <div class="col-xs-3">
-                                            <div class="qty-box">
-                                                <div class="input-group">
-                                                    <input type="number" name="quantity"
-                                                        class="form-control input-number" value="1">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-xs-3">
-                                            <h2 class="td-color">$63.00</h2>
-                                        </div>
-                                        <div class="col-xs-3">
-                                            <h2 class="td-color"><a href="#" class="icon"><i class="ti-close"></i></a>
-                                            </h2>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>
-                                    <h2>$63.00</h2>
-                                </td>
-                                <td>
-                                    <div class="qty-box">
-                                        <div class="input-group">
-                                            <input type="number" name="quantity" class="form-control input-number"
-                                                value="1">
-                                        </div>
-                                    </div>
-                                </td>
-                                <td><a href="#" class="icon"><i class="ti-close"></i></a></td>
-                                <td>
-                                    <h2 class="td-color">$4539.00</h2>
-                                </td>
-                            </tr>
-                        </tbody>
                     </table>
                     <table class="table cart-table table-responsive-md">
                         <tfoot>
                             <tr>
                                 <td>total price :</td>
                                 <td>
-                                    <h2>$6935.00</h2>
+                                    <h2>€<?php echo $_smarty_tpl->tpl_vars['prezzoTot']->value;?>
+</h2>
                                 </td>
                             </tr>
                         </tfoot>
