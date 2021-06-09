@@ -711,7 +711,7 @@
                             {section name=prod loop=$prodotti}
                             <tr>
                                 <td>
-                                    <a href="#"><img src="Smarty/smarty-dir/assets/images/pro3/1.jpg" alt=""></a>
+                                    <img src="data:{$prodotti[prod].mime};base64,{$prodotti[prod].image}" width="100" height="100"/>
                                 </td>
                                 <td><a href="#">{$prodotti[prod].nome}</a>
                                     <div class="mobile-cart-content row">
