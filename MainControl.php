@@ -1,6 +1,6 @@
 <?php
-require_once "../autoloader.php";
-require_once '../configDB.php';
+require_once "./autoloader.php";
+require_once './configDB.php';
 //echo CGestioneBuoni::invia();
 
 
@@ -42,6 +42,7 @@ require_once '../configDB.php';
 
 
 // TESTING CGestioneBuoni
-$admin = new EAmministratore("Mario", "Rossi", "mariorossi@gmail.com", "pippo");
-$utente = new EUtenteReg("Ada", "Bianchi", "xxx", "pluto");
-CGestioneBuoni::inviaBuono($admin,true,10,"Vieni a spendere i soldi sul nostro sito!",$utente);
+
+$admin = new EAmministratore("Chiara", "Romano", "xxx","pippo","xxx");
+//$utente = new EUtenteReg("Ada", "Bianchi", "altraemail", "pluto");
+CGestioneBuoni::inviaBuono($admin,$_POST['codice'],$_POST["percentuale"],$_POST["ammontare"],$_POST["mex"],$_POST["email"]);
