@@ -9,6 +9,9 @@ class VGestioneBuoni
     {
         $this->smarty=StartSmarty::configuration();
     }
+    public function mostraBuoni(){
+
+    }
     public function datiBsEmail(EBuonoSconto $buonoSconto){
         $this->smarty->assign('codice',$buonoSconto->getCodice());
         $val="-".$buonoSconto->getAmmontare();
@@ -21,17 +24,13 @@ class VGestioneBuoni
         $this->smarty->assign('scadenza',$buonoSconto->getScadenza()->format('d-m-Y'));
         $this->smarty->assign('messaggio',$buonoSconto->getMessaggio());
         return $this->smarty->fetch('email-temp.tpl'); //da risolvere ancora
-        //$this->smarty->display('email-temp.tpl'); ok funziona
+        //$this->smarty->display('email-temp.tpl'); //ok funziona
 
 
 
     }
 
-
-
     public function mostraCreazioneBuono(){
-        $s='stringadiprova';
-        $this->smarty->assign('codice',$s);
         $this->smarty->display('coupon-create.tpl');
     }
 
