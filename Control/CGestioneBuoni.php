@@ -15,14 +15,18 @@ class CGestioneBuoni
         return $pm->prelevaBuoni();
     }
 
-    //public static function inviaBuono(bool $p,int $a,string $m='',EUtenteReg $utente){
-    // $admin; //come facciamo, lo istanziamo qui o se ne occupa CAdmin??
-    // $buono=$admin->preparaBuono($p,$a,$m,$utente);  //come lo inviamo all'utente??
-    public static function inviaBuono(EAmministratore $admin,bool $percentuale,int $ammontare, string $messaggio,EUtenteReg $utente): bool{
+    public static function inviaBuono(EAmministratore $admin,string $codice,string $perc,int $ammontare, string $messaggio,string $email): bool{
+        if ($perc=='Percentuale'){
+            $percentuale=true;
+        }
+        else{
+            $percentuale=false;
+        }
         $buono=$admin->preparaBuono($percentuale,$ammontare,$messaggio);
+        $buono->setCodice($codice);
         $mail = new PHPMailer();
         $mail->IsSMTP(); // enable SMTP
-        $mail->SMTPDebug = SMTP::DEBUG_SERVER;
+        $mail->SMTPDebug = 0;
         $mail->SMTPOptions = array(
             'ssl' => array(
                 'verify_peer' => false,
@@ -34,24 +38,20 @@ class CGestioneBuoni
         $mail->Host = "smtp.gmail.com";
         $mail->Port = 587;
         $mail->IsHTML(true);
-        $mail->Username = "xxx";  //qui va email dell'admin
-        $mail->Password = "xxx";  //qui va pw account gmail dell'admin
-        $mail->SetFrom("xxx");
+        $mail->Username = $admin->getEmail();  //qui va email dell'admin
+        $mail->Password = $admin->getPwemail();  //qui va pw account gmail dell'admin
+        $mail->SetFrom($email);
         $mail->Subject = "ADC Store - BUONO SCONTO";
-        $mail->AddAddress($utente->getEmail());
-        //setta i valori del buono nell'email ...ancora da risolvere
+        $mail->AddAddress($email);
+        //setta i valori del buono nell'email ...ancora da risolvere per l'immagine
         $v=new VGestioneBuoni();
         $mail->Body = $v->datiBsEmail($buono);
-        //$mail->msgHTML($v->datiBsEmail($buono));
+        $v->mostraCreazioneBuono();
         if(!$mail->Send()) {
             return false;
         } else {
             return true;
         }
-
-    }
-    public static function preparaBuonoPerInvio(EAmministratore $admin,bool $percentuale,int $ammontare, string $messaggio): EBuonoSconto{
-        return $admin->preparaBuono($percentuale,$ammontare,$messaggio);
 
     }
 
