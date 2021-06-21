@@ -1,6 +1,5 @@
 <?php
-
-require("C:\Users\\rommy\public_html\PHP\StartSmarty.php");
+require_once 'StartSmarty.php';
 class VGestioneBuoni
 {
     private $smarty;
