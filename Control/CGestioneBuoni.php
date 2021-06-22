@@ -10,9 +10,34 @@ require('C:\Users\rommy\OneDrive\Desktop\CORSI 3.2\Programmazione Web\PROGETTO E
 class CGestioneBuoni
 {
 
-    public static function recuperaBuoni(){
+    public static function recuperaBuoni(EUtenteReg $utente){
+        $email=$utente->getEmail();
         $pm = FPersistentManager::getInstance();
-        return $pm->prelevaBuoni();
+        $buoniUtente=$pm->prelevaBuoni($email);
+        $buoni=array();
+        foreach ($buoniUtente as $key=>$item){
+            $buono=$pm->load('FBuonoSconto',$key);
+            if ($buono->isPercentuale()) {
+                $el = array(
+                    'codice' => $buono->getCodice(),
+                    'ammontare' => "-" . $buono->getAmmontare() . "%",
+                    'scadenza' => date_format($buono->getScadenza(), 'd-m-Y')
+                );
+            }
+            else{
+                $el = array(
+                    'codice' => $buono->getCodice(),
+                    'ammontare' => "-" . $buono->getAmmontare() . "€",
+                    'scadenza' => date_format($buono->getScadenza(), 'd-m-Y')
+                );
+
+            }
+            $buoni[]=$el;
+            }
+
+        $v=new VGestioneBuoni();
+        $v->mostraBuoni($buoni,$utente);
+
     }
 
     public static function inviaBuono(EAmministratore $admin,string $codice,string $perc,int $ammontare, string $messaggio,string $email): bool{
