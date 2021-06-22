@@ -43,6 +43,16 @@ require_once './configDB.php';
 
 // TESTING CGestioneBuoni
 
-$admin = new EAmministratore("Chiara", "Romano", "xxx","pippo","xxx");
+$admin = new EAmministratore("Chiara", "Romano", "romanochiara229@gmail.com","pippo","progettoEsame1!1!1");
 //$utente = new EUtenteReg("Ada", "Bianchi", "altraemail", "pluto");
-CGestioneBuoni::inviaBuono($admin,$_POST['codice'],$_POST["percentuale"],$_POST["ammontare"],$_POST["mex"],$_POST["email"]);
+//CGestioneBuoni::inviaBuono($admin,$_POST['codice'],$_POST["percentuale"],$_POST["ammontare"],$_POST["mex"],$_POST["email"]);
+
+// TESTING Registrazione
+session_start();
+$identificato = false;
+$nome = "";
+if ( isset($_SESSION['user']) ) {
+    $identificato = true;
+    $nome = $_SESSION['user'];
+}
+CRegistrazione::registraUtente($_POST['nome'],$_POST['cognome'],$_POST['email'],$_POST['password']);
