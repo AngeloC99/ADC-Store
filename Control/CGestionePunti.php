@@ -45,6 +45,7 @@ class CGestionePunti
         $punti = $premio->getPrezzoInPunti();
 
         //Problema: come gestire indirizzo nei premi visto che non c'è un ordine?
+        //Alla conferma appare un alert e il premio viene spedito all'indirizzo predefinito dell'utente
 
     }
 
@@ -56,18 +57,19 @@ class CGestionePunti
      * @return bool
      * @throws \PHPMailer\PHPMailer\Exception
      */
-    public static function regalarePunti(int $punti, string $email, EUtenteReg $sender){ //Non necessario passare l'utente
+    public static function regalarePunti(int $punti, string $email, string $messaggio, EUtenteReg $sender){ //Non necessario passare l'utente
 
         $pm = FPersistentManager::getInstance();
-        $receiver = $pm->load("FUtenteReg", $email, 'pluto');
+        $receiver = $pm->load("FUtenteReg", $email);
         if ($sender->getPunti() >= $punti) {
             $sender->setPunti($sender->getPunti() - $punti);
             $receiver->setPunti($receiver->getPunti() + $punti);
             $pm->update($receiver);
             $pm->update($sender);
+
             $mail = new PHPMailer();
             $mail->IsSMTP(); // enable SMTP
-            $mail->SMTPDebug = SMTP::DEBUG_SERVER;
+            $mail->SMTPDebug = 0;
             $mail->SMTPOptions = array(
                 'ssl' => array(
                     'verify_peer' => false,
@@ -77,15 +79,17 @@ class CGestionePunti
             );
             $mail->SMTPAuth = true;
             $mail->Host = "smtp.gmail.com";
-            $mail->Port = 587; // or 587
+            $mail->Port = 587;
             $mail->IsHTML(true);
-            $mail->Username = "la vostra email";
-            $mail->Password = "la vostra password";
-            $mail->SetFrom("sempre la vostra email");
-            $mail->Subject = "BUONO SCONTO";
-            $mail->Body = "Questo è un regalo solo per te!";
-            $mail->AddAddress("email destinatario");
-            $mail->msgHTML(file_get_contents( '..\Smarty\smarty-dir\templates\email-temp.html'));
+            $mail->Username = 'adcstore@gmail.com';
+            $mail->Password = 'plutopluto';
+            $mail->SetFrom($email);
+            $mail->Subject = "ADC Store - HAI RICEVUTO DEI PUNTI!";
+            $mail->AddAddress($email);
+            //--------------------------------------------------
+            $v=new VGestionePunti();
+            $mail->Body = $v->datiPuntiEmail($punti, $sender->getEmail(), $messaggio);
+            $v->mostraFormPunti();
             if(!$mail->Send()) {
                 return false;
             } else {

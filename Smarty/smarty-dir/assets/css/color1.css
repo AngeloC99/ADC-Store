@@ -335,7 +335,7 @@ button {
             box-shadow: none; }
 
 .btn-solid {
-  padding: 13px 29px;
+  padding: 30px 140px;
   color: #ffffff;
   letter-spacing: 0.05em;
   border: 2px solid var(--theme-deafult);
