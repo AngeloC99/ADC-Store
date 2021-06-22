@@ -196,8 +196,8 @@ class FPersistentManager
      * Preleva tutte le n-uple della tabella BuonoSconto e risveglia in RAM le istanze di EBuonoSconto corrispondenti.
      * @return array
      */
-    public function prelevaBuoni(): array{
-        return FBuonoSconto::prelevaBuoni();
+    public function prelevaBuoni(string $email): array{
+        return FUtenteReg::prelevaBuoni($email);
     }
 
     /**
