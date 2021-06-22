@@ -49,8 +49,7 @@
                     <li><a class="text-dark" href="#!" onclick="javascript:toggleFullScreen()"><i data-feather="maximize-2"></i></a></li>
                     
                     <li class="onhover-dropdown">
-                        <div class="media align-items-center"><img class="align-self-center pull-right img-50 rounded-circle blur-up lazyloaded" src="../assets/images/dashboard/man.png" alt="header-user">
-                            <div class="dotted-animation"><span class="animate-circle"></span><span class="main-circle"></span></div>
+                        <div class="media align-items-center"><img class="align-self-center pull-right img-50 rounded-circle blur-up lazyloaded" src="../ProgettoEsame/Smarty/smarty-dir/assets/images/dashboard/man.png" alt="header-user">
                         </div>
                         <ul class="profile-dropdown onhover-show-div p-20">
                             <li><a href="#"><i data-feather="mail"></i>Profilo</a></li>
@@ -108,7 +107,7 @@
                     <div class="chat-box">
                         <div class="people-list friend-list">
                             <ul class="list">
-                                <li class="clearfix"><img class="rounded-circle user-image blur-up lazyloaded" src="../assets/images/dashboard/user.png" alt="">
+                                <li class="clearfix"><img class="rounded-circle user-image blur-up lazyloaded" src="../assets/images/dashboard/man.png" alt="">
                                     <div class="status-circle online"></div>
                                     <div class="about">
                                         <div class="name">Vincent Porter</div>
@@ -143,7 +142,7 @@
                                         <div class="status"> 2 minutes ago</div>
                                     </div>
                                 </li>
-                                <li class="clearfix"><img class="rounded-circle user-image blur-up lazyloaded" src="../assets/images/dashboard/user5.jpg" alt="">
+                                <li class="clearfix"><img class="rounded-circle user-image blur-up lazyloaded" src="../assets/images/dashboard/man.jpg" alt="">
                                     <div class="status-circle away"></div>
                                     <div class="about">
                                         <div class="name">Prasanth Anand</div>
@@ -174,8 +173,8 @@
                         <div class="col-lg-6">
                             <div class="page-header-left">
                                 <h3>Elenco Buoni Sconto
-                               
                                 </h3>
+
                             </div>
                         </div>
                         <div class="col-lg-6">
@@ -185,44 +184,49 @@
                                 <li class="breadcrumb-item active">Elenco Buoni Sconto</li>
                             </ol>
                         </div>
+                      
                     </div>
                 </div>
             </div>
             <!-- Container-fluid Ends-->
+     <section class="cart-section section-b-space">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <table class="table cart-table table-responsive-xs">
+                        <thead>
+                            <tr class="table-head">
+                                <th scope="col">Codice</th>
+                                <th scope="col">Ammontare</th>
+                                <th scope="col">Scadenza</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {foreach from=$buoni item=bs key=cod}
+                            <tr>
+                                <td><a href="#">{$bs.codice}</a>
+                                    
+                                </td>
+                                <td>
+                                    <a>{$bs.ammontare}</a>
+                                </td>
+                                <td>
+                                    <a>{$bs.scadenza}</a>
+                                </td>
 
-            <!-- Container-fluid starts-->
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-sm-12">
-                        <div class="card">
-                            <div class="card-header">
-                                <h5>Buoni Sconto</h5>
-                            </div>
-                            <div class="card-body">
-                                <div id="batchDelete" class="category-table order-table"></div>
-                            </div>
-                        </div>
-                    </div>
+                            </tr>
+                            {/foreach}
+                        </tbody>
+                    </table>
+                    
                 </div>
             </div>
-            <!-- Container-fluid Ends-->
-
+            
         </div>
+    </section>
 
-        <!-- footer start-->
-        <footer class="footer">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-md-6 footer-copyright">
-                        <p class="mb-0">Copyright 2019 © Multikart All rights reserved.</p>
-                    </div>
-                    <div class="col-md-6">
-                        <p class="pull-right mb-0">Hand crafted & made with<i class="fa fa-heart"></i></p>
-                    </div>
-                </div>
-            </div>
-        </footer>
-        <!-- footer end-->
+            
+
 
     </div>
 
