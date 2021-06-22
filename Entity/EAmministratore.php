@@ -7,10 +7,6 @@
  */
 class EAmministratore extends EPersona
 {
-    /** @var string
-     *Password Mailer dell'admin
-     */
-    private string $pwemail;
 
     /**
      * EAmministratore constructor.
@@ -18,12 +14,10 @@ class EAmministratore extends EPersona
      * @param string $cognome
      * @param string $email
      * @param string $password
-     * @param string $pwemail
      */
-    public function __construct(string $nome, string $cognome, string $email, string $password,string $pwemail)
+    public function __construct(string $nome, string $cognome, string $email, string $password)
     {
         parent::__construct($nome, $cognome, $email, $password);
-        $this->pwemail=$pwemail;
     }
 
     /**
@@ -90,20 +84,5 @@ class EAmministratore extends EPersona
         $articolo->setQuantita($quantita);
     }
 
-    /**
-     * @return string
-     */
-    public function getPwemail(): string
-    {
-        return $this->pwemail;
-    }
-
-    /**
-     * @param string $pwemail
-     */
-    public function setPwemail(string $pwemail): void
-    {
-        $this->pwemail = $pwemail;
-    }
 
 }
