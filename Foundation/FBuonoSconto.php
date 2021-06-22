@@ -94,26 +94,6 @@ class FBuonoSconto
     }
 
     /**
-     * Recupera tutti i dati contenuti nella tabella BuonoSconto, per fornirli ricorsivamente al costruttore di EBuonoSconto , per poter poi restituire tutte le istanze corrispondenti.
-     * @return array
-     */
-    public static function prelevaBuoni(): array {
-        $pdo=FConnectionDB::connect();
-        $stmt=$pdo->prepare("SELECT * FROM BuonoSconto");
-        $stmt->execute();
-        $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        $buoni = array();
-        foreach ($rows as $row) {
-            $buono=new EBuonoSconto($row['percentuale'],$row['ammontare']);
-            $buono->setScadenza(DateTime::createFromFormat('Y-m-d',$row['scadenza']));
-            $buono->setCodice($row['codice']);
-            $buoni[$row['codice']] = $buono;
-        }
-        return $buoni;
-
-    }
-
-    /**
      * Cancella un'istanza di EBuonoSconto dal database se la data di scadenza risulta uguale a quella odierna, e restituisce un booleano che indica l'esito dell'operazione.
      * @return array
      */
