@@ -8,7 +8,10 @@ class VGestioneBuoni
     {
         $this->smarty=StartSmarty::configuration();
     }
-    public function mostraBuoni(){
+    public function mostraBuoni($buoni,$utente){
+        $this->smarty->assign('buoni',$buoni);
+        $this->smarty->assign('nome',$utente->getNome());
+        $this->smarty->display('coupon-list.tpl');
 
     }
     public function datiBsEmail(EBuonoSconto $buonoSconto){
