@@ -130,4 +130,12 @@ class ECartaCredito
         $this->ammontare = $ammontare;
     }
 
+    /**
+     * Implementazione del __toString() per ECartaCredito.
+     * @return string
+     */
+    public function __toString(): string {
+        return "Carta di credito ".$this->circuito."\n"."Titolare: ".$this->titolare."\n"."Numero: ".substr($this->numero, 0, 4)."***************";
+    }
+
 }

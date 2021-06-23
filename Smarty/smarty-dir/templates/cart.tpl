@@ -5,12 +5,12 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="description" content="multikart">
-    <meta name="keywords" content="multikart">
-    <meta name="author" content="multikart">
+    <meta name="description" content="ADCStore">
+    <meta name="keywords" content="ADCStore">
+    <meta name="author" content="ADCStore">
     <link rel="icon" href="Smarty/smarty-dir/assets/images/favicon/1.png" type="image/x-icon">
     <link rel="shortcut icon" href="Smarty/smarty-dir/assets/images/favicon/1.png" type="image/x-icon">
-    <title>Multikart - Multi-purpopse E-commerce Html Template</title>
+    <title>ADC Store - L'ABC della qualità</title>
 
     <!--Google font-->
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet">
@@ -48,8 +48,8 @@
                     <div class="col-lg-6">
                         <div class="header-contact">
                             <ul>
-                                <li>Welcome to Our store Multikart</li>
-                                <li><i class="fa fa-phone" aria-hidden="true"></i>Call Us: 123 - 456 - 7890</li>
+                                <li>Benvenuto in ADC Store!</li>
+                                <li><i class="fa fa-phone" aria-hidden="true"></i>Contattaci: 123 - 4567890</li>
                             </ul>
                         </div>
                     </div>
@@ -745,7 +745,7 @@
                                 </td>
                                 <td><a href="#" class="icon"><i class="ti-close"></i></a></td>
                                 <td>
-                                    <h2 class="td-color">€{$prodotti[prod].totProd}</h2>
+                                    <h2 class="td-color">€ {$prodotti[prod].totProd}</h2>
                                 </td>
                             </tr>
                             {/section}
@@ -756,7 +756,7 @@
                             <tr>
                                 <td>total price :</td>
                                 <td>
-                                    <h2>€{$prezzoTot}</h2>
+                                    <h2>€ {$prezzoTot}</h2>
                                 </td>
                             </tr>
                         </tfoot>

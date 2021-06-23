@@ -1,27 +1,4 @@
-<?php
-/* Smarty version 3.1.39, created on 2021-06-23 10:16:09
-  from 'C:\Users\angel\public_html\ADC-Store\Smarty\smarty-dir\templates\cart.tpl' */
-
-/* @var Smarty_Internal_Template $_smarty_tpl */
-if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
-  'version' => '3.1.39',
-  'unifunc' => 'content_60d2edc98e3ab1_04731740',
-  'has_nocache_code' => false,
-  'file_dependency' => 
-  array (
-    '7a0898c791d04bbf0a5ce54fe59b69c17728193f' => 
-    array (
-      0 => 'C:\\Users\\angel\\public_html\\ADC-Store\\Smarty\\smarty-dir\\templates\\cart.tpl',
-      1 => 1624436168,
-      2 => 'file',
-    ),
-  ),
-  'includes' => 
-  array (
-  ),
-),false)) {
-function content_60d2edc98e3ab1_04731740 (Smarty_Internal_Template $_smarty_tpl) {
-?><!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -273,9 +250,9 @@ function content_60d2edc98e3ab1_04731740 (Smarty_Internal_Template $_smarty_tpl)
                                                 <li>
                                                     <a href="#">new demos <span class="new-tag">new</span></a>
                                                     <ul>
-                                                        <li><a target="_blank" href="tools.html">tools</a></li>
                                                         <li><a target="_blank"
                                                                 href="marketplace-demo.html">marketplace</a></li>
+                                                        <li><a target="_blank" href="tools.html">tools</a></li>
                                                         <li><a target="_blank" href="game.html">game</a></li>
                                                         <li><a target="_blank" href="gym-product.html">gym</a></li>
                                                         <li><a target="_blank" href="marijuana.html">marijuana</a></li>
@@ -690,22 +667,20 @@ function content_60d2edc98e3ab1_04731740 (Smarty_Internal_Template $_smarty_tpl)
     </header>
     <!-- header end -->
 
-
     <!-- breadcrumb start -->
     <div class="breadcrumb-section">
         <div class="container">
             <div class="row">
                 <div class="col-sm-6">
                     <div class="page-title">
-                        <h2> <?php echo $_smarty_tpl->tpl_vars['cart']->value;?>
- </h2>
+                        <h2>Check-out</h2>
                     </div>
                 </div>
                 <div class="col-sm-6">
                     <nav aria-label="breadcrumb" class="theme-breadcrumb">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                            <li class="breadcrumb-item active">cart</li>
+                            <li class="breadcrumb-item active" aria-current="page">Check-out</li>
                         </ol>
                     </nav>
                 </div>
@@ -715,133 +690,117 @@ function content_60d2edc98e3ab1_04731740 (Smarty_Internal_Template $_smarty_tpl)
     <!-- breadcrumb End -->
 
 
-    <!--section start-->
-    <section class="cart-section section-b-space">
+    <!-- section start -->
+    <section class="section-b-space">
         <div class="container">
-            <div class="row">
-                <div class="col-sm-12">
-                    <table class="table cart-table table-responsive-xs">
-                        <thead>
-                            <tr class="table-head">
-                                <th scope="col">Immagine</th>
-                                <th scope="col">prodotto</th>
-                                <th scope="col">prezzo</th>
-                                <th scope="col">quantità</th>
-                                <th scope="col">azione</th>
-                                <th scope="col">totale</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php
-$__section_prod_0_loop = (is_array(@$_loop=$_smarty_tpl->tpl_vars['prodotti']->value) ? count($_loop) : max(0, (int) $_loop));
-$__section_prod_0_total = $__section_prod_0_loop;
-$_smarty_tpl->tpl_vars['__smarty_section_prod'] = new Smarty_Variable(array());
-if ($__section_prod_0_total !== 0) {
-for ($__section_prod_0_iteration = 1, $_smarty_tpl->tpl_vars['__smarty_section_prod']->value['index'] = 0; $__section_prod_0_iteration <= $__section_prod_0_total; $__section_prod_0_iteration++, $_smarty_tpl->tpl_vars['__smarty_section_prod']->value['index']++){
-?>
-                            <tr>
-                                <td>
-                                    <img src="data:<?php echo $_smarty_tpl->tpl_vars['prodotti']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_prod']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_prod']->value['index'] : null)]['mime'];?>
-;base64,<?php echo $_smarty_tpl->tpl_vars['prodotti']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_prod']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_prod']->value['index'] : null)]['image'];?>
-" width="100" height="100"/>
-                                </td>
-                                <td><a href="#"><?php echo $_smarty_tpl->tpl_vars['prodotti']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_prod']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_prod']->value['index'] : null)]['nome'];?>
-</a>
-                                    <div class="mobile-cart-content row">
-                                        <div class="col-xs-3">
-                                            <div class="qty-box">
-                                                <div class="input-group">
-                                                    <input type="text" name="quantity" class="form-control input-number"
-                                                        value="1">
+            <div class="checkout-page">
+                <div class="checkout-form">
+                    <form>
+                        <div class="row">
+                            <div class="col-lg-6 col-sm-12 col-xs-12">
+                                <div class="checkout-title">
+                                    <h3>Dettagli dell'ordine</h3>
+                                </div>
+                                <div class="row check-out">
+                                    <div class="form-group col-md-6 col-sm-6 col-xs-12">
+                                        <div class="field-label">Nome</div>
+                                        <input type="text" name="field-name" value="" placeholder="">
+                                    </div>
+                                    <div class="form-group col-md-6 col-sm-6 col-xs-12">
+                                        <div class="field-label">Cognome</div>
+                                        <input type="text" name="field-name" value="" placeholder="">
+                                    </div>
+                                    <div class="form-group col-md-6 col-sm-6 col-xs-12">
+                                        <div class="field-label">Telefono</div>
+                                        <input type="text" name="field-name" value="" placeholder="">
+                                    </div>
+                                    <div class="form-group col-md-6 col-sm-6 col-xs-12">
+                                        <div class="field-label">Indirizzo e-mail</div>
+                                        <input type="text" name="field-name" value="" placeholder="">
+                                    </div>
+                                    <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                                        <div class="field-label">Indirizzo</div>
+                                        <select>
+                                            {section name=ind loop=$indirizzi}
+                                            <option>{$indirizzi[ind]}</option>
+                                            {/section}
+                                        </select>
+                                    </div>
+                                    <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                                        <div class="field-label">Modalità di pagamento</div>
+                                        <select>
+                                            {section name=carta loop=$carte}
+                                                <option>{$carte[carta]}</option>
+                                            {/section}
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-sm-12 col-xs-12">
+                                <div class="checkout-details">
+                                    <div class="order-box">
+                                        <div class="title-box">
+                                            <div>Prodotto <span>Totale</span></div>
+                                        </div>
+                                        {section name=prod loop=$prodotti}
+                                        <ul class="qty">
+                                            <li>{$prodotti[prod].nome} × {$prodotti[prod].quantita} <span>€ {$prodotti[prod].totProd}</span></li>
+                                        </ul>
+                                        {/section}
+                                        <ul class="sub-total">
+                                            <li>Subtotale <span class="count">€ {$prezzoTot}</span></li>
+                                            <li>Consegna
+                                                <div class="shipping">
+                                                    <ul>
+                                                        <li>
+                                                            <div class="radio-option">
+                                                                <input type="radio" name="consegna-group" id="consegna-1"
+                                                                       checked="checked">
+                                                                <label for="consegna-1">Ritiro in negozio</label>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="radio-option">
+                                                                <input type="radio" name="consegna-group" id="consegna-2">
+                                                                <label for="consegna-2">Consegna con corriere</label>
+                                                            </div>
+                                                        </li>
+                                                    </ul>
                                                 </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-xs-3">
-                                            <h2 class="td-color">$63.00</h2>
-                                        </div>
-                                        <div class="col-xs-3">
-                                            <h2 class="td-color"><a href="#" class="icon"><i class="ti-close"></i></a>
-                                            </h2>
-                                        </div>
+                                            </li>
+                                            <li>
+                                                <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                                                    <div class="field-label">Applica un buono sconto</div>
+                                                    <select>
+                                                        {section name=buono loop=$buoni}
+                                                            <option>{$buoni[buono]}</option>
+                                                        {/section}
+                                                    </select>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                        <ul class="total">
+                                            <li>Total <span class="count">€ {$prezzoTot}</span></li>
+                                        </ul>
                                     </div>
-                                </td>
-                                <td>
-                                    <h2>€<?php echo $_smarty_tpl->tpl_vars['prodotti']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_prod']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_prod']->value['index'] : null)]['prezzo'];?>
-</h2>
-                                </td>
-                                <td>
-                                    <div class="qty-box">
-                                        <div class="input-group">
-                                            <input type="number" name="quantity" class="form-control input-number"
-                                                value="<?php echo $_smarty_tpl->tpl_vars['prodotti']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_prod']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_prod']->value['index'] : null)]['quantita'];?>
-">
-                                        </div>
+                                    <div class="payment-box">
+
+                                        <div class="text-right"><a href="#" class="btn-solid btn">Completa l'ordine</a></div>
                                     </div>
-                                </td>
-                                <td><a href="#" class="icon"><i class="ti-close"></i></a></td>
-                                <td>
-                                    <h2 class="td-color">€<?php echo $_smarty_tpl->tpl_vars['prodotti']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_prod']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_prod']->value['index'] : null)]['totProd'];?>
-</h2>
-                                </td>
-                            </tr>
-                            <?php
-}
-}
-?>
-                        </tbody>
-                    </table>
-                    <table class="table cart-table table-responsive-md">
-                        <tfoot>
-                            <tr>
-                                <td>total price :</td>
-                                <td>
-                                    <h2>€<?php echo $_smarty_tpl->tpl_vars['prezzoTot']->value;?>
-</h2>
-                                </td>
-                            </tr>
-                        </tfoot>
-                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
                 </div>
-            </div>
-            <div class="row cart-buttons">
-                <div class="col-6"><a href="#" class="btn btn-solid">continue shopping</a></div>
-                <div class="col-6"><a href="#" class="btn btn-solid">check out</a></div>
             </div>
         </div>
     </section>
-    <!--section end-->
+    <!-- section end -->
 
 
     <!-- footer start -->
     <footer class="footer-light">
-        <div class="light-layout">
-            <div class="container">
-                <section class="small-section border-section border-top-0">
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <div class="subscribe">
-                                <div>
-                                    <h4>KNOW IT ALL FIRST!</h4>
-                                    <p>Never Miss Anything From Multikart By Signing Up To Our Newsletter.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-6">
-                            <form
-                                action="https://pixelstrap.us19.list-manage.com/subscribe/post?u=5a128856334b598b395f1fc9b&amp;id=082f74cbda"
-                                class="form-inline subscribe-form auth-form needs-validation" method="post"
-                                id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" target="_blank">
-                                <div class="form-group mx-sm-3">
-                                    <input type="text" class="form-control" name="EMAIL" id="mce-EMAIL"
-                                        placeholder="Enter your email" required="required">
-                                </div>
-                                <button type="submit" class="btn btn-solid" id="mc-submit">subscribe</button>
-                            </form>
-                        </div>
-                    </div>
-                </section>
-            </div>
-        </div>
+
         <section class="section-b-space light-layout">
             <div class="container">
                 <div class="row footer-theme partition-f">
@@ -1668,49 +1627,34 @@ for ($__section_prod_0_iteration = 1, $_smarty_tpl->tpl_vars['__smarty_section_p
     <div class="tap-top">
         <div><i class="fa fa-angle-double-up"></i></div>
     </div>
+    <!-- tap to top end -->
+
 
     <!-- latest jquery-->
-    <?php echo '<script'; ?>
- src="Smarty/smarty-dir/assets/js/jquery-3.3.1.min.js"><?php echo '</script'; ?>
->
+    <script src="Smarty/smarty-dir/assets/js/jquery-3.3.1.min.js"></script>
 
     <!-- menu js-->
-    <?php echo '<script'; ?>
- src="Smarty/smarty-dir/assets/js/menu.js"><?php echo '</script'; ?>
->
+    <script src="Smarty/smarty-dir/assets/js/menu.js"></script>
 
     <!-- lazyload js-->
-    <?php echo '<script'; ?>
- src="Smarty/smarty-dir/assets/js/lazysizes.min.js"><?php echo '</script'; ?>
->
+    <script src="Smarty/smarty-dir/assets/js/lazysizes.min.js"></script>
 
     <!-- popper js-->
-    <?php echo '<script'; ?>
- src="Smarty/smarty-dir/assets/js/popper.min.js"><?php echo '</script'; ?>
->
+    <script src="Smarty/smarty-dir/assets/js/popper.min.js"></script>
 
     <!-- slick js-->
-    <?php echo '<script'; ?>
- src="Smarty/smarty-dir/assets/js/slick.js"><?php echo '</script'; ?>
->
+    <script src="Smarty/smarty-dir/assets/js/slick.js"></script>
 
     <!-- Bootstrap js-->
-    <?php echo '<script'; ?>
- src="Smarty/smarty-dir/assets/js/bootstrap.js"><?php echo '</script'; ?>
->
+    <script src="Smarty/smarty-dir/assets/js/bootstrap.js"></script>
 
     <!-- Bootstrap Notification js-->
-    <?php echo '<script'; ?>
- src="Smarty/smarty-dir/assets/js/bootstrap-notify.min.js"><?php echo '</script'; ?>
->
+    <script src="Smarty/smarty-dir/assets/js/bootstrap-notify.min.js"></script>
 
     <!-- Theme js-->
-    <?php echo '<script'; ?>
- src="Smarty/smarty-dir/assets/js/script.js"><?php echo '</script'; ?>
->
+    <script src="Smarty/smarty-dir/assets/js/script.js"></script>
 
-    <?php echo '<script'; ?>
->
+    <script>
         function openSearch() {
             document.getElementById("search-overlay").style.display = "block";
         }
@@ -1718,9 +1662,7 @@ for ($__section_prod_0_iteration = 1, $_smarty_tpl->tpl_vars['__smarty_section_p
         function closeSearch() {
             document.getElementById("search-overlay").style.display = "none";
         }
-    <?php echo '</script'; ?>
->
+    </script>
 </body>
 
-</html><?php }
-}
+</html>

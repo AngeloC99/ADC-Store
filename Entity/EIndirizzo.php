@@ -156,4 +156,11 @@ class EIndirizzo
         $this->predefinito = $predefinito;
     }
 
+    /**
+     * Implementazione del __toString() per EIndirizzo.
+     * @return string
+     */
+    public function __toString(): string {
+        return $this->via.", ".$this->numerocivico."\n".$this->comune."(".$this->provincia.")\n".$this->cap;
+    }
 }
