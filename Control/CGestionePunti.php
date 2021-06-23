@@ -60,7 +60,8 @@ class CGestionePunti
     public static function regalarePunti($punti, $maildest, $messaggio, $mailmittente){ //Non necessario passare l'utente
 
         $pm = FPersistentManager::getInstance();
-        $receiver = $pm->load("FUtenteReg", $email);
+        $receiver = $pm->load("FUtenteReg", $maildest);
+        $sender = $pm->load('FUtenteReg', $mailmittente);
         if ($sender->getPunti() >= $punti) {
             $sender->setPunti($sender->getPunti() - $punti);
             $receiver->setPunti($receiver->getPunti() + $punti);

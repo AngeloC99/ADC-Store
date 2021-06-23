@@ -59,3 +59,5 @@ if ( isset($_SESSION['user']) ) {
 CRegistrazione::registraUtente($_POST['nome'],$_POST['cognome'],$_POST['email'],$_POST['password']); */
 
 CGestionePunti::regalarePunti($_POST['punti'], $_POST['emaildest'], $_POST['Messaggio'], "adarossi@gmail.com");
+
+CGestionePunti::aggiungiPremio($_POST['nome'], $_POST['marca'], $_POST['descrizione'], $_POST['quantita'], $_POST['file'], $_POST['punti']

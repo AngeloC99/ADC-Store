@@ -24,4 +24,8 @@ class VGestionePunti
         $this->smarty->display('regalapunti.tpl');
     }
 
+    public function mostraAggiungiProd(){
+        $this->smarty->display('aggiungi-premi.tpl');
+    }    
+
 }
