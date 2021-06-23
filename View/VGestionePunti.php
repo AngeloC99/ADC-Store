@@ -10,16 +10,18 @@ class VGestionePunti
         $this->smarty=StartSmarty::configuration();
     }
 
-    public function datiPuntiEmail(int $punti, string $email, string $messaggio){
+    public function datiPuntiEmail(int $punti, string $nome, string $cognome, string $messaggio){
 
         $this->smarty->assign('punti', $punti);
-        $this->smarty->assign('sender-email',$email);
+        $this->smarty->assign('nome',$nome);
+        $this->smarty->assign('cognome',$cognome);
         $this->smarty->assign('messaggio', $messaggio);
+        //$this->smarty->display('email-punti.tpl');        
         return $this->smarty->fetch('email-punti.tpl');
     }
 
     public function mostraFormPunti(){
-        $this->smarty->display('formPunti.tpl');
+        $this->smarty->display('regalapunti.tpl');
     }
 
 }

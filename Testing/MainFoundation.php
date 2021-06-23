@@ -30,14 +30,16 @@ $pm = FPersistentManager::getInstance();
 
 $utente = new EUtenteReg("Ada", "Bianchi", "adarossi@gmail.com", "pluto");
 $utente2 = new EUtenteReg("Angus", "Young", "angusyoung@gmail.com", "rock");
+$utente3 = new EUtenteReg("David", "Di Marco", "davidmarcus35@gmail.com", "bici");
 
 //$utente->setPunti(100);
 //$utente2->setPunti(120);
+$utente3->setPunti(60);
 
 //$bool = $pm->exist("FUtenteReg", "angusyoung@gmail.com");
 //$bool = FUtenteReg::exist("angusyoung@gmail.com");
 //echo((string) $bool);
-//$pm->store($utente);
+$pm->store($utente3);
 //$bool = $pm->exist("FUtenteReg", "angusyoung@gmail.com");
 //print($bool);
 //$db->update($utente2, $utente);
@@ -153,8 +155,8 @@ $pm->store($carrello, $utente->getEmail());
 //print "\n";
 //print FCarrello::exist($carrello->getId());
 
-$cart = $pm->load('FCarrello','Car60c065edcc2f7');
-var_dump($cart);
+//$cart = $pm->load('FCarrello','Car60c065edcc2f7');
+//var_dump($cart);
 
 
 // Testing classe FOrdine

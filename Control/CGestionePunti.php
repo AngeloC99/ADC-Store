@@ -57,7 +57,7 @@ class CGestionePunti
      * @return bool
      * @throws \PHPMailer\PHPMailer\Exception
      */
-    public static function regalarePunti(int $punti, string $email, string $messaggio, EUtenteReg $sender){ //Non necessario passare l'utente
+    public static function regalarePunti($punti, $maildest, $messaggio, $mailmittente){ //Non necessario passare l'utente
 
         $pm = FPersistentManager::getInstance();
         $receiver = $pm->load("FUtenteReg", $email);
@@ -67,34 +67,36 @@ class CGestionePunti
             $pm->update($receiver);
             $pm->update($sender);
 
-            $mail = new PHPMailer();
-            $mail->IsSMTP(); // enable SMTP
-            $mail->SMTPDebug = 0;
-            $mail->SMTPOptions = array(
-                'ssl' => array(
-                    'verify_peer' => false,
-                    'verify_peer_name' => false,
-                    'allow_self_signed' => true
-                )
-            );
-            $mail->SMTPAuth = true;
-            $mail->Host = "smtp.gmail.com";
-            $mail->Port = 587;
-            $mail->IsHTML(true);
-            $mail->Username = 'adcstore@gmail.com';
-            $mail->Password = 'plutopluto';
-            $mail->SetFrom($email);
-            $mail->Subject = "ADC Store - HAI RICEVUTO DEI PUNTI!";
-            $mail->AddAddress($email);
+            $mail = new PHPMailer(true);
+            try{
+                $mail->IsSMTP(); // enable SMTP
+                $mail->SMTPDebug = 0;
+                $mail->SMTPOptions = array(
+                    'ssl' => array(
+                        'verify_peer' => false,
+                        'verify_peer_name' => false,
+                        'allow_self_signed' => true
+                    )
+                );
+                $mail->SMTPAuth = true;
+                $mail->Host = "smtp.gmail.com";
+                $mail->Port = 587;
+                $mail->IsHTML(true);
+                $mail->Username = 'adcstore2021@gmail.com';
+                $mail->Password = 'plutopluto';
+                $mail->SetFrom('adcstore@gmail.com');
+                $mail->Subject = "ADC Store - HAI RICEVUTO DEI PUNTI!";
+                $mail->AddAddress($maildest);
             //--------------------------------------------------
-            $v=new VGestionePunti();
-            $mail->Body = $v->datiPuntiEmail($punti, $sender->getEmail(), $messaggio);
-            $v->mostraFormPunti();
-            if(!$mail->Send()) {
-                return false;
-            } else {
-                return true;
-            }
+                $v=new VGestionePunti();
+                $mail->Body = $v->datiPuntiEmail($punti, $sender->getNome(), $sender->getCognome(), $messaggio);
+                $v->mostraFormPunti();
+                $mail->send();
+             } catch (Exception $e) {
+                echo 'Message could not be sent.';
+                echo 'Mailer Error: ' . $mail->ErrorInfo;
+            }   
+    
         }
         else{   //gestire eccezione si non si hanno abbastanza punti (con template dedicato)
             print('ciao');

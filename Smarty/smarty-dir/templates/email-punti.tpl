@@ -144,7 +144,7 @@
         <thead>
             <tr>
                 <h4 class="title" style="width: 100%; text-align:center;margin-top: 50px;">L'utente:</h4>
-                <p style="font-size:23px; margin:5">{$sender-email}  </p>
+                <p style="font-size:23px; margin:5">{$nome} {$cognome}  </p>
                 <p style="font-size:18px; margin:5;">ti ha regalato </p>
                 <p style="font-size:26px; margin:5;">{$punti} punti! </p>
                 <p style="font-size:18px; margin:5;" >{$messaggio} </p>
