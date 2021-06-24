@@ -54,12 +54,8 @@ class FImmagine
         $rows=$stmt->fetchAll(PDO::FETCH_ASSOC);
         $f=$rows[0]['formato'];
         $n=$rows[0]['nome'];
-        $s=$rows[0]['size'];
         $b=$rows[0]['byte'];
-        $l=$rows[0]['larghezza'];
-        $a=$rows[0]['altezza'];
-        $m=$rows[0]['mime'];
-        $imm=new EImmagine($n,$f,$s,$b,$l,$a,$m);
+        $imm=new EImmagine($n,$f,$b);
         $imm->setId($key);
         return $imm;
     }
@@ -72,17 +68,13 @@ class FImmagine
     public static function store(EImmagine $img): bool
     {
         $pdo=FConnectionDB::connect();
-        $query="INSERT INTO Immagine VALUES(:id,:n,:f,:s,:b,:l,:a,:m)";
+        $query="INSERT INTO Immagine VALUES(:id,:n,:b,:f)";
         $stmt=$pdo->prepare($query);
         $ris = $stmt->execute(array(
             ":id" => $img->getId(),
             ":n" => $img->getNome(),
-            ":f" => $img->getFormato(),
-            ":s" => $img->getSize(),
             ":b" => $img->getByte(),
-            ":l" => $img->getLarghezza(),
-            ":a" => $img->getAltezza(),
-            ":m" => $img->getMime()));
+            ":f" => $img->getFormato()));
         return $ris;
 
     }
@@ -96,15 +88,11 @@ class FImmagine
     public static function update($img): bool
     {
         $pdo=FConnectionDB::connect();
-        $stmt = $pdo->prepare("UPDATE Immagine SET nome=:n, formato =:f, size = :s, byte = :b, larghezza = :l, altezza = :a, mime = :m WHERE id= :id");
+        $stmt = $pdo->prepare("UPDATE Immagine SET nome=:n, byte = :b,  formato =:f WHERE id= :id");
         $ris = $stmt->execute(array(
             ":n" => $img->getNome(),
-            ":f" => $img->getFormato(),
-            ":s" => $img->getSize(),
             ":b" => $img->getByte(),
-            ":l" => $img->getLarghezza(),
-            ":a" => $img->getAltezza(),
-            ":m" => $img->getMime(),
+            ":f" => $img->getFormato(),
             ":id" => $img->getId()));
         return $ris;
     }
@@ -120,7 +108,7 @@ class FImmagine
         $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
         $immagini=array();
         foreach ($rows as $row){
-            $imm=new EImmagine($row['nome'],$row['formato'],$row['size'],$row['byte'],$row['larghezza'],$row['altezza'],$row['mime']);
+            $imm=new EImmagine($row['nome'],$row['formato'],$row['byte']);
             $imm->setId($row['id']);
             $key=$row['id'];
             $immagini[$key]=$imm;
