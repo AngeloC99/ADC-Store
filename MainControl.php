@@ -43,7 +43,6 @@ require_once './configDB.php';
 
 // TESTING CGestioneBuoni
 
-/*
 $admin = new EAmministratore("Chiara", "Romano", "romanochiara229@gmail.com","pippo","progettoEsame1!1!1");
 //$utente = new EUtenteReg("Ada", "Bianchi", "altraemail", "pluto");
 //CGestioneBuoni::inviaBuono($admin,$_POST['codice'],$_POST["percentuale"],$_POST["ammontare"],$_POST["mex"],$_POST["email"]);
@@ -61,3 +60,43 @@ CRegistrazione::registraUtente($_POST['nome'],$_POST['cognome'],$_POST['email'],
 CGestionePunti::regalarePunti($_POST['punti'], $_POST['emaildest'], $_POST['Messaggio'], "adarossi@gmail.com");
 
 CGestionePunti::aggiungiPremio($_POST['nome'], $_POST['marca'], $_POST['descrizione'], $_POST['quantita'], $_POST['file'], $_POST['punti']
+CRegistrazione::registraUtente($_POST['nome'],$_POST['cognome'],$_POST['email'],$_POST['password']);*/
+
+//Testing Prodotto
+   // Verifico eventuali problemi nell'upload del file
+/*
+if((!isset($_FILES["file_inviato"])) || ($_FILES["file_inviato"]["error"] != UPLOAD_ERR_OK)) {
+    echo "Errore nell'invio del file. Riprova!";
+}
+$pm=FPersistentManager::getInstance();
+
+$nome_file_temporaneo = $_FILES["file_inviato"]["tmp_name"];
+$nome_file_vero = $_FILES["file_inviato"]["name"];
+$tipo_file = $_FILES["file_inviato"]["type"];
+
+$dati_file = file_get_contents(__DIR__.$nome_file_temporaneo);
+$dati_file = addslashes($dati_file);
+$imm=new EImmagine($nome_file_vero,$tipo_file,$dati_file);
+
+
+*/
+
+
+if((!isset($_FILES["file_inviato"])) || ($_FILES["file_inviato"]["error"] != UPLOAD_ERR_OK)) {
+    echo "Errore nell'invio del file. Riprova!";
+}
+// Connessione e selezione del database
+$pm=FPersistentManager::getInstance();
+// Recupero delle informazioni sul file inviato
+
+$nome_file_temporaneo = $_FILES["file_inviato"]["tmp_name"];
+$nome_file_vero = $_FILES["file_inviato"]["name"];
+$tipo_file = $_FILES["file_inviato"]["type"];
+// Leggo il contenuto del file
+
+$dati_file = file_get_contents($nome_file_temporaneo);
+$dati_file = addslashes($dati_file);
+$imm=new EImmagine($nome_file_vero,$tipo_file,$dati_file);
+
+CGestioneProdotti::aggiungiProdotto($_POST['nome'],$_POST['marca'],$_POST['des'],$_POST['quantita'],$imm,$_POST['prezzo'],$_POST['tipologia']);
+
