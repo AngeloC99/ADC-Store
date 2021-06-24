@@ -13,12 +13,8 @@ CREATE TABLE Amministratore (
 CREATE TABLE Immagine(
     id CHAR(16) NOT NULL,
     nome VARCHAR(50) NOT NULL,
-    formato VARCHAR(25) NOT NULL,
-    size INT NOT NULL,
     byte BLOB NOT NULL,
-    larghezza INT NOT NULL,
-    altezza INT NOT NULL,
-    mime VARCHAR(30) NOT NULL,
+    formato VARCHAR(30) NOT NULL,
     PRIMARY KEY (id)
 );
 
