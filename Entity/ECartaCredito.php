@@ -135,7 +135,7 @@ class ECartaCredito
      * @return string
      */
     public function __toString(): string {
-        return "Carta di credito ".$this->circuito."\n"."Titolare: ".$this->titolare."\n"."Numero: ".substr($this->numero, 0, 4)."***************";
+        return $this->circuito." - ".$this->titolare.", "."numero: ".substr($this->numero, 0, 4)."************";
     }
 
 }

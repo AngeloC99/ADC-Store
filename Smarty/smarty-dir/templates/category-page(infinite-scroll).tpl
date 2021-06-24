@@ -776,7 +776,7 @@
                                                     <div class="product-box">
                                                         <div class="img-wrapper">
                                                             <div class="front">
-                                                                <a href="#">
+                                                                <a href="product-page(accordian).tpl">
                                                                 	<img src="data:{$prod.mime};base64,{$prod.dati}" width="150" height="250"/>
                                                                 </a>
                                                             </div>
@@ -790,8 +790,8 @@
                                                         </div>
                                                         <div class="product-detail">
                                                             <div>
-                                                                <div class="rating"><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i></div>
-                                                                <a href="product-page(accordian).html">
+                                                                <div class="rating"></div>
+                                                                <a href="product-page(accordian).tpl">
                                                                     <h4>{$prod.nome}</h4>
                                                                     <h5>{$prod.marca}</h5>
                                                                 </a>
@@ -807,8 +807,7 @@
                                             {/foreach}
 
                                         </div>
-                                        <div class="load-more-sec"><a href="javascript:void(0)" class="loadMore">load
-                                                more</a></div>
+                                        <div class="load-more-sec"><a href="javascript:void(0)" class="loadMore">carica altri prodotti</a></div>
                                     </div>
                                 </div>
                             </div>

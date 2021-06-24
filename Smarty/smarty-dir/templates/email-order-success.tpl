@@ -5,8 +5,8 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="../assets/images/favicon/1.png" type="image/x-icon">
-    <link rel="shortcut icon" href="../assets/images/favicon/1.png" type="image/x-icon">
+    <link rel="icon" href="Smarty/smarty-dir/assets/images/favicon/1.png" type="image/x-icon">
+    <link rel="shortcut icon" href="Smarty/smarty-dir/assets/images/favicon/1.png" type="image/x-icon">
     <title>Multikart | Email template </title>
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet">
 
@@ -101,24 +101,24 @@
                     <table align="center" border="0" cellpadding="0" cellspacing="0">
                         <tr>
                             <td>
-                                <img src="../assets/images/email-temp/delivery.png" alt=""
+                                <img src="Smarty/smarty-dir/assets/images/email-temp/delivery.png" alt=""
                                     style=";margin-bottom: 30px;">
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                <img src="../assets/images/email-temp/success.png" alt="">
+                                <img src="Smarty/smarty-dir/assets/images/email-temp/success.png" alt="">
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                <h2 class="title">thank you</h2>
+                                <h2 class="title">Grazie!</h2>
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                <p>Payment Is Successfully Processsed And Your Order Is On The Way</p>
-                                <p>Transaction ID:267676GHERT105467</p>
+                                <p>Il pagamento è stato correttamente eseguito e l'ordine è stato spedito!</p>
+                                <p>ID Ordine: {$idOrdine}</p>
                             </td>
                         </tr>
                         <tr>
@@ -129,7 +129,7 @@
                         </tr>
                         <tr>
                             <td>
-                                <img src="../assets/images/email-temp/order-success.png" alt=""
+                                <img src="Smarty/smarty-dir/assets/images/email-temp/order-success.png" alt=""
                                     style="margin-top: 30px;">
                             </td>
                         </tr>
@@ -137,87 +137,55 @@
                     <table border="0" cellpadding="0" cellspacing="0">
                         <tr>
                             <td>
-                                <h2 class="title">YOUR ORDER DETAILS</h2>
+                                <h2 class="title">Dettagli dell'ordine</h2>
                             </td>
                         </tr>
                     </table>
                     <table class="order-detail" border="0" cellpadding="0" cellspacing="0" align="left">
                         <tr align="left">
-                            <th>PRODUCT</th>
-                            <th style="padding-left: 15px;">DESCRIPTION</th>
-                            <th>QUANTITY</th>
-                            <th>PRICE </th>
+                            <th>Prodotto</th>
+                            <th style="padding-left: 15px;">Nome</th>
+                            <th>Quantità</th>
+                            <th>Prezzo</th>
                         </tr>
+                        {section name=prod loop=$prodotti}
                         <tr>
                             <td>
-                                <img src="../assets/images/email-temp/13.jpg" alt="" width="70">
+                                <img src="data:{$prodotti[prod].mime};base64,{$prodotti[prod].image}" width="100" height="100"/>
                             </td>
                             <td valign="top" style="padding-left: 15px;">
-                                <h5 style="margin-top: 15px;">Three seater Wood Style sofa for Leavingroom </h5>
+                                <h5 style="margin-top: 15px;">{$prodotti[prod].nome}</h5>
                             </td>
                             <td valign="top" style="padding-left: 15px;">
-                                <h5 style="font-size: 14px; color:#444;margin-top:15px;    margin-bottom: 0px;">Size :
-                                    <span> L</span> </h5>
-                                <h5 style="font-size: 14px; color:#444;margin-top: 10px;">QTY : <span>1</span></h5>
+                                <h5 style="font-size: 14px; color:#444;margin-top: 10px;">QTA : <span>{$prodotti[prod].quantita}</span></h5>
                             </td>
                             <td valign="top" style="padding-left: 15px;">
-                                <h5 style="font-size: 14px; color:#444;margin-top:15px"><b>$500</b></h5>
+                                <h5 style="font-size: 14px; color:#444;margin-top:15px"><b>€ {$prodotti[prod].prezzo}</b></h5>
                             </td>
                         </tr>
-                        <tr>
-                            <td>
-                                <img src="../assets/images/email-temp/14.jpg" alt="" width="70">
-                            </td>
-                            <td valign="top" style="padding-left: 15px;">
-                                <h5 style="margin-top: 15px;">Three seater Wood Style sofa for Leavingroom </h5>
-                            </td>
-                            <td valign="top" style="padding-left: 15px;">
-                                <h5 style="font-size: 14px; color:#444;margin-top:15px;    margin-bottom: 0px;">Size :
-                                    <span> L</span> </h5>
-                                <h5 style="font-size: 14px; color:#444;margin-top: 10px;">QTY : <span>1</span></h5>
-                            </td>
-                            <td valign="top" style="padding-left: 15px;">
-                                <h5 style="font-size: 14px; color:#444;margin-top:15px"><b>$500</b></h5>
-                            </td>
-                        </tr>
+                        {/section}
                         <tr>
                             <td colspan="2"
                                 style="line-height: 49px;font-size: 13px;color: #000000;padding-left: 20px;text-align:left;border-right: unset;">
-                                Products:</td>
+                                Prodotti:</td>
                             <td colspan="3" class="price"
                                 style="line-height: 49px;text-align: right;padding-right: 28px;font-size: 13px;color: #000000;text-align:right;border-left: unset;">
-                                <b>$2600.00</b></td>
-                        </tr>
-                        <tr>
-                            <td colspan="2"
-                                style="line-height: 49px;font-size: 13px;color: #000000;padding-left: 20px;text-align:left;border-right: unset;">
-                                Discount :</td>
-                            <td colspan="3" class="price"
-                                style="line-height: 49px;text-align: right;padding-right: 28px;font-size: 13px;color: #000000;text-align:right;border-left: unset;">
-                                <b>$10</b></td>
-                        </tr>
-                        <tr>
-                            <td colspan="2"
-                                style="line-height: 49px;font-family: Arial;font-size: 13px;color: #000000;padding-left: 20px;text-align:left;border-right: unset;">
-                                Gift Wripping: </td>
-                            <td colspan="3" class="price"
-                                style="line-height: 49px;text-align: right;padding-right: 28px;font-size: 13px;color: #000000;text-align:right;border-left: unset;">
-                                <b>$2600</b></td>
+                                <b>€ {$prezzoCarrello}</b></td>
                         </tr>
                         <tr>
                             <td colspan="2" style="line-height: 49px;font-size: 13px;color: #000000;
-                                    padding-left: 20px;text-align:left;border-right: unset;">Shipping :</td>
+                                    padding-left: 20px;text-align:left;border-right: unset;">Costi di spedizione :</td>
                             <td colspan="3" class="price"
                                 style="
                                         line-height: 49px;text-align: right;padding-right: 28px;font-size: 13px;color: #000000;text-align:right;border-left: unset;">
-                                <b>$30</b></td>
+                                <b>€ 4</b></td>
                         </tr>
                         <tr>
                             <td colspan="2" style="line-height: 49px;font-size: 13px;color: #000000;
-                                    padding-left: 20px;text-align:left;border-right: unset;">TOTAL PAID :</td>
+                                    padding-left: 20px;text-align:left;border-right: unset;">Prezzo totale (al netto di buoni applicati):</td>
                             <td colspan="3" class="price"
                                 style="line-height: 49px;text-align: right;padding-right: 28px;font-size: 13px;color: #000000;text-align:right;border-left: unset;">
-                                <b>$2600</b></td>
+                                <b>€ {$prezzoTot}</b></td>
                         </tr>
                     </table>
                     <table cellpadding="0" cellspacing="0" border="0" align="left"
@@ -228,23 +196,30 @@
                                     style="font-size: 13px; font-weight: 400; color: #444444; letter-spacing: 0.2px;width: 50%;">
                                     <h5
                                         style="font-size: 16px; font-weight: 500;color: #000; line-height: 16px; padding-bottom: 13px; border-bottom: 1px solid #e6e8eb; letter-spacing: -0.65px; margin-top:0; margin-bottom: 13px;">
-                                        DILIVERY ADDRESS</h5>
+                                        Indirizzo di spedizione</h5>
                                     <p
                                         style="text-align: left;font-weight: normal; font-size: 14px; color: #000000;line-height: 21px;    margin-top: 0;">
-                                        268 Cambridge Lane New Albany,<br> IN 47150268 Cambridge Lane <br>New Albany, IN
-                                        47150</p>
+                                        {$nomeUtente} <br> {$indirizzo} <br> Italia <br>
+                                    </p>
                                 </td>
                                 <td width="57" height="25" class="user-info"><img
-                                        src="../assets/images/email-temp/space.jpg" alt=" " height="25" width="57"></td>
+                                        src="Smarty/smarty-dir/assets/images/email-temp/space.jpg" alt=" " height="25" width="57"></td>
                                 <td class="user-info"
                                     style="font-size: 13px; font-weight: 400; color: #444444; letter-spacing: 0.2px;width: 50%;">
                                     <h5
                                         style="font-size: 16px;font-weight: 500;color: #000; line-height: 16px; padding-bottom: 13px; border-bottom: 1px solid #e6e8eb; letter-spacing: -0.65px; margin-top:0; margin-bottom: 13px;">
-                                        SHIPPING ADDRESS</h5>
+                                        Data dell'ordine</h5>
                                     <p
                                         style="text-align: left;font-weight: normal; font-size: 14px; color: #000000;line-height: 21px;    margin-top: 0;">
-                                        268 Cambridge Lane New Albany,<br> IN 47150268 Cambridge Lane <br>New Albany, IN
-                                        47150</p>
+                                        {$dataOrdine}
+                                    </p>
+                                    <h5
+                                            style="font-size: 16px;font-weight: 500;color: #000; line-height: 16px; padding-bottom: 13px; border-bottom: 1px solid #e6e8eb; letter-spacing: -0.65px; margin-top:0; margin-bottom: 13px;">
+                                        Data di consegna stimata</h5>
+                                    <p
+                                            style="text-align: left;font-weight: normal; font-size: 14px; color: #000000;line-height: 21px;    margin-top: 0;">
+                                        {$dataConsegna}
+                                    </p>
                                 </td>
                             </tr>
                         </tbody>
@@ -266,22 +241,22 @@
                     class="text-center" style="margin-top:20px;">
                     <tr>
                         <td>
-                            <a href="#"><img src="../assets/images/email-temp/facebook.png" alt=""></a>
+                            <a href="#"><img src="Smarty/smarty-dir/assets/images/email-temp/facebook.png" alt=""></a>
                         </td>
                         <td>
-                            <a href="#"><img src="../assets/images/email-temp/youtube.png" alt=""></a>
+                            <a href="#"><img src="Smarty/smarty-dir/assets/images/email-temp/youtube.png" alt=""></a>
                         </td>
                         <td>
-                            <a href="#"><img src="../assets/images/email-temp/twitter.png" alt=""></a>
+                            <a href="#"><img src="Smarty/smarty-dir/assets/images/email-temp/twitter.png" alt=""></a>
                         </td>
                         <td>
-                            <a href="#"><img src="../assets/images/email-temp/gplus.png" alt=""></a>
+                            <a href="#"><img src="Smarty/smarty-dir/assets/images/email-temp/gplus.png" alt=""></a>
                         </td>
                         <td>
-                            <a href="#"><img src="../assets/images/email-temp/linkedin.png" alt=""></a>
+                            <a href="#"><img src="Smarty/smarty-dir/assets/images/email-temp/linkedin.png" alt=""></a>
                         </td>
                         <td>
-                            <a href="#"><img src="../assets/images/email-temp/pinterest.png" alt=""></a>
+                            <a href="#"><img src="Smarty/smarty-dir/assets/images/email-temp/pinterest.png" alt=""></a>
                         </td>
                     </tr>
                 </table>

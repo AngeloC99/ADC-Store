@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-06-23 10:16:09
+/* Smarty version 3.1.39, created on 2021-06-24 18:27:28
   from 'C:\Users\angel\public_html\ADC-Store\Smarty\smarty-dir\templates\cart.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_60d2edc98e3ab1_04731740',
+  'unifunc' => 'content_60d4b27035b140_98654087',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '7a0898c791d04bbf0a5ce54fe59b69c17728193f' => 
     array (
       0 => 'C:\\Users\\angel\\public_html\\ADC-Store\\Smarty\\smarty-dir\\templates\\cart.tpl',
-      1 => 1624436168,
+      1 => 1624545963,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_60d2edc98e3ab1_04731740 (Smarty_Internal_Template $_smarty_tpl) {
+function content_60d4b27035b140_98654087 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en">
 
@@ -341,7 +341,7 @@ function content_60d2edc98e3ab1_04731740 (Smarty_Internal_Template $_smarty_tpl)
                                                             class="new-tag">new</span></a></li>
                                                 <li><a href="category-page(full-width).html">full width <span
                                                             class="new-tag">new</span></a></li>
-                                                <li><a href="category-page(infinite-scroll).html">infinite scroll</a>
+                                                <li><a href="category-page(infinite-scroll).tpl">infinite scroll</a>
                                                 </li>
                                                 <li><a href=category-page(3-grid).html>three grid</a></li>
                                                 <li><a href="category-page(6-grid).html">six grid</a></li>
@@ -500,7 +500,7 @@ function content_60d2edc98e3ab1_04731740 (Smarty_Internal_Template $_smarty_tpl)
                                                                     </div>
                                                                     <div class="menu-content">
                                                                         <ul>
-                                                                            <li><a href="email-order-success.html">order
+                                                                            <li><a href="email-order-success.tpl">order
                                                                                     success</a></li>
                                                                             <li><a href="email-order-success-two.html">order
                                                                                     success 2</a></li>
@@ -780,7 +780,7 @@ for ($__section_prod_0_iteration = 1, $_smarty_tpl->tpl_vars['__smarty_section_p
                                 </td>
                                 <td><a href="#" class="icon"><i class="ti-close"></i></a></td>
                                 <td>
-                                    <h2 class="td-color">€<?php echo $_smarty_tpl->tpl_vars['prodotti']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_prod']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_prod']->value['index'] : null)]['totProd'];?>
+                                    <h2 class="td-color">€ <?php echo $_smarty_tpl->tpl_vars['prodotti']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_prod']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_prod']->value['index'] : null)]['totProd'];?>
 </h2>
                                 </td>
                             </tr>
@@ -795,7 +795,7 @@ for ($__section_prod_0_iteration = 1, $_smarty_tpl->tpl_vars['__smarty_section_p
                             <tr>
                                 <td>total price :</td>
                                 <td>
-                                    <h2>€<?php echo $_smarty_tpl->tpl_vars['prezzoTot']->value;?>
+                                    <h2>€ <?php echo $_smarty_tpl->tpl_vars['prezzoTot']->value;?>
 </h2>
                                 </td>
                             </tr>
@@ -821,21 +821,21 @@ for ($__section_prod_0_iteration = 1, $_smarty_tpl->tpl_vars['__smarty_section_p
                         <div class="col-lg-6">
                             <div class="subscribe">
                                 <div>
-                                    <h4>KNOW IT ALL FIRST!</h4>
-                                    <p>Never Miss Anything From Multikart By Signing Up To Our Newsletter.</p>
+                                    <h4>Salvataggio del carrello</h4>
+                                    <p>Inserisci un nome per il carrello da salvare e procedi al salvataggio.</p>
                                 </div>
                             </div>
                         </div>
                         <div class="col-lg-6">
                             <form
-                                action="https://pixelstrap.us19.list-manage.com/subscribe/post?u=5a128856334b598b395f1fc9b&amp;id=082f74cbda"
-                                class="form-inline subscribe-form auth-form needs-validation" method="post"
-                                id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" target="_blank">
+                                    action="https://pixelstrap.us19.list-manage.com/subscribe/post?u=5a128856334b598b395f1fc9b&amp;id=082f74cbda"
+                                    class="form-inline subscribe-form auth-form needs-validation" method="post"
+                                    id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" target="_blank">
                                 <div class="form-group mx-sm-3">
                                     <input type="text" class="form-control" name="EMAIL" id="mce-EMAIL"
-                                        placeholder="Enter your email" required="required">
+                                           placeholder="Inserisci un nome per il carrello" required="required">
                                 </div>
-                                <button type="submit" class="btn btn-solid" id="mc-submit">subscribe</button>
+                                <button type="submit" class="btn btn-solid" id="mc-submit">salva il carrello</button>
                             </form>
                         </div>
                     </div>

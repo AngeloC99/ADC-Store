@@ -10,7 +10,7 @@ require('StartSmarty.php');
 //$bs=new EBuonoSconto(true,10,"ciao ciao");
 //$v->datiBsEmail($bs);
 //$v->mostraCreazioneBuono();
-//CGestioneCarrello::recuperaCarrello("Car60c065edcc2f7");
+//CGestioneCarrello::recuperaCarrello("Car60d4832ae0870");
 
 /*
 //TESTING VBuoni
@@ -25,9 +25,15 @@ $utente->setBuoniSconto($buoni);
 CGestioneBuoni::recuperaBuoni($utente);
 ?>*/
 
+
 //$ind = new EIndirizzo("Via Salamanca","323", "Rieti","Ri", "02100",false);
 //CGestioneCarrello::procediOrdine("Car60c065edcc2f7", "adarossi@gmail.com");
 //CGestioneCarrello::procediAcquisto("Car60c065edcc2f7", $ind);
+
+$ind = new EIndirizzo("Via Salamanca","323", "Rieti","Ri", "02100",false);
+//CGestioneCarrello::procediOrdine("Car60d4832ae0870", "adarossi@gmail.com");
+CGestioneCarrello::procediAcquisto("Car60d4832ae0870", $ind,"adarossi@gmail.com", "1234567891234567");
+
 
 // TESTING Prodotto
 
@@ -43,8 +49,13 @@ CGestioneBuoni::recuperaBuoni($utente);
 //$v->mostraFormPunti();
 //$utente=new EUtenteReg('chiara','romano','romanochiara229@gmail.com','pippo');
 
+
 $GLOBALS["path"] = "/~david//ProgettoEsame/";
 
 $fcontroller = new CFrontController();
 $fcontroller->run($_SERVER['REQUEST_URI']);
+
+
+//Testing Dettagli prodotto
+CGestioneProdotti::recuperaDettagli('PRO60d44884943c5');
 

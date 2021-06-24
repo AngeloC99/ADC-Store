@@ -1,5 +1,12 @@
 <?php
 
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+require('C:\Users\angel\public_html\ADC-Store\PHPMailer-master\src\PHPMailer.php');
+require('C:\Users\angel\public_html\ADC-Store\PHPMailer-master\src\Exception.php');
+require('C:\Users\angel\public_html\ADC-Store\PHPMailer-master\src\SMTP.php');
+
+
 
 class CGestioneCarrello
 {
@@ -26,23 +33,71 @@ class CGestioneCarrello
         $v->compilaOrdine($carrello, $utente);
     }
 
-    public static function procediAcquisto(string $id, EIndirizzo $indirizzo) {
+    public static function procediAcquisto(string $idCarrello, EIndirizzo $indirizzo, string $mailutente, string $numerocarta, string $codiceBuono = null) {
 
         // Prende i dati dalla POST e genera l'ordine!!!!!!!!!!!!!! LO salva poi sul DB
 
         $pm = FPersistentManager::getInstance();
-        $carrello = $pm->load("FCarrello", $id);
+        $carrello = $pm->load("FCarrello", $idCarrello);
+        $utente = $pm->load("FUtenteReg", $mailutente);
+        $carta = $pm->load("FCartaCredito", $numerocarta);
 
         $ordine = new EOrdine($carrello, $indirizzo);
-        //$pm = FPersistentManager::getInstance();
+        /**
+        if ($codiceBuono) {
+            $buono = $pm->load("FBuonoSconto", $codiceBuono);
+            $ordine->applicaBuono($buono);
+            $pm->delete("FBuonoSconto", $codiceBuono);
+        }
+         */
+        $carta->setAmmontare($carta->getAmmontare() - $ordine->getPrezzoTotale());
+        $utente->setPunti($utente->getPunti() + ((int) $ordine->getPrezzoTotale()));          //aggiunge un punto per ogni euro speso
+
+        //CGestioneCarrello::mailOrdine($ordine, $mailutente, $utente, $indirizzo);
+        CGestioneCarrello::mailOrdine($ordine, "angeloc25999@gmail.com", $utente); // <------------------------
+
         //$pm->store($ordine);
+        //$pm->update($carta);
+        //$pm->update($utente);
+
         $v = new VGestioneCarrello();
-        $v->mostraOrdine($ordine);
-        // manda la mail con i dettagli dell'ordine subito dopo aver premuto il tasto procedi con l'ordine
+        $v->mostraOrdine($ordine, $utente);
     }
 
-    public static function recuperaCarrelliSalvati(EUtenteReg $utente) {
+    private static function mailOrdine(EOrdine $ordine, string $mailutente, EUtenteReg $utente) {
+        $mail = new PHPMailer(true);
+        try {
+            $mail->CharSet = 'UTF-8';
+            $mail->IsSMTP();
+            $mail->SMTPDebug = 0;
+            $mail->SMTPOptions = array(
+                'ssl' => array(
+                    'verify_peer' => false,
+                    'verify_peer_name' => false,
+                    'allow_self_signed' => true
+                ));
+            $mail->SMTPAuth = true;
+            $mail->Host = "smtp.gmail.com";
+            $mail->Port = 587;
+            $mail->IsHTML(true);
+            $mail->Username = 'adcstore2021@gmail.com';
+            $mail->Password = 'plutopluto';
+            $mail->SetFrom('adcstore@gmail.com');
+            $mail->Subject = "ADC Store - Conferma dell'ordine!";
+            $mail->AddAddress($mailutente);
+
+            $v = new VGestioneCarrello();
+            $mail->Body = $v->ordineEmail($ordine, $utente);
+            $mail->send();
+        } catch (Exception $e) {
+            echo 'Message could not be sent.';
+            echo 'Mailer Error: ' . $mail->ErrorInfo;
+        }
+    }
+
+    public static function recuperaCarrelliSalvati(string $mailutente) {
         $pm = FPersistentManager::getInstance();
+        $utente = $pm->load("FUtenteReg", $mailutente);
         $carrelli = $pm->prelevaCarrelliUtente($utente);
         // Li mostra nel template
     }

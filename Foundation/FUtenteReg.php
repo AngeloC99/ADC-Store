@@ -152,19 +152,18 @@ class FUtenteReg
         try {
             $pdo = FConnectionDB::connect();
             $pdo->beginTransaction();
+            if (!FIndirizzo::exist($indirizzo->getVia(), $indirizzo->getNumero(), $indirizzo->getCap())) {
+                FIndirizzo::store($indirizzo);
+            }
             $query = "INSERT INTO UtenteSalvaIndirizzo VALUES(:mailutente, :via, :numero, :cap)";
             $stmt = $pdo->prepare($query);
-            $ris1 = $stmt->execute(array(
+            $ris = $stmt->execute(array(
                 ':via' => $indirizzo->getVia(),
                 ':numero' => $indirizzo->getNumero(),
                 ':cap' => $indirizzo->getCap(),
                 ':mailutente' => $mailutente));
-
-            $ris = FIndirizzo::store($indirizzo);
             $pdo->commit();
-
-
-            return $ris AND $ris1;
+            return $ris;
 
         } catch(PDOException $e) {
             print("ATTENTION ERROR: ") . $e->getMessage();
@@ -249,17 +248,18 @@ class FUtenteReg
         try {
             $pdo = FConnectionDB::connect();
             $pdo->beginTransaction();
+            if (!FCartaCredito::exist($carta->getNumero())) {
+                FCartaCredito::store($carta);
+            }
             $query = "INSERT INTO UtenteUsaCarta VALUES(:mailutente, :numerocarta)";
             $stmt = $pdo->prepare($query);
             $ris1 = $stmt->execute(array(
                 ':mailutente' => $mailutente,
                 ':numerocarta' => $carta->getNumero()));
-
-            $ris = FCartaCredito::store($carta);
             $pdo->commit();
 
 
-            return $ris AND $ris1;
+            return $ris1;
 
         } catch(PDOException $e) {
             print("ATTENTION ERROR: ") . $e->getMessage();
@@ -304,7 +304,7 @@ class FUtenteReg
     public static function prelevaCarte(string $mailutente): array {
         $pdo = FConnectionDB::connect();
         $stmt = $pdo->prepare("SELECT * FROM CartaCredito INNER JOIN UtenteUsaCarta 
-                                ON CartaCredito.numero = UtenteUsaCarta.numero 
+                                ON CartaCredito.numero = UtenteUsaCarta.numerocarta 
                                 WHERE UtenteUsaCarta.mailutente = :mailutente");
         $stmt->execute([':mailutente' => $mailutente]);
         $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -314,12 +314,10 @@ class FUtenteReg
             $carta = new ECartaCredito($row['titolare'],
                 $row['numero'],
                 $row['circuito'],
-                $row['scadenza'],
+                new DateTime($row['scadenza']),
                 $row['cvv'],
                 $row['ammontare']);
-            $key=$row['numero'];
-            $carte[$key]=$carta;
-
+            $carte[] = $carta;
         }
         return $carte;
     }

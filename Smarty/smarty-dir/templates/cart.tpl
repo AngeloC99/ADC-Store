@@ -361,7 +361,7 @@
                                                 <li><a href="product-page(4-image).html">four image <span
                                                             class="new-tag">new</span></a></li>
                                                 <li><a href="product-page(sticky).html">sticky</a></li>
-                                                <li><a href="product-page(accordian).html">accordian</a></li>
+                                                <li><a href="product-page(accordian).tpl">accordian</a></li>
                                                 <li><a href="product-page(bundle).html">bundle<span
                                                             class="new-tag">new</span></a></li>
                                                 <li><a href="product-page(image-swatch).html">image swatch <span
@@ -477,7 +477,7 @@
                                                                     </div>
                                                                     <div class="menu-content">
                                                                         <ul>
-                                                                            <li><a href="email-order-success.html">order
+                                                                            <li><a href="email-order-success.tpl">order
                                                                                     success</a></li>
                                                                             <li><a href="email-order-success-two.html">order
                                                                                     success 2</a></li>
@@ -781,21 +781,21 @@
                         <div class="col-lg-6">
                             <div class="subscribe">
                                 <div>
-                                    <h4>KNOW IT ALL FIRST!</h4>
-                                    <p>Never Miss Anything From Multikart By Signing Up To Our Newsletter.</p>
+                                    <h4>Salvataggio del carrello</h4>
+                                    <p>Inserisci un nome per il carrello da salvare e procedi al salvataggio.</p>
                                 </div>
                             </div>
                         </div>
                         <div class="col-lg-6">
                             <form
-                                action="https://pixelstrap.us19.list-manage.com/subscribe/post?u=5a128856334b598b395f1fc9b&amp;id=082f74cbda"
-                                class="form-inline subscribe-form auth-form needs-validation" method="post"
-                                id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" target="_blank">
+                                    action="https://pixelstrap.us19.list-manage.com/subscribe/post?u=5a128856334b598b395f1fc9b&amp;id=082f74cbda"
+                                    class="form-inline subscribe-form auth-form needs-validation" method="post"
+                                    id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" target="_blank">
                                 <div class="form-group mx-sm-3">
                                     <input type="text" class="form-control" name="EMAIL" id="mce-EMAIL"
-                                        placeholder="Enter your email" required="required">
+                                           placeholder="Inserisci un nome per il carrello" required="required">
                                 </div>
-                                <button type="submit" class="btn btn-solid" id="mc-submit">subscribe</button>
+                                <button type="submit" class="btn btn-solid" id="mc-submit">salva il carrello</button>
                             </form>
                         </div>
                     </div>
