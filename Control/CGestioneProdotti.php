@@ -77,5 +77,25 @@ class CGestioneProdotti
         $pm->store($prod);
 
     }
+//reindirizzamento  tramite url (Front Controller) alla pagina del prodotto corrispondente all'id del prodotto cliccato??
+    public static function recuperaDettagli(string $id){
+        $pm=FPersistentManager::getInstance();
+        $prodotto=$pm->load('FProdotto',$id);
+        $prod=array(
+            'nome'=>$prodotto->getNome(),
+            'marca'=>$prodotto->getMarca(),
+            'descrizione'=>$prodotto->getDescrizione(),
+            'prezzo'=>$prodotto->getPrezzo(),
+            'tipologia'=>$prodotto->getTipologia(),
+            'quantita'=>$prodotto->getQuantita(),
+            'mime'=>$prodotto->getImmagine()->getFormato(),
+            'dati'=>base64_encode($prodotto->getImmagine()->getByte()));
+        $v=new VGestioneProdotto();
+        $v->mostraDettagli($prod);
+        
+        
+
+    }
+
 
 }
