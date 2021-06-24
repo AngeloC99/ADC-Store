@@ -6,7 +6,7 @@ require('StartSmarty.php');
 //$v = new VHome();
 //$v->setTemplate('home.tpl');
 // Testing VBuonoSconto
-$v = new VGestioneCarrello();
+//$v = new VGestioneCarrello();
 //$bs=new EBuonoSconto(true,10,"ciao ciao");
 //$v->datiBsEmail($bs);
 //$v->mostraCreazioneBuono();
@@ -25,20 +25,26 @@ $utente->setBuoniSconto($buoni);
 CGestioneBuoni::recuperaBuoni($utente);
 ?>*/
 
-$ind = new EIndirizzo("Via Salamanca","323", "Rieti","Ri", "02100",false);
+//$ind = new EIndirizzo("Via Salamanca","323", "Rieti","Ri", "02100",false);
 //CGestioneCarrello::procediOrdine("Car60c065edcc2f7", "adarossi@gmail.com");
 //CGestioneCarrello::procediAcquisto("Car60c065edcc2f7", $ind);
 
 // TESTING Prodotto
 
 
-CGestioneProdotti::recuperaProdotti();
+//CGestioneProdotti::recuperaProdotti();
 //$v->mostraAggiuntaProdotto($admin);
 //$v->mostraAggiuntaProdotto($admin);
 
 
 //Testing mail per punti
 
-$v = new VGestionePunti();
-$v->mostraFormPunti();
+//$v = new VGestionePunti();
+//$v->mostraFormPunti();
 //$utente=new EUtenteReg('chiara','romano','romanochiara229@gmail.com','pippo');
+
+$GLOBALS["path"] = "/~david//ProgettoEsame/";
+
+$fcontroller = new CFrontController();
+$fcontroller->run($_SERVER['REQUEST_URI']);
+
