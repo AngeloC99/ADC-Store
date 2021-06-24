@@ -10,7 +10,7 @@ $v = new VGestioneCarrello();
 //$bs=new EBuonoSconto(true,10,"ciao ciao");
 //$v->datiBsEmail($bs);
 //$v->mostraCreazioneBuono();
-//CGestioneCarrello::recuperaCarrello("Car60c065edcc2f7");
+CGestioneCarrello::recuperaCarrello("Car60c065edcc2f7");
 
 /*
 //TESTING VBuoni
@@ -25,7 +25,7 @@ $utente->setBuoniSconto($buoni);
 CGestioneBuoni::recuperaBuoni($utente);
 ?>*/
 
-$ind = new EIndirizzo("Via Salamanca","323", "Rieti","Ri", "02100",false);
+//$ind = new EIndirizzo("Via Salamanca","323", "Rieti","Ri", "02100",false);
 //CGestioneCarrello::procediOrdine("Car60c065edcc2f7", "adarossi@gmail.com");
 //CGestioneCarrello::procediAcquisto("Car60c065edcc2f7", $ind);
 

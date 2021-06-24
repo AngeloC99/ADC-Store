@@ -7,8 +7,6 @@
  */
 class FProdotto
 {
-
-
     /**
      * Restituisce un booleano che indica la presenza o meno di una determinata istanza di EProdotto nell'apposita
      * tabella del database.
@@ -34,7 +32,7 @@ class FProdotto
      * @param $key
      * @return bool
      */
-    public static function delete($key) : bool{
+    public static function delete($key) : bool {
         try{
         $pdo=FConnectionDB::connect();
         $stmt=$pdo->prepare("SELECT * FROM Prodotto WHERE id=:id");
@@ -51,8 +49,8 @@ class FProdotto
         catch (PDOException $e){
             print("ATTENTION ERROR: ") . $e->getMessage();
             $pdo->rollBack();
+            return false;
         }
-
     }
 
     /**
@@ -89,7 +87,9 @@ class FProdotto
         try{
         $pdo=FConnectionDB::connect();
         $pdo->beginTransaction();
-        $ris2=FImmagine::store($obj->getImmagine());
+        if (!FImmagine::exist($obj->getImmagine()->getId())) {
+            FImmagine::store($obj->getImmagine());
+        }
         $query="INSERT INTO Prodotto VALUES(:id,:n,:d,:t,:q,:m,:p,:idImm)";
         $stmt=$pdo->prepare($query);
         $ris = $stmt->execute([
@@ -102,11 +102,12 @@ class FProdotto
             ":p"=>$obj->getPrezzo(),
             ":idImm" => $obj->getImmagine()->getId()]);
         $pdo->commit();
-        return $ris && $ris2;
+        return $ris;
         }
         catch (PDOException $e){
             print("ATTENTION ERROR: ") . $e->getMessage();
             $pdo->rollBack();
+            return false;
         }
     }
 
@@ -129,6 +130,7 @@ class FProdotto
         catch (PDOException $e){
             print("ATTENTION ERROR: ") . $e->getMessage();
             $pdo->rollBack();
+            return false;
         }
 
     }

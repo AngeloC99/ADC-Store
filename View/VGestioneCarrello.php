@@ -15,7 +15,7 @@ class VGestioneCarrello {
         foreach ($prodotti as $idProd => $quantita) {
             $prod = $pm->load("FProdotto", $idProd);
             $img = $prod->getImmagine()->getByte();
-            $mime = $prod->getImmagine()->getMime();
+            $mime = $prod->getImmagine()->getFormato();
             $tmp = array(
                 'nome' => $prod->getNome(),
                 'prezzo' => $prod->getPrezzo(),
