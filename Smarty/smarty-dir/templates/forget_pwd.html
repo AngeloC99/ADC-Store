@@ -361,7 +361,7 @@
                                                 <li><a href="product-page(4-image).html">four image <span
                                                             class="new-tag">new</span></a></li>
                                                 <li><a href="product-page(sticky).html">sticky</a></li>
-                                                <li><a href="product-page(accordian).html">accordian</a></li>
+                                                <li><a href="product-page(accordian).tpl">accordian</a></li>
                                                 <li><a href="product-page(bundle).html">bundle<span
                                                             class="new-tag">new</span></a></li>
                                                 <li><a href="product-page(image-swatch).html">image swatch <span
