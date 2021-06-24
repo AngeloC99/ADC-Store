@@ -331,7 +331,7 @@
                                             aria-hidden="true"></i></div>
                                 </li>
                                 <li>
-                                    <a href="category-page(infinite-scroll).html">Prodotti</a>
+                                    <a href="category-page(infinite-scroll).tpl">Prodotti</a>
                                     
                                 </li>
                                 <li><a href="#">Account</a>

@@ -16,27 +16,356 @@
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet">
 
     <!-- Icons -->
-    <link rel="stylesheet" type="text/css" href="../assets/css/fontawesome.css">
+    <link rel="stylesheet" type="text/css" href="../ProgettoEsame/Smarty/smarty-dir/assets/css/fontawesome.css">
 
     <!--Slick slider css-->
-    <link rel="stylesheet" type="text/css" href="../assets/css/slick.css">
-    <link rel="stylesheet" type="text/css" href="../assets/css/slick-theme.css">
+    <link rel="stylesheet" type="text/css" href="../ProgettoEsame/Smarty/smarty-dir/assets/css/slick.css">
+    <link rel="stylesheet" type="text/css" href="../ProgettoEsame/Smarty/smarty-dir/assets/css/slick-theme.css">
 
     <!-- Animate icon -->
-    <link rel="stylesheet" type="text/css" href="../assets/css/animate.css">
+    <link rel="stylesheet" type="text/css" href="../ProgettoEsame/Smarty/smarty-dir/assets/css/animate.css">
+
+    <!-- Price range icon -->
+    <link rel="stylesheet" type="text/css" href="../ProgettoEsame/Smarty/smarty-dir/assets/css/price-range.css">
 
     <!-- Themify icon -->
-    <link rel="stylesheet" type="text/css" href="../assets/css/themify-icons.css">
+    <link rel="stylesheet" type="text/css" href="../ProgettoEsame/Smarty/smarty-dir/assets/css/themify-icons.css">
 
     <!-- Bootstrap css -->
-    <link rel="stylesheet" type="text/css" href="../assets/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="../ProgettoEsame/Smarty/smarty-dir/assets/css/bootstrap.css">
 
     <!-- Theme css -->
-    <link rel="stylesheet" type="text/css" href="../assets/css/color1.css" media="screen" id="color">
+    <link rel="stylesheet" type="text/css" href="../ProgettoEsame/Smarty/smarty-dir/assets/css/color1.css" media="screen" id="color">
 
 </head>
 
 <body>
+
+    <!-- loader start -->
+    <div class="loader_skeleton">
+        <header>
+            <div class="top-header d-none d-sm-block">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="header-contact">
+                                <ul>
+                                    <li>Welcome to Our store Multikart</li>
+                                    <li><i class="fa fa-phone" aria-hidden="true"></i>Call Us: 123 - 456 - 7890</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 text-right">
+                            <ul class="header-dropdown">
+                                <li class="mobile-wishlist"><a href="#"><i class="fa fa-heart"
+                                            aria-hidden="true"></i></a>
+                                </li>
+                                <li class="onhover-dropdown mobile-account">
+                                    <i class="fa fa-user" aria-hidden="true"></i> My Account
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="main-menu">
+                            <div class="menu-left">
+                                <div class="navbar">
+                                    <a href="javascript:void(0)">
+                                        <div class="bar-style"><i class="fa fa-bars sidebar-bar" aria-hidden="true"></i>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="brand-logo">
+                                    <a href="index.html"><img src="../ProgettoEsame/Smarty/smarty-dir/assets/images/icon/logo.png" class="img-fluid blur-up lazyload" alt=""></a>
+                                </div>
+                            </div>
+                            <div class="menu-right pull-right">
+                                <div>
+                                    <nav>
+                                        <div class="toggle-nav"><i class="fa fa-bars sidebar-bar"></i></div>
+                                        <ul class="sm pixelstrap sm-horizontal">
+                                            <li>
+                                                <div class="mobile-back text-right">Back<i class="fa fa-angle-right pl-2" aria-hidden="true"></i></div>
+                                            </li>
+                                            <li>
+                                                <a href="home.html">Home</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">Prodotti</a>
+                                            </li>
+                                            <li>
+                                                <a href="profilefe.html">Profilo</a>
+                                            </li>
+                                        </ul>
+                                    </nav>
+                                </div>
+                                <div>
+                                    <div class="icon-nav d-none d-sm-block">
+                                        <ul>
+                                            <li class="onhover-div mobile-search">
+                                                <div><img src="../ProgettoEsame/Smarty/smarty-dir/assets/images/icon/search.png" onclick="openSearch()" class="img-fluid blur-up lazyload" alt=""> <i class="ti-search" onclick="openSearch()"></i></div>
+                                            </li>
+                                            
+                                            <li class="onhover-div mobile-cart">
+                                                <div><img src="../ProgettoEsame/Smarty/smarty-dir/assets/images/icon/cart.png" class="img-fluid blur-up lazyload" alt=""> <i class="ti-shopping-cart"></i></div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <div class="breadcrumb-section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="page-title">
+                            <h2>Lista Prodotti</h2>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <nav aria-label="breadcrumb" class="theme-breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="index.html">home</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">prodotti</li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+        <section class="section-b-space ratio_asos">
+            <div class="collection-wrapper">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-3 collection-filter">
+                            
+                            <!-- side-bar single product slider start -->
+                            <div class="theme-card">
+                                <h5 class="title-border"></h5>
+                                <div>
+                                    <div class="product-box">
+                                        <div class="media">
+                                            <div class="img-wrapper"></div>
+                                            <div class="media-body align-self-center">
+                                                <div class="product-detail">
+                                                    <h4></h4>
+                                                    <h6></h6>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="product-box">
+                                        <div class="media">
+                                            <div class="img-wrapper"></div>
+                                            <div class="media-body align-self-center">
+                                                <div class="product-detail">
+                                                    <h4></h4>
+                                                    <h6></h6>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="product-box">
+                                        <div class="media">
+                                            <div class="img-wrapper"></div>
+                                            <div class="media-body align-self-center">
+                                                <div class="product-detail">
+                                                    <h4></h4>
+                                                    <h6></h6>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- side-bar single product slider end -->
+                            <!-- side-bar banner start here -->
+                            <div class="collection-sidebar-banner"></div>
+                            <!-- side-bar banner end here -->
+                        </div>
+                        <div class="collection-content col">
+                            <div class="page-main-content">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="top-banner-wrapper">
+                                            <div class="img-ldr-top"></div>
+                                            <div class="top-banner-content small-section">
+                                                <h4></h4>
+                                                <h5></h5>
+                                                <p></p>
+                                                <p></p>
+                                            </div>
+                                        </div>
+                                        <div class="collection-product-wrapper">
+                                            <div class="product-top-filter">
+                                                <div class="row m-0 w-100">
+                                                    <div class="col-xl-4">
+                                                        <div class="filter-panel">
+                                                            <h6 class="ldr-text"></h6>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-xl-4 col-lg-4 col-6">
+                                                        <div class="filter-panel">
+                                                            <h6 class="ldr-text"></h6>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-xl-2 col-lg-4 col-6">
+                                                        <div class="filter-panel">
+                                                            <h6 class="ldr-text"></h6>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-xl-2 col-lg-4 d-none d-lg-block">
+                                                        <div class="filter-panel">
+                                                            <h6 class="ldr-text"></h6>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="product-wrapper-grid">
+                                                <div class="row">
+                                                    <div class="col-xl-3 col-md-6 col-grid-box">
+                                                        <div class="product-box">
+                                                            <div class="img-wrapper"></div>
+                                                            <div class="product-detail">
+                                                                <h4></h4>
+                                                                <h5></h5>
+                                                                <h6></h6>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-xl-3 col-md-6 col-grid-box">
+                                                        <div class="product-box">
+                                                            <div class="img-wrapper"></div>
+                                                            <div class="product-detail">
+                                                                <h4></h4>
+                                                                <h5></h5>
+                                                                <h6></h6>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-xl-3 col-md-6 col-grid-box">
+                                                        <div class="product-box">
+                                                            <div class="img-wrapper"></div>
+                                                            <div class="product-detail">
+                                                                <h4></h4>
+                                                                <h5></h5>
+                                                                <h6></h6>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-xl-3 col-md-6 col-grid-box">
+                                                        <div class="product-box">
+                                                            <div class="img-wrapper"></div>
+                                                            <div class="product-detail">
+                                                                <h4></h4>
+                                                                <h5></h5>
+                                                                <h6></h6>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-xl-3 col-md-6 col-grid-box">
+                                                        <div class="product-box">
+                                                            <div class="img-wrapper"></div>
+                                                            <div class="product-detail">
+                                                                <h4></h4>
+                                                                <h5></h5>
+                                                                <h6></h6>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-xl-3 col-md-6 col-grid-box">
+                                                        <div class="product-box">
+                                                            <div class="img-wrapper"></div>
+                                                            <div class="product-detail">
+                                                                <h4></h4>
+                                                                <h5></h5>
+                                                                <h6></h6>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-xl-3 col-md-6 col-grid-box">
+                                                        <div class="product-box">
+                                                            <div class="img-wrapper"></div>
+                                                            <div class="product-detail">
+                                                                <h4></h4>
+                                                                <h5></h5>
+                                                                <h6></h6>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-xl-3 col-md-6 col-grid-box">
+                                                        <div class="product-box">
+                                                            <div class="img-wrapper"></div>
+                                                            <div class="product-detail">
+                                                                <h4></h4>
+                                                                <h5></h5>
+                                                                <h6></h6>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-xl-3 col-md-6 col-grid-box">
+                                                        <div class="product-box">
+                                                            <div class="img-wrapper"></div>
+                                                            <div class="product-detail">
+                                                                <h4></h4>
+                                                                <h5></h5>
+                                                                <h6></h6>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-xl-3 col-md-6 col-grid-box">
+                                                        <div class="product-box">
+                                                            <div class="img-wrapper"></div>
+                                                            <div class="product-detail">
+                                                                <h4></h4>
+                                                                <h5></h5>
+                                                                <h6></h6>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-xl-3 col-md-6 col-grid-box">
+                                                        <div class="product-box">
+                                                            <div class="img-wrapper"></div>
+                                                            <div class="product-detail">
+                                                                <h4></h4>
+                                                                <h5></h5>
+                                                                <h6></h6>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-xl-3 col-md-6 col-grid-box">
+                                                        <div class="product-box">
+                                                            <div class="img-wrapper"></div>
+                                                            <div class="product-detail">
+                                                                <h4></h4>
+                                                                <h5></h5>
+                                                                <h6></h6>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <!-- loader end -->
 
 
     <!-- header start -->
@@ -137,9 +466,7 @@
                                                                 </div>
                                                             </div>
                                                             <div class="col-xl-4">
-                                                                <a href="#" class="mega-menu-banner"><img
-                                                                        src="../assets/images/mega-menu/fashion.jpg"
-                                                                        alt="" class="img-fluid blur-up lazyload"></a>
+                                                                <a href="#" class="mega-menu-banner"><img src="../ProgettoEsame/Smarty/smarty-dir/assets/images/mega-menu/fashion.jpg" alt="" class="img-fluid blur-up lazyload"></a>
                                                             </div>
                                                         </div>
                                                     </li>
@@ -228,8 +555,7 @@
                                 </div>
                             </div>
                             <div class="brand-logo">
-                                <a href="index.html"> <img src="../assets/images/icon/logo.png"
-                                        class="img-fluid blur-up lazyload" alt=""></a>
+                                <a href="index.html"> <img src="../ProgettoEsame/Smarty/smarty-dir/assets/images/icon/logo.png" class="img-fluid blur-up lazyload" alt=""></a>
                             </div>
                         </div>
                         <div class="menu-right pull-right">
@@ -241,318 +567,23 @@
                                     <!-- Horizontal menu -->
                                     <ul id="main-menu" class="sm pixelstrap sm-horizontal">
                                         <li>
-                                            <div class="mobile-back text-right">Back<i class="fa fa-angle-right pl-2"
-                                                    aria-hidden="true"></i></div>
+                                            <div class="mobile-back text-right">Back<i class="fa fa-angle-right pl-2" aria-hidden="true"></i></div>
                                         </li>
                                         <li>
-                                            <a href="#">Home</a>
-                                            <ul>
-                                                <li>
-                                                    <a href="#">new demos <span class="new-tag">new</span></a>
-                                                    <ul>
-                                                        <li><a target="_blank" href="tools.html">tools</a></li>
-                                                        <li><a target="_blank"
-                                                                href="marketplace-demo.html">marketplace</a></li>
-                                                        <li><a target="_blank" href="game.html">game</a></li>
-                                                        <li><a target="_blank" href="gym-product.html">gym</a></li>
-                                                        <li><a target="_blank" href="marijuana.html">marijuana</a></li>
-                                                        <li><a target="_blank" href="left_sidebar-demo.html">left
-                                                                sidebar</a></li>
-                                                        <li><a target="_blank" href="jewellery.html">jewellery</a></li>
-                                                        <li><a target="_blank" href="pets.html">pets</a></li>
-                                                        <li><a target="_blank" href="metro.html">metro</a></li>
-                                                        <li><a target="_blank" href="video-slider.html">video slider</a>
-                                                        </li>
-                                                    </ul>
-                                                </li>
-                                                <li>
-                                                    <a href="#">clothing</a>
-                                                    <ul>
-                                                        <li><a target="_blank" href="index.html">fashion 1</a></li>
-                                                        <li><a target="_blank" href="fashion-2.html">fashion 2</a></li>
-                                                        <li><a target="_blank" href="fashion-3.html">fashion 3</a></li>
-                                                        <li><a target="_blank" href="kids.html">kids</a></li>
-                                                    </ul>
-                                                </li>
-                                                <li><a target="_blank" href="watch.html">watch</a></li>
-                                                <li><a target="_blank" href="shoes.html">shoes</a></li>
-                                                <li>
-                                                    <a href="#">electronics</a>
-                                                    <ul>
-                                                        <li><a target="_blank" href="electronic-1.html">electronic 1</a>
-                                                        </li>
-                                                        <li><a target="_blank" href="electronic-2.html">electronic 2</a>
-                                                        </li>
-                                                    </ul>
-                                                </li>
-                                                <li><a target="_blank" href="bags.html">bags</a></li>
-                                                <li><a target="_blank" href="nursery.html">nursery</a></li>
-                                                <li><a target="_blank" href="flower.html">flower</a></li>
-                                                <li><a target="_blank" href="vegetables.html">vegetable</a></li>
-                                                <li><a target="_blank" href="beauty.html">beauty</a></li>
-                                                <li><a target="_blank" href="light.html">light</a></li>
-                                                <li><a target="_blank" href="furniture.html">furniture</a></li>
-                                                <li><a target="_blank" href="goggles.html">googles</a></li>
-                                                <li>
-                                                    <a href="#">basics</a>
-                                                    <ul>
-                                                        <li><a target="_blank" href="lookbook-demo.html">lookbook</a>
-                                                        </li>
-                                                        <li><a target="_blank" href="instagram-shop.html">instagram</a>
-                                                        </li>
-                                                        <li><a target="_blank" href="video.html">video</a></li>
-                                                        <li><a target="_blank" href="parallax.html">parallax</a></li>
-                                                        <li><a target="_blank" href="full-page.html">full page</a></li>
-                                                    </ul>
-                                                </li>
-                                            </ul>
+                                            <a href="home.html">Home</a>
+                                            
                                         </li>
+                                        
                                         <li>
-                                            <a href="#">shop</a>
-                                            <ul>
-                                                <li><a href="category-page.html">left sidebar</a></li>
-                                                <li><a href="category-page(right).html">right sidebar</a></li>
-                                                <li><a href="category-page(no-sidebar).html">no sidebar</a></li>
-                                                <li><a href="category-page(sidebar-popup).html">sidebar popup</a></li>
-                                                <li><a href="category-page(metro).html">metro <span
-                                                            class="new-tag">new</span></a></li>
-                                                <li><a href="category-page(full-width).html">full width <span
-                                                            class="new-tag">new</span></a></li>
-                                                <li><a href="category-page(infinite-scroll).tpl">infinite scroll</a>
-                                                </li>
-                                                <li><a href=category-page(3-grid).html>three grid</a></li>
-                                                <li><a href="category-page(6-grid).html">six grid</a></li>
-                                                <li><a href="category-page(list-view).html">list view</a></li>
-                                            </ul>
+                                            <a href="#">Prodotti</a>
                                         </li>
+
                                         <li>
-                                            <a href="#">product</a>
-                                            <ul>
-                                                <li>
-                                                    <a href="#">sidebar</a>
-                                                    <ul>
-                                                        <li><a href="product-page.html">left sidebar</a></li>
-                                                        <li><a href="product-page(right-sidebar).html">right sidebar</a>
-                                                        </li>
-                                                        <li><a href="product-page(no-sidebar).html">no sidebar</a></li>
-                                                    </ul>
-                                                </li>
-                                                <li>
-                                                    <a href="#">thumbnail image</a>
-                                                    <ul>
-                                                        <li><a href="product-page(left-image).html">left image</a></li>
-                                                        <li><a href="product-page(right-image).html">right image</a>
-                                                        </li>
-                                                        <li><a href="product-page(image-outside).html">image outside
-                                                                <span class="new-tag">new</span></a></li>
-                                                    </ul>
-                                                </li>
-                                                <li>
-                                                    <a href="#">three column</a>
-                                                    <ul>
-                                                        <li><a href="product-page(3-col-left).html">thumbnail left</a>
-                                                        </li>
-                                                        <li><a href="product-page(3-col-right).html">thumbnail right</a>
-                                                        </li>
-                                                        <li><a href="product-page(3-column).html">thubnail bottom</a>
-                                                        </li>
-                                                    </ul>
-                                                </li>
-                                                <li><a href="product-page(4-image).html">four image <span
-                                                            class="new-tag">new</span></a></li>
-                                                <li><a href="product-page(sticky).html">sticky</a></li>
-                                                <li><a href="product-page(accordian).html">accordian</a></li>
-                                                <li><a href="product-page(bundle).html">bundle<span
-                                                            class="new-tag">new</span></a></li>
-                                                <li><a href="product-page(image-swatch).html">image swatch <span
-                                                            class="new-tag">new</span></a></li>
-                                                <li><a href="product-page(vertical-tab).html">vertical tab</a></li>
-                                            </ul>
+                                            <a href="profilefe.html">Profilo</a>
                                         </li>
-                                        <li class="mega" id="hover-cls"><a href="#">features
-                                                <div class="lable-nav">new</div>
-                                            </a>
-                                            <ul class="mega-menu full-mega-menu">
-                                                <li>
-                                                    <div class="container">
-                                                        <div class="row">
-                                                            <div class="col mega-box">
-                                                                <div class="link-section">
-                                                                    <div class="menu-title">
-                                                                        <h5>portfolio</h5>
-                                                                    </div>
-                                                                    <div class="menu-content">
-                                                                        <ul>
-                                                                            <li><a href="grid-2-col.html">portfolio grid
-                                                                                    2</a></li>
-                                                                            <li><a href="grid-3-col.html">portfolio grid
-                                                                                    3</a></li>
-                                                                            <li><a href="grid-4-col.html">portfolio grid
-                                                                                    4</a></li>
-                                                                            <li><a href="masonary-2-grid.html">mesonary
-                                                                                    grid 2</a></li>
-                                                                            <li><a href="masonary-3-grid.html">mesonary
-                                                                                    grid 3</a></li>
-                                                                            <li><a href="masonary-4-grid.html">mesonary
-                                                                                    grid 4</a></li>
-                                                                            <li><a href="masonary-fullwidth.html">mesonary
-                                                                                    full width</a></li>
-                                                                        </ul>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col mega-box">
-                                                                <div class="link-section">
-                                                                    <div class="menu-title">
-                                                                        <h5>add to cart</h5>
-                                                                    </div>
-                                                                    <div class="menu-content">
-                                                                        <ul>
-                                                                            <li><a href="nursery.html">cart modal
-                                                                                    popup</a></li>
-                                                                            <li><a href="vegetables.html">qty. counter
-                                                                                    <i class="fa fa-bolt icon-trend"
-                                                                                        aria-hidden="true"></i></a></li>
-                                                                            <li><a href="bags.html">cart top</a></li>
-                                                                            <li><a href="shoes.html">cart bottom</a>
-                                                                            </li>
-                                                                            <li><a href="watch.html">cart left</a></li>
-                                                                            <li><a href="tools.html">cart right</a></li>
-                                                                        </ul>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col mega-box">
-                                                                <div class="link-section">
-                                                                    <div class="menu-title">
-                                                                        <h5>theme elements</h5>
-                                                                    </div>
-                                                                    <div class="menu-content">
-                                                                        <ul>
-                                                                            <li><a href="element-title.html">title</a>
-                                                                            </li>
-                                                                            <li><a href="element-banner.html">collection
-                                                                                    banner</a></li>
-                                                                            <li><a href="element-slider.html">home
-                                                                                    slider</a></li>
-                                                                            <li><a
-                                                                                    href="element-category.html">category</a>
-                                                                            </li>
-                                                                            <li><a
-                                                                                    href="element-service.html">service</a>
-                                                                            </li>
-                                                                            <li><a href="element-image-ratio.html">image
-                                                                                    size ratio <i
-                                                                                        class="fa fa-bolt icon-trend"
-                                                                                        aria-hidden="true"></i></a></li>
-                                                                        </ul>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col mega-box">
-                                                                <div class="link-section">
-                                                                    <div class="menu-title">
-                                                                        <h5>product elements</h5>
-                                                                    </div>
-                                                                    <div class="menu-content">
-                                                                        <ul>
-                                                                            <li class="up-text"><a
-                                                                                    href="element-productbox.html">product
-                                                                                    box<span>10+</span></a></li>
-                                                                            <li><a href="element-product-slider.html">product
-                                                                                    slider</a></li>
-                                                                            <li><a href="element-no_slider.html">no
-                                                                                    slider</a></li>
-                                                                            <li><a href="element-mulitiple_slider.html">multi
-                                                                                    slider</a></li>
-                                                                            <li><a href="element-tab.html">tab</a></li>
-                                                                        </ul>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col mega-box">
-                                                                <div class="link-section">
-                                                                    <div class="menu-title">
-                                                                        <h5>email template </h5>
-                                                                    </div>
-                                                                    <div class="menu-content">
-                                                                        <ul>
-                                                                            <li><a href="email-order-success.html">order
-                                                                                    success</a></li>
-                                                                            <li><a href="email-order-success-two.html">order
-                                                                                    success 2</a></li>
-                                                                            <li><a href="email-template.html">email
-                                                                                    template</a></li>
-                                                                            <li><a href="email-template-two.html">email
-                                                                                    template 2</a></li>
-                                                                        </ul>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="#">pages</a>
-                                            <ul>
-                                                <li>
-                                                    <a href="#">vendor <span class="new-tag">new</span></a>
-                                                    <ul>
-                                                        <li><a href="vendor-dashboard.html">vendor dashboard</a></li>
-                                                        <li><a href="vendor-profile.html">vendor profile</a></li>
-                                                        <li><a href="become-vendor.html">become vendor</a></li>
-                                                    </ul>
-                                                </li>
-                                                <li>
-                                                    <a href="#">account</a>
-                                                    <ul>
-                                                        <li><a href="wishlist.html">wishlist</a></li>
-                                                        <li><a href="cart.html">cart</a></li>
-                                                        <li><a href="dashboard.html">Dashboard</a></li>
-                                                        <li><a href="login.html">login</a></li>
-                                                        <li><a href="register.html">register</a></li>
-                                                        <li><a href="contact.html">contact</a></li>
-                                                        <li><a href="forget_pwd.html">forget password</a></li>
-                                                        <li><a href="profile.html">profile <span
-                                                                    class="new-tag">new</span></a></li>
-                                                        <li><a href="checkout.html">checkout</a></li>
-                                                    </ul>
-                                                </li>
-                                                <li><a href="about-page.html">about us</a></li>
-                                                <li><a href="search.html">search</a></li>
-                                                <li><a href="typography.html">typography <span
-                                                            class="new-tag">new</span></a></li>
-                                                <li><a href="review.html">review <span class="new-tag">new</span></a>
-                                                </li>
-                                                <li><a href="order-success.html">order success</a></li>
-                                                <li>
-                                                    <a href="#">compare</a>
-                                                    <ul>
-                                                        <li><a href="compare.html">compare</a></li>
-                                                        <li><a href="compare-2.html">compare-2 <span
-                                                                    class="new-tag">new</span></a></li>
-                                                    </ul>
-                                                </li>
-                                                <li><a href="collection.html">collection</a></li>
-                                                <li><a href="lookbook.html">lookbook</a></li>
-                                                <li><a href="sitemap.html">site map <span class="new-tag">new</span></a>
-                                                </li>
-                                                <li><a href="404.html">404</a></li>
-                                                <li><a href="coming-soon.html">coming soon <span
-                                                            class="new-tag">new</span></a></li>
-                                                <li><a href="faq.html">FAQ</a></li>
-                                            </ul>
-                                        </li>
-                                        <li>
-                                            <a href="#">blog</a>
-                                            <ul>
-                                                <li><a href="blog-page.html">left sidebar</a></li>
-                                                <li><a href="blog(right-sidebar).html">right sidebar</a></li>
-                                                <li><a href="blog(no-sidebar).html">no sidebar</a></li>
-                                                <li><a href="blog-details.html">blog details</a></li>
-                                            </ul>
-                                        </li>
+                                        
+                                       
+                                        
                                     </ul>
                                 </nav>
                             </div>
@@ -560,22 +591,18 @@
                                 <div class="icon-nav">
                                     <ul>
                                         <li class="onhover-div mobile-search">
-                                            <div><img src="../assets/images/icon/search.png" onclick="openSearch()"
-                                                    class="img-fluid blur-up lazyload" alt="">
+                                            <div><img src="../assets/images/icon/search.png" onclick="openSearch()" class="img-fluid blur-up lazyload" alt="">
                                                 <i class="ti-search" onclick="openSearch()"></i></div>
                                             <div id="search-overlay" class="search-overlay">
                                                 <div>
-                                                    <span class="closebtn" onclick="closeSearch()"
-                                                        title="Close Overlay">×</span>
+                                                    <span class="closebtn" onclick="closeSearch()" title="Close Overlay">×</span>
                                                     <div class="overlay-content">
                                                         <div class="container">
                                                             <div class="row">
                                                                 <div class="col-xl-12">
                                                                     <form>
                                                                         <div class="form-group">
-                                                                            <input type="text" class="form-control"
-                                                                                id="exampleInputPassword1"
-                                                                                placeholder="Search a Product">
+                                                                            <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Search a Product">
                                                                         </div>
                                                                         <button type="submit" class="btn btn-primary"><i
                                                                                 class="fa fa-search"></i></button>
@@ -587,35 +614,14 @@
                                                 </div>
                                             </div>
                                         </li>
-                                        <li class="onhover-div mobile-setting">
-                                            <div><img src="../assets/images/icon/setting.png"
-                                                    class="img-fluid blur-up lazyload" alt="">
-                                                <i class="ti-settings"></i></div>
-                                            <div class="show-div setting">
-                                                <h6>language</h6>
-                                                <ul>
-                                                    <li><a href="#">english</a> </li>
-                                                    <li><a href="#">french</a> </li>
-                                                </ul>
-                                                <h6>currency</h6>
-                                                <ul class="list-inline">
-                                                    <li><a href="#">euro</a> </li>
-                                                    <li><a href="#">rupees</a> </li>
-                                                    <li><a href="#">pound</a> </li>
-                                                    <li><a href="#">doller</a> </li>
-                                                </ul>
-                                            </div>
-                                        </li>
+                                        
                                         <li class="onhover-div mobile-cart">
-                                            <div><img src="../assets/images/icon/cart.png"
-                                                    class="img-fluid blur-up lazyload" alt="">
+                                            <div><img src="../ProgettoEsame/Smarty/smarty-dir/assets/images/icon/cart.png" class="img-fluid blur-up lazyload" alt="">
                                                 <i class="ti-shopping-cart"></i></div>
                                             <ul class="show-div shopping-cart">
                                                 <li>
                                                     <div class="media">
-                                                        <a href="#"><img class="mr-3"
-                                                                src="../assets/images/fashion/product/1.jpg"
-                                                                alt="Generic placeholder image"></a>
+                                                        <a href="#"><img class="mr-3" src="../ProgettoEsame/Smarty/smarty-dir/assets/images/fashion/product/1.jpg" alt="Generic placeholder image"></a>
                                                         <div class="media-body">
                                                             <a href="#">
                                                                 <h4>item name</h4>
@@ -629,9 +635,7 @@
                                                 </li>
                                                 <li>
                                                     <div class="media">
-                                                        <a href="#"><img class="mr-3"
-                                                                src="../assets/images/fashion/product/2.jpg"
-                                                                alt="Generic placeholder image"></a>
+                                                        <a href="#"><img class="mr-3" src="../ProgettoEsame/Smarty/smarty-dir/assets/images/fashion/product/2.jpg" alt="Generic placeholder image"></a>
                                                         <div class="media-body">
                                                             <a href="#">
                                                                 <h4>item name</h4>
@@ -674,135 +678,147 @@
             <div class="row">
                 <div class="col-sm-6">
                     <div class="page-title">
-                        <h2>wishlist</h2>
+                        <h2>Lista Prodotti</h2>
                     </div>
                 </div>
                 <div class="col-sm-6">
                     <nav aria-label="breadcrumb" class="theme-breadcrumb">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                            <li class="breadcrumb-item active">wishlist</li>
+                            <li class="breadcrumb-item"><a href="hom.html">home</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">prodotti</li>
                         </ol>
                     </nav>
                 </div>
             </div>
         </div>
     </div>
-    <!-- breadcrumb End -->
+    <!-- breadcrumb end -->
 
 
-    <!--section start-->
-    <section class="wishlist-section section-b-space">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-12">
-                    <table class="table cart-table table-responsive-xs">
-                        <thead>
-                            <tr class="table-head">
-                                <th scope="col">image</th>
-                                <th scope="col">product name</th>
-                                <th scope="col">price</th>
-                                <th scope="col">availability</th>
-                                <th scope="col">action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>
-                                    <a href="#"><img src="../assets/images/pro3/1.jpg" alt=""></a>
-                                </td>
-                                <td><a href="#">cotton shirt</a>
-                                    <div class="mobile-cart-content row">
-                                        <div class="col-xs-3">
-                                            <p>in stock</p>
-                                        </div>
-                                        <div class="col-xs-3">
-                                            <h2 class="td-color">$63.00</h2>
-                                        </div>
-                                        <div class="col-xs-3">
-                                            <h2 class="td-color"><a href="#" class="icon mr-1"><i class="ti-close"></i>
-                                                </a><a href="#" class="cart"><i class="ti-shopping-cart"></i></a></h2>
+    <!-- section start -->
+    <section class="section-b-space ratio_asos">
+        <div class="collection-wrapper">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-3 collection-filter">
+                        
+                        
+                    </div>
+                    <div class="collection-content col">
+                        <div class="page-main-content">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="top-banner-wrapper">
+                                        <a href="#"><img src="../ProgettoEsame/Smarty/smarty-dir/assets/images/mega-menu/2.jpg" class="img-fluid blur-up lazyload" alt=""></a>
+                                        <div class="top-banner-content small-section">
+                                            <h4>Prodotti</h4>
+                                            <h5>ADC Store si impegna a fornire prodotti di qualità per soddisfare le esigenze di tutti i suoi clienti.
+                                            </h5>
+                                            <p>A tavola ci si incontra, si chiacchiera, ci si rilassa, si ride… talvolta ci si punzecchia, ma il buon cibo, soprattutto se acquistato su ADC Store, fa da paciere. E’ capace di restituire il buonumore persino al termine di una giornata faticosa.
+                                            (Antonino Cannavacciuolo)</p>
                                         </div>
                                     </div>
-                                </td>
-                                <td>
-                                    <h2>$63.00</h2>
-                                </td>
-                                <td>
-                                    <p>in stock</p>
-                                </td>
-                                <td><a href="#" class="icon mr-3"><i class="ti-close"></i> </a><a href="#"
-                                        class="cart"><i class="ti-shopping-cart"></i></a></td>
-                            </tr>
-                        </tbody>
-                        <tbody>
-                            <tr>
-                                <td>
-                                    <a href="#"><img src="../assets/images/pro3/1.jpg" alt=""></a>
-                                </td>
-                                <td><a href="#">cotton shirt</a>
-                                    <div class="mobile-cart-content row">
-                                        <div class="col-xs-3">
-                                            <p>in stock</p>
+                                    <div class="collection-product-wrapper">
+                                        <div class="product-top-filter">
+                                            <div class="row">
+                                                <div class="col-xl-12">
+                                                    <div class="filter-main-btn"><span class="filter-btn btn btn-theme"><i class="fa fa-filter"
+                                                                aria-hidden="true"></i> Filter</span></div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-12">
+                                                    <div class="product-filter-content">
+                                                        <div class="search-count">
+                                                            <h5>Showing Products 1-24 of 10 Result</h5>
+                                                        </div>
+                                                        <div class="collection-view">
+                                                            <ul>
+                                                                <li><i class="fa fa-th grid-layout-view"></i></li>
+                                                                <li><i class="fa fa-list-ul list-layout-view"></i></li>
+                                                            </ul>
+                                                        </div>
+                                                        <div class="collection-grid-view">
+                                                            <ul>
+                                                                <li><img src="../ProgettoEsame/Smarty/smarty-dir/assets/images/icon/2.png" alt="" class="product-2-layout-view"></li>
+                                                                <li><img src="../ProgettoEsame/Smarty/smarty-dir/assets/images/icon/3.png" alt="" class="product-3-layout-view"></li>
+                                                                <li><img src="../ProgettoEsame/Smarty/smarty-dir/assets/images/icon/4.png" alt="" class="product-4-layout-view"></li>
+                                                                <li><img src="../ProgettoEsame/Smarty/smarty-dir/assets/images/icon/6.png" alt="" class="product-6-layout-view"></li>
+                                                            </ul>
+                                                        </div>
+                                                        <div class="product-page-per-view">
+                                                            <select>
+                                                                <option value="High to low">24 Products Par Page
+                                                                </option>
+                                                                <option value="Low to High">50 Products Par Page
+                                                                </option>
+                                                                <option value="Low to High">100 Products Par Page
+                                                                </option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="product-page-filter">
+                                                            <select>
+                                                                <option value="High to low">Sorting items</option>
+                                                                <option value="Low to High">50 Products</option>
+                                                                <option value="Low to High">100 Products</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
-                                        <div class="col-xs-3">
-                                            <h2 class="td-color">$63.00</h2>
+
+                                        <div class="product-wrapper-grid product-load-more">
+                                            {foreach from=$prodotti item=prod key=id}
+
+                                                <div class="row margin-res">
+                                                <div class="col-xl-3 col-6 col-grid-box">
+                                                    <div class="product-box">
+                                                        <div class="img-wrapper">
+                                                            <div class="front">
+                                                                <a href="#">
+                                                                	<img src="data:{$prod.mime};base64,{$prod.dati}" width="150" height="250"/>
+                                                                </a>
+                                                            </div>
+                                                            <div class="cart-info cart-wrap">
+                                                                <button data-toggle="modal" data-target="#addtocart" title="Add to cart"><i
+                                                                        class="ti-shopping-cart"></i></button> <a href="javascript:void(0)" title="Add to Wishlist"><i
+                                                                        class="ti-heart" aria-hidden="true"></i></a> <a href="#" data-toggle="modal" data-target="#quick-view" title="Quick View"><i
+                                                                        class="ti-search" aria-hidden="true"></i></a> <a href="compare.html" title="Compare"><i
+                                                                        class="ti-reload" aria-hidden="true"></i></a>
+                                                            </div>
+                                                        </div>
+                                                        <div class="product-detail">
+                                                            <div>
+                                                                <div class="rating"><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i></div>
+                                                                <a href="product-page(accordian).html">
+                                                                    <h4>{$prod.nome}</h4>
+                                                                    <h5>{$prod.marca}</h5>
+                                                                </a>
+                                                                <h5>{$prod.descrizione}
+                                                                </h5>
+                                                                <h4> {$prod.prezzo}€</h4>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                               
+                                            </div>
+                                            {/foreach}
+
                                         </div>
-                                        <div class="col-xs-3">
-                                            <h2 class="td-color"><a href="#" class="icon mr-1"><i class="ti-close"></i>
-                                                </a><a href="#" class="cart"><i class="ti-shopping-cart"></i></a></h2>
-                                        </div>
+                                        <div class="load-more-sec"><a href="javascript:void(0)" class="loadMore">load
+                                                more</a></div>
                                     </div>
-                                </td>
-                                <td>
-                                    <h2>$63.00</h2>
-                                </td>
-                                <td>
-                                    <p>in stock</p>
-                                </td>
-                                <td><a href="#" class="icon mr-3"><i class="ti-close"></i> </a><a href="#"
-                                        class="cart"><i class="ti-shopping-cart"></i></a></td>
-                            </tr>
-                        </tbody>
-                        <tbody>
-                            <tr>
-                                <td>
-                                    <a href="#"><img src="../assets/images/pro3/1.jpg" alt=""></a>
-                                </td>
-                                <td><a href="#">cotton shirt</a>
-                                    <div class="mobile-cart-content row">
-                                        <div class="col-xs-3">
-                                            <p>in stock</p>
-                                        </div>
-                                        <div class="col-xs-3">
-                                            <h2 class="td-color">$63.00</h2>
-                                        </div>
-                                        <div class="col-xs-3">
-                                            <h2 class="td-color"><a href="#" class="icon mr-1"><i class="ti-close"></i>
-                                                </a><a href="#" class="cart"><i class="ti-shopping-cart"></i></a></h2>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>
-                                    <h2>$63.00</h2>
-                                </td>
-                                <td>
-                                    <p>in stock</p>
-                                </td>
-                                <td><a href="#" class="icon mr-3"><i class="ti-close"></i> </a><a href="#"
-                                        class="cart"><i class="ti-shopping-cart"></i></a></td>
-                            </tr>
-                        </tbody>
-                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div class="row wishlist-buttons">
-                <div class="col-12"><a href="#" class="btn btn-solid">continue shopping</a> <a href="#"
-                        class="btn btn-solid">check out</a></div>
             </div>
         </div>
     </section>
-    <!--section end-->
+    <!-- section End -->
 
 
     <!-- footer start -->
@@ -820,13 +836,10 @@
                             </div>
                         </div>
                         <div class="col-lg-6">
-                            <form
-                                action="https://pixelstrap.us19.list-manage.com/subscribe/post?u=5a128856334b598b395f1fc9b&amp;id=082f74cbda"
-                                class="form-inline subscribe-form auth-form needs-validation" method="post"
-                                id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" target="_blank">
+                            <form action="https://pixelstrap.us19.list-manage.com/subscribe/post?u=5a128856334b598b395f1fc9b&amp;id=082f74cbda" class="form-inline subscribe-form auth-form needs-validation" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form"
+                                target="_blank">
                                 <div class="form-group mx-sm-3">
-                                    <input type="text" class="form-control" name="EMAIL" id="mce-EMAIL"
-                                        placeholder="Enter your email" required="required">
+                                    <input type="text" class="form-control" name="EMAIL" id="mce-EMAIL" placeholder="Enter your email" required="required">
                                 </div>
                                 <button type="submit" class="btn btn-solid" id="mc-submit">subscribe</button>
                             </form>
@@ -844,8 +857,7 @@
                         </div>
                         <div class="footer-contant">
                             <div class="footer-logo"><img src="../assets/images/icon/logo.png" alt=""></div>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                                ut labore et dolore magna aliqua. Ut enim ad minim veniam,</p>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,</p>
                             <div class="footer-social">
                                 <ul>
                                     <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
@@ -913,8 +925,8 @@
                 <div class="row">
                     <div class="col-xl-6 col-md-6 col-sm-12">
                         <div class="footer-end">
-                            <p><i class="fa fa-copyright" aria-hidden="true"></i> 2017-18 themeforest powered by
-                                pixelstrap</p>
+                            <p><i class="fa fa-copyright" aria-hidden="true"></i> 2017-18 themeforest powered by pixelstrap
+                            </p>
                         </div>
                     </div>
                     <div class="col-xl-6 col-md-6 col-sm-12">
@@ -945,6 +957,60 @@
     <!-- footer end -->
 
 
+    <!-- Quick-view modal popup start-->
+    <div class="modal fade bd-example-modal-lg theme-modal" id="quick-view" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+            <div class="modal-content quick-view-modal">
+                <div class="modal-body">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                    <div class="row">
+                        <div class="col-lg-6 col-xs-12">
+                            <div class="quick-view-img"><img src="../assets/images/pro3/1.jpg" alt="" class="img-fluid blur-up lazyload"></div>
+                        </div>
+                        <div class="col-lg-6 rtl-text">
+                            <div class="product-right">
+                                <h2>Women Pink Shirt</h2>
+                                <h3>$32.96</h3>
+                                <ul class="color-variant">
+                                    <li class="bg-light0"></li>
+                                    <li class="bg-light1"></li>
+                                    <li class="bg-light2"></li>
+                                </ul>
+                                <div class="border-product">
+                                    <h6 class="product-title">product details</h6>
+                                    <p>Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium doloremque laudantium</p>
+                                </div>
+                                <div class="product-description border-product">
+                                    <div class="size-box">
+                                        <ul>
+                                            <li class="active"><a href="#">s</a></li>
+                                            <li><a href="#">m</a></li>
+                                            <li><a href="#">l</a></li>
+                                            <li><a href="#">xl</a></li>
+                                        </ul>
+                                    </div>
+                                    <h6 class="product-title">quantity</h6>
+                                    <div class="qty-box">
+                                        <div class="input-group"><span class="input-group-prepend"><button type="button"
+                                                    class="btn quantity-left-minus" data-type="minus" data-field=""><i
+                                                        class="ti-angle-left"></i></button> </span>
+                                            <input type="text" name="quantity" class="form-control input-number" value="1"> <span class="input-group-prepend"><button type="button"
+                                                    class="btn quantity-right-plus" data-type="plus" data-field=""><i
+                                                        class="ti-angle-right"></i></button></span></div>
+                                    </div>
+                                </div>
+                                <div class="product-buttons"><a href="#" class="btn btn-solid">add to cart</a> <a href="#" class="btn btn-solid">view detail</a></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Quick-view modal popup end-->
+
+
     <!-- theme setting -->
     <a href="javascript:void(0)" onclick="openSetting()">
         <div class="setting-sidebar" id="setting-icon">
@@ -970,9 +1036,7 @@
                                 <div class="layout-container demo1"></div>
                                 <div class="demo-text">
                                     <h4>Fashion</h4>
-                                    <div class="btn-group demo-btn" role="group" aria-label="Basic example"> <button
-                                            type="button" onClick="window.open('index.html')"
-                                            class="btn new-tab-btn">Preview</button></div>
+                                    <div class="btn-group demo-btn" role="group" aria-label="Basic example"> <button type="button" onClick="window.open('index.html')" class="btn new-tab-btn">Preview</button></div>
                                 </div>
                             </div>
                         </div>
@@ -983,9 +1047,7 @@
                                 </div>
                                 <div class="demo-text">
                                     <h4>game</h4>
-                                    <div class="btn-group demo-btn" role="group" aria-label="Basic example"> <button
-                                            type="button" onClick="window.open('game.html')"
-                                            class="btn new-tab-btn">Preview</button> </div>
+                                    <div class="btn-group demo-btn" role="group" aria-label="Basic example"> <button type="button" onClick="window.open('game.html')" class="btn new-tab-btn">Preview</button> </div>
                                 </div>
                             </div>
                         </div>
@@ -996,9 +1058,7 @@
                                 </div>
                                 <div class="demo-text">
                                     <h4>gym</h4>
-                                    <div class="btn-group demo-btn" role="group" aria-label="Basic example"> <button
-                                            type="button" onClick="window.open('gym-product.html')"
-                                            class="btn new-tab-btn">Preview</button> </div>
+                                    <div class="btn-group demo-btn" role="group" aria-label="Basic example"> <button type="button" onClick="window.open('gym-product.html')" class="btn new-tab-btn">Preview</button> </div>
                                 </div>
                             </div>
                         </div>
@@ -1009,9 +1069,7 @@
                                 </div>
                                 <div class="demo-text">
                                     <h4>tools</h4>
-                                    <div class="btn-group demo-btn" role="group" aria-label="Basic example"> <button
-                                            type="button" onClick="window.open('tools.html')"
-                                            class="btn new-tab-btn">Preview</button> </div>
+                                    <div class="btn-group demo-btn" role="group" aria-label="Basic example"> <button type="button" onClick="window.open('tools.html')" class="btn new-tab-btn">Preview</button> </div>
                                 </div>
                             </div>
                         </div>
@@ -1022,9 +1080,7 @@
                                 </div>
                                 <div class="demo-text">
                                     <h4>marijuana</h4>
-                                    <div class="btn-group demo-btn" role="group" aria-label="Basic example"> <button
-                                            type="button" onClick="window.open('marijuana.html')"
-                                            class="btn new-tab-btn">Preview</button> </div>
+                                    <div class="btn-group demo-btn" role="group" aria-label="Basic example"> <button type="button" onClick="window.open('marijuana.html')" class="btn new-tab-btn">Preview</button> </div>
                                 </div>
                             </div>
                         </div>
@@ -1035,9 +1091,7 @@
                                 </div>
                                 <div class="demo-text">
                                     <h4>metro</h4>
-                                    <div class="btn-group demo-btn" role="group" aria-label="Basic example"> <button
-                                            type="button" onClick="window.open('metro.html')"
-                                            class="btn new-tab-btn">Preview</button> </div>
+                                    <div class="btn-group demo-btn" role="group" aria-label="Basic example"> <button type="button" onClick="window.open('metro.html')" class="btn new-tab-btn">Preview</button> </div>
                                 </div>
                             </div>
                         </div>
@@ -1048,9 +1102,7 @@
                                 </div>
                                 <div class="demo-text">
                                     <h4>pets</h4>
-                                    <div class="btn-group demo-btn" role="group" aria-label="Basic example"> <button
-                                            type="button" onClick="window.open('pets.html')"
-                                            class="btn new-tab-btn">Preview</button> </div>
+                                    <div class="btn-group demo-btn" role="group" aria-label="Basic example"> <button type="button" onClick="window.open('pets.html')" class="btn new-tab-btn">Preview</button> </div>
                                 </div>
                             </div>
                         </div>
@@ -1061,9 +1113,7 @@
                                 </div>
                                 <div class="demo-text">
                                     <h4>video slider</h4>
-                                    <div class="btn-group demo-btn" role="group" aria-label="Basic example"> <button
-                                            type="button" onClick="window.open('video-slider.html')"
-                                            class="btn new-tab-btn">Preview</button> </div>
+                                    <div class="btn-group demo-btn" role="group" aria-label="Basic example"> <button type="button" onClick="window.open('video-slider.html')" class="btn new-tab-btn">Preview</button> </div>
                                 </div>
                             </div>
                         </div>
@@ -1074,9 +1124,7 @@
                                 </div>
                                 <div class="demo-text">
                                     <h4>left menu</h4>
-                                    <div class="btn-group demo-btn" role="group" aria-label="Basic example"> <button
-                                            type="button" onClick="window.open('left_sidebar-demo.html')"
-                                            class="btn new-tab-btn">Preview</button> </div>
+                                    <div class="btn-group demo-btn" role="group" aria-label="Basic example"> <button type="button" onClick="window.open('left_sidebar-demo.html')" class="btn new-tab-btn">Preview</button> </div>
                                 </div>
                             </div>
                         </div>
@@ -1087,9 +1135,7 @@
                                 </div>
                                 <div class="demo-text">
                                     <h4>jewellery</h4>
-                                    <div class="btn-group demo-btn" role="group" aria-label="Basic example"> <button
-                                            type="button" onClick="window.open('jewellery.html')"
-                                            class="btn new-tab-btn">Preview</button> </div>
+                                    <div class="btn-group demo-btn" role="group" aria-label="Basic example"> <button type="button" onClick="window.open('jewellery.html')" class="btn new-tab-btn">Preview</button> </div>
                                 </div>
                             </div>
                         </div>
@@ -1098,9 +1144,7 @@
                                 <div class="layout-container demo2"></div>
                                 <div class="demo-text">
                                     <h4>Fashion</h4>
-                                    <div class="btn-group demo-btn" role="group" aria-label="Basic example"> <button
-                                            type="button" onClick="window.open('fashion-2.html')"
-                                            class="btn new-tab-btn">Preview</button></div>
+                                    <div class="btn-group demo-btn" role="group" aria-label="Basic example"> <button type="button" onClick="window.open('fashion-2.html')" class="btn new-tab-btn">Preview</button></div>
                                 </div>
                             </div>
                         </div>
@@ -1109,9 +1153,7 @@
                                 <div class="layout-container demo3"></div>
                                 <div class="demo-text">
                                     <h4>Fashion</h4>
-                                    <div class="btn-group demo-btn" role="group" aria-label="Basic example"> <button
-                                            type="button" onClick="window.open('fashion-3.html')"
-                                            class="btn new-tab-btn">Preview</button></div>
+                                    <div class="btn-group demo-btn" role="group" aria-label="Basic example"> <button type="button" onClick="window.open('fashion-3.html')" class="btn new-tab-btn">Preview</button></div>
                                 </div>
                             </div>
                         </div>
@@ -1120,9 +1162,7 @@
                                 <div class="layout-container demo4"></div>
                                 <div class="demo-text">
                                     <h4>Shoes</h4>
-                                    <div class="btn-group demo-btn" role="group" aria-label="Basic example"> <button
-                                            type="button" onClick="window.open('shoes.html')"
-                                            class="btn new-tab-btn">Preview</button></div>
+                                    <div class="btn-group demo-btn" role="group" aria-label="Basic example"> <button type="button" onClick="window.open('shoes.html')" class="btn new-tab-btn">Preview</button></div>
                                 </div>
                             </div>
                         </div>
@@ -1131,9 +1171,7 @@
                                 <div class="layout-container demo5"></div>
                                 <div class="demo-text">
                                     <h4>Bags</h4>
-                                    <div class="btn-group demo-btn" role="group" aria-label="Basic example"> <button
-                                            type="button" onClick="window.open('bags.html')"
-                                            class="btn new-tab-btn">Preview</button></div>
+                                    <div class="btn-group demo-btn" role="group" aria-label="Basic example"> <button type="button" onClick="window.open('bags.html')" class="btn new-tab-btn">Preview</button></div>
                                 </div>
                             </div>
                         </div>
@@ -1142,9 +1180,7 @@
                                 <div class="layout-container demo6"></div>
                                 <div class="demo-text">
                                     <h4>Watch</h4>
-                                    <div class="btn-group demo-btn" role="group" aria-label="Basic example"> <button
-                                            type="button" onClick="window.open('watch.html')"
-                                            class="btn new-tab-btn">Preview</button></div>
+                                    <div class="btn-group demo-btn" role="group" aria-label="Basic example"> <button type="button" onClick="window.open('watch.html')" class="btn new-tab-btn">Preview</button></div>
                                 </div>
                             </div>
                         </div>
@@ -1153,9 +1189,7 @@
                                 <div class="layout-container demo7"></div>
                                 <div class="demo-text">
                                     <h4>Kids</h4>
-                                    <div class="btn-group demo-btn" role="group" aria-label="Basic example"> <button
-                                            type="button" onClick="window.open('kids.html')"
-                                            class="btn new-tab-btn">Preview</button></div>
+                                    <div class="btn-group demo-btn" role="group" aria-label="Basic example"> <button type="button" onClick="window.open('kids.html')" class="btn new-tab-btn">Preview</button></div>
                                 </div>
                             </div>
                         </div>
@@ -1164,9 +1198,7 @@
                                 <div class="layout-container demo8"></div>
                                 <div class="demo-text">
                                     <h4>Flower</h4>
-                                    <div class="btn-group demo-btn" role="group" aria-label="Basic example"> <button
-                                            type="button" onClick="window.open('flower.html')"
-                                            class="btn new-tab-btn">Preview</button></div>
+                                    <div class="btn-group demo-btn" role="group" aria-label="Basic example"> <button type="button" onClick="window.open('flower.html')" class="btn new-tab-btn">Preview</button></div>
                                 </div>
                             </div>
                         </div>
@@ -1175,9 +1207,7 @@
                                 <div class="layout-container demo9"></div>
                                 <div class="demo-text">
                                     <h4>Nursery</h4>
-                                    <div class="btn-group demo-btn" role="group" aria-label="Basic example"> <button
-                                            type="button" onClick="window.open('nursery.html')"
-                                            class="btn new-tab-btn">Preview</button></div>
+                                    <div class="btn-group demo-btn" role="group" aria-label="Basic example"> <button type="button" onClick="window.open('nursery.html')" class="btn new-tab-btn">Preview</button></div>
                                 </div>
                             </div>
                         </div>
@@ -1186,9 +1216,7 @@
                                 <div class="layout-container demo10"></div>
                                 <div class="demo-text">
                                     <h4>Vegetables</h4>
-                                    <div class="btn-group demo-btn" role="group" aria-label="Basic example"> <button
-                                            type="button" onClick="window.open('vegetables.html')"
-                                            class="btn new-tab-btn">Preview</button></div>
+                                    <div class="btn-group demo-btn" role="group" aria-label="Basic example"> <button type="button" onClick="window.open('vegetables.html')" class="btn new-tab-btn">Preview</button></div>
                                 </div>
                             </div>
                         </div>
@@ -1197,9 +1225,7 @@
                                 <div class="layout-container demo11"></div>
                                 <div class="demo-text">
                                     <h4>Beauty</h4>
-                                    <div class="btn-group demo-btn" role="group" aria-label="Basic example"> <button
-                                            type="button" onClick="window.open('beauty.html')"
-                                            class="btn new-tab-btn">Preview</button></div>
+                                    <div class="btn-group demo-btn" role="group" aria-label="Basic example"> <button type="button" onClick="window.open('beauty.html')" class="btn new-tab-btn">Preview</button></div>
                                 </div>
                             </div>
                         </div>
@@ -1208,9 +1234,7 @@
                                 <div class="layout-container demo12"></div>
                                 <div class="demo-text">
                                     <h4>Instagram Shop</h4>
-                                    <div class="btn-group demo-btn" role="group" aria-label="Basic example"> <button
-                                            type="button" onClick="window.open('instagram-shop.html')"
-                                            class="btn new-tab-btn">Preview</button></div>
+                                    <div class="btn-group demo-btn" role="group" aria-label="Basic example"> <button type="button" onClick="window.open('instagram-shop.html')" class="btn new-tab-btn">Preview</button></div>
                                 </div>
                             </div>
                         </div>
@@ -1219,9 +1243,7 @@
                                 <div class="layout-container demo13"></div>
                                 <div class="demo-text">
                                     <h4>Lookbook</h4>
-                                    <div class="btn-group demo-btn" role="group" aria-label="Basic example"> <button
-                                            type="button" onClick="window.open('lookbook-demo.html')"
-                                            class="btn new-tab-btn">Preview</button></div>
+                                    <div class="btn-group demo-btn" role="group" aria-label="Basic example"> <button type="button" onClick="window.open('lookbook-demo.html')" class="btn new-tab-btn">Preview</button></div>
                                 </div>
                             </div>
                         </div>
@@ -1230,9 +1252,7 @@
                                 <div class="layout-container demo14"></div>
                                 <div class="demo-text">
                                     <h4>Light</h4>
-                                    <div class="btn-group demo-btn" role="group" aria-label="Basic example"> <button
-                                            type="button" onClick="window.open('light.html')"
-                                            class="btn new-tab-btn">Preview</button></div>
+                                    <div class="btn-group demo-btn" role="group" aria-label="Basic example"> <button type="button" onClick="window.open('light.html')" class="btn new-tab-btn">Preview</button></div>
                                 </div>
                             </div>
                         </div>
@@ -1241,9 +1261,7 @@
                                 <div class="layout-container demo15"></div>
                                 <div class="demo-text">
                                     <h4>Full Page</h4>
-                                    <div class="btn-group demo-btn" role="group" aria-label="Basic example"> <button
-                                            type="button" onClick="window.open('full-page.html')"
-                                            class="btn new-tab-btn">Preview</button></div>
+                                    <div class="btn-group demo-btn" role="group" aria-label="Basic example"> <button type="button" onClick="window.open('full-page.html')" class="btn new-tab-btn">Preview</button></div>
                                 </div>
                             </div>
                         </div>
@@ -1252,9 +1270,7 @@
                                 <div class="layout-container demo16"></div>
                                 <div class="demo-text">
                                     <h4>Electronic-1</h4>
-                                    <div class="btn-group demo-btn" role="group" aria-label="Basic example"> <button
-                                            type="button" onClick="window.open('electronic-1.html')"
-                                            class="btn new-tab-btn">Preview</button></div>
+                                    <div class="btn-group demo-btn" role="group" aria-label="Basic example"> <button type="button" onClick="window.open('electronic-1.html')" class="btn new-tab-btn">Preview</button></div>
                                 </div>
                             </div>
                         </div>
@@ -1263,9 +1279,7 @@
                                 <div class="layout-container demo17"></div>
                                 <div class="demo-text">
                                     <h4>Electronic-2</h4>
-                                    <div class="btn-group demo-btn" role="group" aria-label="Basic example"> <button
-                                            type="button" onClick="window.open('electronic-2.html')"
-                                            class="btn new-tab-btn">Preview</button></div>
+                                    <div class="btn-group demo-btn" role="group" aria-label="Basic example"> <button type="button" onClick="window.open('electronic-2.html')" class="btn new-tab-btn">Preview</button></div>
                                 </div>
                             </div>
                         </div>
@@ -1274,9 +1288,7 @@
                                 <div class="layout-container demo18"></div>
                                 <div class="demo-text">
                                     <h4>Video</h4>
-                                    <div class="btn-group demo-btn" role="group" aria-label="Basic example"> <button
-                                            type="button" onClick="window.open('video.html')"
-                                            class="btn new-tab-btn">Preview</button></div>
+                                    <div class="btn-group demo-btn" role="group" aria-label="Basic example"> <button type="button" onClick="window.open('video.html')" class="btn new-tab-btn">Preview</button></div>
                                 </div>
                             </div>
                         </div>
@@ -1285,9 +1297,7 @@
                                 <div class="layout-container demo19"></div>
                                 <div class="demo-text">
                                     <h4>Goggles</h4>
-                                    <div class="btn-group demo-btn" role="group" aria-label="Basic example"> <button
-                                            type="button" onClick="window.open('goggles.html')"
-                                            class="btn new-tab-btn">Preview</button></div>
+                                    <div class="btn-group demo-btn" role="group" aria-label="Basic example"> <button type="button" onClick="window.open('goggles.html')" class="btn new-tab-btn">Preview</button></div>
                                 </div>
                             </div>
                         </div>
@@ -1296,9 +1306,7 @@
                                 <div class="layout-container demo20"></div>
                                 <div class="demo-text">
                                     <h4>Parallax</h4>
-                                    <div class="btn-group demo-btn" role="group" aria-label="Basic example"> <button
-                                            type="button" onClick="window.open('parallax.html')"
-                                            class="btn new-tab-btn">Preview</button></div>
+                                    <div class="btn-group demo-btn" role="group" aria-label="Basic example"> <button type="button" onClick="window.open('parallax.html')" class="btn new-tab-btn">Preview</button></div>
                                 </div>
                             </div>
                         </div>
@@ -1307,9 +1315,7 @@
                                 <div class="layout-container demo21"></div>
                                 <div class="demo-text">
                                     <h4>Furniture</h4>
-                                    <div class="btn-group demo-btn" role="group" aria-label="Basic example"> <button
-                                            type="button" onClick="window.open('furniture.html')"
-                                            class="btn new-tab-btn">Preview</button></div>
+                                    <div class="btn-group demo-btn" role="group" aria-label="Basic example"> <button type="button" onClick="window.open('furniture.html')" class="btn new-tab-btn">Preview</button></div>
                                 </div>
                             </div>
                         </div>
@@ -1325,9 +1331,7 @@
                                 <div class="layout-container demo22"></div>
                                 <div class="demo-text">
                                     <h4>left sidebar</h4>
-                                    <div class="btn-group demo-btn" role="group" aria-label="Basic example"> <button
-                                            type="button" onClick="window.open('category-page.html')"
-                                            class="btn new-tab-btn">Preview</button></div>
+                                    <div class="btn-group demo-btn" role="group" aria-label="Basic example"> <button type="button" onClick="window.open('category-page.html')" class="btn new-tab-btn">Preview</button></div>
                                 </div>
                             </div>
                         </div>
@@ -1336,9 +1340,7 @@
                                 <div class="layout-container demo24"></div>
                                 <div class="demo-text">
                                     <h4>right sidebar</h4>
-                                    <div class="btn-group demo-btn" role="group" aria-label="Basic example"> <button
-                                            type="button" onClick="window.open('category-page(right).html')"
-                                            class="btn new-tab-btn">Preview</button> </div>
+                                    <div class="btn-group demo-btn" role="group" aria-label="Basic example"> <button type="button" onClick="window.open('category-page(right).html')" class="btn new-tab-btn">Preview</button> </div>
                                 </div>
                             </div>
                         </div>
@@ -1347,9 +1349,7 @@
                                 <div class="layout-container demo23"></div>
                                 <div class="demo-text">
                                     <h4>no sidebar</h4>
-                                    <div class="btn-group demo-btn" role="group" aria-label="Basic example"> <button
-                                            type="button" onClick="window.open('category-page(no-sidebar).html')"
-                                            class="btn new-tab-btn">Preview</button> </div>
+                                    <div class="btn-group demo-btn" role="group" aria-label="Basic example"> <button type="button" onClick="window.open('category-page(no-sidebar).html')" class="btn new-tab-btn">Preview</button> </div>
                                 </div>
                             </div>
                         </div>
@@ -1358,9 +1358,7 @@
                                 <div class="layout-container demo25"></div>
                                 <div class="demo-text">
                                     <h4>popup</h4>
-                                    <div class="btn-group demo-btn" role="group" aria-label="Basic example"> <button
-                                            type="button" onClick="window.open('category-page(sidebar-popup).html')"
-                                            class="btn new-tab-btn">Preview</button> </div>
+                                    <div class="btn-group demo-btn" role="group" aria-label="Basic example"> <button type="button" onClick="window.open('category-page(sidebar-popup).html')" class="btn new-tab-btn">Preview</button> </div>
                                 </div>
                             </div>
                         </div>
@@ -1371,9 +1369,7 @@
                                 </div>
                                 <div class="demo-text">
                                     <h4>metro</h4>
-                                    <div class="btn-group demo-btn" role="group" aria-label="Basic example"> <button
-                                            type="button" onClick="window.open('category-page(metro).html')"
-                                            class="btn new-tab-btn">Preview</button> </div>
+                                    <div class="btn-group demo-btn" role="group" aria-label="Basic example"> <button type="button" onClick="window.open('category-page(metro).html')" class="btn new-tab-btn">Preview</button> </div>
                                 </div>
                             </div>
                         </div>
@@ -1384,9 +1380,7 @@
                                 </div>
                                 <div class="demo-text">
                                     <h4>full width</h4>
-                                    <div class="btn-group demo-btn" role="group" aria-label="Basic example"> <button
-                                            type="button" onClick="window.open('category-page(full-width).html')"
-                                            class="btn new-tab-btn">Preview</button> </div>
+                                    <div class="btn-group demo-btn" role="group" aria-label="Basic example"> <button type="button" onClick="window.open('category-page(full-width).html')" class="btn new-tab-btn">Preview</button> </div>
                                 </div>
                             </div>
                         </div>
@@ -1395,9 +1389,7 @@
                                 <div class="layout-container demo26"></div>
                                 <div class="demo-text">
                                     <h4>infinite scroll</h4>
-                                    <div class="btn-group demo-btn" role="group" aria-label="Basic example"> <button
-                                            type="button" onClick="window.open('category-page(infinite-scroll).html')"
-                                            class="btn new-tab-btn">Preview</button> </div>
+                                    <div class="btn-group demo-btn" role="group" aria-label="Basic example"> <button type="button" onClick="window.open('category-page(infinite-scroll).html')" class="btn new-tab-btn">Preview</button> </div>
                                 </div>
                             </div>
                         </div>
@@ -1406,9 +1398,7 @@
                                 <div class="layout-container demo54"></div>
                                 <div class="demo-text">
                                     <h4>three grid</h4>
-                                    <div class="btn-group demo-btn" role="group" aria-label="Basic example"> <button
-                                            type="button" onClick="window.open('category-page(3-grid).html')"
-                                            class="btn new-tab-btn">Preview</button> </div>
+                                    <div class="btn-group demo-btn" role="group" aria-label="Basic example"> <button type="button" onClick="window.open('category-page(3-grid).html')" class="btn new-tab-btn">Preview</button> </div>
                                 </div>
                             </div>
                         </div>
@@ -1417,9 +1407,7 @@
                                 <div class="layout-container demo55"></div>
                                 <div class="demo-text">
                                     <h4>six grid</h4>
-                                    <div class="btn-group demo-btn" role="group" aria-label="Basic example"> <button
-                                            type="button" onClick="window.open('category-page(6-grid).html')"
-                                            class="btn new-tab-btn">Preview</button> </div>
+                                    <div class="btn-group demo-btn" role="group" aria-label="Basic example"> <button type="button" onClick="window.open('category-page(6-grid).html')" class="btn new-tab-btn">Preview</button> </div>
                                 </div>
                             </div>
                         </div>
@@ -1428,9 +1416,7 @@
                                 <div class="layout-container demo56"></div>
                                 <div class="demo-text">
                                     <h4>list view</h4>
-                                    <div class="btn-group demo-btn" role="group" aria-label="Basic example"> <button
-                                            type="button" onClick="window.open('category-page(list-view).html')"
-                                            class="btn new-tab-btn">Preview</button> </div>
+                                    <div class="btn-group demo-btn" role="group" aria-label="Basic example"> <button type="button" onClick="window.open('category-page(list-view).html')" class="btn new-tab-btn">Preview</button> </div>
                                 </div>
                             </div>
                         </div>
@@ -1448,9 +1434,7 @@
                                 </div>
                                 <div class="demo-text">
                                     <h4>four image </h4>
-                                    <div class="btn-group demo-btn" role="group" aria-label="Basic example"> <button
-                                            type="button" onClick="window.open('product-page(4-image).html')"
-                                            class="btn new-tab-btn">Preview</button> </div>
+                                    <div class="btn-group demo-btn" role="group" aria-label="Basic example"> <button type="button" onClick="window.open('product-page(4-image).html')" class="btn new-tab-btn">Preview</button> </div>
                                 </div>
                             </div>
                         </div>
@@ -1459,9 +1443,7 @@
                                 <div class="layout-container demo33"></div>
                                 <div class="demo-text">
                                     <h4>left sidebar</h4>
-                                    <div class="btn-group demo-btn" role="group" aria-label="Basic example"> <button
-                                            type="button" onClick="window.open('product-page.html')"
-                                            class="btn new-tab-btn">Preview</button></div>
+                                    <div class="btn-group demo-btn" role="group" aria-label="Basic example"> <button type="button" onClick="window.open('product-page.html')" class="btn new-tab-btn">Preview</button></div>
                                 </div>
                             </div>
                         </div>
@@ -1470,9 +1452,7 @@
                                 <div class="layout-container demo36"></div>
                                 <div class="demo-text">
                                     <h4>right sidebar</h4>
-                                    <div class="btn-group demo-btn" role="group" aria-label="Basic example"> <button
-                                            type="button" onClick="window.open('product-page(right-sidebar).html')"
-                                            class="btn new-tab-btn">Preview</button> </div>
+                                    <div class="btn-group demo-btn" role="group" aria-label="Basic example"> <button type="button" onClick="window.open('product-page(right-sidebar).html')" class="btn new-tab-btn">Preview</button> </div>
                                 </div>
                             </div>
                         </div>
@@ -1481,9 +1461,7 @@
                                 <div class="layout-container demo34"></div>
                                 <div class="demo-text">
                                     <h4>no sidebar</h4>
-                                    <div class="btn-group demo-btn" role="group" aria-label="Basic example"> <button
-                                            type="button" onClick="window.open('product-page(no-sidebar).html')"
-                                            class="btn new-tab-btn">Preview</button> </div>
+                                    <div class="btn-group demo-btn" role="group" aria-label="Basic example"> <button type="button" onClick="window.open('product-page(no-sidebar).html')" class="btn new-tab-btn">Preview</button> </div>
                                 </div>
                             </div>
                         </div>
@@ -1494,9 +1472,7 @@
                                 </div>
                                 <div class="demo-text">
                                     <h4>bundle</h4>
-                                    <div class="btn-group demo-btn" role="group" aria-label="Basic example"> <button
-                                            type="button" onClick="window.open('product-page(bundle).html')"
-                                            class="btn new-tab-btn">Preview</button> </div>
+                                    <div class="btn-group demo-btn" role="group" aria-label="Basic example"> <button type="button" onClick="window.open('product-page(bundle).html')" class="btn new-tab-btn">Preview</button> </div>
                                 </div>
                             </div>
                         </div>
@@ -1507,9 +1483,7 @@
                                 </div>
                                 <div class="demo-text">
                                     <h4>image swatch</h4>
-                                    <div class="btn-group demo-btn" role="group" aria-label="Basic example"> <button
-                                            type="button" onClick="window.open('product-page(image-swatch).html')"
-                                            class="btn new-tab-btn">Preview</button> </div>
+                                    <div class="btn-group demo-btn" role="group" aria-label="Basic example"> <button type="button" onClick="window.open('product-page(image-swatch).html')" class="btn new-tab-btn">Preview</button> </div>
                                 </div>
                             </div>
                         </div>
@@ -1518,9 +1492,7 @@
                                 <div class="layout-container demo32"></div>
                                 <div class="demo-text">
                                     <h4>left image</h4>
-                                    <div class="btn-group demo-btn" role="group" aria-label="Basic example"> <button
-                                            type="button" onClick="window.open('product-page(left-image).html')"
-                                            class="btn new-tab-btn">Preview</button> </div>
+                                    <div class="btn-group demo-btn" role="group" aria-label="Basic example"> <button type="button" onClick="window.open('product-page(left-image).html')" class="btn new-tab-btn">Preview</button> </div>
                                 </div>
                             </div>
                         </div>
@@ -1529,9 +1501,7 @@
                                 <div class="layout-container demo35"></div>
                                 <div class="demo-text">
                                     <h4>right image</h4>
-                                    <div class="btn-group demo-btn" role="group" aria-label="Basic example"> <button
-                                            type="button" onClick="window.open('product-page(right-image).html')"
-                                            class="btn new-tab-btn">Preview</button> </div>
+                                    <div class="btn-group demo-btn" role="group" aria-label="Basic example"> <button type="button" onClick="window.open('product-page(right-image).html')" class="btn new-tab-btn">Preview</button> </div>
                                 </div>
                             </div>
                         </div>
@@ -1542,9 +1512,7 @@
                                 </div>
                                 <div class="demo-text">
                                     <h4>image outside</h4>
-                                    <div class="btn-group demo-btn" role="group" aria-label="Basic example"> <button
-                                            type="button" onClick="window.open('product-page(image-outside).html')"
-                                            class="btn new-tab-btn">Preview</button> </div>
+                                    <div class="btn-group demo-btn" role="group" aria-label="Basic example"> <button type="button" onClick="window.open('product-page(image-outside).html')" class="btn new-tab-btn">Preview</button> </div>
                                 </div>
                             </div>
                         </div>
@@ -1553,9 +1521,7 @@
                                 <div class="layout-container demo27"></div>
                                 <div class="demo-text">
                                     <h4>3-col left</h4>
-                                    <div class="btn-group demo-btn" role="group" aria-label="Basic example"> <button
-                                            type="button" onClick="window.open('product-page(3-col-left).html')"
-                                            class="btn new-tab-btn">Preview</button> </div>
+                                    <div class="btn-group demo-btn" role="group" aria-label="Basic example"> <button type="button" onClick="window.open('product-page(3-col-left).html')" class="btn new-tab-btn">Preview</button> </div>
                                 </div>
                             </div>
                         </div>
@@ -1564,9 +1530,7 @@
                                 <div class="layout-container demo28"></div>
                                 <div class="demo-text">
                                     <h4>3-col right</h4>
-                                    <div class="btn-group demo-btn" role="group" aria-label="Basic example"> <button
-                                            type="button" onClick="window.open('product-page(3-col-right).html')"
-                                            class="btn new-tab-btn">Preview</button> </div>
+                                    <div class="btn-group demo-btn" role="group" aria-label="Basic example"> <button type="button" onClick="window.open('product-page(3-col-right).html')" class="btn new-tab-btn">Preview</button> </div>
                                 </div>
                             </div>
                         </div>
@@ -1575,9 +1539,7 @@
                                 <div class="layout-container demo29"></div>
                                 <div class="demo-text">
                                     <h4>3-col bottom</h4>
-                                    <div class="btn-group demo-btn" role="group" aria-label="Basic example"> <button
-                                            type="button" onClick="window.open('product-page(3-column).html')"
-                                            class="btn new-tab-btn">Preview</button> </div>
+                                    <div class="btn-group demo-btn" role="group" aria-label="Basic example"> <button type="button" onClick="window.open('product-page(3-column).html')" class="btn new-tab-btn">Preview</button> </div>
                                 </div>
                             </div>
                         </div>
@@ -1586,9 +1548,7 @@
                                 <div class="layout-container demo37"></div>
                                 <div class="demo-text">
                                     <h4>sticky</h4>
-                                    <div class="btn-group demo-btn" role="group" aria-label="Basic example"> <button
-                                            type="button" onClick="window.open('product-page(sticky).html')"
-                                            class="btn new-tab-btn">Preview</button> </div>
+                                    <div class="btn-group demo-btn" role="group" aria-label="Basic example"> <button type="button" onClick="window.open('product-page(sticky).html')" class="btn new-tab-btn">Preview</button> </div>
                                 </div>
                             </div>
                         </div>
@@ -1597,9 +1557,7 @@
                                 <div class="layout-container demo30"></div>
                                 <div class="demo-text">
                                     <h4>accordian</h4>
-                                    <div class="btn-group demo-btn" role="group" aria-label="Basic example"> <button
-                                            type="button" onClick="window.open('product-page(accordian).html')"
-                                            class="btn new-tab-btn">Preview</button> </div>
+                                    <div class="btn-group demo-btn" role="group" aria-label="Basic example"> <button type="button" onClick="window.open('product-page(accordian).html')" class="btn new-tab-btn">Preview</button> </div>
                                 </div>
                             </div>
                         </div>
@@ -1608,9 +1566,7 @@
                                 <div class="layout-container demo38"></div>
                                 <div class="demo-text">
                                     <h4>vertical tab</h4>
-                                    <div class="btn-group demo-btn" role="group" aria-label="Basic example"> <button
-                                            type="button" onClick="window.open('product-page(vertical-tab).html')"
-                                            class="btn new-tab-btn">Preview</button> </div>
+                                    <div class="btn-group demo-btn" role="group" aria-label="Basic example"> <button type="button" onClick="window.open('product-page(vertical-tab).html')" class="btn new-tab-btn">Preview</button> </div>
                                 </div>
                             </div>
                         </div>
@@ -1638,18 +1594,11 @@
                     </ul>
                 </div>
                 <div class="buy_btn">
-                    <a href="https://themeforest.net/item/multikart-responsive-ecommerce-html-template/22809967?s_rank=1"
-                        target="_blank" class="btn btn-block purchase_btn"><i class="fa fa-shopping-cart"
+                    <a href="https://themeforest.net/item/multikart-responsive-ecommerce-html-template/22809967?s_rank=1" target="_blank" class="btn btn-block purchase_btn"><i class="fa fa-shopping-cart"
                             aria-hidden="true"></i> purchase Multikart now!</a>
-                    <a href="https://themeforest.net/item/multikart-responsive-angular-ecommerce-template/22905358?s_rank=3"
-                        target="_blank" class="btn btn-block purchase_btn"><img src="../assets/images/icon/angular.png"
-                            alt="" class="img-fluid"> Multikart Angular</a>
-                    <a href="https://themeforest.net/item/multikart-responsive-react-ecommerce-template/23067773?s_rank=2"
-                        target="_blank" class="btn btn-block purchase_btn"><img src="../assets/images/icon/react.png"
-                            alt="" class="img-fluid"> Multikart React</a>
-                    <a href="https://themeforest.net/item/multikart-multipurpose-shopify-sections-theme/23093831?s_rank=1"
-                        target="_blank" class="btn btn-block purchase_btn"><img src="../assets/images/icon/shopify.png"
-                            alt="" class="img-fluid"> Multikart Shopify</a>
+                    <a href="https://themeforest.net/item/multikart-responsive-angular-ecommerce-template/22905358?s_rank=3" target="_blank" class="btn btn-block purchase_btn"><img src="../assets/images/icon/angular.png" alt="" class="img-fluid"> Multikart Angular</a>
+                    <a href="https://themeforest.net/item/multikart-responsive-react-ecommerce-template/23067773?s_rank=2" target="_blank" class="btn btn-block purchase_btn"><img src="../assets/images/icon/react.png" alt="" class="img-fluid"> Multikart React</a>
+                    <a href="https://themeforest.net/item/multikart-multipurpose-shopify-sections-theme/23093831?s_rank=1" target="_blank" class="btn btn-block purchase_btn"><img src="../assets/images/icon/shopify.png" alt="" class="img-fluid"> Multikart Shopify</a>
                 </div>
             </div>
         </div>
@@ -1676,6 +1625,9 @@
     <!-- popper js-->
     <script src="../assets/js/popper.min.js"></script>
 
+    <!-- price range js -->
+    <script src="../assets/js/price-range.js"></script>
+
     <!-- slick js-->
     <script src="../assets/js/slick.js"></script>
 
@@ -1697,6 +1649,7 @@
             document.getElementById("search-overlay").style.display = "none";
         }
     </script>
+
 </body>
 
 </html>

@@ -7,6 +7,28 @@
  */
 class CGestioneProdotti
 {
+    public static function recuperaProdotti(){
+        $pm=FPersistentManager::getInstance();
+        $prodottirec=$pm->prelevaProdotti();
+        $prodotti=array();
+        foreach ($prodottirec as $key=>$item) {
+            $prodotto=$pm->load('FProdotto',$key);
+            $img = base64_encode($prodotto->getImmagine()->getByte());
+            $mime = $prodotto->getImmagine()->getFormato();
+            $tmp = array(
+                'nome' => $prodotto->getNome(),
+                'marca' => $prodotto->getMarca(),
+                'descrizione' => $prodotto->getDescrizione(),
+                'prezzo' => $prodotto->getPrezzo(),
+                'dati' => $img,
+                'mime' => $mime
+            );
+            $prodotti[]=$tmp;
+        }
+        $v=new VGestioneProdotto();
+        $v->mostraProdotti($prodotti);
+
+    }
 
     /**
      * Modifica la quantità di un prodotto nel database

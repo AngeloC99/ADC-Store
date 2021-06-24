@@ -8,19 +8,13 @@ class VGestioneProdotto {
     {
         $this->smarty=StartSmarty::configuration();
     }
-
-    public function setTemplate($temp){
-        $this->smarty->assign($temp);
-    }
-
-    public function setDataIntoTemplate($rif,$valore){
-        $this->smarty->assign($rif,$valore);
+    public function mostraAggiuntaProdotto(EAmministratore $admin){
+        $this->smarty->assign('nome',$admin->getNome());
+        $this->smarty->display('add-product.tpl');
 
     }
-
-    public function showResults( $dati ) {
-        $this->setDataIntoTemplate('results', $dati);
-        $this->setTemplate('product-detail.tpl');
-
+    public function mostraProdotti($prodotti){
+        $this->smarty->assign('prodotti',$prodotti);
+        $this->smarty->display('category-page(infinite-scroll).tpl');
     }
 }
