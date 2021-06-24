@@ -26,23 +26,37 @@ class CGestioneCarrello
         $v->compilaOrdine($carrello, $utente);
     }
 
-    public static function procediAcquisto(string $id, EIndirizzo $indirizzo) {
+    public static function procediAcquisto(string $idCarrello, EIndirizzo $indirizzo, string $mailutente, string $numerocarta, string $codiceBuono = null) {
 
         // Prende i dati dalla POST e genera l'ordine!!!!!!!!!!!!!! LO salva poi sul DB
 
         $pm = FPersistentManager::getInstance();
-        $carrello = $pm->load("FCarrello", $id);
+        $carrello = $pm->load("FCarrello", $idCarrello);
+        $utente = $pm->load("FUtenteReg", $mailutente);
+        $carta = $pm->load("FCartaCredito", $numerocarta);
 
         $ordine = new EOrdine($carrello, $indirizzo);
-        //$pm = FPersistentManager::getInstance();
+        /**
+        if ($codiceBuono) {
+            $buono = $pm->load("FBuonoSconto", $codiceBuono);
+            $ordine->applicaBuono($buono);
+            $pm->delete("FBuonoSconto", $codiceBuono);
+        }
+         */
+        $carta->setAmmontare($carta->getAmmontare() - $ordine->getPrezzoTotale());
+        $utente->setPunti($utente->getPunti() + ((int) $ordine->getPrezzoTotale()));          //aggiunge un punto per ogni euro speso
         //$pm->store($ordine);
+        //$pm->update($carta);
+        //$pm->update($utente);
+
         $v = new VGestioneCarrello();
-        $v->mostraOrdine($ordine);
+        $v->mostraOrdine($ordine, $utente);
         // manda la mail con i dettagli dell'ordine subito dopo aver premuto il tasto procedi con l'ordine
     }
 
-    public static function recuperaCarrelliSalvati(EUtenteReg $utente) {
+    public static function recuperaCarrelliSalvati(string $mailutente) {
         $pm = FPersistentManager::getInstance();
+        $utente = $pm->load("FUtenteReg", $mailutente);
         $carrelli = $pm->prelevaCarrelliUtente($utente);
         // Li mostra nel template
     }

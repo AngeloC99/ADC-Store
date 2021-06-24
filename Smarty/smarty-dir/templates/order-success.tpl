@@ -738,7 +738,7 @@
                         <div class="col-sm-6">
                             <h4>Indirizzo di spedizione</h4>
                             <ul class="order-detail">
-                                <li>gerg harvell</li>
+                                <li>{$nomeUtente}</li>
                                 <li>{$indirizzo}</li>
                                 <li>Italia</li>
                             </ul>

@@ -50,21 +50,16 @@ class VGestioneCarrello {
         $this->smarty->assign('prodotti', $arrProdotti);
         $this->smarty->assign('prezzoTot', $carrello->getPrezzoTot());
 
-        $indirizzi = array();
-        foreach ($utente->getIndirizzi() as $ind) {
-            $indirizzi[] = $ind->toString();
-        }
-        $carte = array();
-        foreach ($utente->getCarteSalvate() as $carta) {
-            $carte[] = $carta->toString();
-        }
+        $indirizzi = $pm->prelevaIndirizziUtente($utente);
+        $carte = $pm->prelevaCarteUtente($utente);
+
         $this->smarty->assign('indirizzi', $indirizzi);
         $this->smarty->assign('carte', $carte);
 
         $this->smarty->display('checkout.tpl');
     }
 
-    public function mostraOrdine(EOrdine $ordine) {
+    public function mostraOrdine(EOrdine $ordine, EUtenteReg $utente) {
         $carrello = $ordine->getCarrello();
         $prodotti = $carrello->getProdotti();
         $pm = FPersistentManager::getInstance();
@@ -86,6 +81,7 @@ class VGestioneCarrello {
                                                             ->format('d-m-y'));
         $this->smarty->assign('indirizzo', $ordine->getIndirizzo());
         $this->smarty->assign('prezzoTot', $ordine->getPrezzoTotale());
+        $this->smarty->assign('nomeUtente', $utente->getNome()." ".$utente->getCognome());
 
         $this->smarty->display('order-success.tpl');
     }

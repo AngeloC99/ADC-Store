@@ -304,7 +304,7 @@ class FUtenteReg
     public static function prelevaCarte(string $mailutente): array {
         $pdo = FConnectionDB::connect();
         $stmt = $pdo->prepare("SELECT * FROM CartaCredito INNER JOIN UtenteUsaCarta 
-                                ON CartaCredito.numero = UtenteUsaCarta.numero 
+                                ON CartaCredito.numero = UtenteUsaCarta.numerocarta 
                                 WHERE UtenteUsaCarta.mailutente = :mailutente");
         $stmt->execute([':mailutente' => $mailutente]);
         $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -314,12 +314,10 @@ class FUtenteReg
             $carta = new ECartaCredito($row['titolare'],
                 $row['numero'],
                 $row['circuito'],
-                $row['scadenza'],
+                new DateTime($row['scadenza']),
                 $row['cvv'],
                 $row['ammontare']);
-            $key=$row['numero'];
-            $carte[$key]=$carta;
-
+            $carte[] = $carta;
         }
         return $carte;
     }

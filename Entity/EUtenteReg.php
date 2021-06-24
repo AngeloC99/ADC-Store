@@ -187,29 +187,6 @@ class EUtenteReg extends EPersona
     }
 
     /**
-     * Metodo che applica un buono sconto ad un certo ordine riducendone il totale ed elimina il buono
-     * utilizzato dai buoni che possiede l'utente
-     * @param EOrdine $ordine
-     * @param EBuonoSconto $buonoSconto
-     */
-    public function applicaBuono(EOrdine $ordine, EBuonoSconto $buonoSconto): void {
-        if ($ordine->getPrezzoTotale() <= $buonoSconto->getAmmontare()) {
-            $ordine->setPrezzoTotale(0);
-        }
-        else {
-            if ($buonoSconto->isPercentuale() == true) {
-                $ordine->setPrezzoTotale(($ordine->getPrezzoTotale() * $buonoSconto->getAmmontare()) / 100);          // Se il buono è in percentuale
-            }
-            else $ordine->setPrezzoTotale(($ordine->getPrezzoTotale() - $buonoSconto->getAmmontare()));
-        }
-        $codice = $buonoSconto->getCodice();
-        $arraybuoni = $this->getBuoniSconto();
-        unset($arraybuoni[$codice]);
-        $this->setBuoniSconto($arraybuoni);
-    }
-
-
-    /**
      * Metodo che crea un indirizzo e lo setta come predefinito
      * @param string $via
      * @param int $numero
@@ -245,10 +222,8 @@ class EUtenteReg extends EPersona
             $this->setPunti($punticorr + $punti);
             $carta->setAmmontare($carta->getAmmontare() - $prezzo);
         }
-
     }
-
-    }
+}
 
 
 

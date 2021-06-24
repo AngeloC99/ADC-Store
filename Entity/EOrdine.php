@@ -127,4 +127,20 @@ class EOrdine
     public function setDataAcquisto(DateTime $dataAcquisto): void {
         $this->dataAcquisto = $dataAcquisto;
     }
+
+    /**
+     * Applica un buono sconto ad un ordine riducendone il prezzo totale.
+     * @param EBuonoSconto $buonoSconto
+     */
+    public function applicaBuono(EBuonoSconto $buonoSconto): void {
+        if ($this->prezzoTotale <= $buonoSconto->getAmmontare()) {
+            $this->prezzoTotale = 0;
+        }
+        else {
+            if ($buonoSconto->isPercentuale() == true) {
+                $this->prezzoTotale -= ($this->prezzoTotale * $buonoSconto->getAmmontare()) / 100;          // Se il buono è in percentuale
+            }
+            else $this->prezzoTotale -= $buonoSconto->getAmmontare();
+        }
+    }
 }
