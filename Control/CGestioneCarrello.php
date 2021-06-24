@@ -1,5 +1,12 @@
 <?php
 
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+require('C:\Users\angel\public_html\ADC-Store\PHPMailer-master\src\PHPMailer.php');
+require('C:\Users\angel\public_html\ADC-Store\PHPMailer-master\src\Exception.php');
+require('C:\Users\angel\public_html\ADC-Store\PHPMailer-master\src\SMTP.php');
+
+
 
 class CGestioneCarrello
 {
@@ -45,13 +52,47 @@ class CGestioneCarrello
          */
         $carta->setAmmontare($carta->getAmmontare() - $ordine->getPrezzoTotale());
         $utente->setPunti($utente->getPunti() + ((int) $ordine->getPrezzoTotale()));          //aggiunge un punto per ogni euro speso
+
+        //CGestioneCarrello::mailOrdine($ordine, $mailutente, $utente, $indirizzo);
+        CGestioneCarrello::mailOrdine($ordine, "angeloc25999@gmail.com", $utente); // <------------------------
+
         //$pm->store($ordine);
         //$pm->update($carta);
         //$pm->update($utente);
 
         $v = new VGestioneCarrello();
         $v->mostraOrdine($ordine, $utente);
-        // manda la mail con i dettagli dell'ordine subito dopo aver premuto il tasto procedi con l'ordine
+    }
+
+    private static function mailOrdine(EOrdine $ordine, string $mailutente, EUtenteReg $utente) {
+        $mail = new PHPMailer(true);
+        try {
+            $mail->CharSet = 'UTF-8';
+            $mail->IsSMTP();
+            $mail->SMTPDebug = 0;
+            $mail->SMTPOptions = array(
+                'ssl' => array(
+                    'verify_peer' => false,
+                    'verify_peer_name' => false,
+                    'allow_self_signed' => true
+                ));
+            $mail->SMTPAuth = true;
+            $mail->Host = "smtp.gmail.com";
+            $mail->Port = 587;
+            $mail->IsHTML(true);
+            $mail->Username = 'adcstore2021@gmail.com';
+            $mail->Password = 'plutopluto';
+            $mail->SetFrom('adcstore@gmail.com');
+            $mail->Subject = "ADC Store - Conferma dell'ordine!";
+            $mail->AddAddress($mailutente);
+
+            $v = new VGestioneCarrello();
+            $mail->Body = $v->ordineEmail($ordine, $utente);
+            $mail->send();
+        } catch (Exception $e) {
+            echo 'Message could not be sent.';
+            echo 'Mailer Error: ' . $mail->ErrorInfo;
+        }
     }
 
     public static function recuperaCarrelliSalvati(string $mailutente) {

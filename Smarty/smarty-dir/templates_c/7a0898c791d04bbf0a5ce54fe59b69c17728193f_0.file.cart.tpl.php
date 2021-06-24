@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-06-24 12:15:26
+/* Smarty version 3.1.39, created on 2021-06-24 18:27:28
   from 'C:\Users\angel\public_html\ADC-Store\Smarty\smarty-dir\templates\cart.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_60d45b3e947e65_82985973',
+  'unifunc' => 'content_60d4b27035b140_98654087',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '7a0898c791d04bbf0a5ce54fe59b69c17728193f' => 
     array (
       0 => 'C:\\Users\\angel\\public_html\\ADC-Store\\Smarty\\smarty-dir\\templates\\cart.tpl',
-      1 => 1624529634,
+      1 => 1624545963,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_60d45b3e947e65_82985973 (Smarty_Internal_Template $_smarty_tpl) {
+function content_60d4b27035b140_98654087 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en">
 
@@ -500,7 +500,7 @@ function content_60d45b3e947e65_82985973 (Smarty_Internal_Template $_smarty_tpl)
                                                                     </div>
                                                                     <div class="menu-content">
                                                                         <ul>
-                                                                            <li><a href="email-order-success.html">order
+                                                                            <li><a href="email-order-success.tpl">order
                                                                                     success</a></li>
                                                                             <li><a href="email-order-success-two.html">order
                                                                                     success 2</a></li>

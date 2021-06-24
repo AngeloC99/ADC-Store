@@ -29,10 +29,11 @@ $ind = new EIndirizzo("Via Salamanca","323", "Rieti","Ri", "02100",false);
 //CGestioneCarrello::procediOrdine("Car60d4832ae0870", "adarossi@gmail.com");
 CGestioneCarrello::procediAcquisto("Car60d4832ae0870", $ind,"adarossi@gmail.com", "1234567891234567");
 
+
 // TESTING Prodotto
 
 
-CGestioneProdotti::recuperaProdotti();
+//CGestioneProdotti::recuperaProdotti();
 //$v->mostraAggiuntaProdotto($admin);
 //$v->mostraAggiuntaProdotto($admin);
 
@@ -40,5 +41,5 @@ CGestioneProdotti::recuperaProdotti();
 //Testing mail per punti
 
 $v = new VGestionePunti();
-$v->mostraFormPunti();
+//$v->mostraFormPunti();
 //$utente=new EUtenteReg('chiara','romano','romanochiara229@gmail.com','pippo');
