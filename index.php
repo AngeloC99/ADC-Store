@@ -6,7 +6,7 @@ require('StartSmarty.php');
 //$v = new VHome();
 //$v->setTemplate('home.tpl');
 // Testing VBuonoSconto
-//$v = new VGestioneCarrello();
+$v = new VGestioneCarrello();
 //$bs=new EBuonoSconto(true,10,"ciao ciao");
 //$v->datiBsEmail($bs);
 //$v->mostraCreazioneBuono();
@@ -27,7 +27,15 @@ CGestioneBuoni::recuperaBuoni($utente);
 
 $ind = new EIndirizzo("Via Salamanca","323", "Rieti","Ri", "02100",false);
 //CGestioneCarrello::procediOrdine("Car60c065edcc2f7", "adarossi@gmail.com");
-CGestioneCarrello::procediAcquisto("Car60c065edcc2f7", $ind);
+//CGestioneCarrello::procediAcquisto("Car60c065edcc2f7", $ind);
+
+// TESTING Prodotto
+
+
+CGestioneProdotti::recuperaProdotti();
+//$v->mostraAggiuntaProdotto($admin);
+//$v->mostraAggiuntaProdotto($admin);
+
 
 //Testing mail per punti
 
