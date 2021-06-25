@@ -11,7 +11,7 @@ CREATE TABLE Amministratore (
 );
 
 CREATE TABLE Immagine(
-    id CHAR(16) NOT NULL,
+    id CHAR(14) NOT NULL,
     nome VARCHAR(50) NOT NULL,
     byte BLOB NOT NULL,
     formato VARCHAR(30) NOT NULL,

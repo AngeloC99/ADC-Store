@@ -14,6 +14,7 @@ class VGestioneProdotto {
 
     }
     public function mostraProdotti($prodotti){
+        $this->smarty->assign("path", $GLOBALS["path"]);
         $this->smarty->assign('prodotti',$prodotti);
         $this->smarty->display('category-page(infinite-scroll).tpl');
     }

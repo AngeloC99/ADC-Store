@@ -21,10 +21,12 @@ class VGestionePunti
     }
 
     public function mostraFormPunti(){
+        $this->smarty->assign("path", $GLOBALS["path"]);
         $this->smarty->display('regalapunti.tpl');
     }
 
-    public function mostraAggiungiProd(){
+    public function mostraAggiungiPremi(){
+        $this->smarty->assign("path", $GLOBALS["path"]);        
         $this->smarty->display('aggiungi-premi.tpl');
     }    
 
