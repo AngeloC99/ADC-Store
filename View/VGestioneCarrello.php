@@ -93,15 +93,11 @@ class VGestioneCarrello {
         $arrProdotti = array();
         foreach ($prodotti as $idProd => $quantita) {
             $prod = $pm->load("FProdotto", $idProd);
-            $img = $prod->getImmagine()->getByte();
-            $mime = $prod->getImmagine()->getFormato();
             $tmp = array(
                 'nome' => $prod->getNome(),
                 'prezzo' => $prod->getPrezzo(),
                 'quantita' => $quantita,
                 'totProd' => $quantita*$prod->getPrezzo(),
-                'image' => $img,
-                'mime' => $mime
             );
             $arrProdotti[] = $tmp;
         }

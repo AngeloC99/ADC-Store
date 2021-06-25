@@ -53,8 +53,9 @@ class CGestioneCarrello
         $carta->setAmmontare($carta->getAmmontare() - $ordine->getPrezzoTotale());
         $utente->setPunti($utente->getPunti() + ((int) $ordine->getPrezzoTotale()));          //aggiunge un punto per ogni euro speso
 
-        //CGestioneCarrello::mailOrdine($ordine, $mailutente, $utente, $indirizzo);
-        CGestioneCarrello::mailOrdine($ordine, "angeloc25999@gmail.com", $utente); // <------------------------
+        // MANDARE MAIL
+        //CGestioneCarrello::mailOrdine($ordine, $mailutente, $utente);
+        //CGestioneCarrello::mailOrdine($ordine, "mailutente@gmail.com", $utente); // <------------------------
 
         //$pm->store($ordine);
         //$pm->update($carta);

@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="Smarty/smarty-dir/assets/images/favicon/1.png" type="image/x-icon">
     <link rel="shortcut icon" href="Smarty/smarty-dir/assets/images/favicon/1.png" type="image/x-icon">
-    <title>Multikart | Email template </title>
+    <title>ADC Store - L'ABC della qualità | Email Ordine </title>
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet">
 
     <style type="text/css">
@@ -101,17 +101,6 @@
                     <table align="center" border="0" cellpadding="0" cellspacing="0">
                         <tr>
                             <td>
-                                <img src="Smarty/smarty-dir/assets/images/email-temp/delivery.png" alt=""
-                                    style=";margin-bottom: 30px;">
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <img src="Smarty/smarty-dir/assets/images/email-temp/success.png" alt="">
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
                                 <h2 class="title">Grazie!</h2>
                             </td>
                         </tr>
@@ -127,12 +116,6 @@
                                 <div style="border-top:1px solid #777;height:1px;margin-top: 30px;">
                             </td>
                         </tr>
-                        <tr>
-                            <td>
-                                <img src="Smarty/smarty-dir/assets/images/email-temp/order-success.png" alt=""
-                                    style="margin-top: 30px;">
-                            </td>
-                        </tr>
                     </table>
                     <table border="0" cellpadding="0" cellspacing="0">
                         <tr>
@@ -143,16 +126,12 @@
                     </table>
                     <table class="order-detail" border="0" cellpadding="0" cellspacing="0" align="left">
                         <tr align="left">
-                            <th>Prodotto</th>
-                            <th style="padding-left: 15px;">Nome</th>
+                            <th style="padding-left: 15px;">Prodotto</th>
                             <th>Quantità</th>
                             <th>Prezzo</th>
                         </tr>
                         {section name=prod loop=$prodotti}
                         <tr>
-                            <td>
-                                <img src="data:{$prodotti[prod].mime};base64,{$prodotti[prod].image}" width="100" height="100"/>
-                            </td>
                             <td valign="top" style="padding-left: 15px;">
                                 <h5 style="margin-top: 15px;">{$prodotti[prod].nome}</h5>
                             </td>
