@@ -600,10 +600,18 @@
                                                         <div class="container">
                                                             <div class="row">
                                                                 <div class="col-xl-12">
-                                                                    <form>
-                                                                        <div class="form-group">
-                                                                            <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Search a Product">
+                                                                    <form method="post" action="{$path}GestioneProdotti/recuperaProdotto">
+                                                                        <h3>Ricerca per:</h3>
+                                                                        <div>
+                                                                            <h5>Tipologia <input type="radio" id="contactChoice1"
+                                                                                                 name="selection" value="tipologia" checked/></h5>
+                                                                            <h5>Nome <input type="radio" id="contactChoice1"
+                                                                                            name="selection" value="nome"/></h5>
                                                                         </div>
+                                                                        <div class="form-group">
+                                                                            <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Cerca un prodotto" name="ricerca">
+                                                                        </div>
+
                                                                         <button type="submit" class="btn btn-primary"><i
                                                                                 class="fa fa-search"></i></button>
                                                                     </form>
@@ -777,7 +785,7 @@
                                                         <div class="img-wrapper">
                                                             <div class="front">
                                                                 <a href="product-page(accordian).tpl">
-                                                                	<img src="data:{$prod.mime};base64,{$prod.dati}" width="100" height="100"/>
+                                                                	<img src="data:{$prod.mime};base64,{$prod.dati}" width="100" height="200"/>
                                                                 </a>
                                                             </div>
                                                             <div class="cart-info cart-wrap">

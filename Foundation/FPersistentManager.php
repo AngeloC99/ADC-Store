@@ -235,6 +235,15 @@ class FPersistentManager
     }
 
     /**
+     * Preleva tutte le n-uple della tabella Prodotto (aventi il nome specificato come pramatro) e risveglia in RAM le istanze di EProdotto corrispondenti.
+     * @param string $tip
+     * @return array
+     */
+    public function prelevaPerNome(string $nome): array{
+        return FProdotto::prelevaPerNome($nome);
+    }
+
+    /**
      * Rimuove dalla tabella BuonoSconto l'n-upla corrispondente alla chiave fornita come parametro se la data di scadenza del buono coincide con la data odierna.
      * @param string $key
      * @return bool

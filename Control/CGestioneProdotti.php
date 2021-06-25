@@ -92,10 +92,56 @@ class CGestioneProdotti
             'dati'=>base64_encode($prodotto->getImmagine()->getByte()));
         $v=new VGestioneProdotto();
         $v->mostraDettagli($prod);
-        
-        
 
     }
+
+    public static function recuperaProdotto(){
+        $pm=FPersistentManager::getInstance();
+        if($_POST['selection']=='tipologia'){
+            $prodottirec=$pm->prelevaProdottiByTip($_POST['ricerca']);
+            $prodotti=array();
+            foreach ($prodottirec as $key=>$item) {
+                $prodotto=$pm->load('FProdotto',$key);
+                $img = $prodotto->getImmagine()->getByte();
+                $mime = $prodotto->getImmagine()->getFormato();
+                $tmp = array(
+                    'nome' => $prodotto->getNome(),
+                    'marca' => $prodotto->getMarca(),
+                    'descrizione' => $prodotto->getDescrizione(),
+                    'prezzo' => $prodotto->getPrezzo(),
+                    'dati' => $img,
+                    'mime' => $mime
+                );
+                $prodotti[]=$tmp;
+            }
+            $v=new VGestioneProdotto();
+            $v->mostraProdotti($prodotti);
+
+        }
+        else{
+            $prodottirec=$pm->prelevaPerNome($_POST['ricerca']);
+            $prodotti=array();
+            foreach ($prodottirec as $key=>$item) {
+                $prodotto=$pm->load('FProdotto',$key);
+                $img = $prodotto->getImmagine()->getByte();
+                $mime = $prodotto->getImmagine()->getFormato();
+                $tmp = array(
+                    'nome' => $prodotto->getNome(),
+                    'marca' => $prodotto->getMarca(),
+                    'descrizione' => $prodotto->getDescrizione(),
+                    'prezzo' => $prodotto->getPrezzo(),
+                    'dati' => $img,
+                    'mime' => $mime
+                );
+                $prodotti[]=$tmp;
+            }
+            $v=new VGestioneProdotto();
+            $v->mostraProdotti($prodotti);
+        }
+
+    }
+
+
 
 
 }
