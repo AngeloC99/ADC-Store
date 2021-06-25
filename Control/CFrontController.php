@@ -29,7 +29,7 @@ class CFrontController
 
                             $param = array();
                             for ($i = 2; $i < count($res); $i++) {
-                                $param[] = $res[i];
+                                $param[] = $res[$i];
                             }
                             $num = count($param);
                             if ($num == 0) $controller::$function();

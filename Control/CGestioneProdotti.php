@@ -89,7 +89,7 @@ class CGestioneProdotti
             'tipologia'=>$prodotto->getTipologia(),
             'quantita'=>$prodotto->getQuantita(),
             'mime'=>$prodotto->getImmagine()->getFormato(),
-            'dati'=>base64_encode($prodotto->getImmagine()->getByte()));
+            'dati'=>$prodotto->getImmagine()->getByte());
         $v=new VGestioneProdotto();
         $v->mostraDettagli($prod);
         

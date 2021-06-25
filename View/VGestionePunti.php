@@ -28,6 +28,31 @@ class VGestionePunti
     public function mostraAggiungiPremi(){
         $this->smarty->assign("path", $GLOBALS["path"]);        
         $this->smarty->display('aggiungi-premi.tpl');
-    }    
+    }
+
+    public function mostraDettagliPremio($premio){
+
+        $this->smarty->assign('nome', $premio->getNome());
+        $this->smarty->assign('descrizione', $premio->getDescrizione());
+        $this->smarty->assign('marca', $premio->getMarca());
+        $this->smarty->assign('punti', $premio->getPrezzoInPunti());
+        $this->smarty->assign('quantita', $premio->getQuantita());
+        $this->smarty->assign('id', $premio->getId());
+        $this->smarty->assign('mime', $premio->getImmagine()->getFormato());
+        $this->smarty->assign('dati', $premio->getImmagine()->getByte());
+
+
+        $this->smarty->assign("path", $GLOBALS["path"]);
+        $this->smarty->display('prize-page(accordian).tpl');
+
+    }
+
+    public function mostraPremi($premi){
+
+        $this->smarty->assign("premi", $premi);
+        $this->smarty->assign("path", $GLOBALS["path"]);
+        $this->smarty->display('category-page(infinite-scroll)-premi.tpl');        
+
+    }
 
 }

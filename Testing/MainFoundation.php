@@ -10,6 +10,7 @@ $prod1 = new EProdotto("Latte","Centrale di Roma","Latte intero", 200, $imm1, 1.
 $prod2 = new EProdotto("Petto di pollo","Amadori","Pollo di alta qualità", 50, $imm1, 3.50, "Carne");
 $prod3 = new EProdotto("Yogurt","Muller","Yogurt alla vaniglia", 80, $imm1, 0.70, "Yogurt");
 
+/*
 $pm->store($imm1);
 $pm->store($prod1);
 $pm->store($prod2);
@@ -148,3 +149,7 @@ $pm->store($ordine5);
 //echo $db->update($premio);
 //print_r($db->prelevaPremi());*/
 
+$premio=new EPremio('Padella','MarcaBuona','padella antiaderente 20cm',10,$imm1,120);
+$premio2=new EPremio('tostapane','Tostapane Tostabene','tostapane piccolo','5',$imm1,500);
+//$pm->store($premio);
+$pm->store($premio2);

@@ -19,8 +19,25 @@ class CGestionePunti
      */
     public static function recuperaPremi(): array {
 
-        $pm = FPersistentManager::getInstance();
-        return $pm->prelevaPremi();
+        $pm=FPersistentManager::getInstance();
+        $premirec=$pm->prelevaPremi();
+        $premi=array();
+        foreach ($premirec as $key=>$item) {
+            $premio=$pm->load('FPremio',$key);
+            $img = $premio->getImmagine()->getByte();
+            $mime = $premio->getImmagine()->getFormato();
+            $tmp = array(
+                'nome' => $premio->getNome(),
+                'marca' => $premio->getMarca(),
+                'descrizione' => $premio->getDescrizione(),
+                'punti' => $premio->getPrezzoInPunti(),
+                'dati' => $img,
+                'mime' => $mime
+            );
+            $premi[]=$tmp;
+        }
+        $v=new VGestionePunti();
+        $v->mostraPremi($premi);
     }
 
     /**
@@ -28,10 +45,21 @@ class CGestionePunti
      * @param string $id
      * @return EPremio
      */
-    public static function selezionaPremio(string $id): EPremio { //Funziona ma da errore all'immagine
+    public static function selezionaPremio(string $id) { //id del prodotto deve essere recuperato da qualche parte
 
-        $pm = FPersistentManager::getInstance();
-        return $pm->load("FPremio",$id);
+        $pm=FPersistentManager::getInstance();
+        $premio=$pm->load('FPremio',$id);
+        /*$prize=array(
+            'nome'=>$premio->getNome(),
+            'id'=>$premio->getId(),
+            'marca'=>$premio->getMarca(),
+            'descrizione'=>$premio->getDescrizione(),
+            'punti'=>$premio->getPrezzoInPunti(),
+            'quantita'=>$premio->getQuantita(),
+            'mime'=>$premio->getImmagine()->getFormato(),
+            'dati'=>$premio->getImmagine()->getByte());*/
+        $v=new VGestionePunti();
+        $v->mostraDettagliPremio($premio);
     }
 
     /**
@@ -40,11 +68,30 @@ class CGestionePunti
      * @param int $quantita
      * @param EUtenteReg $utente
      */
-    public static function acquistaPremio(EPremio $premio, EIndirizzo $indirizzo, int $quantita, EUtenteReg $utente): void{ //Non necessario passare l'utente
+    public static function acquistaPremio(string $id){ //Si deve recuperare l'utente
 
-        $punti = $premio->getPrezzoInPunti();
+        $pm = FPersistentManager::getInstance();
+        //$user = $pm->load('FUtenteReg', $utente->getEmail());
+        $user = $pm->load('FUtenteReg', 'adarossi@gmail.com');        
+        $prize = $pm->load('FPremio', $id); 
+        $punti = $prize->getPrezzoInPunti() * $_POST['quantita'];
+        if ($punti <= $user->getPunti()){
+            $user->setPunti($user->getPunti() - $punti);
+            $prize->setQuantita($prize->getQuantita() - $_POST['quantita']);
+            $pm->update($user);
+            $pm->update($prize);
 
-        //Problema: come gestire indirizzo nei premi visto che non c'è un ordine?
+            return true;
+        }
+        else{
+            print('ciao');
+
+            return false;
+        }
+
+        $v = new VGestioneSchermate();
+        $v->showHome();
+        //Gestire eccezioni se utente non ha abbastanza punti o se non c'è quantità a sufficienza di prodotti
         //Alla conferma appare un alert e il premio viene spedito all'indirizzo predefinito dell'utente
 
     }
