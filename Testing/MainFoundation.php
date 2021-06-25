@@ -81,6 +81,11 @@ $pm->store($ordine3);
 $pm->store($ordine4);
 $pm->store($ordine5);
 
+$buono2 = new EBuonoSconto(true,15);
+$buono3 = new EBuonoSconto(false,10);
+$pm->store($buono2, $utente1->getEmail());
+$pm->store($buono3, $utente1->getEmail());
+
 // Testing dei metodi che coinvolgono più tabelle FUtenteReg
 
 //$db->store($utente);
@@ -89,25 +94,6 @@ $pm->store($ordine5);
 //FUtenteReg::eliminaIndirizzo($indirizzo->getVia(),$indirizzo->getNumero(), $indirizzo->getCap(), $utente->getEmail());
 //FUtenteReg::salvaIndirizzo($ind,$utente->getEmail());
 //var_dump(FUtenteReg::prelevaIndirizzi($utente->getEmail()));
-
-
-// Testing classe FBuonoSconto
-//$db=new FPersistentManager();
-//$buono=new EBuonoSconto(true,15);
-//$buono2=new EBuonoSconto(false,10);
-//$buono3=new EBuonoSconto(true,50);
-//$buono->setScadenza(new DateTime('now'));
-//$db->update($buono);
-//$db->store($buono,$utente->getEmail());
-//$db->rimuoviBuoniScaduti($buono->getCodice());
-//$ris=$db->exist('FBuonoSconto',$buono->getCodice());
-//echo $ris;
-//echo $db->delete('FBuonoSconto',$buono->getCodice());
-//$db->store($buono2,$utente->getEmail());
-//$db->store($buono3,$utente->getEmail());
-//print_r($db->prelevaBuoni());
-//$brec=$db->load('FBuonoSconto',$buono3->getCodice());
-//var_dump($brec);
 
 
 // Testing classe FProdotto:

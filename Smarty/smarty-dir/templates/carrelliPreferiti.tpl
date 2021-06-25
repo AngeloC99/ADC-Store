@@ -250,9 +250,9 @@
                                                 <li>
                                                     <a href="#">new demos <span class="new-tag">new</span></a>
                                                     <ul>
+                                                        <li><a target="_blank" href="tools.html">tools</a></li>
                                                         <li><a target="_blank"
                                                                 href="marketplace-demo.html">marketplace</a></li>
-                                                        <li><a target="_blank" href="tools.html">tools</a></li>
                                                         <li><a target="_blank" href="game.html">game</a></li>
                                                         <li><a target="_blank" href="gym-product.html">gym</a></li>
                                                         <li><a target="_blank" href="marijuana.html">marijuana</a></li>
@@ -667,20 +667,21 @@
     </header>
     <!-- header end -->
 
+
     <!-- breadcrumb start -->
     <div class="breadcrumb-section">
         <div class="container">
             <div class="row">
                 <div class="col-sm-6">
                     <div class="page-title">
-                        <h2>Check-out</h2>
+                        <!-- <h2> {$cart} </h2> -->
                     </div>
                 </div>
                 <div class="col-sm-6">
                     <nav aria-label="breadcrumb" class="theme-breadcrumb">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Check-out</li>
+                            <li class="breadcrumb-item active">carrelli</li>
                         </ol>
                     </nav>
                 </div>
@@ -690,118 +691,66 @@
     <!-- breadcrumb End -->
 
 
-    <!-- section start -->
-    <section class="section-b-space">
+    <!--section start-->
+    <section class="cart-section section-b-space">
+        {section name=carrello loop=$carrelli}
         <div class="container">
-            <div class="checkout-page">
-                <div class="checkout-form">
-                    <form>
-                        <div class="row">
-                            <div class="col-lg-6 col-sm-12 col-xs-12">
-                                <div class="checkout-title">
-                                    <h3>Dettagli dell'ordine</h3>
-                                </div>
-                                <div class="row check-out">
-                                    <div class="form-group col-md-6 col-sm-6 col-xs-12">
-                                        <div class="field-label">Nome</div>
-                                        <input type="text" name="field-name" value="" placeholder="">
-                                    </div>
-                                    <div class="form-group col-md-6 col-sm-6 col-xs-12">
-                                        <div class="field-label">Cognome</div>
-                                        <input type="text" name="field-name" value="" placeholder="">
-                                    </div>
-                                    <div class="form-group col-md-6 col-sm-6 col-xs-12">
-                                        <div class="field-label">Telefono</div>
-                                        <input type="text" name="field-name" value="" placeholder="">
-                                    </div>
-                                    <div class="form-group col-md-6 col-sm-6 col-xs-12">
-                                        <div class="field-label">Indirizzo e-mail</div>
-                                        <input type="text" name="field-name" value="" placeholder="">
-                                    </div>
-                                    <div class="form-group col-md-12 col-sm-12 col-xs-12">
-                                        <div class="field-label">Indirizzo</div>
-                                        <select>
-                                            {section name=ind loop=$indirizzi}
-                                            <option>{$indirizzi[ind]}</option>
-                                            {/section}
-                                        </select>
-                                    </div>
-                                    <div class="form-group col-md-12 col-sm-12 col-xs-12">
-                                        <div class="field-label">Modalità di pagamento</div>
-                                        <select>
-                                            {section name=carta loop=$carte}
-                                                <option>{$carte[carta]}</option>
-                                            {/section}
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-6 col-sm-12 col-xs-12">
-                                <div class="checkout-details">
-                                    <div class="order-box">
-                                        <div class="title-box">
-                                            <div>Prodotto <span>Totale</span></div>
-                                        </div>
-                                        {section name=prod loop=$prodotti}
-                                        <ul class="qty">
-                                            <li>{$prodotti[prod].nome} × {$prodotti[prod].quantita} <span>€ {$prodotti[prod].totProd}</span></li>
-                                        </ul>
-                                        {/section}
-                                        <ul class="sub-total">
-                                            <li>Subtotale <span class="count">€ {$prezzoTot}</span></li>
-                                            <li>Consegna
-                                                <div class="shipping">
-                                                    <ul>
-                                                        <li>
-                                                            <div class="radio-option">
-                                                                <input type="radio" name="consegna-group" id="consegna-1"
-                                                                       checked="checked">
-                                                                <label for="consegna-1">Ritiro in negozio</label>
-                                                            </div>
-                                                        </li>
-                                                        <li>
-                                                            <div class="radio-option">
-                                                                <input type="radio" name="consegna-group" id="consegna-2">
-                                                                <label for="consegna-2">Consegna con corriere</label>
-                                                            </div>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="form-group col-md-12 col-sm-12 col-xs-12">
-                                                    <div class="field-label">Applica un buono sconto</div>
-                                                    <select>
-                                                            <option selected>---</option>
-                                                        {section name=buono loop=$buoni}
-                                                            <option>{$buoni[buono]}</option>
-                                                        {/section}
-                                                    </select>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                        <ul class="total">
-                                            <li>Total <span class="count">€ {$prezzoTot}</span></li>
-                                        </ul>
-                                    </div>
-                                    <div class="payment-box">
-
-                                        <div class="text-right"><a href="#" class="btn-solid btn">Completa l'ordine</a></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </form>
+            <div class="row">
+                <div class="col-sm-12">
+                    <table class="table cart-table table-responsive-xs">
+                        <thead>
+                        <tr>
+                            <th scope="col">{$carrelli[carrello].nomeCarrello} {$carrelli[carrello].idCarrello}</th>
+                        </tr>
+                        <tr>
+                            <th scope="col">Prodotti nel carrello</th>
+                        </tr>
+                        </thead>
+                        <thead>
+                            <tr class="table-head">
+                                <th scope="col">Nome</th>
+                                <th scope="col">quantità</th>
+                                <th scope="col">prezzo</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {section name=prod loop=$carrelli[carrello].prodotti}
+                            <tr>
+                                <td>{$carrelli[carrello].prodotti[prod].nome}</td>
+                                <td>
+                                    <h2>{$carrelli[carrello].prodotti[prod].quantita}</h2>
+                                </td>
+                                <td>
+                                    <h2 class="td-color">€ {$carrelli[carrello].prodotti[prod].prezzo}</h2>
+                                </td>
+                            </tr>
+                            {/section}
+                        </tbody>
+                    </table>
+                    <table class="table cart-table table-responsive-md">
+                        <tfoot>
+                            <tr>
+                                <td>total price :</td>
+                                <td>
+                                    <h2>€ {$carrelli[carrello].prezzoCarrello}</h2>
+                                </td>
+                            </tr>
+                        </tfoot>
+                    </table>
                 </div>
             </div>
+            <div class="row cart-buttons">
+                <div class="col-6"><a href="#" class="btn btn-solid">recupera carrello</a></div>
+                <div class="col-6"><a href="#" class="btn btn-solid">elimina carrello</a></div>
+            </div>
         </div>
+        {/section}
     </section>
-    <!-- section end -->
+    <!--section end-->
 
 
     <!-- footer start -->
     <footer class="footer-light">
-
         <section class="section-b-space light-layout">
             <div class="container">
                 <div class="row footer-theme partition-f">
@@ -1628,8 +1577,6 @@
     <div class="tap-top">
         <div><i class="fa fa-angle-double-up"></i></div>
     </div>
-    <!-- tap to top end -->
-
 
     <!-- latest jquery-->
     <script src="Smarty/smarty-dir/assets/js/jquery-3.3.1.min.js"></script>
