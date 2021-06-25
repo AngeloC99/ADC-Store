@@ -14,9 +14,15 @@ class VGestioneSchermate
     public function showHome(){
 
         $this->smarty->assign("path", $GLOBALS["path"]);
-        $this->smarty->display('aggiungi-premi.tpl');
-
+        $this->smarty->display('home.tpl');
 
     }
+
+    public function showProducts(){
+
+        $this->smarty->assign("path", $GLOBALS["path"]);
+        $this->smarty->display('category-page(infinite-scroll).tpl');        
+
+    }        
 
 }
