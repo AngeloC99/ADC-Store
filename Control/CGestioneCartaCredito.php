@@ -14,14 +14,11 @@ class CGestioneCartaCredito
      * @param EUtenteReg $utente
      * @return array
      */
-    public static function recuperaCarte(EUtenteReg $utente): array {
-
-        //Passare l'utente non è necessario, lo si riconosce tramite il token della sessione
-
-        // Recuperare tutte le carte del db non serve(?)
-
+    public static function recuperaCarte(string $mailutente) {
         $pm = FPersistentManager::getInstance();
-        return $pm->prelevaCarteUtente($utente);
+        $utente = $pm->load("FUtenteReg", $mailutente);
+        $v = new VGestioneCartaCredito();
+        $v->mostraCarte($utente);
     }
 
     /**

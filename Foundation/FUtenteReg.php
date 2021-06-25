@@ -335,7 +335,7 @@ class FUtenteReg
             $buono=new EBuonoSconto($row['percentuale'],$row['ammontare']);
             $buono->setScadenza(DateTime::createFromFormat('Y-m-d',$row['scadenza']));
             $buono->setCodice($row['codice']);
-            $buoni[$row['codice']] = $buono;
+            $buoni[] = $buono;
         }
         return $buoni;
 

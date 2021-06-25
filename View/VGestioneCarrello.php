@@ -52,9 +52,12 @@ class VGestioneCarrello {
 
         $indirizzi = $pm->prelevaIndirizziUtente($utente);
         $carte = $pm->prelevaCarteUtente($utente);
+        $buoni = $pm->prelevaBuoni($utente->getEmail());
 
         $this->smarty->assign('indirizzi', $indirizzi);
         $this->smarty->assign('carte', $carte);
+        $this->smarty->assign('buoni', $buoni);
+
 
         $this->smarty->display('checkout.tpl');
     }
@@ -112,5 +115,33 @@ class VGestioneCarrello {
         $this->smarty->assign('nomeUtente', $utente->getNome()." ".$utente->getCognome());
 
         return $this->smarty->fetch('email-order-success.tpl');
+    }
+
+    public function mostraCarrelliPreferiti(EUtenteReg $utente) {
+        $pm = FPersistentManager::getInstance();
+        $carrelli = $pm->prelevaCarrelliUtente($utente);
+        $arrCarrelli = array();
+        foreach ($carrelli as $carrello) {
+            $tmp = array(
+                'idCarrello' => $carrello->getId(),
+                'nomeCarrello' => $carrello->getNome(),
+                'prezzoCarrello' => $carrello->getPrezzoTot(),
+            );
+            $arrProdotti = array();
+            foreach ($carrello->getProdotti() as $idProd => $quantita) {
+                $prod = $pm->load("FProdotto", $idProd);
+                $tmp1 = array(
+                    'nome' => $prod->getNome(),
+                    'prezzo' => $prod->getPrezzo(),
+                    'quantita' => $quantita,
+                    'totProd' => $quantita*$prod->getPrezzo(),
+                );
+                $arrProdotti[] = $tmp1;
+            }
+            $tmp['prodotti'] = $arrProdotti;
+            $arrCarrelli[] = $tmp;
+        }
+        $this->smarty->assign('carrelli', $arrCarrelli);
+        $this->smarty->display('carrelliPreferiti.tpl');
     }
 }

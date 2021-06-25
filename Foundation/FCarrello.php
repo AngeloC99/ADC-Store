@@ -148,7 +148,7 @@ class FCarrello
                 $car->setId($row['id']);
                 $car->setNome($row['nome']);
                 self::prelevaProdottiDalCarrello($car, $pdo);
-                $carrelli[$row['id']] = $car;
+                $carrelli[] = $car;
             }
 
             return $carrelli;

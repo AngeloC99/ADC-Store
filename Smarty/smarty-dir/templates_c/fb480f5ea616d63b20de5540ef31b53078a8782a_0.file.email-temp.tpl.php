@@ -1,6 +1,6 @@
 <?php
 /* Smarty version 3.1.39, created on 2021-06-21 11:34:15
-  from 'C:\Users\rommy\public_html\ProgettoEsame\Smarty\smarty-dir\templates\email-temp.tpl' */
+  from 'C:\Users\rommy\public_html\ADC-Store\Smarty\smarty-dir\templates\email-temp.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
@@ -11,7 +11,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
     'fb480f5ea616d63b20de5540ef31b53078a8782a' => 
     array (
-      0 => 'C:\\Users\\rommy\\public_html\\ProgettoEsame\\Smarty\\smarty-dir\\templates\\email-temp.tpl',
+      0 => 'C:\\Users\\rommy\\public_html\\ADC-Store\\Smarty\\smarty-dir\\templates\\email-temp.tpl',
       1 => 1624267421,
       2 => 'file',
     ),

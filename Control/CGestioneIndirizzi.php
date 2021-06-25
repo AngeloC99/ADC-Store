@@ -14,9 +14,11 @@ class CGestioneIndirizzi
      * @param EUtenteReg $utente
      * @return array
      */
-    public static function recuperaIndirizzi(EUtenteReg $utente): array {
+    public static function recuperaIndirizzi(string $mailutente) {
         $pm = FPersistentManager::getInstance();
-        return $pm->prelevaIndirizziUtente($utente);
+        $utente = $pm->load("FUtenteReg", $mailutente);
+        $v = new VGestioneIndirizzi();
+        $v->mostraIndirizzi($utente);
     }
 
 
