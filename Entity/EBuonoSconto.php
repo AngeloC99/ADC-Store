@@ -107,7 +107,7 @@ class EBuonoSconto
      */
     public function __toString(): string
     {
-        $s='Codice del buono: '.$this->codice;
+        $s='Codice: '.$this->codice;
         if($this->percentuale==false){
             $s=$s."\n".'Valore: '."-".$this->ammontare."€";
         }

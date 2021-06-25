@@ -117,6 +117,7 @@ CREATE TABLE Prodotto(
     idImmagine CHAR(16) NOT NULL,
     PRIMARY KEY (id),
     INDEX (tipologia),
+    INDEX (nome),
     FOREIGN KEY (idImmagine) REFERENCES Immagine(id)
     ON UPDATE CASCADE ON DELETE CASCADE
 );

@@ -99,11 +99,14 @@ class CGestioneCarrello
     public static function recuperaCarrelliSalvati(string $mailutente) {
         $pm = FPersistentManager::getInstance();
         $utente = $pm->load("FUtenteReg", $mailutente);
-        $carrelli = $pm->prelevaCarrelliUtente($utente);
-        // Li mostra nel template
+        $v = new VGestioneCarrello();
+        $v->mostraCarrelliPreferiti($utente);
     }
 
     public static function salvaCarrello() {
         // prende il carrello dalla sessione e lo salva tramite il pm
+
+        //$pm = FPersistentManager::getInstance();
+        //$pm->store($carrello)
     }
 }

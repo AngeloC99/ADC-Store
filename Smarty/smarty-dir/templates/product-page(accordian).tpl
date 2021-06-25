@@ -752,7 +752,7 @@
                                         <li><a href="profilefe.html">Profilo</a>
 
                                         <li>
-                                            <a href="category-page(infinite-scroll).html">Prodotti</a>
+                                            <a href="category-page(infinite-scroll).tpl">Prodotti</a>
 
                                         </li>
                                     </ul>
@@ -1773,7 +1773,7 @@
                                             <div class="buttons">
                                                 <a href="cart.html" class="view-cart btn btn-solid">Vai al Carrello</a>
                                                 <a href="order.html" class="checkout btn btn-solid">Check out</a>
-                                                <a href="category-page(infinite-scroll).html" class="continue btn btn-solid">Continua lo shopping</a>
+                                                <a href="category-page(infinite-scroll).tpl" class="continue btn btn-solid">Continua lo shopping</a>
                                             </div>
 
                                             <div class="upsell_payment">

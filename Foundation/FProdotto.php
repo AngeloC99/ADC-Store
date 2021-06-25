@@ -203,6 +203,34 @@ class FProdotto
             $pdo->rollBack();
         }
     }
+    public static function prelevaPerNome(string $nome) : array {
+        try{
+            $pdo = FConnectionDB::connect();
+            $pdo->beginTransaction();
+            $immagini=FImmagine::prelevaImmagini();
+            $stmt = $pdo->prepare("SELECT * FROM Prodotto WHERE nome = :nome");
+            $stmt->execute([":nome"=>$nome]);
+            $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            $prodotti = array();
+            foreach ($rows as $row) {
+                $prod=new EProdotto($row['nome'],
+                    $row['marca'],
+                    $row['descrizione'],
+                    $row['quantita'],
+                    $immagini[$row['idImmagine']],
+                    $row['prezzo'],
+                    $row['tipologia']);
+                $prod->setId($row['id']);
+                $prodotti[$row['id']]=$prod;
+            }
+            $pdo->commit();
+            return $prodotti;
+        }
+        catch (PDOException $e){
+            print("ATTENTION ERROR: ") . $e->getMessage();
+            $pdo->rollBack();
+        }
+    }
 
 
 
