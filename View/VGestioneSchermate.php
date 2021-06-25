@@ -18,11 +18,5 @@ class VGestioneSchermate
 
     }
 
-    public function showProducts(){
-
-        $this->smarty->assign("path", $GLOBALS["path"]);
-        $this->smarty->display('category-page(infinite-scroll).tpl');        
-
-    }        
 
 }

@@ -157,7 +157,7 @@
                                         </div>
                                     </div>
                                     <div class="col-xl-7">
-                                        <form class="needs-validation add-product-form" novalidate=""  enctype="multipart/form-data" method="post" action="/~david/ProgettoEsame/GestionePunti/aggiungiPremio">
+                                        <form class="needs-validation add-product-form" novalidate=""  enctype="multipart/form-data" method="post" action="{$path}GestionePunti/aggiungiPremio">
                                             <div class="form">
                                                 <div class="form-group mb-3 row">
                                                     <label for="validationCustom01" class="col-xl-3 col-sm-4 mb-0">Seleziona immagine :</label>

@@ -13,7 +13,7 @@ class CGestioneProdotti
         $prodotti=array();
         foreach ($prodottirec as $key=>$item) {
             $prodotto=$pm->load('FProdotto',$key);
-            $img = base64_encode($prodotto->getImmagine()->getByte());
+            $img = $prodotto->getImmagine()->getByte();
             $mime = $prodotto->getImmagine()->getFormato();
             $tmp = array(
                 'nome' => $prodotto->getNome(),

@@ -30,9 +30,9 @@ CGestioneBuoni::recuperaBuoni($utente);
 //CGestioneCarrello::procediOrdine("Car60c065edcc2f7", "adarossi@gmail.com");
 //CGestioneCarrello::procediAcquisto("Car60c065edcc2f7", $ind);
 
-$ind = new EIndirizzo("Via Salamanca","323", "Rieti","Ri", "02100",false);
+//$ind = new EIndirizzo("Via Salamanca","323", "Rieti","Ri", "02100",false);
 //CGestioneCarrello::procediOrdine("Car60d4832ae0870", "adarossi@gmail.com");
-CGestioneCarrello::procediAcquisto("Car60d4832ae0870", $ind,"adarossi@gmail.com", "1234567891234567");
+//CGestioneCarrello::procediAcquisto("Car60d4832ae0870", $ind,"adarossi@gmail.com", "1234567891234567");
 
 
 // TESTING Prodotto
@@ -50,12 +50,12 @@ CGestioneCarrello::procediAcquisto("Car60d4832ae0870", $ind,"adarossi@gmail.com"
 //$utente=new EUtenteReg('chiara','romano','romanochiara229@gmail.com','pippo');
 
 
-$GLOBALS["path"] = "/~david//ProgettoEsame/";
+$GLOBALS["path"] = "/~david/ProgettoEsame/";
 
 $fcontroller = new CFrontController();
 $fcontroller->run($_SERVER['REQUEST_URI']);
 
 
 //Testing Dettagli prodotto
-CGestioneProdotti::recuperaDettagli('PRO60d44884943c5');
+//CGestioneProdotti::recuperaDettagli('PRO60d44884943c5');
 
