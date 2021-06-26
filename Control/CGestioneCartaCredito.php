@@ -23,22 +23,17 @@ class CGestioneCartaCredito
 
     /**
      * Passa i dati inseriti dall'utente al package Foundation per salvare una nuova carta di credito ad esso associata.
-     * @param string $titolare
-     * @param string $numero
-     * @param string $circuito
-     * @param DateTime $scadenza
-     * @param int $cvv
-     * @param float $ammontare
-     * @param EUtenteReg $utente
+     * @param string $mailutente
      */
-    public static function aggiungiCarta(string $titolare, string $numero, string $circuito, DateTime $scadenza, int $cvv, float $ammontare, EUtenteReg $utente): void {
-
-        // I DATI DEVONO ESSERE RECUPERATI DA UNA FORM CON IL METODO POST
-        // L'AMMONTARE LO GENERIAMO RANDOM O SCELTO NELLA FORM???
-
+    public static function aggiungiCarta(): void {
         $pm = FPersistentManager::getInstance();
-        $carta = new ECartaCredito($titolare, $numero, $circuito, $scadenza, $cvv, $ammontare);
+        $carta = new ECartaCredito($_POST['titolare'], $_POST['numero'], $_POST['circuito'], new DateTime($_POST['scadenza']),
+                                    $_POST['cvv'], $_POST['ammontare']);
+        // MODIFICARE CON MAIL UTENTE SESSIONE
+
+        $utente = $pm->load("FUtenteReg", "adarossi@gmail.com");
         $pm->salvaCartaUtente($carta, $utente);
+        CGestioneCartaCredito::recuperaCarte("adarossi@gmail.com");
     }
 
     /**

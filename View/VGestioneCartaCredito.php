@@ -24,6 +24,7 @@ class VGestioneCartaCredito {
             $carteArr[] = $tmp;
         }
         $this->smarty->assign('carte', $carteArr);
+        $this->smarty->assign("path", $GLOBALS["path"]);
 
         $this->smarty->display('gestioneCarte.tpl');
     }
