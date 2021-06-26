@@ -16,6 +16,7 @@ class CGestioneProdotti
             $img = $prodotto->getImmagine()->getByte();
             $mime = $prodotto->getImmagine()->getFormato();
             $tmp = array(
+                'id' => $prodotto->getId(),
                 'nome' => $prodotto->getNome(),
                 'marca' => $prodotto->getMarca(),
                 'descrizione' => $prodotto->getDescrizione(),
@@ -82,6 +83,7 @@ class CGestioneProdotti
         $pm=FPersistentManager::getInstance();
         $prodotto=$pm->load('FProdotto',$id);
         $prod=array(
+            'id'=>$prodotto->getId(),
             'nome'=>$prodotto->getNome(),
             'marca'=>$prodotto->getMarca(),
             'descrizione'=>$prodotto->getDescrizione(),

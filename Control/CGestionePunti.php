@@ -2,9 +2,9 @@
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
-require('C:\Users\david\public_html\ProgettoEsame\PHPMailer-master\src\PHPMailer.php');
-require('C:\Users\david\public_html\ProgettoEsame\PHPMailer-master\src\Exception.php');
-require('C:\Users\david\public_html\ProgettoEsame\PHPMailer-master\src\SMTP.php');
+//require('C:\Users\david\public_html\ProgettoEsame\PHPMailer-master\src\PHPMailer.php');
+//require('C:\Users\david\public_html\ProgettoEsame\PHPMailer-master\src\Exception.php');
+//require('C:\Users\david\public_html\ProgettoEsame\PHPMailer-master\src\SMTP.php');
 
 
 /**
@@ -17,7 +17,7 @@ class CGestionePunti
      * MRecupera tutti i premi presenti nel database
      * @return array
      */
-    public static function recuperaPremi(): array {
+    public static function recuperaPremi() {
 
         $pm=FPersistentManager::getInstance();
         $premirec=$pm->prelevaPremi();

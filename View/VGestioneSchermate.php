@@ -16,14 +16,9 @@ class VGestioneSchermate
         $this->smarty->assign("path", $GLOBALS["path"]);
         //$this->smarty->display('category-page(infinite-scroll) - premi.tpl');
         //CGestionePunti::selezionaPremio('PRE60d5ec48d9621');
-        //$this->smarty->display('home.tpl');
+        $this->smarty->display('home.tpl');
         //CGestionePunti::recuperaPremi();
         //CGestioneProdotti::recuperaProdotti();
-        CGestionePunti::recuperaPremi();
-
-
-
+       //CGestionePunti::recuperaPremi();
     }
-
-
 }

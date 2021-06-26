@@ -799,7 +799,7 @@
                                                         <div class="product-detail">
                                                             <div>
                                                                 <div class="rating"></div>
-                                                                <a href="product-page(accordian).tpl">
+                                                                <a href="{$path}GestioneProdotti/recuperaDettagli/{$prod.id}">
                                                                     <h4>{$prod.nome}</h4>
                                                                     <h5>{$prod.marca}</h5>
                                                                 </a>
