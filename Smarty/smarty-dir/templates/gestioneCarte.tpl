@@ -140,7 +140,7 @@
                                     <input type="date" class="form-control" id="lname" placeholder="Inserisci la scadenza" name="scadenza"
                                            required>
                                 </div>
-                            </div><input type="submit" value="Salva la Carta" class="btn btn-primary"/>
+                            </div><input type="submit" value="Salva la Carta" class="btn btn-solid"/>
                         </form>
                     </div>
                 </div>

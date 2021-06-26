@@ -336,7 +336,7 @@
                                 </li>
                                 <li><a href="#">Account</a>
                                             <ul>
-                                                <li><a href="loginfe.html" data-lng="en">Login</a></li>
+                                                <li><a href="loginfe.tpl" data-lng="en">Login</a></li>
                                                 <li><a href="#" data-lng="en">Logout</a></li>
                                             </ul>
                                         
