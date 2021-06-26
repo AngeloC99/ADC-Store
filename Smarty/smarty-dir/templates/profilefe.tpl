@@ -8,31 +8,31 @@
     <meta name="description" content="multikart">
     <meta name="keywords" content="multikart">
     <meta name="author" content="multikart">
-    <link rel="icon" href="../assets/images/favicon/1.png" type="image/x-icon" />
-    <link rel="shortcut icon" href="../assets/images/favicon/1.png" type="image/x-icon" />
+    <link rel="icon" href="{$path}Smarty/smarty-dir/assets/images/favicon/1.png" type="image/x-icon" />
+    <link rel="shortcut icon" href="{$path}Smarty/smarty-dir/assets/images/favicon/1.png" type="image/x-icon" />
     <title>Profilo Utente</title>
 
     <!--Google font-->
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet">
 
     <!-- Icons -->
-    <link rel="stylesheet" type="text/css" href="../assets/css/fontawesome.css">
+    <link rel="stylesheet" type="text/css" href="{$path}Smarty/smarty-dir/assets/css/fontawesome.css">
 
     <!--Slick slider css-->
-    <link rel="stylesheet" type="text/css" href="../assets/css/slick.css">
-    <link rel="stylesheet" type="text/css" href="../assets/css/slick-theme.css">
+    <link rel="stylesheet" type="text/css" href="{$path}Smarty/smarty-dir/assets/css/slick.css">
+    <link rel="stylesheet" type="text/css" href="{$path}Smarty/smarty-dir/assets/css/slick-theme.css">
 
     <!-- Animate icon -->
-    <link rel="stylesheet" type="text/css" href="../assets/css/animate.css">
+    <link rel="stylesheet" type="text/css" href="{$path}Smarty/smarty-dir/assets/css/animate.css">
 
     <!-- Themify icon -->
-    <link rel="stylesheet" type="text/css" href="../assets/css/themify-icons.css">
+    <link rel="stylesheet" type="text/css" href="{$path}Smarty/smarty-dir/assets/css/themify-icons.css">
 
     <!-- Bootstrap css -->
-    <link rel="stylesheet" type="text/css" href="../assets/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="{$path}Smarty/smarty-dir/assets/css/bootstrap.css">
 
     <!-- Theme css -->
-    <link rel="stylesheet" type="text/css" href="../assets/css/color1.css" media="screen" id="color">
+    <link rel="stylesheet" type="text/css" href="{$path}Smarty/smarty-dir/assets/css/color1.css" media="screen" id="color">
 
 
 </head>
@@ -49,7 +49,7 @@
                     <div class="col-lg-6">
                         <div class="header-contact">
                             <ul>
-                                <li>Welcome to Our store Multikart</li>
+                                <li>Benvenuti in ADC Store</li>
                                 <li><i class="fa fa-phone" aria-hidden="true"></i>Call Us: 123 - 456 - 7890</li>
                             </ul>
                         </div>
@@ -59,7 +59,7 @@
                             <li class="mobile-wishlist"><a href="#"><i class="fa fa-heart" aria-hidden="true"></i></a>
                             </li>
                             <li class="onhover-dropdown mobile-account">
-                                <i class="fa fa-user" aria-hidden="true"></i> My Account
+                                <i class="fa fa-user" aria-hidden="true"></i> Il mio account
                                 <ul class="onhover-show-div">
                                     <li><a href="#" data-lng="en">Login</a></li>
                                     <li><a href="#" data-lng="es">Logout</a></li>
@@ -76,153 +76,8 @@
                     <div class="main-menu">
                         <div class="menu-left">
                             <div class="navbar">
-                                <a href="javascript:void(0)" onclick="openNav()">
-                                    <div class="bar-style"><i class="fa fa-bars sidebar-bar" aria-hidden="true"></i>
-                                    </div>
-                                </a>
-                                <div id="mySidenav" class="sidenav">
-                                    <a href="javascript:void(0)" class="sidebar-overlay" onclick="closeNav()"></a>
-                                    <nav>
-                                        <div onclick="closeNav()">
-                                            <div class="sidebar-back text-left"><i class="fa fa-angle-left pr-2"
-                                                    aria-hidden="true"></i> Back</div>
-                                        </div>
-                                        <ul id="sub-menu" class="sm pixelstrap sm-vertical">
-                                            <li>
-                                                <a href="#">clothing</a>
-                                                <ul class="mega-menu clothing-menu">
-                                                    <li>
-                                                        <div class="row m-0">
-                                                            <div class="col-xl-4">
-                                                                <div class="link-section">
-                                                                    <h5>women's fashion</h5>
-                                                                    <ul>
-                                                                        <li><a href="#">dresses</a></li>
-                                                                        <li><a href="#">skirts</a></li>
-                                                                        <li><a href="#">westarn wear</a></li>
-                                                                        <li><a href="#">ethic wear</a></li>
-                                                                        <li><a href="#">sport wear</a></li>
-                                                                    </ul>
-                                                                    <h5>men's fashion</h5>
-                                                                    <ul>
-                                                                        <li><a href="#">sports wear</a></li>
-                                                                        <li><a href="#">western wear</a></li>
-                                                                        <li><a href="#">ethic wear</a></li>
-                                                                    </ul>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-xl-4">
-                                                                <div class="link-section">
-                                                                    <h5>accessories</h5>
-                                                                    <ul>
-                                                                        <li><a href="#">fashion jewellery</a></li>
-                                                                        <li><a href="#">caps and hats</a></li>
-                                                                        <li><a href="#">precious jewellery</a></li>
-                                                                        <li><a href="#">necklaces</a></li>
-                                                                        <li><a href="#">earrings</a></li>
-                                                                        <li><a href="#">wrist wear</a></li>
-                                                                        <li><a href="#">ties</a></li>
-                                                                        <li><a href="#">cufflinks</a></li>
-                                                                        <li><a href="#">pockets squares</a></li>
-                                                                    </ul>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-xl-4"><a href="#"
-                                                                    class="mega-menu-banner"><img
-                                                                        src="../assets/images/mega-menu/fashion.jpg"
-                                                                        alt="" class="img-fluid blur-up lazyload"></a>
-                                                            </div>
-                                                        </div>
-                                                    </li>
-                                                </ul>
-                                            </li>
-                                            <li>
-                                                <a href="#">bags</a>
-                                                <ul>
-                                                    <li><a href="#">shopper bags</a></li>
-                                                    <li><a href="#">laptop bags</a></li>
-                                                    <li><a href="#">clutches</a></li>
-                                                    <li>
-                                                        <a href="#">purses</a>
-                                                        <ul>
-                                                            <li><a href="#">purses</a></li>
-                                                            <li><a href="#">wallets</a></li>
-                                                            <li><a href="#">leathers</a></li>
-                                                            <li><a href="#">satchels</a></li>
-                                                        </ul>
-                                                    </li>
-                                                </ul>
-                                            </li>
-                                            <li>
-                                                <a href="#">footwear</a>
-                                                <ul>
-                                                    <li><a href="#">sport shoes</a></li>
-                                                    <li><a href="#">formal shoes</a></li>
-                                                    <li><a href="#">casual shoes</a></li>
-                                                </ul>
-                                            </li>
-                                            <li><a href="#">watches</a></li>
-                                            <li>
-                                                <a href="#">Accessories</a>
-                                                <ul>
-                                                    <li><a href="#">fashion jewellery</a></li>
-                                                    <li><a href="#">caps and hats</a></li>
-                                                    <li><a href="#">precious jewellery</a></li>
-                                                    <li>
-                                                        <a href="#">more..</a>
-                                                        <ul>
-                                                            <li><a href="#">necklaces</a></li>
-                                                            <li><a href="#">earrings</a></li>
-                                                            <li><a href="#">wrist wear</a></li>
-                                                            <li>
-                                                                <a href="#">accessories</a>
-                                                                <ul>
-                                                                    <li><a href="#">ties</a></li>
-                                                                    <li><a href="#">cufflinks</a></li>
-                                                                    <li><a href="#">pockets squares</a></li>
-                                                                    <li><a href="#">helmets</a></li>
-                                                                    <li><a href="#">scarves</a></li>
-                                                                    <li>
-                                                                        <a href="#">more...</a>
-                                                                        <ul>
-                                                                            <li><a href="#">accessory gift sets</a></li>
-                                                                            <li><a href="#">travel accessories</a></li>
-                                                                            <li><a href="#">phone cases</a></li>
-                                                                        </ul>
-                                                                    </li>
-                                                                </ul>
-                                                            </li>
-                                                            <li><a href="#">belts & more</a></li>
-                                                            <li><a href="#">wearable</a></li>
-                                                        </ul>
-                                                    </li>
-                                                </ul>
-                                            </li>
-                                            <li><a href="#">house of design</a></li>
-                                            <li>
-                                                <a href="#">beauty & personal care</a>
-                                                <ul>
-                                                    <li><a href="#">makeup</a></li>
-                                                    <li><a href="#">skincare</a></li>
-                                                    <li><a href="#">premium beaty</a></li>
-                                                    <li>
-                                                        <a href="#">more</a>
-                                                        <ul>
-                                                            <li><a href="#">fragrances</a></li>
-                                                            <li><a href="#">luxury beauty</a></li>
-                                                            <li><a href="#">hair care</a></li>
-                                                            <li><a href="#">tools & brushes</a></li>
-                                                        </ul>
-                                                    </li>
-                                                </ul>
-                                            </li>
-                                            <li><a href="#">home & decor</a></li>
-                                            <li><a href="#">kitchen</a></li>
-                                        </ul>
-                                    </nav>
-                                </div>
-                            </div>
-                            <div class="brand-logo"><a href="index.html"><img src="../assets/images/icon/logo.png"
+                            
+                            <div class="brand-logo"><a href="index.html"><img src="{$path}Smarty/smarty-dir/assets/images/icon/logo.png"
                                         class="img-fluid blur-up lazyload" alt=""></a></div>
                         </div>
                         
@@ -239,14 +94,14 @@
             <div class="row">
                 <div class="col-sm-6">
                     <div class="page-title">
-                        <h2>profile</h2>
+                        <h2>profilo</h2>
                     </div>
                 </div>
                 <div class="col-sm-6">
                     <nav aria-label="breadcrumb" class="theme-breadcrumb">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">profile</li>
+                            <li class="breadcrumb-item active" aria-current="page">profilo</li>
                         </ol>
                     </nav>
                 </div>
@@ -261,31 +116,26 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-12">
-                    <h3>PERSONAL DETAIL</h3>
+                    <h3>DETTAGLI PERSONALI</h3>
                     <form class="theme-form">
                         <div class="form-row">
                             <div class="col-md-6">
-                                <label for="name">First Name</label>
-                                <input type="text" class="form-control" id="name" placeholder="Enter Your name"
-                                    required="">
+                                <h4>Nome</h4><br>
+                                <h2>ciao</h2>
+
                             </div>
                             <div class="col-md-6">
-                                <label for="email">Last Name</label>
+                                <label for="email">Cognome</label>
                                 <input type="text" class="form-control" id="last-name" placeholder="Email" required="">
                             </div>
                             <div class="col-md-6">
-                                <label for="review">Phone number</label>
-                                <input type="text" class="form-control" id="review" placeholder="Enter your number"
+                                <label for="review">Email</label>
+                                <input type="text" class="form-control" id="email" placeholder="Enter your number"
                                     required="">
                             </div>
                             <div class="col-md-6">
-                                <label for="email">Email</label>
+                                <label for="email">Punti accumuati</label>
                                 <input type="text" class="form-control" id="email" placeholder="Email" required="">
-                            </div>
-                            <div class="col-md-12">
-                                <label for="review">Write Your Message</label>
-                                <textarea class="form-control mb-0" placeholder="Write Your Message"
-                                    id="exampleFormControlTextarea1" rows="6"></textarea>
                             </div>
                         </div>
                     </form>
@@ -385,7 +235,7 @@
                             <h4>about</h4>
                         </div>
                         <div class="footer-contant">
-                            <div class="footer-logo"><img src="../assets/images/icon/logo.png" alt=""></div>
+                            <div class="footer-logo"><img src="{$path}Smarty/smarty-dir/assets/images/icon/logo.png" alt=""></div>
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
                                 ut labore et dolore magna aliqua. Ut enim ad minim veniam,</p>
                             <div class="footer-social">
@@ -462,11 +312,11 @@
                     <div class="col-xl-6 col-md-6 col-sm-12">
                         <div class="payment-card-bottom">
                             <ul>
-                                <li><a href="#"><img src="../assets/images/icon/visa.png" alt=""></a></li>
-                                <li><a href="#"><img src="../assets/images/icon/mastercard.png" alt=""></a></li>
-                                <li><a href="#"><img src="../assets/images/icon/paypal.png" alt=""></a></li>
-                                <li><a href="#"><img src="../assets/images/icon/american-express.png" alt=""></a></li>
-                                <li><a href="#"><img src="../assets/images/icon/discover.png" alt=""></a></li>
+                                <li><a href="#"><img src="{$path}Smarty/smarty-dir/assets/images/icon/visa.png" alt=""></a></li>
+                                <li><a href="#"><img src="{$path}Smarty/smarty-dir/assets/images/icon/mastercard.png" alt=""></a></li>
+                                <li><a href="#"><img src="{$path}Smarty/smarty-dir/assets/images/icon/paypal.png" alt=""></a></li>
+                                <li><a href="#"><img src="{$path}Smarty/smarty-dir/assets/images/icon/american-express.png" alt=""></a></li>
+                                <li><a href="#"><img src="{$path}Smarty/smarty-dir/assets/images/icon/discover.png" alt=""></a></li>
                             </ul>
                         </div>
                     </div>
@@ -522,13 +372,13 @@
                         target="_blank" class="btn btn-block purchase_btn"><i class="fa fa-shopping-cart"
                             aria-hidden="true"></i> purchase Multikart now!</a>
                     <a href="https://themeforest.net/item/multikart-responsive-angular-ecommerce-template/22905358?s_rank=3"
-                        target="_blank" class="btn btn-block purchase_btn"><img src="../assets/images/icon/angular.png"
+                        target="_blank" class="btn btn-block purchase_btn"><img src="{$path}Smarty/smarty-dir/assets/images/icon/angular.png"
                             alt="" class="img-fluid"> Multikart Angular</a>
                     <a href="https://themeforest.net/item/multikart-responsive-react-ecommerce-template/23067773?s_rank=2"
-                        target="_blank" class="btn btn-block purchase_btn"><img src="../assets/images/icon/react.png"
+                        target="_blank" class="btn btn-block purchase_btn"><img src="{$path}Smarty/smarty-dir/assets/images/icon/react.png"
                             alt="" class="img-fluid"> Multikart React</a>
                     <a href="https://themeforest.net/item/multikart-multipurpose-shopify-sections-theme/23093831?s_rank=1"
-                        target="_blank" class="btn btn-block purchase_btn"><img src="../assets/images/icon/shopify.png"
+                        target="_blank" class="btn btn-block purchase_btn"><img src="{$path}Smarty/smarty-dir/assets/images/icon/shopify.png"
                             alt="" class="img-fluid"> Multikart Shopify</a>
                 </div>
             </div>
@@ -546,28 +396,28 @@
 
 
     <!-- latest jquery-->
-    <script src="../assets/js/jquery-3.3.1.min.js"></script>
+    <script src="{$path}Smarty/smarty-dir/assets/js/jquery-3.3.1.min.js"></script>
 
     <!-- menu js-->
-    <script src="../assets/js/menu.js"></script>
+    <script src="{$path}Smarty/smarty-dir/assets/js/menu.js"></script>
 
     <!-- lazyload js-->
-    <script src="../assets/js/lazysizes.min.js"></script>
+    <script src="{$path}Smarty/smarty-dir/assets/js/lazysizes.min.js"></script>
 
     <!-- popper js-->
-    <script src="../assets/js/popper.min.js"></script>
+    <script src="{$path}Smarty/smarty-dir/assets/js/popper.min.js"></script>
 
     <!-- slick js-->
-    <script src="../assets/js/slick.js"></script>
+    <script src="{$path}Smarty/smarty-dir/assets/js/slick.js"></script>
 
     <!-- Bootstrap js-->
-    <script src="../assets/js/bootstrap.js"></script>
+    <script src="{$path}Smarty/smarty-dir/assets/js/bootstrap.js"></script>
 
     <!-- Bootstrap Notification js-->
-    <script src="../assets/js/bootstrap-notify.min.js"></script>
+    <script src="{$path}Smarty/smarty-dir/assets/js/bootstrap-notify.min.js"></script>
 
     <!-- Theme js-->
-    <script src="../assets/js/script.js"></script>
+    <script src="{$path}Smarty/smarty-dir/assets/js/script.js"></script>
 
     <script>
         function openSearch() {

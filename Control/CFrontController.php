@@ -7,7 +7,7 @@ class CFrontController
     {
         $method = $_SERVER['REQUEST_METHOD'];
 
-        if ($path === "/~angel/ADC-Store/" || $path === "/ADC-Store/" || $path === "/ADC-Store/index.php") {
+        if ($path === "/~david/ProgettoEsame/" || $path === "/ProgettoEsame/" || $path === "/ProgettoEsame/index.php") {
             CGestioneSchermate::showHome();
         } else {
             $res = explode("/", $path);

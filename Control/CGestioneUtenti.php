@@ -28,6 +28,14 @@ class CGestioneUtenti
         return $pm->load("FUtenteReg",$email);
     }
 
+    public static function apriProfilo(){
+
+        $pm = FPersistentManager::getInstance();
+        $utente = $pm->load('FUtenteReg', "adarossi@gmail.com");
+        $v = new VGesioneUtenti();
+        $v->mostraProfilo($utente);        
+    }
+
     /**
      * Crea e salva nel database un nuovo utente che vuole registrarsi
      * @param string $nome
@@ -47,9 +55,22 @@ class CGestioneUtenti
      * @param string $email
      * @param string $password
      */
-    public static function login(string $email, string $password){
+    public static function login() {
 
-        //Richiami a foundation, FUtente, Famministratore, uso di sessioni ecc
+        if (self::isLogged()) {
+            header("Location: /~david/ProgettoEsame/");
+
+            $username = $_POST["username"];
+            $password = $_POST["password"];
+
+            self::checkLogin($username, $password);
+        } ;
+
+    }
+
+    public static function verificaLogin($username, $password){
+
+        $pm = FPersistentManager::getInstance();
     }
 
 }

@@ -443,7 +443,6 @@
                                                     aria-hidden="true"></i></div>
                                         </li>
                                         <li>
-<<<<<<< Updated upstream:Smarty/smarty-dir/templates/product-page(accordian).html
                                             <a href="#">Home</a>
                                             <ul>
                                                 <li>
@@ -742,12 +741,11 @@
                                                             class="new-tag">new</span></a></li>
                                                 <li><a href="faq.html">FAQ</a></li>
                                             </ul>
-=======
+
                                             <a href="home.html">Home</a>
                                           </li>
 
 
->>>>>>> Stashed changes:Smarty/smarty-dir/templates/product-page(accordian).tpl
                                         </li>
                                         <li><a href="profilefe.html">Profilo</a>
 

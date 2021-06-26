@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-06-25 10:56:29
+/* Smarty version 3.1.39, created on 2021-06-26 11:39:09
   from 'C:\Users\david\public_html\ProgettoEsame\Smarty\smarty-dir\templates\category-page(infinite-scroll).tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_60d59a3d681388_86643504',
+  'unifunc' => 'content_60d6f5bdefd5b7_96307023',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'e955edb47090f6b0a0160399752af9e566372a08' => 
     array (
       0 => 'C:\\Users\\david\\public_html\\ProgettoEsame\\Smarty\\smarty-dir\\templates\\category-page(infinite-scroll).tpl',
-      1 => 1624611387,
+      1 => 1624700155,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_60d59a3d681388_86643504 (Smarty_Internal_Template $_smarty_tpl) {
+function content_60d6f5bdefd5b7_96307023 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en">
 
@@ -639,10 +639,19 @@ Smarty/smarty-dir/assets/images/icon/search.png" onclick="openSearch()" class="i
                                                         <div class="container">
                                                             <div class="row">
                                                                 <div class="col-xl-12">
-                                                                    <form>
-                                                                        <div class="form-group">
-                                                                            <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Search a Product">
+                                                                    <form method="post" action="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+GestioneProdotti/recuperaProdotto">
+                                                                        <h3>Ricerca per:</h3>
+                                                                        <div>
+                                                                            <h5>Tipologia <input type="radio" id="contactChoice1"
+                                                                                                 name="selection" value="tipologia" checked/></h5>
+                                                                            <h5>Nome <input type="radio" id="contactChoice1"
+                                                                                            name="selection" value="nome"/></h5>
                                                                         </div>
+                                                                        <div class="form-group">
+                                                                            <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Cerca un prodotto" name="ricerca">
+                                                                        </div>
+
                                                                         <button type="submit" class="btn btn-primary"><i
                                                                                 class="fa fa-search"></i></button>
                                                                     </form>
@@ -831,7 +840,7 @@ $_smarty_tpl->tpl_vars['prod']->do_else = false;
                                                                 <a href="product-page(accordian).tpl">
                                                                 	<img src="data:<?php echo $_smarty_tpl->tpl_vars['prod']->value['mime'];?>
 ;base64,<?php echo $_smarty_tpl->tpl_vars['prod']->value['dati'];?>
-" width="100" height="100"/>
+" width="100" height="200"/>
                                                                 </a>
                                                             </div>
                                                             <div class="cart-info cart-wrap">
@@ -845,7 +854,9 @@ $_smarty_tpl->tpl_vars['prod']->do_else = false;
                                                         <div class="product-detail">
                                                             <div>
                                                                 <div class="rating"></div>
-                                                                <a href="product-page(accordian).tpl">
+                                                                <a href="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+GestioneProdotti/recuperaDettagli/<?php echo $_smarty_tpl->tpl_vars['prod']->value['id'];?>
+">
                                                                     <h4><?php echo $_smarty_tpl->tpl_vars['prod']->value['nome'];?>
 </h4>
                                                                     <h5><?php echo $_smarty_tpl->tpl_vars['prod']->value['marca'];?>
