@@ -52,7 +52,7 @@ class FAmministratore
      * @param string $email
      * @return EAmministratore
      */
-    public static function load(string $email, string $password) : EAmministratore | null
+    public static function load(string $email) : EAmministratore
     {
         $pdo = FConnectionDB::connect();
         $query = "SELECT * FROM amministratore WHERE email= :email";
@@ -65,14 +65,11 @@ class FAmministratore
         $email=$rows[0]['email'];
         $hash=$rows[0]['password'];
 
-        if(password_verify($password,$hash)) {
-            $admin = new EAmministratore($nome,$cognome,$email,$password);
-            return $admin;
-        }
-        else{
 
-        return null;
-        }
+        $admin = new EAmministratore($nome,$cognome,$email,$hash);
+        return $admin;
+
+
     }
 
     /**
