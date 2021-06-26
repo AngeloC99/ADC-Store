@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-06-26 14:55:54
+/* Smarty version 3.1.39, created on 2021-06-26 18:57:57
   from 'C:\Users\david\public_html\ADC-Store\Smarty\smarty-dir\templates\profilefe.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_60d723daba0266_44533714',
+  'unifunc' => 'content_60d75c950c1657_77593113',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'dfbf06b8cefa1263966fdef6a6872ff5a4b09e5c' => 
     array (
       0 => 'C:\\Users\\david\\public_html\\ADC-Store\\Smarty\\smarty-dir\\templates\\profilefe.tpl',
-      1 => 1624711977,
+      1 => 1624726631,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_60d723daba0266_44533714 (Smarty_Internal_Template $_smarty_tpl) {
+function content_60d75c950c1657_77593113 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en">
 
@@ -113,7 +113,59 @@ Smarty/smarty-dir/assets/css/color1.css" media="screen" id="color">
 Smarty/smarty-dir/assets/images/icon/logo.png"
                                         class="img-fluid blur-up lazyload" alt=""></a></div>
                         </div>
-                        
+                           <div class="menu-right pull-right">
+                                <div>
+                                    <nav>
+                                        <div class="toggle-nav"><i class="fa fa-bars sidebar-bar"></i></div>
+                                        <ul class="sm pixelstrap sm-horizontal">
+                                            <li>
+                                                <div class="mobile-back text-right">Back<i
+                                                        class="fa fa-angle-right pl-2" aria-hidden="true"></i></div>
+                                            </li>
+                                            <li>
+                                                <a href="#">Carrelli preferiti</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">Buoni sconto</a>
+                                            </li>
+                                            <li>
+                                                <a href="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+GestioneSchermate/recuperaFormPunti">Regala punti</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">Gestsci indirizzi</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">Carte di credito</a>
+                                            </li>
+                                        </ul>
+                                    </nav>
+                                </div>
+                                <div>
+                                    <div class="icon-nav d-none d-sm-block">
+                                        <ul>
+                                            <li class="onhover-div mobile-search">
+                                                <div><img src="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+Smarty/smarty-dir/assets/images/icon/search.png" onclick="openSearch()"
+                                                        class="img-fluid blur-up lazyload" alt=""> <i class="ti-search"
+                                                        onclick="openSearch()"></i></div>
+                                            </li>
+                                            <li class="onhover-div mobile-setting">
+                                                <div><img src="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+Smarty/smarty-dir/assets/images/icon/setting.png"
+                                                        class="img-fluid blur-up lazyload" alt=""> <i
+                                                        class="ti-settings"></i></div>
+                                            </li>
+                                            <li class="onhover-div mobile-cart">
+                                                <div><img src="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+Smarty/smarty-dir/assets/images/icon/cart.png"
+                                                        class="img-fluid blur-up lazyload" alt=""> <i
+                                                        class="ti-shopping-cart"></i></div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>                        
                 </div>
             </div>
         </div>
@@ -130,6 +182,7 @@ Smarty/smarty-dir/assets/images/icon/logo.png"
                         <h2>profilo</h2>
                     </div>
                 </div>
+
                 <div class="col-sm-6">
                     <nav aria-label="breadcrumb" class="theme-breadcrumb">
                         <ol class="breadcrumb">
@@ -150,28 +203,31 @@ Smarty/smarty-dir/assets/images/icon/logo.png"
             <div class="row">
                 <div class="col-sm-12">
                     <h3>DETTAGLI PERSONALI</h3>
-                    <form class="theme-form">
+
                         <div class="form-row">
                             <div class="col-md-6">
-                                <h4>Nome</h4><br>
-                                <h2>ciao</h2>
+                                <h4>Nome:</h4><br>
+                                <h2><?php echo $_smarty_tpl->tpl_vars['nome']->value;?>
+</h2>
 
                             </div>
                             <div class="col-md-6">
-                                <label for="email">Cognome</label>
-                                <input type="text" class="form-control" id="last-name" placeholder="Email" required="">
+                                <h4>Cognome:</h4><br>
+                                <h2><?php echo $_smarty_tpl->tpl_vars['cognome']->value;?>
+</h2>
+                            </div>
+                            <div class="col-md-6" >
+                                <h4>Email:</h4><br>
+                                <h2><?php echo $_smarty_tpl->tpl_vars['email']->value;?>
+</h2>
                             </div>
                             <div class="col-md-6">
-                                <label for="review">Email</label>
-                                <input type="text" class="form-control" id="email" placeholder="Enter your number"
-                                    required="">
-                            </div>
-                            <div class="col-md-6">
-                                <label for="email">Punti accumuati</label>
-                                <input type="text" class="form-control" id="email" placeholder="Email" required="">
+                                <h4>Punti accumulati:</h4><br>
+                                <h2><?php echo $_smarty_tpl->tpl_vars['punti']->value;?>
+</h2>
                             </div>
                         </div>
-                    </form>
+
                 </div>
             </div>
         </div>
@@ -182,51 +238,6 @@ Smarty/smarty-dir/assets/images/icon/logo.png"
     <!-- address section start -->
     <section class="contact-page register-page section-b-space">
         <div class="container">
-            <div class="row">
-                <div class="col-sm-12">
-                    <h3>SHIPPING ADDRESS</h3>
-                    <form class="theme-form">
-                        <div class="form-row">
-                            <div class="col-md-6">
-                                <label for="name">flat / plot</label>
-                                <input type="text" class="form-control" id="home-ploat" placeholder="company name"
-                                    required="">
-                            </div>
-                            <div class="col-md-6">
-                                <label for="name">Address *</label>
-                                <input type="text" class="form-control" id="address-two" placeholder="Address"
-                                    required="">
-                            </div>
-                            <div class="col-md-6">
-                                <label for="email">Zip Code *</label>
-                                <input type="text" class="form-control" id="zip-code" placeholder="zip-code"
-                                    required="">
-                            </div>
-                            <div class="col-md-6 select_input">
-                                <label for="review">Country *</label>
-                                <select class="form-control" size="1">
-                                    <option value="India">India</option>
-                                    <option value="UAE">UAE</option>
-                                    <option value="U.K">U.K</option>
-                                    <option value="US">US</option>
-                                </select>
-                            </div>
-                            <div class="col-md-6">
-                                <label for="review">City *</label>
-                                <input type="text" class="form-control" id="city" placeholder="City" required="">
-                            </div>
-                            <div class="col-md-6">
-                                <label for="review">Region/State *</label>
-                                <input type="text" class="form-control" id="region-state" placeholder="Region/state"
-                                    required="">
-                            </div>
-                            <div class="col-md-12">
-                                <button class="btn btn-sm btn-solid" type="submit">Save setting</button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
         </div>
     </section>
     <!-- Section ends -->
@@ -239,22 +250,6 @@ Smarty/smarty-dir/assets/images/icon/logo.png"
                 <section class="small-section border-section border-top-0">
                     <div class="row">
                         <div class="col-lg-6">
-                            <div class="subscribe">
-                                <div>
-                                    <h4>KNOW IT ALL FIRST!</h4>
-                                    <p>Never Miss Anything From Multikart By Signing Up To Our Newsletter.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-6">
-                            <form
-                                action="https://pixelstrap.us19.list-manage.com/subscribe/post?u=5a128856334b598b395f1fc9b&amp;id=082f74cbda"
-                                class="form-inline subscribe-form auth-form needs-validation" method="post"
-                                id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" target="_blank">
-                                <div class="form-group mx-sm-3"><input type="text" class="form-control" name="EMAIL"
-                                        id="mce-EMAIL" placeholder="Enter your email" required="required"></div>
-                                <button type="submit" class="btn btn-solid" id="mc-submit">subscribe</button>
-                            </form>
                         </div>
                     </div>
                 </section>
@@ -279,38 +274,6 @@ Smarty/smarty-dir/assets/images/icon/logo.png" alt=""></div>
                                     <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
                                     <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
                                     <li><a href="#"><i class="fa fa-rss" aria-hidden="true"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col offset-xl-1">
-                        <div class="sub-title">
-                            <div class="footer-title">
-                                <h4>my account</h4>
-                            </div>
-                            <div class="footer-contant">
-                                <ul>
-                                    <li><a href="#">mens</a></li>
-                                    <li><a href="#">womens</a></li>
-                                    <li><a href="#">clothing</a></li>
-                                    <li><a href="#">accessories</a></li>
-                                    <li><a href="#">featured</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="sub-title">
-                            <div class="footer-title">
-                                <h4>why we choose</h4>
-                            </div>
-                            <div class="footer-contant">
-                                <ul>
-                                    <li><a href="#">shipping & return</a></li>
-                                    <li><a href="#">secure shopping</a></li>
-                                    <li><a href="#">gallary</a></li>
-                                    <li><a href="#">affiliates</a></li>
-                                    <li><a href="#">contacts</a></li>
                                 </ul>
                             </div>
                         </div>

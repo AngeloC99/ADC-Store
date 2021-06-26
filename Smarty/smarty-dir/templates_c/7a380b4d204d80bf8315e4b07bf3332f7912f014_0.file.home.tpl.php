@@ -1,4 +1,27 @@
-<!DOCTYPE html>
+<?php
+/* Smarty version 3.1.39, created on 2021-06-26 19:12:34
+  from 'C:\Users\david\public_html\ADC-Store\Smarty\smarty-dir\templates\home.tpl' */
+
+/* @var Smarty_Internal_Template $_smarty_tpl */
+if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
+  'version' => '3.1.39',
+  'unifunc' => 'content_60d76002ca3396_20450958',
+  'has_nocache_code' => false,
+  'file_dependency' => 
+  array (
+    '7a380b4d204d80bf8315e4b07bf3332f7912f014' => 
+    array (
+      0 => 'C:\\Users\\david\\public_html\\ADC-Store\\Smarty\\smarty-dir\\templates\\home.tpl',
+      1 => 1624727553,
+      2 => 'file',
+    ),
+  ),
+  'includes' => 
+  array (
+  ),
+),false)) {
+function content_60d76002ca3396_20450958 (Smarty_Internal_Template $_smarty_tpl) {
+?><!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -8,31 +31,40 @@
     <meta name="description" content="multikart">
     <meta name="keywords" content="multikart">
     <meta name="author" content="multikart">
-    <link rel="icon" href="{$path}Smarty/smarty-dir/assets/images/favicon/1.png" type="image/x-icon">
-    <link rel="shortcut icon" href="{$path}Smarty/smarty-dir/assets/images/favicon/1.png" type="image/x-icon">
+    <link rel="icon" href="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+Smarty/smarty-dir/assets/images/favicon/1.png" type="image/x-icon">
+    <link rel="shortcut icon" href="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+Smarty/smarty-dir/assets/images/favicon/1.png" type="image/x-icon">
     <title>Multikart - Multi-purpopse E-commerce Html Template</title>
 
     <!--Google font-->
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet">
 
     <!-- Icons -->
-    <link rel="stylesheet" type="text/css" href="{$path}Smarty/smarty-dir/assets/css/fontawesome.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+Smarty/smarty-dir/assets/css/fontawesome.css">
 
     <!--Slick slider css-->
-    <link rel="stylesheet" type="text/css" href="{$path}Smarty/smarty-dir/assets/css/slick.css">
-    <link rel="stylesheet" type="text/css" href="{$path}Smarty/smarty-dir/assets/css/slick-theme.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+Smarty/smarty-dir/assets/css/slick.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+Smarty/smarty-dir/assets/css/slick-theme.css">
 
     <!-- Animate icon -->
-    <link rel="stylesheet" type="text/css" href="{$path}Smarty/smarty-dir/assets/css/animate.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+Smarty/smarty-dir/assets/css/animate.css">
 
     <!-- Themify icon -->
-    <link rel="stylesheet" type="text/css" href="{$path}Smarty/smarty-dir/assets/css/themify-icons.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+Smarty/smarty-dir/assets/css/themify-icons.css">
 
     <!-- Bootstrap css -->
-    <link rel="stylesheet" type="text/css" href="{$path}Smarty/smarty-dir/assets/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+Smarty/smarty-dir/assets/css/bootstrap.css">
 
     <!-- Theme css -->
-    <link rel="stylesheet" type="text/css" href="{$path}Smarty/smarty-dir/assets/css/color1.css" media="screen" id="color">
+    <link rel="stylesheet" type="text/css" href="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+Smarty/smarty-dir/assets/css/color1.css" media="screen" id="color">
 
 </head>
 
@@ -67,14 +99,16 @@
                     <div class="col-sm-12">
                         <div class="main-menu border-section border-top-0">
                             <div class="brand-logo layout2-logo">
-                                <a href="#"><img src="{$path}Smarty/smarty-dir/assets/images/icon/logo.png" class="img-fluid blur-up lazyload"
+                                <a href="#"><img src="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+Smarty/smarty-dir/assets/images/icon/logo.png" class="img-fluid blur-up lazyload"
                                         alt=""></a>
                             </div>
                             <div class="menu-right pull-right">
                                 <div class="icon-nav d-none d-sm-block">
                                     <ul>
                                         <li class="onhover-div mobile-search">
-                                            <div><img src="{$path}Smarty/smarty-dir/assets/images/icon/search.png" onclick="openSearch()"
+                                            <div><img src="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+Smarty/smarty-dir/assets/images/icon/search.png" onclick="openSearch()"
                                                     class="img-fluid blur-up lazyload" alt=""> <i class="ti-search"
                                                     onclick="openSearch()"></i></div>
                                         </li>
@@ -303,7 +337,8 @@
                     <div class="main-menu border-section border-top-0">
                         
                         <div class="brand-logo layout2-logo">
-                            <a href="#"><img src="{$path}Smarty/smarty-dir/assets/images/icon/logo.png" class="img-fluid blur-up lazyload"
+                            <a href="#"><img src="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+Smarty/smarty-dir/assets/images/icon/logo.png" class="img-fluid blur-up lazyload"
                                     alt=""></a>
                         </div>
                         <div class="menu-right pull-right">
@@ -331,12 +366,14 @@
                                             aria-hidden="true"></i></div>
                                 </li>
                                 <li>
-                                    <a href="{$path}GestioneProdotti/recuperaProdotti">Prodotti</a>
+                                    <a href="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+GestioneProdotti/recuperaProdotti">Prodotti</a>
                                     
                                 </li>
                                 <li><a href="#">Account</a>
                                             <ul>
-                                                <li><a href="{$path}GestioneSchermate/recuperaLogin" data-lng="en">Login</a></li>
+                                                <li><a href="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+GestioneSchermate/recuperaLogin" data-lng="en">Login</a></li>
                                                 <li><a href="#" data-lng="en">Logout</a></li>
                                             </ul>
                                         
@@ -361,7 +398,8 @@
         <div class="slide-1 home-slider">
             <div>
                 <div class="home text-center">
-                    <img src="{$path}Smarty/smarty-dir/assets/images/home-banner/pres.png" alt="" class="bg-img blur-up lazyload">
+                    <img src="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+Smarty/smarty-dir/assets/images/home-banner/pres.png" alt="" class="bg-img blur-up lazyload">
                     <div class="container">
                         <div class="row">
                             <div class="col">
@@ -374,7 +412,8 @@
             </div>
             <div>
                 <div class="home text-center">
-                    <img src="{$path}Smarty/smarty-dir/assets/images/home-banner/sup.jpg" alt="" class="bg-img blur-up lazyload">
+                    <img src="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+Smarty/smarty-dir/assets/images/home-banner/sup.jpg" alt="" class="bg-img blur-up lazyload">
                     <div class="container">
                         <div class="row">
                             <div class="col">
@@ -500,7 +539,8 @@
                             <h4>about</h4>
                         </div>
                         <div class="footer-contant">
-                            <div class="footer-logo"><img src="{$path}Smarty/smarty-dir/assets/images/icon/logo.png" alt=""></div>
+                            <div class="footer-logo"><img src="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+Smarty/smarty-dir/assets/images/icon/logo.png" alt=""></div>
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
                                 ut labore et dolore magna aliqua. Ut enim ad minim veniam,</p>
                             <div class="footer-social">
@@ -578,19 +618,24 @@
                         <div class="payment-card-bottom">
                             <ul>
                                 <li>
-                                    <a href="#"><img src="{$path}Smarty/smarty-dir/assets/images/icon/visa.png" alt=""></a>
+                                    <a href="#"><img src="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+Smarty/smarty-dir/assets/images/icon/visa.png" alt=""></a>
                                 </li>
                                 <li>
-                                    <a href="#"><img src="{$path}Smarty/smarty-dir/assets/images/icon/mastercard.png" alt=""></a>
+                                    <a href="#"><img src="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+Smarty/smarty-dir/assets/images/icon/mastercard.png" alt=""></a>
                                 </li>
                                 <li>
-                                    <a href="#"><img src="{$path}Smarty/smarty-dir/assets/images/icon/paypal.png" alt=""></a>
+                                    <a href="#"><img src="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+Smarty/smarty-dir/assets/images/icon/paypal.png" alt=""></a>
                                 </li>
                                 <li>
-                                    <a href="#"><img src="{$path}Smarty/smarty-dir/assets/images/icon/american-express.png" alt=""></a>
+                                    <a href="#"><img src="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+Smarty/smarty-dir/assets/images/icon/american-express.png" alt=""></a>
                                 </li>
                                 <li>
-                                    <a href="#"><img src="{$path}Smarty/smarty-dir/assets/images/icon/discover.png" alt=""></a>
+                                    <a href="#"><img src="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+Smarty/smarty-dir/assets/images/icon/discover.png" alt=""></a>
                                 </li>
                             </ul>
                         </div>
@@ -611,7 +656,8 @@
                             aria-hidden="true">&times;</span></button>
                     <div class="row">
                         <div class="col-lg-6 col-xs-12">
-                            <div class="quick-view-img"><img src="{$path}Smarty/smarty-dir/assets/images/pro3/1.jpg" alt=""
+                            <div class="quick-view-img"><img src="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+Smarty/smarty-dir/assets/images/pro3/1.jpg" alt=""
                                     class="img-fluid blur-up lazyload"></div>
                         </div>
                         <div class="col-lg-6 rtl-text">
@@ -1357,13 +1403,16 @@
                         target="_blank" class="btn btn-block purchase_btn"><i class="fa fa-shopping-cart"
                             aria-hidden="true"></i> purchase Multikart now!</a>
                     <a href="https://themeforest.net/item/multikart-responsive-angular-ecommerce-template/22905358?s_rank=3"
-                        target="_blank" class="btn btn-block purchase_btn"><img src="{$path}Smarty/smarty-dir/assets/images/icon/angular.png"
+                        target="_blank" class="btn btn-block purchase_btn"><img src="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+Smarty/smarty-dir/assets/images/icon/angular.png"
                             alt="" class="img-fluid"> Multikart Angular</a>
                     <a href="https://themeforest.net/item/multikart-responsive-react-ecommerce-template/23067773?s_rank=2"
-                        target="_blank" class="btn btn-block purchase_btn"><img src="{$path}Smarty/smarty-dir/assets/images/icon/react.png"
+                        target="_blank" class="btn btn-block purchase_btn"><img src="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+Smarty/smarty-dir/assets/images/icon/react.png"
                             alt="" class="img-fluid"> Multikart React</a>
                     <a href="https://themeforest.net/item/multikart-multipurpose-shopify-sections-theme/23093831?s_rank=1"
-                        target="_blank" class="btn btn-block purchase_btn"><img src="{$path}Smarty/smarty-dir/assets/images/icon/shopify.png"
+                        target="_blank" class="btn btn-block purchase_btn"><img src="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+Smarty/smarty-dir/assets/images/icon/shopify.png"
                             alt="" class="img-fluid"> Multikart Shopify</a>
                 </div>
             </div>
@@ -1379,30 +1428,55 @@
     <!-- tap to top end -->
 
     <!-- latest jquery-->
-    <script src="{$path}Smarty/smarty-dir/assets/js/jquery-3.3.1.min.js"></script>
+    <?php echo '<script'; ?>
+ src="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+Smarty/smarty-dir/assets/js/jquery-3.3.1.min.js"><?php echo '</script'; ?>
+>
 
     <!-- menu js-->
-    <script src="{$path}Smarty/smarty-dir/assets/js/menu.js"></script>
+    <?php echo '<script'; ?>
+ src="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+Smarty/smarty-dir/assets/js/menu.js"><?php echo '</script'; ?>
+>
 
     <!-- lazyload js-->
-    <script src="{$path}Smarty/smarty-dir/assets/js/lazysizes.min.js"></script>
+    <?php echo '<script'; ?>
+ src="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+Smarty/smarty-dir/assets/js/lazysizes.min.js"><?php echo '</script'; ?>
+>
 
     <!-- popper js-->
-    <script src="{$path}Smarty/smarty-dir/assets/js/popper.min.js"></script>
+    <?php echo '<script'; ?>
+ src="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+Smarty/smarty-dir/assets/js/popper.min.js"><?php echo '</script'; ?>
+>
 
     <!-- slick js-->
-    <script src="{$path}Smarty/smarty-dir/assets/js/slick.js"></script>
+    <?php echo '<script'; ?>
+ src="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+Smarty/smarty-dir/assets/js/slick.js"><?php echo '</script'; ?>
+>
 
     <!-- Bootstrap js-->
-    <script src="{$path}Smarty/smarty-dir/assets/js/bootstrap.js"></script>
+    <?php echo '<script'; ?>
+ src="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+Smarty/smarty-dir/assets/js/bootstrap.js"><?php echo '</script'; ?>
+>
 
     <!-- Bootstrap Notification js-->
-    <script src="{$path}Smarty/smarty-dir/assets/js/bootstrap-notify.min.js"></script>
+    <?php echo '<script'; ?>
+ src="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+Smarty/smarty-dir/assets/js/bootstrap-notify.min.js"><?php echo '</script'; ?>
+>
 
     <!-- Theme js-->
-    <script src="{$path}Smarty/smarty-dir/assets/js/script.js"></script>
+    <?php echo '<script'; ?>
+ src="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+Smarty/smarty-dir/assets/js/script.js"><?php echo '</script'; ?>
+>
 
-    <script>
+    <?php echo '<script'; ?>
+>
         $(window).on('load', function () {
             setTimeout(function () {
                 $('#exampleModal').modal('show');
@@ -1416,7 +1490,9 @@
         function closeSearch() {
             document.getElementById("search-overlay").style.display = "none";
         }
-    </script>
+    <?php echo '</script'; ?>
+>
 </body>
 
-</html>
+</html><?php }
+}

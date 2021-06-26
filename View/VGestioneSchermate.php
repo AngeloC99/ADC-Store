@@ -15,12 +15,17 @@ class VGestioneSchermate
 
         $this->smarty->assign("path", $GLOBALS["path"]);
         //$this->smarty->display('profilefe.tpl');
-        //CGestionePunti::selezionaPremio('PRE60d5ec48d9621');
+        //CGestionePunti::selezionaPremio('PRE60d608a606b10');
         //$this->smarty->display('home.tpl');
         //CGestionePunti::recuperaPremi();
         //CGestioneProdotti::recuperaProdotti();
        //CGestionePunti::recuperaPremi();
-        //CGestioneUtenti::apriProfilo();
-        $this->smarty->display('loginfe.tpl');
+        //$this->smarty->display('loginfe.tpl');
+        //CGestioneSchermate::apriProfilo();
+        $this->smarty->display("user-list.tpl");
     }
+
+
+
+
 }

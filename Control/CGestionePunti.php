@@ -2,9 +2,9 @@
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
-//require('C:\Users\david\public_html\ProgettoEsame\PHPMailer-master\src\PHPMailer.php');
-//require('C:\Users\david\public_html\ProgettoEsame\PHPMailer-master\src\Exception.php');
-//require('C:\Users\david\public_html\ProgettoEsame\PHPMailer-master\src\SMTP.php');
+require('C:\Users\david\public_html\ADC-Store\PHPMailer-master\src\PHPMailer.php');
+require('C:\Users\david\public_html\ADC-Store\PHPMailer-master\src\Exception.php');
+require('C:\Users\david\public_html\ADC-Store\PHPMailer-master\src\SMTP.php');
 
 
 /**
@@ -89,8 +89,8 @@ class CGestionePunti
             return false;
         }
 
-        $v = new VGestioneSchermate();
-        $v->showHome();
+        //$v = new VGestioneSchermate();
+        //$v->showHome();
         //Gestire eccezioni se utente non ha abbastanza punti o se non c'è quantità a sufficienza di prodotti
         //Alla conferma appare un alert e il premio viene spedito all'indirizzo predefinito dell'utente
 

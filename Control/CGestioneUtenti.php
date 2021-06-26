@@ -11,30 +11,29 @@ class CGestioneUtenti
      * Recupera tutti gli utenti presenti del database
      * @return array
      */
-    public static function recuperaClienti(): array{
+    public static function recuperaClientiInattivi(): array{
 
         $pm = FPersistentManager::getInstance();
         return $pm->prelevaUtentiInattivi();
     }
 
+    public static function recuperaClienti(): array{
+
+        $pm = FPersistentManager::getInstance();
+        return $pm->prelevaUtenti();
+    }
+
     /**
      * Seleziona il cliente referenziato dalla mail che viene passata
      * @param string $email
-     * @return EUtenteReg
      */
-    public static function selezionaCliente(string $email): EUtenteReg {
+    public static function selezionaCliente(string $email) {
 
         $pm = FPersistentManager::getInstance();
         return $pm->load("FUtenteReg",$email);
     }
 
-    public static function apriProfilo(){
 
-        $pm = FPersistentManager::getInstance();
-        $utente = $pm->load('FUtenteReg', "adarossi@gmail.com");
-        $v = new VGestioneUtenti();
-        $v->mostraProfilo($utente);        
-    }
 
     /**
      * Crea e salva nel database un nuovo utente che vuole registrarsi
@@ -50,10 +49,6 @@ class CGestioneUtenti
         $pm->store($utente);
     }
 
-    public static function recuperaLogin() {
-        $v = new VGestioneUtenti();
-        $v->mostraLogin();
-    }
 
     /**
      * Metodo che gestisce il login secondo le credenziali che vengono passate
@@ -71,41 +66,32 @@ class CGestioneUtenti
             $admin = $pm->load("FAmministratore", $email);
             if(password_verify($password, $admin->getPassword())) {
                 $gs->salvaUtente($admin);
-                header("Location: ".$GLOBALS['path']."GestioneUtenti/recuperaHomeAdmin");
+                header("Location: ".$GLOBALS['path']."GestioneSchermate/recuperaHomeAdmin");
             }
             else {
-                header("Location: ".$GLOBALS['path']."GestioneUtenti/recuperaLogin");
+                header("Location: ".$GLOBALS['path']."GestioneSchermate/recuperaLogin");
             }
         }
         else if ($pm->exist("FUtenteReg", $email)) {
             $utente = $pm->load("FUtenteReg", $email);
             if(password_verify($password, $utente->getPassword())) {
                 $gs->salvaUtente($utente);
-                header("Location: ".$GLOBALS['path']."GestioneUtenti/recuperaHomeUtente");
+                header("Location: ".$GLOBALS['path']."GestioneSchermate/recuperaHomeUtente");
             }
             else {
-                header("Location: ".$GLOBALS['path']."GestioneUtenti/recuperaLogin");
+                header("Location: ".$GLOBALS['path']."GestioneSchermate/recuperaLogin");
             }
         }
         else {
-            header("Location: ".$GLOBALS['path']."GestioneUtenti/recuperaLogin");
+            header("Location: ".$GLOBALS['path']."GestioneSchermate/recuperaLogin");
         }
     }
 
-    public static function recuperaHomeUtente() {
-        $v = new VGestioneUtenti();
-        $v->mostraHomeUtente();
-    }
-
-    public static function recuperaHomeAdmin() {
-        $v = new VGestioneUtenti();
-        $v->mostraHomeAdmin();
-    }
 
     public static function logout(){
         session_start();
         session_unset();
         session_destroy();
-        header("Location: ".$GLOBALS['path']."GestioneUtenti/recuperaHomeAdmin/login");
+        header("Location: ".$GLOBALS['path']."GestioneSchermate/recuperaLogin");
     }
 }
