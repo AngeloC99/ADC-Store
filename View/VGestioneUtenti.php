@@ -35,6 +35,12 @@ class VGestioneUtenti {
         $this->smarty->display('homeAdmin.tpl');
     }
 
+    public function mostraClienti($clienti) {
+        $this->smarty->assign("path", $GLOBALS["path"]);
+        $this->smarty->assign("clienti", $clienti);
+        $this->smarty->display('user-list.tpl');
+    }
+
 
 
 

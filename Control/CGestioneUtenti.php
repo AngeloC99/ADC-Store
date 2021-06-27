@@ -17,20 +17,34 @@ class CGestioneUtenti
         return $pm->prelevaUtentiInattivi();
     }
 
-    public static function recuperaClienti(): array{
-
+    public static function recuperaClienti(): array
+    {
         $pm = FPersistentManager::getInstance();
-        return $pm->prelevaUtenti();
+        $clientirec = $pm->prelevaUtenti();
+        $clienti = array();
+        foreach ($clientirec as $item) {
+            $el = array(
+                'nome' => $item->getNome(),
+                'cognome' => $item->getCognome(),
+                'email' => $item->getEmail(),
+                'password' => $item->getPassword(),
+                'punti' => $item->getPunti());
+            $clienti[] = $el;
+        }
+        $v = new VGestioneUtenti();
+        $v->mostraClienti($clienti);
+
     }
 
     /**
      * Seleziona il cliente referenziato dalla mail che viene passata
      * @param string $email
      */
-    public static function selezionaCliente(string $email) {
+    public static function selezionaCliente(string $email)
+    {
 
         $pm = FPersistentManager::getInstance();
-        return $pm->load("FUtenteReg",$email);
+        return $pm->load("FUtenteReg", $email);
     }
 
 
@@ -42,9 +56,10 @@ class CGestioneUtenti
      * @param string $email
      * @param string $password
      */
-    public static function registra(string $nome, string $cognome, string $email, string $password): void{
+    public static function registra(string $nome, string $cognome, string $email, string $password): void
+    {
 
-        $utente = new EUtenteReg($nome,$cognome,$email,$password);
+        $utente = new EUtenteReg($nome, $cognome, $email, $password);
         $pm = FPersistentManager::getInstance();
         $pm->store($utente);
     }
@@ -53,36 +68,33 @@ class CGestioneUtenti
     /**
      * Metodo che gestisce il login secondo le credenziali che vengono passate
      */
-    public static function login() {
+    public static function login()
+    {
         $email = $_POST["email"];
         $password = $_POST["password"];
         self::verificaLogin($email, $password);
     }
 
-    public static function verificaLogin($email, $password){
+    public static function verificaLogin($email, $password)
+    {
         $pm = FPersistentManager::getInstance();
         $gs = CGestioneSessioni::getInstance();
         if ($pm->exist("FAmministratore", $email)) {
             $admin = $pm->load("FAmministratore", $email);
-            if(password_verify($password, $admin->getPassword())) {
+            if (password_verify($password, $admin->getPassword())) {
                 $gs->salvaUtente($admin);
-                header("Location: ".$GLOBALS['path']."GestioneSchermate/recuperaHomeAdmin");
+                header("Location: " . $GLOBALS['path'] . "GestioneSchermate/recuperaHomeAdmin");
+            } else {
+                header("Location: " . $GLOBALS['path'] . "GestioneSchermate/recuperaLogin");
             }
-            else {
-                header("Location: ".$GLOBALS['path']."GestioneSchermate/recuperaLogin");
-            }
-        }
-        else if ($pm->exist("FUtenteReg", $email)) {
+        } else if ($pm->exist("FUtenteReg", $email)) {
             $utente = $pm->load("FUtenteReg", $email);
-            if(password_verify($password, $utente->getPassword())) {
+            if (password_verify($password, $utente->getPassword())) {
                 $gs->salvaUtente($utente);
-
                 $gs->salvaCarrello(new ECarrello());
-
-                header("Location: ".$GLOBALS['path']."GestioneSchermate/recuperaHomeUtente");
-            }
-            else {
-                header("Location: ".$GLOBALS['path']."GestioneSchermate/recuperaLogin");
+                header("Location: " . $GLOBALS['path'] . "GestioneSchermate/recuperaHomeUtente");
+            } else {
+                header("Location: " . $GLOBALS['path'] . "GestioneSchermate/recuperaLogin");
             }
         }
         else {
@@ -96,4 +108,5 @@ class CGestioneUtenti
         $gs->distruggiSessione();
         header("Location: ".$GLOBALS['path']."GestioneSchermate/recuperaLogin");
     }
+
 }
