@@ -50,7 +50,7 @@ CGestioneBuoni::recuperaBuoni($utente);
 //$utente=new EUtenteReg('chiara','romano','romanochiara229@gmail.com','pippo');
 
 
-$GLOBALS["path"] = "/~david/ProgettoEsame/";
+$GLOBALS["path"] = "/~rommy/ADC-Store/";
 
 $fcontroller = new CFrontController();
 $fcontroller->run($_SERVER['REQUEST_URI']);

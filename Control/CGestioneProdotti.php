@@ -1,12 +1,12 @@
 <?php
 
-
 /**
  * Classe controller per la gestione dei prodotti
  * Class CGestioneProdotti
  */
 class CGestioneProdotti
 {
+
     public static function recuperaProdotti(){
         $pm=FPersistentManager::getInstance();
         $prodottirec=$pm->prelevaProdotti();
@@ -14,7 +14,7 @@ class CGestioneProdotti
         foreach ($prodottirec as $key=>$item) {
             $prodotto=$pm->load('FProdotto',$key);
             $img = $prodotto->getImmagine()->getByte();
-            $mime = $prodotto->getImmagine()->getFormato();
+            $formato = $prodotto->getImmagine()->getFormato();
             $tmp = array(
                 'id' => $prodotto->getId(),
                 'nome' => $prodotto->getNome(),
@@ -22,7 +22,7 @@ class CGestioneProdotti
                 'descrizione' => $prodotto->getDescrizione(),
                 'prezzo' => $prodotto->getPrezzo(),
                 'dati' => $img,
-                'mime' => $mime
+                'formato' => $formato
             );
             $prodotti[]=$tmp;
         }
@@ -60,6 +60,10 @@ class CGestioneProdotti
         $pm->update($prod);
 
     }
+    public static function recuperaAggiungiProdotto(){
+        $v = new VGestioneProdotto();
+        $v->mostraAggiuntaProdotto();
+    }
 
     /**
      * Metodo che serve all'amministratore per aggiungere un prodotto nel database
@@ -71,11 +75,29 @@ class CGestioneProdotti
      * @param float $p
      * @param string $t
      */
-    public static function aggiungiProdotto(string $n, string $m, string $d, int $q, EImmagine $f, float $p, string $t): void {
+    public static function aggiungiProdotto(){
+        if((!isset($_FILES["image"])) || ($_FILES["image"]["error"] != UPLOAD_ERR_OK)) {
+            echo "Errore nell'invio del file. Riprova!";
+        }
+        // Connessione e selezione del database
+        $pm=FPersistentManager::getInstance();
+        // Recupero delle informazioni sul file inviato
 
-        $pm = FPersistentManager::getInstance();
-        $prod = new EProdotto($n,$m,$d,$q,$f,$p,$t);
-        $pm->store($prod);
+        $file=base64_encode((file_get_contents($_FILES["image"]['tmp_name'])));
+
+
+        //$nome_file_temporaneo = $_FILES["file_inviato"]["image"];
+        $nome_file_vero = $_FILES["image"]["name"];
+        $tipo_file = $_FILES["image"]["type"];
+        //$dati_file = file_get_contents($nome_file_temporaneo);
+        //$dati_file = addslashes($dati_file);
+        $imm=new EImmagine($nome_file_vero,$tipo_file,$file);
+        $prodotto = new EProdotto($_POST['nome'],$_POST['marca'],$_POST['descrizione'],$_POST['quantita'],$imm,$_POST['prezzo'],$_POST['tipologia']);
+        $pm->store($prodotto);
+        $v=new VGestioneProdotto();
+        $v->mostraAggiuntaProdotto();
+
+
 
     }
 //reindirizzamento  tramite url (Front Controller) alla pagina del prodotto corrispondente all'id del prodotto cliccato??
