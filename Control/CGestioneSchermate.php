@@ -53,4 +53,7 @@ class CGestioneSchermate
     public static function recuperaGestioneCarrello() {
         header("Location: ".$GLOBALS['path']."GestioneCarrello/recuperaCarrello");
     }
+
+
+
 }

@@ -56,12 +56,13 @@ class CGestioneUtenti
      * @param string $email
      * @param string $password
      */
-    public static function registra(string $nome, string $cognome, string $email, string $password): void
+    public static function registra(): void
     {
-
-        $utente = new EUtenteReg($nome, $cognome, $email, $password);
+        $utente = new EUtenteReg($_POST['nome'], $_POST['cognome'], $_POST['email'], $_POST['password']);
         $pm = FPersistentManager::getInstance();
         $pm->store($utente);
+        $v=new VGestioneUtenti();
+        $v->mostraLogin();
     }
 
 
@@ -89,12 +90,12 @@ class CGestioneUtenti
             }
         } else if ($pm->exist("FUtenteReg", $email)) {
             $utente = $pm->load("FUtenteReg", $email);
-            if (password_verify($password, $utente->getPassword())) {
+            if (password_verify($password, $utente->getPassword())) { //QUESTO CHECK NON VA...risolvere con gli altri
                 $gs->salvaUtente($utente);
                 $gs->salvaCarrello(new ECarrello());
-                header("Location: " . $GLOBALS['path'] . "GestioneSchermate/recuperaHomeUtente");
+                header("Location: ".$GLOBALS['path'] ."GestioneSchermate/recuperaHomeUtente");
             } else {
-                header("Location: " . $GLOBALS['path'] . "GestioneSchermate/recuperaLogin");
+                header("Location: ".$GLOBALS['path'] ."GestioneSchermate/recuperaLogin");
             }
         }
         else {
@@ -108,5 +109,12 @@ class CGestioneUtenti
         $gs->distruggiSessione();
         header("Location: ".$GLOBALS['path']."GestioneSchermate/recuperaLogin");
     }
+
+    public static function recuperaCreazioneAccount(){
+        $v=new VGestioneUtenti();
+        $v->mostraCreazioneAccount();
+
+    }
+
 
 }

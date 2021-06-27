@@ -41,6 +41,11 @@ class VGestioneUtenti {
         $this->smarty->display('user-list.tpl');
     }
 
+    public function mostraCreazioneAccount(){
+        $this->smarty->assign("path", $GLOBALS["path"]);
+        $this->smarty->display('register.tpl');
+    }
+
 
 
 
