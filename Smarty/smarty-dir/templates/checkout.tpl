@@ -8,31 +8,31 @@
     <meta name="description" content="ADCStore">
     <meta name="keywords" content="ADCStore">
     <meta name="author" content="ADCStore">
-    <link rel="icon" href="Smarty/smarty-dir/assets/images/favicon/1.png" type="image/x-icon">
-    <link rel="shortcut icon" href="Smarty/smarty-dir/assets/images/favicon/1.png" type="image/x-icon">
+    <link rel="icon" href="{$path}Smarty/smarty-dir/assets/images/favicon/1.png" type="image/x-icon">
+    <link rel="shortcut icon" href="{$path}Smarty/smarty-dir/assets/images/favicon/1.png" type="image/x-icon">
     <title>ADC Store - L'ABC della qualità</title>
 
     <!--Google font-->
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet">
 
     <!-- Icons -->
-    <link rel="stylesheet" type="text/css" href="Smarty/smarty-dir/assets/css/fontawesome.css">
+    <link rel="stylesheet" type="text/css" href="{$path}Smarty/smarty-dir/assets/css/fontawesome.css">
 
     <!--Slick slider css-->
-    <link rel="stylesheet" type="text/css" href="Smarty/smarty-dir/assets/css/slick.css">
-    <link rel="stylesheet" type="text/css" href="Smarty/smarty-dir/assets/css/slick-theme.css">
+    <link rel="stylesheet" type="text/css" href="{$path}Smarty/smarty-dir/assets/css/slick.css">
+    <link rel="stylesheet" type="text/css" href="{$path}Smarty/smarty-dir/assets/css/slick-theme.css">
 
     <!-- Animate icon -->
-    <link rel="stylesheet" type="text/css" href="Smarty/smarty-dir/assets/css/animate.css">
+    <link rel="stylesheet" type="text/css" href="{$path}Smarty/smarty-dir/assets/css/animate.css">
 
     <!-- Themify icon -->
-    <link rel="stylesheet" type="text/css" href="Smarty/smarty-dir/assets/css/themify-icons.css">
+    <link rel="stylesheet" type="text/css" href="{$path}Smarty/smarty-dir/assets/css/themify-icons.css">
 
     <!-- Bootstrap css -->
-    <link rel="stylesheet" type="text/css" href="Smarty/smarty-dir/assets/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="{$path}Smarty/smarty-dir/assets/css/bootstrap.css">
 
     <!-- Theme css -->
-    <link rel="stylesheet" type="text/css" href="Smarty/smarty-dir/assets/css/color1.css" media="screen" id="color">
+    <link rel="stylesheet" type="text/css" href="{$path}Smarty/smarty-dir/assets/css/color1.css" media="screen" id="color">
 
 </head>
 
@@ -138,7 +138,7 @@
                                                             </div>
                                                             <div class="col-xl-4">
                                                                 <a href="#" class="mega-menu-banner"><img
-                                                                        src="Smarty/smarty-dir/assets/images/mega-menu/fashion.jpg"
+                                                                        src="{$path}Smarty/smarty-dir/assets/images/mega-menu/fashion.jpg"
                                                                         alt="" class="img-fluid blur-up lazyload"></a>
                                                             </div>
                                                         </div>
@@ -228,7 +228,7 @@
                                 </div>
                             </div>
                             <div class="brand-logo">
-                                <a href="index.html"> <img src="Smarty/smarty-dir/assets/images/icon/logo.png"
+                                <a href="index.html"> <img src="{$path}Smarty/smarty-dir/assets/images/icon/logo.png"
                                         class="img-fluid blur-up lazyload" alt=""></a>
                             </div>
                         </div>
@@ -560,7 +560,7 @@
                                 <div class="icon-nav">
                                     <ul>
                                         <li class="onhover-div mobile-search">
-                                            <div><img src="Smarty/smarty-dir/assets/images/icon/search.png" onclick="openSearch()"
+                                            <div><img src="{$path}Smarty/smarty-dir/assets/images/icon/search.png" onclick="openSearch()"
                                                     class="img-fluid blur-up lazyload" alt="">
                                                 <i class="ti-search" onclick="openSearch()"></i></div>
                                             <div id="search-overlay" class="search-overlay">
@@ -588,7 +588,7 @@
                                             </div>
                                         </li>
                                         <li class="onhover-div mobile-setting">
-                                            <div><img src="Smarty/smarty-dir/assets/images/icon/setting.png"
+                                            <div><img src="{$path}Smarty/smarty-dir/assets/images/icon/setting.png"
                                                     class="img-fluid blur-up lazyload" alt="">
                                                 <i class="ti-settings"></i></div>
                                             <div class="show-div setting">
@@ -607,14 +607,14 @@
                                             </div>
                                         </li>
                                         <li class="onhover-div mobile-cart">
-                                            <div><img src="Smarty/smarty-dir/assets/images/icon/cart.png"
+                                            <div><img src="{$path}Smarty/smarty-dir/assets/images/icon/cart.png"
                                                     class="img-fluid blur-up lazyload" alt="">
                                                 <i class="ti-shopping-cart"></i></div>
                                             <ul class="show-div shopping-cart">
                                                 <li>
                                                     <div class="media">
                                                         <a href="#"><img class="mr-3"
-                                                                src="Smarty/smarty-dir/assets/images/fashion/product/1.jpg"
+                                                                src="{$path}Smarty/smarty-dir/assets/images/fashion/product/1.jpg"
                                                                 alt="Generic placeholder image"></a>
                                                         <div class="media-body">
                                                             <a href="#">
@@ -630,7 +630,7 @@
                                                 <li>
                                                     <div class="media">
                                                         <a href="#"><img class="mr-3"
-                                                                src="Smarty/smarty-dir/assets/images/fashion/product/2.jpg"
+                                                                src="{$path}Smarty/smarty-dir/assets/images/fashion/product/2.jpg"
                                                                 alt="Generic placeholder image"></a>
                                                         <div class="media-body">
                                                             <a href="#">
@@ -695,7 +695,7 @@
         <div class="container">
             <div class="checkout-page">
                 <div class="checkout-form">
-                    <form>
+                    <form method="post" action="{$path}GestioneCarrello/procediAcquisto">
                         <div class="row">
                             <div class="col-lg-6 col-sm-12 col-xs-12">
                                 <div class="checkout-title">
@@ -704,35 +704,41 @@
                                 <div class="row check-out">
                                     <div class="form-group col-md-6 col-sm-6 col-xs-12">
                                         <div class="field-label">Nome</div>
-                                        <input type="text" name="field-name" value="" placeholder="">
+                                        <input type="text" name="nome" value="" placeholder="" maxlength="15" required>
                                     </div>
                                     <div class="form-group col-md-6 col-sm-6 col-xs-12">
                                         <div class="field-label">Cognome</div>
-                                        <input type="text" name="field-name" value="" placeholder="">
+                                        <input type="text" name="cognome" value="" placeholder="" maxlength="20" required>
                                     </div>
                                     <div class="form-group col-md-6 col-sm-6 col-xs-12">
                                         <div class="field-label">Telefono</div>
-                                        <input type="text" name="field-name" value="" placeholder="">
+                                        <input type="tel" name="telefono" value="" placeholder="" maxlength="10" required>
                                     </div>
                                     <div class="form-group col-md-6 col-sm-6 col-xs-12">
                                         <div class="field-label">Indirizzo e-mail</div>
-                                        <input type="text" name="field-name" value="" placeholder="">
+                                        <input type="email" name="email" value="" placeholder="" maxlength="30" required>
                                     </div>
                                     <div class="form-group col-md-12 col-sm-12 col-xs-12">
-                                        <div class="field-label">Indirizzo</div>
-                                        <select>
-                                            {section name=ind loop=$indirizzi}
-                                            <option>{$indirizzi[ind]}</option>
-                                            {/section}
-                                        </select>
+                                        <div class="field-label">
+                                            <label for="indirizzo" style="color: #0a0100">Indirizzo di spedizione
+                                                <select name="indirizzo">
+                                                    {section name=ind loop=$indirizzi}
+                                                        <option value="{$indirizzi[ind].identificativo}">{$indirizzi[ind].indirizzo}</option>
+                                                    {/section}
+                                                </select>
+                                            </label>
+                                        </div>
                                     </div>
                                     <div class="form-group col-md-12 col-sm-12 col-xs-12">
-                                        <div class="field-label">Modalità di pagamento</div>
-                                        <select>
-                                            {section name=carta loop=$carte}
-                                                <option>{$carte[carta]}</option>
-                                            {/section}
-                                        </select>
+                                        <div class="field-label">
+                                            <label for="carta" style="color: #0a0100">Modalità di pagamento
+                                                <select name="carta">
+                                                    {section name=carta loop=$carte}
+                                                        <option value="{$carte[carta].numero}">{$carte[carta].carta}</option>
+                                                    {/section}
+                                                </select>
+                                            </label>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -770,13 +776,16 @@
                                             </li>
                                             <li>
                                                 <div class="form-group col-md-12 col-sm-12 col-xs-12">
-                                                    <div class="field-label">Applica un buono sconto</div>
-                                                    <select>
-                                                            <option selected>---</option>
-                                                        {section name=buono loop=$buoni}
-                                                            <option>{$buoni[buono]}</option>
-                                                        {/section}
-                                                    </select>
+                                                    <div class="field-label">
+                                                        <label for="carta" style="color: #0a0100">Applica un buono sconto
+                                                            <select name="buono">
+                                                                <option value="">---</option>
+                                                                {section name=buono loop=$buoni}
+                                                                    <option value="{$buoni[buono].codice}">{$buoni[buono].buono}</option>
+                                                                {/section}
+                                                            </select>
+                                                        </label>
+                                                    </div>
                                                 </div>
                                             </li>
                                         </ul>
@@ -785,8 +794,7 @@
                                         </ul>
                                     </div>
                                     <div class="payment-box">
-
-                                        <div class="text-right"><a href="#" class="btn-solid btn">Completa l'ordine</a></div>
+                                        <div class="text-right"><input type="submit" value="Completa l'ordine" class="btn btn-solid"/></div>
                                     </div>
                                 </div>
                             </div>
@@ -810,7 +818,7 @@
                             <h4>about</h4>
                         </div>
                         <div class="footer-contant">
-                            <div class="footer-logo"><img src="Smarty/smarty-dir/assets/images/icon/logo.png" alt=""></div>
+                            <div class="footer-logo"><img src="{$path}Smarty/smarty-dir/assets/images/icon/logo.png" alt=""></div>
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
                                 ut labore et dolore magna aliqua. Ut enim ad minim veniam,</p>
                             <div class="footer-social">
@@ -888,19 +896,19 @@
                         <div class="payment-card-bottom">
                             <ul>
                                 <li>
-                                    <a href="#"><img src="Smarty/smarty-dir/assets/images/icon/visa.png" alt=""></a>
+                                    <a href="#"><img src="{$path}Smarty/smarty-dir/assets/images/icon/visa.png" alt=""></a>
                                 </li>
                                 <li>
-                                    <a href="#"><img src="Smarty/smarty-dir/assets/images/icon/mastercard.png" alt=""></a>
+                                    <a href="#"><img src="{$path}Smarty/smarty-dir/assets/images/icon/mastercard.png" alt=""></a>
                                 </li>
                                 <li>
-                                    <a href="#"><img src="Smarty/smarty-dir/assets/images/icon/paypal.png" alt=""></a>
+                                    <a href="#"><img src="{$path}Smarty/smarty-dir/assets/images/icon/paypal.png" alt=""></a>
                                 </li>
                                 <li>
-                                    <a href="#"><img src="Smarty/smarty-dir/assets/images/icon/american-express.png" alt=""></a>
+                                    <a href="#"><img src="{$path}Smarty/smarty-dir/assets/images/icon/american-express.png" alt=""></a>
                                 </li>
                                 <li>
-                                    <a href="#"><img src="Smarty/smarty-dir/assets/images/icon/discover.png" alt=""></a>
+                                    <a href="#"><img src="{$path}Smarty/smarty-dir/assets/images/icon/discover.png" alt=""></a>
                                 </li>
                             </ul>
                         </div>
@@ -1609,13 +1617,13 @@
                         target="_blank" class="btn btn-block purchase_btn"><i class="fa fa-shopping-cart"
                             aria-hidden="true"></i> purchase Multikart now!</a>
                     <a href="https://themeforest.net/item/multikart-responsive-angular-ecommerce-template/22905358?s_rank=3"
-                        target="_blank" class="btn btn-block purchase_btn"><img src="Smarty/smarty-dir/assets/images/icon/angular.png"
+                        target="_blank" class="btn btn-block purchase_btn"><img src="{$path}Smarty/smarty-dir/assets/images/icon/angular.png"
                             alt="" class="img-fluid"> Multikart Angular</a>
                     <a href="https://themeforest.net/item/multikart-responsive-react-ecommerce-template/23067773?s_rank=2"
-                        target="_blank" class="btn btn-block purchase_btn"><img src="Smarty/smarty-dir/assets/images/icon/react.png"
+                        target="_blank" class="btn btn-block purchase_btn"><img src="{$path}Smarty/smarty-dir/assets/images/icon/react.png"
                             alt="" class="img-fluid"> Multikart React</a>
                     <a href="https://themeforest.net/item/multikart-multipurpose-shopify-sections-theme/23093831?s_rank=1"
-                        target="_blank" class="btn btn-block purchase_btn"><img src="Smarty/smarty-dir/assets/images/icon/shopify.png"
+                        target="_blank" class="btn btn-block purchase_btn"><img src="{$path}Smarty/smarty-dir/assets/images/icon/shopify.png"
                             alt="" class="img-fluid"> Multikart Shopify</a>
                 </div>
             </div>
@@ -1632,28 +1640,28 @@
 
 
     <!-- latest jquery-->
-    <script src="Smarty/smarty-dir/assets/js/jquery-3.3.1.min.js"></script>
+    <script src="{$path}Smarty/smarty-dir/assets/js/jquery-3.3.1.min.js"></script>
 
     <!-- menu js-->
-    <script src="Smarty/smarty-dir/assets/js/menu.js"></script>
+    <script src="{$path}Smarty/smarty-dir/assets/js/menu.js"></script>
 
     <!-- lazyload js-->
-    <script src="Smarty/smarty-dir/assets/js/lazysizes.min.js"></script>
+    <script src="{$path}Smarty/smarty-dir/assets/js/lazysizes.min.js"></script>
 
     <!-- popper js-->
-    <script src="Smarty/smarty-dir/assets/js/popper.min.js"></script>
+    <script src="{$path}Smarty/smarty-dir/assets/js/popper.min.js"></script>
 
     <!-- slick js-->
-    <script src="Smarty/smarty-dir/assets/js/slick.js"></script>
+    <script src="{$path}Smarty/smarty-dir/assets/js/slick.js"></script>
 
     <!-- Bootstrap js-->
-    <script src="Smarty/smarty-dir/assets/js/bootstrap.js"></script>
+    <script src="{$path}Smarty/smarty-dir/assets/js/bootstrap.js"></script>
 
     <!-- Bootstrap Notification js-->
-    <script src="Smarty/smarty-dir/assets/js/bootstrap-notify.min.js"></script>
+    <script src="{$path}Smarty/smarty-dir/assets/js/bootstrap-notify.min.js"></script>
 
     <!-- Theme js-->
-    <script src="Smarty/smarty-dir/assets/js/script.js"></script>
+    <script src="{$path}Smarty/smarty-dir/assets/js/script.js"></script>
 
     <script>
         function openSearch() {

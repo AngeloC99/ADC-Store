@@ -69,7 +69,7 @@ class FCarrello
                 ':id' => $carrello->getId(),
                 ':nome' => $carrello->getNome(),
                 ':mailutente' => $mailutente));
-            self::salvaProdottiNelCarrello($carrello);
+            self::salvaProdottiNelCarrello($carrello, $pdo);
             $pdo->commit();
 
             return $ris;
@@ -93,7 +93,7 @@ class FCarrello
             $pdo->beginTransaction();
             $stmt = $pdo->prepare("UPDATE Carrello SET nome = :nome WHERE id = :id");
             $ris = $stmt->execute([':nome' => $carrello->getNome(), ':id' => $carrello->getId()]);
-            self::salvaProdottiNelCarrello($carrello);
+            self::salvaProdottiNelCarrello($carrello, $pdo);
             $pdo->commit();
 
             return $ris;
@@ -183,8 +183,7 @@ class FCarrello
      * @param ECarrello $carrello
      * @return void
      */
-    private static function salvaProdottiNelCarrello(ECarrello $carrello): bool {
-        $pdo = FConnectionDB::connect();
+    private static function salvaProdottiNelCarrello(ECarrello $carrello, PDO $pdo): bool {
         $stmt = $pdo->prepare("INSERT INTO Contiene VALUES (:idcarrello, :idprodotto, :quantitaNelCarrello)");
         foreach ($carrello->getProdotti() as $idprod => $quantita) {
             $ris = $stmt->execute(array(':idcarrello' => $carrello->getId(),

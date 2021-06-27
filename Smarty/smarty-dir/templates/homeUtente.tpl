@@ -5,12 +5,12 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="description" content="multikart">
-    <meta name="keywords" content="multikart">
-    <meta name="author" content="multikart">
+    <meta name="description" content="ADCStore">
+    <meta name="keywords" content="ADCStore">
+    <meta name="author" content="ADCStore">
     <link rel="icon" href="{$path}Smarty/smarty-dir/assets/images/favicon/1.png" type="image/x-icon">
     <link rel="shortcut icon" href="{$path}Smarty/smarty-dir/assets/images/favicon/1.png" type="image/x-icon">
-    <title>Multikart - Multi-purpopse E-commerce Html Template</title>
+    <title>ADC Store - L'ABC della qualità</title>
 
     <!--Google font-->
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet">
@@ -41,27 +41,6 @@
     <!-- loader start -->
     <div class="loader_skeleton">
         <header class="header-2">
-            <div class="top-header d-none d-sm-block">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <div class="header-contact">
-                                <ul>
-                                    <li>Benvenuti in ADC Store</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-lg-6 text-right">
-                            <ul class="header-dropdown">
-                                <li class="mobile-wishlist"><a href="#"><i class="fa fa-heart" aria-hidden="true"></i></a>
-                                </li>
-                                <li class="onhover-dropdown mobile-account"><i class="fa fa-user" aria-hidden="true"></i> Il mio Account
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
             <div class="container">
                 <div class="row">
                     <div class="col-sm-12">
@@ -97,9 +76,9 @@
                                         <div class="mobile-back text-right">Back<i class="fa fa-angle-right pl-2"
                                                 aria-hidden="true"></i></div>
                                     </li>
-                               
+
                                     <li>
-                                        <a href="#">product</a>
+                                        <a href="#"></a>
                                     </li>
                                 </ul>
                             </nav>
@@ -283,20 +262,7 @@
     <!-- header start -->
     <header class="header-2">
         <div class="mobile-fix-option"></div>
-        <div class="top-header">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-6">
-                        <div class="header-contact">
-                            <ul>
-                                <li><h3>Bentornato/a in ADC Store <b>{$nome} {$cognome}</b>!</h3></li>
-                            </ul>
-                        </div>
-                    </div>
-                  
-                </div>
-            </div>
-        </div>
+
         <div class="container">
             <div class="row">
                 <div class="col-sm-12">
@@ -309,8 +275,7 @@
                         <div class="menu-right pull-right">
                             <div class="icon-nav">
                                 <ul>
-                                    
-                                   
+                                    <li><h3>Bentornato/a in ADC Store <b>{$nome} {$cognome}</b>!</h3></li>
                                 </ul>
                             </div>
                         </div>
@@ -332,11 +297,14 @@
                                 </li>
                                 <li>
                                     <a href="{$path}GestioneProdotti/recuperaProdotti">Prodotti</a>
-                                    
+                                </li>
+                                <li>
+                                    <a href="{$path}GestionePunti/recuperaPremi">Premi</a>
                                 </li>
                                 <li><a href="#">Account</a>
                                             <ul>
                                                 <li><a href="{$path}GestioneSchermate/apriProfilo" data-lng="en">Il mio profilo ADC-Store</a></li>
+                                                <li><a href="{$path}GestioneSchermate/recuperaGestioneCarrello" data-lng="en">Carrello della spesa</a></li>
                                                 <li><a href="{$path}GestioneUtenti/logout" data-lng="en">Logout</a></li>
                                             </ul>
                                         
@@ -403,8 +371,8 @@
                                     fill="#ff4c3b" />
                             </svg>
                             <div class="media-body">
-                                <h4>free shipping</h4>
-                                <p>free shipping world wide</p>
+                                <h4>Consegna Gratuita</h4>
+                                <p>Consegna Gratuita in Città</p>
                             </div>
                         </div>
                     </div>
@@ -433,8 +401,8 @@
                                 </g>
                             </svg>
                             <div class="media-body">
-                                <h4>24 X 7 service</h4>
-                                <p>online service for new customer</p>
+                                <h4>Servizi 24 X 7</h4>
+                                <p>Servizi online per i nuovi clienti</p>
                             </div>
                         </div>
                     </div>
@@ -461,8 +429,8 @@
                                     fill="#ff4c3b" />
                             </svg>
                             <div class="media-body">
-                                <h4>festival offer</h4>
-                                <p>new online special festival offer</p>
+                                <h4>Offerte speciali</h4>
+                                <p>Nuove offerte speciali</p>
                             </div>
                         </div>
                     </div>
@@ -476,22 +444,6 @@
 
     <!-- footer start -->
     <footer class="footer-light">
-        <div class="light-layout">
-            <div class="container">
-                <section class="small-section border-section border-top-0">
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <div class="subscribe">
-                                <div>
-                                    <h4>KNOW IT ALL FIRST!</h4>
-                                    <p>Never Miss Anything From Multikart By Signing Up To Our Newsletter.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-            </div>
-        </div>
         <section class="section-b-space light-layout">
             <div class="container">
                 <div class="row footer-theme partition-f">

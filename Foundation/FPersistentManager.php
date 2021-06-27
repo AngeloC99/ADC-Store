@@ -172,12 +172,31 @@ class FPersistentManager
     }
 
     /**
+     * Salva un carrello di un utente nel database.
+     * @param ECarrello $carrello
+     * @param string $mailutente
+     * @return bool
+     */
+    public function salvaCarrelloUtente(ECarrello $carrello, string $mailutente) : bool {
+        return FCarrello::store($carrello, $mailutente);
+    }
+
+    /**
+     * Elimina un carrello salvato da un utente dal database.
+     * @param string $idCarrello
+     * @return bool
+     */
+    public function eliminaCarrelloUtente(string $idCarrello) : bool {
+        return FCarrello::delete($idCarrello);
+    }
+
+    /**
      * Preleva tutti i carrelli salvati appartenenti ad un utente nel database.
-     * @param EUtenteReg $utente
+     * @param string $mailutente
      * @return array
      */
-    public function prelevaCarrelliUtente(EUtenteReg $utente) : array {
-        return FCarrello::prelevaCarrelli($utente->getEmail());
+    public function prelevaCarrelliUtente(string $mailutente) : array {
+        return FCarrello::prelevaCarrelli($mailutente);
     }
 
     /**

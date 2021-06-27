@@ -2,17 +2,16 @@
 
 
 /**
- * Nella classe SessionManager sono presenti tutti i metodi neccessari a gestire le sessioni per il nostro progetto.
+ * La classe CGestioneSessioni si occupa della gestione delle sessioni. Si è utilizzato il design pattern Singleton.
  * Class CGestioneSessioni
  * @access public
- * @author Lofrumento - Di Santo - Susanna
  * @package Controller
  */
 
 class CGestioneSessioni
 {
     /**
-     * Istanza della classe.
+     * Istanza del gestore delle sessioni.
      * @var CGestioneSessioni
      */
     private static $instance;
@@ -33,7 +32,7 @@ class CGestioneSessioni
     }
 
     /**
-     * Funzione che inizializza lo status della sessione.
+     * Metodo che inizializza una sessione.
      */
     private function iniziaSessione(){
         if (session_status() == PHP_SESSION_NONE) {
@@ -42,8 +41,8 @@ class CGestioneSessioni
     }
 
     /**
-     * Funzione che salva i biglietti in sessione.
-     * @param $biglietti
+     * Metodo che salva il carrello in sessione.
+     * @param $carrello
      */
     public function salvaCarrello($carrello) {
         $this->iniziaSessione();
@@ -51,18 +50,18 @@ class CGestioneSessioni
     }
 
     /**
-     * Funzione che carica dalla sessione i biglietti acquistati.
+     * Metodo che carica il carrello della sessione.
      * @return array
      */
     public function caricaCarrello() {
         $this->iniziaSessione();
         $carrello = unserialize($_SESSION["carrello"]);
-        unset($_SESSION["carrello"]);
+        //unset($_SESSION["carrello"]);
         return $carrello;
     }
 
     /**
-     * Funzione che salva in sessione l'id di un particolare film con il quale si sta interagendo.
+     * Metodo che salva in sessione l'id di un prodotto.
      * @param $id
      */
     public function salvaProdId($id) {
@@ -71,7 +70,7 @@ class CGestioneSessioni
     }
 
     /**
-     * Funzione che restituisce l'id del film salvato in sessione.
+     * Metodo che ritorna l'id del prodotto salvato in sessione.
      * @return int
      */
     public function caricaProdId() {
@@ -82,7 +81,7 @@ class CGestioneSessioni
     }
 
     /**
-     * Funzione che salva in sessione l'id di un particolare film con il quale si sta interagendo.
+     * Metodo che salva in sessione l'id di premio.
      * @param $id
      */
     public function salvaPremId($id) {
@@ -91,7 +90,7 @@ class CGestioneSessioni
     }
 
     /**
-     * Funzione che restituisce l'id del film salvato in sessione.
+     * Metodo che ritorna l'id del premio salvato in sessione.
      * @return int
      */
     public function caricaPremId() {
@@ -102,7 +101,7 @@ class CGestioneSessioni
     }    
 
     /**
-     * Funzione che distrugge la sessione ed il relativo Cookie PHPSESSID
+     * Metodo che si occupa di distruggere i dati relativi alla sessione in atto, compreso il cookie PHPSESSID.
      * @return bool
      */
     public function distruggiSessione(): bool {
@@ -117,7 +116,7 @@ class CGestioneSessioni
     }
 
     /**
-     * Funzione che ci permette di salvare l'utente in sessione.
+     * Metodo che ci permette di salvare l'utente in sessione.
      * @param $utente
      */
     public function salvaUtente($utente) {
@@ -137,7 +136,7 @@ class CGestioneSessioni
     }
 
     /**
-     * Funzione che ci permette di verificare se l'utente è loggato nel sistema.
+     * Metodo che verifica se l'utente ha eseguito il login.
      * @return bool
      */
     public function isLogged(): bool {
@@ -146,7 +145,7 @@ class CGestioneSessioni
     }
 
     /**
-     * Funzione che restituisce l'utente se quest'ultimo è un Registrato o NonRegistrato. Restituisce NULL altrimenti.
+     * Metodo che restituisce l'utente registrato o l'amministratore (se loggati), oppure NULL.
      * @return mixed|null
      */
     public function caricaUtente() {
@@ -161,8 +160,6 @@ class CGestioneSessioni
             $admin =  $_SESSION["admin"];
             return unserialize($admin);
         }
-
     }
-
 
 }

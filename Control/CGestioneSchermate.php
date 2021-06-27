@@ -46,4 +46,11 @@ class CGestioneSchermate
         header("Location: ".$GLOBALS['path']."GestioneIndirizzi/recuperaIndirizzi");
     }
 
+    public static function recuperaGestioneCarrelliSalvati() {
+        header("Location: ".$GLOBALS['path']."GestioneCarrello/recuperaCarrelliSalvati");
+    }
+
+    public static function recuperaGestioneCarrello() {
+        header("Location: ".$GLOBALS['path']."GestioneCarrello/recuperaCarrello");
+    }
 }

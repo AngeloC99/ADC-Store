@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-06-24 18:27:28
+/* Smarty version 3.1.39, created on 2021-06-27 18:02:56
   from 'C:\Users\angel\public_html\ADC-Store\Smarty\smarty-dir\templates\cart.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_60d4b27035b140_98654087',
+  'unifunc' => 'content_60d8a130ebfbc3_84443939',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '7a0898c791d04bbf0a5ce54fe59b69c17728193f' => 
     array (
       0 => 'C:\\Users\\angel\\public_html\\ADC-Store\\Smarty\\smarty-dir\\templates\\cart.tpl',
-      1 => 1624545963,
+      1 => 1624809775,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_60d4b27035b140_98654087 (Smarty_Internal_Template $_smarty_tpl) {
+function content_60d8a130ebfbc3_84443939 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en">
 
@@ -31,31 +31,42 @@ function content_60d4b27035b140_98654087 (Smarty_Internal_Template $_smarty_tpl)
     <meta name="description" content="ADCStore">
     <meta name="keywords" content="ADCStore">
     <meta name="author" content="ADCStore">
-    <link rel="icon" href="Smarty/smarty-dir/assets/images/favicon/1.png" type="image/x-icon">
-    <link rel="shortcut icon" href="Smarty/smarty-dir/assets/images/favicon/1.png" type="image/x-icon">
+    <link rel="icon" href="<?php echo $_smarty_tpl->tpl_vars['path']->value;
+echo $_smarty_tpl->tpl_vars['path']->value;?>
+Smarty/smarty-dir/assets/images/favicon/1.png" type="image/x-icon">
+    <link rel="shortcut icon" href="<?php echo $_smarty_tpl->tpl_vars['path']->value;
+echo $_smarty_tpl->tpl_vars['path']->value;?>
+Smarty/smarty-dir/assets/images/favicon/1.png" type="image/x-icon">
     <title>ADC Store - L'ABC della qualità</title>
 
     <!--Google font-->
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet">
 
     <!-- Icons -->
-    <link rel="stylesheet" type="text/css" href="Smarty/smarty-dir/assets/css/fontawesome.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+Smarty/smarty-dir/assets/css/fontawesome.css">
 
     <!--Slick slider css-->
-    <link rel="stylesheet" type="text/css" href="Smarty/smarty-dir/assets/css/slick.css">
-    <link rel="stylesheet" type="text/css" href="Smarty/smarty-dir/assets/css/slick-theme.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+Smarty/smarty-dir/assets/css/slick.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+Smarty/smarty-dir/assets/css/slick-theme.css">
 
     <!-- Animate icon -->
-    <link rel="stylesheet" type="text/css" href="Smarty/smarty-dir/assets/css/animate.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+Smarty/smarty-dir/assets/css/animate.css">
 
     <!-- Themify icon -->
-    <link rel="stylesheet" type="text/css" href="Smarty/smarty-dir/assets/css/themify-icons.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+Smarty/smarty-dir/assets/css/themify-icons.css">
 
     <!-- Bootstrap css -->
-    <link rel="stylesheet" type="text/css" href="Smarty/smarty-dir/assets/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+Smarty/smarty-dir/assets/css/bootstrap.css">
 
     <!-- Theme css -->
-    <link rel="stylesheet" type="text/css" href="Smarty/smarty-dir/assets/css/color1.css" media="screen" id="color">
+    <link rel="stylesheet" type="text/css" href="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+Smarty/smarty-dir/assets/css/color1.css" media="screen" id="color">
 
 </head>
 
@@ -161,7 +172,8 @@ function content_60d4b27035b140_98654087 (Smarty_Internal_Template $_smarty_tpl)
                                                             </div>
                                                             <div class="col-xl-4">
                                                                 <a href="#" class="mega-menu-banner"><img
-                                                                        src="Smarty/smarty-dir/assets/images/mega-menu/fashion.jpg"
+                                                                        src="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+Smarty/smarty-dir/assets/images/mega-menu/fashion.jpg"
                                                                         alt="" class="img-fluid blur-up lazyload"></a>
                                                             </div>
                                                         </div>
@@ -251,7 +263,8 @@ function content_60d4b27035b140_98654087 (Smarty_Internal_Template $_smarty_tpl)
                                 </div>
                             </div>
                             <div class="brand-logo">
-                                <a href="index.html"> <img src="Smarty/smarty-dir/assets/images/icon/logo.png"
+                                <a href="index.html"> <img src="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+Smarty/smarty-dir/assets/images/icon/logo.png"
                                         class="img-fluid blur-up lazyload" alt=""></a>
                             </div>
                         </div>
@@ -384,7 +397,7 @@ function content_60d4b27035b140_98654087 (Smarty_Internal_Template $_smarty_tpl)
                                                 <li><a href="product-page(4-image).html">four image <span
                                                             class="new-tag">new</span></a></li>
                                                 <li><a href="product-page(sticky).html">sticky</a></li>
-                                                <li><a href="product-page(accordian).html">accordian</a></li>
+                                                <li><a href="product-page(accordian).tpl">accordian</a></li>
                                                 <li><a href="product-page(bundle).html">bundle<span
                                                             class="new-tag">new</span></a></li>
                                                 <li><a href="product-page(image-swatch).html">image swatch <span
@@ -583,7 +596,8 @@ function content_60d4b27035b140_98654087 (Smarty_Internal_Template $_smarty_tpl)
                                 <div class="icon-nav">
                                     <ul>
                                         <li class="onhover-div mobile-search">
-                                            <div><img src="Smarty/smarty-dir/assets/images/icon/search.png" onclick="openSearch()"
+                                            <div><img src="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+Smarty/smarty-dir/assets/images/icon/search.png" onclick="openSearch()"
                                                     class="img-fluid blur-up lazyload" alt="">
                                                 <i class="ti-search" onclick="openSearch()"></i></div>
                                             <div id="search-overlay" class="search-overlay">
@@ -611,7 +625,8 @@ function content_60d4b27035b140_98654087 (Smarty_Internal_Template $_smarty_tpl)
                                             </div>
                                         </li>
                                         <li class="onhover-div mobile-setting">
-                                            <div><img src="Smarty/smarty-dir/assets/images/icon/setting.png"
+                                            <div><img src="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+Smarty/smarty-dir/assets/images/icon/setting.png"
                                                     class="img-fluid blur-up lazyload" alt="">
                                                 <i class="ti-settings"></i></div>
                                             <div class="show-div setting">
@@ -630,14 +645,16 @@ function content_60d4b27035b140_98654087 (Smarty_Internal_Template $_smarty_tpl)
                                             </div>
                                         </li>
                                         <li class="onhover-div mobile-cart">
-                                            <div><img src="Smarty/smarty-dir/assets/images/icon/cart.png"
+                                            <div><img src="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+Smarty/smarty-dir/assets/images/icon/cart.png"
                                                     class="img-fluid blur-up lazyload" alt="">
                                                 <i class="ti-shopping-cart"></i></div>
                                             <ul class="show-div shopping-cart">
                                                 <li>
                                                     <div class="media">
                                                         <a href="#"><img class="mr-3"
-                                                                src="Smarty/smarty-dir/assets/images/fashion/product/1.jpg"
+                                                                src="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+Smarty/smarty-dir/assets/images/fashion/product/1.jpg"
                                                                 alt="Generic placeholder image"></a>
                                                         <div class="media-body">
                                                             <a href="#">
@@ -653,7 +670,8 @@ function content_60d4b27035b140_98654087 (Smarty_Internal_Template $_smarty_tpl)
                                                 <li>
                                                     <div class="media">
                                                         <a href="#"><img class="mr-3"
-                                                                src="Smarty/smarty-dir/assets/images/fashion/product/2.jpg"
+                                                                src="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+Smarty/smarty-dir/assets/images/fashion/product/2.jpg"
                                                                 alt="Generic placeholder image"></a>
                                                         <div class="media-body">
                                                             <a href="#">
@@ -697,8 +715,10 @@ function content_60d4b27035b140_98654087 (Smarty_Internal_Template $_smarty_tpl)
             <div class="row">
                 <div class="col-sm-6">
                     <div class="page-title">
-                        <h2> <?php echo $_smarty_tpl->tpl_vars['cart']->value;?>
+                        <?php if ($_smarty_tpl->tpl_vars['cart']->value != NULL) {?>
+                            <h2> <?php echo $_smarty_tpl->tpl_vars['cart']->value;?>
  </h2>
+                        <?php }?>
                     </div>
                 </div>
                 <div class="col-sm-6">
@@ -718,6 +738,7 @@ function content_60d4b27035b140_98654087 (Smarty_Internal_Template $_smarty_tpl)
     <!--section start-->
     <section class="cart-section section-b-space">
         <div class="container">
+            <?php if ($_smarty_tpl->tpl_vars['prodotti']->value != NULL) {?>
             <div class="row">
                 <div class="col-sm-12">
                     <table class="table cart-table table-responsive-xs">
@@ -739,51 +760,51 @@ $_smarty_tpl->tpl_vars['__smarty_section_prod'] = new Smarty_Variable(array());
 if ($__section_prod_0_total !== 0) {
 for ($__section_prod_0_iteration = 1, $_smarty_tpl->tpl_vars['__smarty_section_prod']->value['index'] = 0; $__section_prod_0_iteration <= $__section_prod_0_total; $__section_prod_0_iteration++, $_smarty_tpl->tpl_vars['__smarty_section_prod']->value['index']++){
 ?>
-                            <tr>
-                                <td>
-                                    <img src="data:<?php echo $_smarty_tpl->tpl_vars['prodotti']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_prod']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_prod']->value['index'] : null)]['mime'];?>
+                                <tr>
+                                    <td>
+                                        <img src="data:<?php echo $_smarty_tpl->tpl_vars['prodotti']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_prod']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_prod']->value['index'] : null)]['mime'];?>
 ;base64,<?php echo $_smarty_tpl->tpl_vars['prodotti']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_prod']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_prod']->value['index'] : null)]['image'];?>
 " width="100" height="100"/>
-                                </td>
-                                <td><a href="#"><?php echo $_smarty_tpl->tpl_vars['prodotti']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_prod']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_prod']->value['index'] : null)]['nome'];?>
+                                    </td>
+                                    <td><a href="#"><?php echo $_smarty_tpl->tpl_vars['prodotti']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_prod']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_prod']->value['index'] : null)]['nome'];?>
 </a>
-                                    <div class="mobile-cart-content row">
-                                        <div class="col-xs-3">
-                                            <div class="qty-box">
-                                                <div class="input-group">
-                                                    <input type="text" name="quantity" class="form-control input-number"
-                                                        value="1">
+                                        <div class="mobile-cart-content row">
+                                            <div class="col-xs-3">
+                                                <div class="qty-box">
+                                                    <div class="input-group">
+                                                        <input type="text" name="quantity" class="form-control input-number"
+                                                            value="1">
+                                                    </div>
                                                 </div>
                                             </div>
+                                            <div class="col-xs-3">
+                                                <h2 class="td-color">$63.00</h2>
+                                            </div>
+                                            <div class="col-xs-3">
+                                                <h2 class="td-color"><a href="#" class="icon"><i class="ti-close"></i></a>
+                                                </h2>
+                                            </div>
                                         </div>
-                                        <div class="col-xs-3">
-                                            <h2 class="td-color">$63.00</h2>
-                                        </div>
-                                        <div class="col-xs-3">
-                                            <h2 class="td-color"><a href="#" class="icon"><i class="ti-close"></i></a>
-                                            </h2>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>
-                                    <h2>€<?php echo $_smarty_tpl->tpl_vars['prodotti']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_prod']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_prod']->value['index'] : null)]['prezzo'];?>
+                                    </td>
+                                    <td>
+                                        <h2>€<?php echo $_smarty_tpl->tpl_vars['prodotti']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_prod']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_prod']->value['index'] : null)]['prezzo'];?>
 </h2>
-                                </td>
-                                <td>
-                                    <div class="qty-box">
-                                        <div class="input-group">
-                                            <input type="number" name="quantity" class="form-control input-number"
-                                                value="<?php echo $_smarty_tpl->tpl_vars['prodotti']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_prod']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_prod']->value['index'] : null)]['quantita'];?>
+                                    </td>
+                                    <td>
+                                        <div class="qty-box">
+                                            <div class="input-group">
+                                                <input type="number" name="quantity" class="form-control input-number"
+                                                    value="<?php echo $_smarty_tpl->tpl_vars['prodotti']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_prod']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_prod']->value['index'] : null)]['quantita'];?>
 ">
+                                            </div>
                                         </div>
-                                    </div>
-                                </td>
-                                <td><a href="#" class="icon"><i class="ti-close"></i></a></td>
-                                <td>
-                                    <h2 class="td-color">€ <?php echo $_smarty_tpl->tpl_vars['prodotti']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_prod']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_prod']->value['index'] : null)]['totProd'];?>
+                                    </td>
+                                    <td><a href="#" class="icon"><i class="ti-close"></i></a></td>
+                                    <td>
+                                        <h2 class="td-color">€ <?php echo $_smarty_tpl->tpl_vars['prodotti']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_prod']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_prod']->value['index'] : null)]['totProd'];?>
 </h2>
-                                </td>
-                            </tr>
+                                    </td>
+                                </tr>
                             <?php
 }
 }
@@ -804,9 +825,24 @@ for ($__section_prod_0_iteration = 1, $_smarty_tpl->tpl_vars['__smarty_section_p
                 </div>
             </div>
             <div class="row cart-buttons">
-                <div class="col-6"><a href="#" class="btn btn-solid">continue shopping</a></div>
-                <div class="col-6"><a href="#" class="btn btn-solid">check out</a></div>
+                <div class="col-6"><a href="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+GestioneProdotti/recuperaProdotti" class="btn btn-solid">Continua gli acquisti</a></div>
+                <div class="col-6"><a href="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+GestioneCarrello/procediOrdine" class="btn btn-solid">Procedi all'ordine</a></div>
             </div>
+
+            <?php } else { ?>
+                <h1>OOOPS! Nessun prodotto nel carrello!</h1>
+                <h3>Corri ad approfittare dei migliaia di prodotti che ti offre ADC-Store</h3>
+                <h3>I nostri addetti si impegnano sempre a fornirti prodotti freschi e di qualità</h3>
+                <div class="row cart-buttons">
+                    <div class="col-6"><a href="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+GestioneProdotti/recuperaProdotti" class="btn btn-solid">Inizia ad acquistare</a></div>
+                    <div class="col-6"><a href="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+GestioneSchermate/recuperaHomeUtente" class="btn btn-solid">Torna alla Home</a></div>
+                </div>
+
+            <?php }?>
         </div>
     </section>
     <!--section end-->
@@ -814,6 +850,7 @@ for ($__section_prod_0_iteration = 1, $_smarty_tpl->tpl_vars['__smarty_section_p
 
     <!-- footer start -->
     <footer class="footer-light">
+        <?php if ($_smarty_tpl->tpl_vars['prodotti']->value != NULL) {?>
         <div class="light-layout">
             <div class="container">
                 <section class="small-section border-section border-top-0">
@@ -821,27 +858,29 @@ for ($__section_prod_0_iteration = 1, $_smarty_tpl->tpl_vars['__smarty_section_p
                         <div class="col-lg-6">
                             <div class="subscribe">
                                 <div>
-                                    <h4>Salvataggio del carrello</h4>
-                                    <p>Inserisci un nome per il carrello da salvare e procedi al salvataggio.</p>
+                                    <h4>Aggiungi il carrello ai preferiti</h4>
+                                    <p>Inserisci un nome per il carrello e procedi al salvataggio.</p>
                                 </div>
                             </div>
                         </div>
                         <div class="col-lg-6">
-                            <form
-                                    action="https://pixelstrap.us19.list-manage.com/subscribe/post?u=5a128856334b598b395f1fc9b&amp;id=082f74cbda"
-                                    class="form-inline subscribe-form auth-form needs-validation" method="post"
-                                    id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" target="_blank">
+                            <form method="post" action="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+GestioneCarrello/salvaCarrello"
+                                    class="form-inline subscribe-form auth-form needs-validation"
+                                    id="mc-embedded-subscribe-form">
                                 <div class="form-group mx-sm-3">
-                                    <input type="text" class="form-control" name="EMAIL" id="mce-EMAIL"
-                                           placeholder="Inserisci un nome per il carrello" required="required">
+                                    <input type="text" class="form-control" name="nomeCarrello" id="mce-EMAIL"
+                                           placeholder="Inserisci un nome per il carrello" required maxlength="15">
                                 </div>
-                                <button type="submit" class="btn btn-solid" id="mc-submit">salva il carrello</button>
+                                <input type="submit" value="salva il carrello" class="btn btn-solid"/>
                             </form>
                         </div>
                     </div>
                 </section>
             </div>
         </div>
+        <?php }?>
+
         <section class="section-b-space light-layout">
             <div class="container">
                 <div class="row footer-theme partition-f">
@@ -850,7 +889,8 @@ for ($__section_prod_0_iteration = 1, $_smarty_tpl->tpl_vars['__smarty_section_p
                             <h4>about</h4>
                         </div>
                         <div class="footer-contant">
-                            <div class="footer-logo"><img src="Smarty/smarty-dir/assets/images/icon/logo.png" alt=""></div>
+                            <div class="footer-logo"><img src="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+Smarty/smarty-dir/assets/images/icon/logo.png" alt=""></div>
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
                                 ut labore et dolore magna aliqua. Ut enim ad minim veniam,</p>
                             <div class="footer-social">
@@ -928,19 +968,24 @@ for ($__section_prod_0_iteration = 1, $_smarty_tpl->tpl_vars['__smarty_section_p
                         <div class="payment-card-bottom">
                             <ul>
                                 <li>
-                                    <a href="#"><img src="Smarty/smarty-dir/assets/images/icon/visa.png" alt=""></a>
+                                    <a href="#"><img src="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+Smarty/smarty-dir/assets/images/icon/visa.png" alt=""></a>
                                 </li>
                                 <li>
-                                    <a href="#"><img src="Smarty/smarty-dir/assets/images/icon/mastercard.png" alt=""></a>
+                                    <a href="#"><img src="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+Smarty/smarty-dir/assets/images/icon/mastercard.png" alt=""></a>
                                 </li>
                                 <li>
-                                    <a href="#"><img src="Smarty/smarty-dir/assets/images/icon/paypal.png" alt=""></a>
+                                    <a href="#"><img src="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+Smarty/smarty-dir/assets/images/icon/paypal.png" alt=""></a>
                                 </li>
                                 <li>
-                                    <a href="#"><img src="Smarty/smarty-dir/assets/images/icon/american-express.png" alt=""></a>
+                                    <a href="#"><img src="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+Smarty/smarty-dir/assets/images/icon/american-express.png" alt=""></a>
                                 </li>
                                 <li>
-                                    <a href="#"><img src="Smarty/smarty-dir/assets/images/icon/discover.png" alt=""></a>
+                                    <a href="#"><img src="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+Smarty/smarty-dir/assets/images/icon/discover.png" alt=""></a>
                                 </li>
                             </ul>
                         </div>
@@ -1649,13 +1694,16 @@ for ($__section_prod_0_iteration = 1, $_smarty_tpl->tpl_vars['__smarty_section_p
                         target="_blank" class="btn btn-block purchase_btn"><i class="fa fa-shopping-cart"
                             aria-hidden="true"></i> purchase Multikart now!</a>
                     <a href="https://themeforest.net/item/multikart-responsive-angular-ecommerce-template/22905358?s_rank=3"
-                        target="_blank" class="btn btn-block purchase_btn"><img src="Smarty/smarty-dir/assets/images/icon/angular.png"
+                        target="_blank" class="btn btn-block purchase_btn"><img src="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+Smarty/smarty-dir/assets/images/icon/angular.png"
                             alt="" class="img-fluid"> Multikart Angular</a>
                     <a href="https://themeforest.net/item/multikart-responsive-react-ecommerce-template/23067773?s_rank=2"
-                        target="_blank" class="btn btn-block purchase_btn"><img src="Smarty/smarty-dir/assets/images/icon/react.png"
+                        target="_blank" class="btn btn-block purchase_btn"><img src="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+Smarty/smarty-dir/assets/images/icon/react.png"
                             alt="" class="img-fluid"> Multikart React</a>
                     <a href="https://themeforest.net/item/multikart-multipurpose-shopify-sections-theme/23093831?s_rank=1"
-                        target="_blank" class="btn btn-block purchase_btn"><img src="Smarty/smarty-dir/assets/images/icon/shopify.png"
+                        target="_blank" class="btn btn-block purchase_btn"><img src="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+Smarty/smarty-dir/assets/images/icon/shopify.png"
                             alt="" class="img-fluid"> Multikart Shopify</a>
                 </div>
             </div>
@@ -1671,42 +1719,50 @@ for ($__section_prod_0_iteration = 1, $_smarty_tpl->tpl_vars['__smarty_section_p
 
     <!-- latest jquery-->
     <?php echo '<script'; ?>
- src="Smarty/smarty-dir/assets/js/jquery-3.3.1.min.js"><?php echo '</script'; ?>
+ src="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+Smarty/smarty-dir/assets/js/jquery-3.3.1.min.js"><?php echo '</script'; ?>
 >
 
     <!-- menu js-->
     <?php echo '<script'; ?>
- src="Smarty/smarty-dir/assets/js/menu.js"><?php echo '</script'; ?>
+ src="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+Smarty/smarty-dir/assets/js/menu.js"><?php echo '</script'; ?>
 >
 
     <!-- lazyload js-->
     <?php echo '<script'; ?>
- src="Smarty/smarty-dir/assets/js/lazysizes.min.js"><?php echo '</script'; ?>
+ src="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+Smarty/smarty-dir/assets/js/lazysizes.min.js"><?php echo '</script'; ?>
 >
 
     <!-- popper js-->
     <?php echo '<script'; ?>
- src="Smarty/smarty-dir/assets/js/popper.min.js"><?php echo '</script'; ?>
+ src="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+Smarty/smarty-dir/assets/js/popper.min.js"><?php echo '</script'; ?>
 >
 
     <!-- slick js-->
     <?php echo '<script'; ?>
- src="Smarty/smarty-dir/assets/js/slick.js"><?php echo '</script'; ?>
+ src="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+Smarty/smarty-dir/assets/js/slick.js"><?php echo '</script'; ?>
 >
 
     <!-- Bootstrap js-->
     <?php echo '<script'; ?>
- src="Smarty/smarty-dir/assets/js/bootstrap.js"><?php echo '</script'; ?>
+ src="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+Smarty/smarty-dir/assets/js/bootstrap.js"><?php echo '</script'; ?>
 >
 
     <!-- Bootstrap Notification js-->
     <?php echo '<script'; ?>
- src="Smarty/smarty-dir/assets/js/bootstrap-notify.min.js"><?php echo '</script'; ?>
+ src="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+Smarty/smarty-dir/assets/js/bootstrap-notify.min.js"><?php echo '</script'; ?>
 >
 
     <!-- Theme js-->
     <?php echo '<script'; ?>
- src="Smarty/smarty-dir/assets/js/script.js"><?php echo '</script'; ?>
+ src="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+Smarty/smarty-dir/assets/js/script.js"><?php echo '</script'; ?>
 >
 
     <?php echo '<script'; ?>

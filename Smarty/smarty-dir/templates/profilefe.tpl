@@ -90,7 +90,7 @@
                                                         class="fa fa-angle-right pl-2" aria-hidden="true"></i></div>
                                             </li>
                                             <li>
-                                                <a href="#">Carrelli preferiti</a>
+                                                <a href="{$path}GestioneSchermate/recuperaGestioneCarrelliSalvati">Carrelli preferiti</a>
                                             </li>
                                             <li>
                                                 <a href="#">Buoni sconto</a>

@@ -27,15 +27,16 @@ class VGestioneCarrello {
             $arrProdotti[] = $tmp;
         }
         $this->smarty->assign('prodotti', $arrProdotti);
-
         $this->smarty->assign('cart',$carrello->getNome());
         $this->smarty->assign('prezzoTot', $carrello->getPrezzoTot());
+        $this->smarty->assign('path', $GLOBALS["path"]);
+
         $this->smarty->display('cart.tpl');
     }
 
-    public function compilaOrdine(ECarrello $carrello, EUtenteReg $utente){
-        $prodotti = $carrello->getProdotti();
+    public function compilaOrdine(ECarrello $carrello, string $mailutente){
         $pm = FPersistentManager::getInstance();
+        $prodotti = $carrello->getProdotti();
         $arrProdotti = array();
         foreach ($prodotti as $idProd => $quantita) {
             $prod = $pm->load("FProdotto", $idProd);
@@ -50,19 +51,46 @@ class VGestioneCarrello {
         $this->smarty->assign('prodotti', $arrProdotti);
         $this->smarty->assign('prezzoTot', $carrello->getPrezzoTot());
 
-        $indirizzi = $pm->prelevaIndirizziUtente($utente);
-        $carte = $pm->prelevaCarteUtente($utente);
-        $buoni = $pm->prelevaBuoni($utente->getEmail());
+        $indirizzi = $pm->prelevaIndirizziUtente($mailutente);
+        $arrIndirizzi = array();
+        foreach ($indirizzi as $indirizzo) {
+            $tmp = array(
+                'indirizzo' => $indirizzo,
+                'identificativo' => str_replace(" ", "_", $indirizzo->getVia()).":".$indirizzo->getNumero().":".$indirizzo->getCap(),
+            );
+            $arrIndirizzi[] = $tmp;
+        }
+        $this->smarty->assign('indirizzi', $arrIndirizzi);
 
-        $this->smarty->assign('indirizzi', $indirizzi);
-        $this->smarty->assign('carte', $carte);
-        $this->smarty->assign('buoni', $buoni);
+        $carte = $pm->prelevaCarteUtente($mailutente);
+        $arrCarte = array();
+        foreach ($carte as $carta) {
+            $tmp = array(
+                'carta' => $carta,
+                'numero' => $carta->getNumero(),
+            );
+            $arrCarte[] = $tmp;
+        }
+        $this->smarty->assign('carte', $arrCarte);
 
+
+        $buoni = $pm->prelevaBuoni($mailutente);
+        $arrBuoni = array();
+        foreach ($buoni as $buono) {
+            $tmp = array(
+                'carta' => $buono,
+                'codice' => $buono->getCodice(),
+            );
+            $arrBuoni[] = $tmp;
+        }
+        $this->smarty->assign('buoni', $arrBuoni);
+
+        $this->smarty->assign('path', $GLOBALS["path"]);
 
         $this->smarty->display('checkout.tpl');
     }
 
-    public function mostraOrdine(EOrdine $ordine, EUtenteReg $utente) {
+    public function mostraOrdine(EOrdine $ordine, EUtenteReg $utente, string $telefono) {
         $carrello = $ordine->getCarrello();
         $prodotti = $carrello->getProdotti();
         $pm = FPersistentManager::getInstance();
@@ -85,6 +113,8 @@ class VGestioneCarrello {
         $this->smarty->assign('indirizzo', $ordine->getIndirizzo());
         $this->smarty->assign('prezzoTot', $ordine->getPrezzoTotale());
         $this->smarty->assign('nomeUtente', $utente->getNome()." ".$utente->getCognome());
+        $this->smarty->assign('telefono', $telefono);
+        $this->smarty->assign('path', $GLOBALS["path"]);
 
         $this->smarty->display('order-success.tpl');
     }
@@ -113,13 +143,14 @@ class VGestioneCarrello {
         $this->smarty->assign('indirizzo', $ordine->getIndirizzo());
         $this->smarty->assign('prezzoTot', $ordine->getPrezzoTotale());
         $this->smarty->assign('nomeUtente', $utente->getNome()." ".$utente->getCognome());
+        $this->smarty->assign('path', $GLOBALS["path"]);
 
         return $this->smarty->fetch('email-order-success.tpl');
     }
 
     public function mostraCarrelliPreferiti(EUtenteReg $utente) {
         $pm = FPersistentManager::getInstance();
-        $carrelli = $pm->prelevaCarrelliUtente($utente);
+        $carrelli = $pm->prelevaCarrelliUtente($utente->getEmail());
         $arrCarrelli = array();
         foreach ($carrelli as $carrello) {
             $tmp = array(
@@ -142,6 +173,8 @@ class VGestioneCarrello {
             $arrCarrelli[] = $tmp;
         }
         $this->smarty->assign('carrelli', $arrCarrelli);
+        $this->smarty->assign('path', $GLOBALS["path"]);
+
         $this->smarty->display('carrelliPreferiti.tpl');
     }
 }
