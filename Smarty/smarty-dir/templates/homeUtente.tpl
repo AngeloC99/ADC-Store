@@ -289,7 +289,7 @@
                     <div class="col-lg-6">
                         <div class="header-contact">
                             <ul>
-                                <li>Benvenuti in ADC Store {$utente}</li>
+                                <li><h3>Bentornato/a in ADC Store <b>{$nome} {$cognome}</b>!</h3></li>
                             </ul>
                         </div>
                     </div>
@@ -336,8 +336,8 @@
                                 </li>
                                 <li><a href="#">Account</a>
                                             <ul>
-                                                <li><a href="loginfe.tpl" data-lng="en">Login</a></li>
-                                                <li><a href="#" data-lng="en">Logout</a></li>
+                                                <li><a href="{$path}GestioneSchermate/apriProfilo" data-lng="en">Il mio profilo ADC-Store</a></li>
+                                                <li><a href="{$path}GestioneUtenti/logout" data-lng="en">Logout</a></li>
                                             </ul>
                                         
                                 </li>

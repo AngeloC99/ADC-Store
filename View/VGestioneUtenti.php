@@ -24,7 +24,8 @@ class VGestioneUtenti {
 
     public function mostraHomeUtente() {
         $gs = CGestioneSessioni::getInstance();
-        $this->smarty->assign("utente", $gs->caricaUtente()->getEmail());
+        $this->smarty->assign("nome", $gs->caricaUtente()->getNome());
+        $this->smarty->assign("cognome", $gs->caricaUtente()->getCognome());
         $this->smarty->assign("path", $GLOBALS["path"]);
         $this->smarty->display('homeUtente.tpl');
     }

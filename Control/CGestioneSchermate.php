@@ -11,9 +11,9 @@ class CGestioneSchermate
     }
 
     public static function apriProfilo(){
-
         $pm = FPersistentManager::getInstance();
-        $utente = $pm->load('FUtenteReg', "adarossi@gmail.com");
+        $gs = CGestioneSessioni::getInstance();
+        $utente = $pm->load('FUtenteReg', $gs->caricaUtente()->getEmail());
         $v = new VGestioneUtenti();
         $v->mostraProfilo($utente);
     }

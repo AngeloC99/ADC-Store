@@ -11,12 +11,11 @@ $prod1 = new EProdotto("Latte","Centrale di Roma","Latte intero", 200, $imm1, 1.
 $prod2 = new EProdotto("Petto di pollo","Amadori","Pollo di alta qualità", 50, $imm1, 3.50, "Carne");
 $prod3 = new EProdotto("Yogurt","Muller","Yogurt alla vaniglia", 80, $imm1, 0.70, "Yogurt");
 
-
 $pm->store($imm1);
 $pm->store($prod1);
 $pm->store($prod2);
 $pm->store($prod3);
-/*
+
 $admin1 = new EAmministratore("Mario", "Rossi", "mariorossi@gmail.com", "pippo");
 $admin2 = new EAmministratore("Luca", "Rossi", "lucarossi@gmail.com", "paperino");
 
@@ -88,6 +87,14 @@ $buono3 = new EBuonoSconto(false,10);
 $pm->store($buono2, $utente1->getEmail());
 $pm->store($buono3, $utente1->getEmail());
 
+$premio = new EPremio('Padella','MarcaBuona','padella antiaderente 20cm',10,$imm1,120);
+$premio2 = new EPremio('tostapane','Tostapane Tostabene','tostapane piccolo','5',$imm1,500);
+$pm->store($premio);
+$pm->store($premio2);
+*/
+
+
+
 // Testing dei metodi che coinvolgono più tabelle FUtenteReg
 
 //$db->store($utente);
@@ -114,16 +121,13 @@ $pm->store($buono3, $utente1->getEmail());
 //echo $db->delete('FProdotto',$id);
 //$prod->setQuantita($prod->getQuantita()-5);
 //$db->update($prod);
-//print_r($db->prelevaProdottiByTip('carne'));*/
+//print_r($db->prelevaProdottiByTip('carne'));
 
 
 // Testing classe FPremio:
 //$imm2=new EImmagine('arrosticini-ovino-classici-2-scaled.jpg');
 //$imm=new EImmagine('padella.jpg');
-//$premio=new EPremio('Padella','MarcaBuona','padella antiaderente 20cm',10,$imm1,120);
-//$premio2=new EPremio('tostapane','Tostapane Tostabene','tostapane piccolo','5',$imm2,500);
-//$pm->store($premio);
-//$pm->store($premio2);
+
 //print $pm->exist("FPremio", $premio->getId());
 //$utente->setPunti(80);
 //print_r($db->prelevaPremiFiltrati($utente->getPunti()));
@@ -146,6 +150,3 @@ $pm->store($buono3, $utente1->getEmail());
 //$prod1 = new EProdotto("Arrosticini","Pecoraio","Davvero buoni", 200, $imm1, 1.50, "Carne");
 //$pm->store($prod1);
 //print_r($pm->prelevaProdottiByTip('carne'));
-
-
-

@@ -89,9 +89,8 @@ class CGestioneUtenti
 
 
     public static function logout(){
-        session_start();
-        session_unset();
-        session_destroy();
+        $gs = CGestioneSessioni::getInstance();
+        $gs->distruggiSessione();
         header("Location: ".$GLOBALS['path']."GestioneSchermate/recuperaLogin");
     }
 }

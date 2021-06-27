@@ -22,7 +22,8 @@ class VGestioneSchermate
        //CGestionePunti::recuperaPremi();
         //$this->smarty->display('loginfe.tpl');
         //CGestioneSchermate::apriProfilo();
-        $this->smarty->display("user-list.tpl");
+        //$this->smarty->display("user-list.tpl");
+        CGestioneSchermate::recuperaLogin();
     }
 
 
