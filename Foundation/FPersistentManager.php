@@ -150,12 +150,12 @@ class FPersistentManager
 
     /**
      * Elimina una carta di credito fornita da un utente dal database.
-     * @param ECartaCredito $carta
+     * @param string $numero
      * @param EUtenteReg $utente
      * @return bool
      */
-    public function eliminaCartaUtente(ECartaCredito $carta, EUtenteReg $utente) : bool {
-        return FUtenteReg::eliminaCarta($carta->getNumero(), $utente->getEmail());
+    public function eliminaCartaUtente(string $numero, EUtenteReg $utente) : bool {
+        return FUtenteReg::eliminaCarta($numero, $utente->getEmail());
     }
 
     /**

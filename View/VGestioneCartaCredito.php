@@ -14,6 +14,7 @@ class VGestioneCartaCredito {
         $carteArr = array();
         foreach ($carte as $carta) {
             $tmp = array(
+                'numeroReale' => $carta->getNumero(),
                 'numero' => substr($carta->getNumero(), 0, 4)."************",
                 'titolare' => $carta->getTitolare(),
                 'circuito' => $carta->getCircuito(),

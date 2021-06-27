@@ -109,24 +109,24 @@
                                 <div class="col-md-6">
                                     <label for="review">Numero</label>
                                     <input type="password" class="form-control" id="review"
-                                           placeholder="Inserisci il numero della carta" required name="numero">
+                                           placeholder="Inserisci il numero della carta" required name="numero" maxlength="19">
                                 </div>
                                 <div class="col-md-6">
                                     <label for="review">Titolare</label>
                                     <input type="text" class="form-control" id="lname" placeholder="Inserisci il titolare" name="titolare"
-                                        required>
+                                        required maxlength="25">
                                 </div>
                             </div>
                             <div class="form-row">
                                 <div class="col-md-6">
                                     <label for="review">Circuito</label>
                                     <input type="text" class="form-control" id="lname" placeholder="Inserisci il circuito" name="circuito"
-                                           required>
+                                           required maxlength="15">
                                 </div>
                                 <div class="col-md-6">
                                     <label for="review">CVV</label>
                                     <input type="password" class="form-control" id="review"
-                                           placeholder="Inserisci il CVV" required name="cvv">
+                                           placeholder="Inserisci il CVV" required name="cvv" maxlength="3">
                                 </div>
                             </div>
                             <div class="form-row">
@@ -138,7 +138,7 @@
                                 <div class="col-md-6">
                                     <label for="review">Scadenza</label>
                                     <input type="date" class="form-control" id="lname" placeholder="Inserisci la scadenza" name="scadenza"
-                                           required>
+                                           required min="2021-07-06">
                                 </div>
                             </div><input type="submit" value="Salva la Carta" class="btn btn-solid"/>
                         </form>
@@ -183,7 +183,7 @@
                 <td>
                     <h5>{$carte[carta].scadenza}</h5>
                 </td>
-                <td><a href="#" class="icon"><i class="ti-close"></i></a></td>
+                <td><a href="{$path}GestioneCartaCredito/rimuoviCarta/{$carte[carta].numeroReale}" class="icon"><i class="ti-close"></i></a></td>
             </tr>
         {/section}
         </tbody>
