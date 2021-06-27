@@ -10,23 +10,23 @@
     <meta name="author" content="pixelstrap">
     <link rel="icon" href="../assets/images/dashboard/favicon.png" type="image/x-icon">
     <link rel="shortcut icon" href="../assets/images/dashboard/favicon.png" type="image/x-icon">
-    <title>Multikart - Premium Admin Template</title>
+    <title>Benvenuti in ADC-Store</title>
 
     <!-- Google font-->
     <link href="https://fonts.googleapis.com/css?family=Work+Sans:100,200,300,400,500,600,700,800,900" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
     <!-- Font Awesome-->
-    <link rel="stylesheet" type="text/css" href="../ProgettoEsame/Smarty/smarty-dir/assets/css/fontawesome.css">
+    <link rel="stylesheet" type="text/css" href="{$path}Smarty/smarty-dir/assets/css/fontawesome.css">
 
     <!-- Flag icon-->
-    <link rel="stylesheet" type="text/css" href="../ProgettoEsame/Smarty/smarty-dir/assets/css/flag-icon.css">
+    <link rel="stylesheet" type="text/css" href="{$path}Smarty/smarty-dir/assets/css/flag-icon.css">
 
     <!-- Bootstrap css-->
-    <link rel="stylesheet" type="text/css" href="../ProgettoEsame/Smarty/smarty-dir/assets/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="{$path}Smarty/smarty-dir/assets/css/bootstrap.css">
 
     <!-- App css-->
-    <link rel="stylesheet" type="text/css" href="../ProgettoEsame/Smarty/smarty-dir/assets/css/admin.css">
+    <link rel="stylesheet" type="text/css" href="{$path}Smarty/smarty-dir/assets/css/admin.css">
 </head>
 <body>
 
@@ -37,7 +37,7 @@
     <div class="page-main-header">
         <div class="main-header-right row">
             <div class="main-header-left d-lg-none">
-                <div class="logo-wrapper"><a href="index.html"></a></div>
+                <div class="logo-wrapper"><a href="homeAdmin.tpl"><img class="blur-up lazyloaded" src="{$path}Smarty/smarty-dir/assets/images/dashboard/logo.png" alt=""></a></div>
             </div>
             <div class="mobile-sidebar">
                 <div class="media-body text-right switch-sm">
@@ -46,16 +46,23 @@
             </div>
             <div class="nav-right col">
                 <ul class="nav-menus">
-                    
-                    <li><a class="text-dark" href="#!" onclick="javascript:toggleFullScreen()"><i data-feather="maximize-2"></i></a></li>
-                    
-                    
-                    <li><a href="#"><i class="right_side_toggle" data-feather="message-square"></i></a></li>
+                    <li>
+                        <form class="form-inline search-form">
+                            <div class="form-group">
+                                <input class="form-control-plaintext" type="search" placeholder="Search"><span class="d-sm-none mobile-search"><i data-feather="search"></i></span>
+                            </div>
+                        </form>
+                    </li>
+                    <li><a class="text-dark" href="#" onclick="javascript:toggleFullScreen()"><i data-feather="maximize-2"></i></a></li>
+
+
                     <li class="onhover-dropdown">
-                        <div class="media align-items-center"><img class="align-self-center pull-right img-50 rounded-circle blur-up lazyloaded" src="../ProgettoEsame/Smarty/smarty-dir/assets/images/dashboard/man.png" alt="header-user">
+                        <div class="media align-items-center"><img class="align-self-center pull-right img-50 rounded-circle blur-up lazyloaded" src="{$path}Smarty/smarty-dir/assets/images/dashboard/man.png" alt="header-user">
+                            <div class="dotted-animation"><span class="animate-circle"></span><span class="main-circle"></span></div>
                         </div>
                         <ul class="profile-dropdown onhover-show-div p-20">
-                            <li><a href="profilebe.html"><i data-feather="user"></i>Profilo</a></li>
+                            <li><a href="{$path}GestioneSchermate/apriProfilo"><i data-feather="user"></i>Profilo</a></li>
+                            <li><a href="{$path}GestioneUtenti/logout"><i data-feather="mail"></i>Logout</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -70,33 +77,43 @@
 
         <!-- Page Sidebar Start-->
         <div class="page-sidebar">
-            <div class="main-header-left d-none d-lg-block">
-                <div class="logo-wrapper"><a href="home.html"></a></div>
-            </div>
             <div class="sidebar custom-scrollbar">
                 <div class="sidebar-user text-center">
-                    <div><img class="img-60 rounded-circle blur-up lazyloaded" src="../ProgettoEsame/Smarty/smarty-dir/assets/images/dashboard/man.png" alt="#">
+                    <div><img class="img-60 rounded-circle blur-up lazyloaded" src="{$path}Smarty/smarty-dir/assets/images/dashboard/man.png" alt="#">
                     </div>
-                    <h6 class="mt-3 f-14">Bentornato {$nome}</h6>
+                    <h6 class="mt-3 f-14">Chiara</h6>
                     <p>Area Amministratore</p>
                 </div>
                 <ul class="sidebar-menu">
-                    <li><a class="sidebar-header" href="home.html"><i data-feather="home"></i><span>Home</span></a></li>
+                    <li><a class="sidebar-header" href="{$path}GestioneSchermate/recuperaHomeAdmin"><i data-feather="home"></i><span>Home</span></a></li>
                     <li><a class="sidebar-header" href="#"><i data-feather="box"></i> <span>Prodotti</span><i class="fa fa-angle-right pull-right"></i></a>
                         <ul class="sidebar-submenu">
-                            <li>
-                                <a href="category-page(infinite-scroll).tpl"><i class="fa fa-circle"></i>
-                                    <span>Lista prodotti</span> <i class="fa fa-angle-right pull-right"></i>
-                                </a>
-                            
-                            </li>
-                            <li>
-                                <a href="add-product.tpl"><i class="fa fa-circle"></i>
-                                    <span>Aggiungi prodotto</span> <i class="fa fa-angle-right pull-right"></i>
-                                </a>
-                            
-                            </li>
-       
+                            <li><a href="{$path}GestioneProdotti/recuperaProdotti"><i class="fa fa-circle"></i>Lista Prodotti</a></li>
+                            <li><a href="{$path}GestioneProdotti/aggiungiProdotto"><i class="fa fa-circle"></i>Aggiungi Prodotto</a></li>
+
+                        </ul>
+
+                    </li>
+                    <li><a class="sidebar-header" ><i data-feather="dollar-sign"></i><span>Clienti</span><i class="fa fa-angle-right pull-right"></i></a>
+                        <ul class="sidebar-submenu">
+                            <li><a href="{$path}GestioneUtenti/recuperaClienti"><i class="fa fa-circle"></i>Lista Clienti</a></li>
+                        </ul>
+                    </li>
+                    <li><a class="sidebar-header" ><i data-feather="tag"></i><span>Buoni Sconto</span><i class="fa fa-angle-right pull-right"></i></a>
+                        <ul class="sidebar-submenu">
+                            <li><a href="{$path}GestioneBuoni/inviaBuono"><i class="fa fa-circle"></i>Regala Buono</a></li>
+                        </ul>
+                    </li>
+
+
+                    <li><a class="sidebar-header" ><i data-feather="settings" ></i><span>Profilo</span><i class="fa fa-angle-right pull-right"></i></a>
+                        <ul class="sidebar-submenu">
+                            <li><a href="{$path}GestioneSchermate/apriProfilo"><i class="fa fa-circle"></i>Visita Profilo</a></li>
+                        </ul>
+                        <ul class="sidebar-submenu">
+                            <li><a href="{$path}GestioneUtenti/logout"><i class="fa fa-circle"></i>Logout</a></li>
+                        </ul>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -148,12 +165,11 @@
                                         </div>
                                     </div>
                                     <div class="col-xl-7">
-                                        <form class="needs-validation add-product-form" novalidate="" name="upload" enctype="multipart/form-data" method="post" action="MainControl.php">
+                                        <form class="needs-validation add-product-form" novalidate="" name="upload" enctype="multipart/form-data" method="post" action="{$path}GestioneProdotti/aggiungiProdotto">
                                             <div class="form">
                                                 <div class="form-group mb-3 row">
                                                     <label for="validationCustom01" class="col-xl-3 col-sm-4 mb-0">Seleziona immagine :</label>
-                                                    <input type="file" name="file_inviato" id="fileToUpload">
-                                                    <input type="submit" value="Upload" name="carica">
+                                                    <input type="file" name="image" id="image">
                                                 </div>
                                                 <div class="form-group mb-3 row">
                                                     <label for="validationCustom01" class="col-xl-3 col-sm-4 mb-0">Nome prodotto :</label>
@@ -192,20 +208,20 @@
                                                     <label class="col-xl-3 col-sm-4 mb-0">Quantità :</label>
                                                     <fieldset class="qty-box col-xl-9 col-xl-8 col-sm-7 pl-0">
                                                         <div class="input-group">
-                                                            <input class="touchspin" type="text" name='quantita' value="1">
+                                                            <input class="touchspin" type="number" min='1' name='quantita' value="1">
                                                         </div>
                                                     </fieldset>
                                                 </div>
                                                 <div class="form-group row">
                                                     <label class="col-xl-3 col-sm-4">Aggiungi una descrizione :</label>
                                                     <div class="col-xl-8 col-sm-7 pl-0 description-sm">
-                                                        <textarea name="des"> </textarea>
+                                                        <textarea name="descrizione"> </textarea>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="offset-xl-3 offset-sm-4">
-                                                <button type="submit" class="btn btn-primary" href="#" onclick="Funzione1()">Aggiungi</button>
-                                                <a href="#" class="btn btn-light">Annulla</a>
+                                                <button type="submit" class="btn btn-primary" href="{$path}GestioneProdotti/recuperaAggiungiProdotto" onclick="Funzione1()">Aggiungi</button>
+                                                <a href="{$path}GestioneProdotti/recuperaAggiungiProdotto" class="btn btn-light">Annulla</a>
                                             </div>
                                         </form>
                                     </div>

@@ -915,7 +915,7 @@
                                                 <div class="card-body">
                                                     <h4>Carrello preferito <input type="text" name="nomeCart" placeholder="Nome nuovo carrello"> </h4>
                                                     <div class="form-group row">
-                                                        <h4 for="exampleFormControlSelect1" class="col-xl-3 col-sm-4 mb-0">I miei carrelli :</h4>
+                                                        <h4 for="exampleFormControlSelect1" class="col-xl-3 col-sm-4 mb-0">Altri :</h4>
                                                         <select class="form-control digits col-xl-8 col-sm-7" id="exampleFormControlSelect1" name='carrelli'>
                                                             <option>Carrello 1</option>
                                                             <option>Carrello 2</option>
