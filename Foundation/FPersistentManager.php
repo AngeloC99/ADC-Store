@@ -112,59 +112,63 @@ class FPersistentManager
     /**
      * Salva un'indirizzo fornito da un utente nel database.
      * @param EIndirizzo $indirizzo
-     * @param EUtenteReg $utente
+     * @param string $mailutente
      * @return bool
      */
-    public function salvaIndirizzoUtente(EIndirizzo $indirizzo, EUtenteReg $utente) : bool {
-        return FUtenteReg::salvaIndirizzo($indirizzo, $utente->getEmail());
+    public function salvaIndirizzoUtente(EIndirizzo $indirizzo, string $mailutente) : bool {
+        return FUtenteReg::salvaIndirizzo($indirizzo, $mailutente);
     }
 
     /**
      * Elimina un'indirizzo fornito da un utente dal database.
-     * @param EIndirizzo $indirizzo
-     * @param EUtenteReg $utente
+     * @param string $indirizzo
+     * @param string $mailutente
      * @return bool
      */
-    public function eliminaIndirizzoUtente(EIndirizzo $indirizzo, EUtenteReg $utente) : bool {
-        return FUtenteReg::eliminaIndirizzo($indirizzo->getVia(), $indirizzo->getNumero(), $indirizzo->getCap(), $utente->getEmail());
+    public function eliminaIndirizzoUtente(string $indirizzo, string $mailutente) : bool {
+        $indArray = explode(":", $indirizzo);
+        $via = str_replace("_", " ", $indArray[0]);
+        $numero = $indArray[1];
+        $cap = $indArray[2];
+        return FUtenteReg::eliminaIndirizzo($via, (int) $numero, $cap, $mailutente);
     }
 
     /**
      * Preleva tutti gli indirizzi appartenenti ad un utente nel database.
-     * @param EUtenteReg $utente
+     * @param string $mailutente
      * @return array
      */
-    public function prelevaIndirizziUtente(EUtenteReg $utente) : array {
-        return FUtenteReg::prelevaIndirizzi($utente->getEmail());
+    public function prelevaIndirizziUtente(string $mailutente) : array {
+        return FUtenteReg::prelevaIndirizzi($mailutente);
     }
 
     /**
      * Salva una carta di credito fornita da un utente nel database.
      * @param ECartaCredito $carta
-     * @param EUtenteReg $utente
+     * @param string $mailutente
      * @return bool
      */
-    public function salvaCartaUtente(ECartaCredito $carta, EUtenteReg $utente) : bool {
-        return FUtenteReg::salvaCarta($carta, $utente->getEmail());
+    public function salvaCartaUtente(ECartaCredito $carta, string $mailutente) : bool {
+        return FUtenteReg::salvaCarta($carta, $mailutente);
     }
 
     /**
      * Elimina una carta di credito fornita da un utente dal database.
      * @param string $numero
-     * @param EUtenteReg $utente
+     * @param string $mailutente
      * @return bool
      */
-    public function eliminaCartaUtente(string $numero, EUtenteReg $utente) : bool {
-        return FUtenteReg::eliminaCarta($numero, $utente->getEmail());
+    public function eliminaCartaUtente(string $numero, string $mailutente) : bool {
+        return FUtenteReg::eliminaCarta($numero, $mailutente);
     }
 
     /**
      * Preleva tutte le carte di credito appartenenti ad un utente nel database.
-     * @param EUtenteReg $utente
+     * @param string $mailutente
      * @return array
      */
-    public function prelevaCarteUtente(EUtenteReg $utente) : array {
-        return FUtenteReg::prelevaCarte($utente->getEmail());
+    public function prelevaCarteUtente(string $mailutente) : array {
+        return FUtenteReg::prelevaCarte($mailutente);
     }
 
     /**

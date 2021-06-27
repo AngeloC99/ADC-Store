@@ -99,10 +99,10 @@
                                                 <a href="{$path}GestioneSchermate/recuperaFormPunti">Regala punti</a>
                                             </li>
                                             <li>
-                                                <a href="#">Gestsci indirizzi</a>
+                                                <a href="{$path}GestioneSchermate/recuperaGestioneIndirizzi">Gestione indirizzi</a>
                                             </li>
                                             <li>
-                                                <a href="#">Carte di credito</a>
+                                                <a href="{$path}GestioneSchermate/recuperaGestioneCarte">Gestione carte di credito</a>
                                             </li>
                                         </ul>
                                     </nav>

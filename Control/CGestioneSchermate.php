@@ -38,5 +38,12 @@ class CGestioneSchermate
         $v->mostraFormPunti();
     }
 
+    public static function recuperaGestioneCarte() {
+        header("Location: ".$GLOBALS['path']."GestioneCartaCredito/recuperaCarte");
+    }
+
+    public static function recuperaGestioneIndirizzi() {
+        header("Location: ".$GLOBALS['path']."GestioneIndirizzi/recuperaIndirizzi");
+    }
 
 }

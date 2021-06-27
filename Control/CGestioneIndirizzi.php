@@ -14,9 +14,10 @@ class CGestioneIndirizzi
      * @param EUtenteReg $utente
      * @return array
      */
-    public static function recuperaIndirizzi(string $mailutente) {
+    public static function recuperaIndirizzi() {
         $pm = FPersistentManager::getInstance();
-        $utente = $pm->load("FUtenteReg", $mailutente);
+        $gs = CGestioneSessioni::getInstance();
+        $utente = $pm->load("FUtenteReg", $gs->caricaUtente()->getEmail());
         $v = new VGestioneIndirizzi();
         $v->mostraIndirizzi($utente);
     }
@@ -25,26 +26,28 @@ class CGestioneIndirizzi
     /**
      * Passa i dati inseriti dall'utente al package Foundation per salvare un nuovo indirizzo predefinito ad esso
      * associato.
-     * @param string $via
-     * @param int $numero
-     * @param string $cap
-     * @param string $comune
-     * @param string $provincia
-     * @param EUtenteReg $utente
      */
-    public static function aggiungiIndirizzo(string $via, int $numero, string $cap, string $comune, string $provincia, EUtenteReg $utente): void {
+    public static function aggiungiIndirizzo(): void {
         $pm = FPersistentManager::getInstance();
-        $indirizzo = new EIndirizzo($via,$numero,$comune,$provincia,$cap,true);
-        $pm->salvaIndirizzoUtente($indirizzo, $utente);
+        $gs = CGestioneSessioni::getInstance();
+
+        $indirizzo = new EIndirizzo(ucwords($_POST['via']),$_POST['numero'],ucwords($_POST['comune']),
+                                    strtoupper($_POST['provincia']),$_POST['cap'],false);
+        $pm->salvaIndirizzoUtente($indirizzo, $gs->caricaUtente()->getEmail());
+
+        header("Location: ".$GLOBALS['path']."GestioneIndirizzi/recuperaIndirizzi");
     }
 
     /**
      * Passa la scelta dell'utente al package Foundation, che si occupa poi di eliminare l'indirizzo indicato.
-     * @param EIndirizzo $indirizzo
-     * @param EUtenteReg $utente
+     * @param string $indirizzo
      */
-    public static function rimuoviIndirizzo(EIndirizzo $indirizzo, EUtenteReg $utente): void {
+    public static function rimuoviIndirizzo(string $indirizzo): void {
         $pm = FPersistentManager::getInstance();
-        $pm->eliminaIndirizzoUtente($indirizzo, $utente);
+        $gs = CGestioneSessioni::getInstance();
+
+        $pm->eliminaIndirizzoUtente($indirizzo, $gs->caricaUtente()->getEmail());
+
+        header("Location: ".$GLOBALS['path']."GestioneIndirizzi/recuperaIndirizzi");
     }
 }

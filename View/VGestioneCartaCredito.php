@@ -8,9 +8,9 @@ class VGestioneCartaCredito {
         $this->smarty = StartSmarty::configuration();
     }
 
-    public function mostraCarte(EUtenteReg $utente){
+    public function mostraCarte($utente){
         $pm = FPersistentManager::getInstance();
-        $carte = $pm->prelevaCarteUtente($utente);
+        $carte = $pm->prelevaCarteUtente($utente->getEmail());
         $carteArr = array();
         foreach ($carte as $carta) {
             $tmp = array(

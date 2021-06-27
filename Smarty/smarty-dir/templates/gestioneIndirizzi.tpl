@@ -8,31 +8,31 @@
     <meta name="description" content="ADCStore">
     <meta name="keywords" content="ADCStore">
     <meta name="author" content="ADCStore">
-    <link rel="icon" href="Smarty/smarty-dSmarty/smarty-dir/assets/images/favicon/1.png" type="image/x-icon">
-    <link rel="shortcut icon" href="Smarty/smarty-dir/assets/images/favicon/1.png" type="image/x-icon">
+    <link rel="icon" href="{$path}{$path}Smarty/smarty-dir/assets/images/favicon/1.png" type="image/x-icon">
+    <link rel="shortcut icon" href="{$path}{$path}Smarty/smarty-dir/assets/images/favicon/1.png" type="image/x-icon">
     <title>ADC Store - L'ABC della qualità</title>
 
     <!--Google font-->
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet">
 
     <!-- Icons -->
-    <link rel="stylesheet" type="text/css" href="Smarty/smarty-dir/assets/css/fontawesome.css">
+    <link rel="stylesheet" type="text/css" href="{$path}{$path}Smarty/smarty-dir/assets/css/fontawesome.css">
 
     <!--Slick slider css-->
-    <link rel="stylesheet" type="text/css" href="Smarty/smarty-dir/assets/css/slick.css">
-    <link rel="stylesheet" type="text/css" href="Smarty/smarty-dir/assets/css/slick-theme.css">
+    <link rel="stylesheet" type="text/css" href="{$path}Smarty/smarty-dir/assets/css/slick.css">
+    <link rel="stylesheet" type="text/css" href="{$path}Smarty/smarty-dir/assets/css/slick-theme.css">
 
     <!-- Animate icon -->
-    <link rel="stylesheet" type="text/css" href="Smarty/smarty-dir/assets/css/animate.css">
+    <link rel="stylesheet" type="text/css" href="{$path}Smarty/smarty-dir/assets/css/animate.css">
 
     <!-- Themify icon -->
-    <link rel="stylesheet" type="text/css" href="Smarty/smarty-dir/assets/css/themify-icons.css">
+    <link rel="stylesheet" type="text/css" href="{$path}Smarty/smarty-dir/assets/css/themify-icons.css">
 
     <!-- Bootstrap css -->
-    <link rel="stylesheet" type="text/css" href="Smarty/smarty-dir/assets/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="{$path}Smarty/smarty-dir/assets/css/bootstrap.css">
 
     <!-- Theme css -->
-    <link rel="stylesheet" type="text/css" href="Smarty/smarty-dir/assets/css/color1.css" media="screen" id="color">
+    <link rel="stylesheet" type="text/css" href="{$path}Smarty/smarty-dir/assets/css/color1.css" media="screen" id="color">
 
 </head>
 
@@ -62,7 +62,7 @@
                         <div class="menu-left">
                             
                             <div class="brand-logo">
-                                <a href="index.html"> <img src="Smarty/smarty-dir/assets/images/icon/logo.png"
+                                <a href="index.html"> <img src="{$path}Smarty/smarty-dir/assets/images/icon/logo.png"
                                         class="img-fluid blur-up lazyload" alt=""></a>
                             </div>
                         </div>
@@ -104,38 +104,38 @@
                 <div class="col-lg-12">
                     <h3>Inserisci un indirizzo</h3>
                     <div class="theme-card">
-                        <form class="theme-form" method="post" action="MainControl.php">
+                        <form class="theme-form" method="post" action="{$path}GestioneIndirizzi/aggiungiIndirizzo">
                             <div class="form-row">
                                 <div class="col-md-6">
-                                    <label for="review">Via</label>
+                                    <label>Via</label>
                                     <input type="text" class="form-control" id="lname" placeholder="Inserisci la via" name="via"
-                                           required>
+                                           maxlength="25" required>
                                 </div>
                                 <div class="col-md-6">
-                                    <label for="review">Numero Civico</label>
+                                    <label>Numero Civico</label>
                                     <input type="text" class="form-control" id="lname" placeholder="Inserisci il numero civico" name="numero"
-                                        required>
+                                        maxlength="3" required>
                                 </div>
                             </div>
                             <div class="form-row">
                                 <div class="col-md-6">
-                                    <label for="review">CAP</label>
+                                    <label>CAP</label>
                                     <input type="text" class="form-control" id="lname" placeholder="Inserisci il CAP" name="cap"
-                                           required>
+                                           maxlength="5" required>
                                 </div>
                                 <div class="col-md-6">
-                                    <label for="review">Comune</label>
+                                    <label>Comune</label>
                                     <input type="text" class="form-control" id="lname" placeholder="Inserisci il comune" name="comune"
-                                           required>
+                                           maxlength="25" required>
                                 </div>
                             </div>
                             <div class="form-row">
                                 <div class="col-md-6">
-                                    <label for="review">Provincia</label>
+                                    <label>Provincia</label>
                                     <input type="text" class="form-control" id="lname" placeholder="Inserisci la provincia" name="provincia"
-                                           required>
+                                           maxlength="2" required>
                                 </div>
-                            </div><a href="category-page(infinite-scroll).tpl" class="btn btn-solid">Salva l'indirizzo</a>
+                            </div><input type="submit" value="Salva l'indirizzo" class="btn btn-solid"/>
                         </form>
                     </div>
                 </div>
@@ -174,7 +174,7 @@
                 <td>
                     <h5>{$indirizzi[indirizzo].provincia}</h5>
                 </td>
-                <td><a href="#" class="icon"><i class="ti-close"></i></a></td>
+                <td><a href="{$path}GestioneIndirizzi/rimuoviIndirizzo/{$indirizzi[indirizzo].stringa}" class="icon"><i class="ti-close"></i></a></td>
             </tr>
         {/section}
         </tbody>
@@ -192,7 +192,7 @@
                             <h4>about</h4>
                         </div>
                         <div class="footer-contant">
-                            <div class="footer-logo"><img src="Smarty/smarty-dir/assets/images/icon/logo.png" alt=""></div>
+                            <div class="footer-logo"><img src="{$path}Smarty/smarty-dir/assets/images/icon/logo.png" alt=""></div>
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
                                 ut labore et dolore magna aliqua. Ut enim ad minim veniam,</p>
                             <div class="footer-social">
@@ -270,19 +270,19 @@
                         <div class="payment-card-bottom">
                             <ul>
                                 <li>
-                                    <a href="#"><img src="Smarty/smarty-dir/assets/images/icon/visa.png" alt=""></a>
+                                    <a href="#"><img src="{$path}Smarty/smarty-dir/assets/images/icon/visa.png" alt=""></a>
                                 </li>
                                 <li>
-                                    <a href="#"><img src="Smarty/smarty-dir/assets/images/icon/mastercard.png" alt=""></a>
+                                    <a href="#"><img src="{$path}Smarty/smarty-dir/assets/images/icon/mastercard.png" alt=""></a>
                                 </li>
                                 <li>
-                                    <a href="#"><img src="Smarty/smarty-dir/assets/images/icon/paypal.png" alt=""></a>
+                                    <a href="#"><img src="{$path}Smarty/smarty-dir/assets/images/icon/paypal.png" alt=""></a>
                                 </li>
                                 <li>
-                                    <a href="#"><img src="Smarty/smarty-dir/assets/images/icon/american-express.png" alt=""></a>
+                                    <a href="#"><img src="{$path}Smarty/smarty-dir/assets/images/icon/american-express.png" alt=""></a>
                                 </li>
                                 <li>
-                                    <a href="#"><img src="Smarty/smarty-dir/assets/images/icon/discover.png" alt=""></a>
+                                    <a href="#"><img src="{$path}Smarty/smarty-dir/assets/images/icon/discover.png" alt=""></a>
                                 </li>
                             </ul>
                         </div>
@@ -991,13 +991,13 @@
                         target="_blank" class="btn btn-block purchase_btn"><i class="fa fa-shopping-cart"
                             aria-hidden="true"></i> purchase Multikart now!</a>
                     <a href="https://themeforest.net/item/multikart-responsive-angular-ecommerce-template/22905358?s_rank=3"
-                        target="_blank" class="btn btn-block purchase_btn"><img src="Smarty/smarty-dir/assets/images/icon/angular.png"
+                        target="_blank" class="btn btn-block purchase_btn"><img src="{$path}Smarty/smarty-dir/assets/images/icon/angular.png"
                             alt="" class="img-fluid"> Multikart Angular</a>
                     <a href="https://themeforest.net/item/multikart-responsive-react-ecommerce-template/23067773?s_rank=2"
-                        target="_blank" class="btn btn-block purchase_btn"><img src="Smarty/smarty-dir/assets/images/icon/react.png"
+                        target="_blank" class="btn btn-block purchase_btn"><img src="{$path}Smarty/smarty-dir/assets/images/icon/react.png"
                             alt="" class="img-fluid"> Multikart React</a>
                     <a href="https://themeforest.net/item/multikart-multipurpose-shopify-sections-theme/23093831?s_rank=1"
-                        target="_blank" class="btn btn-block purchase_btn"><img src="Smarty/smarty-dir/assets/images/icon/shopify.png"
+                        target="_blank" class="btn btn-block purchase_btn"><img src="{$path}Smarty/smarty-dir/assets/images/icon/shopify.png"
                             alt="" class="img-fluid"> Multikart Shopify</a>
                 </div>
             </div>
@@ -1014,28 +1014,28 @@
 
 
     <!-- latest jquery-->
-    <script src="Smarty/smarty-dir/assets/js/jquery-3.3.1.min.js"></script>
+    <script src="{$path}Smarty/smarty-dir/assets/js/jquery-3.3.1.min.js"></script>
 
     <!-- menu js-->
-    <script src="Smarty/smarty-dir/assets/js/menu.js"></script>
+    <script src="{$path}Smarty/smarty-dir/assets/js/menu.js"></script>
 
     <!-- lazyload js-->
-    <script src="Smarty/smarty-dir/assets/js/lazysizes.min.js"></script>
+    <script src="{$path}Smarty/smarty-dir/assets/js/lazysizes.min.js"></script>
 
     <!-- popper js-->
-    <script src="Smarty/smarty-dir/assets/js/popper.min.js"></script>
+    <script src="{$path}Smarty/smarty-dir/assets/js/popper.min.js"></script>
 
     <!-- slick js-->
-    <script src="Smarty/smarty-dir/assets/js/slick.js"></script>
+    <script src="{$path}Smarty/smarty-dir/assets/js/slick.js"></script>
 
     <!-- Bootstrap js-->
-    <script src="Smarty/smarty-dir/assets/js/bootstrap.js"></script>
+    <script src="{$path}Smarty/smarty-dir/assets/js/bootstrap.js"></script>
 
     <!-- Bootstrap Notification js-->
-    <script src="Smarty/smarty-dir/assets/js/bootstrap-notify.min.js"></script>
+    <script src="{$path}Smarty/smarty-dir/assets/js/bootstrap-notify.min.js"></script>
 
     <!-- Theme js-->
-    <script src="Smarty/smarty-dir/assets/js/script.js"></script>
+    <script src="{$path}Smarty/smarty-dir/assets/js/script.js"></script>
 
     <script>
         function openSearch() {

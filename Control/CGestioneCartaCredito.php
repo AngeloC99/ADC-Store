@@ -14,9 +14,10 @@ class CGestioneCartaCredito
      * @param EUtenteReg $utente
      * @return array
      */
-    public static function recuperaCarte(string $mailutente="adarossi@gmail.com") {
+    public static function recuperaCarte() {
         $pm = FPersistentManager::getInstance();
-        $utente = $pm->load("FUtenteReg", $mailutente);
+        $gs = CGestioneSessioni::getInstance();
+        $utente = $pm->load("FUtenteReg", $gs->caricaUtente()->getEmail());
         $v = new VGestioneCartaCredito();
         $v->mostraCarte($utente);
     }
@@ -26,13 +27,13 @@ class CGestioneCartaCredito
      */
     public static function aggiungiCarta(): void {
         $pm = FPersistentManager::getInstance();
+        $gs = CGestioneSessioni::getInstance();
+
         $carta = new ECartaCredito($_POST['titolare'], $_POST['numero'], $_POST['circuito'], new DateTime($_POST['scadenza']),
                                     $_POST['cvv'], $_POST['ammontare']);
 
-        // MODIFICARE CON MAIL UTENTE SESSIONE
+        $pm->salvaCartaUtente($carta, $gs->caricaUtente()->getEmail());
 
-        $utente = $pm->load("FUtenteReg", "adarossi@gmail.com");
-        $pm->salvaCartaUtente($carta, $utente);
         header("Location: ".$GLOBALS['path']."GestioneCartaCredito/recuperaCarte");
     }
 
@@ -42,8 +43,10 @@ class CGestioneCartaCredito
      */
     public static function rimuoviCarta(string $numero): void {
         $pm = FPersistentManager::getInstance();
-        $utente = $pm->load("FUtenteReg", "adarossi@gmail.com");
-        $pm->eliminaCartaUtente($numero, $utente);
+        $gs = CGestioneSessioni::getInstance();
+
+        $pm->eliminaCartaUtente($numero, $gs->caricaUtente()->getEmail());
+
         header("Location: ".$GLOBALS['path']."GestioneCartaCredito/recuperaCarte");
     }
 }
