@@ -8,31 +8,31 @@
     <meta name="description" content="multikart">
     <meta name="keywords" content="multikart">
     <meta name="author" content="multikart">
-    <link rel="icon" href="../assets/images/favicon/1.png" type="image/x-icon">
-    <link rel="shortcut icon" href="../assets/images/favicon/1.png" type="image/x-icon">
-    <title>Multikart - Multi-purpopse E-commerce Html Template</title>
+    <link rel="icon" href="{$path}Smarty/smarty-dir/assets/images/favicon/1.png" type="image/x-icon">
+    <link rel="shortcut icon" href="{$path}Smarty/smarty-dir/assets/images/favicon/1.png" type="image/x-icon">
+    <title>ADC-Store</title>
 
     <!--Google font-->
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet">
 
     <!-- Icons -->
-    <link rel="stylesheet" type="text/css" href="../assets/css/fontawesome.css">
+    <link rel="stylesheet" type="text/css" href="{$path}Smarty/smarty-dir/assets/css/fontawesome.css">
 
     <!--Slick slider css-->
-    <link rel="stylesheet" type="text/css" href="../assets/css/slick.css">
-    <link rel="stylesheet" type="text/css" href="../assets/css/slick-theme.css">
+    <link rel="stylesheet" type="text/css" href="{$path}Smarty/smarty-dir/assets/css/slick.css">
+    <link rel="stylesheet" type="text/css" href="{$path}Smarty/smarty-dir/assets/css/slick-theme.css">
 
     <!-- Animate icon -->
-    <link rel="stylesheet" type="text/css" href="../assets/css/animate.css">
+    <link rel="stylesheet" type="text/css" href="{$path}Smarty/smarty-dir/assets/css/animate.css">
 
     <!-- Themify icon -->
-    <link rel="stylesheet" type="text/css" href="../assets/css/themify-icons.css">
+    <link rel="stylesheet" type="text/css" href="{$path}Smarty/smarty-dir/assets/css/themify-icons.css">
 
     <!-- Bootstrap css -->
-    <link rel="stylesheet" type="text/css" href="../assets/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="{$path}Smarty/smarty-dir/assets/css/bootstrap.css">
 
     <!-- Theme css -->
-    <link rel="stylesheet" type="text/css" href="../assets/css/color1.css" media="screen" id="color">
+    <link rel="stylesheet" type="text/css" href="{$path}Smarty/smarty-dir/assets/css/color1.css" media="screen" id="color">
 
 </head>
 
@@ -62,8 +62,8 @@
                         <div class="menu-left">
                             
                             <div class="brand-logo">
-                                <a href="index.html"> <img src="../assets/images/icon/logo.png"
-                                        class="img-fluid blur-up lazyload" alt=""></a>
+                                <a href="index.html"> <img src="{$path}Smarty/smarty-dir/assets/images/icon/logo.png"
+                                        class="img-fluid blur-up lazyload" alt="" hspace="400"></a>
                             </div>
                         </div>
                 </div>
@@ -86,7 +86,7 @@
                 <div class="col-sm-6">
                     <nav aria-label="breadcrumb" class="theme-breadcrumb">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                            <li class="breadcrumb-item"><a href="home.tpl">Home</a></li>
                             <li class="breadcrumb-item active" aria-current="page">crea account</li>
                         </ol>
                     </nav>
@@ -104,15 +104,15 @@
                 <div class="col-lg-12">
                     <h3>crea account</h3>
                     <div class="theme-card">
-                        <form class="theme-form" method="post" action="MainControl.php">
+                        <form class="theme-form" method="post" action="{$path}GestioneUtenti/registra">
                             <div class="form-row">
                                 <div class="col-md-6">
-                                    <label for="email">First Name</label>
+                                    <label for="email">Nome</label>
                                     <input type="text" class="form-control" id="fname" placeholder="First Name" name="nome"
                                         required>
                                 </div>
                                 <div class="col-md-6">
-                                    <label for="review">Last Name</label>
+                                    <label for="review">Cognome</label>
                                     <input type="text" class="form-control" id="lname" placeholder="Last Name" name="cognome"
                                         required>
                                 </div>
@@ -126,7 +126,9 @@
                                     <label for="review">Password</label>
                                     <input type="password" class="form-control" id="review"
                                         placeholder="Enter your password" required name="password">
-                                </div><a href="category-page(infinite-scroll).tpl" class="btn btn-solid">Crea Account</a>
+                                </div>
+                                <button type="submit" class="btn btn-solid" href="{$path}GestioneSchermate/recuperaLogin" onclick="Funzione1()">Crea Account</button>
+
                             </div>
                         </form>
                     </div>
@@ -148,9 +150,8 @@
                             <h4>about</h4>
                         </div>
                         <div class="footer-contant">
-                            <div class="footer-logo"><img src="../assets/images/icon/logo.png" alt=""></div>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                                ut labore et dolore magna aliqua. Ut enim ad minim veniam,</p>
+                            <div class="footer-logo"><img src="{$path}Smarty/smarty-dir/assets/images/icon/logo.png" alt=""></div>
+                            <p>ADC Store da sempre si impegna a soddisfare le esigenze di tutti i suoi consumatori.</p>
                             <div class="footer-social">
                                 <ul>
                                     <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
@@ -162,49 +163,18 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col offset-xl-1">
-                        <div class="sub-title">
-                            <div class="footer-title">
-                                <h4>my account</h4>
-                            </div>
-                            <div class="footer-contant">
-                                <ul>
-                                    <li><a href="#">mens</a></li>
-                                    <li><a href="#">womens</a></li>
-                                    <li><a href="#">clothing</a></li>
-                                    <li><a href="#">accessories</a></li>
-                                    <li><a href="#">featured</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
+
                     <div class="col">
                         <div class="sub-title">
                             <div class="footer-title">
-                                <h4>why we choose</h4>
-                            </div>
-                            <div class="footer-contant">
-                                <ul>
-                                    <li><a href="#">shipping & return</a></li>
-                                    <li><a href="#">secure shopping</a></li>
-                                    <li><a href="#">gallary</a></li>
-                                    <li><a href="#">affiliates</a></li>
-                                    <li><a href="#">contacts</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="sub-title">
-                            <div class="footer-title">
-                                <h4>store information</h4>
+                                <h4>Informazioni generali: </h4>
                             </div>
                             <div class="footer-contant">
                                 <ul class="contact-list">
-                                    <li><i class="fa fa-map-marker"></i>Multikart Demo Store, Demo store India 345-659
+                                    <li><i class="fa fa-map-marker"></i>ADC Store, via Roma 118 (Avezzano, AQ)
                                     </li>
-                                    <li><i class="fa fa-phone"></i>Call Us: 123-456-7898</li>
-                                    <li><i class="fa fa-envelope-o"></i>Email Us: Support@Fiot.com</li>
+                                    <li><i class="fa fa-phone"></i>Call Us: (+39)331 4100000</li>
+                                    <li><i class="fa fa-envelope-o"></i>Email: adcstore2021@gmail.com</li>
                                     <li><i class="fa fa-fax"></i>Fax: 123456</li>
                                 </ul>
                             </div>
@@ -226,19 +196,19 @@
                         <div class="payment-card-bottom">
                             <ul>
                                 <li>
-                                    <a href="#"><img src="../assets/images/icon/visa.png" alt=""></a>
+                                    <a href="#"><img src="{$path}Smarty/smarty-dir/assets/images/icon/visa.png" alt=""></a>
                                 </li>
                                 <li>
-                                    <a href="#"><img src="../assets/images/icon/mastercard.png" alt=""></a>
+                                    <a href="#"><img src="{$path}Smarty/smarty-dir/assets/images/icon/mastercard.png" alt=""></a>
                                 </li>
                                 <li>
-                                    <a href="#"><img src="../assets/images/icon/paypal.png" alt=""></a>
+                                    <a href="#"><img src="{$path}Smarty/smarty-dir/assets/images/icon/paypal.png" alt=""></a>
                                 </li>
                                 <li>
-                                    <a href="#"><img src="../assets/images/icon/american-express.png" alt=""></a>
+                                    <a href="#"><img src="{$path}Smarty/smarty-dir/assets/images/icon/american-express.png" alt=""></a>
                                 </li>
                                 <li>
-                                    <a href="#"><img src="../assets/images/icon/discover.png" alt=""></a>
+                                    <a href="#"><img src="{$path}Smarty/smarty-dir/assets/images/icon/discover.png" alt=""></a>
                                 </li>
                             </ul>
                         </div>
@@ -947,13 +917,13 @@
                         target="_blank" class="btn btn-block purchase_btn"><i class="fa fa-shopping-cart"
                             aria-hidden="true"></i> purchase Multikart now!</a>
                     <a href="https://themeforest.net/item/multikart-responsive-angular-ecommerce-template/22905358?s_rank=3"
-                        target="_blank" class="btn btn-block purchase_btn"><img src="../assets/images/icon/angular.png"
+                        target="_blank" class="btn btn-block purchase_btn"><img src="{$path}Smarty/smarty-dir/assets/images/icon/angular.png"
                             alt="" class="img-fluid"> Multikart Angular</a>
                     <a href="https://themeforest.net/item/multikart-responsive-react-ecommerce-template/23067773?s_rank=2"
-                        target="_blank" class="btn btn-block purchase_btn"><img src="../assets/images/icon/react.png"
+                        target="_blank" class="btn btn-block purchase_btn"><img src="{$path}Smarty/smarty-dir/assets/images/icon/react.png"
                             alt="" class="img-fluid"> Multikart React</a>
                     <a href="https://themeforest.net/item/multikart-multipurpose-shopify-sections-theme/23093831?s_rank=1"
-                        target="_blank" class="btn btn-block purchase_btn"><img src="../assets/images/icon/shopify.png"
+                        target="_blank" class="btn btn-block purchase_btn"><img src="{$path}Smarty/smarty-dir/assets/images/icon/shopify.png"
                             alt="" class="img-fluid"> Multikart Shopify</a>
                 </div>
             </div>
@@ -970,28 +940,28 @@
 
 
     <!-- latest jquery-->
-    <script src="../assets/js/jquery-3.3.1.min.js"></script>
+    <script src="{$path}Smarty/smarty-dir/assets/js/jquery-3.3.1.min.js"></script>
 
     <!-- menu js-->
-    <script src="../assets/js/menu.js"></script>
+    <script src="{$path}Smarty/smarty-dir/assets/js/menu.js"></script>
 
     <!-- lazyload js-->
-    <script src="../assets/js/lazysizes.min.js"></script>
+    <script src="{$path}Smarty/smarty-dir/assets/js/lazysizes.min.js"></script>
 
     <!-- popper js-->
-    <script src="../assets/js/popper.min.js"></script>
+    <script src="{$path}Smarty/smarty-dir/assets/js/popper.min.js"></script>
 
     <!-- slick js-->
-    <script src="../assets/js/slick.js"></script>
+    <script src="{$path}Smarty/smarty-dir/assets/js/slick.js"></script>
 
     <!-- Bootstrap js-->
-    <script src="../assets/js/bootstrap.js"></script>
+    <script src="{$path}Smarty/smarty-dir/assets/js/bootstrap.js"></script>
 
     <!-- Bootstrap Notification js-->
-    <script src="../assets/js/bootstrap-notify.min.js"></script>
+    <script src="{$path}Smarty/smarty-dir/assets/js/bootstrap-notify.min.js"></script>
 
     <!-- Theme js-->
-    <script src="../assets/js/script.js"></script>
+    <script src="{$path}Smarty/smarty-dir/assets/js/script.js"></script>
 
     <script>
         function openSearch() {
@@ -1000,6 +970,11 @@
 
         function closeSearch() {
             document.getElementById("search-overlay").style.display = "none";
+        }
+    </script>
+    <script>
+        function Funzione1() {
+            alert("Complimenti, la registrazione è andata a buon fine.");
         }
     </script>
 </body>

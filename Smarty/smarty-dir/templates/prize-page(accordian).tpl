@@ -707,7 +707,7 @@
                                                         <li><a href="cart.html">cart</a></li>
                                                         <li><a href="dashboard.html">Dashboard</a></li>
                                                         <li><a href="login.html">login</a></li>
-                                                        <li><a href="register.html">register</a></li>
+                                                        <li><a href="register.tpl">register</a></li>
                                                         <li><a href="contact.html">contact</a></li>
                                                         <li><a href="forget_pwd.html">forget password</a></li>
                                                         <li><a href="profile.html">profile <span

@@ -64,7 +64,7 @@
                             
                             <div class="brand-logo">
                                 <a href="index.html"> <img src="{$path}Smarty/smarty-dir/assets/images/icon/logo.png"
-                                        class="img-fluid blur-up lazyload" alt=""></a>
+                                        class="img-fluid blur-up lazyload" alt="" hspace="400"></a>
                             </div>
                         </div>
                 </div>
@@ -113,7 +113,8 @@
                                 <label for="review">Password</label>
                                 <input type="password" class="form-control" id="review"
                                     placeholder="Inserisci la tua password" required="" name="password">
-                            </div><input type="submit" value="Login" class="btn btn-solid"/>
+                            </div>
+                            <button type="submit" class="btn btn-solid" href="{$path}GestioneUtenti/login" >Accedi</button>
                         </form>
                     </div>
                 </div>
@@ -123,7 +124,7 @@
                         <h6 class="title-font">Crea Account</h6>
                         <p>Registrati per avere un account gratuito tutto tuo presso il nostro negozio. La registrazione è semplice e veloce e ti permette di fare acquisti sul nostro sito oltre a molte altre funzionalità aggiuntive. 
                         Per entrare in questo mondo clicca su registrati.</p>
-                        <a href="register.html" class="btn btn-solid">Crea Account</a>
+                        <a href="{$path}GestioneUtenti/recuperaCreazioneAccount" class="btn btn-solid">Crea Account</a>
                     </div>
                 </div>
             </div>
@@ -134,80 +135,7 @@
 
     <!-- footer start -->
     <footer class="footer-light">
-        
-        <section class="section-b-space light-layout">
-            <div class="container">
-                <div class="row footer-theme partition-f">
-                    <div class="col-lg-4 col-md-6">
-                        <div class="footer-title footer-mobile-title">
-                            <h4>about</h4>
-                        </div>
-                        <div class="footer-contant">
-                            <div class="footer-logo"><img src="{$path}Smarty/smarty-dir/assets/images/icon/logo.png" alt=""></div>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                                ut labore et dolore magna aliqua. Ut enim ad minim veniam,</p>
-                            <div class="footer-social">
-                                <ul>
-                                    <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-rss" aria-hidden="true"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col offset-xl-1">
-                        <div class="sub-title">
-                            <div class="footer-title">
-                                <h4>my account</h4>
-                            </div>
-                            <div class="footer-contant">
-                                <ul>
-                                    <li><a href="#">mens</a></li>
-                                    <li><a href="#">womens</a></li>
-                                    <li><a href="#">clothing</a></li>
-                                    <li><a href="#">accessories</a></li>
-                                    <li><a href="#">featured</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="sub-title">
-                            <div class="footer-title">
-                                <h4>why we choose</h4>
-                            </div>
-                            <div class="footer-contant">
-                                <ul>
-                                    <li><a href="#">shipping & return</a></li>
-                                    <li><a href="#">secure shopping</a></li>
-                                    <li><a href="#">gallary</a></li>
-                                    <li><a href="#">affiliates</a></li>
-                                    <li><a href="#">contacts</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="sub-title">
-                            <div class="footer-title">
-                                <h4>store information</h4>
-                            </div>
-                            <div class="footer-contant">
-                                <ul class="contact-list">
-                                    <li><i class="fa fa-map-marker"></i>Multikart Demo Store, Demo store India 345-659
-                                    </li>
-                                    <li><i class="fa fa-phone"></i>Call Us: 123-456-7898</li>
-                                    <li><i class="fa fa-envelope-o"></i>Email Us: Support@Fiot.com</li>
-                                    <li><i class="fa fa-fax"></i>Fax: 123456</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+
         <div class="sub-footer">
             <div class="container">
                 <div class="row">
