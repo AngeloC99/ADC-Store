@@ -14,9 +14,9 @@ class VGestioneSchermate
     public function showHome(){
 
         $this->smarty->assign("path", $GLOBALS["path"]);
-        $this->smarty->display('regalapunti.tpl');
+        //$this->smarty->display('regalapunti.tpl');
         //CGestionePunti::selezionaPremio('PRE60d608a606b10');
-        //$this->smarty->display('home.tpl');
+        $this->smarty->display('home.tpl');
         //CGestionePunti::recuperaPremi();
         //CGestioneProdotti::recuperaProdotti();
        //CGestionePunti::recuperaPremi();

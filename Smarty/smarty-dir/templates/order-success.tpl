@@ -676,7 +676,7 @@
                     <div class="success-text"><i class="fa fa-check-circle" aria-hidden="true"></i>
                         <h2>Grazie!</h2>
                         <p>Il pagamento è stato correttamente eseguito e l'ordine è stato spedito!</p>
-                        <p>ID transazione: 267676GHERT105467</p>
+                        <p>ID transazione: {$idTransazione}</p>
                     </div>
                 </div>
             </div>
@@ -716,7 +716,7 @@
                         {/section}
                         <div class="total-sec">
                             <ul>
-                                <li>Subtotale <span>€ {$prezzoTot}</span></li>
+                                <li>Totale (al netto di buoni sconto) <span>€ {$prezzoTot}</span></li>
                             </ul>
                         </div>
                         <div class="final-total">

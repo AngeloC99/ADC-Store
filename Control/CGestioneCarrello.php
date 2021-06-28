@@ -1,10 +1,10 @@
 <?php
 
-
-include 'C:\Users\rommy\public_html\ADC-Store\PHPMailer-master\src\PHPMailer.php';
-include 'C:\Users\rommy\public_html\ADC-Store\PHPMailer-master\src\Exception.php';
-include 'C:\Users\rommy\public_html\ADC-Store\PHPMailer-master\src\SMTP.php';
-
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+require('C:\Users\angel\public_html\ADC-Store\PHPMailer-master\src\PHPMailer.php');
+require('C:\Users\angel\public_html\ADC-Store\PHPMailer-master\src\Exception.php');
+require('C:\Users\angel\public_html\ADC-Store\PHPMailer-master\src\SMTP.php');
 
 
 class CGestioneCarrello
@@ -44,6 +44,8 @@ class CGestioneCarrello
         $numero = (int) $indArray[1];
         $cap = $indArray[2];
         $indirizzo = $pm->load("FIndirizzo", $via, $numero, $cap);
+        $nome = $_POST['nome'];
+        $cognome = $_POST['cognome'];
         $telefono = $_POST['telefono'];
 
         $ordine = new EOrdine($carrello, $indirizzo);
@@ -57,20 +59,19 @@ class CGestioneCarrello
         $carta->setAmmontare($carta->getAmmontare() - $ordine->getPrezzoTotale());
         $utente->setPunti($utente->getPunti() + ((int) $ordine->getPrezzoTotale()));          //aggiunge un punto per ogni euro speso
 
-        // MANDARE MAIL
-        //CGestioneCarrello::mailOrdine($ordine, $utente);   <------------------------
+        CGestioneCarrello::mailOrdine($ordine, $nome, $cognome, $_POST['email']);
 
-        //$pm->store($ordine);     <---------- Scommentare quando implementato il carrello della sessione
+        $pm->store($ordine);
         $pm->update($carta);
         $pm->update($utente);
 
         $gs->salvaCarrello(new ECarrello());      // Avvia un nuovo carrello vuoto in sessione
 
         $v = new VGestioneCarrello();
-        $v->mostraOrdine($ordine, $utente, $telefono);
+        $v->mostraOrdine($ordine, $nome, $cognome, $telefono);
     }
 
-    private static function mailOrdine(EOrdine $ordine, EUtenteReg $utente) {
+    private static function mailOrdine(EOrdine $ordine, string $nome, string $cognome, string $mailutente) {
         $mail = new PHPMailer(true);
         try {
             $mail->CharSet = 'UTF-8';
@@ -90,10 +91,10 @@ class CGestioneCarrello
             $mail->Password = 'plutopluto';
             $mail->SetFrom('adcstore@gmail.com');
             $mail->Subject = "ADC Store - Conferma dell'ordine!";
-            $mail->AddAddress($utente->getEmail());
+            $mail->AddAddress($mailutente);
 
             $v = new VGestioneCarrello();
-            $mail->Body = $v->ordineEmail($ordine, $utente);
+            $mail->Body = $v->ordineEmail($ordine, $nome, $cognome, $mailutente);
             $mail->send();
         } catch (Exception $e) {
             echo 'Message could not be sent.';

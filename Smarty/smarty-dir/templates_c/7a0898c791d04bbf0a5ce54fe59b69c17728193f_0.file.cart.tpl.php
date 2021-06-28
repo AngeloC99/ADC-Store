@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-06-27 18:02:56
+/* Smarty version 3.1.39, created on 2021-06-28 14:03:33
   from 'C:\Users\angel\public_html\ADC-Store\Smarty\smarty-dir\templates\cart.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_60d8a130ebfbc3_84443939',
+  'unifunc' => 'content_60d9ba9548af78_89313802',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '7a0898c791d04bbf0a5ce54fe59b69c17728193f' => 
     array (
       0 => 'C:\\Users\\angel\\public_html\\ADC-Store\\Smarty\\smarty-dir\\templates\\cart.tpl',
-      1 => 1624809775,
+      1 => 1624863299,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_60d8a130ebfbc3_84443939 (Smarty_Internal_Template $_smarty_tpl) {
+function content_60d9ba9548af78_89313802 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en">
 
@@ -547,7 +547,7 @@ Smarty/smarty-dir/assets/images/icon/logo.png"
                                                         <li><a href="cart.html">cart</a></li>
                                                         <li><a href="dashboard.html">Dashboard</a></li>
                                                         <li><a href="login.html">login</a></li>
-                                                        <li><a href="register.html">register</a></li>
+                                                        <li><a href="register.tpl">register</a></li>
                                                         <li><a href="contact.html">contact</a></li>
                                                         <li><a href="forget_pwd.html">forget password</a></li>
                                                         <li><a href="profile.html">profile <span

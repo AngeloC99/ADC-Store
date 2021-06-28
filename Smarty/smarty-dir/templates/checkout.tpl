@@ -754,7 +754,7 @@
                                         </ul>
                                         {/section}
                                         <ul class="sub-total">
-                                            <li>Subtotale <span class="count">€ {$prezzoTot}</span></li>
+                                            <li>Costo totale <span class="count">€ {$prezzoTot}</span></li>
                                             <li>Consegna
                                                 <div class="shipping">
                                                     <ul>
@@ -790,7 +790,7 @@
                                             </li>
                                         </ul>
                                         <ul class="total">
-                                            <li>Total <span class="count">€ {$prezzoTot}</span></li>
+                                            <li>Totale <span class="count">€ {$prezzoTot}</span></li>
                                         </ul>
                                     </div>
                                     <div class="payment-box">

@@ -78,7 +78,7 @@ class VGestioneCarrello {
         $arrBuoni = array();
         foreach ($buoni as $buono) {
             $tmp = array(
-                'carta' => $buono,
+                'buono' => $buono,
                 'codice' => $buono->getCodice(),
             );
             $arrBuoni[] = $tmp;
@@ -90,7 +90,7 @@ class VGestioneCarrello {
         $this->smarty->display('checkout.tpl');
     }
 
-    public function mostraOrdine(EOrdine $ordine, EUtenteReg $utente, string $telefono) {
+    public function mostraOrdine(EOrdine $ordine, string $nome, string $cognome, string $telefono) {
         $carrello = $ordine->getCarrello();
         $prodotti = $carrello->getProdotti();
         $pm = FPersistentManager::getInstance();
@@ -112,14 +112,15 @@ class VGestioneCarrello {
                                                             ->format('d-m-y'));
         $this->smarty->assign('indirizzo', $ordine->getIndirizzo());
         $this->smarty->assign('prezzoTot', $ordine->getPrezzoTotale());
-        $this->smarty->assign('nomeUtente', $utente->getNome()." ".$utente->getCognome());
+        $this->smarty->assign('nomeUtente', $nome." ".$cognome);
         $this->smarty->assign('telefono', $telefono);
+        $this->smarty->assign('idTransazione', uniqid("TR"));
         $this->smarty->assign('path', $GLOBALS["path"]);
 
         $this->smarty->display('order-success.tpl');
     }
 
-    public function ordineEmail(EOrdine $ordine, EUtenteReg $utente) {
+    public function ordineEmail(EOrdine $ordine, string $nome, string $cognome, string $mail) {
         $carrello = $ordine->getCarrello();
         $prodotti = $carrello->getProdotti();
         $pm = FPersistentManager::getInstance();
@@ -142,7 +143,7 @@ class VGestioneCarrello {
             ->format('d-m-y'));
         $this->smarty->assign('indirizzo', $ordine->getIndirizzo());
         $this->smarty->assign('prezzoTot', $ordine->getPrezzoTotale());
-        $this->smarty->assign('nomeUtente', $utente->getNome()." ".$utente->getCognome());
+        $this->smarty->assign('nomeUtente', $nome." ".$cognome);
         $this->smarty->assign('path', $GLOBALS["path"]);
 
         return $this->smarty->fetch('email-order-success.tpl');
