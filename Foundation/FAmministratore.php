@@ -103,7 +103,7 @@ class FAmministratore
         $ris = $stmt->execute(array(
             ":nome" => $obj->getNome(),
             ":cognome" => $obj->getCognome(),
-            ":password" => password_hash($obj->getPassword(), PASSWORD_DEFAULT),
+            ":password" => $obj->getPassword(),
             ":email" => $obj->getEmail()));
 
         return $ris;
