@@ -42,34 +42,7 @@
 
     <!-- header start -->
     <header>
-        <div class="mobile-fix-option"></div>
-        <div class="top-header">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-6">
-                        <div class="header-contact">
-                            <ul>
-                                <li>Benvenuti in ADC Store</li>
-                                <li><i class="fa fa-phone" aria-hidden="true"></i>Call Us: 123 - 456 - 7890</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 text-right">
-                        <ul class="header-dropdown">
-                            <li class="mobile-wishlist"><a href="#"><i class="fa fa-heart" aria-hidden="true"></i></a>
-                            </li>
-                            <li class="onhover-dropdown mobile-account">
-                                <i class="fa fa-user" aria-hidden="true"></i> Il mio account
-                                <ul class="onhover-show-div">
-                                    <li><a href="#" data-lng="en">Login</a></li>
-                                    <li><a href="#" data-lng="es">Logout</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
+
         <div class="container">
             <div class="row">
                 <div class="col-sm-12">
@@ -77,7 +50,7 @@
                         <div class="menu-left">
                             <div class="navbar">
                             
-                            <div class="brand-logo"><a href="index.html"><img src="{$path}Smarty/smarty-dir/assets/images/icon/logo.png"
+                            <div class="brand-logo"><a href="home.tpl"><img src="{$path}Smarty/smarty-dir/assets/images/icon/logo.png"
                                         class="img-fluid blur-up lazyload" alt=""></a></div>
                         </div>
                            <div class="menu-right pull-right">
@@ -149,7 +122,7 @@
                 <div class="col-sm-6">
                     <nav aria-label="breadcrumb" class="theme-breadcrumb">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                            <li class="breadcrumb-item"><a >Home</a></li>
                             <li class="breadcrumb-item active" aria-current="page">profilo</li>
                         </ol>
                     </nav>
@@ -165,12 +138,12 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-12">
-                    <h3>DETTAGLI PERSONALI</h3>
+                    <h1>DETTAGLI PERSONALI</h1>
 
                         <div class="form-row">
                             <div class="col-md-6">
                                 <h4>Nome:</h4><br>
-                                <h2>{$nome}</h2>
+                                <h3>{$nome}</h3>
 
                             </div>
                             <div class="col-md-6">
@@ -186,6 +159,9 @@
                                 <h2>{$punti}</h2>
                             </div>
                         </div>
+
+
+
 
                 </div>
             </div>
@@ -223,8 +199,7 @@
                         </div>
                         <div class="footer-contant">
                             <div class="footer-logo"><img src="{$path}Smarty/smarty-dir/assets/images/icon/logo.png" alt=""></div>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                                ut labore et dolore magna aliqua. Ut enim ad minim veniam,</p>
+                            <p>ADC Store da sempre garanzia di qualità.</p>
                             <div class="footer-social">
                                 <ul>
                                     <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
@@ -239,14 +214,14 @@
                     <div class="col">
                         <div class="sub-title">
                             <div class="footer-title">
-                                <h4>store information</h4>
+                                <h4>Informazioni generali: </h4>
                             </div>
                             <div class="footer-contant">
                                 <ul class="contact-list">
-                                    <li><i class="fa fa-map-marker"></i>Multikart Demo Store, Demo store India 345-659
+                                    <li><i class="fa fa-map-marker"></i>ADC Store - Via Marruvio 88 (Avezzano, AQ)
                                     </li>
-                                    <li><i class="fa fa-phone"></i>Call Us: 123-456-7898</li>
-                                    <li><i class="fa fa-envelope-o"></i>Email Us: Support@Fiot.com</li>
+                                    <li><i class="fa fa-phone"></i>Call Us: (+39)3310000000</li>
+                                    <li><i class="fa fa-envelope-o"></i>Email Us: adcstore2021@gmail.com</li>
                                     <li><i class="fa fa-fax"></i>Fax: 123456</li>
                                 </ul>
                             </div>

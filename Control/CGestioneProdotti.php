@@ -11,8 +11,7 @@ class CGestioneProdotti
         $pm=FPersistentManager::getInstance();
         $prodottirec=$pm->prelevaProdotti();
         $prodotti=array();
-        foreach ($prodottirec as $key=>$item) {
-            $prodotto=$pm->load('FProdotto',$key);
+        foreach ($prodottirec as $key=>$prodotto) {
             $img = $prodotto->getImmagine()->getByte();
             $formato = $prodotto->getImmagine()->getFormato();
             $tmp = array(
@@ -129,8 +128,7 @@ class CGestioneProdotti
         if($_POST['selection']=='tipologia'){
             $prodottirec=$pm->prelevaProdottiByTip($_POST['ricerca']);
             $prodotti=array();
-            foreach ($prodottirec as $key=>$item) {
-                $prodotto=$pm->load('FProdotto',$key);
+            foreach ($prodottirec as $key=>$prodotto) {
                 $img = $prodotto->getImmagine()->getByte();
                 $mime = $prodotto->getImmagine()->getFormato();
                 $tmp = array(
@@ -139,7 +137,7 @@ class CGestioneProdotti
                     'descrizione' => $prodotto->getDescrizione(),
                     'prezzo' => $prodotto->getPrezzo(),
                     'dati' => $img,
-                    'mime' => $mime
+                    'formato' => $mime
                 );
                 $prodotti[]=$tmp;
             }
@@ -160,7 +158,7 @@ class CGestioneProdotti
                     'descrizione' => $prodotto->getDescrizione(),
                     'prezzo' => $prodotto->getPrezzo(),
                     'dati' => $img,
-                    'mime' => $mime
+                    'formato' => $mime
                 );
                 $prodotti[]=$tmp;
             }

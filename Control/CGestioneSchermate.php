@@ -13,9 +13,13 @@ class CGestioneSchermate
     public static function apriProfilo(){
         $pm = FPersistentManager::getInstance();
         $gs = CGestioneSessioni::getInstance();
+        if($gs->isLoggedUser()){
         $utente = $pm->load('FUtenteReg', $gs->caricaUtente()->getEmail());
         $v = new VGestioneUtenti();
-        $v->mostraProfilo($utente);
+        $v->mostraProfilo($utente);}
+        else{
+            header("Location: ".$GLOBALS['path']."GestioneSchermate/recupera401");
+        }
     }
 
     public static function recuperaLogin() {
