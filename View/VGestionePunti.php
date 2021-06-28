@@ -20,8 +20,8 @@ class VGestionePunti
         return $this->smarty->fetch('email-punti.tpl');
     }
 
-    public function mostraFormPunti($sender){
-        $this->smarty->assign("puntimax", $sender->getPunti());        
+    public function mostraFormPunti(){
+        //$this->smarty->assign("puntimax", $sender->getPunti());        
         $this->smarty->assign("path", $GLOBALS["path"]);
         $this->smarty->display('regalapunti.tpl');
     }

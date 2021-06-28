@@ -132,7 +132,7 @@ class CGestionePunti
                 $mail->IsHTML(true);
                 $mail->Username = 'adcstore2021@gmail.com';
                 $mail->Password = 'plutopluto';
-                $mail->SetFrom('adcstore@gmail.com');
+                $mail->SetFrom('adcstore2021@gmail.com');
                 $mail->Subject = "ADC Store - HAI RICEVUTO DEI PUNTI!";
                 $mail->AddAddress($_POST['emaildest']);
             //--------------------------------------------------
