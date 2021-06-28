@@ -10,7 +10,7 @@
     <meta name="author" content="multikart">
     <link rel="icon" href="{$path}Smarty/smarty-dir/assets/images/favicon/1.png" type="image/x-icon">
     <link rel="shortcut icon" href="{$path}Smarty/smarty-dir/assets/images/favicon/1.png" type="image/x-icon">
-    <title>ADC Store</title>
+    <title>Lsta premi</title>
 
     <!--Google font-->
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet">
@@ -44,6 +44,23 @@
     <!-- loader start -->
     <div class="loader_skeleton">
         <header>
+            <div class="top-header d-none d-sm-block">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="header-contact">
+                                <ul>
+                                    <li>Benvenuti in ADC Store</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 text-right">
+                            <ul class="header-dropdown">
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div class="container">
                 <div class="row">
                     <div class="col-sm-12">
@@ -68,19 +85,28 @@
                                                 <div class="mobile-back text-right">Back<i class="fa fa-angle-right pl-2" aria-hidden="true"></i></div>
                                             </li>
                                             <li>
-                                                <a href="home.html">Home</a>
+                                                <a href="{$path}GestioneSchermate/recuperaHome">Home</a>
                                             </li>
                                             <li>
-                                                <a href="#">Premi</a>
+                                                <a href="{$path}GestionePunti/recuperaPremi">Premi</a>
                                             </li>
                                             <li>
-                                                <a href="profilefe.html">Profilo</a>
+                                                <a href="{$path}GestioneSchermate/apriProfilo">Profilo</a>
                                             </li>
                                         </ul>
                                     </nav>
                                 </div>
                                 <div>
                                     <div class="icon-nav d-none d-sm-block">
+                                        <ul>
+                                            <li class="onhover-div mobile-search">
+                                                <div><img src="{$path}Smarty/smarty-dir/assets/images/icon/search.png" onclick="openSearch()" class="img-fluid blur-up lazyload" alt=""> <i class="ti-search" onclick="openSearch()"></i></div>
+                                            </li>
+                                            
+                                            <li class="onhover-div mobile-cart">
+                                                <div><img src="{$path}Smarty/smarty-dir/assets/images/icon/cart.png" class="img-fluid blur-up lazyload" alt=""> <i class="ti-shopping-cart"></i></div>
+                                            </li>
+                                        </ul>
                                     </div>
                                 </div>
                             </div>
@@ -94,14 +120,14 @@
                 <div class="row">
                     <div class="col-sm-6">
                         <div class="page-title">
-                            <h2>Lista Prodotti</h2>
+                            <h2>Lista Premi</h2>
                         </div>
                     </div>
                     <div class="col-sm-6">
                         <nav aria-label="breadcrumb" class="theme-breadcrumb">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="index.html">home</a></li>
-                                <li class="breadcrumb-item active" aria-current="page">prodotti</li>
+                                <li class="breadcrumb-item active" aria-current="page">premi</li>
                             </ol>
                         </nav>
                     </div>
@@ -337,7 +363,24 @@
 
     <!-- header start -->
     <header>
-
+        <div class="mobile-fix-option"></div>
+        <div class="top-header">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="header-contact">
+                            <ul>
+                                <li>Benvenuti in ADC Store</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 text-right">
+                        <ul class="header-dropdown">
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <div class="container">
             <div class="row">
@@ -345,7 +388,7 @@
                     <div class="main-menu">
                         <div class="menu-left">
                             <div class="brand-logo">
-                                <a href="home.tpl"> <img src="{$path}Smarty/smarty-dir/assets/images/icon/logo.png" class="img-fluid blur-up lazyload" alt=""></a>
+                                <a href="index.html"> <img src="{$path}Smarty/smarty-dir/assets/images/icon/logo.png" class="img-fluid blur-up lazyload" alt=""></a>
                             </div>
                         </div>
                         <div class="menu-right pull-right">
@@ -361,13 +404,10 @@
                                         </li>
                                         <li>
                                             <a href="{$path}GestioneSchermate/recuperaHome">Home</a>
-                                            
                                         </li>
-                                        
                                         <li>
-                                            <a href="{$path}GestionePunti/recuperaPremi">Premi</a>
+                                            <a href="{$path}GestioneProdotti/recuperaProdotti">Prodotti</a>
                                         </li>
-
                                         <li>
                                             <a href="{$path}GestioneSchermate/apriProfilo">Profilo</a>
                                         </li>
@@ -379,86 +419,7 @@
                             </div>
                             <div>
                                 <div class="icon-nav">
-                                    <ul>
-                                        <li class="onhover-div mobile-search">
-                                            <div><img src="{$path}Smarty/smarty-dir/assets/images/icon/search.png" onclick="openSearch()" class="img-fluid blur-up lazyload" alt="">
-                                                <i class="ti-search" onclick="openSearch()"></i></div>
-                                            <div id="search-overlay" class="search-overlay">
-                                                <div>
-                                                    <span class="closebtn" onclick="closeSearch()" title="Close Overlay">×</span>
-                                                    <div class="overlay-content">
-                                                        <div class="container">
-                                                            <div class="row">
-                                                                <div class="col-xl-12">
-                                                                    <form method="post" action="{$path}GestioneProdotti/recuperaProdotto">
-                                                                        <h3>Ricerca per:</h3>
-                                                                        <div>
-                                                                            <h5>Tipologia <input type="radio" id="contactChoice1"
-                                                                                                 name="selection" value="tipologia" checked/></h5>
-                                                                            <h5>Nome <input type="radio" id="contactChoice1"
-                                                                                            name="selection" value="nome"/></h5>
-                                                                        </div>
-                                                                        <div class="form-group">
-                                                                            <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Cerca un prodotto" name="ricerca">
-                                                                        </div>
-
-                                                                        <button type="submit" class="btn btn-primary"><i
-                                                                                class="fa fa-search"></i></button>
-                                                                    </form>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        
-                                        <li class="onhover-div mobile-cart">
-                                            <div><img src="{$path}Smarty/smarty-dir/assets/images/icon/cart.png" class="img-fluid blur-up lazyload" alt="">
-                                                <i class="ti-shopping-cart"></i></div>
-                                            <ul class="show-div shopping-cart">
-                                                <li>
-                                                    <div class="media">
-                                                        <a href="#"><img class="mr-3" src="{$path}Smarty/smarty-dir/assets/images/fashion/product/1.jpg" alt="Generic placeholder image"></a>
-                                                        <div class="media-body">
-                                                            <a href="#">
-                                                                <h4>item name</h4>
-                                                            </a>
-                                                            <h4><span>1 x $ 299.00</span></h4>
-                                                        </div>
-                                                    </div>
-                                                    <div class="close-circle">
-                                                        <a href="#"><i class="fa fa-times" aria-hidden="true"></i></a>
-                                                    </div>
-                                                </li>
-                                                <li>
-                                                    <div class="media">
-                                                        <a href="#"><img class="mr-3" src="{$path}Smarty/smarty-dir/assets/images/fashion/product/2.jpg" alt="Generic placeholder image"></a>
-                                                        <div class="media-body">
-                                                            <a href="#">
-                                                                <h4>item name</h4>
-                                                            </a>
-                                                            <h4><span>1 x $ 299.00</span></h4>
-                                                        </div>
-                                                    </div>
-                                                    <div class="close-circle">
-                                                        <a href="#"><i class="fa fa-times" aria-hidden="true"></i></a>
-                                                    </div>
-                                                </li>
-                                                <li>
-                                                    <div class="total">
-                                                        <h5>subtotal : <span>$299.00</span></h5>
-                                                    </div>
-                                                </li>
-                                                <li>
-                                                    <div class="buttons">
-                                                        <a href="cart.html" class="view-cart">view cart</a>
-                                                        <a href="#" class="checkout">checkout</a>
-                                                    </div>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                    </ul>
+                                    
                                 </div>
                             </div>
                         </div>
@@ -476,14 +437,14 @@
             <div class="row">
                 <div class="col-sm-6">
                     <div class="page-title">
-                        <h2>Lista Prodotti</h2>
+                        <h2>Lista premi</h2>
                     </div>
                 </div>
                 <div class="col-sm-6">
                     <nav aria-label="breadcrumb" class="theme-breadcrumb">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="hom.html">home</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">prodotti</li>
+                            <li class="breadcrumb-item active" aria-current="page">premi</li>
                         </ol>
                     </nav>
                 </div>
@@ -509,8 +470,8 @@
                                     <div class="top-banner-wrapper">
                                         <a href="#"><img src="{$path}Smarty/smarty-dir/assets/images/mega-menu/2.jpg" class="img-fluid blur-up lazyload" alt=""></a>
                                         <div class="top-banner-content small-section">
-                                            <h4>Prodotti</h4>
-                                            <h5>ADC Store si impegna a fornire prodotti di qualità per soddisfare le esigenze di tutti i suoi clienti.
+                                            <h4>premi</h4>
+                                            <h5>ADC Store si impegna a fornire premi di qualità per soddisfare le esigenze di tutti i suoi clienti.
                                             </h5>
                                             <p>A tavola ci si incontra, si chiacchiera, ci si rilassa, si ride… talvolta ci si punzecchia, ma il buon cibo, soprattutto se acquistato su ADC Store, fa da paciere. E’ capace di restituire il buonumore persino al termine di una giornata faticosa.
                                             (Antonino Cannavacciuolo)</p>
@@ -528,7 +489,7 @@
                                                 <div class="col-12">
                                                     <div class="product-filter-content">
                                                         <div class="search-count">
-                                                            <h5>Showing Products 1-24 of 10 Result</h5>
+                                                            <h5>Premi 1-24 di 10 Risultati</h5>
                                                         </div>
                                                         <div class="collection-view">
                                                             <ul>
@@ -546,19 +507,19 @@
                                                         </div>
                                                         <div class="product-page-per-view">
                                                             <select>
-                                                                <option value="High to low">24 Products Par Page
+                                                                <option value="High to low">24 Pemi Per Pagina
                                                                 </option>
-                                                                <option value="Low to High">50 Products Par Page
+                                                                <option value="Low to High">50 Premi Per Pagina
                                                                 </option>
-                                                                <option value="Low to High">100 Products Par Page
+                                                                <option value="Low to High">100 Premi Per Pagina
                                                                 </option>
                                                             </select>
                                                         </div>
                                                         <div class="product-page-filter">
                                                             <select>
-                                                                <option value="High to low">Sorting items</option>
-                                                                <option value="Low to High">50 Products</option>
-                                                                <option value="Low to High">100 Products</option>
+                                                                <option value="High to low">Ordina Premi</option>
+                                                                <option value="Low to High">50 Premi</option>
+                                                                <option value="Low to High">100 Premi</option>
                                                             </select>
                                                         </div>
                                                     </div>
@@ -567,14 +528,15 @@
                                         </div>
 
                                         <div class="product-wrapper-grid product-load-more">
-                                            {foreach from=$prodotti item=prod key=id}
+                                            {foreach from=$premi item=prize key=id}
 
                                                 <div class="row margin-res">
                                                 <div class="col-xl-3 col-6 col-grid-box">
                                                     <div class="product-box">
                                                         <div class="img-wrapper">
                                                             <div class="front">
-                                                                	<img class="flex" src="data:{$prod.formato};charset=utf-8;base64,{$prod.dati}" width="200" height="300"/>
+                                                                <a href="product-page(accordian).tpl">
+                                                                	<img src="data:{$prize.mime};base64,{$prize.dati}" width="100" height="100"/>
                                                                 </a>
                                                             </div>
                                                             <div class="cart-info cart-wrap">
@@ -588,13 +550,13 @@
                                                         <div class="product-detail">
                                                             <div>
                                                                 <div class="rating"></div>
-                                                                <a href="{$path}GestioneProdotti/recuperaDettagli/{$prod.id}">
-                                                                    <h4>{$prod.nome}</h4>
-                                                                    <h5>{$prod.marca}</h5>
+                                                                <a href="{$path}GestionePunti/selezionaPremio/{$prize.id}">
+                                                                    <h4>{$prize.nome}</h4>
+                                                                    <h5>{$prize.marca}</h5>
                                                                 </a>
-                                                                <h5>{$prod.descrizione}
+                                                                <h5>{$prize.descrizione}
                                                                 </h5>
-                                                                <h4> {$prod.prezzo}€</h4>
+                                                                <h4> {$prize.punti} punti</h4>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -604,7 +566,7 @@
                                             {/foreach}
 
                                         </div>
-                                        <div class="load-more-sec"><a href="javascript:void(0)" class="loadMore">carica altri prodotti</a></div>
+                                        <div class="load-more-sec"><a href="javascript:void(0)" class="loadMore">carica altri premi</a></div>
                                     </div>
                                 </div>
                             </div>
@@ -619,6 +581,49 @@
 
     <!-- footer start -->
     <footer class="footer-light">
+        <div class="light-layout">
+        </div>
+        <section class="section-b-space light-layout">
+            <div class="container">
+                <div class="row footer-theme partition-f">
+                    <div class="col-lg-4 col-md-6">
+                        <div class="footer-title footer-mobile-title">
+                            <h4>about</h4>
+                        </div>
+                        <div class="footer-contant">
+                            <div class="footer-logo"><img src="{$path}Smarty/smarty-dir/assets/images/icon/logo.png" alt=""></div>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,</p>
+                            <div class="footer-social">
+                                <ul>
+                                    <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-rss" aria-hidden="true"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col">
+                        <div class="sub-title">
+                            <div class="footer-title">
+                                <h4>store information</h4>
+                            </div>
+                            <div class="footer-contant">
+                                <ul class="contact-list">
+                                    <li><i class="fa fa-map-marker"></i>Multikart Demo Store, Demo store India 345-659
+                                    </li>
+                                    <li><i class="fa fa-phone"></i>Call Us: 123-456-7898</li>
+                                    <li><i class="fa fa-envelope-o"></i>Email Us: Support@Fiot.com</li>
+                                    <li><i class="fa fa-fax"></i>Fax: 123456</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
         <div class="sub-footer">
             <div class="container">
                 <div class="row">

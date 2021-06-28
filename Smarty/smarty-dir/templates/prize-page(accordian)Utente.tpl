@@ -1,27 +1,4 @@
-<?php
-/* Smarty version 3.1.39, created on 2021-06-28 21:49:26
-  from 'C:\Users\david\public_html\ADC-Store\Smarty\smarty-dir\templates\prize-page(accordian).tpl' */
-
-/* @var Smarty_Internal_Template $_smarty_tpl */
-if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
-  'version' => '3.1.39',
-  'unifunc' => 'content_60da27c6716d68_20523532',
-  'has_nocache_code' => false,
-  'file_dependency' => 
-  array (
-    'bc89d73a8e632da0a546295717ee6b904667e1dd' => 
-    array (
-      0 => 'C:\\Users\\david\\public_html\\ADC-Store\\Smarty\\smarty-dir\\templates\\prize-page(accordian).tpl',
-      1 => 1624909763,
-      2 => 'file',
-    ),
-  ),
-  'includes' => 
-  array (
-  ),
-),false)) {
-function content_60da27c6716d68_20523532 (Smarty_Internal_Template $_smarty_tpl) {
-?><!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -31,40 +8,31 @@ function content_60da27c6716d68_20523532 (Smarty_Internal_Template $_smarty_tpl)
     <meta name="description" content="multikart">
     <meta name="keywords" content="multikart">
     <meta name="author" content="multikart">
-    <link rel="icon" href="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
-Smarty/smarty-dir/assets/images/favicon/1.png" type="image/x-icon">
-    <link rel="shortcut icon" href="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
-Smarty/smarty-dir/assets/images/favicon/1.png" type="image/x-icon">
+    <link rel="icon" href="{$path}Smarty/smarty-dir/assets/images/favicon/1.png" type="image/x-icon">
+    <link rel="shortcut icon" href="{$path}Smarty/smarty-dir/assets/images/favicon/1.png" type="image/x-icon">
     <title>Dettagli premio</title>
 
     <!--Google font-->
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet">
 
     <!-- Icons -->
-    <link rel="stylesheet" type="text/css" href="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
-Smarty/smarty-dir/assets/css/fontawesome.css">
+    <link rel="stylesheet" type="text/css" href="{$path}Smarty/smarty-dir/assets/css/fontawesome.css">
 
     <!--Slick slider css-->
-    <link rel="stylesheet" type="text/css" href="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
-Smarty/smarty-dir/assets/css/slick.css">
-    <link rel="stylesheet" type="text/css" href="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
-Smarty/smarty-dir/assets/css/slick-theme.css">
+    <link rel="stylesheet" type="text/css" href="{$path}Smarty/smarty-dir/assets/css/slick.css">
+    <link rel="stylesheet" type="text/css" href="{$path}Smarty/smarty-dir/assets/css/slick-theme.css">
 
     <!-- Animate icon -->
-    <link rel="stylesheet" type="text/css" href="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
-Smarty/smarty-dir/assets/css/animate.css">
+    <link rel="stylesheet" type="text/css" href="{$path}Smarty/smarty-dir/assets/css/animate.css">
 
     <!-- Themify icon -->
-    <link rel="stylesheet" type="text/css" href="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
-Smarty/smarty-dir/assets/css/themify-icons.css">
+    <link rel="stylesheet" type="text/css" href="{$path}Smarty/smarty-dir/assets/css/themify-icons.css">
 
     <!-- Bootstrap css -->
-    <link rel="stylesheet" type="text/css" href="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
-Smarty/smarty-dir/assets/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="{$path}Smarty/smarty-dir/assets/css/bootstrap.css">
 
     <!-- Theme css -->
-    <link rel="stylesheet" type="text/css" href="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
-Smarty/smarty-dir/assets/css/color1.css" media="screen" id="color">
+    <link rel="stylesheet" type="text/css" href="{$path}Smarty/smarty-dir/assets/css/color1.css" media="screen" id="color">
 
 </head>
 
@@ -107,8 +75,7 @@ Smarty/smarty-dir/assets/css/color1.css" media="screen" id="color">
                                     </a>
                                 </div>
                                 <div class="brand-logo">
-                                    <a href="index.html"><img src="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
-Smarty/smarty-dir/assets/images/icon/logo.png"
+                                    <a href="index.html"><img src="{$path}Smarty/smarty-dir/assets/images/icon/logo.png"
                                             class="img-fluid blur-up lazyload" alt=""></a>
                                 </div>
                             </div>
@@ -191,15 +158,15 @@ Smarty/smarty-dir/assets/images/icon/logo.png"
                                         <li>
                                             <div class="mobile-back text-right">Back<i class="fa fa-angle-right pl-2"
                                                     aria-hidden="true"></i></div>
-                                            <a href="#">Home</a>
+                                            <a href="{$path}GestioneSchermate/recuperaHomeUtente">Home</a>
                                         </li>
                                         <li>
-                                            <a href="#">profilo</a>
+                                            <a href="{$path}GestioneSchermate/apriProfilo">profilo</a>
                                         </li>
                                         <li>
-                                            <a href="#">prodotti</a>
+                                            <a href="{$path}GestioneProdotti/recuperaProdotti">prodotti</a>
                                         </li>
-                                        <li ><a href="#">premi</a>
+                                        <li ><a href="{$path}GestionePunti/recuperaPremi">premi</a>
                                         <li >    
                                     </ul>
                                 </nav>
@@ -251,17 +218,14 @@ Smarty/smarty-dir/assets/images/icon/logo.png"
                 <div class="row">
                     <div class="col-lg-4">
                         <div class="product-slick">
-                            <div><img src="data:<?php echo $_smarty_tpl->tpl_vars['mime']->value;?>
-;base64,<?php echo $_smarty_tpl->tpl_vars['dati']->value;?>
-" width="150" height="250" alt=""
+                            <div><img src="data:{$mime};base64,{$dati}" width="150" height="250" alt=""
                                     class="img-fluid blur-up lazyload image_zoom_cls-0"></div>
 
                         </div>
 
                     </div>
                         <div class="product-right product-description-box">
-                            <h2><?php echo $_smarty_tpl->tpl_vars['nome']->value;?>
-</h2>
+                            <h2>{$nome}</h2>
 
                             <div class="product-icon mb-3">
                                 <form class="d-inline-block">
@@ -288,15 +252,13 @@ Smarty/smarty-dir/assets/images/icon/logo.png"
                                             <div id="collapseTwo" class="collapse show" aria-labelledby="headingOne"
                                                 data-parent="#accordionExample">
                                                 <div class="card-body">
-                                                    <p><?php echo $_smarty_tpl->tpl_vars['descrizione']->value;?>
-</p>
+                                                    <p>{$descrizione}</p>
                                                     <div class="single-product-tables detail-section">
                                                         <table>
                                                             <tbody>
                                                                 <tr>
                                                                     <td>Marca: </td>
-                                                                    <td><?php echo $_smarty_tpl->tpl_vars['marca']->value;?>
-</td>
+                                                                    <td>{$marca}</td>
                                                                 </tr>
 
                                                             </tbody>
@@ -313,20 +275,16 @@ Smarty/smarty-dir/assets/images/icon/logo.png"
                     </div>
                     <div class="col-lg-4">
                         <div class="product-right product-form-box">
-                            <h3><?php echo $_smarty_tpl->tpl_vars['punti']->value;?>
- punti</h3>
+                            <h3>{$punti} punti</h3>
 
-                            <form method="post" action="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
-GestionePunti/acquistaPremio/<?php echo $_smarty_tpl->tpl_vars['id']->value;?>
-">
+                            <form method="post" action="{$path}GestionePunti/acquistaPremio/{$id}">
 
                                 <div class="product-description border-product">
                                 
                                     <h6 class="product-title">Quantità:</h6>
                                     <div class="qty-box">
 
-                                        <input type="number" name="quantita" class="form-control input-number" value="1" min="1" max="<?php echo $_smarty_tpl->tpl_vars['quantita']->value;?>
-">
+                                        <input type="number" name="quantita" class="form-control input-number" value="1" min="1" max="{$quantita}">
 
                                     </div>
                                 
@@ -365,24 +323,19 @@ GestionePunti/acquistaPremio/<?php echo $_smarty_tpl->tpl_vars['id']->value;?>
                         <div class="payment-card-bottom">
                             <ul>
                                 <li>
-                                    <a href="#"><img src="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
-Smarty/smarty-dir/assets/images/icon/visa.png" alt=""></a>
+                                    <a href="#"><img src="{$path}Smarty/smarty-dir/assets/images/icon/visa.png" alt=""></a>
                                 </li>
                                 <li>
-                                    <a href="#"><img src="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
-Smarty/smarty-dir/assets/images/icon/mastercard.png" alt=""></a>
+                                    <a href="#"><img src="{$path}Smarty/smarty-dir/assets/images/icon/mastercard.png" alt=""></a>
                                 </li>
                                 <li>
-                                    <a href="#"><img src="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
-Smarty/smarty-dir/assets/images/icon/paypal.png" alt=""></a>
+                                    <a href="#"><img src="{$path}Smarty/smarty-dir/assets/images/icon/paypal.png" alt=""></a>
                                 </li>
                                 <li>
-                                    <a href="#"><img src="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
-Smarty/smarty-dir/assets/images/icon/american-express.png" alt=""></a>
+                                    <a href="#"><img src="{$path}Smarty/smarty-dir/assets/images/icon/american-express.png" alt=""></a>
                                 </li>
                                 <li>
-                                    <a href="#"><img src="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
-Smarty/smarty-dir/assets/images/icon/discover.png" alt=""></a>
+                                    <a href="#"><img src="{$path}Smarty/smarty-dir/assets/images/icon/discover.png" alt=""></a>
                                 </li>
                             </ul>
                         </div>
@@ -425,9 +378,7 @@ Smarty/smarty-dir/assets/images/icon/discover.png" alt=""></a>
                                             </div>
 
                                             <div class="upsell_payment">
-                                                <img src="data:<?php echo $_smarty_tpl->tpl_vars['premio']->value['mime'];?>
-;base64,<?php echo $_smarty_tpl->tpl_vars['premio']->value['dati'];?>
-" width="150" height="250" alt="">
+                                                <img src="data:{$premio.mime};base64,{$premio.dati}" width="150" height="250" alt="">
                                             </div>
                                         </div>
                                     </div>
@@ -451,61 +402,33 @@ Smarty/smarty-dir/assets/images/icon/discover.png" alt=""></a>
 
 
     <!-- latest jquery-->
-    <?php echo '<script'; ?>
- src="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
-Smarty/smarty-dir/assets/js/jquery-3.3.1.min.js"><?php echo '</script'; ?>
->
+    <script src="{$path}Smarty/smarty-dir/assets/js/jquery-3.3.1.min.js"></script>
 
     <!-- menu js-->
-    <?php echo '<script'; ?>
- src="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
-Smarty/smarty-dir/assets/js/menu.js"><?php echo '</script'; ?>
->
+    <script src="{$path}Smarty/smarty-dir/assets/js/menu.js"></script>
 
     <!-- lazyload js-->
-    <?php echo '<script'; ?>
- src="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
-Smarty/smarty-dir/assets/js/lazysizes.min.js"><?php echo '</script'; ?>
->
+    <script src="{$path}Smarty/smarty-dir/assets/js/lazysizes.min.js"></script>
 
     <!-- popper js-->
-    <?php echo '<script'; ?>
- src="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
-Smarty/smarty-dir/assets/js/popper.min.js"><?php echo '</script'; ?>
->
+    <script src="{$path}Smarty/smarty-dir/assets/js/popper.min.js"></script>
 
     <!-- slick js-->
-    <?php echo '<script'; ?>
- src="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
-Smarty/smarty-dir/assets/js/slick.js"><?php echo '</script'; ?>
->
+    <script src="{$path}Smarty/smarty-dir/assets/js/slick.js"></script>
 
     <!-- Bootstrap js-->
-    <?php echo '<script'; ?>
- src="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
-Smarty/smarty-dir/assets/js/bootstrap.js"><?php echo '</script'; ?>
->
+    <script src="{$path}Smarty/smarty-dir/assets/js/bootstrap.js"></script>
 
     <!-- Bootstrap Notification js-->
-    <?php echo '<script'; ?>
- src="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
-Smarty/smarty-dir/assets/js/bootstrap-notify.min.js"><?php echo '</script'; ?>
->
+    <script src="{$path}Smarty/smarty-dir/assets/js/bootstrap-notify.min.js"></script>
 
     <!-- Zoom js-->
-    <?php echo '<script'; ?>
- src="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
-Smarty/smarty-dir/assets/js/jquery.elevatezoom.js"><?php echo '</script'; ?>
->
+    <script src="{$path}Smarty/smarty-dir/assets/js/jquery.elevatezoom.js"></script>
 
     <!-- Theme js-->
-    <?php echo '<script'; ?>
- src="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
-Smarty/smarty-dir/assets/js/script.js"><?php echo '</script'; ?>
->
+    <script src="{$path}Smarty/smarty-dir/assets/js/script.js"></script>
 
-    <?php echo '<script'; ?>
->
+    <script>
         function openSearch() {
             document.getElementById("search-overlay").style.display = "block";
         }
@@ -517,9 +440,7 @@ Smarty/smarty-dir/assets/js/script.js"><?php echo '</script'; ?>
         function funzione(){
             alert("Il premio verrà inviato al suo indirizzo predefinito!")
         }
-    <?php echo '</script'; ?>
->
+    </script>
 </body>
 
-</html><?php }
-}
+</html>

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-06-28 18:00:29
+/* Smarty version 3.1.39, created on 2021-06-28 22:26:31
   from 'C:\Users\david\public_html\ADC-Store\Smarty\smarty-dir\templates\profilefe.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_60d9f21d915a74_30262169',
+  'unifunc' => 'content_60da30777b3804_90467906',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'dfbf06b8cefa1263966fdef6a6872ff5a4b09e5c' => 
     array (
       0 => 'C:\\Users\\david\\public_html\\ADC-Store\\Smarty\\smarty-dir\\templates\\profilefe.tpl',
-      1 => 1624895964,
+      1 => 1624911990,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_60d9f21d915a74_30262169 (Smarty_Internal_Template $_smarty_tpl) {
+function content_60da30777b3804_90467906 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en">
 
@@ -83,7 +83,7 @@ Smarty/smarty-dir/assets/css/color1.css" media="screen" id="color">
                             <div class="navbar">
                             
                             <div class="brand-logo"><a href="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
-GestioneSchermate/recuperaHomeUtente"><img src="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+GestioneSchermate/recuperaHome"><img src="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
 Smarty/smarty-dir/assets/images/icon/logo.png"
                                         class="img-fluid blur-up lazyload" alt=""></a></div>
                         </div>
@@ -116,6 +116,18 @@ GestioneSchermate/recuperaGestioneIndirizzi">Indirizzi</a>
                                                 <a href="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
 GestioneSchermate/recuperaGestioneCarte">Carte di credito</a>
                                             </li>
+                                            <li>
+                                                <a href="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+GestioneSchermate/recuperaHomeUtente">Home</a>
+                                            </li> 
+                                            <li>
+                                                <a href="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+GestioneProdotti/recuperaProdotti">Prodotti</a>
+                                            </li>
+                                            <li>
+                                                <a href="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+GestionePunti/recuperaPremi">Premi</a>
+                                            </li>                                                                                                                                   
                                         </ul>
                                     </nav>
                                 </div>

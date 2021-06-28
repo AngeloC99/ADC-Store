@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-06-28 21:49:26
-  from 'C:\Users\david\public_html\ADC-Store\Smarty\smarty-dir\templates\prize-page(accordian).tpl' */
+/* Smarty version 3.1.39, created on 2021-06-28 22:21:12
+  from 'C:\Users\david\public_html\ADC-Store\Smarty\smarty-dir\templates\prize-page(accordian)Admin.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_60da27c6716d68_20523532',
+  'unifunc' => 'content_60da2f38c867e4_08570141',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    'bc89d73a8e632da0a546295717ee6b904667e1dd' => 
+    '0b45cf7aa0859ae2658ecbb18bd0e56f7ef17f44' => 
     array (
-      0 => 'C:\\Users\\david\\public_html\\ADC-Store\\Smarty\\smarty-dir\\templates\\prize-page(accordian).tpl',
-      1 => 1624909763,
+      0 => 'C:\\Users\\david\\public_html\\ADC-Store\\Smarty\\smarty-dir\\templates\\prize-page(accordian)Admin.tpl',
+      1 => 1624911588,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_60da27c6716d68_20523532 (Smarty_Internal_Template $_smarty_tpl) {
+function content_60da2f38c867e4_08570141 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en">
 
@@ -191,15 +191,19 @@ Smarty/smarty-dir/assets/images/icon/logo.png"
                                         <li>
                                             <div class="mobile-back text-right">Back<i class="fa fa-angle-right pl-2"
                                                     aria-hidden="true"></i></div>
-                                            <a href="#">Home</a>
+                                            <a href="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+GestioneSchermate/recuperaHomeAdmin">Home</a>
                                         </li>
                                         <li>
-                                            <a href="#">profilo</a>
+                                            <a href="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+GestioneSchermate/apriProfilo">profilo</a>
                                         </li>
                                         <li>
-                                            <a href="#">prodotti</a>
+                                            <a href="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+GestioneProdotti/recuperaProdotti">prodotti</a>
                                         </li>
-                                        <li ><a href="#">premi</a>
+                                        <li ><a href="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+GestionePunti/recuperaPremi">premi</a>
                                         <li >    
                                     </ul>
                                 </nav>

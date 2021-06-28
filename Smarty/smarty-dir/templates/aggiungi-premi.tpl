@@ -71,7 +71,7 @@
                     <p>Area Amministratore.</p>
                 </div>
                 <ul class="sidebar-menu">
-                    <li><a class="sidebar-header" href="index.html"><i data-feather="home"></i><span>Home</span></a></li>
+                    <li><a class="sidebar-header" href="{$path}GestioneSchermate/recuperaHomeAdmin"><i data-feather="home"></i><span>Home</span></a></li>
                     <li><a class="sidebar-header" href="#"><i data-feather="box"></i> <span>Prodotti</span><i class="fa fa-angle-right pull-right"></i></a>
                         <ul class="sidebar-submenu">
                             <li><a href="product-list.tpl"><i class="fa fa-circle"></i>Lista Prodotti</a></li>
@@ -81,8 +81,8 @@
                     </li>
                     <li><a class="sidebar-header" href="#"><i data-feather="box"></i> <span>Premi</span><i class="fa fa-angle-right pull-right"></i></a>
                         <ul class="sidebar-submenu">
-                            <li><a href="product-list.tpl"><i class="fa fa-circle"></i>Lista Premi</a></li>
-                            <li><a href="aggiungi-premi.tpl"><i class="fa fa-circle"></i>Aggiungi un premio</a></li>
+                            <li><a href={$path}GestionePunti/recuperaPremi><i class="fa fa-circle"></i>Lista Premi</a></li>
+                            <li><a href="{$path}GestioneSchermate/recuperaAggiungiPremi"><i class="fa fa-circle"></i>Aggiungi un premio</a></li>
 
                         </ul>
                     </li>                    
@@ -194,8 +194,8 @@
                                                 </div>
                                             </div>
                                             <div class="offset-xl-3 offset-sm-4">
-                                                <button type="submit" onclick="Funzione1()" class="btn btn-solid"/>aggiungi</button>
-                                                <a href="#" class="btn btn-light">Annulla</a>
+                                                <button type="submit" onclick="Funzione1()" class="btn btn-primary"/>aggiungi</button>
+                                                <a href="{$path}GestionePunti/recuperaAggiungiPremio" class="btn btn-light">Annulla</a>
                                             </div>
                                         </form>
                                     </div>

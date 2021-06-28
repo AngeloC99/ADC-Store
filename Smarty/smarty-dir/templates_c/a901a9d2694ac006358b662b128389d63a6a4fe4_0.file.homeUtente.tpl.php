@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-06-28 17:03:30
+/* Smarty version 3.1.39, created on 2021-06-28 18:58:52
   from 'C:\Users\david\public_html\ADC-Store\Smarty\smarty-dir\templates\homeUtente.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_60d9e4c23848e7_66901905',
+  'unifunc' => 'content_60d9ffccc7acf4_07792631',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'a901a9d2694ac006358b662b128389d63a6a4fe4' => 
     array (
       0 => 'C:\\Users\\david\\public_html\\ADC-Store\\Smarty\\smarty-dir\\templates\\homeUtente.tpl',
-      1 => 1624892050,
+      1 => 1624899455,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_60d9e4c23848e7_66901905 (Smarty_Internal_Template $_smarty_tpl) {
+function content_60d9ffccc7acf4_07792631 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en">
 
@@ -81,18 +81,6 @@ Smarty/smarty-dir/assets/css/color1.css" media="screen" id="color">
                                 <a href="#"><img src="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
 Smarty/smarty-dir/assets/images/icon/logo.png" class="img-fluid blur-up lazyload"
                                         alt=""></a>
-                            </div>
-                            <div class="menu-right pull-right">
-                                <div class="icon-nav d-none d-sm-block">
-                                    <ul>
-                                        <li class="onhover-div mobile-search">
-                                            <div><img src="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
-Smarty/smarty-dir/assets/images/icon/search.png" onclick="openSearch()"
-                                                    class="img-fluid blur-up lazyload" alt=""> <i class="ti-search"
-                                                    onclick="openSearch()"></i></div>
-                                        </li>
-                                    </ul>
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -340,7 +328,7 @@ GestioneProdotti/recuperaProdotti">Prodotti</a>
                                     <a href="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
 GestionePunti/recuperaPremi">Premi</a>
                                 </li>
-                                <li><a href="#">Account</a>
+                                <li><a href="">Account</a>
                                             <ul>
                                                 <li><a href="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
 GestioneSchermate/apriProfilo" data-lng="en">Il mio profilo ADC-Store</a></li>

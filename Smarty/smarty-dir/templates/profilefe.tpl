@@ -77,6 +77,15 @@
                                             <li>
                                                 <a href="{$path}GestioneSchermate/recuperaGestioneCarte">Carte di credito</a>
                                             </li>
+                                            <li>
+                                                <a href="{$path}GestioneSchermate/recuperaHomeUtente">Home</a>
+                                            </li> 
+                                            <li>
+                                                <a href="{$path}GestioneProdotti/recuperaProdotti">Prodotti</a>
+                                            </li>
+                                            <li>
+                                                <a href="{$path}GestionePunti/recuperaPremi">Premi</a>
+                                            </li>                                                                                                                                   
                                         </ul>
                                     </nav>
                                 </div>

@@ -256,6 +256,13 @@
                                     </ul>
                                     
                                 </li>
+                                <li><a href="#">Premi</a>
+                                    <ul>
+                                        <li><a href="{$path}GestionePunti/recuperaPremi" data-lng="en">Lista Premi</a></li>
+                                        <li><a href="{$path}GestionePunti/recuperaAggiungiPremio" data-lng="en">Aggiungi Premio</a></li>
+                                    </ul>
+                                    
+                                </li>                                
                                 <li><a href="#">Profilo</a>
                                             <ul>
                                                 <li><a href="{$path}GestioneSchermate/apriProfilo" data-lng="en">Visita Profilo</a></li>

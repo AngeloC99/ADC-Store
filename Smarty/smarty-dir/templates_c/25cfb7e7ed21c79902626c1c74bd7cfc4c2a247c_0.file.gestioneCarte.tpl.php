@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-06-28 09:16:53
+/* Smarty version 3.1.39, created on 2021-06-28 22:33:11
   from 'C:\Users\david\public_html\ADC-Store\Smarty\smarty-dir\templates\gestioneCarte.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_60d977653489a0_34893492',
+  'unifunc' => 'content_60da32075c34d2_87988057',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '25cfb7e7ed21c79902626c1c74bd7cfc4c2a247c' => 
     array (
       0 => 'C:\\Users\\david\\public_html\\ADC-Store\\Smarty\\smarty-dir\\templates\\gestioneCarte.tpl',
-      1 => 1624863624,
+      1 => 1624899455,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_60d977653489a0_34893492 (Smarty_Internal_Template $_smarty_tpl) {
+function content_60da32075c34d2_87988057 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en">
 
@@ -35,7 +35,7 @@ function content_60d977653489a0_34893492 (Smarty_Internal_Template $_smarty_tpl)
 Smarty/smarty-dir/assets/images/favicon/1.png" type="image/x-icon">
     <link rel="shortcut icon" href="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
 Smarty/smarty-dir/assets/images/favicon/1.png" type="image/x-icon">
-    <title>ADC Store - L'ABC della qualità</title>
+    <title>ADC Store - Carte</title>
 
     <!--Google font-->
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet">
@@ -94,7 +94,8 @@ Smarty/smarty-dir/assets/css/color1.css" media="screen" id="color">
                         <div class="menu-left">
                             
                             <div class="brand-logo">
-                                <a href="index.html"> <img src="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+                                <a href="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+GestioneSchermate/recuperaHome"> <img src="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
 Smarty/smarty-dir/assets/images/icon/logo.png"
                                         class="img-fluid blur-up lazyload" alt=""></a>
                             </div>
@@ -119,7 +120,8 @@ Smarty/smarty-dir/assets/images/icon/logo.png"
                 <div class="col-sm-6">
                     <nav aria-label="breadcrumb" class="theme-breadcrumb">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                            <li class="breadcrumb-item"><a href="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+GestioneSchermate/recuperaHome">Home</a></li>
                             <li class="breadcrumb-item active" aria-current="page">Profilo Personale</li>
                         </ol>
                     </nav>

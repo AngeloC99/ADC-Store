@@ -122,7 +122,7 @@
                                     <label for="email">Vuoi lasciare un messaggio?</label>
                                     <input type="text" class="form-control" id="email" placeholder="Messaggio" required name="Messaggio">
                                 </div>
-                                <button type="submit" onclick="funzione()" class="btn btn-solid"/>invia</button>
+                                <button type="submit" onclick="funzione()" class="btn btn-solid">invia</button>
                             </div>
                         </form>
                     </div>

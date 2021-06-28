@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-06-28 18:46:39
+/* Smarty version 3.1.39, created on 2021-06-28 20:03:59
   from 'C:\Users\david\public_html\ADC-Store\Smarty\smarty-dir\templates\user-list.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_60d9fcef458db9_21305424',
+  'unifunc' => 'content_60da0f0f0c3a98_07675705',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '01fa16465001faf9ca2939d54355a3ca6465f4e6' => 
     array (
       0 => 'C:\\Users\\david\\public_html\\ADC-Store\\Smarty\\smarty-dir\\templates\\user-list.tpl',
-      1 => 1624892050,
+      1 => 1624903435,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_60d9fcef458db9_21305424 (Smarty_Internal_Template $_smarty_tpl) {
+function content_60da0f0f0c3a98_07675705 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
@@ -102,7 +102,8 @@ Smarty/smarty-dir/assets/images/dashboard/logo.png" alt=""></a></div>
                     <div><img class="img-60 rounded-circle blur-up lazyloaded" src="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
 Smarty/smarty-dir/assets/images/dashboard/man.png" alt="#">
                     </div>
-                        <h6 class="mt-3 f-14">Chiara</h6>
+                        <h6 class="mt-3 f-14"><?php echo $_smarty_tpl->tpl_vars['nomeadmin']->value;?>
+</h6>
                     <p>Area Amministratore</p>
                 </div>
                 <ul class="sidebar-menu">
@@ -118,6 +119,15 @@ GestioneProdotti/recuperaAggiungiProdotto"><i class="fa fa-circle"></i>Aggiungi 
                                 </ul>
 
                     </li>
+                    <li><a class="sidebar-header" href="#"><i data-feather="box"></i> <span>Premi</span><i class="fa fa-angle-right pull-right"></i></a>
+                        <ul class="sidebar-submenu">
+                            <li><a href="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+GestionePunti/recuperaPremi"><i class="fa fa-circle"></i>Lista Premi</a></li>
+                            <li><a href="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+GestioneSchermate/recuperaAggiungiPremi"><i class="fa fa-circle"></i>Aggiungi un premio</a></li>
+
+                        </ul>
+                    </li>                    
                     <li><a class="sidebar-header" href=""><i data-feather="dollar-sign"></i><span>Clienti</span><i class="fa fa-angle-right pull-right"></i></a>
                         <ul class="sidebar-submenu">
                             <li><a href="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>

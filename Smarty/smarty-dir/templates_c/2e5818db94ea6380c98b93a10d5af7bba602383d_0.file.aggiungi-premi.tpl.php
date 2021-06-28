@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-06-28 18:55:52
+/* Smarty version 3.1.39, created on 2021-06-28 20:58:36
   from 'C:\Users\david\public_html\ADC-Store\Smarty\smarty-dir\templates\aggiungi-premi.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_60d9ff18e7d412_08244352',
+  'unifunc' => 'content_60da1bdcdfeb55_90249643',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '2e5818db94ea6380c98b93a10d5af7bba602383d' => 
     array (
       0 => 'C:\\Users\\david\\public_html\\ADC-Store\\Smarty\\smarty-dir\\templates\\aggiungi-premi.tpl',
-      1 => 1624899351,
+      1 => 1624906714,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_60d9ff18e7d412_08244352 (Smarty_Internal_Template $_smarty_tpl) {
+function content_60da1bdcdfeb55_90249643 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en">
 
@@ -103,7 +103,8 @@ Smarty/smarty-dir/assets/images/dashboard/man.png" alt="#">
                     <p>Area Amministratore.</p>
                 </div>
                 <ul class="sidebar-menu">
-                    <li><a class="sidebar-header" href="index.html"><i data-feather="home"></i><span>Home</span></a></li>
+                    <li><a class="sidebar-header" href="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+GestioneSchermate/recuperaHomeAdmin"><i data-feather="home"></i><span>Home</span></a></li>
                     <li><a class="sidebar-header" href="#"><i data-feather="box"></i> <span>Prodotti</span><i class="fa fa-angle-right pull-right"></i></a>
                         <ul class="sidebar-submenu">
                             <li><a href="product-list.tpl"><i class="fa fa-circle"></i>Lista Prodotti</a></li>
@@ -113,8 +114,10 @@ Smarty/smarty-dir/assets/images/dashboard/man.png" alt="#">
                     </li>
                     <li><a class="sidebar-header" href="#"><i data-feather="box"></i> <span>Premi</span><i class="fa fa-angle-right pull-right"></i></a>
                         <ul class="sidebar-submenu">
-                            <li><a href="product-list.tpl"><i class="fa fa-circle"></i>Lista Premi</a></li>
-                            <li><a href="aggiungi-premi.tpl"><i class="fa fa-circle"></i>Aggiungi un premio</a></li>
+                            <li><a href=<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+GestionePunti/recuperaPremi><i class="fa fa-circle"></i>Lista Premi</a></li>
+                            <li><a href="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+GestioneSchermate/recuperaAggiungiPremi"><i class="fa fa-circle"></i>Aggiungi un premio</a></li>
 
                         </ul>
                     </li>                    
@@ -231,8 +234,9 @@ GestionePunti/aggiungiPremio">
                                                 </div>
                                             </div>
                                             <div class="offset-xl-3 offset-sm-4">
-                                                <button type="submit" onclick="Funzione1()" class="btn btn-solid"/>aggiungi</button>
-                                                <a href="#" class="btn btn-light">Annulla</a>
+                                                <button type="submit" onclick="Funzione1()" class="btn btn-primary"/>aggiungi</button>
+                                                <a href="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+GestionePunti/recuperaAggiungiPremio" class="btn btn-light">Annulla</a>
                                             </div>
                                         </form>
                                     </div>

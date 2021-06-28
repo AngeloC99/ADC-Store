@@ -19,25 +19,56 @@ class CGestionePunti
      */
     public static function recuperaPremi() {
 
+        $gs=CGestioneSessioni::getInstance();    
         $pm=FPersistentManager::getInstance();
-        $premirec=$pm->prelevaPremi();
-        $premi=array();
-        foreach ($premirec as $key=>$item) {
-            $premio=$pm->load('FPremio',$key);
-            $img = $premio->getImmagine()->getByte();
-            $mime = $premio->getImmagine()->getFormato();
-            $tmp = array(
-                'nome' => $premio->getNome(),
-                'marca' => $premio->getMarca(),
-                'descrizione' => $premio->getDescrizione(),
-                'punti' => $premio->getPrezzoInPunti(),
-                'dati' => $img,
-                'mime' => $mime
-            );
-            $premi[]=$tmp;
+        if ($gs->isLoggedUser()){
+            $premirec=$pm->prelevaPremi();
+            $premi=array();
+            foreach ($premirec as $key=>$item) {
+                $premio=$pm->load('FPremio',$key);
+                $img = $premio->getImmagine()->getByte();
+                $mime = $premio->getImmagine()->getFormato();
+                $tmp = array(
+                    'nome' => $premio->getNome(),
+                    'marca' => $premio->getMarca(),
+                    'id' => $premio->getId(),
+                    'descrizione' => $premio->getDescrizione(),
+                    'punti' => $premio->getPrezzoInPunti(),
+                    'dati' => $img,
+                    'mime' => $mime
+                );
+                $premi[]=$tmp;
+            }
+            $v=new VGestionePunti();
+            $v->mostraPremiUtente($premi);
         }
-        $v=new VGestionePunti();
-        $v->mostraPremi($premi);
+
+        else if ($gs->isLoggedAdmin()){
+            $premirec=$pm->prelevaPremi();
+            $premi=array();
+            foreach ($premirec as $key=>$item) {
+                $premio=$pm->load('FPremio',$key);
+                $img = $premio->getImmagine()->getByte();
+                $mime = $premio->getImmagine()->getFormato();
+                $tmp = array(
+                    'nome' => $premio->getNome(),
+                    'marca' => $premio->getMarca(),
+                    'id' => $premio->getId(),
+                    'descrizione' => $premio->getDescrizione(),
+                    'punti' => $premio->getPrezzoInPunti(),
+                    'dati' => $img,
+                    'mime' => $mime
+                );
+                $premi[]=$tmp;
+            }
+            $v=new VGestionePunti();
+            $v->mostraPremiAdmin($premi);
+        }        
+
+        else{
+
+            header("Location: ".$GLOBALS['path']."GestioneSchermate/recupera401");
+        }
     }
 
     /**
@@ -45,21 +76,26 @@ class CGestionePunti
      * @param string $id
      * @return EPremio
      */
-    public static function selezionaPremio(string $id) { //id del prodotto deve essere recuperato da qualche parte
+    public static function selezionaPremio(string $id) {
 
-        $pm=FPersistentManager::getInstance();
-        $premio=$pm->load('FPremio',$id);
-        /*$prize=array(
-            'nome'=>$premio->getNome(),
-            'id'=>$premio->getId(),
-            'marca'=>$premio->getMarca(),
-            'descrizione'=>$premio->getDescrizione(),
-            'punti'=>$premio->getPrezzoInPunti(),
-            'quantita'=>$premio->getQuantita(),
-            'mime'=>$premio->getImmagine()->getFormato(),
-            'dati'=>$premio->getImmagine()->getByte());*/
-        $v=new VGestionePunti();
-        $v->mostraDettagliPremio($premio);
+        $gs = CGestioneSessioni::getInstance();
+        if ($gs->isLoggedUser()){
+            $pm=FPersistentManager::getInstance();
+            $premio=$pm->load('FPremio',$id);
+            $v=new VGestionePunti();
+            $v->mostraDettagliPremioUser($premio);
+        }
+
+        else if ($gs->isLoggedAdmin()){
+            $pm=FPersistentManager::getInstance();
+            $premio=$pm->load('FPremio',$id);
+            $v=new VGestionePunti();
+            $v->mostraDettagliPremioAdmin($premio);
+        }        
+
+        else{
+            header("Location: ".$GLOBALS['path']."GestioneSchermate/recupera401");
+        }    
     }
 
     /**
@@ -71,30 +107,33 @@ class CGestionePunti
     public static function acquistaPremio(string $id){ //Si deve recuperare l'utente
 
         $pm = FPersistentManager::getInstance();
+        $gs = CGestioneSessioni::getInstance();
         //$user = $pm->load('FUtenteReg', $utente->getEmail());
-        $user = $pm->load('FUtenteReg', 'adarossi@gmail.com');        
-        $prize = $pm->load('FPremio', $id); 
-        $punti = $prize->getPrezzoInPunti() * $_POST['quantita'];
-        if ($punti <= $user->getPunti()){
+        if ($gs->isLoggedUser()) {
+            $user = $gs->caricaUtente();
+            $prize = $pm->load('FPremio', $id);
+            $punti = $prize->getPrezzoInPunti() * $_POST['quantita']; 
             $user->setPunti($user->getPunti() - $punti);
             $prize->setQuantita($prize->getQuantita() - $_POST['quantita']);
             $pm->update($user);
             $pm->update($prize);
+            $gs->salvaUtenteNoCookie($user);
 
-            return true;
+            self::recuperaPremi();
         }
+
         else{
-            print('ciao');
-
-            return false;
+                header("Location: " . $GLOBALS['path'] . "GestioneSchermate/recupera401");
+            }
         }
+        
 
         //$v = new VGestioneSchermate();
         //$v->showHome();
         //Gestire eccezioni se utente non ha abbastanza punti o se non c'è quantità a sufficienza di prodotti
         //Alla conferma appare un alert e il premio viene spedito all'indirizzo predefinito dell'utente
 
-    }
+
 
     /**
      * Metodo da usare quando un utente A vuole regalare parte dei suoi punti ad un utente B
@@ -163,28 +202,53 @@ class CGestionePunti
      */
     public static function aggiungiPremio(): void{
 
-        if((!isset($_FILES["file_inviato"])) || ($_FILES["file_inviato"]["error"] != UPLOAD_ERR_OK)) {
-        echo "Errore nell'invio del file. Riprova!";
+        $gs=CGestioneSessioni::getInstance();
+
+        if($gs->isLoggedAdmin()){
+            if((!isset($_FILES["file_inviato"])) || ($_FILES["file_inviato"]["error"] != UPLOAD_ERR_OK)) {
+            echo "Errore nell'invio del file. Riprova!";
+            }
+            // Connessione e selezione del database
+            $pm=FPersistentManager::getInstance();
+            $gs= CGestioneSessioni::getInstance();
+            // Recupero delle informazioni sul file inviato
+
+            $nome_file_temporaneo = $_FILES["file_inviato"]["tmp_name"];
+            $nome_file_vero = $_FILES["file_inviato"]["name"];
+            $tipo_file = $_FILES["file_inviato"]["type"];
+            // Leggo il contenuto del file
+
+            $dati_file = file_get_contents($nome_file_temporaneo);
+            $dati_file = addslashes($dati_file);
+            $imm=new EImmagine($nome_file_vero,$tipo_file,$dati_file);
+
+
+            $premio = new EPremio($_POST['nome'],$_POST['marca'],$_POST['descrizione'],$_POST['quantita'],$imm,$_POST['punti']);
+            $pm->store($premio);
+            $admin = $gs->caricaUtente();
+            $v = new VGestionePunti();
+            $v->mostraAggiungiPremi($admin);
         }
-        // Connessione e selezione del database
-        $pm=FPersistentManager::getInstance();
-        // Recupero delle informazioni sul file inviato
 
-        $nome_file_temporaneo = $_FILES["file_inviato"]["tmp_name"];
-        $nome_file_vero = $_FILES["file_inviato"]["name"];
-        $tipo_file = $_FILES["file_inviato"]["type"];
-        // Leggo il contenuto del file
+        else{
+            header("Location: ".$GLOBALS['path']."GestioneSchermate/recupera401");
 
-        $dati_file = file_get_contents($nome_file_temporaneo);
-        $dati_file = addslashes($dati_file);
-        $imm=new EImmagine($nome_file_vero,$tipo_file,$dati_file);
-
-
-        $premio = new EPremio($_POST['nome'],$_POST['marca'],$_POST['descrizione'],$_POST['quantita'],$imm,$_POST['punti']);
-        $pm->store($premio);
-        $v = new VGestionePunti();
-        $v->mostraAggiungiPremi();
+        }        
 
     }
+
+    public static function recuperaAggiungiPremio() {
+
+        $gs=CGestioneSessioni::getInstance();
+        if ($gs->isLoggedAdmin()){
+            $admin=$gs->caricaUtente();
+            $v = new VGestionePunti();
+            $v->mostraAggiungiPremi($admin);
+        }
+        else{
+            header("Location: ".$GLOBALS['path']."GestioneSchermate/recupera401");
+
+        }
+    }     
 
 }

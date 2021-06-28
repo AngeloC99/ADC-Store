@@ -1,4 +1,27 @@
-<!DOCTYPE html>
+<?php
+/* Smarty version 3.1.39, created on 2021-06-28 20:07:02
+  from 'C:\Users\david\public_html\ADC-Store\Smarty\smarty-dir\templates\profilebe.tpl' */
+
+/* @var Smarty_Internal_Template $_smarty_tpl */
+if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
+  'version' => '3.1.39',
+  'unifunc' => 'content_60da0fc6b96d66_67621614',
+  'has_nocache_code' => false,
+  'file_dependency' => 
+  array (
+    '042e4479267a073d5fbed0f8b8ee4c82f56bafc8' => 
+    array (
+      0 => 'C:\\Users\\david\\public_html\\ADC-Store\\Smarty\\smarty-dir\\templates\\profilebe.tpl',
+      1 => 1624903046,
+      2 => 'file',
+    ),
+  ),
+  'includes' => 
+  array (
+  ),
+),false)) {
+function content_60da0fc6b96d66_67621614 (Smarty_Internal_Template $_smarty_tpl) {
+?><!DOCTYPE html>
 <html lang="en">
 <head>
 
@@ -8,8 +31,10 @@
     <meta name="description" content="Multikart admin is super flexible, powerful, clean &amp; modern responsive bootstrap 4 admin template with unlimited possibilities.">
     <meta name="keywords" content="admin template, Multikart admin template, dashboard template, flat admin template, responsive admin template, web app">
     <meta name="author" content="pixelstrap">
-    <link rel="icon" href="{$path}Smarty/smarty-dir/assets/images/dashboard/favicon.png" type="image/x-icon">
-    <link rel="shortcut icon" href="{$path}Smarty/smarty-dir/assets/images/dashboard/favicon.png" type="image/x-icon">
+    <link rel="icon" href="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+Smarty/smarty-dir/assets/images/dashboard/favicon.png" type="image/x-icon">
+    <link rel="shortcut icon" href="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+Smarty/smarty-dir/assets/images/dashboard/favicon.png" type="image/x-icon">
     <title>ADC Store - Profilo Admin</title>
 
     <!-- Google font-->
@@ -17,16 +42,20 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
     <!-- Font Awesome-->
-    <link rel="stylesheet" type="text/css" href="{$path}Smarty/smarty-dir/assets/css/fontawesome.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+Smarty/smarty-dir/assets/css/fontawesome.css">
 
     <!-- Flag icon-->
-    <link rel="stylesheet" type="text/css" href="{$path}Smarty/smarty-dir/assets/css/flag-icon.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+Smarty/smarty-dir/assets/css/flag-icon.css">
 
     <!-- Bootstrap css-->
-    <link rel="stylesheet" type="text/css" href="{$path}Smarty/smarty-dir/assets/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+Smarty/smarty-dir/assets/css/bootstrap.css">
 
     <!-- App css-->
-    <link rel="stylesheet" type="text/css" href="{$path}Smarty/smarty-dir/assets/css/admin.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+Smarty/smarty-dir/assets/css/admin.css">
 </head>
 <body>
 
@@ -55,17 +84,22 @@
         <div class="page-sidebar">
             <div class="sidebar custom-scrollbar">
                 <div class="sidebar-user text-center">
-                    <div><img class="img-60 rounded-circle blur-up lazyloaded" src="{$path}Smarty/smarty-dir/assets/images/dashboard/man.png" alt="#">
+                    <div><img class="img-60 rounded-circle blur-up lazyloaded" src="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+Smarty/smarty-dir/assets/images/dashboard/man.png" alt="#">
                     </div>
-                    <h6 class="mt-3 f-14">Bentornato {$nome}</h6>
+                    <h6 class="mt-3 f-14">Bentornato <?php echo $_smarty_tpl->tpl_vars['nome']->value;?>
+</h6>
                     <p>Area Amministratore</p>
                 </div>
                 <ul class="sidebar-menu">
-                    <li><a class="sidebar-header" href="{$path}GestioneSchermate/recuperaHome"><i data-feather="home"></i><span>Home</span></a></li>
+                    <li><a class="sidebar-header" href="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+GestioneSchermate/recuperaHome"><i data-feather="home"></i><span>Home</span></a></li>
                     <li><a class="sidebar-header" href="#"><i data-feather="box"></i> <span>Prodotti</span><i class="fa fa-angle-right pull-right"></i></a>
                         <ul class="sidebar-submenu">
-                            <li><a href="{$path}GestioneProdotti/recuperaProdotti"><i class="fa fa-circle"></i>Lista Prodotti</a></li>
-                            <li><a href="{$path}GestioneProdotti/recuperaAggiungiProdotto"><i class="fa fa-circle"></i>Aggiungi Prodotto</a></li>
+                            <li><a href="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+GestioneProdotti/recuperaProdotti"><i class="fa fa-circle"></i>Lista Prodotti</a></li>
+                            <li><a href="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+GestioneProdotti/recuperaAggiungiProdotto"><i class="fa fa-circle"></i>Aggiungi Prodotto</a></li>
 
                         </ul>
 
@@ -73,29 +107,35 @@
                     </li>
                     <li><a class="sidebar-header" href="#"><i data-feather="box"></i> <span>Premi</span><i class="fa fa-angle-right pull-right"></i></a>
                         <ul class="sidebar-submenu">
-                            <li><a href="{$path}GestionePunti/recuperaPremi"><i class="fa fa-circle"></i>Lista Premi</a></li>
-                            <li><a href="{$path}GestioneSchermate/recuperaAggiungiPremi"><i class="fa fa-circle"></i>Aggiungi un premio</a></li>
+                            <li><a href="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+GestionePunti/recuperaPremi"><i class="fa fa-circle"></i>Lista Premi</a></li>
+                            <li><a href="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+GestioneSchermate/recuperaAggiungiPremi"><i class="fa fa-circle"></i>Aggiungi un premio</a></li>
 
                         </ul>
                     </li>                     
                     <li><a class="sidebar-header" href=""><i data-feather="dollar-sign"></i><span>Clienti</span><i class="fa fa-angle-right pull-right"></i></a>
                         <ul class="sidebar-submenu">
-                            <li><a href="{$path}GestioneUtenti/recuperaClienti"><i class="fa fa-circle"></i>Lista Clienti</a></li>
+                            <li><a href="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+GestioneUtenti/recuperaClienti"><i class="fa fa-circle"></i>Lista Clienti</a></li>
                         </ul>
                     </li>
                     <li><a class="sidebar-header" href=""><i data-feather="tag"></i><span>Buoni Sconto</span><i class="fa fa-angle-right pull-right"></i></a>
                         <ul class="sidebar-submenu">
-                            <li><a href="{$path}GestioneBuoni/inviaBuono"><i class="fa fa-circle"></i>Regala Buono</a></li>
+                            <li><a href="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+GestioneBuoni/inviaBuono"><i class="fa fa-circle"></i>Regala Buono</a></li>
                         </ul>
                     </li>
 
 
                     <li><a class="sidebar-header" href=""><i data-feather="settings" ></i><span>Profilo</span><i class="fa fa-angle-right pull-right"></i></a>
                         <ul class="sidebar-submenu">
-                            <li><a href="{$path}GestioneSchermate/apriProfilo"><i class="fa fa-circle"></i>Visita Profilo</a></li>
+                            <li><a href="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+GestioneSchermate/apriProfilo"><i class="fa fa-circle"></i>Visita Profilo</a></li>
                         </ul>
                         <ul class="sidebar-submenu">
-                            <li><a href="{$path}GestioneUtenti/logout"><i class="fa fa-circle"></i>Logout</a></li>
+                            <li><a href="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+GestioneUtenti/logout"><i class="fa fa-circle"></i>Logout</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -121,49 +161,56 @@
                     <div class="chat-box">
                         <div class="people-list friend-list">
                             <ul class="list">
-                                <li class="clearfix"><img class="rounded-circle user-image blur-up lazyloaded" src="{$path}Smarty/smarty-dir/assets/images/dashboard/user.png" alt="">
+                                <li class="clearfix"><img class="rounded-circle user-image blur-up lazyloaded" src="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+Smarty/smarty-dir/assets/images/dashboard/user.png" alt="">
                                     <div class="status-circle online"></div>
                                     <div class="about">
                                         <div class="name">Vincent Porter</div>
                                         <div class="status"> Online</div>
                                     </div>
                                 </li>
-                                <li class="clearfix"><img class="rounded-circle user-image blur-up lazyloaded" src="{$path}Smarty/smarty-dir/assets/images/dashboard/user1.jpg" alt="">
+                                <li class="clearfix"><img class="rounded-circle user-image blur-up lazyloaded" src="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+Smarty/smarty-dir/assets/images/dashboard/user1.jpg" alt="">
                                     <div class="status-circle away"></div>
                                     <div class="about">
                                         <div class="name">Ain Chavez</div>
                                         <div class="status"> 28 minutes ago</div>
                                     </div>
                                 </li>
-                                <li class="clearfix"><img class="rounded-circle user-image blur-up lazyloaded" src="{$path}Smarty/smarty-dir/assets/images/dashboard/user2.jpg" alt="">
+                                <li class="clearfix"><img class="rounded-circle user-image blur-up lazyloaded" src="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+Smarty/smarty-dir/assets/images/dashboard/user2.jpg" alt="">
                                     <div class="status-circle online"></div>
                                     <div class="about">
                                         <div class="name">Kori Thomas</div>
                                         <div class="status"> Online</div>
                                     </div>
                                 </li>
-                                <li class="clearfix"><img class="rounded-circle user-image blur-up lazyloaded" src="{$path}Smarty/smarty-dir/assets/images/dashboard/user3.jpg" alt="">
+                                <li class="clearfix"><img class="rounded-circle user-image blur-up lazyloaded" src="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+Smarty/smarty-dir/assets/images/dashboard/user3.jpg" alt="">
                                     <div class="status-circle online"></div>
                                     <div class="about">
                                         <div class="name">Erica Hughes</div>
                                         <div class="status"> Online</div>
                                     </div>
                                 </li>
-                                <li class="clearfix"><img class="rounded-circle user-image blur-up lazyloaded" src="{$path}Smarty/smarty-dir/assets/images/dashboard/man.png" alt="">
+                                <li class="clearfix"><img class="rounded-circle user-image blur-up lazyloaded" src="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+Smarty/smarty-dir/assets/images/dashboard/man.png" alt="">
                                     <div class="status-circle offline"></div>
                                     <div class="about">
                                         <div class="name">Ginger Johnston</div>
                                         <div class="status"> 2 minutes ago</div>
                                     </div>
                                 </li>
-                                <li class="clearfix"><img class="rounded-circle user-image blur-up lazyloaded" src="{$path}Smarty/smarty-dir/assets/images/dashboard/user5.jpg" alt="">
+                                <li class="clearfix"><img class="rounded-circle user-image blur-up lazyloaded" src="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+Smarty/smarty-dir/assets/images/dashboard/user5.jpg" alt="">
                                     <div class="status-circle away"></div>
                                     <div class="about">
                                         <div class="name">Prasanth Anand</div>
                                         <div class="status"> 2 hour ago</div>
                                     </div>
                                 </li>
-                                <li class="clearfix"><img class="rounded-circle user-image blur-up lazyloaded" src="{$path}Smarty/smarty-dir/assets/images/dashboard/designer.jpg" alt="">
+                                <li class="clearfix"><img class="rounded-circle user-image blur-up lazyloaded" src="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+Smarty/smarty-dir/assets/images/dashboard/designer.jpg" alt="">
                                     <div class="status-circle online"></div>
                                     <div class="about">
                                         <div class="name">Hileri Jecno</div>
@@ -220,15 +267,18 @@
                                                 <tbody>
                                                 <tr>
                                                     <td>Nome:</td>
-                                                    <td>{$nome}</td>
+                                                    <td><?php echo $_smarty_tpl->tpl_vars['nome']->value;?>
+</td>
                                                 </tr>
                                                 <tr>
                                                     <td>Cognome:</td>
-                                                    <td>{$cognome}</td>
+                                                    <td><?php echo $_smarty_tpl->tpl_vars['cognome']->value;?>
+</td>
                                                 </tr>
                                                 <tr>
                                                     <td>Email:</td>
-                                                    <td>{$email}</td>
+                                                    <td><?php echo $_smarty_tpl->tpl_vars['email']->value;?>
+</td>
                                                 </tr>
                                                 <tr>
                                                     <td>Paese:</td>
@@ -268,30 +318,62 @@
 </div>
 
 <!-- latest jquery-->
-<script src="{$path}Smarty/smarty-dir/assets/js/jquery-3.3.1.min.js"></script>
+<?php echo '<script'; ?>
+ src="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+Smarty/smarty-dir/assets/js/jquery-3.3.1.min.js"><?php echo '</script'; ?>
+>
 
 <!-- Bootstrap js-->
-<script src="{$path}Smarty/smarty-dir/assets/js/popper.min.js"></script>
-<script src="{$path}Smarty/smarty-dir/assets/js/bootstrap.js"></script>
+<?php echo '<script'; ?>
+ src="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+Smarty/smarty-dir/assets/js/popper.min.js"><?php echo '</script'; ?>
+>
+<?php echo '<script'; ?>
+ src="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+Smarty/smarty-dir/assets/js/bootstrap.js"><?php echo '</script'; ?>
+>
 
 <!-- feather icon js-->
-<script src="{$path}Smarty/smarty-dir/assets/js/icons/feather-icon/feather.min.js"></script>
-<script src="{$path}Smarty/smarty-dir/assets/js/icons/feather-icon/feather-icon.js"></script>
+<?php echo '<script'; ?>
+ src="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+Smarty/smarty-dir/assets/js/icons/feather-icon/feather.min.js"><?php echo '</script'; ?>
+>
+<?php echo '<script'; ?>
+ src="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+Smarty/smarty-dir/assets/js/icons/feather-icon/feather-icon.js"><?php echo '</script'; ?>
+>
 
 <!-- Sidebar jquery-->
-<script src="{$path}Smarty/smarty-dir/assets/js/sidebar-menu.js"></script>
+<?php echo '<script'; ?>
+ src="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+Smarty/smarty-dir/assets/js/sidebar-menu.js"><?php echo '</script'; ?>
+>
 
 <!--Customizer admin-->
-<script src="{$path}Smarty/smarty-dir/assets/js/admin-customizer.js"></script>
+<?php echo '<script'; ?>
+ src="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+Smarty/smarty-dir/assets/js/admin-customizer.js"><?php echo '</script'; ?>
+>
 
 <!-- lazyload js-->
-<script src="{$path}Smarty/smarty-dir/assets/js/lazysizes.min.js"></script>
+<?php echo '<script'; ?>
+ src="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+Smarty/smarty-dir/assets/js/lazysizes.min.js"><?php echo '</script'; ?>
+>
 
 <!--right sidebar js-->
-<script src="{$path}Smarty/smarty-dir/assets/js/chat-menu.js"></script>
+<?php echo '<script'; ?>
+ src="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+Smarty/smarty-dir/assets/js/chat-menu.js"><?php echo '</script'; ?>
+>
 
 <!--script admin-->
-<script src="{$path}Smarty/smarty-dir/assets/js/admin-script.js"></script>
+<?php echo '<script'; ?>
+ src="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+Smarty/smarty-dir/assets/js/admin-script.js"><?php echo '</script'; ?>
+>
 
 </body>
 </html>
+<?php }
+}

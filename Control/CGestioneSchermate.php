@@ -78,10 +78,18 @@ class CGestioneSchermate
         $v->mostraHomeUtente();
     }
 
-    public static function recuperaAggiungiPremio() {
+    public static function recuperaHomeAdmin() {
+        $v = new VGestioneUtenti();
+        $v->mostraHomeAdmin();
+    }
+
+
+    public static function recuperaAggiungiPremi() {
         $v = new VGestionePunti();
         $v->mostraAggiungiPremi();
     }    
+
+   
 
 
 

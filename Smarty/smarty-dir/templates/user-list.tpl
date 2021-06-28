@@ -70,7 +70,7 @@
                 <div class="sidebar-user text-center">
                     <div><img class="img-60 rounded-circle blur-up lazyloaded" src="{$path}Smarty/smarty-dir/assets/images/dashboard/man.png" alt="#">
                     </div>
-                        <h6 class="mt-3 f-14">Chiara</h6>
+                        <h6 class="mt-3 f-14">{$nomeadmin}</h6>
                     <p>Area Amministratore</p>
                 </div>
                 <ul class="sidebar-menu">
@@ -85,8 +85,8 @@
                     </li>
                     <li><a class="sidebar-header" href="#"><i data-feather="box"></i> <span>Premi</span><i class="fa fa-angle-right pull-right"></i></a>
                         <ul class="sidebar-submenu">
-                            <li><a href="product-list.tpl"><i class="fa fa-circle"></i>Lista Premi</a></li>
-                            <li><a href="aggiungi-premi.tpl"><i class="fa fa-circle"></i>Aggiungi un premio</a></li>
+                            <li><a href="{$path}GestionePunti/recuperaPremi"><i class="fa fa-circle"></i>Lista Premi</a></li>
+                            <li><a href="{$path}GestioneSchermate/recuperaAggiungiPremi"><i class="fa fa-circle"></i>Aggiungi un premio</a></li>
 
                         </ul>
                     </li>                    

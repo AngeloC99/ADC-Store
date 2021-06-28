@@ -1,17 +1,17 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-06-28 18:58:42
-  from 'C:\Users\david\public_html\ADC-Store\Smarty\smarty-dir\templates\loginfe.tpl' */
+/* Smarty version 3.1.39, created on 2021-06-28 22:22:52
+  from 'C:\Users\david\public_html\ADC-Store\Smarty\smarty-dir\templates\register.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_60d9ffc2f14ad0_52868367',
+  'unifunc' => 'content_60da2f9ca11653_63405624',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    '22510075bdc56c17dd930f5dffde82b3c2aea496' => 
+    'ec455c610dfe85ea0b6888883d783d25d66dbdd7' => 
     array (
-      0 => 'C:\\Users\\david\\public_html\\ADC-Store\\Smarty\\smarty-dir\\templates\\loginfe.tpl',
+      0 => 'C:\\Users\\david\\public_html\\ADC-Store\\Smarty\\smarty-dir\\templates\\register.tpl',
       1 => 1624899455,
       2 => 'file',
     ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_60d9ffc2f14ad0_52868367 (Smarty_Internal_Template $_smarty_tpl) {
+function content_60da2f9ca11653_63405624 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en">
 
@@ -28,14 +28,14 @@ function content_60d9ffc2f14ad0_52868367 (Smarty_Internal_Template $_smarty_tpl)
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="description" content="ADCStore">
-    <meta name="keywords" content="ADCStore">
-    <meta name="author" content="ADCStore">
+    <meta name="description" content="multikart">
+    <meta name="keywords" content="multikart">
+    <meta name="author" content="multikart">
     <link rel="icon" href="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
 Smarty/smarty-dir/assets/images/favicon/1.png" type="image/x-icon">
     <link rel="shortcut icon" href="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
 Smarty/smarty-dir/assets/images/favicon/1.png" type="image/x-icon">
-    <title>ADC Store - Login</title>
+    <title>ADC-Store - Registrazione</title>
 
     <!--Google font-->
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet">
@@ -87,7 +87,6 @@ Smarty/smarty-dir/assets/css/color1.css" media="screen" id="color">
                 </div>
             </div>
         </div>
-
         <div class="container">
             <div class="row">
                 <div class="col-sm-12">
@@ -95,8 +94,7 @@ Smarty/smarty-dir/assets/css/color1.css" media="screen" id="color">
                         <div class="menu-left">
                             
                             <div class="brand-logo">
-                                <a href="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
-GestioneSchermate/showHome"> <img src="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+                                <a href="index.html"> <img src="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
 Smarty/smarty-dir/assets/images/icon/logo.png"
                                         class="img-fluid blur-up lazyload" alt="" hspace="400"></a>
                             </div>
@@ -104,6 +102,7 @@ Smarty/smarty-dir/assets/images/icon/logo.png"
                 </div>
             </div>
         </div>
+
     </header>
     <!-- header end -->
 
@@ -114,15 +113,14 @@ Smarty/smarty-dir/assets/images/icon/logo.png"
             <div class="row">
                 <div class="col-sm-6">
                     <div class="page-title">
-                        <h2>Login utente</h2>
+                        <h2>crea account</h2>
                     </div>
                 </div>
                 <div class="col-sm-6">
                     <nav aria-label="breadcrumb" class="theme-breadcrumb">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
-GestioneSchermate/showHome">Home</a></li>
-                            <li class="breadcrumb-item active">login</li>
+                            <li class="breadcrumb-item"><a href="home.tpl">Home</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">crea account</li>
                         </ol>
                     </nav>
                 </div>
@@ -133,36 +131,41 @@ GestioneSchermate/showHome">Home</a></li>
 
 
     <!--section start-->
-    <section class="login-page section-b-space">
+    <section class="register-page section-b-space">
         <div class="container">
             <div class="row">
-                <div class="col-lg-6">
-                    <h3>Login</h3>
+                <div class="col-lg-12">
+                    <h3>crea account</h3>
                     <div class="theme-card">
                         <form class="theme-form" method="post" action="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
-GestioneUtenti/login">
-                            <div class="form-group">
-                                <label for="email">Email</label>
-                                <input type="text" class="form-control" id="email" placeholder="Inserisci la tua E-mail" required="" name="email">
+GestioneUtenti/registra">
+                            <div class="form-row">
+                                <div class="col-md-6">
+                                    <label for="email">Nome</label>
+                                    <input type="text" class="form-control" id="fname" placeholder="First Name" name="nome"
+                                        required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="review">Cognome</label>
+                                    <input type="text" class="form-control" id="lname" placeholder="Last Name" name="cognome"
+                                        required>
+                                </div>
                             </div>
-                            <div class="form-group">
-                                <label for="review">Password</label>
-                                <input type="password" class="form-control" id="review"
-                                    placeholder="Inserisci la tua password" required="" name="password">
+                            <div class="form-row">
+                                <div class="col-md-6">
+                                    <label for="email">Email</label>
+                                    <input type="text" class="form-control" id="email" placeholder="Email" required name="email">
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="review">Password</label>
+                                    <input type="password" class="form-control" id="review"
+                                        placeholder="Enter your password" required name="password">
+                                </div>
+                                <button type="submit" class="btn btn-solid" href="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+GestioneSchermate/recuperaLogin" onclick="Funzione1()">Crea Account</button>
+
                             </div>
-                            <button type="submit" class="btn btn-solid" href="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
-GestioneUtenti/login" >Accedi</button>
                         </form>
-                    </div>
-                </div>
-                <div class="col-lg-6 right-login">
-                    <h3>Nuovo cliente</h3>
-                    <div class="theme-card authentication-right">
-                        <h6 class="title-font">Crea Account</h6>
-                        <p>Registrati per avere un account gratuito tutto tuo presso il nostro negozio. La registrazione è semplice e veloce e ti permette di fare acquisti sul nostro sito oltre a molte altre funzionalità aggiuntive. 
-                        Per entrare in questo mondo clicca su registrati.</p>
-                        <a href="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
-GestioneUtenti/recuperaCreazioneAccount" class="btn btn-solid">Crea Account</a>
                     </div>
                 </div>
             </div>
@@ -173,7 +176,49 @@ GestioneUtenti/recuperaCreazioneAccount" class="btn btn-solid">Crea Account</a>
 
     <!-- footer start -->
     <footer class="footer-light">
+        
+        <section class="section-b-space light-layout">
+            <div class="container">
+                <div class="row footer-theme partition-f">
+                    <div class="col-lg-4 col-md-6">
+                        <div class="footer-title footer-mobile-title">
+                            <h4>about</h4>
+                        </div>
+                        <div class="footer-contant">
+                            <div class="footer-logo"><img src="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+Smarty/smarty-dir/assets/images/icon/logo.png" alt=""></div>
+                            <p>ADC Store da sempre si impegna a soddisfare le esigenze di tutti i suoi consumatori.</p>
+                            <div class="footer-social">
+                                <ul>
+                                    <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-rss" aria-hidden="true"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
 
+                    <div class="col">
+                        <div class="sub-title">
+                            <div class="footer-title">
+                                <h4>Informazioni generali: </h4>
+                            </div>
+                            <div class="footer-contant">
+                                <ul class="contact-list">
+                                    <li><i class="fa fa-map-marker"></i>ADC Store, via Roma 118 (Avezzano, AQ)
+                                    </li>
+                                    <li><i class="fa fa-phone"></i>Call Us: (+39)331 4100000</li>
+                                    <li><i class="fa fa-envelope-o"></i>Email: adcstore2021@gmail.com</li>
+                                    <li><i class="fa fa-fax"></i>Fax: 123456</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
         <div class="sub-footer">
             <div class="container">
                 <div class="row">
@@ -994,6 +1039,13 @@ Smarty/smarty-dir/assets/js/script.js"><?php echo '</script'; ?>
 
         function closeSearch() {
             document.getElementById("search-overlay").style.display = "none";
+        }
+    <?php echo '</script'; ?>
+>
+    <?php echo '<script'; ?>
+>
+        function Funzione1() {
+            alert("Complimenti, la registrazione è andata a buon fine.");
         }
     <?php echo '</script'; ?>
 >

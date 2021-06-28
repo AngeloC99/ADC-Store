@@ -44,7 +44,9 @@ class VGestioneUtenti {
     }
 
     public function mostraClienti($clienti) {
+        $gs = CGestioneSessioni::getInstance();
         $this->smarty->assign("path", $GLOBALS["path"]);
+        $this->smarty->assign("nomeadmin", $gs->caricaUtente()->getNome());
         $this->smarty->assign("clienti", $clienti);
         $this->smarty->display('user-list.tpl');
     }
