@@ -1,10 +1,9 @@
 <?php
 
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\SMTP;
-require('C:\Users\angel\public_html\ADC-Store\PHPMailer-master\src\PHPMailer.php');
-require('C:\Users\angel\public_html\ADC-Store\PHPMailer-master\src\Exception.php');
-require('C:\Users\angel\public_html\ADC-Store\PHPMailer-master\src\SMTP.php');
+
+include 'C:\Users\rommy\public_html\ADC-Store\PHPMailer-master\src\PHPMailer.php';
+include 'C:\Users\rommy\public_html\ADC-Store\PHPMailer-master\src\Exception.php';
+include 'C:\Users\rommy\public_html\ADC-Store\PHPMailer-master\src\SMTP.php';
 
 
 

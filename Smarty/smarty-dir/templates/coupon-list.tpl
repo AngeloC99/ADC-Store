@@ -8,28 +8,28 @@
     <meta name="description" content="Multikart admin is super flexible, powerful, clean &amp; modern responsive bootstrap 4 admin template with unlimited possibilities.">
     <meta name="keywords" content="admin template, Multikart admin template, dashboard template, flat admin template, responsive admin template, web app">
     <meta name="author" content="pixelstrap">
-    <link rel="icon" href="../assets/images/dashboard/favicon.png" type="image/x-icon">
-    <link rel="shortcut icon" href="../assets/images/dashboard/favicon.png" type="image/x-icon">
-    <title>Multikart - Premium Admin Template</title>
+    <link rel="icon" href="{$path}Smarty/smarty-dir/assets/images/dashboard/favicon.png" type="image/x-icon">
+    <link rel="shortcut icon" href="{$path}Smarty/smarty-dir/assets/images/dashboard/favicon.png" type="image/x-icon">
+    <title>ADC Store - Area Utente Registrato</title>
 
     <!-- Google font-->
     <link href="https://fonts.googleapis.com/css?family=Work+Sans:100,200,300,400,500,600,700,800,900" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
     <!-- Font Awesome-->
-    <link rel="stylesheet" type="text/css" href="../assets/css/fontawesome.css">
+    <link rel="stylesheet" type="text/css" href="{$path}Smarty/smarty-dir/assets/css/fontawesome.css">
 
     <!-- Flag icon-->
-    <link rel="stylesheet" type="text/css" href="../assets/css/flag-icon.css">
+    <link rel="stylesheet" type="text/css" href="{$path}Smarty/smarty-dir/assets/css/flag-icon.css">
 
     <!-- jsgrid css-->
-    <link rel="stylesheet" type="text/css" href="../assets/css/jsgrid.css">
+    <link rel="stylesheet" type="text/css" href="{$path}Smarty/smarty-dir/assets/css/jsgrid.css">
 
     <!-- Bootstrap css-->
-    <link rel="stylesheet" type="text/css" href="../assets/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="{$path}Smarty/smarty-dir/assets/css/bootstrap.css">
 
     <!-- App css-->
-    <link rel="stylesheet" type="text/css" href="../assets/css/admin.css">
+    <link rel="stylesheet" type="text/css" href="{$path}Smarty/smarty-dir/assets/css/admin.css">
 </head>
 <body>
 
@@ -107,49 +107,49 @@
                     <div class="chat-box">
                         <div class="people-list friend-list">
                             <ul class="list">
-                                <li class="clearfix"><img class="rounded-circle user-image blur-up lazyloaded" src="../assets/images/dashboard/man.png" alt="">
+                                <li class="clearfix"><img class="rounded-circle user-image blur-up lazyloaded" src="{$path}Smarty/smarty-dir/assets/images/dashboard/man.png" alt="">
                                     <div class="status-circle online"></div>
                                     <div class="about">
                                         <div class="name">Vincent Porter</div>
                                         <div class="status"> Online</div>
                                     </div>
                                 </li>
-                                <li class="clearfix"><img class="rounded-circle user-image blur-up lazyloaded" src="../assets/images/dashboard/user1.jpg" alt="">
+                                <li class="clearfix"><img class="rounded-circle user-image blur-up lazyloaded" src="{$path}Smarty/smarty-dir/assets/images/dashboard/user1.jpg" alt="">
                                     <div class="status-circle away"></div>
                                     <div class="about">
                                         <div class="name">Ain Chavez</div>
                                         <div class="status"> 28 minutes ago</div>
                                     </div>
                                 </li>
-                                <li class="clearfix"><img class="rounded-circle user-image blur-up lazyloaded" src="../assets/images/dashboard/user2.jpg" alt="">
+                                <li class="clearfix"><img class="rounded-circle user-image blur-up lazyloaded" src="{$path}Smarty/smarty-dir/assets/images/dashboard/user2.jpg" alt="">
                                     <div class="status-circle online"></div>
                                     <div class="about">
                                         <div class="name">Kori Thomas</div>
                                         <div class="status"> Online</div>
                                     </div>
                                 </li>
-                                <li class="clearfix"><img class="rounded-circle user-image blur-up lazyloaded" src="../assets/images/dashboard/user3.jpg" alt="">
+                                <li class="clearfix"><img class="rounded-circle user-image blur-up lazyloaded" src="{$path}Smarty/smarty-dir/assets/images/dashboard/user3.jpg" alt="">
                                     <div class="status-circle online"></div>
                                     <div class="about">
                                         <div class="name">Erica Hughes</div>
                                         <div class="status"> Online</div>
                                     </div>
                                 </li>
-                                <li class="clearfix"><img class="rounded-circle user-image blur-up lazyloaded" src="../assets/images/dashboard/man.png" alt="">
+                                <li class="clearfix"><img class="rounded-circle user-image blur-up lazyloaded" src="{$path}Smarty/smarty-dir/assets/images/dashboard/man.png" alt="">
                                     <div class="status-circle offline"></div>
                                     <div class="about">
                                         <div class="name">Ginger Johnston</div>
                                         <div class="status"> 2 minutes ago</div>
                                     </div>
                                 </li>
-                                <li class="clearfix"><img class="rounded-circle user-image blur-up lazyloaded" src="../assets/images/dashboard/man.jpg" alt="">
+                                <li class="clearfix"><img class="rounded-circle user-image blur-up lazyloaded" src="{$path}Smarty/smarty-dir/assets/images/dashboard/man.jpg" alt="">
                                     <div class="status-circle away"></div>
                                     <div class="about">
                                         <div class="name">Prasanth Anand</div>
                                         <div class="status"> 2 hour ago</div>
                                     </div>
                                 </li>
-                                <li class="clearfix"><img class="rounded-circle user-image blur-up lazyloaded" src="../assets/images/dashboard/designer.jpg" alt="">
+                                <li class="clearfix"><img class="rounded-circle user-image blur-up lazyloaded" src="{$path}Smarty/smarty-dir/assets/images/dashboard/designer.jpg" alt="">
                                     <div class="status-circle online"></div>
                                     <div class="about">
                                         <div class="name">Hileri Jecno</div>
@@ -233,35 +233,35 @@
 </div>
 
 <!-- latest jquery-->
-<script src="../assets/js/jquery-3.3.1.min.js"></script>
+<script src="{$path}Smarty/smarty-dir/assets/js/jquery-3.3.1.min.js"></script>
 
 <!-- Bootstrap js-->
-<script src="../assets/js/popper.min.js"></script>
-<script src="../assets/js/bootstrap.js"></script>
+<script src="{$path}Smarty/smarty-dir/assets/js/popper.min.js"></script>
+<script src="{$path}Smarty/smarty-dir/assets/js/bootstrap.js"></script>
 
 <!-- feather icon js-->
-<script src="../assets/js/icons/feather-icon/feather.min.js"></script>
-<script src="../assets/js/icons/feather-icon/feather-icon.js"></script>
+<script src="{$path}Smarty/smarty-dir/assets/js/icons/feather-icon/feather.min.js"></script>
+<script src="{$path}Smarty/smarty-dir/assets/js/icons/feather-icon/feather-icon.js"></script>
 
 <!-- Sidebar jquery-->
-<script src="../assets/js/sidebar-menu.js"></script>
+<script src="{$path}Smarty/smarty-dir/assets/js/sidebar-menu.js"></script>
 
 <!-- Jsgrid js-->
-<script src="../assets/js/jsgrid/jsgrid.min.js"></script>
-<script src="../assets/js/jsgrid/griddata-discount-coupon.js"></script>
-<script src="../assets/js/jsgrid/jsgrid-discount-coupon.js"></script>
+<script src="{$path}Smarty/smarty-dir/assets/js/jsgrid/jsgrid.min.js"></script>
+<script src="{$path}Smarty/smarty-dir/assets/js/jsgrid/griddata-discount-coupon.js"></script>
+<script src="{$path}Smarty/smarty-dir/assets/js/jsgrid/jsgrid-discount-coupon.js"></script>
 
 <!--Customizer admin-->
-<script src="../assets/js/admin-customizer.js"></script>
+<script src="{$path}Smarty/smarty-dir/assets/js/admin-customizer.js"></script>
 
 <!-- lazyload js-->
-<script src="../assets/js/lazysizes.min.js"></script>
+<script src="{$path}Smarty/smarty-dir/assets/js/lazysizes.min.js"></script>
 
 <!--right sidebar js-->
-<script src="../assets/js/chat-menu.js"></script>
+<script src="{$path}Smarty/smarty-dir/assets/js/chat-menu.js"></script>
 
 <!--script admin-->
-<script src="../assets/js/admin-script.js"></script>
+<script src="{$path}Smarty/smarty-dir/assets/js/admin-script.js"></script>
 
 </body>
 </html>

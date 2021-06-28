@@ -93,7 +93,7 @@
                                                 <a href="{$path}GestioneSchermate/recuperaGestioneCarrelliSalvati">Carrelli preferiti</a>
                                             </li>
                                             <li>
-                                                <a href="#">Buoni sconto</a>
+                                                <a href="{$path}GestioneBuoni/recuperaBuoni">Buoni sconto</a>
                                             </li>
                                             <li>
                                                 <a href="{$path}GestioneSchermate/recuperaFormPunti">Regala punti</a>

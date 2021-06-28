@@ -9,37 +9,41 @@ require('C:\Users\rommy\public_html\ADC-Store\PHPMailer-master\src\SMTP.php');
 class CGestioneBuoni
 {
 
-    public static function recuperaBuoni(EUtenteReg $utente){
-        $email=$utente->getEmail();
-        $pm = FPersistentManager::getInstance();
-        $buoniUtente=$pm->prelevaBuoni($email);
-        $buoni=array();
-        foreach ($buoniUtente as $key=>$item){
-            $buono=$pm->load('FBuonoSconto',$key);
-            if ($buono->isPercentuale()) {
-                $el = array(
-                    'codice' => $buono->getCodice(),
-                    'ammontare' => "-" . $buono->getAmmontare() . "%",
-                    'scadenza' => date_format($buono->getScadenza(), 'd-m-Y')
-                );
-            }
-            else{
-                $el = array(
-                    'codice' => $buono->getCodice(),
-                    'ammontare' => "-" . $buono->getAmmontare() . "€",
-                    'scadenza' => date_format($buono->getScadenza(), 'd-m-Y')
-                );
+    public static function recuperaBuoni(){
+        $gs=CGestioneSessioni::getInstance();
+        if ($gs->isLoggedUser()) {
+            $utente=$gs->caricaUtente();
+            $email = $utente->getEmail();
+            $pm = FPersistentManager::getInstance();
+            $buoniUtente = $pm->prelevaBuoni($email);
+            $buoni = array();
+            foreach ($buoniUtente as $key => $item) {
+                if ($item->isPercentuale()) {
+                    $el = array(
+                        'codice' => $item->getCodice(),
+                        'ammontare' => "-" . $item->getAmmontare() . "%",
+                        'scadenza' => date_format($item->getScadenza(), 'd-m-Y')
+                    );
+                } else {
+                    $el = array(
+                        'codice' => $item->getCodice(),
+                        'ammontare' => "-" . $item->getAmmontare() . "€",
+                        'scadenza' => date_format($item->getScadenza(), 'd-m-Y')
+                    );
 
+                }
+                $buoni[] = $el;
             }
-            $buoni[]=$el;
-            }
-
-        $v=new VGestioneBuoni();
-        $v->mostraBuoni($buoni,$utente);
+            $v = new VGestioneBuoni();
+            $v->mostraBuoni($buoni, $utente);
+        }
+        else {
+            CGestioneSchermate::recupera401();
+        }
 
     }
 
-    public static function inviaBuono(): bool{
+    public static function inviaBuono(){
         $gs=CGestioneSessioni::getInstance();
         if ($gs->isLoggedAdmin()){
             $admin=$gs->caricaUtente();
@@ -67,6 +71,8 @@ class CGestioneBuoni
         //setta i valori del buono nell'email ...ancora da risolvere per l'immagine
         $v=new VGestioneBuoni();
         $mail->Body = $v->datiBsEmail($buono);
+        $pm=FPersistentManager::getInstance();
+        $pm->store($buono,$_POST['email']);
         $v->mostraCreazioneBuono();
         if(!$mail->Send()) {
             return false;
