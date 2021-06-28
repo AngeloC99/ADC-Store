@@ -50,7 +50,7 @@
                         <div class="menu-left">
                             <div class="navbar">
                             
-                            <div class="brand-logo"><a href="{$path}GestioneSchermate/recuperaHomeUtente"><img src="{$path}Smarty/smarty-dir/assets/images/icon/logo.png"
+                            <div class="brand-logo"><a href="{$path}GestioneSchermate/recuperaHome"><img src="{$path}Smarty/smarty-dir/assets/images/icon/logo.png"
                                         class="img-fluid blur-up lazyload" alt=""></a></div>
                         </div>
                            <div class="menu-right pull-right">

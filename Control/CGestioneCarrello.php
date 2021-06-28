@@ -17,12 +17,22 @@ class CGestioneCarrello
     }
 
     public static function aggiungiAlCarrello() {
-        // Con le sessioni
+        $gs = CGestioneSessioni::getInstance();
+        $pm = FPersistentManager::getInstance();
+        $prodotto = $pm->load("FProdotto", $_POST['idProdotto']);
+        $carrello = $gs->caricaCarrello();
+        $carrello->aggiungiProdotto($prodotto, $_POST['quantita']);
+        $gs->salvaCarrello($carrello);
+        header("Location: ".$GLOBALS['path']."GestioneProdotti/recuperaDettagli/".$_POST['idProdotto']);
     }
 
     public static function modificaQuantita() {
-
-
+        $gs = CGestioneSessioni::getInstance();
+        $pm = FPersistentManager::getInstance();
+        $prodotto = $pm->load("FProdotto", $_POST['idProdotto']);
+        $carrello = $gs->caricaCarrello();
+        $carrello->modificaQuantita($prodotto, $_POST['quantita']);
+        $gs->salvaCarrello($carrello);
         header("Location: ".$GLOBALS['path']."GestioneCarrello/recuperaCarrello");
     }
 
@@ -64,6 +74,12 @@ class CGestioneCarrello
         $pm->store($ordine);
         $pm->update($carta);
         $pm->update($utente);
+
+        foreach ($carrello->getProdotti() as $idProdotto => $quantita) {
+            $prodotto = $pm->load("FProdotto", $idProdotto);
+            $prodotto->setQuantita($prodotto->getQuantita() - $quantita);
+            $pm->update($prodotto);
+        }
 
         $gs->salvaCarrello(new ECarrello());      // Avvia un nuovo carrello vuoto in sessione
 

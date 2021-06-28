@@ -42,15 +42,9 @@ class CGestioneSchermate
             $v->mostraHomeAdmin();
         }
         else{
-            header("Location: ".$GLOBALS['path']."GestioneSchermate/recupera401");
-
+            header("Location: ".$GLOBALS['path']."GestioneSchermate/showHome");
         }
 
-    }
-
-    public static function recuperaHomeAdmin() {
-        $v = new VGestioneUtenti();
-        $v->mostraHomeAdmin();
     }
 
     public static function recuperaFormPunti() {

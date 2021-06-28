@@ -49,17 +49,6 @@
                                 <a href="#"><img src="{$path}Smarty/smarty-dir/assets/images/icon/logo.png" class="img-fluid blur-up lazyload"
                                         alt=""></a>
                             </div>
-                            <div class="menu-right pull-right">
-                                <div class="icon-nav d-none d-sm-block">
-                                    <ul>
-                                        <li class="onhover-div mobile-search">
-                                            <div><img src="{$path}Smarty/smarty-dir/assets/images/icon/search.png" onclick="openSearch()"
-                                                    class="img-fluid blur-up lazyload" alt=""> <i class="ti-search"
-                                                    onclick="openSearch()"></i></div>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -301,7 +290,7 @@
                                 <li>
                                     <a href="{$path}GestionePunti/recuperaPremi">Premi</a>
                                 </li>
-                                <li><a href="#">Account</a>
+                                <li><a href="">Account</a>
                                             <ul>
                                                 <li><a href="{$path}GestioneSchermate/apriProfilo" data-lng="en">Il mio profilo ADC-Store</a></li>
                                                 <li><a href="{$path}GestioneSchermate/recuperaGestioneCarrello" data-lng="en">Carrello della spesa</a></li>

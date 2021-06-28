@@ -83,7 +83,7 @@ class CGestioneUtenti
             $admin = $pm->load("FAmministratore", $email);
             if (password_verify($password, $admin->getPassword())) {
                 $gs->salvaUtente($admin);
-                header("Location: " . $GLOBALS['path'] . "GestioneSchermate/recuperaHomeAdmin");
+                header("Location: " . $GLOBALS['path'] . "GestioneSchermate/recuperaHome");
             } else {
                 header("Location: " . $GLOBALS['path'] . "GestioneSchermate/recuperaLogin");
             }
@@ -92,7 +92,7 @@ class CGestioneUtenti
             if (password_verify($password, $utente->getPassword())) { //QUESTO CHECK NON VA...risolvere con gli altri
                 $gs->salvaUtente($utente);
                 $gs->salvaCarrello(new ECarrello());
-                header("Location: ".$GLOBALS['path'] ."GestioneSchermate/recuperaHomeUtente");
+                header("Location: ".$GLOBALS['path'] ."GestioneSchermate/recuperaHome");
             } else {
                 header("Location: ".$GLOBALS['path'] ."GestioneSchermate/recuperaLogin");
             }

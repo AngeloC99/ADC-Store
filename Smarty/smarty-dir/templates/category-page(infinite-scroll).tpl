@@ -369,7 +369,7 @@
                                             <div class="mobile-back text-right">Back<i class="fa fa-angle-right pl-2" aria-hidden="true"></i></div>
                                         </li>
                                         <li>
-                                            <a href="{$path}GestioneSchermate/recuperaHomeUtente">Home</a>
+                                            <a href="{$path}GestioneSchermate/recuperaHome">Home</a>
                                             
                                         </li>
                                         
