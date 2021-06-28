@@ -25,6 +25,9 @@ class VGestioneSchermate
         //$this->smarty->display("user-list.tpl");
         //CGestioneSchermate::recuperaLogin();
     }
+    public function mostra401(){
+        $this->smarty->assign("path", $GLOBALS["path"]);
+        $this->smarty->display('401.tpl');}
 
 
 

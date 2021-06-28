@@ -54,6 +54,10 @@ class CGestioneSchermate
         header("Location: ".$GLOBALS['path']."GestioneCarrello/recuperaCarrello");
     }
 
+    public static function recupera401() {
+        $v=new VGestioneSchermate();
+        $v->mostra401();
+    }
 
 
 }

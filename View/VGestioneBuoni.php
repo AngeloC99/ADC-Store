@@ -9,14 +9,18 @@ class VGestioneBuoni
         $this->smarty=StartSmarty::configuration();
     }
     public function mostraBuoni($buoni,$utente){
+        $this->smarty->assign('path', $GLOBALS["path"]);
         $this->smarty->assign('buoni',$buoni);
         $this->smarty->assign('nome',$utente->getNome());
         $this->smarty->display('coupon-list.tpl');
 
     }
-    public function datiBsEmail(EBuonoSconto $buonoSconto){
+    public function datiBsEmail($buonoSconto){
+        echo $buonoSconto->isPercentuale();
+        $this->smarty->assign('path', $GLOBALS["path"]);
         $this->smarty->assign('codice',$buonoSconto->getCodice());
         $val="-".$buonoSconto->getAmmontare();
+        echo $buonoSconto->isPercentuale();
         if ($buonoSconto->isPercentuale()==true){
             $this->smarty->assign('valore',$val."%");
         }
@@ -28,11 +32,10 @@ class VGestioneBuoni
         return $this->smarty->fetch('email-temp.tpl'); //da risolvere ancora
         //$this->smarty->display('email-temp.tpl'); //ok funziona
 
-
-
     }
 
     public function mostraCreazioneBuono(){
+        $this->smarty->assign('path', $GLOBALS["path"]);
         $this->smarty->display('coupon-create.tpl');
     }
 

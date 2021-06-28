@@ -76,27 +76,32 @@ class CGestioneProdotti
      * @param string $t
      */
     public static function aggiungiProdotto(){
-        if((!isset($_FILES["image"])) || ($_FILES["image"]["error"] != UPLOAD_ERR_OK)) {
-            echo "Errore nell'invio del file. Riprova!";
+        $gs=CGestioneSessioni::getInstance();
+        if ($gs->isLoggedAdmin()) {
+            if ((!isset($_FILES["image"])) || ($_FILES["image"]["error"] != UPLOAD_ERR_OK)) {
+                echo "Errore nell'invio del file. Riprova!";
+            }
+            // Connessione e selezione del database
+            $pm = FPersistentManager::getInstance();
+            // Recupero delle informazioni sul file inviato
+
+            $file = base64_encode((file_get_contents($_FILES["image"]['tmp_name'])));
+
+
+            //$nome_file_temporaneo = $_FILES["file_inviato"]["image"];
+            $nome_file_vero = $_FILES["image"]["name"];
+            $tipo_file = $_FILES["image"]["type"];
+            //$dati_file = file_get_contents($nome_file_temporaneo);
+            //$dati_file = addslashes($dati_file);
+            $imm = new EImmagine($nome_file_vero, $tipo_file, $file);
+            $prodotto = new EProdotto($_POST['nome'], $_POST['marca'], $_POST['descrizione'], $_POST['quantita'], $imm, $_POST['prezzo'], $_POST['tipologia']);
+            $pm->store($prodotto);
+            $v = new VGestioneProdotto();
+            $v->mostraAggiuntaProdotto();
         }
-        // Connessione e selezione del database
-        $pm=FPersistentManager::getInstance();
-        // Recupero delle informazioni sul file inviato
-
-        $file=base64_encode((file_get_contents($_FILES["image"]['tmp_name'])));
-
-
-        //$nome_file_temporaneo = $_FILES["file_inviato"]["image"];
-        $nome_file_vero = $_FILES["image"]["name"];
-        $tipo_file = $_FILES["image"]["type"];
-        //$dati_file = file_get_contents($nome_file_temporaneo);
-        //$dati_file = addslashes($dati_file);
-        $imm=new EImmagine($nome_file_vero,$tipo_file,$file);
-        $prodotto = new EProdotto($_POST['nome'],$_POST['marca'],$_POST['descrizione'],$_POST['quantita'],$imm,$_POST['prezzo'],$_POST['tipologia']);
-        $pm->store($prodotto);
-        $v=new VGestioneProdotto();
-        $v->mostraAggiuntaProdotto();
-
+        else{
+            CGestioneSchermate::recupera401();
+        }
 
 
     }

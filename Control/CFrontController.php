@@ -3,13 +3,24 @@
 
 class CFrontController
 {
+    /**
+     * Funzione che permette di visualizzare una pagina 401 Unauthorised, con relativa intestazione HTTP, se l'utente tenta di accedere ad una pagina per la quale non è autorizzato.
+     */
+    public static function unauthorized() {
+        header("HTTP/1.1 401 Unauthorized");
+        header("Location: ".$GLOBALS['path'] ."GestioneSchermate/recupera401");
+        die;
+    }
+
     public static function run(string $path)
     {
+        ini_set('session.gc_probability', 10);
+        ini_set('session.gc_maxlifetime',3600);
         $method = $_SERVER['REQUEST_METHOD'];
-
         if ($path === "/~rommy/ADC-Store/" || $path === "/ADC-Store/" || $path === "/ADC-Store/index.php") {
             CGestioneSchermate::showHome();
         } else {
+            $gs=CGestioneSessioni::getInstance();
             $res = explode("/", $path);
 
             array_shift($res);

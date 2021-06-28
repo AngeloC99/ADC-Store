@@ -340,7 +340,7 @@
                                 <li><a href="#">Profilo</a>
                                             <ul>
                                                 <li><a href="loginfe.tpl" data-lng="en">Visita Profilo</a></li>
-                                                <li><a href="#" data-lng="en">Logout</a></li>
+                                                <li><a href="{$path}GestioneUtenti/logout" data-lng="en">Logout</a></li>
                                             </ul>
                                         
                                 </li>
@@ -351,7 +351,7 @@
                                 </li>
                                 <li><a href="#">Buoni Sconto</a>
                                     <ul>
-                                        <li><a href="{$path}GestioneBuoni/inviaBuono" data-lng="en">Regala Buono</a></li>
+                                        <li><a href="{$path}GestioneBuoni/recuperaCreazioneBuono" data-lng="en">Regala Buono</a></li>
                                     </ul>
 
                                 </li>
