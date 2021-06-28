@@ -83,6 +83,13 @@
                                 </ul>
 
                     </li>
+                    <li><a class="sidebar-header" href="#"><i data-feather="box"></i> <span>Premi</span><i class="fa fa-angle-right pull-right"></i></a>
+                        <ul class="sidebar-submenu">
+                            <li><a href="product-list.tpl"><i class="fa fa-circle"></i>Lista Premi</a></li>
+                            <li><a href="aggiungi-premi.tpl"><i class="fa fa-circle"></i>Aggiungi un premio</a></li>
+
+                        </ul>
+                    </li>                    
                     <li><a class="sidebar-header" href=""><i data-feather="dollar-sign"></i><span>Clienti</span><i class="fa fa-angle-right pull-right"></i></a>
                         <ul class="sidebar-submenu">
                             <li><a href="{$path}GestioneUtenti/recuperaClienti"><i class="fa fa-circle"></i>Lista Clienti</a></li>

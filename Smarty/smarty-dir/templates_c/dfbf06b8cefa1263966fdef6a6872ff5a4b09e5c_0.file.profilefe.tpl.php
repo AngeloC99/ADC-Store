@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-06-28 09:12:06
+/* Smarty version 3.1.39, created on 2021-06-28 18:00:29
   from 'C:\Users\david\public_html\ADC-Store\Smarty\smarty-dir\templates\profilefe.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_60d976462e9012_71256652',
+  'unifunc' => 'content_60d9f21d915a74_30262169',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'dfbf06b8cefa1263966fdef6a6872ff5a4b09e5c' => 
     array (
       0 => 'C:\\Users\\david\\public_html\\ADC-Store\\Smarty\\smarty-dir\\templates\\profilefe.tpl',
-      1 => 1624863624,
+      1 => 1624895964,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_60d976462e9012_71256652 (Smarty_Internal_Template $_smarty_tpl) {
+function content_60d9f21d915a74_30262169 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en">
 
@@ -74,34 +74,7 @@ Smarty/smarty-dir/assets/css/color1.css" media="screen" id="color">
 
     <!-- header start -->
     <header>
-        <div class="mobile-fix-option"></div>
-        <div class="top-header">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-6">
-                        <div class="header-contact">
-                            <ul>
-                                <li>Benvenuti in ADC Store</li>
-                                <li><i class="fa fa-phone" aria-hidden="true"></i>Call Us: 123 - 456 - 7890</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 text-right">
-                        <ul class="header-dropdown">
-                            <li class="mobile-wishlist"><a href="#"><i class="fa fa-heart" aria-hidden="true"></i></a>
-                            </li>
-                            <li class="onhover-dropdown mobile-account">
-                                <i class="fa fa-user" aria-hidden="true"></i> Il mio account
-                                <ul class="onhover-show-div">
-                                    <li><a href="#" data-lng="en">Login</a></li>
-                                    <li><a href="#" data-lng="es">Logout</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
+
         <div class="container">
             <div class="row">
                 <div class="col-sm-12">
@@ -109,7 +82,8 @@ Smarty/smarty-dir/assets/css/color1.css" media="screen" id="color">
                         <div class="menu-left">
                             <div class="navbar">
                             
-                            <div class="brand-logo"><a href="index.html"><img src="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+                            <div class="brand-logo"><a href="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+GestioneSchermate/recuperaHomeUtente"><img src="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
 Smarty/smarty-dir/assets/images/icon/logo.png"
                                         class="img-fluid blur-up lazyload" alt=""></a></div>
                         </div>
@@ -127,7 +101,8 @@ Smarty/smarty-dir/assets/images/icon/logo.png"
 GestioneSchermate/recuperaGestioneCarrelliSalvati">Carrelli preferiti</a>
                                             </li>
                                             <li>
-                                                <a href="#">Buoni sconto</a>
+                                                <a href="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+GestioneBuoni/recuperaBuoni">Buoni sconto</a>
                                             </li>
                                             <li>
                                                 <a href="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
@@ -135,38 +110,14 @@ GestioneSchermate/recuperaFormPunti">Regala punti</a>
                                             </li>
                                             <li>
                                                 <a href="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
-GestioneSchermate/recuperaGestioneIndirizzi">Gestione indirizzi</a>
+GestioneSchermate/recuperaGestioneIndirizzi">Indirizzi</a>
                                             </li>
                                             <li>
                                                 <a href="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
-GestioneSchermate/recuperaGestioneCarte">Gestione carte di credito</a>
+GestioneSchermate/recuperaGestioneCarte">Carte di credito</a>
                                             </li>
                                         </ul>
                                     </nav>
-                                </div>
-                                <div>
-                                    <div class="icon-nav d-none d-sm-block">
-                                        <ul>
-                                            <li class="onhover-div mobile-search">
-                                                <div><img src="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
-Smarty/smarty-dir/assets/images/icon/search.png" onclick="openSearch()"
-                                                        class="img-fluid blur-up lazyload" alt=""> <i class="ti-search"
-                                                        onclick="openSearch()"></i></div>
-                                            </li>
-                                            <li class="onhover-div mobile-setting">
-                                                <div><img src="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
-Smarty/smarty-dir/assets/images/icon/setting.png"
-                                                        class="img-fluid blur-up lazyload" alt=""> <i
-                                                        class="ti-settings"></i></div>
-                                            </li>
-                                            <li class="onhover-div mobile-cart">
-                                                <div><img src="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
-Smarty/smarty-dir/assets/images/icon/cart.png"
-                                                        class="img-fluid blur-up lazyload" alt=""> <i
-                                                        class="ti-shopping-cart"></i></div>
-                                            </li>
-                                        </ul>
-                                    </div>
                                 </div>
                             </div>                        
                 </div>
@@ -189,7 +140,7 @@ Smarty/smarty-dir/assets/images/icon/cart.png"
                 <div class="col-sm-6">
                     <nav aria-label="breadcrumb" class="theme-breadcrumb">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                            <li class="breadcrumb-item"><a >Home</a></li>
                             <li class="breadcrumb-item active" aria-current="page">profilo</li>
                         </ol>
                     </nav>
@@ -205,13 +156,13 @@ Smarty/smarty-dir/assets/images/icon/cart.png"
         <div class="container">
             <div class="row">
                 <div class="col-sm-12">
-                    <h3>DETTAGLI PERSONALI</h3>
+                    <h1>DETTAGLI PERSONALI</h1>
 
                         <div class="form-row">
                             <div class="col-md-6">
                                 <h4>Nome:</h4><br>
-                                <h2><?php echo $_smarty_tpl->tpl_vars['nome']->value;?>
-</h2>
+                                <h3><?php echo $_smarty_tpl->tpl_vars['nome']->value;?>
+</h3>
 
                             </div>
                             <div class="col-md-6">
@@ -230,6 +181,9 @@ Smarty/smarty-dir/assets/images/icon/cart.png"
 </h2>
                             </div>
                         </div>
+
+
+
 
                 </div>
             </div>
@@ -268,8 +222,7 @@ Smarty/smarty-dir/assets/images/icon/cart.png"
                         <div class="footer-contant">
                             <div class="footer-logo"><img src="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
 Smarty/smarty-dir/assets/images/icon/logo.png" alt=""></div>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                                ut labore et dolore magna aliqua. Ut enim ad minim veniam,</p>
+                            <p>ADC Store da sempre garanzia di qualità.</p>
                             <div class="footer-social">
                                 <ul>
                                     <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
@@ -284,14 +237,14 @@ Smarty/smarty-dir/assets/images/icon/logo.png" alt=""></div>
                     <div class="col">
                         <div class="sub-title">
                             <div class="footer-title">
-                                <h4>store information</h4>
+                                <h4>Informazioni generali: </h4>
                             </div>
                             <div class="footer-contant">
                                 <ul class="contact-list">
-                                    <li><i class="fa fa-map-marker"></i>Multikart Demo Store, Demo store India 345-659
+                                    <li><i class="fa fa-map-marker"></i>ADC Store - Via Marruvio 88 (Avezzano, AQ)
                                     </li>
-                                    <li><i class="fa fa-phone"></i>Call Us: 123-456-7898</li>
-                                    <li><i class="fa fa-envelope-o"></i>Email Us: Support@Fiot.com</li>
+                                    <li><i class="fa fa-phone"></i>Call Us: (+39)3310000000</li>
+                                    <li><i class="fa fa-envelope-o"></i>Email Us: adcstore2021@gmail.com</li>
                                     <li><i class="fa fa-fax"></i>Fax: 123456</li>
                                 </ul>
                             </div>

@@ -21,7 +21,9 @@ class VGestionePunti
     }
 
     public function mostraFormPunti(){
-        //$this->smarty->assign("puntimax", $sender->getPunti());        
+
+        $gs = CGestioneSessioni::getInstance();
+        $this->smarty->assign("puntimax", $gs->caricaUtente()->getPunti());        
         $this->smarty->assign("path", $GLOBALS["path"]);
         $this->smarty->display('regalapunti.tpl');
     }

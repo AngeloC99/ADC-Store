@@ -14,10 +14,10 @@ class CGestioneSchermate
         $pm = FPersistentManager::getInstance();
         $gs = CGestioneSessioni::getInstance();
         if($gs->isLoggedUser()){
-        $utente = $pm->load('FUtenteReg', $gs->caricaUtente()->getEmail());
-        $v = new VGestioneUtenti();
-        $v->mostraProfilo($utente);}
-        if($gs->isLoggedAdmin()){
+            $utente = $pm->load('FUtenteReg', $gs->caricaUtente()->getEmail());
+            $v = new VGestioneUtenti();
+            $v->mostraProfilo($utente);}
+        else if($gs->isLoggedAdmin()){
             $utente = $pm->load('FAmministratore', $gs->caricaUtente()->getEmail());
             $v = new VGestioneUtenti();
             $v->mostraProfiloAdmin($utente);}
@@ -78,6 +78,18 @@ class CGestioneSchermate
         $v=new VGestioneSchermate();
         $v->mostra401();
     }
+
+    public static function recuperaHomeUtente() {
+        $v = new VGestioneUtenti();
+        $v->mostraHomeUtente();
+    }
+
+    public static function recuperaAggiungiPremio() {
+        $v = new VGestionePunti();
+        $v->mostraAggiungiPremi();
+    }    
+
+
 
 
 }

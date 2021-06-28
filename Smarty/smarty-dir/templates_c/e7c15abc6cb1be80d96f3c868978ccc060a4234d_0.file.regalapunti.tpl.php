@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-06-28 11:19:17
+/* Smarty version 3.1.39, created on 2021-06-28 18:35:19
   from 'C:\Users\david\public_html\ADC-Store\Smarty\smarty-dir\templates\regalapunti.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_60d99415106ee3_04439455',
+  'unifunc' => 'content_60d9fa47457a85_60675792',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'e7c15abc6cb1be80d96f3c868978ccc060a4234d' => 
     array (
       0 => 'C:\\Users\\david\\public_html\\ADC-Store\\Smarty\\smarty-dir\\templates\\regalapunti.tpl',
-      1 => 1624871682,
+      1 => 1624898093,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_60d99415106ee3_04439455 (Smarty_Internal_Template $_smarty_tpl) {
+function content_60d9fa47457a85_60675792 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en">
 
@@ -157,7 +157,7 @@ GestionePunti/regalarePunti">
                                     <label for="email">Vuoi lasciare un messaggio?</label>
                                     <input type="text" class="form-control" id="email" placeholder="Messaggio" required name="Messaggio">
                                 </div>
-                                <input type="submit" name="invio" class="btn btn-solid"/>
+                                <button type="submit" onclick="funzione()" class="btn btn-solid"/>invia</button>
                             </div>
                         </form>
                     </div>
@@ -320,6 +320,10 @@ Smarty/smarty-dir/assets/js/script.js"><?php echo '</script'; ?>
 
         function closeSearch() {
             document.getElementById("search-overlay").style.display = "none";
+        }
+
+        function funzione() {
+            alert("I punti sono stati inviati correttamente!")
         }
     <?php echo '</script'; ?>
 >

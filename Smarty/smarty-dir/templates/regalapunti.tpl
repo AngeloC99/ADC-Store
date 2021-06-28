@@ -122,7 +122,7 @@
                                     <label for="email">Vuoi lasciare un messaggio?</label>
                                     <input type="text" class="form-control" id="email" placeholder="Messaggio" required name="Messaggio">
                                 </div>
-                                <input type="submit" name="invio" class="btn btn-solid"/>
+                                <button type="submit" onclick="funzione()" class="btn btn-solid"/>invia</button>
                             </div>
                         </form>
                     </div>
@@ -254,6 +254,10 @@
 
         function closeSearch() {
             document.getElementById("search-overlay").style.display = "none";
+        }
+
+        function funzione() {
+            alert("I punti sono stati inviati correttamente!")
         }
     </script>
 </body>

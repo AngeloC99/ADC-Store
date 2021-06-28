@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-06-28 09:23:30
+/* Smarty version 3.1.39, created on 2021-06-28 17:03:30
   from 'C:\Users\david\public_html\ADC-Store\Smarty\smarty-dir\templates\homeUtente.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_60d978f2e67994_84067032',
+  'unifunc' => 'content_60d9e4c23848e7_66901905',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'a901a9d2694ac006358b662b128389d63a6a4fe4' => 
     array (
       0 => 'C:\\Users\\david\\public_html\\ADC-Store\\Smarty\\smarty-dir\\templates\\homeUtente.tpl',
-      1 => 1624864988,
+      1 => 1624892050,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_60d978f2e67994_84067032 (Smarty_Internal_Template $_smarty_tpl) {
+function content_60d9e4c23848e7_66901905 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en">
 
@@ -350,10 +350,6 @@ GestioneSchermate/recuperaGestioneCarrello" data-lng="en">Carrello della spesa</
 GestioneUtenti/logout" data-lng="en">Logout</a></li>
                                             </ul>
                                         
-                                </li>
-                                <li>
-                                    <a href="loginbe.html">Area Riservata</a>
-                                    
                                 </li>
                                 <li>
                                     <a href="#">Su di noi</a>

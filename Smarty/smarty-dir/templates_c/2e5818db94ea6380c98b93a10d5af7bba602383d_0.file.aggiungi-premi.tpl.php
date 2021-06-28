@@ -1,4 +1,27 @@
-<!DOCTYPE html>
+<?php
+/* Smarty version 3.1.39, created on 2021-06-28 18:55:52
+  from 'C:\Users\david\public_html\ADC-Store\Smarty\smarty-dir\templates\aggiungi-premi.tpl' */
+
+/* @var Smarty_Internal_Template $_smarty_tpl */
+if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
+  'version' => '3.1.39',
+  'unifunc' => 'content_60d9ff18e7d412_08244352',
+  'has_nocache_code' => false,
+  'file_dependency' => 
+  array (
+    '2e5818db94ea6380c98b93a10d5af7bba602383d' => 
+    array (
+      0 => 'C:\\Users\\david\\public_html\\ADC-Store\\Smarty\\smarty-dir\\templates\\aggiungi-premi.tpl',
+      1 => 1624899351,
+      2 => 'file',
+    ),
+  ),
+  'includes' => 
+  array (
+  ),
+),false)) {
+function content_60d9ff18e7d412_08244352 (Smarty_Internal_Template $_smarty_tpl) {
+?><!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -8,8 +31,10 @@
     <meta name="description" content="Multikart admin is super flexible, powerful, clean &amp; modern responsive bootstrap 4 admin template with unlimited possibilities.">
     <meta name="keywords" content="admin template, Multikart admin template, dashboard template, flat admin template, responsive admin template, web app">
     <meta name="author" content="pixelstrap">
-    <link rel="icon" href="{$path}Smarty/smarty-dir/assets/images/dashboard/favicon.png" type="image/x-icon">
-    <link rel="shortcut icon" href="{$path}Smarty/smarty-dir/assets/images/dashboard/favicon.png" type="image/x-icon">
+    <link rel="icon" href="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+Smarty/smarty-dir/assets/images/dashboard/favicon.png" type="image/x-icon">
+    <link rel="shortcut icon" href="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+Smarty/smarty-dir/assets/images/dashboard/favicon.png" type="image/x-icon">
     <title>ADC-Store Aggiungi Premio</title>
 
     <!-- Google font-->
@@ -17,16 +42,20 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
     <!-- Font Awesome-->
-    <link rel="stylesheet" type="text/css" href="{$path}Smarty/Smarty-dir/assets/css/fontawesome.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+Smarty/Smarty-dir/assets/css/fontawesome.css">
 
     <!-- Flag icon-->
-    <link rel="stylesheet" type="text/css" href="{$path}Smarty/Smarty-dir/assets/css/flag-icon.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+Smarty/Smarty-dir/assets/css/flag-icon.css">
 
     <!-- Bootstrap css-->
-    <link rel="stylesheet" type="text/css" href="{$path}Smarty/Smarty-dir/assets/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+Smarty/Smarty-dir/assets/css/bootstrap.css">
 
     <!-- App css-->
-    <link rel="stylesheet" type="text/css" href="{$path}Smarty/Smarty-dir/assets/css/admin.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+Smarty/Smarty-dir/assets/css/admin.css">
 </head>
 <body>
 
@@ -37,7 +66,8 @@
     <div class="page-main-header">
         <div class="main-header-right row">
             <div class="main-header-left d-lg-none">
-                <div class="logo-wrapper"><a href="homeAdmin.tpl"><img class="blur-up lazyloaded" src="{$path}Smarty/smarty-dir/assets/images/dashboard/logo.png" alt=""></a></div>
+                <div class="logo-wrapper"><a href="homeAdmin.tpl"><img class="blur-up lazyloaded" src="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+Smarty/smarty-dir/assets/images/dashboard/logo.png" alt=""></a></div>
             </div>
             <div class="mobile-sidebar">
                 <div class="media-body text-right switch-sm">
@@ -65,9 +95,11 @@
         <div class="page-sidebar">
             <div class="sidebar custom-scrollbar">
                 <div class="sidebar-user text-center">
-                    <div><img class="img-60 rounded-circle blur-up lazyloaded" src="{$path}Smarty/smarty-dir/assets/images/dashboard/man.png" alt="#">
+                    <div><img class="img-60 rounded-circle blur-up lazyloaded" src="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+Smarty/smarty-dir/assets/images/dashboard/man.png" alt="#">
                     </div>
-                    <h6 class="mt-3 f-14">Bentornato {$nomeadmin}</h6>
+                    <h6 class="mt-3 f-14">Bentornato <?php echo $_smarty_tpl->tpl_vars['nomeadmin']->value;?>
+</h6>
                     <p>Area Amministratore.</p>
                 </div>
                 <ul class="sidebar-menu">
@@ -88,20 +120,24 @@
                     </li>                    
                     <li><a class="sidebar-header" href=""><i data-feather="dollar-sign"></i><span>Clienti</span><i class="fa fa-angle-right pull-right"></i></a>
                         <ul class="sidebar-submenu">
-                            <li><a href="{$path}GestioneUtenti/recuperaClienti"><i class="fa fa-circle"></i>Lista Clienti</a></li>
+                            <li><a href="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+GestioneUtenti/recuperaClienti"><i class="fa fa-circle"></i>Lista Clienti</a></li>
                         </ul>
                             </li>
                     <li><a class="sidebar-header" href=""><i data-feather="tag"></i><span>Buoni Sconto</span><i class="fa fa-angle-right pull-right"></i></a>
                         <ul class="sidebar-submenu">
-                            <li><a href="{$path}GestioneBuoni/recuperaCreazioneBuono"><i class="fa fa-circle"></i>Regala Buono</a></li>
+                            <li><a href="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+GestioneBuoni/recuperaCreazioneBuono"><i class="fa fa-circle"></i>Regala Buono</a></li>
                         </ul>
                     </li>
                     <li><a class="sidebar-header" href=""><i data-feather="settings" ></i><span>Profilo</span><i class="fa fa-angle-right pull-right"></i></a>
                         <ul class="sidebar-submenu">
-                            <li><a href="{$path}GestioneSchermate/apriProfilo"><i class="fa fa-circle"></i>Visita Profilo</a></li>
+                            <li><a href="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+GestioneSchermate/apriProfilo"><i class="fa fa-circle"></i>Visita Profilo</a></li>
                         </ul>
                         <ul class="sidebar-submenu">
-                            <li><a href="{$path}GestioneUtenti/logout"><i class="fa fa-circle"></i>Logout</a></li>
+                            <li><a href="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+GestioneUtenti/logout"><i class="fa fa-circle"></i>Logout</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -154,7 +190,8 @@
                                         </div>
                                     </div>
                                     <div class="col-xl-7">
-                                        <form class="needs-validation add-product-form" novalidate=""  enctype="multipart/form-data" method="post" action="{$path}GestionePunti/aggiungiPremio">
+                                        <form class="needs-validation add-product-form" novalidate=""  enctype="multipart/form-data" method="post" action="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+GestionePunti/aggiungiPremio">
                                             <div class="form">
                                                 <div class="form-group mb-3 row">
                                                     <label for="validationCustom01" class="col-xl-3 col-sm-4 mb-0">Seleziona immagine :</label>
@@ -215,55 +252,119 @@
 </div>
 
 <!-- latest jquery-->
-<script src="{$path}Smarty/smarty-dir/assets/js/jquery-3.3.1.min.js"></script>
+<?php echo '<script'; ?>
+ src="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+Smarty/smarty-dir/assets/js/jquery-3.3.1.min.js"><?php echo '</script'; ?>
+>
 
 <!-- Bootstrap js-->
-<script src="{$path}Smarty/smarty-dir/assets/js/popper.min.js"></script>
-<script src="{$path}Smarty/smarty-dir/assets/js/bootstrap.js"></script>
+<?php echo '<script'; ?>
+ src="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+Smarty/smarty-dir/assets/js/popper.min.js"><?php echo '</script'; ?>
+>
+<?php echo '<script'; ?>
+ src="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+Smarty/smarty-dir/assets/js/bootstrap.js"><?php echo '</script'; ?>
+>
 
 <!-- feather icon js-->
-<script src="{$path}Smarty/smarty-dir/assets/js/icons/feather-icon/feather.min.js"></script>
-<script src="{$path}Smarty/smarty-dir/assets/js/icons/feather-icon/feather-icon.js"></script>
+<?php echo '<script'; ?>
+ src="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+Smarty/smarty-dir/assets/js/icons/feather-icon/feather.min.js"><?php echo '</script'; ?>
+>
+<?php echo '<script'; ?>
+ src="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+Smarty/smarty-dir/assets/js/icons/feather-icon/feather-icon.js"><?php echo '</script'; ?>
+>
 
 <!-- Sidebar jquery-->
-<script src="{$path}Smarty/smarty-dir/assets/js/sidebar-menu.js"></script>
+<?php echo '<script'; ?>
+ src="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+Smarty/smarty-dir/assets/js/sidebar-menu.js"><?php echo '</script'; ?>
+>
 
 <!-- touchspin js-->
-<script src="{$path}Smarty/smarty-dir/assets/js/touchspin/vendors.min.js"></script>
-<script src="{$path}Smarty/smarty-dir/assets/js/touchspin/touchspin.js"></script>
-<script src="{$path}Smarty/smarty-dir/assets/js/touchspin/input-groups.min.js"></script>
+<?php echo '<script'; ?>
+ src="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+Smarty/smarty-dir/assets/js/touchspin/vendors.min.js"><?php echo '</script'; ?>
+>
+<?php echo '<script'; ?>
+ src="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+Smarty/smarty-dir/assets/js/touchspin/touchspin.js"><?php echo '</script'; ?>
+>
+<?php echo '<script'; ?>
+ src="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+Smarty/smarty-dir/assets/js/touchspin/input-groups.min.js"><?php echo '</script'; ?>
+>
 
 <!-- form validation js-->
-<script src="{$path}Smarty/smarty-dir/assets/js/dashboard/form-validation-custom.js"></script>
+<?php echo '<script'; ?>
+ src="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+Smarty/smarty-dir/assets/js/dashboard/form-validation-custom.js"><?php echo '</script'; ?>
+>
 
 <!-- ckeditor js-->
-<script src="{$path}Smarty/smarty-dir/assets/js/editor/ckeditor/ckeditor.js"></script>
-<script src="{$path}Smarty/smarty-dir/assets/js/editor/ckeditor/styles.js"></script>
-<script src="{$path}Smarty/smarty-dir/assets/js/editor/ckeditor/adapters/jquery.js"></script>
-<script src="{$path}Smarty/smarty-dir/assets/js/editor/ckeditor/ckeditor.custom.js"></script>
+<?php echo '<script'; ?>
+ src="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+Smarty/smarty-dir/assets/js/editor/ckeditor/ckeditor.js"><?php echo '</script'; ?>
+>
+<?php echo '<script'; ?>
+ src="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+Smarty/smarty-dir/assets/js/editor/ckeditor/styles.js"><?php echo '</script'; ?>
+>
+<?php echo '<script'; ?>
+ src="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+Smarty/smarty-dir/assets/js/editor/ckeditor/adapters/jquery.js"><?php echo '</script'; ?>
+>
+<?php echo '<script'; ?>
+ src="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+Smarty/smarty-dir/assets/js/editor/ckeditor/ckeditor.custom.js"><?php echo '</script'; ?>
+>
 
 <!-- Zoom js-->
-<script src="{$path}Smarty/smarty-dir/assets/js/jquery.elevatezoom.js"></script>
-<script src="{$path}Smarty/smarty-dir/assets/js/zoom-scripts.js"></script>
+<?php echo '<script'; ?>
+ src="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+Smarty/smarty-dir/assets/js/jquery.elevatezoom.js"><?php echo '</script'; ?>
+>
+<?php echo '<script'; ?>
+ src="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+Smarty/smarty-dir/assets/js/zoom-scripts.js"><?php echo '</script'; ?>
+>
 
 <!--Customizer admin-->
-<script src="{$path}Smarty/smarty-dir/assets/js/admin-customizer.js"></script>
+<?php echo '<script'; ?>
+ src="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+Smarty/smarty-dir/assets/js/admin-customizer.js"><?php echo '</script'; ?>
+>
 
 <!-- lazyload js-->
-<script src="{$path}Smarty/smarty-dir/assets/js/lazysizes.min.js"></script>
+<?php echo '<script'; ?>
+ src="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+Smarty/smarty-dir/assets/js/lazysizes.min.js"><?php echo '</script'; ?>
+>
 
 <!--right sidebar js-->
-<script src="{$path}Smarty/smarty-dir/assets/js/chat-menu.js"></script>
+<?php echo '<script'; ?>
+ src="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+Smarty/smarty-dir/assets/js/chat-menu.js"><?php echo '</script'; ?>
+>
 
 <!--script admin-->
-<script src="{$path}Smarty/smarty-dir/assets/js/admin-script.js"></script>
+<?php echo '<script'; ?>
+ src="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+Smarty/smarty-dir/assets/js/admin-script.js"><?php echo '</script'; ?>
+>
 
 
-<script>
+<?php echo '<script'; ?>
+>
     function Funzione1() {
         alert("Il premio è stato inserito correttamente.");
     }
-</script>
+<?php echo '</script'; ?>
+>
 
 </body>
 </html>
+<?php }
+}

@@ -98,22 +98,20 @@ class CGestionePunti
 
     /**
      * Metodo da usare quando un utente A vuole regalare parte dei suoi punti ad un utente B
-     * @param int $punti
-     * @param string $email
-     * @param EUtenteReg $sender
-     * @return bool
      * @throws \PHPMailer\PHPMailer\Exception
      */
-    public static function regalarePunti(){ //Non necessario passare l'utente
+    public static function regalarePunti(){ 
 
+        $gs=CGestioneSessioni::getInstance();
         $pm = FPersistentManager::getInstance();
-        $receiver = $pm->load("FUtenteReg", $_POST['emaildest']);
-        $sender = $pm->load('FUtenteReg', 'adarossi@gmail.com');
-        if ($sender->getPunti() >= $_POST['punti']) {
+        if ($gs->isLoggedUser()){
+            $sender = $gs->caricaUtente();
+            $receiver = $pm->load("FUtenteReg", $_POST['emaildest']);
             $sender->setPunti($sender->getPunti() - $_POST['punti']);
             $receiver->setPunti($receiver->getPunti() + $_POST['punti']);
             $pm->update($receiver);
             $pm->update($sender);
+            $gs->salvaUtenteNoCookie($sender);
 
             $mail = new PHPMailer(true);
             try{
@@ -135,21 +133,22 @@ class CGestionePunti
                 $mail->SetFrom('adcstore2021@gmail.com');
                 $mail->Subject = "ADC Store - HAI RICEVUTO DEI PUNTI!";
                 $mail->AddAddress($_POST['emaildest']);
-            //--------------------------------------------------
+                //--------------------------------------------------
                 $v=new VGestionePunti();
                 $mail->Body = $v->datiPuntiEmail($_POST['punti'], $sender->getNome(), $sender->getCognome(), $_POST['Messaggio']);
-                $v->mostraFormPunti($sender);
+                $email = $sender->getEmail();
                 $mail->send();
-             } catch (Exception $e) {
+                $v1 = new VGestioneUtenti();
+                $v1->mostraProfilo($sender);
+            } catch (Exception $e) {
                 echo 'Message could not be sent.';
                 echo 'Mailer Error: ' . $mail->ErrorInfo;
-            }   
-    
+                }   
         }
-        else{   //gestire eccezione si non si hanno abbastanza punti (con template dedicato)
-            print('ciao');
+        else{
+            header("Location: ".$GLOBALS['path']."GestioneSchermate/recupera401");
 
-        };
+        }            
 
     }
 

@@ -135,6 +135,25 @@ class CGestioneSessioni
         }
     }
 
+        /**
+     * Metodo che ci permette di salvare l'utente in sessione.
+     * @param $utente
+     */
+    public function salvaUtenteNoCookie($utente) {
+        $this->iniziaSessione();
+        session_regenerate_id(true);
+        
+        $userSer = serialize($utente);
+
+        if ( get_class($utente) == 'EUtenteReg' ) {
+            $_SESSION['utente'] = $userSer;
+            
+        } else if ( get_class($utente) == 'EAmministratore' ) {
+            $_SESSION['admin'] = $userSer;
+
+        }
+    }
+
     /**
      * Metodo che verifica se l'utente ha eseguito il login.
      * @return bool
