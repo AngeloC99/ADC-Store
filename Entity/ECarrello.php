@@ -131,7 +131,10 @@ class ECarrello
         if ($p->getQuantita() >= $quantita) {
             $differenzaPrezzo = ($this->prodotti[$p->getId()] - $quantita) * $p->getPrezzo();
             $this->prodotti[$p->getId()] = $quantita;
-            $this->prezzoTot += $differenzaPrezzo;
+            $this->prezzoTot -= $differenzaPrezzo;
+            if ($quantita == 0) {
+                unset($this->prodotti[$p->getId()]);
+            }
         }
         else print("Quantità non disponibile!");
     }

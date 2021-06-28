@@ -10,7 +10,7 @@
     <meta name="author" content="multikart">
     <link rel="icon" href="{$path}Smarty/smarty-dir/assets/images/favicon/1.png" type="image/x-icon">
     <link rel="shortcut icon" href="{$path}Smarty/smarty-dir/assets/images/favicon/1.png" type="image/x-icon">
-    <title>Multikart - Multi-purpopse E-commerce Html Template</title>
+    <title>ADC Store - Dettagli Prodotto</title>
 
     <!--Google font-->
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet">
@@ -262,7 +262,7 @@
                                             <div class="mobile-back text-right">Back<i class="fa fa-angle-right pl-2"
                                                     aria-hidden="true"></i></div>
                                         </li>
-                                        <li><a href="{$path}GestioneSchermate/recuperaHomeUtente">Home</a>
+                                        <li><a href="{$path}GestioneSchermate/recuperaHome">Home</a>
                                         </li>
 
                                         </li>
@@ -408,7 +408,7 @@
                     </div>
                         <div class="product-right product-description-box">
                             <h2>{$prod.nome}</h2>
-
+                            <h4>ID Prodotto: {$prod.id}</h4>
                             <div class="product-icon mb-3">
                                 <form class="d-inline-block">
                                     <div class="row product-accordion">
@@ -452,7 +452,7 @@
                                             <div class="card-header" id="headingOne">
                                                 <h5 class="mb-0"><button class="btn btn-link" type="button"
                                                         data-toggle="collapse" data-target="#collapseTwo"
-                                                        aria-expanded="true" aria-controls="collapseTwo">Decrizione prodotto</button></h5>
+                                                        aria-expanded="true" aria-controls="collapseTwo">Descrizione prodotto</button></h5>
                                             </div>
                                             <div id="collapseTwo" class="collapse show" aria-labelledby="headingOne"
                                                 data-parent="#accordionExample">
@@ -484,22 +484,20 @@
                     </div>
                     <div class="col-lg-4">
                         <div class="product-right product-form-box">
-                            <h3>€{$prod.prezzo}</h3>
+                            <h3>€ {$prod.prezzo}</h3>
 
-                            <div class="product-description border-product">
-
-
-
-                                <h6 class="product-title">Quantità:</h6>
-                                <div class="qty-box">
-
+                            <form method="post" action="{$path}GestioneCarrello/aggiungiAlCarrello">
+                                <div class="product-description border-product">
+                                    <h6 class="product-title">Quantità:</h6>
+                                    <div class="qty-box">
+                                        <input type="hidden" name="idProdotto" value="{$prod.id}">
                                         <input type="number" name="quantita" class="form-control input-number" value="1" min="1" max="{$prod.quantita}">
-
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="product-buttons"><a href="#" data-toggle="modal" data-target="#addtocart"
-                                    class="btn btn-solid">Aggiungi al carrello</a>
-                            </div>
+                                <div class="product-buttons"><input type="submit" value="Aggiungi al carrello" class="btn btn-solid"/>
+                                </div>
+                            </form>
+
                         </div>
                     </div>
                 </div>

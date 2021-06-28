@@ -17,8 +17,10 @@ class VGestioneCarrello {
             $img = $prod->getImmagine()->getByte();
             $mime = $prod->getImmagine()->getFormato();
             $tmp = array(
+                'id' => $prod->getId(),
                 'nome' => $prod->getNome(),
                 'prezzo' => $prod->getPrezzo(),
+                'quantitaTot' => $prod->getQuantita(),
                 'quantita' => $quantita,
                 'totProd' => $quantita*$prod->getPrezzo(),
                 'image' => $img,

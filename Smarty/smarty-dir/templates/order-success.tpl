@@ -716,11 +716,8 @@
                         {/section}
                         <div class="total-sec">
                             <ul>
-                                <li>Totale (al netto di buoni sconto) <span>€ {$prezzoTot}</span></li>
+                                <li>Totale (al netto di buoni sconto) <span><b>€ {$prezzoTot}</b></span></li>
                             </ul>
-                        </div>
-                        <div class="final-total">
-                            <h3>Totale <span>$77.00</span></h3>
                         </div>
                     </div>
                 </div>

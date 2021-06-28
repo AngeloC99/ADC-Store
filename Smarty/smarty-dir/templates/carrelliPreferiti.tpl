@@ -10,7 +10,7 @@
     <meta name="author" content="ADCStore">
     <link rel="icon" href="{$path}Smarty/smarty-dir/assets/images/favicon/1.png" type="image/x-icon">
     <link rel="shortcut icon" href="{$path}Smarty/smarty-dir/assets/images/favicon/1.png" type="image/x-icon">
-    <title>ADC Store - L'ABC della qualità</title>
+    <title>ADC Store - Carrelli Preferiti</title>
 
     <!--Google font-->
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet">
@@ -693,58 +693,68 @@
 
     <!--section start-->
     <section class="cart-section section-b-space">
-        {section name=carrello loop=$carrelli}
         <div class="container">
-            <div class="row">
-                <div class="col-sm-12">
-                    <table class="table cart-table table-responsive-xs">
-                        <thead>
-                            <h2>{$carrelli[carrello].nomeCarrello}</h2>
-                            <h6>ID Carrello: {$carrelli[carrello].idCarrello}</h6>
-                            <h5><b>Prodotti nel carrello</b></h5>
-                        </thead>
-                        <thead>
-                            <tr class="table-head">
-                                <th scope="col">Nome</th>
-                                <th scope="col">quantità</th>
-                                <th scope="col">prezzo</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {section name=prod loop=$carrelli[carrello].prodotti}
-                            <tr>
-                                <td>{$carrelli[carrello].prodotti[prod].nome}</td>
-                                <td>
-                                    <h2>{$carrelli[carrello].prodotti[prod].quantita}</h2>
-                                </td>
-                                <td>
-                                    <h2 class="td-color">€ {$carrelli[carrello].prodotti[prod].prezzo}</h2>
-                                </td>
-                            </tr>
-                            {/section}
-                        </tbody>
-                    </table>
-                    <table class="table cart-table table-responsive-md">
-                        <tfoot>
-                            <tr>
-                                <td>total price :</td>
-                                <td>
-                                    <h2>€ {$carrelli[carrello].prezzoCarrello}</h2>
-                                </td>
-                            </tr>
-                        </tfoot>
-                    </table>
+            {if $carrelli != NULL}
+                {section name=carrello loop=$carrelli}
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <table class="table cart-table table-responsive-xs">
+                                <thead>
+                                <h2>{$carrelli[carrello].nomeCarrello}</h2>
+                                <h6>ID Carrello: {$carrelli[carrello].idCarrello}</h6>
+                                <h5><b>Prodotti nel carrello</b></h5>
+                                </thead>
+                                <thead>
+                                <tr class="table-head">
+                                    <th scope="col">Nome</th>
+                                    <th scope="col">quantità</th>
+                                    <th scope="col">prezzo</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {section name=prod loop=$carrelli[carrello].prodotti}
+                                    <tr>
+                                        <td>{$carrelli[carrello].prodotti[prod].nome}</td>
+                                        <td>
+                                            <h2>{$carrelli[carrello].prodotti[prod].quantita}</h2>
+                                        </td>
+                                        <td>
+                                            <h2 class="td-color">€ {$carrelli[carrello].prodotti[prod].prezzo}</h2>
+                                        </td>
+                                    </tr>
+                                {/section}
+                                </tbody>
+                            </table>
+                            <table class="table cart-table table-responsive-md">
+                                <tfoot>
+                                <tr>
+                                    <td>Prezzo totale :</td>
+                                    <td>
+                                        <h2>€ {$carrelli[carrello].prezzoCarrello}</h2>
+                                    </td>
+                                </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="row cart-buttons">
+                        <div class="col-6"><a href="{$path}GestioneCarrello/rievocaCarrelloInSessione/{$carrelli[carrello].idCarrello}" class="btn btn-solid">recupera carrello</a></div>
+                        <div class="col-6"><a href="{$path}GestioneCarrello/eliminaCarrello/{$carrelli[carrello].idCarrello}" class="btn btn-solid">elimina carrello</a></div>
+                    </div>
+                    <br><br>
+                    <hr style="border-top: 15px dashed red;">
+                    <br><br>
+                {/section}
+            {else}
+                <h1>OOOPS! Nessun carrello preferito!</h1>
+                <h3>Corri ad approfittare dei migliaia di prodotti che ti offre ADC-Store!</h3>
+                <h3>I nostri addetti si impegnano sempre a fornirti prodotti freschi e di qualità!</h3>
+                <div class="row cart-buttons">
+                    <div class="col-6"><a href="{$path}GestioneProdotti/recuperaProdotti" class="btn btn-solid">Inizia ad acquistare</a></div>
+                    <div class="col-6"><a href="{$path}GestioneSchermate/recuperaHome" class="btn btn-solid">Torna alla Home</a></div>
                 </div>
-            </div>
-            <div class="row cart-buttons">
-                <div class="col-6"><a href="{$path}GestioneCarrello/rievocaCarrelloInSessione/{$carrelli[carrello].idCarrello}" class="btn btn-solid">recupera carrello</a></div>
-                <div class="col-6"><a href="{$path}GestioneCarrello/eliminaCarrello/{$carrelli[carrello].idCarrello}" class="btn btn-solid">elimina carrello</a></div>
-            </div>
-            <br><br>
-            <hr style="border-top: 15px dashed red;">
-            <br><br>
+            {/if}
         </div>
-        {/section}
     </section>
     <!--section end-->
 

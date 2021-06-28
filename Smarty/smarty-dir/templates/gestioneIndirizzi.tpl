@@ -10,7 +10,7 @@
     <meta name="author" content="ADCStore">
     <link rel="icon" href="{$path}{$path}Smarty/smarty-dir/assets/images/favicon/1.png" type="image/x-icon">
     <link rel="shortcut icon" href="{$path}{$path}Smarty/smarty-dir/assets/images/favicon/1.png" type="image/x-icon">
-    <title>ADC Store - L'ABC della qualità</title>
+    <title>ADC Store - Indirizzi</title>
 
     <!--Google font-->
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet">
