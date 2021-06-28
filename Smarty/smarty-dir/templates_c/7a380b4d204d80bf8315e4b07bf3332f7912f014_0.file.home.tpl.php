@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-06-26 19:12:34
+/* Smarty version 3.1.39, created on 2021-06-28 09:24:21
   from 'C:\Users\david\public_html\ADC-Store\Smarty\smarty-dir\templates\home.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_60d76002ca3396_20450958',
+  'unifunc' => 'content_60d979257c98c9_61404119',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '7a380b4d204d80bf8315e4b07bf3332f7912f014' => 
     array (
       0 => 'C:\\Users\\david\\public_html\\ADC-Store\\Smarty\\smarty-dir\\templates\\home.tpl',
-      1 => 1624727553,
+      1 => 1624864988,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_60d76002ca3396_20450958 (Smarty_Internal_Template $_smarty_tpl) {
+function content_60d979257c98c9_61404119 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en">
 
@@ -28,14 +28,14 @@ function content_60d76002ca3396_20450958 (Smarty_Internal_Template $_smarty_tpl)
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="description" content="multikart">
-    <meta name="keywords" content="multikart">
-    <meta name="author" content="multikart">
+    <meta name="description" content="ADCStore">
+    <meta name="keywords" content="ADCStore">
+    <meta name="author" content="ADCStore">
     <link rel="icon" href="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
 Smarty/smarty-dir/assets/images/favicon/1.png" type="image/x-icon">
     <link rel="shortcut icon" href="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
 Smarty/smarty-dir/assets/images/favicon/1.png" type="image/x-icon">
-    <title>Multikart - Multi-purpopse E-commerce Html Template</title>
+    <title>ADC Store - L'ABC della qualità</title>
 
     <!--Google font-->
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet">
@@ -73,27 +73,7 @@ Smarty/smarty-dir/assets/css/color1.css" media="screen" id="color">
     <!-- loader start -->
     <div class="loader_skeleton">
         <header class="header-2">
-            <div class="top-header d-none d-sm-block">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <div class="header-contact">
-                                <ul>
-                                    <li>Benvenuti in ADC Store</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-lg-6 text-right">
-                            <ul class="header-dropdown">
-                                <li class="mobile-wishlist"><a href="#"><i class="fa fa-heart" aria-hidden="true"></i></a>
-                                </li>
-                                <li class="onhover-dropdown mobile-account"><i class="fa fa-user" aria-hidden="true"></i> Il mio Account
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
+
             <div class="container">
                 <div class="row">
                     <div class="col-sm-12">
@@ -102,18 +82,6 @@ Smarty/smarty-dir/assets/css/color1.css" media="screen" id="color">
                                 <a href="#"><img src="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
 Smarty/smarty-dir/assets/images/icon/logo.png" class="img-fluid blur-up lazyload"
                                         alt=""></a>
-                            </div>
-                            <div class="menu-right pull-right">
-                                <div class="icon-nav d-none d-sm-block">
-                                    <ul>
-                                        <li class="onhover-div mobile-search">
-                                            <div><img src="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
-Smarty/smarty-dir/assets/images/icon/search.png" onclick="openSearch()"
-                                                    class="img-fluid blur-up lazyload" alt=""> <i class="ti-search"
-                                                    onclick="openSearch()"></i></div>
-                                        </li>
-                                    </ul>
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -131,9 +99,28 @@ Smarty/smarty-dir/assets/images/icon/search.png" onclick="openSearch()"
                                         <div class="mobile-back text-right">Back<i class="fa fa-angle-right pl-2"
                                                 aria-hidden="true"></i></div>
                                     </li>
-                               
+
+
                                     <li>
-                                        <a href="#">product</a>
+                                        <div class="mobile-back text-right">Back<i class="fa fa-angle-right pl-2"
+                                                                                   aria-hidden="true"></i></div>
+                                    </li>
+                                    <li>
+                                        <a href="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+GestioneProdotti/recuperaProdotti">Prodotti</a>
+                                    </li>
+                                    <li><a href="#">Account</a>
+                                        <ul>
+                                            <li><a href="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+GestioneSchermate/recuperaLogin" data-lng="en">Login</a></li>
+                                            <li><a href="#" data-lng="en">Logout</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="loginbe.html">Area Riservata</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Su di noi</a>
                                     </li>
                                 </ul>
                             </nav>
@@ -316,21 +303,6 @@ Smarty/smarty-dir/assets/images/icon/search.png" onclick="openSearch()"
 
     <!-- header start -->
     <header class="header-2">
-        <div class="mobile-fix-option"></div>
-        <div class="top-header">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-6">
-                        <div class="header-contact">
-                            <ul>
-                                <li>Benvenuti in ADC Store</li>
-                            </ul>
-                        </div>
-                    </div>
-                  
-                </div>
-            </div>
-        </div>
         <div class="container">
             <div class="row">
                 <div class="col-sm-12">
@@ -344,8 +316,7 @@ Smarty/smarty-dir/assets/images/icon/logo.png" class="img-fluid blur-up lazyload
                         <div class="menu-right pull-right">
                             <div class="icon-nav">
                                 <ul>
-                                    
-                                   
+                                    <li><h2>Benvenuti in <b>ADC-Store</b>!</h2></li>
                                 </ul>
                             </div>
                         </div>
@@ -380,9 +351,10 @@ GestioneSchermate/recuperaLogin" data-lng="en">Login</a></li>
                                 </li>
                                 <li>
                                     <a href="loginbe.html">Area Riservata</a>
-                                    
                                 </li>
-
+                                <li>
+                                    <a href="#">Su di noi</a>
+                                </li>
                             </ul>
                         </nav>
                     </div>
@@ -442,8 +414,8 @@ Smarty/smarty-dir/assets/images/home-banner/sup.jpg" alt="" class="bg-img blur-u
                                     fill="#ff4c3b" />
                             </svg>
                             <div class="media-body">
-                                <h4>free shipping</h4>
-                                <p>free shipping world wide</p>
+                                <h4>Consegna Gratuita</h4>
+                                <p>Consegna Gratuita in Città</p>
                             </div>
                         </div>
                     </div>
@@ -472,8 +444,8 @@ Smarty/smarty-dir/assets/images/home-banner/sup.jpg" alt="" class="bg-img blur-u
                                 </g>
                             </svg>
                             <div class="media-body">
-                                <h4>24 X 7 service</h4>
-                                <p>online service for new customer</p>
+                                <h4>Servizi 24 X 7</h4>
+                                <p>Servizi online per i nuovi clienti</p>
                             </div>
                         </div>
                     </div>
@@ -500,8 +472,8 @@ Smarty/smarty-dir/assets/images/home-banner/sup.jpg" alt="" class="bg-img blur-u
                                     fill="#ff4c3b" />
                             </svg>
                             <div class="media-body">
-                                <h4>festival offer</h4>
-                                <p>new online special festival offer</p>
+                                <h4>Offerte speciali</h4>
+                                <p>Nuove offerte speciali</p>
                             </div>
                         </div>
                     </div>
@@ -515,22 +487,6 @@ Smarty/smarty-dir/assets/images/home-banner/sup.jpg" alt="" class="bg-img blur-u
 
     <!-- footer start -->
     <footer class="footer-light">
-        <div class="light-layout">
-            <div class="container">
-                <section class="small-section border-section border-top-0">
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <div class="subscribe">
-                                <div>
-                                    <h4>KNOW IT ALL FIRST!</h4>
-                                    <p>Never Miss Anything From Multikart By Signing Up To Our Newsletter.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-            </div>
-        </div>
         <section class="section-b-space light-layout">
             <div class="container">
                 <div class="row footer-theme partition-f">

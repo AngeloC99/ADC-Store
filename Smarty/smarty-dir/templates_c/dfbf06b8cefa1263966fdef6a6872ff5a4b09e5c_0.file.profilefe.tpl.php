@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-06-26 18:57:57
+/* Smarty version 3.1.39, created on 2021-06-28 09:12:06
   from 'C:\Users\david\public_html\ADC-Store\Smarty\smarty-dir\templates\profilefe.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_60d75c950c1657_77593113',
+  'unifunc' => 'content_60d976462e9012_71256652',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'dfbf06b8cefa1263966fdef6a6872ff5a4b09e5c' => 
     array (
       0 => 'C:\\Users\\david\\public_html\\ADC-Store\\Smarty\\smarty-dir\\templates\\profilefe.tpl',
-      1 => 1624726631,
+      1 => 1624863624,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_60d75c950c1657_77593113 (Smarty_Internal_Template $_smarty_tpl) {
+function content_60d976462e9012_71256652 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en">
 
@@ -123,7 +123,8 @@ Smarty/smarty-dir/assets/images/icon/logo.png"
                                                         class="fa fa-angle-right pl-2" aria-hidden="true"></i></div>
                                             </li>
                                             <li>
-                                                <a href="#">Carrelli preferiti</a>
+                                                <a href="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+GestioneSchermate/recuperaGestioneCarrelliSalvati">Carrelli preferiti</a>
                                             </li>
                                             <li>
                                                 <a href="#">Buoni sconto</a>
@@ -133,10 +134,12 @@ Smarty/smarty-dir/assets/images/icon/logo.png"
 GestioneSchermate/recuperaFormPunti">Regala punti</a>
                                             </li>
                                             <li>
-                                                <a href="#">Gestsci indirizzi</a>
+                                                <a href="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+GestioneSchermate/recuperaGestioneIndirizzi">Gestione indirizzi</a>
                                             </li>
                                             <li>
-                                                <a href="#">Carte di credito</a>
+                                                <a href="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+GestioneSchermate/recuperaGestioneCarte">Gestione carte di credito</a>
                                             </li>
                                         </ul>
                                     </nav>
