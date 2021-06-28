@@ -11,13 +11,13 @@ class CGestioneUtenti
      * Recupera tutti gli utenti presenti del database
      * @return array
      */
-    public static function recuperaClientiInattivi(): array{
+    public static function recuperaClientiInattivi(){
 
         $pm = FPersistentManager::getInstance();
         return $pm->prelevaUtentiInattivi();
     }
 
-    public static function recuperaClienti(): array
+    public static function recuperaClienti()
     {
         $pm = FPersistentManager::getInstance();
         $clientirec = $pm->prelevaUtenti();
@@ -27,8 +27,7 @@ class CGestioneUtenti
                 'nome' => $item->getNome(),
                 'cognome' => $item->getCognome(),
                 'email' => $item->getEmail(),
-                'password' => $item->getPassword(),
-                'punti' => $item->getPunti());
+                'password' => $item->getPassword());
             $clienti[] = $el;
         }
         $v = new VGestioneUtenti();

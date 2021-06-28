@@ -141,7 +141,7 @@ class CGestioneSessioni
      */
     public function isLoggedUser(): bool {
         $this->iniziaSessione();
-        return isset($_COOKIE["PHPSESSID"]) && (isset($_SESSION["utente"]));
+        return (isset($_COOKIE["PHPSESSID"]) && (isset($_SESSION["utente"])));
     }
     /**
      * Metodo che verifica se l'amministratore ha eseguito il login.
@@ -149,7 +149,7 @@ class CGestioneSessioni
      */
     public function isLoggedAdmin(): bool {
         $this->iniziaSessione();
-        return isset($_COOKIE["PHPSESSID"]) && isset($_SESSION["admin"]);
+        return (isset($_COOKIE["PHPSESSID"]) && isset($_SESSION["admin"]));
     }
     /**
      * Metodo che restituisce l'utente registrato o l'amministratore (se loggati), oppure NULL.

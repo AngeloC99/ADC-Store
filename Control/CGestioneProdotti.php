@@ -60,8 +60,16 @@ class CGestioneProdotti
 
     }
     public static function recuperaAggiungiProdotto(){
-        $v = new VGestioneProdotto();
-        $v->mostraAggiuntaProdotto();
+        $gs=CGestioneSessioni::getInstance();
+        if ($gs->isLoggedAdmin()){
+            $utente=$gs->caricaUtente();
+            $v = new VGestioneProdotto();
+            $v->mostraAggiuntaProdotto($utente);
+        }
+        else{
+            header("Location: ".$GLOBALS['path']."GestioneSchermate/recupera401");
+
+        }
     }
 
     /**

@@ -39,4 +39,5 @@ class VGestioneBuoni
         $this->smarty->display('coupon-create.tpl');
     }
 
+
 }

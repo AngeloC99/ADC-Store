@@ -10,7 +10,7 @@
     <meta name="author" content="multikart">
     <link rel="icon" href="{$path}Smarty/smarty-dir/assets/images/favicon/1.png" type="image/x-icon">
     <link rel="shortcut icon" href="{$path}Smarty/smarty-dir/assets/images/favicon/1.png" type="image/x-icon">
-    <title>Multikart - Multi-purpopse E-commerce Html Template</title>
+    <title>ADC Store - Home Admin</title>
 
     <!--Google font-->
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet">
@@ -40,74 +40,7 @@
 
     <!-- loader start -->
     <div class="loader_skeleton">
-        <header class="header-2">
-            <div class="top-header d-none d-sm-block">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <div class="header-contact">
-                                <ul>
-                                    <li>Benvenuti in ADC Store</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-lg-6 text-right">
-                            <ul class="header-dropdown">
-                                <li class="mobile-wishlist"><a href="#"><i class="fa fa-heart" aria-hidden="true"></i></a>
-                                </li>
-                                <li class="onhover-dropdown mobile-account"><i class="fa fa-user" aria-hidden="true"></i> Il mio Account
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-12">
-                        <div class="main-menu border-section border-top-0">
-                            <div class="brand-logo layout2-logo">
-                                <a href="#"><img src="{$path}Smarty/smarty-dir/assets/images/icon/logo.png" class="img-fluid blur-up lazyload"
-                                        alt=""></a>
-                            </div>
-                            <div class="menu-right pull-right">
-                                <div class="icon-nav d-none d-sm-block">
-                                    <ul>
-                                        <li class="onhover-div mobile-search">
-                                            <div><img src="{$path}Smarty/smarty-dir/assets/images/icon/search.png" onclick="openSearch()"
-                                                    class="img-fluid blur-up lazyload" alt=""> <i class="ti-search"
-                                                    onclick="openSearch()"></i></div>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="main-nav-center">
-                            <nav>
-                                <div class="toggle-nav"><i class="fa fa-bars sidebar-bar"></i></div>
-                                <!-- Sample menu definition -->
-                                <ul class="sm pixelstrap sm-horizontal">
-                                    <li>
-                                        <div class="mobile-back text-right">Back<i class="fa fa-angle-right pl-2"
-                                                aria-hidden="true"></i></div>
-                                    </li>
-                               
-                                    <li>
-                                        <a href="#">product</a>
-                                    </li>
-                                </ul>
-                            </nav>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </header>
+
         <div class="home-slider">
             <div class="home"></div>
         </div>
@@ -282,21 +215,7 @@
 
     <!-- header start -->
     <header class="header-2">
-        <div class="mobile-fix-option"></div>
-        <div class="top-header">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-6">
-                        <div class="header-contact">
-                            <ul>
-                                <li>Benvenuti in ADC Store</li>
-                            </ul>
-                        </div>
-                    </div>
-                  
-                </div>
-            </div>
-        </div>
+
         <div class="container">
             <div class="row">
                 <div class="col-sm-12">
@@ -304,7 +223,7 @@
                         
                         <div class="brand-logo layout2-logo">
                             <a href="#"><img src="{$path}Smarty/smarty-dir/assets/images/icon/logo.png" class="img-fluid blur-up lazyload"
-                                    alt=""></a>
+                                    alt="" hspace="400"></a>
                         </div>
                         <div class="menu-right pull-right">
                             <div class="icon-nav">

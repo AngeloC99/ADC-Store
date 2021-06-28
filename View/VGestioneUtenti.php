@@ -17,6 +17,14 @@ class VGestioneUtenti {
         $this->smarty->display('profilefe.tpl');
     }
 
+    public function mostraProfiloAdmin($utente){
+        $this->smarty->assign("path", $GLOBALS["path"]);
+        $this->smarty->assign('nome', $utente->getNome());
+        $this->smarty->assign('cognome', $utente->getCognome());
+        $this->smarty->assign('email', $utente->getEmail());
+        $this->smarty->display('profilebe.tpl');
+    }
+
     public function mostraLogin() {
         $this->smarty->assign("path", $GLOBALS["path"]);
         $this->smarty->display('loginfe.tpl');

@@ -178,16 +178,15 @@
                     <div class="row">
                         <div class="col-lg-6">
                             <div class="page-header-left">
-                                <h3>Aggiungi Prodotto
-                                    <small>area amministratore</small>
+                                <h3>Profilo
+                                    <small>Area Amministratore</small>
                                 </h3>
                             </div>
                         </div>
                         <div class="col-lg-6">
                             <ol class="breadcrumb pull-right">
-                                <li class="breadcrumb-item"><a href="home.html"><i data-feather="home"></i></a></li>
-                                <li class="breadcrumb-item">Prodotti</li>
-                                <li class="breadcrumb-item active">Aggiungi prodotto</li>
+                                <li class="breadcrumb-item"><a href="index.html"><i data-feather="home"></i></a></li>
+                                <li class="breadcrumb-item active">Profilo</li>
                             </ol>
                         </div>
                     </div>
@@ -198,83 +197,40 @@
             <!-- Container-fluid starts-->
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-sm-12">
-                        <div class="card">
-                            <div class="card-header">
-                                <h5>Aggiungi prodotto</h5>
-                            </div>
+                    <div class="col-xl-8">
+                        <div class="card tab2-card">
                             <div class="card-body">
-                                <div class="row product-adding">
-                                    <div class="col-xl-5">
-                                        <div class="add-product">
-                                            <div class="row">
-
-
-                                            </div>
+                                <ul class="nav nav-tabs nav-material" id="top-tab" role="tablist">
+                                    <li class="nav-item"><a class="nav-link active" id="top-profile-tab" data-toggle="tab" href="#top-profile" role="tab" aria-controls="top-profile" aria-selected="true"><i data-feather="user" class="mr-2"></i>Profilo</a>
+                                    </li>
+                                </ul>
+                                <div class="tab-content" id="top-tabContent">
+                                    <div class="tab-pane fade show active" id="top-profile" role="tabpanel" aria-labelledby="top-profile-tab">
+                                        <h5 class="f-w-600">Profilo</h5>
+                                        <div class="table-responsive profile-table">
+                                            <table class="table table-responsive">
+                                                <tbody>
+                                                <tr>
+                                                    <td>Nome:</td>
+                                                    <td>{$nome}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Cognome:</td>
+                                                    <td>{$cognome}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Email:</td>
+                                                    <td>{$email}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Paese:</td>
+                                                    <td>Italia</td>
+                                                </tr>
+                                                </tbody>
+                                            </table>
                                         </div>
                                     </div>
-                                    <div class="col-xl-7">
-                                        <form class="needs-validation add-product-form" novalidate="" name="upload" enctype="multipart/form-data" method="post" action="{$path}GestioneProdotti/aggiungiProdotto">
-                                            <div class="form">
-                                                <div class="form-group mb-3 row">
-                                                    <label for="validationCustom01" class="col-xl-3 col-sm-4 mb-0">Seleziona immagine :</label>
-                                                    <input type="file" name="image" id="image">
-                                                </div>
-                                                <div class="form-group mb-3 row">
-                                                    <label for="validationCustom01" class="col-xl-3 col-sm-4 mb-0">Nome prodotto :</label>
-                                                    <input class="form-control col-xl-8 col-sm-7" id="validationCustom01" type="text" name='nome' required="">
-                                                    <div class="valid-feedback">Ok!</div>
-                                                </div>
-                                                <div class="form-group mb-3 row">
-                                                    <label for="validationCustom01" class="col-xl-3 col-sm-4 mb-0">Marca :</label>
-                                                    <input class="form-control col-xl-8 col-sm-7" id="validationCustom01" type="text" name='marca' required="">
-                                                    <div class="valid-feedback">Ok!</div>
-                                                </div>
-                                                <div class="form-group mb-3 row">
-                                                    <label for="validationCustom02" class="col-xl-3 col-sm-4 mb-0">Prezzo (in €) :</label>
-                                                    <input class="form-control col-xl-8 col-sm-7" id="validationCustom02" type="text" name='prezzo' required="">
-                                                    <div class="valid-feedback">Ok!</div>
-                                                </div>
-                                            </div>
-                                            <div class="form">
-                                                <div class="form-group row">
-                                                    <label for="exampleFormControlSelect1" class="col-xl-3 col-sm-4 mb-0">Tipologia :</label>
-                                                    <select class="form-control digits col-xl-8 col-sm-7" id="exampleFormControlSelect1" name='tipologia'>
-                                                        <option>Carne</option>
-                                                        <option>Pesce</option>
-                                                        <option>Verdura</option>
-                                                        <option>Uova latte e latticini</option>
-                                                        <option>Salumi e formaggi</option>
-                                                        <option>Frutta</option>
-                                                        <option>Pane</option>
-                                                        <option>Bevande</option>
-                                                        <option>Gelati e surgelati</option>
-                                                        <option>Cura della persona</option>
-                                                        <option>Cura della casa</option>
-                                                    </select>
-                                                </div>
-                                                <div class="form-group row">
-                                                    <label class="col-xl-3 col-sm-4 mb-0">Quantità :</label>
-                                                    <fieldset class="qty-box col-xl-9 col-xl-8 col-sm-7 pl-0">
-                                                        <div class="input-group">
-                                                            <input class="touchspin" type="number" min='1' name='quantita' value="1">
-                                                        </div>
-                                                    </fieldset>
-                                                </div>
-                                                <div class="form-group row">
-                                                    <label class="col-xl-3 col-sm-4">Aggiungi una descrizione :</label>
-                                                    <div class="col-xl-8 col-sm-7 pl-0 description-sm">
-                                                        <textarea name="descrizione"> </textarea>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="offset-xl-3 offset-sm-4">
-                                                <button type="submit" class="btn btn-primary" href="{$path}GestioneProdotti/recuperaAggiungiProdotto" onclick="Funzione1()">Aggiungi</button>
-                                                <a href="{$path}GestioneProdotti/recuperaAggiungiProdotto" class="btn btn-light">Annulla</a>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
+
                             </div>
                         </div>
                     </div>
@@ -282,57 +238,52 @@
             </div>
             <!-- Container-fluid Ends-->
 
-            <!-- footer start-->
-            <footer class="footer">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-md-6 footer-copyright">
-                            <p class="mb-0">Copyright 2019 © Multikart All rights reserved.</p>
-                        </div>
-                        <div class="col-md-6">
-                            <p class="pull-right mb-0">Hand crafted & made with<i class="fa fa-heart"></i></p>
-                        </div>
+        </div>
+
+        <!-- footer start-->
+        <footer class="footer">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-6 footer-copyright">
+                        <p class="mb-0">Copyright 2019 © Multikart All rights reserved.</p>
+                    </div>
+                    <div class="col-md-6">
+                        <p class="pull-right mb-0">Hand crafted & made with<i class="fa fa-heart"></i></p>
                     </div>
                 </div>
-            </footer>
-            <!-- footer end-->
-
-        </div>
+            </div>
+        </footer>
+        <!-- footer end-->
 
     </div>
 
-    <!-- latest jquery-->
-    <script src="{$path}Smarty/smarty-dir/assets/js/jquery-3.3.1.min.js"></script>
+</div>
 
-    <!-- Bootstrap js-->
-    <script src="{$path}Smarty/smarty-dir/assets/js/popper.min.js"></script>
-    <script src="{$path}Smarty/smarty-dir/assets/js/bootstrap.js"></script>
+<!-- latest jquery-->
+<script src="{$path}Smarty/smarty-dir/assets/js/jquery-3.3.1.min.js"></script>
 
-    <!-- feather icon js-->
-    <script src="{$path}Smarty/smarty-dir/assets/js/icons/feather-icon/feather.min.js"></script>
-    <script src="{$path}Smarty/smarty-dir/assets/js/icons/feather-icon/feather-icon.js"></script>
+<!-- Bootstrap js-->
+<script src="{$path}Smarty/smarty-dir/assets/js/popper.min.js"></script>
+<script src="{$path}Smarty/smarty-dir/assets/js/bootstrap.js"></script>
 
-    <!-- Sidebar jquery-->
-    <script src="{$path}Smarty/smarty-dir/assets/js/sidebar-menu.js"></script>
+<!-- feather icon js-->
+<script src="{$path}Smarty/smarty-dir/assets/js/icons/feather-icon/feather.min.js"></script>
+<script src="{$path}Smarty/smarty-dir/assets/js/icons/feather-icon/feather-icon.js"></script>
 
-    <!--Customizer admin-->
-    <script src="{$path}Smarty/smarty-dir/assets/js/admin-customizer.js"></script>
+<!-- Sidebar jquery-->
+<script src="{$path}Smarty/smarty-dir/assets/js/sidebar-menu.js"></script>
 
-    <!-- lazyload js-->
-    <script src="{$path}Smarty/smarty-dir/assets/js/lazysizes.min.js"></script>
+<!--Customizer admin-->
+<script src="{$path}Smarty/smarty-dir/assets/js/admin-customizer.js"></script>
 
-    <!--right sidebar js-->
-    <script src="{$path}Smarty/smarty-dir/assets/js/chat-menu.js"></script>
+<!-- lazyload js-->
+<script src="{$path}Smarty/smarty-dir/assets/js/lazysizes.min.js"></script>
 
-    <!--script admin-->
-    <script src="{$path}Smarty/smarty-dir/assets/js/admin-script.js"></script>
+<!--right sidebar js-->
+<script src="{$path}Smarty/smarty-dir/assets/js/chat-menu.js"></script>
+
+<!--script admin-->
+<script src="{$path}Smarty/smarty-dir/assets/js/admin-script.js"></script>
 
 </body>
 </html>
-
-
-
-
-
-
-

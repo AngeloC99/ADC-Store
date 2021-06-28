@@ -17,6 +17,10 @@ class CGestioneSchermate
         $utente = $pm->load('FUtenteReg', $gs->caricaUtente()->getEmail());
         $v = new VGestioneUtenti();
         $v->mostraProfilo($utente);}
+        if($gs->isLoggedAdmin()){
+            $utente = $pm->load('FAmministratore', $gs->caricaUtente()->getEmail());
+            $v = new VGestioneUtenti();
+            $v->mostraProfiloAdmin($utente);}
         else{
             header("Location: ".$GLOBALS['path']."GestioneSchermate/recupera401");
         }
@@ -27,9 +31,21 @@ class CGestioneSchermate
         $v->mostraLogin();
     }
 
-    public static function recuperaHomeUtente() {
-        $v = new VGestioneUtenti();
-        $v->mostraHomeUtente();
+    public static function recuperaHome() {
+        $gs=CGestioneSessioni::getInstance();
+        if($gs->isLoggedUser()){
+            $v = new VGestioneUtenti();
+            $v->mostraHomeUtente();
+        }
+        if($gs->isLoggedAdmin()){
+            $v = new VGestioneUtenti();
+            $v->mostraHomeAdmin();
+        }
+        else{
+            header("Location: ".$GLOBALS['path']."GestioneSchermate/recupera401");
+
+        }
+
     }
 
     public static function recuperaHomeAdmin() {

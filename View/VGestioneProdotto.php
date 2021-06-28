@@ -8,9 +8,9 @@ class VGestioneProdotto {
     {
         $this->smarty=StartSmarty::configuration();
     }
-    public function mostraAggiuntaProdotto(){
+    public function mostraAggiuntaProdotto($utente){
         $this->smarty->assign("path", $GLOBALS["path"]);
-        //$this->smarty->assign('nome',$admin->getNome());
+        $this->smarty->assign('nome',$utente->getNome());
         $this->smarty->display('add-product.tpl');
 
     }

@@ -49,25 +49,11 @@
             </div>
             <div class="nav-right col">
                 <ul class="nav-menus">
-                    <li>
-                        <form class="form-inline search-form">
-                            <div class="form-group">
-                                <input class="form-control-plaintext" type="search" placeholder="Search"><span class="d-sm-none mobile-search"><i data-feather="search"></i></span>
-                            </div>
-                        </form>
-                    </li>
+
+
                     <li><a class="text-dark" href="#" onclick="javascript:toggleFullScreen()"><i data-feather="maximize-2"></i></a></li>
 
 
-                    <li class="onhover-dropdown">
-                        <div class="media align-items-center"><img class="align-self-center pull-right img-50 rounded-circle blur-up lazyloaded" src="{$path}Smarty/smarty-dir/assets/images/dashboard/man.png" alt="header-user">
-                            <div class="dotted-animation"><span class="animate-circle"></span><span class="main-circle"></span></div>
-                        </div>
-                        <ul class="profile-dropdown onhover-show-div p-20">
-                            <li><a href="{$path}GestioneSchermate/apriProfilo"><i data-feather="user"></i>Profilo</a></li>
-                            <li><a href="{$path}GestioneUtenti/logout"><i data-feather="mail"></i>Logout</a></li>
-                        </ul>
-                    </li>
                 </ul>
                 <div class="d-lg-none mobile-toggle pull-right"><i data-feather="more-horizontal"></i></div>
             </div>
@@ -88,11 +74,11 @@
                     <p>Area Amministratore</p>
                 </div>
                 <ul class="sidebar-menu">
-                    <li><a class="sidebar-header" href="homeAdmin.tpl"><i data-feather="home"></i><span>Home</span></a></li>
+                    <li><a class="sidebar-header" href="{$path}GestioneSchermate/recuperaHome"><i data-feather="home"></i><span>Home</span></a></li>
                     <li><a class="sidebar-header" href="#"><i data-feather="box"></i> <span>Prodotti</span><i class="fa fa-angle-right pull-right"></i></a>
                                 <ul class="sidebar-submenu">
                                     <li><a href="{$path}GestioneProdotti/recuperaProdotti"><i class="fa fa-circle"></i>Lista Prodotti</a></li>
-                                    <li><a href="{$path}GestioneProdotti/aggiungiProdotto"><i class="fa fa-circle"></i>Aggiungi Prodotto</a></li>
+                                    <li><a href="{$path}GestioneProdotti/recuperaAggiungiProdotto"><i class="fa fa-circle"></i>Aggiungi Prodotto</a></li>
 
                                 </ul>
 
@@ -104,7 +90,7 @@
                             </li>
                     <li><a class="sidebar-header" href=""><i data-feather="tag"></i><span>Buoni Sconto</span><i class="fa fa-angle-right pull-right"></i></a>
                         <ul class="sidebar-submenu">
-                            <li><a href="{$path}GestioneBuoni/inviaBuono"><i class="fa fa-circle"></i>Regala Buono</a></li>
+                            <li><a href="{$path}GestioneBuoni/recuperaCreazioneBuono"><i class="fa fa-circle"></i>Regala Buono</a></li>
                         </ul>
                     </li>
 
@@ -162,7 +148,6 @@
                                             <th scope="col">Cognome</th>
                                             <th scope="col">Email</th>
                                             <th scope="col">Password</th>
-                                            <th scope="col">Punti</th>
                                         </tr>
                                         </thead>
                                         <tbody>
@@ -179,9 +164,6 @@
                                                 </td>
                                                 <td>
                                                     <a>{$cl.password}</a>
-                                                </td>
-                                                <td>
-                                                    <a>{$cl.punti}</a>
                                                 </td>
 
                                             </tr>

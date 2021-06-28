@@ -55,7 +55,7 @@
                         <div class="media align-items-center"><img class="align-self-center pull-right img-50 rounded-circle blur-up lazyloaded" src="{$path}Smarty/Smarty-dir/assets/images/dashboard/man.png" alt="header-user">
                         </div>
                         <ul class="profile-dropdown onhover-show-div p-20">
-                            <li><a href="profilebe.html"><i data-feather="user"></i>Profilo</a></li>
+                            <li><a href="profilebe.tpl"><i data-feather="user"></i>Profilo</a></li>
                         </ul>
                     </li>
                 </ul>
