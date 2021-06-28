@@ -258,7 +258,7 @@
                                 </li>
                                 <li><a href="#">Profilo</a>
                                             <ul>
-                                                <li><a href="loginfe.tpl" data-lng="en">Visita Profilo</a></li>
+                                                <li><a href="{$path}GestioneSchermate/apriProfilo" data-lng="en">Visita Profilo</a></li>
                                                 <li><a href="{$path}GestioneUtenti/logout" data-lng="en">Logout</a></li>
                                             </ul>
                                         
