@@ -1,17 +1,17 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-06-28 09:07:41
-  from 'C:\Users\david\public_html\ADC-Store\Smarty\smarty-dir\templates\loginfe.tpl' */
+/* Smarty version 3.1.39, created on 2021-06-28 09:16:53
+  from 'C:\Users\david\public_html\ADC-Store\Smarty\smarty-dir\templates\gestioneCarte.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_60d9753d3a7613_10762512',
+  'unifunc' => 'content_60d977653489a0_34893492',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    '22510075bdc56c17dd930f5dffde82b3c2aea496' => 
+    '25cfb7e7ed21c79902626c1c74bd7cfc4c2a247c' => 
     array (
-      0 => 'C:\\Users\\david\\public_html\\ADC-Store\\Smarty\\smarty-dir\\templates\\loginfe.tpl',
+      0 => 'C:\\Users\\david\\public_html\\ADC-Store\\Smarty\\smarty-dir\\templates\\gestioneCarte.tpl',
       1 => 1624863624,
       2 => 'file',
     ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_60d9753d3a7613_10762512 (Smarty_Internal_Template $_smarty_tpl) {
+function content_60d977653489a0_34893492 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en">
 
@@ -60,7 +60,7 @@ Smarty/smarty-dir/assets/css/themify-icons.css">
 
     <!-- Bootstrap css -->
     <link rel="stylesheet" type="text/css" href="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
-Smarty/smarty-dir/assets/css/bootstrap.css">
+Smarty//smarty-dir/assets/css/bootstrap.css">
 
     <!-- Theme css -->
     <link rel="stylesheet" type="text/css" href="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
@@ -80,14 +80,13 @@ Smarty/smarty-dir/assets/css/color1.css" media="screen" id="color">
                     <div class="col-lg-6">
                         <div class="header-contact">
                             <ul>
-                                <li>Benvenuti in ADC Store</li>
+                                <li>Benvenuti in ADC Store!</li>
                             </ul>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
         <div class="container">
             <div class="row">
                 <div class="col-sm-12">
@@ -97,12 +96,13 @@ Smarty/smarty-dir/assets/css/color1.css" media="screen" id="color">
                             <div class="brand-logo">
                                 <a href="index.html"> <img src="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
 Smarty/smarty-dir/assets/images/icon/logo.png"
-                                        class="img-fluid blur-up lazyload" alt="" hspace="400"></a>
+                                        class="img-fluid blur-up lazyload" alt=""></a>
                             </div>
                         </div>
                 </div>
             </div>
         </div>
+
     </header>
     <!-- header end -->
 
@@ -113,14 +113,14 @@ Smarty/smarty-dir/assets/images/icon/logo.png"
             <div class="row">
                 <div class="col-sm-6">
                     <div class="page-title">
-                        <h2>Login utente</h2>
+                        <h2>Gestione Carte di Credito</h2>
                     </div>
                 </div>
                 <div class="col-sm-6">
                     <nav aria-label="breadcrumb" class="theme-breadcrumb">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="home.tpl">Home</a></li>
-                            <li class="breadcrumb-item active">login</li>
+                            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Profilo Personale</li>
                         </ol>
                     </nav>
                 </div>
@@ -131,36 +131,51 @@ Smarty/smarty-dir/assets/images/icon/logo.png"
 
 
     <!--section start-->
-    <section class="login-page section-b-space">
+    <section class="register-page section-b-space">
         <div class="container">
             <div class="row">
-                <div class="col-lg-6">
-                    <h3>Login</h3>
+                <div class="col-lg-12">
+                    <h3>Inserisci una carta di credito</h3>
                     <div class="theme-card">
                         <form class="theme-form" method="post" action="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
-GestioneUtenti/login">
-                            <div class="form-group">
-                                <label for="email">Email</label>
-                                <input type="text" class="form-control" id="email" placeholder="Inserisci la tua E-mail" required="" name="email">
+GestioneCartaCredito/aggiungiCarta">
+                            <div class="form-row">
+                                <div class="col-md-6">
+                                    <label for="review">Numero</label>
+                                    <input type="password" class="form-control" id="review"
+                                           placeholder="Inserisci il numero della carta" required name="numero" maxlength="19">
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="review">Titolare</label>
+                                    <input type="text" class="form-control" id="lname" placeholder="Inserisci il titolare" name="titolare"
+                                        required maxlength="25">
+                                </div>
                             </div>
-                            <div class="form-group">
-                                <label for="review">Password</label>
-                                <input type="password" class="form-control" id="review"
-                                    placeholder="Inserisci la tua password" required="" name="password">
+                            <div class="form-row">
+                                <div class="col-md-6">
+                                    <label for="review">Circuito</label>
+                                    <input type="text" class="form-control" id="lname" placeholder="Inserisci il circuito" name="circuito"
+                                           required maxlength="15">
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="review">CVV</label>
+                                    <input type="password" class="form-control" id="review"
+                                           placeholder="Inserisci il CVV" required name="cvv" maxlength="3">
+                                </div>
                             </div>
-                            <button type="submit" class="btn btn-solid" href="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
-GestioneUtenti/login" >Accedi</button>
+                            <div class="form-row">
+                                <div class="col-md-6">
+                                    <label for="review">Ammontare</label>
+                                    <input type="text" class="form-control" id="lname" placeholder="Inserisci l'ammontare" name="ammontare"
+                                           required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="review">Scadenza</label>
+                                    <input type="date" class="form-control" id="lname" placeholder="Inserisci la scadenza" name="scadenza"
+                                           required min="2021-07-06">
+                                </div>
+                            </div><input type="submit" value="Salva la Carta" class="btn btn-solid"/>
                         </form>
-                    </div>
-                </div>
-                <div class="col-lg-6 right-login">
-                    <h3>Nuovo cliente</h3>
-                    <div class="theme-card authentication-right">
-                        <h6 class="title-font">Crea Account</h6>
-                        <p>Registrati per avere un account gratuito tutto tuo presso il nostro negozio. La registrazione è semplice e veloce e ti permette di fare acquisti sul nostro sito oltre a molte altre funzionalità aggiuntive. 
-                        Per entrare in questo mondo clicca su registrati.</p>
-                        <a href="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
-GestioneUtenti/recuperaCreazioneAccount" class="btn btn-solid">Crea Account</a>
                     </div>
                 </div>
             </div>
@@ -168,10 +183,141 @@ GestioneUtenti/recuperaCreazioneAccount" class="btn btn-solid">Crea Account</a>
     </section>
     <!--Section ends-->
 
+    <!-- Inizio elenco carte -->
+    <table class="table cart-table table-responsive-xs">
+        <thead>
+        <tr class="table-head">
+            <th scope="col">Numero</th>
+            <th scope="col">Titolare</th>
+            <th scope="col">Circuito</th>
+            <th scope="col">CVV</th>
+            <th scope="col">Ammontare</th>
+            <th scope="col">Scadenza</th>
+            <th scope="col">Rimuovi</th>
+        </tr>
+        </thead>
+        <tbody>
+        <?php
+$__section_carta_0_loop = (is_array(@$_loop=$_smarty_tpl->tpl_vars['carte']->value) ? count($_loop) : max(0, (int) $_loop));
+$__section_carta_0_total = $__section_carta_0_loop;
+$_smarty_tpl->tpl_vars['__smarty_section_carta'] = new Smarty_Variable(array());
+if ($__section_carta_0_total !== 0) {
+for ($__section_carta_0_iteration = 1, $_smarty_tpl->tpl_vars['__smarty_section_carta']->value['index'] = 0; $__section_carta_0_iteration <= $__section_carta_0_total; $__section_carta_0_iteration++, $_smarty_tpl->tpl_vars['__smarty_section_carta']->value['index']++){
+?>
+            <tr>
+                <td>
+                    <h5><?php echo $_smarty_tpl->tpl_vars['carte']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_carta']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_carta']->value['index'] : null)]['numero'];?>
+</h5>
+                </td>
+                <td>
+                    <h5><?php echo $_smarty_tpl->tpl_vars['carte']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_carta']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_carta']->value['index'] : null)]['titolare'];?>
+</h5>
+                </td>
+                <td>
+                    <h5><?php echo $_smarty_tpl->tpl_vars['carte']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_carta']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_carta']->value['index'] : null)]['circuito'];?>
+</h5>
+                </td>
+                <td>
+                    <h5><?php echo $_smarty_tpl->tpl_vars['carte']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_carta']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_carta']->value['index'] : null)]['cvv'];?>
+</h5>
+                </td>
+                <td>
+                    <h5>€ <?php echo $_smarty_tpl->tpl_vars['carte']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_carta']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_carta']->value['index'] : null)]['ammontare'];?>
+</h5>
+                </td>
+                <td>
+                    <h5><?php echo $_smarty_tpl->tpl_vars['carte']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_carta']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_carta']->value['index'] : null)]['scadenza'];?>
+</h5>
+                </td>
+                <td><a href="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+GestioneCartaCredito/rimuoviCarta/<?php echo $_smarty_tpl->tpl_vars['carte']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_carta']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_carta']->value['index'] : null)]['numeroReale'];?>
+" class="icon"><i class="ti-close"></i></a></td>
+            </tr>
+        <?php
+}
+}
+?>
+        </tbody>
+    </table>
+    <!-- Fine elenco carte -->
 
     <!-- footer start -->
     <footer class="footer-light">
-
+        
+        <section class="section-b-space light-layout">
+            <div class="container">
+                <div class="row footer-theme partition-f">
+                    <div class="col-lg-4 col-md-6">
+                        <div class="footer-title footer-mobile-title">
+                            <h4>about</h4>
+                        </div>
+                        <div class="footer-contant">
+                            <div class="footer-logo"><img src="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+Smarty/smarty-dir/assets/images/icon/logo.png" alt=""></div>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                                ut labore et dolore magna aliqua. Ut enim ad minim veniam,</p>
+                            <div class="footer-social">
+                                <ul>
+                                    <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-rss" aria-hidden="true"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col offset-xl-1">
+                        <div class="sub-title">
+                            <div class="footer-title">
+                                <h4>my account</h4>
+                            </div>
+                            <div class="footer-contant">
+                                <ul>
+                                    <li><a href="#">mens</a></li>
+                                    <li><a href="#">womens</a></li>
+                                    <li><a href="#">clothing</a></li>
+                                    <li><a href="#">accessories</a></li>
+                                    <li><a href="#">featured</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="sub-title">
+                            <div class="footer-title">
+                                <h4>why we choose</h4>
+                            </div>
+                            <div class="footer-contant">
+                                <ul>
+                                    <li><a href="#">shipping & return</a></li>
+                                    <li><a href="#">secure shopping</a></li>
+                                    <li><a href="#">gallary</a></li>
+                                    <li><a href="#">affiliates</a></li>
+                                    <li><a href="#">contacts</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="sub-title">
+                            <div class="footer-title">
+                                <h4>store information</h4>
+                            </div>
+                            <div class="footer-contant">
+                                <ul class="contact-list">
+                                    <li><i class="fa fa-map-marker"></i>Multikart Demo Store, Demo store India 345-659
+                                    </li>
+                                    <li><i class="fa fa-phone"></i>Call Us: 123-456-7898</li>
+                                    <li><i class="fa fa-envelope-o"></i>Email Us: Support@Fiot.com</li>
+                                    <li><i class="fa fa-fax"></i>Fax: 123456</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
         <div class="sub-footer">
             <div class="container">
                 <div class="row">

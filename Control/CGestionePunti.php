@@ -138,7 +138,7 @@ class CGestionePunti
             //--------------------------------------------------
                 $v=new VGestionePunti();
                 $mail->Body = $v->datiPuntiEmail($_POST['punti'], $sender->getNome(), $sender->getCognome(), $_POST['Messaggio']);
-                $v->mostraFormPunti();
+                $v->mostraFormPunti($sender);
                 $mail->send();
              } catch (Exception $e) {
                 echo 'Message could not be sent.';

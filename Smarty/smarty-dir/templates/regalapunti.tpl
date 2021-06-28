@@ -113,8 +113,8 @@
                                 </div>
                                 <div class="col-md-6">
                                     <label for="review">Quanti punti vuoi regalare?</label>
-                                    <input type="text" class="form-control" id="lname" placeholder="Inserisci I Punti" name="punti"
-                                        required>
+                                    <input type="number" class="form-control" id="lname" placeholder="Inserisci I Punti" name="punti"
+                                        required min="1" max="50">
                                 </div>
                             </div>
                             <div class="form-row">

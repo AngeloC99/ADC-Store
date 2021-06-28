@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-06-26 18:58:02
+/* Smarty version 3.1.39, created on 2021-06-28 09:23:38
   from 'C:\Users\david\public_html\ADC-Store\Smarty\smarty-dir\templates\regalapunti.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_60d75c9ad49ff3_20608694',
+  'unifunc' => 'content_60d978fa8f3516_65552647',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'e7c15abc6cb1be80d96f3c868978ccc060a4234d' => 
     array (
       0 => 'C:\\Users\\david\\public_html\\ADC-Store\\Smarty\\smarty-dir\\templates\\regalapunti.tpl',
-      1 => 1624711977,
+      1 => 1624864830,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_60d75c9ad49ff3_20608694 (Smarty_Internal_Template $_smarty_tpl) {
+function content_60d978fa8f3516_65552647 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en">
 
@@ -147,8 +147,8 @@ GestionePunti/regalarePunti">
                                 </div>
                                 <div class="col-md-6">
                                     <label for="review">Quanti punti vuoi regalare?</label>
-                                    <input type="text" class="form-control" id="lname" placeholder="Inserisci I Punti" name="punti"
-                                        required>
+                                    <input type="number" class="form-control" id="lname" placeholder="Inserisci I Punti" name="punti"
+                                        required min="1" max="50">
                                 </div>
                             </div>
                             <div class="form-row">
