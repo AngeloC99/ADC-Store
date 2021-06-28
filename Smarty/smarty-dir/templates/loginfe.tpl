@@ -63,7 +63,7 @@
                         <div class="menu-left">
                             
                             <div class="brand-logo">
-                                <a href="index.html"> <img src="{$path}Smarty/smarty-dir/assets/images/icon/logo.png"
+                                <a href="{$path}GestioneSchermate/showHome"> <img src="{$path}Smarty/smarty-dir/assets/images/icon/logo.png"
                                         class="img-fluid blur-up lazyload" alt="" hspace="400"></a>
                             </div>
                         </div>
@@ -86,7 +86,7 @@
                 <div class="col-sm-6">
                     <nav aria-label="breadcrumb" class="theme-breadcrumb">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="home.tpl">Home</a></li>
+                            <li class="breadcrumb-item"><a href="{$path}GestioneSchermate/showHome">Home</a></li>
                             <li class="breadcrumb-item active">login</li>
                         </ol>
                     </nav>

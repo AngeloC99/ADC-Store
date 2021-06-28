@@ -50,7 +50,7 @@
                         <div class="menu-left">
                             <div class="navbar">
                             
-                            <div class="brand-logo"><a href="home.tpl"><img src="{$path}Smarty/smarty-dir/assets/images/icon/logo.png"
+                            <div class="brand-logo"><a href="{$path}GestioneSchermate/recuperaHomeUtente"><img src="{$path}Smarty/smarty-dir/assets/images/icon/logo.png"
                                         class="img-fluid blur-up lazyload" alt=""></a></div>
                         </div>
                            <div class="menu-right pull-right">
@@ -72,34 +72,13 @@
                                                 <a href="{$path}GestioneSchermate/recuperaFormPunti">Regala punti</a>
                                             </li>
                                             <li>
-                                                <a href="{$path}GestioneSchermate/recuperaGestioneIndirizzi">Gestione indirizzi</a>
+                                                <a href="{$path}GestioneSchermate/recuperaGestioneIndirizzi">Indirizzi</a>
                                             </li>
                                             <li>
-                                                <a href="{$path}GestioneSchermate/recuperaGestioneCarte">Gestione carte di credito</a>
+                                                <a href="{$path}GestioneSchermate/recuperaGestioneCarte">Carte di credito</a>
                                             </li>
                                         </ul>
                                     </nav>
-                                </div>
-                                <div>
-                                    <div class="icon-nav d-none d-sm-block">
-                                        <ul>
-                                            <li class="onhover-div mobile-search">
-                                                <div><img src="{$path}Smarty/smarty-dir/assets/images/icon/search.png" onclick="openSearch()"
-                                                        class="img-fluid blur-up lazyload" alt=""> <i class="ti-search"
-                                                        onclick="openSearch()"></i></div>
-                                            </li>
-                                            <li class="onhover-div mobile-setting">
-                                                <div><img src="{$path}Smarty/smarty-dir/assets/images/icon/setting.png"
-                                                        class="img-fluid blur-up lazyload" alt=""> <i
-                                                        class="ti-settings"></i></div>
-                                            </li>
-                                            <li class="onhover-div mobile-cart">
-                                                <div><img src="{$path}Smarty/smarty-dir/assets/images/icon/cart.png"
-                                                        class="img-fluid blur-up lazyload" alt=""> <i
-                                                        class="ti-shopping-cart"></i></div>
-                                            </li>
-                                        </ul>
-                                    </div>
                                 </div>
                             </div>                        
                 </div>
