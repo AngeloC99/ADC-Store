@@ -139,11 +139,18 @@ class CGestioneSessioni
      * Metodo che verifica se l'utente ha eseguito il login.
      * @return bool
      */
-    public function isLogged(): bool {
+    public function isLoggedUser(): bool {
         $this->iniziaSessione();
-        return isset($_COOKIE["PHPSESSID"]) && (isset($_SESSION["utente"]) || isset($_SESSION["admin"]) );
+        return isset($_COOKIE["PHPSESSID"]) && (isset($_SESSION["utente"]));
     }
-
+    /**
+     * Metodo che verifica se l'amministratore ha eseguito il login.
+     * @return bool
+     */
+    public function isLoggedAdmin(): bool {
+        $this->iniziaSessione();
+        return isset($_COOKIE["PHPSESSID"]) && isset($_SESSION["admin"]);
+    }
     /**
      * Metodo che restituisce l'utente registrato o l'amministratore (se loggati), oppure NULL.
      * @return mixed|null

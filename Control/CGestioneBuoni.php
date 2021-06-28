@@ -1,11 +1,10 @@
 <?php
 
 use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\SMTP;
 
-require('C:\Users\rommy\OneDrive\Desktop\CORSI 3.2\Programmazione Web\PROGETTO ESAME\PHP\PHPMailer-master\src\PHPMailer.php');
-require('C:\Users\rommy\OneDrive\Desktop\CORSI 3.2\Programmazione Web\PROGETTO ESAME\PHP\PHPMailer-master\src\Exception.php');
-require('C:\Users\rommy\OneDrive\Desktop\CORSI 3.2\Programmazione Web\PROGETTO ESAME\PHP\PHPMailer-master\src\SMTP.php');
+require('C:\Users\rommy\public_html\ADC-Store\PHPMailer-master\src\PHPMailer.php');
+require('C:\Users\rommy\public_html\ADC-Store\PHPMailer-master\src\Exception.php');
+require('C:\Users\rommy\public_html\ADC-Store\PHPMailer-master\src\SMTP.php');
 
 class CGestioneBuoni
 {
@@ -40,15 +39,12 @@ class CGestioneBuoni
 
     }
 
-    public static function inviaBuono(EAmministratore $admin,string $codice,string $perc,int $ammontare, string $messaggio,string $email): bool{
-        if ($perc=='Percentuale'){
-            $percentuale=true;
-        }
-        else{
-            $percentuale=false;
-        }
-        $buono=$admin->preparaBuono($percentuale,$ammontare,$messaggio);
-        $buono->setCodice($codice);
+    public static function inviaBuono(): bool{
+        $gs=CGestioneSessioni::getInstance();
+        if ($gs->isLoggedAdmin()){
+            $admin=$gs->caricaUtente();
+        $buono=$admin->preparaBuono($_POST['percentuale'],$_POST['ammontare'],$_POST['email']);
+        $buono->setCodice($_POST['codice']);
         $mail = new PHPMailer();
         $mail->IsSMTP(); // enable SMTP
         $mail->SMTPDebug = 0;
@@ -63,11 +59,11 @@ class CGestioneBuoni
         $mail->Host = "smtp.gmail.com";
         $mail->Port = 587;
         $mail->IsHTML(true);
-        $mail->Username = $admin->getEmail();  //qui va email dell'admin
-        $mail->Password = $admin->getPwemail();  //qui va pw account gmail dell'admin
-        $mail->SetFrom($email);
+        $mail->Username = 'adcstore2021@gmail.com';  //qui va email dell'admin
+        $mail->Password = 'plutopluto';  //qui va pw account gmail dell'admin
+        $mail->SetFrom('adcstore2021@gmail.com');
         $mail->Subject = "ADC Store - BUONO SCONTO";
-        $mail->AddAddress($email);
+        $mail->AddAddress($_POST['email']);
         //setta i valori del buono nell'email ...ancora da risolvere per l'immagine
         $v=new VGestioneBuoni();
         $mail->Body = $v->datiBsEmail($buono);
@@ -77,7 +73,15 @@ class CGestioneBuoni
         } else {
             return true;
         }
+        }
+        else{
+            CGestioneSchermate::recupera401();
+        }
 
+    }
+    public static function recuperaCreazioneBuono(){
+        $v=new VGestioneBuoni();
+        $v->mostraCreazioneBuono();
     }
 
 
