@@ -101,7 +101,7 @@
                     un'esperienza d'acquisto indimenticabile, che li ponga sempre al centro.</p>
                     <p>I nostri prodotti provengono solo da fornitori certificati e da fonti di produzione sostenibili. Abbiamo molto a cuore tematiche sociali
                         quali il rispetto per l'ambiente e un lavoro equo e privo di disuguaglianze. Queste per noi non sono parole vuote: ci impegnamo quotidianamente
-                        per la nostra ed il nostro territorio, favorendo imprese giovani e rigorosamente locali.</p>
+                        per la nostra comunità ed il nostro territorio, favorendo imprese giovani e rigorosamente locali.</p>
                 </div>
             </div>
         </div>

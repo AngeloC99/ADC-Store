@@ -138,53 +138,26 @@
                             </div>
                         </div>
                     </div>
-                    <div>
+                    <div class="col-lg-4">
                         <h2>{$prod.nome}</h2>
                         <h5 style="color: #5a6268">ID Prodotto: {$prod.id}</h5>
                         <div class="product-icon mb-3">
-                            <form class="d-inline-block">
-                                <div class="row product-accordion">
-                                    <div class="col-sm-12">
-                                        <div class="accordion theme-accordion" id="accordionExample">
-                                                </div>
-                            </form>
-                        </div>
-                    </div>
-                    <div class="row product-accordion">
-                        <div class="col-sm-12">
-                            <h3 style="color: #0a0100">Descrizione prodotto</h3>
-
-                                            <div id="collapseTwo" class="collapse show" aria-labelledby="headingOne"
-                                                data-parent="#accordionExample">
-                                                <div class="card-body">
-                                                    <p>{$prod.descrizione}</p>
-                                                    <div class="single-product-tables detail-section">
-                                                        <table>
-                                                            <tbody>
-                                                                <tr>
-                                                                    <td>Marca: {$prod.marca}</td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>Tipologia: {$prod.tipologia}</td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>Disponibili: {$prod.quantita} unità</td>
-                                                                </tr>
-                                                            </tbody>
-                                                        </table>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-
-
+                            <div class="row product-accordion">
+                                <div class="col-sm-12">
+                                    <br>
+                                    <h5 style="color: #5a6268"><b>Marca</b>: {$prod.marca}</h5>
+                                    <h5 style="color: #5a6268"><b>Tipologia</b>: {$prod.tipologia}</h5>
+                                    <h5 style="color: #5a6268"><b>Disponibili</b>: {$prod.quantita} unità</h5>
+                                    <br>
+                                    <h3 style="color: #0a0100">Descrizione prodotto</h3>
+                                    <p>{$prod.descrizione}</p>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-4">
                         <div class="product-right product-form-box">
-                            <h3>€ {$prod.prezzo}</h3>
+                            <h3>Prezzo: € {$prod.prezzo}</h3>
 
                             <form method="post" action="{$path}GestioneCarrello/aggiungiAlCarrello">
                                 <div class="product-description border-product">
@@ -194,8 +167,13 @@
                                         <input type="number" name="quantita" class="form-control input-number" value="1" min="1" max="{$prod.quantita}">
                                     </div>
                                 </div>
-                                <div class="product-buttons"><input type="submit" value="Aggiungi al carrello" class="btn btn-solid"/>
-                                </div>
+                                {if $loggato}
+                                    <div class="product-buttons"><input type="submit" value="Aggiungi al carrello" class="btn btn-solid"/></div>
+                                {else}
+                                    <h5>Registrati subito per acquistare su ADC-store!</h5>
+                                    <div ><a href="{$path}GestioneUtenti/recuperaCreazioneAccount" class="btn btn-solid">Registrati</a></div>
+                                {/if}
+
                             </form>
 
                         </div>
