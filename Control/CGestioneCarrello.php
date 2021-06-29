@@ -1,11 +1,18 @@
 <?php
 
+/**
+ * CGestioneCarrello è la classe che si occupa della gestione dei carrelli e degli ordini, permettendo la comunicazione
+ * fra le classi View, Entity e Foundation ad essi legate.
+ * Class CGestioneCarrello
+ * @access public
+ * @package Controller
+ */
+
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 require('C:\Users\angel\public_html\ADC-Store\PHPMailer-master\src\PHPMailer.php');
 require('C:\Users\angel\public_html\ADC-Store\PHPMailer-master\src\Exception.php');
 require('C:\Users\angel\public_html\ADC-Store\PHPMailer-master\src\SMTP.php');
-
 
 class CGestioneCarrello
 {

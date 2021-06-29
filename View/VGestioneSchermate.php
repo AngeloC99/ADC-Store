@@ -23,9 +23,12 @@ class VGestioneSchermate
 
     public function mostra401(){
         $this->smarty->assign("path", $GLOBALS["path"]);
-        $this->smarty->display('401.tpl');}
+        $this->smarty->display('401.tpl');
+    }
 
-
-
+    public function mostra404(){
+        $this->smarty->assign("path", $GLOBALS["path"]);
+        $this->smarty->display('404.tpl');
+    }
 
 }

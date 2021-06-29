@@ -10,7 +10,7 @@
     <meta name="author" content="multikart">
     <link rel="icon" href="{$path}Smarty/smarty-dir/assets/images/favicon/1.png" type="image/x-icon" />
     <link rel="shortcut icon" href="{$path}Smarty/smarty-dir/assets/images/favicon/1.png" type="image/x-icon" />
-    <title>ADC Store - Errore</title>
+    <title>Multikart - Multi-purpopse E-commerce Html Template</title>
 
     <!--Google font-->
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet">
@@ -63,14 +63,14 @@
             <div class="row">
                 <div class="col-sm-6">
                     <div class="page-title">
-                        <h2>401 page</h2>
+                        <h2>404 page</h2>
                     </div>
                 </div>
                 <div class="col-sm-6">
                     <nav aria-label="breadcrumb" class="theme-breadcrumb">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a >Home</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">401 page</li>
+                            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">404 page</li>
                         </ol>
                     </nav>
                 </div>
@@ -86,10 +86,10 @@
             <div class="row">
                 <div class="col-sm-12">
                     <div class="error-section">
-                        <h1>401</h1>
-                        <h2>Unauthorized</h2>
-                        <h3>Attenzione! Non sei autorizzato ad accedere in questa sezione.</h3>
-                        <a href="{$path}GestioneSchermate/showHome" class="btn btn-solid">Ritorna alla home</a>
+                        <h1>404</h1>
+                        <h2>page not found</h2>
+                        <h3>OOOPS! Non siamo riusciti a trovare questo prodotto.</h3>
+                        <a href="{$path}GestioneProdotti/recuperaProdotti" class="btn btn-solid">Ritorna alla lista dei prodotti</a>
                     </div>
                 </div>
             </div>
@@ -98,110 +98,110 @@
     <!-- Section ends -->
 
 
-<!-- footer start -->
-<footer class="footer-light">
-    <section class="section-b-space light-layout">
-        <div class="container">
-            <div class="row footer-theme partition-f">
-                <div class="col-lg-4 col-md-6">
-                    <div class="footer-title footer-mobile-title">
-                        <h4>about</h4>
+    <!-- footer start -->
+    <footer class="footer-light">
+        <section class="section-b-space light-layout">
+            <div class="container">
+                <div class="row footer-theme partition-f">
+                    <div class="col-lg-4 col-md-6">
+                        <div class="footer-title footer-mobile-title">
+                            <h4>about</h4>
+                        </div>
+                        <div class="footer-contant">
+                            <div class="footer-logo"><img src="{$path}Smarty/smarty-dir/assets/images/icon/logo.png" alt=""></div>
+                            <p>ADC-Store è la tua catena di supermercati di fiducia in Italia, grazie a un modello originale d’impresa. Noi poniamo al centro i nostri clienti, sempre. </p> <br>
+                            <p style="color: #0a0100">Seguici sulle nostre pagine social per non perderti nuove offerte!</p>
+                            <div class="footer-social">
+                                <ul>
+                                    <li><a href=""><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                                    <li><a href=""><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
+                                    <li><a href=""><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                                    <li><a href=""><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                                    <li><a href=""><i class="fa fa-rss" aria-hidden="true"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
-                    <div class="footer-contant">
-                        <div class="footer-logo"><img src="{$path}Smarty/smarty-dir/assets/images/icon/logo.png" alt=""></div>
-                        <p>ADC-Store è la tua catena di supermercati di fiducia in Italia, grazie a un modello originale d’impresa. Noi poniamo al centro i nostri clienti, sempre. </p> <br>
-                        <p style="color: #0a0100">Seguici sulle nostre pagine social per non perderti nuove offerte!</p>
-                        <div class="footer-social">
-                            <ul>
-                                <li><a href=""><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                                <li><a href=""><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
-                                <li><a href=""><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                                <li><a href=""><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-                                <li><a href=""><i class="fa fa-rss" aria-hidden="true"></i></a></li>
-                            </ul>
+                    <div class="col offset-xl-1">
+                        <div class="sub-title">
+                            <div class="footer-title">
+                                <h4>Entra in ADC-Store</h4>
+                            </div>
+                            <div class="footer-contant">
+                                <ul>
+                                    <li><a href="{$path}GestioneSchermate/recuperaLogin">Accedi al tuo account</a></li>
+                                    <li><a href="{$path}GestioneUtenti/recuperaCreazioneAccount">Crea un account</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="sub-title">
+                            <div class="footer-title">
+                                <h4>Scopri di più</h4>
+                            </div>
+                            <div class="footer-contant">
+                                <ul>
+                                    <li>
+                                        <a href="{$path}GestioneSchermate/chiSiamo">Chi siamo</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="sub-title">
+                            <div class="footer-title">
+                                <h4>informationi</h4>
+                            </div>
+                            <div class="footer-contant">
+                                <ul class="contact-list">
+                                    <li><i class="fa fa-map-marker"></i>ADC Store
+                                    </li>
+                                    <li><i class="fa fa-phone"></i>Chiamaci: 3314166000</li>
+                                    <li><i class="fa fa-envelope-o"></i>Scrivici: ADCStore@gmail.com</li>
+                                    <li><i class="fa fa-fax"></i>Fax: 1234567890</li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="col offset-xl-1">
-                    <div class="sub-title">
-                        <div class="footer-title">
-                            <h4>Entra in ADC-Store</h4>
-                        </div>
-                        <div class="footer-contant">
-                            <ul>
-                                <li><a href="{$path}GestioneSchermate/recuperaLogin">Accedi al tuo account</a></li>
-                                <li><a href="{$path}GestioneUtenti/recuperaCreazioneAccount">Crea un account</a></li>
-                            </ul>
+            </div>
+        </section>
+        <div class="sub-footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-6 col-md-6 col-sm-12">
+                        <div class="footer-end">
+                            <p><i class="fa fa-copyright" aria-hidden="true"></i> 2020-21 Progetto di Programmazione Web</p>
                         </div>
                     </div>
-                </div>
-                <div class="col">
-                    <div class="sub-title">
-                        <div class="footer-title">
-                            <h4>Scopri di più</h4>
-                        </div>
-                        <div class="footer-contant">
+                    <div class="col-xl-6 col-md-6 col-sm-12">
+                        <div class="payment-card-bottom">
                             <ul>
                                 <li>
-                                    <a href="{$path}GestioneSchermate/chiSiamo">Chi siamo</a>
+                                    <a href=""><img src="{$path}Smarty/smarty-dir/assets/images/icon/visa.png" alt=""></a>
                                 </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="sub-title">
-                        <div class="footer-title">
-                            <h4>informationi</h4>
-                        </div>
-                        <div class="footer-contant">
-                            <ul class="contact-list">
-                                <li><i class="fa fa-map-marker"></i>ADC Store
+                                <li>
+                                    <a href=""><img src="{$path}Smarty/smarty-dir/assets/images/icon/mastercard.png" alt=""></a>
                                 </li>
-                                <li><i class="fa fa-phone"></i>Chiamaci: 3314166000</li>
-                                <li><i class="fa fa-envelope-o"></i>Scrivici: ADCStore@gmail.com</li>
-                                <li><i class="fa fa-fax"></i>Fax: 1234567890</li>
+                                <li>
+                                    <a href=""><img src="{$path}Smarty/smarty-dir/assets/images/icon/paypal.png" alt=""></a>
+                                </li>
+                                <li>
+                                    <a href=""><img src="{$path}Smarty/smarty-dir/assets/images/icon/american-express.png" alt=""></a>
+                                </li>
+                                <li>
+                                    <a href=""><img src="{$path}Smarty/smarty-dir/assets/images/icon/discover.png" alt=""></a>
+                                </li>
                             </ul>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
-    <div class="sub-footer">
-        <div class="container">
-            <div class="row">
-                <div class="col-xl-6 col-md-6 col-sm-12">
-                    <div class="footer-end">
-                        <p><i class="fa fa-copyright" aria-hidden="true"></i> 2020-21 Progetto di Programmazione Web</p>
-                    </div>
-                </div>
-                <div class="col-xl-6 col-md-6 col-sm-12">
-                    <div class="payment-card-bottom">
-                        <ul>
-                            <li>
-                                <a href=""><img src="{$path}Smarty/smarty-dir/assets/images/icon/visa.png" alt=""></a>
-                            </li>
-                            <li>
-                                <a href=""><img src="{$path}Smarty/smarty-dir/assets/images/icon/mastercard.png" alt=""></a>
-                            </li>
-                            <li>
-                                <a href=""><img src="{$path}Smarty/smarty-dir/assets/images/icon/paypal.png" alt=""></a>
-                            </li>
-                            <li>
-                                <a href=""><img src="{$path}Smarty/smarty-dir/assets/images/icon/american-express.png" alt=""></a>
-                            </li>
-                            <li>
-                                <a href=""><img src="{$path}Smarty/smarty-dir/assets/images/icon/discover.png" alt=""></a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</footer>
-<!-- footer end -->
+    </footer>
+    <!-- footer end -->
 
 
     <!-- tap to top -->

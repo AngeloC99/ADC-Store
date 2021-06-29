@@ -538,7 +538,7 @@
                                                 <li><a href="lookbook.html">lookbook</a></li>
                                                 <li><a href="sitemap.html">site map <span class="new-tag">new</span></a>
                                                 </li>
-                                                <li><a href="404.html">404</a></li>
+                                                <li><a href="404.tpl">404</a></li>
                                                 <li><a href="coming-soon.html">coming soon <span
                                                             class="new-tag">new</span></a></li>
                                                 <li><a href="faq.html">FAQ</a></li>

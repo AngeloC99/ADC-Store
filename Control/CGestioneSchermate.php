@@ -91,7 +91,8 @@ class CGestioneSchermate
         $v->mostra401();
     }
 
-
-
-
+    public static function recupera404() {
+        $v=new VGestioneSchermate();
+        $v->mostra404();
+    }
 }
