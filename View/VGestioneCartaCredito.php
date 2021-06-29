@@ -1,29 +1,33 @@
 <?php
 
+/**
+ * VGestioneCartaCredito si occupa di riempire con i dati ricevuti dallo strato Control le varie viste associate alla
+ * gestione delle carte di credito.
+ * Class VGestioneCartaCredito
+ * @access public
+ * @package View
+ */
 
 class VGestioneCartaCredito {
+    /**
+     * @var Smarty
+     */
     private Smarty $smarty;
 
+    /**
+     * VGestioneCartaCredito constructor.
+     */
     public function __construct() {
         $this->smarty = StartSmarty::configuration();
     }
 
-    public function mostraCarte($utente){
-        $pm = FPersistentManager::getInstance();
-        $carte = $pm->prelevaCarteUtente($utente->getEmail());
-        $carteArr = array();
-        foreach ($carte as $carta) {
-            $tmp = array(
-                'numeroReale' => $carta->getNumero(),
-                'numero' => substr($carta->getNumero(), 0, 4)."************",
-                'titolare' => $carta->getTitolare(),
-                'circuito' => $carta->getCircuito(),
-                'cvv' => substr($carta->getCvv(), 0, 1)."**",
-                'ammontare' => $carta->getAmmontare(),
-                'scadenza' => $carta->getScadenza()->format("d-m-y"),
-            );
-            $carteArr[] = $tmp;
-        }
+    /**
+     * Metodo che riempie con i dati ricevuti e visualizza il template di gestione delle carte di credito.
+     * @param EUtenteReg $utente
+     * @param array $carteArr
+     * @throws SmartyException
+     */
+    public function mostraCarte(EUtenteReg $utente, array $carteArr){
         $this->smarty->assign('carte', $carteArr);
         $this->smarty->assign("path", $GLOBALS["path"]);
 

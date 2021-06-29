@@ -167,8 +167,14 @@
                         </div>
                     </div>
                     <div class="row cart-buttons">
-                        <div class="col-6"><a href="{$path}GestioneCarrello/rievocaCarrelloInSessione/{$carrelli[carrello].idCarrello}" class="btn btn-solid">recupera carrello</a></div>
-                        <div class="col-6"><a href="{$path}GestioneCarrello/eliminaCarrello/{$carrelli[carrello].idCarrello}" class="btn btn-solid">elimina carrello</a></div>
+                        <form method="post" action="{$path}GestioneCarrello/rievocaCarrelloInSessione">
+                            <input type="hidden" name="idCarrello" value="{$carrelli[carrello].idCarrello}">
+                            <div class="col-6"><input type="submit" value="Recupera carrello" class="btn btn-solid"/></div>
+                        </form>
+                        <form method="post" action="{$path}GestioneCarrello/eliminaCarrello">
+                            <input type="hidden" name="idCarrello" value="{$carrelli[carrello].idCarrello}">
+                            <div class="col-7"><input type="submit" value="Elimina carrello" class="btn btn-solid"/></div>
+                        </form>
                     </div>
                     <br><br>
                     <hr style="border-top: 15px dashed red;">

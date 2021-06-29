@@ -175,29 +175,32 @@
             <th scope="col">CAP</th>
             <th scope="col">Comune</th>
             <th scope="col">Provincia</th>
-            <th scope="col">Rimuovi</th>
+            <th scope="col"></th>
         </tr>
         </thead>
         <tbody>
         {section name=indirizzo loop=$indirizzi}
-            <tr>
-                <td>
-                    <h5>{$indirizzi[indirizzo].via}</h5>
-                </td>
-                <td>
-                    <h5>{$indirizzi[indirizzo].numero}</h5>
-                </td>
-                <td>
-                    <h5>{$indirizzi[indirizzo].cap}</h5>
-                </td>
-                <td>
-                    <h5>{$indirizzi[indirizzo].comune}</h5>
-                </td>
-                <td>
-                    <h5>{$indirizzi[indirizzo].provincia}</h5>
-                </td>
-                <td><a href="{$path}GestioneIndirizzi/rimuoviIndirizzo/{$indirizzi[indirizzo].stringa}" class="icon"><i class="ti-close"></i></a></td>
-            </tr>
+            <form method="post" action="{$path}GestioneIndirizzi/rimuoviIndirizzo">
+                <tr>
+                    <td>
+                        <h5>{$indirizzi[indirizzo].via}</h5>
+                        <input type="hidden" name="indirizzo" value="{$indirizzi[indirizzo].stringa}">
+                    </td>
+                    <td>
+                        <h5>{$indirizzi[indirizzo].numero}</h5>
+                    </td>
+                    <td>
+                        <h5>{$indirizzi[indirizzo].cap}</h5>
+                    </td>
+                    <td>
+                        <h5>{$indirizzi[indirizzo].comune}</h5>
+                    </td>
+                    <td>
+                        <h5>{$indirizzi[indirizzo].provincia}</h5>
+                    </td>
+                    <td><input type="submit" value="Rimuovi" class="btn btn-block"/></td>
+                </tr>
+            </form>
         {/section}
         </tbody>
     </table>

@@ -180,32 +180,35 @@
             <th scope="col">CVV</th>
             <th scope="col">Ammontare</th>
             <th scope="col">Scadenza</th>
-            <th scope="col">Rimuovi</th>
+            <th scope="col"></th>
         </tr>
         </thead>
         <tbody>
         {section name=carta loop=$carte}
-            <tr>
-                <td>
-                    <h5>{$carte[carta].numero}</h5>
-                </td>
-                <td>
-                    <h5>{$carte[carta].titolare}</h5>
-                </td>
-                <td>
-                    <h5>{$carte[carta].circuito}</h5>
-                </td>
-                <td>
-                    <h5>{$carte[carta].cvv}</h5>
-                </td>
-                <td>
-                    <h5>€ {$carte[carta].ammontare}</h5>
-                </td>
-                <td>
-                    <h5>{$carte[carta].scadenza}</h5>
-                </td>
-                <td><a href="{$path}GestioneCartaCredito/rimuoviCarta/{$carte[carta].numeroReale}" class="icon"><i class="ti-close"></i></a></td>
-            </tr>
+            <form method="post" action="{$path}GestioneCartaCredito/rimuoviCarta">
+                    <tr>
+                        <td>
+                            <h5>{$carte[carta].numero}</h5>
+                            <input type="hidden" name="numero" value="{$carte[carta].numeroReale}">
+                        </td>
+                        <td>
+                            <h5>{$carte[carta].titolare}</h5>
+                        </td>
+                        <td>
+                            <h5>{$carte[carta].circuito}</h5>
+                        </td>
+                        <td>
+                            <h5>{$carte[carta].cvv}</h5>
+                        </td>
+                        <td>
+                            <h5>€ {$carte[carta].ammontare}</h5>
+                        </td>
+                        <td>
+                            <h5>{$carte[carta].scadenza}</h5>
+                        </td>
+                        <td><input type="submit" value="Rimuovi" class="btn btn-block"/></td>
+                    </tr>
+            </form>
         {/section}
         </tbody>
     </table>
