@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -47,7 +47,7 @@
                     <div class="col-sm-12">
                         <div class="main-menu border-section border-top-0">
                             <div class="brand-logo layout2-logo">
-                                <a href="#"><img src="{$path}Smarty/smarty-dir/assets/images/icon/logo.png" class="img-fluid blur-up lazyload"
+                                <a href=""><img src="{$path}Smarty/smarty-dir/assets/images/icon/logo.png" class="img-fluid blur-up lazyload"
                                         alt=""></a>
                             </div>
                         </div>
@@ -75,17 +75,17 @@
                                     <li>
                                         <a href="{$path}GestioneProdotti/recuperaProdotti">Prodotti</a>
                                     </li>
-                                    <li><a href="#">Account</a>
+                                    <li><a href="#">Clienti</a>
                                         <ul>
-                                            <li><a href="{$path}GestioneSchermate/recuperaLogin" data-lng="en">Login</a></li>
-                                            <li><a href="#" data-lng="en">Logout</a></li>
+                                            <li><a href="{$path}GestioneSchermate/recuperaLogin">Accedi</a></li>
+                                            <li><a href="{$path}GestioneUtenti/recuperaCreazioneAccount">Registrazione</a></li>
                                         </ul>
                                     </li>
                                     <li>
                                         <a href="loginbe.html">Area Riservata</a>
                                     </li>
                                     <li>
-                                        <a href="#">Su di noi</a>
+                                        <a href="{$path}GestioneSchermate/chiSiamo">Chi siamo</a>
                                     </li>
                                 </ul>
                             </nav>
@@ -274,7 +274,7 @@
                     <div class="main-menu border-section border-top-0">
                         
                         <div class="brand-logo layout2-logo">
-                            <a href="#"><img src="{$path}Smarty/smarty-dir/assets/images/icon/logo.png" class="img-fluid blur-up lazyload"
+                            <a href=""><img src="{$path}Smarty/smarty-dir/assets/images/icon/logo.png" class="img-fluid blur-up lazyload"
                                     alt=""></a>
                         </div>
                         <div class="menu-right pull-right">
@@ -304,10 +304,10 @@
                                     <a href="{$path}GestioneProdotti/recuperaProdotti">Prodotti</a>
                                     
                                 </li>
-                                <li><a href="#">Account</a>
+                                <li><a href="">Clienti</a>
                                             <ul>
-                                                <li><a href="{$path}GestioneSchermate/recuperaLogin" data-lng="en">Login</a></li>
-                                                <li><a href="#" data-lng="en">Logout</a></li>
+                                                <li><a href="{$path}GestioneSchermate/recuperaLogin">Accedi</a></li>
+                                                <li><a href="{$path}GestioneUtenti/recuperaCreazioneAccount">Registrazione</a></li>
                                             </ul>
                                         
                                 </li>
@@ -315,7 +315,7 @@
                                     <a href="loginbe.html">Area Riservata</a>
                                 </li>
                                 <li>
-                                    <a href="#">Su di noi</a>
+                                    <a href="{$path}GestioneSchermate/chiSiamo">Chi siamo</a>
                                 </li>
                             </ul>
                         </nav>
@@ -456,15 +456,15 @@
                         </div>
                         <div class="footer-contant">
                             <div class="footer-logo"><img src="{$path}Smarty/smarty-dir/assets/images/icon/logo.png" alt=""></div>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                                ut labore et dolore magna aliqua. Ut enim ad minim veniam,</p>
+                            <p>ADC-Store è la tua catena di supermercati di fiducia in Italia, grazie a un modello originale d’impresa. Noi poniamo al centro i nostri clienti, sempre. </p> <br>
+                            <p style="color: #0a0100">Seguici sulle nostre pagine social per non perderti nuove offerte!</p>
                             <div class="footer-social">
                                 <ul>
-                                    <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-rss" aria-hidden="true"></i></a></li>
+                                    <li><a href=""><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                                    <li><a href=""><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
+                                    <li><a href=""><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                                    <li><a href=""><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                                    <li><a href=""><i class="fa fa-rss" aria-hidden="true"></i></a></li>
                                 </ul>
                             </div>
                         </div>
@@ -472,15 +472,12 @@
                     <div class="col offset-xl-1">
                         <div class="sub-title">
                             <div class="footer-title">
-                                <h4>my account</h4>
+                                <h4>Entra in ADC-Store</h4>
                             </div>
                             <div class="footer-contant">
                                 <ul>
-                                    <li><a href="#">mens</a></li>
-                                    <li><a href="#">womens</a></li>
-                                    <li><a href="#">clothing</a></li>
-                                    <li><a href="#">accessories</a></li>
-                                    <li><a href="#">featured</a></li>
+                                    <li><a href="{$path}GestioneSchermate/recuperaLogin">Accedi al tuo account</a></li>
+                                    <li><a href="{$path}GestioneUtenti/recuperaCreazioneAccount">Crea un account</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -488,15 +485,13 @@
                     <div class="col">
                         <div class="sub-title">
                             <div class="footer-title">
-                                <h4>why we choose</h4>
+                                <h4>Scopri di più</h4>
                             </div>
                             <div class="footer-contant">
                                 <ul>
-                                    <li><a href="#">shipping & return</a></li>
-                                    <li><a href="#">secure shopping</a></li>
-                                    <li><a href="#">gallary</a></li>
-                                    <li><a href="#">affiliates</a></li>
-                                    <li><a href="#">contacts</a></li>
+                                    <li>
+                                        <a href="{$path}GestioneSchermate/chiSiamo">Chi siamo</a>
+                                    </li>
                                 </ul>
                             </div>
                         </div>
@@ -504,7 +499,7 @@
                     <div class="col">
                         <div class="sub-title">
                             <div class="footer-title">
-                                <h4>store information</h4>
+                                <h4>informationi</h4>
                             </div>
                             <div class="footer-contant">
                                 <ul class="contact-list">
@@ -512,7 +507,7 @@
                                     </li>
                                     <li><i class="fa fa-phone"></i>Chiamaci: 3314166000</li>
                                     <li><i class="fa fa-envelope-o"></i>Scrivici: ADCStore@gmail.com</li>
-                                    <li><i class="fa fa-fax"></i>Fax: 123456</li>
+                                    <li><i class="fa fa-fax"></i>Fax: 1234567890</li>
                                 </ul>
                             </div>
                         </div>
@@ -525,27 +520,26 @@
                 <div class="row">
                     <div class="col-xl-6 col-md-6 col-sm-12">
                         <div class="footer-end">
-                            <p><i class="fa fa-copyright" aria-hidden="true"></i> 2017-18 themeforest powered by
-                                pixelstrap</p>
+                            <p><i class="fa fa-copyright" aria-hidden="true"></i> 2020-21 Progetto di Programmazione Web</p>
                         </div>
                     </div>
                     <div class="col-xl-6 col-md-6 col-sm-12">
                         <div class="payment-card-bottom">
                             <ul>
                                 <li>
-                                    <a href="#"><img src="{$path}Smarty/smarty-dir/assets/images/icon/visa.png" alt=""></a>
+                                    <a href=""><img src="{$path}Smarty/smarty-dir/assets/images/icon/visa.png" alt=""></a>
                                 </li>
                                 <li>
-                                    <a href="#"><img src="{$path}Smarty/smarty-dir/assets/images/icon/mastercard.png" alt=""></a>
+                                    <a href=""><img src="{$path}Smarty/smarty-dir/assets/images/icon/mastercard.png" alt=""></a>
                                 </li>
                                 <li>
-                                    <a href="#"><img src="{$path}Smarty/smarty-dir/assets/images/icon/paypal.png" alt=""></a>
+                                    <a href=""><img src="{$path}Smarty/smarty-dir/assets/images/icon/paypal.png" alt=""></a>
                                 </li>
                                 <li>
-                                    <a href="#"><img src="{$path}Smarty/smarty-dir/assets/images/icon/american-express.png" alt=""></a>
+                                    <a href=""><img src="{$path}Smarty/smarty-dir/assets/images/icon/american-express.png" alt=""></a>
                                 </li>
                                 <li>
-                                    <a href="#"><img src="{$path}Smarty/smarty-dir/assets/images/icon/discover.png" alt=""></a>
+                                    <a href=""><img src="{$path}Smarty/smarty-dir/assets/images/icon/discover.png" alt=""></a>
                                 </li>
                             </ul>
                         </div>

@@ -4,10 +4,8 @@
 class CGestioneSchermate
 {
     public static function showHome(){
-
         $v = new VGestioneSchermate();
         $v->showHome();
-
     }
 
     public static function apriProfilo(){
@@ -44,7 +42,6 @@ class CGestioneSchermate
         else{
             header("Location: ".$GLOBALS['path']."GestioneSchermate/showHome");
         }
-
     }
 
     public static function recuperaFormPunti() {
@@ -68,11 +65,6 @@ class CGestioneSchermate
         header("Location: ".$GLOBALS['path']."GestioneCarrello/recuperaCarrello");
     }
 
-    public static function recupera401() {
-        $v=new VGestioneSchermate();
-        $v->mostra401();
-    }
-
     public static function recuperaHomeUtente() {
         $v = new VGestioneUtenti();
         $v->mostraHomeUtente();
@@ -87,9 +79,17 @@ class CGestioneSchermate
     public static function recuperaAggiungiPremi() {
         $v = new VGestionePunti();
         $v->mostraAggiungiPremi();
-    }    
+    }
 
-   
+    public static function chiSiamo() {
+        $v = new VGestioneSchermate();
+        $v->mostraChiSiamo();
+    }
+
+    public static function recupera401() {
+        $v=new VGestioneSchermate();
+        $v->mostra401();
+    }
 
 
 

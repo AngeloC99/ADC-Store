@@ -39,39 +39,25 @@
 <body>
 
 
-    <!-- header start -->
-    <header>
-        <div class="mobile-fix-option"></div>
-        <div class="top-header">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-6">
-                        <div class="header-contact">
-                            <ul>
-                                <li>Benvenuti in ADC Store</li>
-                            </ul>
-                        </div>
+<!-- header start -->
+<header>
+    <div class="mobile-fix-option"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="main-menu">
+                    <div class="menu-left">
+                        <div class="brand-logo"><a href="{$path}GestioneSchermate/recuperaHome"><img src="{$path}Smarty/smarty-dir/assets/images/icon/logo.png"
+                                                                                                     class="img-fluid blur-up lazyload" alt=""></a></div>
                     </div>
+                    <h2>Crea un account ADC-Store</h2>
                 </div>
             </div>
         </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-12">
-                    <div class="main-menu">
-                        <div class="menu-left">
-                            
-                            <div class="brand-logo">
-                                <a href="index.html"> <img src="{$path}Smarty/smarty-dir/assets/images/icon/logo.png"
-                                        class="img-fluid blur-up lazyload" alt="" hspace="400"></a>
-                            </div>
-                        </div>
-                </div>
-            </div>
-        </div>
-
-    </header>
-    <!-- header end -->
+    </div>
+    </div>
+</header>
+<!-- header end -->
 
 
     <!-- breadcrumb start -->
@@ -80,13 +66,13 @@
             <div class="row">
                 <div class="col-sm-6">
                     <div class="page-title">
-                        <h2>crea account</h2>
+                        <h2>crea un nuovo account</h2>
                     </div>
                 </div>
                 <div class="col-sm-6">
                     <nav aria-label="breadcrumb" class="theme-breadcrumb">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="home.tpl">Home</a></li>
+                            <li class="breadcrumb-item"><a href="{$path}GestioneSchermate/recuperaHome">Home</a></li>
                             <li class="breadcrumb-item active" aria-current="page">crea account</li>
                         </ol>
                     </nav>
@@ -108,24 +94,24 @@
                             <div class="form-row">
                                 <div class="col-md-6">
                                     <label for="email">Nome</label>
-                                    <input type="text" class="form-control" id="fname" placeholder="First Name" name="nome"
+                                    <input type="text" class="form-control" id="fname" placeholder="Inserisci il tuo nome" name="nome"
                                         required>
                                 </div>
                                 <div class="col-md-6">
                                     <label for="review">Cognome</label>
-                                    <input type="text" class="form-control" id="lname" placeholder="Last Name" name="cognome"
+                                    <input type="text" class="form-control" id="lname" placeholder="Inserisci il tuo cognome" name="cognome"
                                         required>
                                 </div>
                             </div>
                             <div class="form-row">
                                 <div class="col-md-6">
                                     <label for="email">Email</label>
-                                    <input type="text" class="form-control" id="email" placeholder="Email" required name="email">
+                                    <input type="text" class="form-control" id="email" placeholder="Inserisci la tua E-mail" required name="email">
                                 </div>
                                 <div class="col-md-6">
                                     <label for="review">Password</label>
                                     <input type="password" class="form-control" id="review"
-                                        placeholder="Enter your password" required name="password">
+                                        placeholder="Inserisci la password" required name="password">
                                 </div>
                                 <button type="submit" class="btn btn-solid" href="{$path}GestioneSchermate/recuperaLogin" onclick="Funzione1()">Crea Account</button>
 
@@ -139,85 +125,110 @@
     <!--Section ends-->
 
 
-    <!-- footer start -->
-    <footer class="footer-light">
-        
-        <section class="section-b-space light-layout">
-            <div class="container">
-                <div class="row footer-theme partition-f">
-                    <div class="col-lg-4 col-md-6">
-                        <div class="footer-title footer-mobile-title">
-                            <h4>about</h4>
-                        </div>
-                        <div class="footer-contant">
-                            <div class="footer-logo"><img src="{$path}Smarty/smarty-dir/assets/images/icon/logo.png" alt=""></div>
-                            <p>ADC Store da sempre si impegna a soddisfare le esigenze di tutti i suoi consumatori.</p>
-                            <div class="footer-social">
-                                <ul>
-                                    <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-rss" aria-hidden="true"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
+<!-- footer start -->
+<footer class="footer-light">
+    <section class="section-b-space light-layout">
+        <div class="container">
+            <div class="row footer-theme partition-f">
+                <div class="col-lg-4 col-md-6">
+                    <div class="footer-title footer-mobile-title">
+                        <h4>about</h4>
                     </div>
-
-                    <div class="col">
-                        <div class="sub-title">
-                            <div class="footer-title">
-                                <h4>Informazioni generali: </h4>
-                            </div>
-                            <div class="footer-contant">
-                                <ul class="contact-list">
-                                    <li><i class="fa fa-map-marker"></i>ADC Store, via Roma 118 (Avezzano, AQ)
-                                    </li>
-                                    <li><i class="fa fa-phone"></i>Call Us: (+39)331 4100000</li>
-                                    <li><i class="fa fa-envelope-o"></i>Email: adcstore2021@gmail.com</li>
-                                    <li><i class="fa fa-fax"></i>Fax: 123456</li>
-                                </ul>
-                            </div>
+                    <div class="footer-contant">
+                        <div class="footer-logo"><img src="{$path}Smarty/smarty-dir/assets/images/icon/logo.png" alt=""></div>
+                        <p>ADC-Store è la tua catena di supermercati di fiducia in Italia, grazie a un modello originale d’impresa. Noi poniamo al centro i nostri clienti, sempre. </p> <br>
+                        <p style="color: #0a0100">Seguici sulle nostre pagine social per non perderti nuove offerte!</p>
+                        <div class="footer-social">
+                            <ul>
+                                <li><a href=""><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                                <li><a href=""><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
+                                <li><a href=""><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                                <li><a href=""><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                                <li><a href=""><i class="fa fa-rss" aria-hidden="true"></i></a></li>
+                            </ul>
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
-        <div class="sub-footer">
-            <div class="container">
-                <div class="row">
-                    <div class="col-xl-6 col-md-6 col-sm-12">
-                        <div class="footer-end">
-                            <p><i class="fa fa-copyright" aria-hidden="true"></i> 2017-18 themeforest powered by
-                                pixelstrap</p>
+                <div class="col offset-xl-1">
+                    <div class="sub-title">
+                        <div class="footer-title">
+                            <h4>Entra in ADC-Store</h4>
+                        </div>
+                        <div class="footer-contant">
+                            <ul>
+                                <li><a href="{$path}GestioneSchermate/recuperaLogin">Accedi al tuo account</a></li>
+                                <li><a href="{$path}GestioneUtenti/recuperaCreazioneAccount">Crea un account</a></li>
+                            </ul>
                         </div>
                     </div>
-                    <div class="col-xl-6 col-md-6 col-sm-12">
-                        <div class="payment-card-bottom">
+                </div>
+                <div class="col">
+                    <div class="sub-title">
+                        <div class="footer-title">
+                            <h4>Scopri di più</h4>
+                        </div>
+                        <div class="footer-contant">
                             <ul>
                                 <li>
-                                    <a href="#"><img src="{$path}Smarty/smarty-dir/assets/images/icon/visa.png" alt=""></a>
+                                    <a href="{$path}GestioneSchermate/chiSiamo">Chi siamo</a>
                                 </li>
-                                <li>
-                                    <a href="#"><img src="{$path}Smarty/smarty-dir/assets/images/icon/mastercard.png" alt=""></a>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="sub-title">
+                        <div class="footer-title">
+                            <h4>informationi</h4>
+                        </div>
+                        <div class="footer-contant">
+                            <ul class="contact-list">
+                                <li><i class="fa fa-map-marker"></i>ADC Store
                                 </li>
-                                <li>
-                                    <a href="#"><img src="{$path}Smarty/smarty-dir/assets/images/icon/paypal.png" alt=""></a>
-                                </li>
-                                <li>
-                                    <a href="#"><img src="{$path}Smarty/smarty-dir/assets/images/icon/american-express.png" alt=""></a>
-                                </li>
-                                <li>
-                                    <a href="#"><img src="{$path}Smarty/smarty-dir/assets/images/icon/discover.png" alt=""></a>
-                                </li>
+                                <li><i class="fa fa-phone"></i>Chiamaci: 3314166000</li>
+                                <li><i class="fa fa-envelope-o"></i>Scrivici: ADCStore@gmail.com</li>
+                                <li><i class="fa fa-fax"></i>Fax: 1234567890</li>
                             </ul>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </footer>
-    <!-- footer end -->
+    </section>
+    <div class="sub-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-6 col-md-6 col-sm-12">
+                    <div class="footer-end">
+                        <p><i class="fa fa-copyright" aria-hidden="true"></i> 2020-21 Progetto di Programmazione Web</p>
+                    </div>
+                </div>
+                <div class="col-xl-6 col-md-6 col-sm-12">
+                    <div class="payment-card-bottom">
+                        <ul>
+                            <li>
+                                <a href=""><img src="{$path}Smarty/smarty-dir/assets/images/icon/visa.png" alt=""></a>
+                            </li>
+                            <li>
+                                <a href=""><img src="{$path}Smarty/smarty-dir/assets/images/icon/mastercard.png" alt=""></a>
+                            </li>
+                            <li>
+                                <a href=""><img src="{$path}Smarty/smarty-dir/assets/images/icon/paypal.png" alt=""></a>
+                            </li>
+                            <li>
+                                <a href=""><img src="{$path}Smarty/smarty-dir/assets/images/icon/american-express.png" alt=""></a>
+                            </li>
+                            <li>
+                                <a href=""><img src="{$path}Smarty/smarty-dir/assets/images/icon/discover.png" alt=""></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- footer end -->
 
 
     <!-- theme setting -->

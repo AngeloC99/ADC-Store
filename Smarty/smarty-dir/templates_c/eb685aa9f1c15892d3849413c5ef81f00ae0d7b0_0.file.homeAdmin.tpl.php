@@ -394,8 +394,7 @@ Smarty/smarty-dir/assets/images/home-banner/sup.jpg" alt="" class="bg-img blur-u
                 <div class="row">
                     <div class="col-xl-6 col-md-6 col-sm-12">
                         <div class="footer-end">
-                            <p><i class="fa fa-copyright" aria-hidden="true"></i> 2017-18 themeforest powered by
-                                pixelstrap</p>
+                            <p><i class="fa fa-copyright" aria-hidden="true"></i> 2020-21 Progetto di Programmazione Web</p>
                         </div>
                     </div>
                     <div class="col-xl-6 col-md-6 col-sm-12">
