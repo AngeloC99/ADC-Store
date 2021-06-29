@@ -93,7 +93,7 @@
                         <form class="theme-form" method="post" action="{$path}GestioneUtenti/login">
                             <div class="form-group">
                                 <label for="email">Email</label>
-                                <input type="text" class="form-control" id="email" placeholder="Inserisci la tua E-mail" required="" name="email">
+                                <input type="email" class="form-control" id="email" placeholder="Inserisci la tua E-mail" required="" name="email">
                             </div>
                             <div class="form-group">
                                 <label for="review">Password</label>

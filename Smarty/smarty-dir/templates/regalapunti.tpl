@@ -10,7 +10,7 @@
     <meta name="author" content="multikart">
     <link rel="icon" href="{$path}Smarty/smarty-dir/assets/images/favicon/1.png" type="image/x-icon">
     <link rel="shortcut icon" href="{$path}Smarty/smarty-dir/assets/images/favicon/1.png" type="image/x-icon">
-    <title>Multikart - Multi-purpopse E-commerce Html Template</title>
+    <title>ADC Store - Regala punti</title>
 
     <!--Google font-->
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet">
@@ -83,6 +83,21 @@
                         <h2>regala dei punti</h2>
                     </div>
                 </div>
+                                    <ul id="main-menu" class="sm pixelstrap sm-horizontal">
+                                        <li>
+                                            <div class="mobile-back text-right">Back<i class="fa fa-angle-right pl-2"
+                                                    aria-hidden="true"></i></div>
+                                            <a href="{$path}GestioneSchermate/recuperaHomeAdmin">Home</a>
+                                        </li>
+                                        <li>
+                                            <a href="{$path}GestioneSchermate/apriProfilo">profilo</a>
+                                        </li>
+                                        <li>
+                                            <a href="{$path}GestioneProdotti/recuperaProdotti">prodotti</a>
+                                        </li>
+                                        <li ><a href="{$path}GestionePunti/recuperaPremi">premi</a>
+                                        <li >    
+                                    </ul>                
                 <div class="col-sm-6">
                     <nav aria-label="breadcrumb" class="theme-breadcrumb">
                         <ol class="breadcrumb">
@@ -102,25 +117,26 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <h3>crea account</h3>
+                    <h3>regala dei punti</h3>
+
                     <div class="theme-card">
-                        <form class="theme-form" method="post" action="{$path}GestionePunti/regalarePunti">
+                        <form class="theme-form" method="post" name="dati">
                             <div class="form-row">
                                 <div class="col-md-6">
                                     <label for="email">A chi vuoi regalare i punti?</label>
-                                    <input type="text" class="form-control" id="fname" placeholder="Email Del Destinatario" name="emaildest"
+                                    <input type="Email" class="form-control" id="fname" placeholder="Email Del Destinatario" name="emaildest"
                                         required>
                                 </div>
                                 <div class="col-md-6">
                                     <label for="review">Quanti punti vuoi regalare?</label>
-                                    <input type="number" class="form-control" id="lname" placeholder="Inserisci I Punti" name="punti"
+                                    <input type="number" min ="1" class="form-control" id="lname" placeholder="Inserisci I Punti - max: {$puntimax}" name="punti"
                                         required min="1" max="{$puntimax}">
                                 </div>
                             </div>
                             <div class="form-row">
                                 <div class="col-md-6">
                                     <label for="email">Vuoi lasciare un messaggio?</label>
-                                    <input type="text" class="form-control" id="email" placeholder="Messaggio" required name="Messaggio">
+                                    <input type="text" class="form-control" id="email" placeholder="Messaggio" name="Messaggio">
                                 </div>
                                 <button type="submit" onclick="funzione()" class="btn btn-solid">invia</button>
                             </div>
@@ -162,14 +178,14 @@
                     <div class="col">
                         <div style="padding: 50" class="sub-title">
                             <div class="footer-title">
-                                <h4>store information</h4>
+                                <h4>Informazioni store</h4>
                             </div>
                             <div class="footer-contant">
                                 <ul class="contact-list">
-                                    <li><i class="fa fa-map-marker"></i>Multikart Demo Store, Demo store India 345-659
+                                    <li><i class="fa fa-map-marker"></i>ADC Store, Avezzano(AQ)
                                     </li>
                                     <li><i class="fa fa-phone"></i>Call Us: 123-456-7898</li>
-                                    <li><i class="fa fa-envelope-o"></i>Email Us: Support@Fiot.com</li>
+                                    <li><i class="fa fa-envelope-o"></i>Email Us: adcstore2021@gmail.com</li>
                                     <li><i class="fa fa-fax"></i>Fax: 123456</li>
                                 </ul>
                             </div>
@@ -256,8 +272,34 @@
         }
 
         function funzione() {
-            alert("I punti sono stati inviati correttamente!")
-        }
+            var email = document.dati.emaildest.value;
+            var punti = document.dati.punti.value;            
+            if ( {$puntimax} == 0) {
+                alert("Non hai punti a sufficienza!")
+
+            }    
+
+            else if ( (email == "") || (email == "undefined")){
+                alert( "Inserisci un destinatario valido")
+                
+            }
+
+            else if ( (punti == 0) || (punti > {$puntimax})){
+
+                alert("Inserisci una quantità di punti valida!");
+            }
+
+            else { 
+                alert("I punti sono stati inviati correttamente!");
+                document.dati.action = "{$path}GestionePunti/regalarePunti";
+                document.dati.submit();
+            }    
+
+
+
+        } 
+        
+
     </script>
 </body>
 

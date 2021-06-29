@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-06-28 22:17:21
+/* Smarty version 3.1.39, created on 2021-06-29 15:45:34
   from 'C:\Users\david\public_html\ADC-Store\Smarty\smarty-dir\templates\prize-page(accordian)Utente.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_60da2e51987557_62426731',
+  'unifunc' => 'content_60db23feeea8b9_61467518',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'fa9896ac5e44eafaebba41589249bc6b19dbf5d0' => 
     array (
       0 => 'C:\\Users\\david\\public_html\\ADC-Store\\Smarty\\smarty-dir\\templates\\prize-page(accordian)Utente.tpl',
-      1 => 1624911346,
+      1 => 1624974333,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_60da2e51987557_62426731 (Smarty_Internal_Template $_smarty_tpl) {
+function content_60db23feeea8b9_61467518 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en">
 
@@ -320,9 +320,7 @@ GestionePunti/recuperaPremi">premi</a>
                             <h3><?php echo $_smarty_tpl->tpl_vars['punti']->value;?>
  punti</h3>
 
-                            <form method="post" action="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
-GestionePunti/acquistaPremio/<?php echo $_smarty_tpl->tpl_vars['id']->value;?>
-">
+                            <form method="post" name="dati">
 
                                 <div class="product-description border-product">
                                 
@@ -336,7 +334,7 @@ GestionePunti/acquistaPremio/<?php echo $_smarty_tpl->tpl_vars['id']->value;?>
                                 
                                 </div>
                                 <div class="product-buttons">
-                                    <button type="submit" onclick="funzione()" class="btn btn-solid">acquista</button>
+                                    <button type="submit" onclick="Funzione()" class="btn btn-solid">acquista</button>
                                 </div>
                             </form>
                         </div>
@@ -517,8 +515,50 @@ Smarty/smarty-dir/assets/js/script.js"><?php echo '</script'; ?>
             document.getElementById("search-overlay").style.display = "none";
         }
 
-        function funzione(){
-            alert("Il premio verrà inviato al suo indirizzo predefinito!")
+        function Funzione() {
+
+            var quantita = document.dati.quantita.value;
+            /*
+                        if( (<?php echo $_smarty_tpl->tpl_vars['puntiutente']->value;?>
+ >= <?php echo $_smarty_tpl->tpl_vars['punti']->value;?>
+ * quantita) && (<?php echo $_smarty_tpl->tpl_vars['indirizzopred']->value;?>
+ != null) ){
+                alert("Il premio verrà inviato al suo indirizzo predefinito: <?php echo $_smarty_tpl->tpl_vars['indirizzopred']->value;?>
+ entro una settimana!");
+                document.dati.action = "<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+GestionePunti/acquistaPremio/<?php echo $_smarty_tpl->tpl_vars['id']->value;?>
+";
+                document.dati.submit();
+            }
+            else if( (<?php echo $_smarty_tpl->tpl_vars['puntiutente']->value;?>
+ >= <?php echo $_smarty_tpl->tpl_vars['punti']->value;?>
+ * quantita) && (<?php echo $_smarty_tpl->tpl_vars['indirizzopred']->value;?>
+ == null) ){
+                alert("Il premio le verrà inviato entro una settimana!");
+                document.dati.action = "<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+GestionePunti/acquistaPremio/<?php echo $_smarty_tpl->tpl_vars['id']->value;?>
+";
+                document.dati.submit();
+            }*/
+
+            if ( <?php echo $_smarty_tpl->tpl_vars['puntiutente']->value;?>
+ >= <?php echo $_smarty_tpl->tpl_vars['punti']->value;?>
+ *
+            quantita
+        )
+            {
+                alert("Il premio le verrà inviato entro una settimana!");
+                document.dati.action = "<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+GestionePunti/acquistaPremio/<?php echo $_smarty_tpl->tpl_vars['id']->value;?>
+";
+                document.dati.submit();
+            }
+
+        else
+            {
+                alert("Non hai punti a sufficienza!");
+
+            }
         }
     <?php echo '</script'; ?>
 >

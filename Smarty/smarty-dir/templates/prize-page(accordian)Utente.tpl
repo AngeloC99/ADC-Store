@@ -277,7 +277,7 @@
                         <div class="product-right product-form-box">
                             <h3>{$punti} punti</h3>
 
-                            <form method="post" action="{$path}GestionePunti/acquistaPremio/{$id}">
+                            <form method="post" name="dati">
 
                                 <div class="product-description border-product">
                                 
@@ -290,7 +290,7 @@
                                 
                                 </div>
                                 <div class="product-buttons">
-                                    <button type="submit" onclick="funzione()" class="btn btn-solid">acquista</button>
+                                    <button type="submit" onclick="Funzione()" class="btn btn-solid">acquista</button>
                                 </div>
                             </form>
                         </div>
@@ -436,8 +436,35 @@
             document.getElementById("search-overlay").style.display = "none";
         }
 
-        function funzione(){
-            alert("Il premio verrà inviato al suo indirizzo predefinito!")
+        function Funzione() {
+
+            var quantita = document.dati.quantita.value;
+            /*
+                        if( ({$puntiutente} >= {$punti} * quantita) && ({$indirizzopred} != null) ){
+                alert("Il premio verrà inviato al suo indirizzo predefinito: {$indirizzopred} entro una settimana!");
+                document.dati.action = "{$path}GestionePunti/acquistaPremio/{$id}";
+                document.dati.submit();
+            }
+            else if( ({$puntiutente} >= {$punti} * quantita) && ({$indirizzopred} == null) ){
+                alert("Il premio le verrà inviato entro una settimana!");
+                document.dati.action = "{$path}GestionePunti/acquistaPremio/{$id}";
+                document.dati.submit();
+            }*/
+
+            if ( {$puntiutente} >= {$punti} *
+            quantita
+        )
+            {
+                alert("Il premio le verrà inviato entro una settimana!");
+                document.dati.action = "{$path}GestionePunti/acquistaPremio/{$id}";
+                document.dati.submit();
+            }
+
+        else
+            {
+                alert("Non hai punti a sufficienza!");
+
+            }
         }
     </script>
 </body>

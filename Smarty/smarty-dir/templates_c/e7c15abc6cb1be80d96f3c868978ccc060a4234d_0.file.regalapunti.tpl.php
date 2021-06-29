@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-06-28 18:35:19
+/* Smarty version 3.1.39, created on 2021-06-29 15:54:30
   from 'C:\Users\david\public_html\ADC-Store\Smarty\smarty-dir\templates\regalapunti.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_60d9fa47457a85_60675792',
+  'unifunc' => 'content_60db26164968e0_71812265',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'e7c15abc6cb1be80d96f3c868978ccc060a4234d' => 
     array (
       0 => 'C:\\Users\\david\\public_html\\ADC-Store\\Smarty\\smarty-dir\\templates\\regalapunti.tpl',
-      1 => 1624898093,
+      1 => 1624974869,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_60d9fa47457a85_60675792 (Smarty_Internal_Template $_smarty_tpl) {
+function content_60db26164968e0_71812265 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en">
 
@@ -35,7 +35,7 @@ function content_60d9fa47457a85_60675792 (Smarty_Internal_Template $_smarty_tpl)
 Smarty/smarty-dir/assets/images/favicon/1.png" type="image/x-icon">
     <link rel="shortcut icon" href="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
 Smarty/smarty-dir/assets/images/favicon/1.png" type="image/x-icon">
-    <title>Multikart - Multi-purpopse E-commerce Html Template</title>
+    <title>ADC Store - Regala punti</title>
 
     <!--Google font-->
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet">
@@ -116,6 +116,25 @@ Smarty/smarty-dir/assets/images/icon/logo.png"
                         <h2>regala dei punti</h2>
                     </div>
                 </div>
+                                    <ul id="main-menu" class="sm pixelstrap sm-horizontal">
+                                        <li>
+                                            <div class="mobile-back text-right">Back<i class="fa fa-angle-right pl-2"
+                                                    aria-hidden="true"></i></div>
+                                            <a href="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+GestioneSchermate/recuperaHomeAdmin">Home</a>
+                                        </li>
+                                        <li>
+                                            <a href="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+GestioneSchermate/apriProfilo">profilo</a>
+                                        </li>
+                                        <li>
+                                            <a href="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+GestioneProdotti/recuperaProdotti">prodotti</a>
+                                        </li>
+                                        <li ><a href="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+GestionePunti/recuperaPremi">premi</a>
+                                        <li >    
+                                    </ul>                
                 <div class="col-sm-6">
                     <nav aria-label="breadcrumb" class="theme-breadcrumb">
                         <ol class="breadcrumb">
@@ -135,19 +154,20 @@ Smarty/smarty-dir/assets/images/icon/logo.png"
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <h3>crea account</h3>
+                    <h3>regala dei punti</h3>
+
                     <div class="theme-card">
-                        <form class="theme-form" method="post" action="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
-GestionePunti/regalarePunti">
+                        <form class="theme-form" method="post" name="dati">
                             <div class="form-row">
                                 <div class="col-md-6">
                                     <label for="email">A chi vuoi regalare i punti?</label>
-                                    <input type="text" class="form-control" id="fname" placeholder="Email Del Destinatario" name="emaildest"
+                                    <input type="Email" class="form-control" id="fname" placeholder="Email Del Destinatario" name="emaildest"
                                         required>
                                 </div>
                                 <div class="col-md-6">
                                     <label for="review">Quanti punti vuoi regalare?</label>
-                                    <input type="number" class="form-control" id="lname" placeholder="Inserisci I Punti" name="punti"
+                                    <input type="number" min ="1" class="form-control" id="lname" placeholder="Inserisci I Punti - max: <?php echo $_smarty_tpl->tpl_vars['puntimax']->value;?>
+" name="punti"
                                         required min="1" max="<?php echo $_smarty_tpl->tpl_vars['puntimax']->value;?>
 ">
                                 </div>
@@ -155,9 +175,9 @@ GestionePunti/regalarePunti">
                             <div class="form-row">
                                 <div class="col-md-6">
                                     <label for="email">Vuoi lasciare un messaggio?</label>
-                                    <input type="text" class="form-control" id="email" placeholder="Messaggio" required name="Messaggio">
+                                    <input type="text" class="form-control" id="email" placeholder="Messaggio" name="Messaggio">
                                 </div>
-                                <button type="submit" onclick="funzione()" class="btn btn-solid"/>invia</button>
+                                <button type="submit" onclick="funzione()" class="btn btn-solid">invia</button>
                             </div>
                         </form>
                     </div>
@@ -198,14 +218,14 @@ Smarty/smarty-dir/assets/images/icon/logo.png" alt=""></div>
                     <div class="col">
                         <div style="padding: 50" class="sub-title">
                             <div class="footer-title">
-                                <h4>store information</h4>
+                                <h4>Informazioni store</h4>
                             </div>
                             <div class="footer-contant">
                                 <ul class="contact-list">
-                                    <li><i class="fa fa-map-marker"></i>Multikart Demo Store, Demo store India 345-659
+                                    <li><i class="fa fa-map-marker"></i>ADC Store, Avezzano(AQ)
                                     </li>
                                     <li><i class="fa fa-phone"></i>Call Us: 123-456-7898</li>
-                                    <li><i class="fa fa-envelope-o"></i>Email Us: Support@Fiot.com</li>
+                                    <li><i class="fa fa-envelope-o"></i>Email Us: adcstore2021@gmail.com</li>
                                     <li><i class="fa fa-fax"></i>Fax: 123456</li>
                                 </ul>
                             </div>
@@ -322,8 +342,37 @@ Smarty/smarty-dir/assets/js/script.js"><?php echo '</script'; ?>
         }
 
         function funzione() {
-            alert("I punti sono stati inviati correttamente!")
-        }
+            var email = document.dati.emaildest.value;
+            var punti = document.dati.punti.value;            
+            if ( <?php echo $_smarty_tpl->tpl_vars['puntimax']->value;?>
+ == 0) {
+                alert("Non hai punti a sufficienza!")
+
+            }    
+
+            else if ( (email == "") || (email == "undefined")){
+                alert( "Inserisci un destinatario valido")
+                
+            }
+
+            else if ( (punti == 0) || (punti > <?php echo $_smarty_tpl->tpl_vars['puntimax']->value;?>
+)){
+
+                alert("Inserisci una quantità di punti valida!");
+            }
+
+            else { 
+                alert("I punti sono stati inviati correttamente!");
+                document.dati.action = "<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+GestionePunti/regalarePunti";
+                document.dati.submit();
+            }    
+
+
+
+        } 
+        
+
     <?php echo '</script'; ?>
 >
 </body>

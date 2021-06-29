@@ -38,6 +38,9 @@ class VGestionePunti
 
     public function mostraDettagliPremioUser($premio){
 
+        $gs = CGestioneSessioni::getInstance();
+        $user = $gs->caricaUtente();
+
         $this->smarty->assign('nome', $premio->getNome());
         $this->smarty->assign('descrizione', $premio->getDescrizione());
         $this->smarty->assign('marca', $premio->getMarca());
@@ -46,6 +49,8 @@ class VGestionePunti
         $this->smarty->assign('id', $premio->getId());
         $this->smarty->assign('mime', $premio->getImmagine()->getFormato());
         $this->smarty->assign('dati', $premio->getImmagine()->getByte());
+        $this->smarty->assign('puntiutente', $gs->caricaUtente()->getPunti());
+        //$this->smarty->assign('indirizzopred', $gs->caricaUtente()->getIndirizzoPredefinito());
 
 
         $this->smarty->assign("path", $GLOBALS["path"]);

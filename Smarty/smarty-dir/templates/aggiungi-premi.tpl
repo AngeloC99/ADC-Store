@@ -74,8 +74,8 @@
                     <li><a class="sidebar-header" href="{$path}GestioneSchermate/recuperaHomeAdmin"><i data-feather="home"></i><span>Home</span></a></li>
                     <li><a class="sidebar-header" href="#"><i data-feather="box"></i> <span>Prodotti</span><i class="fa fa-angle-right pull-right"></i></a>
                         <ul class="sidebar-submenu">
-                            <li><a href="product-list.tpl"><i class="fa fa-circle"></i>Lista Prodotti</a></li>
-                            <li><a href="add-product.html"><i class="fa fa-circle"></i>Aggiungi un prodotto</a></li>
+                            <li><a href="{$path}GestioneProdotti/recuperaProdotti"><i class="fa fa-circle"></i>Lista Prodotti</a></li>
+                            <li><a href="{$path}GestioneProdotti/recuperaAggiungiProdotto"><i class="fa fa-circle"></i>Aggiungi un prodotto</a></li>
 
                         </ul>
                     </li>
@@ -154,11 +154,12 @@
                                         </div>
                                     </div>
                                     <div class="col-xl-7">
-                                        <form class="needs-validation add-product-form" novalidate=""  enctype="multipart/form-data" method="post" action="{$path}GestionePunti/aggiungiPremio">
+                                        <form name="dati" class="needs-validation add-product-form" novalidate="" enctype="multipart/form-data" method="post">
                                             <div class="form">
                                                 <div class="form-group mb-3 row">
                                                     <label for="validationCustom01" class="col-xl-3 col-sm-4 mb-0">Seleziona immagine :</label>
-                                                    <input type="file" name="file_inviato" id="fileToUpload">
+                                                    <input type="file" name="file_inviato" id="fileToUpload" required="">
+                                                    <div class="valid-feedback">Ok!</div>
 
                                                 </div>
                                                 <div class="form-group mb-3 row">
@@ -173,7 +174,7 @@
                                                 </div>
                                                 <div class="form-group mb-3 row">
                                                     <label for="validationCustom02" class="col-xl-3 col-sm-4 mb-0">Punti necessari :</label>
-                                                    <input class="form-control col-xl-8 col-sm-7" id="validationCustom02" type="text" name='punti' required="">
+                                                    <input class="form-control col-xl-8 col-sm-7" id="validationCustom02" type="number" min="1" name='punti' required="">
                                                     <div class="valid-feedback">Ok!</div>
                                                 </div>
                                             </div>
@@ -182,7 +183,7 @@
                                                     <label class="col-xl-3 col-sm-4 mb-0">Quantità :</label>
                                                     <fieldset class="qty-box col-xl-9 col-xl-8 col-sm-7 pl-0">
                                                         <div class="input-group">
-                                                            <input class="touchspin" type="text" name='quantita' value="1">
+                                                            <input class="touchspin" type="number" min="1" name='quantita' value="1" required ="">
                                                         </div>
                                                     </fieldset>
                                                 </div>
@@ -194,7 +195,7 @@
                                                 </div>
                                             </div>
                                             <div class="offset-xl-3 offset-sm-4">
-                                                <button type="submit" onclick="Funzione1()" class="btn btn-primary"/>aggiungi</button>
+                                                <button type="submit" onclick="funzione()" class="btn btn-primary">aggiungi</button>
                                                 <a href="{$path}GestionePunti/recuperaAggiungiPremio" class="btn btn-light">Annulla</a>
                                             </div>
                                         </form>
@@ -260,8 +261,21 @@
 
 
 <script>
-    function Funzione1() {
-        alert("Il premio è stato inserito correttamente.");
+    function funzione() {
+        var nomepremio = document.dati.nome.value;
+        var marca = document.dati.marca.value;
+        var punti = document.dati.punti.value;
+        var quantita = document.dati.quantita.value;
+        var imm = document.getElementById("fileToUpload");
+        var nomefile = imm.value;
+        if ( (nomepremio == "") || (marca == "") || (nomefile == "") || (punti == 0) || (quantita == 0) || (typeof imm == "undefined") || (typeof imm == null)){
+            alert("compila bene i campi!");
+        }
+        else {
+            alert( "Il premio è stato aggiunto correttamente!");
+            document.dati.action = "{$path}GestionePunti/aggiungiPremio";
+            document.dati.submit();
+        }
     }
 </script>
 

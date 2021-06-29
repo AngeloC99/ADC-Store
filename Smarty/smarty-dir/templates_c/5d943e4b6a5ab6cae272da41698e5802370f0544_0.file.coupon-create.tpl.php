@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-06-29 14:25:25
-  from 'C:\Users\david\public_html\ADC-Store\Smarty\smarty-dir\templates\aggiungi-premi.tpl' */
+/* Smarty version 3.1.39, created on 2021-06-29 12:54:13
+  from 'C:\Users\david\public_html\ADC-Store\Smarty\smarty-dir\templates\coupon-create.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_60db1135316417_41735927',
+  'unifunc' => 'content_60dafbd57f16a7_42947155',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    '2e5818db94ea6380c98b93a10d5af7bba602383d' => 
+    '5d943e4b6a5ab6cae272da41698e5802370f0544' => 
     array (
-      0 => 'C:\\Users\\david\\public_html\\ADC-Store\\Smarty\\smarty-dir\\templates\\aggiungi-premi.tpl',
-      1 => 1624969522,
+      0 => 'C:\\Users\\david\\public_html\\ADC-Store\\Smarty\\smarty-dir\\templates\\coupon-create.tpl',
+      1 => 1624964052,
       2 => 'file',
     ),
   ),
@@ -20,11 +20,11 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_60db1135316417_41735927 (Smarty_Internal_Template $_smarty_tpl) {
+function content_60dafbd57f16a7_42947155 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en">
-
 <head>
+
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -35,7 +35,7 @@ function content_60db1135316417_41735927 (Smarty_Internal_Template $_smarty_tpl)
 Smarty/smarty-dir/assets/images/dashboard/favicon.png" type="image/x-icon">
     <link rel="shortcut icon" href="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
 Smarty/smarty-dir/assets/images/dashboard/favicon.png" type="image/x-icon">
-    <title>ADC-Store Aggiungi Premio</title>
+    <title>ADC-Store</title>
 
     <!-- Google font-->
     <link href="https://fonts.googleapis.com/css?family=Work+Sans:100,200,300,400,500,600,700,800,900" rel="stylesheet">
@@ -43,19 +43,23 @@ Smarty/smarty-dir/assets/images/dashboard/favicon.png" type="image/x-icon">
 
     <!-- Font Awesome-->
     <link rel="stylesheet" type="text/css" href="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
-Smarty/Smarty-dir/assets/css/fontawesome.css">
+Smarty/smarty-dir/assets/css/fontawesome.css">
 
     <!-- Flag icon-->
     <link rel="stylesheet" type="text/css" href="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
-Smarty/Smarty-dir/assets/css/flag-icon.css">
+Smarty/smarty-dir/assets/css/flag-icon.css">
+
+    <!-- jsgrid css-->
+    <link rel="stylesheet" type="text/css" href="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+Smarty/smarty-dir/assets/css/jsgrid.css">
 
     <!-- Bootstrap css-->
     <link rel="stylesheet" type="text/css" href="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
-Smarty/Smarty-dir/assets/css/bootstrap.css">
+Smarty/smarty-dir/assets/css/bootstrap.css">
 
     <!-- App css-->
     <link rel="stylesheet" type="text/css" href="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
-Smarty/Smarty-dir/assets/css/admin.css">
+Smarty/smarty-dir/assets/css/admin.css">
 </head>
 <body>
 
@@ -76,10 +80,7 @@ Smarty/smarty-dir/assets/images/dashboard/logo.png" alt=""></a></div>
             </div>
             <div class="nav-right col">
                 <ul class="nav-menus">
-
-
                     <li><a class="text-dark" href="#" onclick="javascript:toggleFullScreen()"><i data-feather="maximize-2"></i></a></li>
-
 
                 </ul>
                 <div class="d-lg-none mobile-toggle pull-right"><i data-feather="more-horizontal"></i></div>
@@ -98,26 +99,27 @@ Smarty/smarty-dir/assets/images/dashboard/logo.png" alt=""></a></div>
                     <div><img class="img-60 rounded-circle blur-up lazyloaded" src="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
 Smarty/smarty-dir/assets/images/dashboard/man.png" alt="#">
                     </div>
-                    <h6 class="mt-3 f-14">Bentornato <?php echo $_smarty_tpl->tpl_vars['nomeadmin']->value;?>
-</h6>
-                    <p>Area Amministratore.</p>
+                    <h6 class="mt-3 f-14">Chiara</h6>
+                    <p>Area Amministratore</p>
                 </div>
                 <ul class="sidebar-menu">
                     <li><a class="sidebar-header" href="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
-GestioneSchermate/recuperaHomeAdmin"><i data-feather="home"></i><span>Home</span></a></li>
+GestioneSchermate/recuperaHome"><i data-feather="home"></i><span>Home</span></a></li>
                     <li><a class="sidebar-header" href="#"><i data-feather="box"></i> <span>Prodotti</span><i class="fa fa-angle-right pull-right"></i></a>
                         <ul class="sidebar-submenu">
                             <li><a href="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
 GestioneProdotti/recuperaProdotti"><i class="fa fa-circle"></i>Lista Prodotti</a></li>
                             <li><a href="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
-GestioneProdotti/recuperaAggiungiProdotto"><i class="fa fa-circle"></i>Aggiungi un prodotto</a></li>
+GestioneProdotti/recuperaAggiungiProdotto"><i class="fa fa-circle"></i>Aggiungi Prodotto</a></li>
 
                         </ul>
+
+                    </li>
                     </li>
                     <li><a class="sidebar-header" href="#"><i data-feather="box"></i> <span>Premi</span><i class="fa fa-angle-right pull-right"></i></a>
                         <ul class="sidebar-submenu">
-                            <li><a href=<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
-GestionePunti/recuperaPremi><i class="fa fa-circle"></i>Lista Premi</a></li>
+                            <li><a href="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+GestionePunti/recuperaPremi"><i class="fa fa-circle"></i>Lista Premi</a></li>
                             <li><a href="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
 GestioneSchermate/recuperaAggiungiPremi"><i class="fa fa-circle"></i>Aggiungi un premio</a></li>
 
@@ -128,13 +130,15 @@ GestioneSchermate/recuperaAggiungiPremi"><i class="fa fa-circle"></i>Aggiungi un
                             <li><a href="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
 GestioneUtenti/recuperaClienti"><i class="fa fa-circle"></i>Lista Clienti</a></li>
                         </ul>
-                            </li>
+                    </li>
                     <li><a class="sidebar-header" href=""><i data-feather="tag"></i><span>Buoni Sconto</span><i class="fa fa-angle-right pull-right"></i></a>
                         <ul class="sidebar-submenu">
                             <li><a href="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
 GestioneBuoni/recuperaCreazioneBuono"><i class="fa fa-circle"></i>Regala Buono</a></li>
                         </ul>
                     </li>
+
+
                     <li><a class="sidebar-header" href=""><i data-feather="settings" ></i><span>Profilo</span><i class="fa fa-angle-right pull-right"></i></a>
                         <ul class="sidebar-submenu">
                             <li><a href="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
@@ -150,7 +154,6 @@ GestioneUtenti/logout"><i class="fa fa-circle"></i>Logout</a></li>
         </div>
         <!-- Page Sidebar Ends-->
 
-        
 
         <div class="page-body">
 
@@ -160,15 +163,15 @@ GestioneUtenti/logout"><i class="fa fa-circle"></i>Logout</a></li>
                     <div class="row">
                         <div class="col-lg-6">
                             <div class="page-header-left">
-                                <h3>Aggiungi un premio
+                                <h3>Crea Buono
                                 </h3>
                             </div>
                         </div>
                         <div class="col-lg-6">
                             <ol class="breadcrumb pull-right">
-                                <li class="breadcrumb-item"><a href="home.html"><i data-feather="home"></i></a></li>
-                                <li class="breadcrumb-item">Premi</li>
-                                <li class="breadcrumb-item active">Aggiungi un premio</li>
+                                <li class="breadcrumb-item"><a href="index.html"><i data-feather="home"></i></a></li>
+                                <li class="breadcrumb-item">Buoni Sconto </li>
+                                <li class="breadcrumb-item active">Crea Buono</li>
                             </ol>
                         </div>
                     </div>
@@ -178,73 +181,58 @@ GestioneUtenti/logout"><i class="fa fa-circle"></i>Logout</a></li>
 
             <!-- Container-fluid starts-->
             <div class="container-fluid">
-                <div class="row">
-                    <div class="col-sm-12">
-                        <div class="card">
-                            <div class="card-header">
-                                <h5>Aggiungi un premio</h5>
-                            </div>
-                            <div class="card-body">
-                                <div class="row product-adding">
-                                    <div class="col-xl-5">
-                                        <div class="add-product">
-                                            <div class="row">
-                                                
-
+                <div class="card tab2-card">
+                    <div class="card-header">
+                        <h5>Dettagli Buono Sconto</h5>
+                    </div>
+                    <div class="card-body">
+                        <ul class="nav nav-tabs tab-coupon" id="myTab" role="tablist">
+                        </ul>
+                        <form class="needs-validation add-product-form" action="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+GestioneBuoni/inviaBuono" method="post">
+                            <div class="tab-content" id="myTabContent">
+                                <div class="tab-pane fade active show" id="general" role="tabpanel" aria-labelledby="general-tab">
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <div class="form-group row">
+                                                <label for="validationCustom1" class="col-xl-3 col-md-4">Codice Buono</label>
+                                                <input class="form-control col-md-7" id="cod" type="text" value="" name="codice" readonly="readonly" required="">
+                                                <input type="button"
+                                                       name="genera"
+                                                       id="genCod"
+                                                       value="Genera codice"
+                                                       onclick="Funzione2()"/> </td>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label class="col-xl-3 col-md-4"><span>*</span>Email destinatario</label>
+                                                <input class="form-control col-md-7" id="validationCustom1" type="Email" name="email" required="">
+                                            </div>
+                                            <div class="form-group row">
+                                                <label class="col-xl-3 col-md-4"><span>*</span>Ammontare</label>
+                                                <input class="form-control col-md-7" id="validationCustom1" type="text" name="ammontare" required="">
+                                            </div>
+                                            <div class="form-group row">
+                                                <label class="col-xl-3 col-md-4"><span>*</span>Tipo di importo</label>
+                                                <select class="custom-select col-md-7" required="" name="percentuale">
+                                                    <option value="">--Select--</option>
+                                                    <option value="true">Percentuale</option>
+                                                    <option value="false">Assoluto</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label class="col-xl-3 col-md-4">Extra</label>
+                                                <textarea name="mex">Lascia qui un tuo messaggio... </textarea>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-xl-7">
-                                        <form name="dati" class="needs-validation add-product-form" novalidate="" enctype="multipart/form-data" method="post">
-                                            <div class="form">
-                                                <div class="form-group mb-3 row">
-                                                    <label for="validationCustom01" class="col-xl-3 col-sm-4 mb-0">Seleziona immagine :</label>
-                                                    <input type="file" name="file_inviato" id="fileToUpload" required="">
-                                                    <div class="valid-feedback">Ok!</div>
 
-                                                </div>
-                                                <div class="form-group mb-3 row">
-                                                    <label for="validationCustom01" class="col-xl-3 col-sm-4 mb-0">Nome premio :</label>
-                                                    <input class="form-control col-xl-8 col-sm-7" id="validationCustom01" type="text" name='nome' required="">
-                                                    <div class="valid-feedback">Ok!</div>
-                                                </div>
-                                                <div class="form-group mb-3 row">
-                                                    <label for="validationCustom01" class="col-xl-3 col-sm-4 mb-0">Marca :</label>
-                                                    <input class="form-control col-xl-8 col-sm-7" id="validationCustom01" type="text" name='marca' required="">
-                                                    <div class="valid-feedback">Ok!</div>
-                                                </div>
-                                                <div class="form-group mb-3 row">
-                                                    <label for="validationCustom02" class="col-xl-3 col-sm-4 mb-0">Punti necessari :</label>
-                                                    <input class="form-control col-xl-8 col-sm-7" id="validationCustom02" type="number" min="1" name='punti' required="">
-                                                    <div class="valid-feedback">Ok!</div>
-                                                </div>
-                                            </div>
-                                            <div class="form">
-                                                <div class="form-group row">
-                                                    <label class="col-xl-3 col-sm-4 mb-0">Quantità :</label>
-                                                    <fieldset class="qty-box col-xl-9 col-xl-8 col-sm-7 pl-0">
-                                                        <div class="input-group">
-                                                            <input class="touchspin" type="number" min="1" name='quantita' value="1" required ="">
-                                                        </div>
-                                                    </fieldset>
-                                                </div>
-                                                <div class="form-group row">
-                                                    <label class="col-xl-3 col-sm-4">Aggiungi una descrizione :</label>
-                                                    <div class="col-xl-8 col-sm-7 pl-0 description-sm">
-                                                        <textarea name="descrizione" cols="60" rows="5"> </textarea>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="offset-xl-3 offset-sm-4">
-                                                <button type="submit" onclick="funzione()" class="btn btn-primary">aggiungi</button>
-                                                <a href="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
-GestionePunti/recuperaAggiungiPremio" class="btn btn-light">Annulla</a>
-                                            </div>
-                                        </form>
-                                    </div>
                                 </div>
                             </div>
-                        </div>
+                            <div class="pull-right">
+                                <button type="submit" class="btn btn-solid" href="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+GestioneBuoni/recuperaCreazioneBuono" >INVIA</button>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -252,7 +240,20 @@ GestionePunti/recuperaAggiungiPremio" class="btn btn-light">Annulla</a>
 
         </div>
 
-
+        <!-- footer start-->
+        <footer class="footer">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-6 footer-copyright">
+                        <p class="mb-0">Copyright 2019 © Multikart All rights reserved.</p>
+                    </div>
+                    <div class="col-md-6">
+                        <p class="pull-right mb-0">Hand crafted & made with<i class="fa fa-heart"></i></p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- footer end-->
     </div>
 
 </div>
@@ -289,52 +290,18 @@ Smarty/smarty-dir/assets/js/icons/feather-icon/feather-icon.js"><?php echo '</sc
 Smarty/smarty-dir/assets/js/sidebar-menu.js"><?php echo '</script'; ?>
 >
 
-<!-- touchspin js-->
+<!-- Jsgrid js-->
 <?php echo '<script'; ?>
  src="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
-Smarty/smarty-dir/assets/js/touchspin/vendors.min.js"><?php echo '</script'; ?>
+Smarty/smarty-dir/assets/js/jsgrid/jsgrid.min.js"><?php echo '</script'; ?>
 >
 <?php echo '<script'; ?>
  src="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
-Smarty/smarty-dir/assets/js/touchspin/touchspin.js"><?php echo '</script'; ?>
+Smarty/smarty-dir/assets/js/jsgrid/griddata-users.js"><?php echo '</script'; ?>
 >
 <?php echo '<script'; ?>
  src="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
-Smarty/smarty-dir/assets/js/touchspin/input-groups.min.js"><?php echo '</script'; ?>
->
-
-<!-- form validation js-->
-<?php echo '<script'; ?>
- src="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
-Smarty/smarty-dir/assets/js/dashboard/form-validation-custom.js"><?php echo '</script'; ?>
->
-
-<!-- ckeditor js-->
-<?php echo '<script'; ?>
- src="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
-Smarty/smarty-dir/assets/js/editor/ckeditor/ckeditor.js"><?php echo '</script'; ?>
->
-<?php echo '<script'; ?>
- src="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
-Smarty/smarty-dir/assets/js/editor/ckeditor/styles.js"><?php echo '</script'; ?>
->
-<?php echo '<script'; ?>
- src="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
-Smarty/smarty-dir/assets/js/editor/ckeditor/adapters/jquery.js"><?php echo '</script'; ?>
->
-<?php echo '<script'; ?>
- src="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
-Smarty/smarty-dir/assets/js/editor/ckeditor/ckeditor.custom.js"><?php echo '</script'; ?>
->
-
-<!-- Zoom js-->
-<?php echo '<script'; ?>
- src="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
-Smarty/smarty-dir/assets/js/jquery.elevatezoom.js"><?php echo '</script'; ?>
->
-<?php echo '<script'; ?>
- src="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
-Smarty/smarty-dir/assets/js/zoom-scripts.js"><?php echo '</script'; ?>
+Smarty/smarty-dir/assets/js/jsgrid/jsgrid-users.js"><?php echo '</script'; ?>
 >
 
 <!--Customizer admin-->
@@ -361,30 +328,12 @@ Smarty/smarty-dir/assets/js/chat-menu.js"><?php echo '</script'; ?>
 Smarty/smarty-dir/assets/js/admin-script.js"><?php echo '</script'; ?>
 >
 
-
-<?php echo '<script'; ?>
->
-    function funzione() {
-        var nomepremio = document.dati.nome.value;
-        var marca = document.dati.marca.value;
-        var punti = document.dati.punti.value;
-        var quantita = document.dati.quantita.value;
-        var imm = document.getElementById("fileToUpload");
-        var nomefile = imm.value;
-        if ( (nomepremio == "") || (marca == "") || (nomefile == "") || (punti == 0) || (quantita == 0) || (typeof imm == "undefined") || (typeof imm == null)){
-            alert("compila bene i campi!");
-        }
-        else {
-            alert( "Il premio è stato aggiunto correttamente!");
-            document.dati.action = "<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
-GestionePunti/aggiungiPremio";
-            document.dati.submit();
-        }
-    }
-<?php echo '</script'; ?>
->
-
 </body>
 </html>
+
+
+
+
+
 <?php }
 }

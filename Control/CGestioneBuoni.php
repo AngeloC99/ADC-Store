@@ -2,9 +2,9 @@
 
 use PHPMailer\PHPMailer\PHPMailer;
 
-require('C:\Users\rommy\public_html\ADC-Store\PHPMailer-master\src\PHPMailer.php');
-require('C:\Users\rommy\public_html\ADC-Store\PHPMailer-master\src\Exception.php');
-require('C:\Users\rommy\public_html\ADC-Store\PHPMailer-master\src\SMTP.php');
+require('C:\Users\david\public_html\ADC-Store\PHPMailer-master\src\PHPMailer.php');
+require('C:\Users\david\public_html\ADC-Store\PHPMailer-master\src\Exception.php');
+require('C:\Users\david\public_html\ADC-Store\PHPMailer-master\src\SMTP.php');
 
 class CGestioneBuoni
 {

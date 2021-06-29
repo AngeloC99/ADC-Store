@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-06-28 22:21:10
+/* Smarty version 3.1.39, created on 2021-06-29 12:37:53
   from 'C:\Users\david\public_html\ADC-Store\Smarty\smarty-dir\templates\category-page(infinite-scroll)-premiAdmin.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_60da2f36479132_01457840',
+  'unifunc' => 'content_60daf8019a0569_73120674',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'de3cf7f83da00515ab500e36726c28c9aba661ca' => 
     array (
       0 => 'C:\\Users\\david\\public_html\\ADC-Store\\Smarty\\smarty-dir\\templates\\category-page(infinite-scroll)-premiAdmin.tpl',
-      1 => 1624907992,
+      1 => 1624912309,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_60da2f36479132_01457840 (Smarty_Internal_Template $_smarty_tpl) {
+function content_60daf8019a0569_73120674 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en">
 
@@ -449,7 +449,7 @@ GestioneSchermate/recuperaHomeAdmin">Home</a>
                                         
                                         <li>
                                             <a href="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
-GestionePunti/recuperaPremi">premi</a>
+GestioneProdotti/recuperaProdotti">prodotti</a>
                                         </li>
 
                                         <li>
