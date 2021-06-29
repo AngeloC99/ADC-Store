@@ -4,13 +4,13 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="ADCStore">
     <meta name="keywords" content="ADCStore">
     <meta name="author" content="ADCStore">
-    <link rel="icon" href="{$path}Smarty/smarty-dir/assets/images/favicon/1.png" type="image/x-icon">
-    <link rel="shortcut icon" href="{$path}Smarty/smarty-dir/assets/images/favicon/1.png" type="image/x-icon">
-    <title>ADC Store - Indirizzi</title>
+    <link rel="icon" href="{$path}Smarty/smarty-dir/assets/images/favicon/1.png" type="image/x-icon" />
+    <link rel="shortcut icon" href="{$path}Smarty/smarty-dir/assets/images/favicon/1.png" type="image/x-icon" />
+    <title>ADC-Store - Errore 401</title>
 
     <!--Google font-->
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet">
@@ -34,60 +34,20 @@
     <!-- Theme css -->
     <link rel="stylesheet" type="text/css" href="{$path}Smarty/smarty-dir/assets/css/color1.css" media="screen" id="color">
 
+
 </head>
 
 <body>
 
-
 <!-- header start -->
-<header>
-    <div class="mobile-fix-option"></div>
-
+<header class="header-2">
     <div class="container">
         <div class="row">
             <div class="col-sm-12">
-                <div class="main-menu">
-
-                    <div class="brand-logo">
-                        <a href="{$path}GestioneSchermate/recuperaHome"> <img src="{$path}Smarty/smarty-dir/assets/images/icon/logo.png"
-                                                                              class="img-fluid blur-up lazyload" alt=""></a>
-                    </div>
-
-                    <div class="menu-right pull-right">
-                        <div>
-                            <nav id="main-nav">
-                                <div class="toggle-nav">
-                                    <i class="fa fa-bars sidebar-bar"></i>
-                                </div>
-                                <!-- Horizontal menu -->
-                                <ul id="main-menu" class="sm pixelstrap sm-horizontal">
-                                    <li>
-                                        <div class="mobile-back text-right">Back<i class="fa fa-angle-right pl-2"
-                                                                                   aria-hidden="true"></i></div>
-                                    </li>
-                                    <li>
-                                        <a href="{$path}GestioneSchermate/recuperaHome">Home</a>
-                                    </li>
-                                    <li>
-                                        <a href="{$path}GestioneProdotti/recuperaProdotti">Prodotti</a>
-                                    </li>
-                                    <li>
-                                        <a href="{$path}GestionePunti/recuperaPremi">Premi</a>
-                                    </li>
-                                    <li><a href="">Account</a>
-                                        <ul>
-                                            <li><a href="{$path}GestioneSchermate/apriProfilo" data-lng="en">Il mio profilo ADC-Store</a></li>
-                                            <li><a href="{$path}GestioneSchermate/recuperaGestioneCarrello" data-lng="en">Carrello della spesa</a></li>
-                                            <li><a href="{$path}GestioneUtenti/logout" data-lng="en">Logout</a></li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <a href="{$path}GestioneSchermate/chiSiamo">Chi siamo</a>
-                                    </li>
-                                </ul>
-                            </nav>
-                        </div>
-
+                <div class="main-menu border-section border-top-0">
+                    <div class="brand-logo layout2-logo">
+                        <a href=""><img src="{$path}Smarty/smarty-dir/assets/images/icon/logo.png" class="img-fluid blur-up lazyload"
+                                        alt=""></a>
                     </div>
                 </div>
             </div>
@@ -96,20 +56,21 @@
 </header>
 <!-- header end -->
 
-    <!-- breadcrumb start -->
+
+<!-- breadcrumb start -->
     <div class="breadcrumb-section">
         <div class="container">
             <div class="row">
                 <div class="col-sm-6">
                     <div class="page-title">
-                        <h2>Gestione Indirizzi</h2>
+                        <h2>404 page</h2>
                     </div>
                 </div>
                 <div class="col-sm-6">
                     <nav aria-label="breadcrumb" class="theme-breadcrumb">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="{$path}GestioneSchermate/showHome">Home</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Profilo Personale</li>
+                            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">404 page</li>
                         </ol>
                     </nav>
                 </div>
@@ -119,92 +80,23 @@
     <!-- breadcrumb End -->
 
 
-    <!--section start-->
-    <section class="register-page section-b-space">
+    <!-- section start -->
+    <section class="p-0">
         <div class="container">
             <div class="row">
-                <div class="col-lg-12">
-                    <h3>Inserisci un indirizzo</h3>
-                    <div class="theme-card">
-                        <form class="theme-form" method="post" action="{$path}GestioneIndirizzi/aggiungiIndirizzo">
-                            <div class="form-row">
-                                <div class="col-md-6">
-                                    <label>Via</label>
-                                    <input type="text" class="form-control" id="lname" placeholder="Inserisci la via" name="via"
-                                           maxlength="25" required>
-                                </div>
-                                <div class="col-md-6">
-                                    <label>Numero Civico</label>
-                                    <input type="text" class="form-control" id="lname" placeholder="Inserisci il numero civico" name="numero"
-                                        maxlength="3" required>
-                                </div>
-                            </div>
-                            <div class="form-row">
-                                <div class="col-md-6">
-                                    <label>CAP</label>
-                                    <input type="text" class="form-control" id="lname" placeholder="Inserisci il CAP" name="cap"
-                                           maxlength="5" required>
-                                </div>
-                                <div class="col-md-6">
-                                    <label>Comune</label>
-                                    <input type="text" class="form-control" id="lname" placeholder="Inserisci il comune" name="comune"
-                                           maxlength="25" required>
-                                </div>
-                            </div>
-                            <div class="form-row">
-                                <div class="col-md-6">
-                                    <label>Provincia</label>
-                                    <input type="text" class="form-control" id="lname" placeholder="Inserisci la provincia" name="provincia"
-                                           maxlength="2" required>
-                                </div>
-                            </div><input type="submit" value="Salva l'indirizzo" class="btn btn-solid"/>
-                        </form>
+                <div class="col-sm-12">
+                    <div class="error-section">
+                        <h1>404</h1>
+                        <h2>page not found</h2>
+                        <h3>OOOPS! Non siamo riusciti a trovare questo prodotto.</h3>
+                        <a href="{$path}GestioneProdotti/recuperaProdotti" class="btn btn-solid">Ritorna alla lista dei prodotti</a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    <!--Section ends-->
+    <!-- Section ends -->
 
-    <!-- Inizio elenco carte -->
-    <table class="table cart-table table-responsive-xs">
-        <thead>
-        <tr class="table-head">
-            <th scope="col">Via</th>
-            <th scope="col">Numero</th>
-            <th scope="col">CAP</th>
-            <th scope="col">Comune</th>
-            <th scope="col">Provincia</th>
-            <th scope="col"></th>
-        </tr>
-        </thead>
-        <tbody>
-        {section name=indirizzo loop=$indirizzi}
-            <form method="post" action="{$path}GestioneIndirizzi/rimuoviIndirizzo">
-                <tr>
-                    <td>
-                        <h5>{$indirizzi[indirizzo].via}</h5>
-                        <input type="hidden" name="indirizzo" value="{$indirizzi[indirizzo].stringa}">
-                    </td>
-                    <td>
-                        <h5>{$indirizzi[indirizzo].numero}</h5>
-                    </td>
-                    <td>
-                        <h5>{$indirizzi[indirizzo].cap}</h5>
-                    </td>
-                    <td>
-                        <h5>{$indirizzi[indirizzo].comune}</h5>
-                    </td>
-                    <td>
-                        <h5>{$indirizzi[indirizzo].provincia}</h5>
-                    </td>
-                    <td><input type="submit" value="Rimuovi" class="btn btn-block"/></td>
-                </tr>
-            </form>
-        {/section}
-        </tbody>
-    </table>
-    <!-- Fine elenco carte -->
 
     <!-- footer start -->
     <footer class="footer-light">
@@ -233,12 +125,12 @@
                     <div class="col offset-xl-1">
                         <div class="sub-title">
                             <div class="footer-title">
-                                <h4>Il tuo ADC-Store</h4>
+                                <h4>Entra in ADC-Store</h4>
                             </div>
                             <div class="footer-contant">
                                 <ul>
-                                    <li><a href="{$path}GestioneSchermate/apriProfilo">Il tuo profilo</a></li>
-                                    <li><a href="{$path}GestioneCarrello/recuperaCarrello">Il tuo carrello ADC-Store</a></li>
+                                    <li><a href="{$path}GestioneSchermate/recuperaLogin">Accedi al tuo account</a></li>
+                                    <li><a href="{$path}GestioneUtenti/recuperaCreazioneAccount">Crea un account</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -310,6 +202,15 @@
         </div>
     </footer>
     <!-- footer end -->
+
+
+    <!-- tap to top -->
+    <div class="tap-top">
+        <div>
+            <i class="fa fa-angle-double-up"></i>
+        </div>
+    </div>
+    <!-- tap to top End -->
 
 
     <!-- theme setting -->
@@ -1024,13 +925,6 @@
     <!-- theme setting -->
 
 
-    <!-- tap to top start -->
-    <div class="tap-top">
-        <div><i class="fa fa-angle-double-up"></i></div>
-    </div>
-    <!-- tap to top end -->
-
-
     <!-- latest jquery-->
     <script src="{$path}Smarty/smarty-dir/assets/js/jquery-3.3.1.min.js"></script>
 
@@ -1064,6 +958,7 @@
             document.getElementById("search-overlay").style.display = "none";
         }
     </script>
+
 </body>
 
 </html>

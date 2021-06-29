@@ -37,338 +37,71 @@
 </head>
 
 <body>
+<!-- header start -->
+<header>
+    <div class="mobile-fix-option"></div>
 
-    <!-- loader start -->
-    <div class="loader_skeleton">
-        <header>
-            <div class="top-header d-none d-sm-block">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <div class="header-contact">
-                                <ul>
-                                    <li>Welcome to Our store Multikart</li>
-                                    <li><i class="fa fa-phone" aria-hidden="true"></i>Call Us: 123 - 456 - 7890</li>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="main-menu">
+
+                    <div class="brand-logo">
+                        <a href="{$path}GestioneSchermate/recuperaHome"> <img src="{$path}Smarty/smarty-dir/assets/images/icon/logo.png"
+                                                                              class="img-fluid blur-up lazyload" alt=""></a>
+                    </div>
+
+                    <div class="menu-right pull-right">
+                        <div>
+                            <nav id="main-nav">
+                                <div class="toggle-nav">
+                                    <i class="fa fa-bars sidebar-bar"></i>
+                                </div>
+                                <!-- Horizontal menu -->
+                                <ul id="main-menu" class="sm pixelstrap sm-horizontal">
+                                    <li>
+                                        <div class="mobile-back text-right">Back<i class="fa fa-angle-right pl-2"
+                                                                                   aria-hidden="true"></i></div>
+                                    </li>
+                                    <li>
+                                        <a href="{$path}GestioneSchermate/recuperaHome">Home</a>
+                                    </li>
+                                    <li>
+                                        <a href="{$path}GestioneProdotti/recuperaProdotti">Prodotti</a>
+                                    </li>
+                                    {if $loggato}
+                                        <li>
+                                            <a href="{$path}GestionePunti/recuperaPremi">Premi</a>
+                                        </li>
+                                        <li><a href="">Account</a>
+                                            <ul>
+                                                <li><a href="{$path}GestioneSchermate/apriProfilo" data-lng="en">Il mio profilo ADC-Store</a></li>
+                                                <li><a href="{$path}GestioneSchermate/recuperaGestioneCarrello" data-lng="en">Carrello della spesa</a></li>
+                                                <li><a href="{$path}GestioneUtenti/logout" data-lng="en">Logout</a></li>
+                                            </ul>
+                                        </li>
+                                    {else}
+                                        <li><a href="#">Clienti</a>
+                                            <ul>
+                                                <li><a href="{$path}GestioneSchermate/recuperaLogin">Accedi</a></li>
+                                                <li><a href="{$path}GestioneUtenti/recuperaCreazioneAccount">Registrazione</a></li>
+                                            </ul>
+                                        </li>
+                                    {/if}
+                                    <li>
+                                        <a href="{$path}GestioneSchermate/chiSiamo">Chi siamo</a>
+                                    </li>
                                 </ul>
-                            </div>
+                            </nav>
                         </div>
-                        <div class="col-lg-6 text-right">
-                            <ul class="header-dropdown">
-                                <li class="mobile-wishlist"><a href="#"><i class="fa fa-heart" aria-hidden="true"></i></a>
-                                </li>
-                                <li class="onhover-dropdown mobile-account">
-                                    <i class="fa fa-user" aria-hidden="true"></i> My Account
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-12">
-                        <div class="main-menu">
-                            <div class="menu-left">
-                                <div class="navbar">
-                                    <a href="javascript:void(0)">
-                                        <div class="bar-style"><i class="fa fa-bars sidebar-bar" aria-hidden="true"></i>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="brand-logo">
-                                    <a href="index.html"><img src="{$path}Smarty/smarty-dir/assets/images/icon/logo.png"
-                                            class="img-fluid blur-up lazyload" alt=""></a>
-                                </div>
-                            </div>
-                            <div class="menu-right pull-right">
-                                <div>
-                                    <nav>
-                                        <div class="toggle-nav"><i class="fa fa-bars sidebar-bar"></i></div>
-                                        <ul class="sm pixelstrap sm-horizontal">
-                                            <li>
-                                                <div class="mobile-back text-right">Back<i
-                                                        class="fa fa-angle-right pl-2" aria-hidden="true"></i></div>
-                                            </li>
-                                            <li>
-                                                <a href="#">Home</a>
-                                            </li>
-                                            <li>
-                                                <a href="#">shop</a>
-                                            </li>
-                                            <li>
-                                                <a href="#">product</a>
-                                            </li>
-                                            <li class="mega"><a href="#">features
-                                                    <div class="lable-nav">new</div>
-                                                </a>
-                                            </li>
-                                            <li><a href="#">pages</a>
-                                            </li>
-                                            <li>
-                                                <a href="#">blog</a>
-                                            </li>
-                                        </ul>
-                                    </nav>
-                                </div>
-                                <div>
-                                    <div class="icon-nav d-none d-sm-block">
-                                        <ul>
-                                            <li class="onhover-div mobile-search">
-                                                <div><img src="{$path}Smarty/smarty-dir/assets/images/icon/search.png" onclick="openSearch()"
-                                                        class="img-fluid blur-up lazyload" alt=""> <i class="ti-search"
-                                                        onclick="openSearch()"></i></div>
-                                            </li>
-                                            <li class="onhover-div mobile-setting">
-                                                <div><img src="{$path}Smarty/smarty-dir/assets/images/icon/setting.png"
-                                                        class="img-fluid blur-up lazyload" alt=""> <i
-                                                        class="ti-settings"></i></div>
-                                            </li>
-                                            <li class="onhover-div mobile-cart">
-                                                <div><img src="{$path}Smarty/smarty-dir/assets/images/icon/cart.png"
-                                                        class="img-fluid blur-up lazyload" alt=""> <i
-                                                        class="ti-shopping-cart"></i></div>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </header>
-        <div class="breadcrumb-section">
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-6">
-                        <div class="page-title">
-                            <h2>product</h2>
-                        </div>
-                    </div>
-                    <div class="col-sm-6">
-                        <nav aria-label="breadcrumb" class="theme-breadcrumb">
-                            <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                                <li class="breadcrumb-item active" aria-current="page">product</li>
-                            </ol>
-                        </nav>
+
                     </div>
                 </div>
             </div>
         </div>
-        <section class="section-b-space">
-            <div class="collection-wrapper product-page">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="container-fluid">
-                                <div class="row">
-                                    <div class="col-lg-4">
-                                        <div class="main-product"></div>
-                                        <div class="row">
-                                            <div class="col-4">
-                                                <div class="sm-product"></div>
-                                            </div>
-                                            <div class="col-4">
-                                                <div class="sm-product"></div>
-                                            </div>
-                                            <div class="col-4">
-                                                <div class="sm-product"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4">
-                                        <div class="product-right">
-                                            <h2></h2>
-                                            <h4></h4>
-                                            <h3></h3>
-                                            <ul>
-                                                <li></li>
-                                                <li></li>
-                                                <li></li>
-                                            </ul>
-                                            <div class="btn-group">
-                                                <div class="btn-ldr"></div>
-                                                <div class="btn-ldr"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4">
-                                        <div class="product-right product-form-box">
-                                            <h2></h2>
-                                            <h4></h4>
-                                            <h3></h3>
-                                            <ul>
-                                                <li></li>
-                                                <li></li>
-                                                <li></li>
-                                            </ul>
-                                            <div class="btn-group">
-                                                <div class="btn-ldr"></div>
-                                                <div class="btn-ldr"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <section class="tab-product m-0">
-                                <div class="row">
-                                    <div class="col-sm-12 col-lg-12">
-                                        <ul>
-                                            <li></li>
-                                            <li></li>
-                                            <li></li>
-                                            <li></li>
-                                        </ul>
-                                        <p></p>
-                                        <p></p>
-                                        <p></p>
-                                        <p></p>
-                                        <p></p>
-                                    </div>
-                                </div>
-                            </section>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
     </div>
-    <!-- loader end -->
-
-
-    <!-- header start -->
-    <header>
-
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-12">
-                    <div class="main-menu">
-                        <div class="menu-left">
-                            <div class="brand-logo">
-                                <a href="index.html"> <img src="{$path}Smarty/smarty-dir/assets/images/icon/logo.png"
-                                        class="img-fluid blur-up lazyload" alt=""></a>
-                            </div>
-                        </div>
-                        <div class="menu-right pull-right">
-                            <div>
-                                <nav id="main-nav">
-                                    <div class="toggle-nav">
-                                        <i class="fa fa-bars sidebar-bar"></i>
-                                    </div>
-                                    <!-- Horizontal menu -->
-                                    <ul id="main-menu" class="sm pixelstrap sm-horizontal">
-                                        <li>
-                                            <div class="mobile-back text-right">Back<i class="fa fa-angle-right pl-2"
-                                                    aria-hidden="true"></i></div>
-                                        </li>
-                                        <li><a href="{$path}GestioneSchermate/recuperaHome">Home</a>
-                                        </li>
-
-                                        </li>
-                                        <li><a href="{$path}GestioneSchermate/apriProfilo">Profilo</a>
-
-                                        <li>
-                                            <a href="{$path}GestioneProdotti/recuperaProdotti">Prodotti</a>
-                                        </li>
-
-
-                                    </ul>
-                                </nav>
-                            </div>
-                            <div>
-                                <div class="icon-nav">
-                                    <ul>
-                                        <li class="onhover-div mobile-search">
-                                            <div><img src="{$path}Smarty/smarty-dir/assets/images/icon/search.png" onclick="openSearch()"
-                                                    class="img-fluid blur-up lazyload" alt="">
-                                                <i class="ti-search" onclick="openSearch()"></i></div>
-                                            <div id="search-overlay" class="search-overlay">
-                                                <div>
-                                                    <span class="closebtn" onclick="closeSearch()"
-                                                        title="Close Overlay">×</span>
-                                                    <div class="overlay-content">
-                                                        <div class="container">
-                                                            <div class="row">
-                                                                <div class="col-xl-12">
-                                                                    <form>
-                                                                        <div class="form-group">
-                                                                            <input type="text" class="form-control"
-                                                                                id="exampleInputPassword1"
-                                                                                placeholder="Search a Product">
-                                                                        </div>
-                                                                        <button type="submit" class="btn btn-primary"><i
-                                                                                class="fa fa-search"></i></button>
-                                                                    </form>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </li>
-
-                                        <li class="onhover-div mobile-cart">
-                                            <div><img src="{$path}Smarty/smarty-dir/assets/images/icon/cart.png"
-                                                    class="img-fluid blur-up lazyload" alt="">
-                                                <i class="ti-shopping-cart"></i></div>
-                                            <ul class="show-div shopping-cart">
-                                                <li>
-                                                    <div class="media">
-                                                        <a href="#"><img class="mr-3"
-                                                                src="{$path}Smarty/smarty-dir/assets/images/fashion/product/1.jpg"
-                                                                alt="Generic placeholder image"></a>
-                                                        <div class="media-body">
-                                                            <a href="#">
-                                                                <h4>item name</h4>
-                                                            </a>
-                                                            <h4><span>1 x $ 299.00</span></h4>
-                                                        </div>
-                                                    </div>
-                                                    <div class="close-circle">
-                                                        <a href="#"><i class="fa fa-times" aria-hidden="true"></i></a>
-                                                    </div>
-                                                </li>
-                                                <li>
-                                                    <div class="media">
-                                                        <a href="#"><img class="mr-3"
-                                                                src="{$path}Smarty/smarty-dir/assets/images/fashion/product/2.jpg"
-                                                                alt="Generic placeholder image"></a>
-                                                        <div class="media-body">
-                                                            <a href="#">
-                                                                <h4>item name</h4>
-                                                            </a>
-                                                            <h4><span>1 x $ 299.00</span></h4>
-                                                        </div>
-                                                    </div>
-                                                    <div class="close-circle">
-                                                        <a href="#"><i class="fa fa-times" aria-hidden="true"></i></a>
-                                                    </div>
-                                                </li>
-                                                <li>
-                                                    <div class="total">
-                                                        <h5>subtotal : <span>$299.00</span></h5>
-                                                    </div>
-                                                </li>
-                                                <li>
-                                                    <div class="buttons">
-                                                        <a href="cart.html" class="view-cart">view cart</a>
-                                                        <a href="#" class="checkout">checkout</a>
-                                                    </div>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
-    <!-- header end -->
-
+</header>
+<!-- header end -->
 
     <!-- breadcrumb start -->
     <div class="breadcrumb-section">
@@ -382,7 +115,7 @@
                 <div class="col-sm-6">
                     <nav aria-label="breadcrumb" class="theme-breadcrumb">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="home.html">Home</a></li>
+                            <li class="breadcrumb-item"><a href="{$path}GestioneSchermate/recuperaHome">Home</a></li>
                             <li class="breadcrumb-item active" aria-current="page">Prodotti</li>
                         </ol>
                     </nav>
@@ -401,90 +134,30 @@
                     <div class="col-lg-4">
                         <div class="product-slick">
                             <div><img src="data:{$prod.mime};base64,{$prod.dati}" width="150" height="250" alt=""
-                                    class="img-fluid blur-up lazyload image_zoom_cls-0"></div>
-
-                        </div>
-
-                    </div>
-                        <div class="product-right product-description-box">
-                            <h2>{$prod.nome}</h2>
-                            <h4>ID Prodotto: {$prod.id}</h4>
-                            <div class="product-icon mb-3">
-                                <form class="d-inline-block">
-                                    <div class="row product-accordion">
-                                        <div class="col-sm-12">
-                                            <div class="accordion theme-accordion" id="accordionExample">
-
-                                                </div>
-                                </form>
+                                      class="img-fluid blur-up lazyload image_zoom_cls-0">
                             </div>
                         </div>
-
+                    </div>
+                    <div class="col-lg-4">
+                        <h2>{$prod.nome}</h2>
+                        <h5 style="color: #5a6268">ID Prodotto: {$prod.id}</h5>
+                        <div class="product-icon mb-3">
                             <div class="row product-accordion">
                                 <div class="col-sm-12">
-                                    <div class="accordion theme-accordion" id="accordionExample">
-
-                                        <div class="card">
-                                            <div class="card-header" id="headingOne">
-                                                <h5 class="mb-0"><button class="btn btn-link" type="button"
-                                                                         data-toggle="collapse" data-target="#collapseOne"
-                                                                         aria-expanded="true" aria-controls="collapseOne">Aggiungi al carrello preferito</button></h5>
-                                            </div>
-                                            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
-                                                 data-parent="#accordionExample">
-                                                <div class="card-body">
-                                                    <h4>Carrello preferito <input type="text" name="nomeCart" placeholder="Nome nuovo carrello"> </h4>
-                                                    <div class="form-group row">
-                                                        <h4 for="exampleFormControlSelect1" class="col-xl-3 col-sm-4 mb-0">Altri :</h4>
-                                                        <select class="form-control digits col-xl-8 col-sm-7" id="exampleFormControlSelect1" name='carrelli'>
-                                                            <option>Carrello 1</option>
-                                                            <option>Carrello 2</option>
-                                                            <option>Carrello 3</option>
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-
-
-                                        <div class="card">
-                                            <div class="card-header" id="headingOne">
-                                                <h5 class="mb-0"><button class="btn btn-link" type="button"
-                                                        data-toggle="collapse" data-target="#collapseTwo"
-                                                        aria-expanded="true" aria-controls="collapseTwo">Descrizione prodotto</button></h5>
-                                            </div>
-                                            <div id="collapseTwo" class="collapse show" aria-labelledby="headingOne"
-                                                data-parent="#accordionExample">
-                                                <div class="card-body">
-                                                    <p>{$prod.descrizione}</p>
-                                                    <div class="single-product-tables detail-section">
-                                                        <table>
-                                                            <tbody>
-                                                                <tr>
-                                                                    <td>Marca:</td>
-                                                                    <td>{$prod.marca}</td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>Tipologia:</td>
-                                                                    <td>{$prod.tipologia}</td>
-                                                                </tr>
-
-                                                            </tbody>
-                                                        </table>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                    </div>
+                                    <br>
+                                    <h5 style="color: #5a6268"><b>Marca</b>: {$prod.marca}</h5>
+                                    <h5 style="color: #5a6268"><b>Tipologia</b>: {$prod.tipologia}</h5>
+                                    <h5 style="color: #5a6268"><b>Disponibili</b>: {$prod.quantita} unità</h5>
+                                    <br>
+                                    <h3 style="color: #0a0100">Descrizione prodotto</h3>
+                                    <p>{$prod.descrizione}</p>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-4">
                         <div class="product-right product-form-box">
-                            <h3>€ {$prod.prezzo}</h3>
+                            <h3>Prezzo: € {$prod.prezzo}</h3>
 
                             <form method="post" action="{$path}GestioneCarrello/aggiungiAlCarrello">
                                 <div class="product-description border-product">
@@ -494,8 +167,13 @@
                                         <input type="number" name="quantita" class="form-control input-number" value="1" min="1" max="{$prod.quantita}">
                                     </div>
                                 </div>
-                                <div class="product-buttons"><input type="submit" value="Aggiungi al carrello" class="btn btn-solid"/>
-                                </div>
+                                {if $loggato}
+                                    <div class="product-buttons"><input type="submit" value="Aggiungi al carrello" class="btn btn-solid"/></div>
+                                {else}
+                                    <h5>Registrati subito per acquistare su ADC-store!</h5>
+                                    <div ><a href="{$path}GestioneUtenti/recuperaCreazioneAccount" class="btn btn-solid">Registrati</a></div>
+                                {/if}
+
                             </form>
 
                         </div>
@@ -511,45 +189,124 @@
 
 
 
-    <!-- footer start -->
-    <footer class="footer-light">
 
-
-        <div class="sub-footer">
-            <div class="container">
-                <div class="row">
-                    <div class="col-xl-6 col-md-6 col-sm-12">
-                        <div class="footer-end">
-                            <p><i class="fa fa-copyright" aria-hidden="true"></i> 2020-21 Progetto di Programmazione Web</p>
+<!-- footer start -->
+<footer class="footer-light">
+    <section class="section-b-space light-layout">
+        <div class="container">
+            <div class="row footer-theme partition-f">
+                <div class="col-lg-4 col-md-6">
+                    <div class="footer-title footer-mobile-title">
+                        <h4>about</h4>
+                    </div>
+                    <div class="footer-contant">
+                        <div class="footer-logo"><img src="{$path}Smarty/smarty-dir/assets/images/icon/logo.png" alt=""></div>
+                        <p>ADC-Store è la tua catena di supermercati di fiducia in Italia, grazie a un modello originale d’impresa. Noi poniamo al centro i nostri clienti, sempre. </p> <br>
+                        <p style="color: #0a0100">Seguici sulle nostre pagine social per non perderti nuove offerte!</p>
+                        <div class="footer-social">
+                            <ul>
+                                <li><a href=""><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                                <li><a href=""><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
+                                <li><a href=""><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                                <li><a href=""><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                                <li><a href=""><i class="fa fa-rss" aria-hidden="true"></i></a></li>
+                            </ul>
                         </div>
                     </div>
-                    <div class="col-xl-6 col-md-6 col-sm-12">
-                        <div class="payment-card-bottom">
+                </div>
+                <div class="col offset-xl-1">
+                    <div class="sub-title">
+                        {if $loggato}
+                            <div class="footer-title">
+                                <h4>Il tuo ADC-Store</h4>
+                            </div>
+                            <div class="footer-contant">
+                                <ul>
+                                    <li><a href="{$path}GestioneSchermate/apriProfilo">Il tuo profilo</a></li>
+                                    <li><a href="{$path}GestioneCarrello/recuperaCarrello">Il tuo carrello ADC-Store</a></li>
+                                </ul>
+                            </div>
+                        {else}
+                            <div class="footer-title">
+                                <h4>Entra in ADC-Store</h4>
+                            </div>
+                            <div class="footer-contant">
+                                <ul>
+                                    <li><a href="{$path}GestioneSchermate/recuperaLogin">Accedi al tuo account</a></li>
+                                    <li><a href="{$path}GestioneUtenti/recuperaCreazioneAccount">Crea un account</a></li>
+                                </ul>
+                            </div>
+                        {/if}
+
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="sub-title">
+                        <div class="footer-title">
+                            <h4>Scopri di più</h4>
+                        </div>
+                        <div class="footer-contant">
                             <ul>
                                 <li>
-                                    <a href="#"><img src="{$path}Smarty/smarty-dir/assets/images/icon/visa.png" alt=""></a>
+                                    <a href="{$path}GestioneSchermate/chiSiamo">Chi siamo</a>
                                 </li>
-                                <li>
-                                    <a href="#"><img src="{$path}Smarty/smarty-dir/assets/images/icon/mastercard.png" alt=""></a>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="sub-title">
+                        <div class="footer-title">
+                            <h4>informationi</h4>
+                        </div>
+                        <div class="footer-contant">
+                            <ul class="contact-list">
+                                <li><i class="fa fa-map-marker"></i>ADC Store
                                 </li>
-                                <li>
-                                    <a href="#"><img src="{$path}Smarty/smarty-dir/assets/images/icon/paypal.png" alt=""></a>
-                                </li>
-                                <li>
-                                    <a href="#"><img src="{$path}Smarty/smarty-dir/assets/images/icon/american-express.png" alt=""></a>
-                                </li>
-                                <li>
-                                    <a href="#"><img src="{$path}Smarty/smarty-dir/assets/images/icon/discover.png" alt=""></a>
-                                </li>
+                                <li><i class="fa fa-phone"></i>Chiamaci: 3314166000</li>
+                                <li><i class="fa fa-envelope-o"></i>Scrivici: ADCStore@gmail.com</li>
+                                <li><i class="fa fa-fax"></i>Fax: 1234567890</li>
                             </ul>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </footer>
-    <!-- footer end -->
-
+    </section>
+    <div class="sub-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-6 col-md-6 col-sm-12">
+                    <div class="footer-end">
+                        <p><i class="fa fa-copyright" aria-hidden="true"></i> 2020-21 Progetto di Programmazione Web</p>
+                    </div>
+                </div>
+                <div class="col-xl-6 col-md-6 col-sm-12">
+                    <div class="payment-card-bottom">
+                        <ul>
+                            <li>
+                                <a href=""><img src="{$path}Smarty/smarty-dir/assets/images/icon/visa.png" alt=""></a>
+                            </li>
+                            <li>
+                                <a href=""><img src="{$path}Smarty/smarty-dir/assets/images/icon/mastercard.png" alt=""></a>
+                            </li>
+                            <li>
+                                <a href=""><img src="{$path}Smarty/smarty-dir/assets/images/icon/paypal.png" alt=""></a>
+                            </li>
+                            <li>
+                                <a href=""><img src="{$path}Smarty/smarty-dir/assets/images/icon/american-express.png" alt=""></a>
+                            </li>
+                            <li>
+                                <a href=""><img src="{$path}Smarty/smarty-dir/assets/images/icon/discover.png" alt=""></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- footer end -->
 
     <!-- theme setting -->
     <a href="javascript:void(0)" onclick="openSetting()">

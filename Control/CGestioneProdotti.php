@@ -20,6 +20,7 @@ class CGestioneProdotti
                 'marca' => $prodotto->getMarca(),
                 'descrizione' => $prodotto->getDescrizione(),
                 'prezzo' => $prodotto->getPrezzo(),
+                'quantita' => $prodotto->getQuantita(),
                 'dati' => $img,
                 'formato' => $formato
             );
@@ -109,26 +110,28 @@ class CGestioneProdotti
         else{
             CGestioneSchermate::recupera401();
         }
-
-
     }
-//reindirizzamento  tramite url (Front Controller) alla pagina del prodotto corrispondente all'id del prodotto cliccato??
+
     public static function recuperaDettagli(string $id){
         $pm=FPersistentManager::getInstance();
-        $prodotto=$pm->load('FProdotto',$id);
-        $prod=array(
-            'id'=>$prodotto->getId(),
-            'nome'=>$prodotto->getNome(),
-            'marca'=>$prodotto->getMarca(),
-            'descrizione'=>$prodotto->getDescrizione(),
-            'prezzo'=>$prodotto->getPrezzo(),
-            'tipologia'=>$prodotto->getTipologia(),
-            'quantita'=>$prodotto->getQuantita(),
-            'mime'=>$prodotto->getImmagine()->getFormato(),
-            'dati'=>$prodotto->getImmagine()->getByte());
-        $v=new VGestioneProdotto();
-        $v->mostraDettagli($prod);
-
+        if ($pm->exist("FProdotto", $id)) {
+            $prodotto = $pm->load('FProdotto',$id);
+            $prod=array(
+                'id'=>$prodotto->getId(),
+                'nome'=>$prodotto->getNome(),
+                'marca'=>$prodotto->getMarca(),
+                'descrizione'=>$prodotto->getDescrizione(),
+                'prezzo'=>$prodotto->getPrezzo(),
+                'tipologia'=>$prodotto->getTipologia(),
+                'quantita'=>$prodotto->getQuantita(),
+                'mime'=>$prodotto->getImmagine()->getFormato(),
+                'dati'=>$prodotto->getImmagine()->getByte());
+            $v = new VGestioneProdotto();
+            $v->mostraDettagli($prod);
+        }
+        else {
+            CGestioneSchermate::recupera404();
+        }
     }
 
     public static function recuperaProdotto(){

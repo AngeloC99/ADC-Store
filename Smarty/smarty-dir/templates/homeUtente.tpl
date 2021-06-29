@@ -10,7 +10,7 @@
     <meta name="author" content="ADCStore">
     <link rel="icon" href="{$path}Smarty/smarty-dir/assets/images/favicon/1.png" type="image/x-icon">
     <link rel="shortcut icon" href="{$path}Smarty/smarty-dir/assets/images/favicon/1.png" type="image/x-icon">
-    <title>ADC Store - L'ABC della qualità</title>
+    <title>ADC Store - Home Utente</title>
 
     <!--Google font-->
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet">
@@ -299,7 +299,7 @@
                                         
                                 </li>
                                 <li>
-                                    <a href="#">Chi siamo</a>
+                                    <a href="{$path}GestioneSchermate/chiSiamo">Chi siamo</a>
                                 </li>
                             </ul>
                         </nav>
@@ -440,15 +440,15 @@
                         </div>
                         <div class="footer-contant">
                             <div class="footer-logo"><img src="{$path}Smarty/smarty-dir/assets/images/icon/logo.png" alt=""></div>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                                ut labore et dolore magna aliqua. Ut enim ad minim veniam,</p>
+                            <p>ADC-Store è la tua catena di supermercati di fiducia in Italia, grazie a un modello originale d’impresa. Noi poniamo al centro i nostri clienti, sempre. </p> <br>
+                            <p style="color: #0a0100">Seguici sulle nostre pagine social per non perderti nuove offerte!</p>
                             <div class="footer-social">
                                 <ul>
-                                    <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-rss" aria-hidden="true"></i></a></li>
+                                    <li><a href=""><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                                    <li><a href=""><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
+                                    <li><a href=""><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                                    <li><a href=""><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                                    <li><a href=""><i class="fa fa-rss" aria-hidden="true"></i></a></li>
                                 </ul>
                             </div>
                         </div>
@@ -456,15 +456,12 @@
                     <div class="col offset-xl-1">
                         <div class="sub-title">
                             <div class="footer-title">
-                                <h4>my account</h4>
+                                <h4>Il tuo ADC-Store</h4>
                             </div>
                             <div class="footer-contant">
                                 <ul>
-                                    <li><a href="#">mens</a></li>
-                                    <li><a href="#">womens</a></li>
-                                    <li><a href="#">clothing</a></li>
-                                    <li><a href="#">accessories</a></li>
-                                    <li><a href="#">featured</a></li>
+                                    <li><a href="{$path}GestioneSchermate/apriProfilo">Il tuo profilo</a></li>
+                                    <li><a href="{$path}GestioneCarrello/recuperaCarrello">Il tuo carrello ADC-Store</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -472,15 +469,13 @@
                     <div class="col">
                         <div class="sub-title">
                             <div class="footer-title">
-                                <h4>why we choose</h4>
+                                <h4>Scopri di più</h4>
                             </div>
                             <div class="footer-contant">
                                 <ul>
-                                    <li><a href="#">shipping & return</a></li>
-                                    <li><a href="#">secure shopping</a></li>
-                                    <li><a href="#">gallary</a></li>
-                                    <li><a href="#">affiliates</a></li>
-                                    <li><a href="#">contacts</a></li>
+                                    <li>
+                                        <a href="{$path}GestioneSchermate/chiSiamo">Chi siamo</a>
+                                    </li>
                                 </ul>
                             </div>
                         </div>
@@ -488,7 +483,7 @@
                     <div class="col">
                         <div class="sub-title">
                             <div class="footer-title">
-                                <h4>store information</h4>
+                                <h4>informationi</h4>
                             </div>
                             <div class="footer-contant">
                                 <ul class="contact-list">
@@ -496,7 +491,7 @@
                                     </li>
                                     <li><i class="fa fa-phone"></i>Chiamaci: 3314166000</li>
                                     <li><i class="fa fa-envelope-o"></i>Scrivici: ADCStore@gmail.com</li>
-                                    <li><i class="fa fa-fax"></i>Fax: 123456</li>
+                                    <li><i class="fa fa-fax"></i>Fax: 1234567890</li>
                                 </ul>
                             </div>
                         </div>
@@ -516,19 +511,19 @@
                         <div class="payment-card-bottom">
                             <ul>
                                 <li>
-                                    <a href="#"><img src="{$path}Smarty/smarty-dir/assets/images/icon/visa.png" alt=""></a>
+                                    <a href=""><img src="{$path}Smarty/smarty-dir/assets/images/icon/visa.png" alt=""></a>
                                 </li>
                                 <li>
-                                    <a href="#"><img src="{$path}Smarty/smarty-dir/assets/images/icon/mastercard.png" alt=""></a>
+                                    <a href=""><img src="{$path}Smarty/smarty-dir/assets/images/icon/mastercard.png" alt=""></a>
                                 </li>
                                 <li>
-                                    <a href="#"><img src="{$path}Smarty/smarty-dir/assets/images/icon/paypal.png" alt=""></a>
+                                    <a href=""><img src="{$path}Smarty/smarty-dir/assets/images/icon/paypal.png" alt=""></a>
                                 </li>
                                 <li>
-                                    <a href="#"><img src="{$path}Smarty/smarty-dir/assets/images/icon/american-express.png" alt=""></a>
+                                    <a href=""><img src="{$path}Smarty/smarty-dir/assets/images/icon/american-express.png" alt=""></a>
                                 </li>
                                 <li>
-                                    <a href="#"><img src="{$path}Smarty/smarty-dir/assets/images/icon/discover.png" alt=""></a>
+                                    <a href=""><img src="{$path}Smarty/smarty-dir/assets/images/icon/discover.png" alt=""></a>
                                 </li>
                             </ul>
                         </div>
@@ -539,7 +534,8 @@
     </footer>
     <!-- footer end -->
 
-   <!-- Quick-view modal popup start-->
+
+    <!-- Quick-view modal popup start-->
     <div class="modal fade bd-example-modal-lg theme-modal" id="quick-view" tabindex="-1" role="dialog"
         aria-hidden="true">
         <div class="modal-dialog modal-lg modal-dialog-centered" role="document">

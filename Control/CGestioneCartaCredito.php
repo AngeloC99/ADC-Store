@@ -17,9 +17,28 @@ class CGestioneCartaCredito
     public static function recuperaCarte() {
         $pm = FPersistentManager::getInstance();
         $gs = CGestioneSessioni::getInstance();
-        $utente = $pm->load("FUtenteReg", $gs->caricaUtente()->getEmail());
-        $v = new VGestioneCartaCredito();
-        $v->mostraCarte($utente);
+        if($gs->isLoggedUser()){
+            $utente = $pm->load("FUtenteReg", $gs->caricaUtente()->getEmail());
+            $carte = $pm->prelevaCarteUtente($utente->getEmail());
+            $carteArr = array();
+            foreach ($carte as $carta) {
+                $tmp = array(
+                    'numeroReale' => $carta->getNumero(),
+                    'numero' => substr($carta->getNumero(), 0, 4)."************",
+                    'titolare' => $carta->getTitolare(),
+                    'circuito' => $carta->getCircuito(),
+                    'cvv' => substr($carta->getCvv(), 0, 1)."**",
+                    'ammontare' => $carta->getAmmontare(),
+                    'scadenza' => $carta->getScadenza()->format("d-m-y"),
+                );
+                $carteArr[] = $tmp;
+            }
+            $v = new VGestioneCartaCredito();
+            $v->mostraCarte($utente, $carteArr);
+        }
+        else {
+            header("Location: ".$GLOBALS['path']."GestioneSchermate/recupera401");
+        }
     }
 
     /**
@@ -28,25 +47,30 @@ class CGestioneCartaCredito
     public static function aggiungiCarta(): void {
         $pm = FPersistentManager::getInstance();
         $gs = CGestioneSessioni::getInstance();
+        if($gs->isLoggedUser()){
+            $carta = new ECartaCredito($_POST['titolare'], $_POST['numero'], $_POST['circuito'], new DateTime($_POST['scadenza']),
+                $_POST['cvv'], $_POST['ammontare']);
+            $pm->salvaCartaUtente($carta, $gs->caricaUtente()->getEmail());
 
-        $carta = new ECartaCredito($_POST['titolare'], $_POST['numero'], $_POST['circuito'], new DateTime($_POST['scadenza']),
-                                    $_POST['cvv'], $_POST['ammontare']);
-
-        $pm->salvaCartaUtente($carta, $gs->caricaUtente()->getEmail());
-
-        header("Location: ".$GLOBALS['path']."GestioneCartaCredito/recuperaCarte");
+            header("Location: ".$GLOBALS['path']."GestioneCartaCredito/recuperaCarte");
+        }
+        else {
+            header("Location: ".$GLOBALS['path']."GestioneSchermate/recupera401");
+        }
     }
 
     /**
      * Passa la scelta dell'utente al package Foundation, che si occupa poi di eliminare la carta di credito indicata.
-     * @param string $numero
      */
-    public static function rimuoviCarta(string $numero): void {
+    public static function rimuoviCarta(): void {
         $pm = FPersistentManager::getInstance();
         $gs = CGestioneSessioni::getInstance();
-
-        $pm->eliminaCartaUtente($numero, $gs->caricaUtente()->getEmail());
-
-        header("Location: ".$GLOBALS['path']."GestioneCartaCredito/recuperaCarte");
+        if($gs->isLoggedUser()){
+            $pm->eliminaCartaUtente($_POST['numero'], $gs->caricaUtente()->getEmail());
+            header("Location: ".$GLOBALS['path']."GestioneCartaCredito/recuperaCarte");
+        }
+        else {
+            header("Location: ".$GLOBALS['path']."GestioneSchermate/recupera401");
+        }
     }
 }
