@@ -1111,15 +1111,18 @@
 
         function Funzione(){
 
+            var quantita = document.dati.quantita.value;
+
             if ( {$prod.quantita} == 0){
                 alert("Il prodotto non è al momento disponibile!");
             }
-            else if ( quantita == 0 ) {
-                alert("Inserisci una quantità valida!");
 
+            else if ( quantita == 0 ){
+                alert("Inserisci una quantità valida!");
             }
 
             else{
+                alert("prodotto aggiunto correttamente al carrello.");
                 document.dati.action = "{$path}GestioneCarrello/aggiungiAlCarrello";
                 document.dati.submit();
             }
