@@ -20,6 +20,7 @@ class CGestioneProdotti
                 'marca' => $prodotto->getMarca(),
                 'descrizione' => $prodotto->getDescrizione(),
                 'prezzo' => $prodotto->getPrezzo(),
+                'quantita' => $prodotto->getQuantita(),
                 'dati' => $img,
                 'formato' => $formato
             );

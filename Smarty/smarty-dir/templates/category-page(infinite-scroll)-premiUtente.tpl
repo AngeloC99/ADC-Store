@@ -10,7 +10,7 @@
     <meta name="author" content="multikart">
     <link rel="icon" href="{$path}Smarty/smarty-dir/assets/images/favicon/1.png" type="image/x-icon">
     <link rel="shortcut icon" href="{$path}Smarty/smarty-dir/assets/images/favicon/1.png" type="image/x-icon">
-    <title>Lsta premi</title>
+    <title>ADC-Store - Lista Premi</title>
 
     <!--Google font-->
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet">
@@ -41,356 +41,21 @@
 
 <body>
 
-    <!-- loader start -->
-    <div class="loader_skeleton">
-        <header>
-            <div class="top-header d-none d-sm-block">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <div class="header-contact">
-                                <ul>
-                                    <li>Benvenuti in ADC Store</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-lg-6 text-right">
-                            <ul class="header-dropdown">
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-12">
-                        <div class="main-menu">
-                            <div class="menu-left">
-                                <div class="navbar">
-                                    <a href="javascript:void(0)">
-                                        <div class="bar-style"><i class="fa fa-bars sidebar-bar" aria-hidden="true"></i>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="brand-logo">
-                                    <a href="index.html"><img src="{$path}Smarty/smarty-dir/assets/images/icon/logo.png" class="img-fluid blur-up lazyload" alt=""></a>
-                                </div>
-                            </div>
-                            <div class="menu-right pull-right">
-                                <div>
-                                    <nav>
-                                        <div class="toggle-nav"><i class="fa fa-bars sidebar-bar"></i></div>
-                                        <ul class="sm pixelstrap sm-horizontal">
-                                            <li>
-                                                <div class="mobile-back text-right">Back<i class="fa fa-angle-right pl-2" aria-hidden="true"></i></div>
-                                            </li>
-                                            <li>
-                                                <a href="{$path}GestioneSchermate/recuperaHome">Home</a>
-                                            </li>
-                                            <li>
-                                                <a href="{$path}GestionePunti/recuperaPremi">Premi</a>
-                                            </li>
-                                            <li>
-                                                <a href="{$path}GestioneSchermate/apriProfilo">Profilo</a>
-                                            </li>
-                                        </ul>
-                                    </nav>
-                                </div>
-                                <div>
-                                    <div class="icon-nav d-none d-sm-block">
-                                        <ul>
-                                            <li class="onhover-div mobile-search">
-                                                <div><img src="{$path}Smarty/smarty-dir/assets/images/icon/search.png" onclick="openSearch()" class="img-fluid blur-up lazyload" alt=""> <i class="ti-search" onclick="openSearch()"></i></div>
-                                            </li>
-                                            
-                                            <li class="onhover-div mobile-cart">
-                                                <div><img src="{$path}Smarty/smarty-dir/assets/images/icon/cart.png" class="img-fluid blur-up lazyload" alt=""> <i class="ti-shopping-cart"></i></div>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </header>
-        <div class="breadcrumb-section">
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-6">
-                        <div class="page-title">
-                            <h2>Lista Premi</h2>
-                        </div>
-                    </div>
-                    <div class="col-sm-6">
-                        <nav aria-label="breadcrumb" class="theme-breadcrumb">
-                            <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="index.html">home</a></li>
-                                <li class="breadcrumb-item active" aria-current="page">premi</li>
-                            </ol>
-                        </nav>
-                    </div>
-                </div>
-
-
-            </div>
-        </div>
-        <section class="section-b-space ratio_asos">
-            <div class="collection-wrapper">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-sm-3 collection-filter">
-                            
-                            <!-- side-bar single product slider start -->
-                            <div class="theme-card">
-                                <h5 class="title-border"></h5>
-                                <div>
-                                    <div class="product-box">
-                                        <div class="media">
-                                            <div class="img-wrapper"></div>
-                                            <div class="media-body align-self-center">
-                                                <div class="product-detail">
-                                                    <h4></h4>
-                                                    <h6></h6>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="product-box">
-                                        <div class="media">
-                                            <div class="img-wrapper"></div>
-                                            <div class="media-body align-self-center">
-                                                <div class="product-detail">
-                                                    <h4></h4>
-                                                    <h6></h6>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="product-box">
-                                        <div class="media">
-                                            <div class="img-wrapper"></div>
-                                            <div class="media-body align-self-center">
-                                                <div class="product-detail">
-                                                    <h4></h4>
-                                                    <h6></h6>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- side-bar single product slider end -->
-                            <!-- side-bar banner start here -->
-                            <div class="collection-sidebar-banner"></div>
-                            <!-- side-bar banner end here -->
-                        </div>
-                        <div class="collection-content col">
-                            <div class="page-main-content">
-                                <div class="row">
-                                    <div class="col-sm-12">
-                                        <div class="top-banner-wrapper">
-                                            <div class="img-ldr-top"></div>
-                                            <div class="top-banner-content small-section">
-                                                <h4></h4>
-                                                <h5></h5>
-                                                <p></p>
-                                                <p></p>
-                                            </div>
-                                        </div>
-                                        <div class="collection-product-wrapper">
-                                            <div class="product-top-filter">
-                                                <div class="row m-0 w-100">
-                                                    <div class="col-xl-4">
-                                                        <div class="filter-panel">
-                                                            <h6 class="ldr-text"></h6>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-xl-4 col-lg-4 col-6">
-                                                        <div class="filter-panel">
-                                                            <h6 class="ldr-text"></h6>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-xl-2 col-lg-4 col-6">
-                                                        <div class="filter-panel">
-                                                            <h6 class="ldr-text"></h6>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-xl-2 col-lg-4 d-none d-lg-block">
-                                                        <div class="filter-panel">
-                                                            <h6 class="ldr-text"></h6>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="product-wrapper-grid">
-                                                <div class="row">
-                                                    <div class="col-xl-3 col-md-6 col-grid-box">
-                                                        <div class="product-box">
-                                                            <div class="img-wrapper"></div>
-                                                            <div class="product-detail">
-                                                                <h4></h4>
-                                                                <h5></h5>
-                                                                <h6></h6>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-xl-3 col-md-6 col-grid-box">
-                                                        <div class="product-box">
-                                                            <div class="img-wrapper"></div>
-                                                            <div class="product-detail">
-                                                                <h4></h4>
-                                                                <h5></h5>
-                                                                <h6></h6>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-xl-3 col-md-6 col-grid-box">
-                                                        <div class="product-box">
-                                                            <div class="img-wrapper"></div>
-                                                            <div class="product-detail">
-                                                                <h4></h4>
-                                                                <h5></h5>
-                                                                <h6></h6>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-xl-3 col-md-6 col-grid-box">
-                                                        <div class="product-box">
-                                                            <div class="img-wrapper"></div>
-                                                            <div class="product-detail">
-                                                                <h4></h4>
-                                                                <h5></h5>
-                                                                <h6></h6>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-xl-3 col-md-6 col-grid-box">
-                                                        <div class="product-box">
-                                                            <div class="img-wrapper"></div>
-                                                            <div class="product-detail">
-                                                                <h4></h4>
-                                                                <h5></h5>
-                                                                <h6></h6>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-xl-3 col-md-6 col-grid-box">
-                                                        <div class="product-box">
-                                                            <div class="img-wrapper"></div>
-                                                            <div class="product-detail">
-                                                                <h4></h4>
-                                                                <h5></h5>
-                                                                <h6></h6>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-xl-3 col-md-6 col-grid-box">
-                                                        <div class="product-box">
-                                                            <div class="img-wrapper"></div>
-                                                            <div class="product-detail">
-                                                                <h4></h4>
-                                                                <h5></h5>
-                                                                <h6></h6>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-xl-3 col-md-6 col-grid-box">
-                                                        <div class="product-box">
-                                                            <div class="img-wrapper"></div>
-                                                            <div class="product-detail">
-                                                                <h4></h4>
-                                                                <h5></h5>
-                                                                <h6></h6>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-xl-3 col-md-6 col-grid-box">
-                                                        <div class="product-box">
-                                                            <div class="img-wrapper"></div>
-                                                            <div class="product-detail">
-                                                                <h4></h4>
-                                                                <h5></h5>
-                                                                <h6></h6>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-xl-3 col-md-6 col-grid-box">
-                                                        <div class="product-box">
-                                                            <div class="img-wrapper"></div>
-                                                            <div class="product-detail">
-                                                                <h4></h4>
-                                                                <h5></h5>
-                                                                <h6></h6>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-xl-3 col-md-6 col-grid-box">
-                                                        <div class="product-box">
-                                                            <div class="img-wrapper"></div>
-                                                            <div class="product-detail">
-                                                                <h4></h4>
-                                                                <h5></h5>
-                                                                <h6></h6>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-xl-3 col-md-6 col-grid-box">
-                                                        <div class="product-box">
-                                                            <div class="img-wrapper"></div>
-                                                            <div class="product-detail">
-                                                                <h4></h4>
-                                                                <h5></h5>
-                                                                <h6></h6>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </div>
-    <!-- loader end -->
-
 
     <!-- header start -->
     <header>
         <div class="mobile-fix-option"></div>
-        <div class="top-header">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-6">
-                        <div class="header-contact">
-                            <ul>
-                                <li>Benvenuti in ADC Store</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 text-right">
-                        <ul class="header-dropdown">
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
 
         <div class="container">
             <div class="row">
                 <div class="col-sm-12">
                     <div class="main-menu">
-                        <div class="menu-left">
-                            <div class="brand-logo">
-                                <a href="index.html"> <img src="{$path}Smarty/smarty-dir/assets/images/icon/logo.png" class="img-fluid blur-up lazyload" alt=""></a>
-                            </div>
+
+                        <div class="brand-logo">
+                            <a href="{$path}GestioneSchermate/recuperaHome"> <img src="{$path}Smarty/smarty-dir/assets/images/icon/logo.png"
+                                                                                  class="img-fluid blur-up lazyload" alt=""></a>
                         </div>
+
                         <div class="menu-right pull-right">
                             <div>
                                 <nav id="main-nav">
@@ -400,7 +65,8 @@
                                     <!-- Horizontal menu -->
                                     <ul id="main-menu" class="sm pixelstrap sm-horizontal">
                                         <li>
-                                            <div class="mobile-back text-right">Back<i class="fa fa-angle-right pl-2" aria-hidden="true"></i></div>
+                                            <div class="mobile-back text-right">Back<i class="fa fa-angle-right pl-2"
+                                                                                       aria-hidden="true"></i></div>
                                         </li>
                                         <li>
                                             <a href="{$path}GestioneSchermate/recuperaHome">Home</a>
@@ -409,19 +75,22 @@
                                             <a href="{$path}GestioneProdotti/recuperaProdotti">Prodotti</a>
                                         </li>
                                         <li>
-                                            <a href="{$path}GestioneSchermate/apriProfilo">Profilo</a>
+                                            <a href="{$path}GestionePunti/recuperaPremi">Premi</a>
                                         </li>
-                                        
-                                       
-                                        
+                                        <li><a href="">Account</a>
+                                            <ul>
+                                                <li><a href="{$path}GestioneSchermate/apriProfilo" data-lng="en">Il mio profilo ADC-Store</a></li>
+                                                <li><a href="{$path}GestioneSchermate/recuperaGestioneCarrello" data-lng="en">Carrello della spesa</a></li>
+                                                <li><a href="{$path}GestioneUtenti/logout" data-lng="en">Logout</a></li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <a href="{$path}GestioneSchermate/chiSiamo">Chi siamo</a>
+                                        </li>
                                     </ul>
                                 </nav>
                             </div>
-                            <div>
-                                <div class="icon-nav">
-                                    
-                                </div>
-                            </div>
+
                         </div>
                     </div>
                 </div>
@@ -443,7 +112,7 @@
                 <div class="col-sm-6">
                     <nav aria-label="breadcrumb" class="theme-breadcrumb">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="hom.html">home</a></li>
+                            <li class="breadcrumb-item"><a href="{$path}GestioneSchermate/showHome">home</a></li>
                             <li class="breadcrumb-item active" aria-current="page">premi</li>
                         </ol>
                     </nav>
@@ -463,18 +132,17 @@
                         
                         
                     </div>
-                    <div class="collection-content col">
+
                         <div class="page-main-content">
                             <div class="row">
                                 <div class="col-sm-12">
                                     <div class="top-banner-wrapper">
-                                        <a href="#"><img src="{$path}Smarty/smarty-dir/assets/images/mega-menu/2.jpg" class="img-fluid blur-up lazyload" alt=""></a>
+                                        <img src="{$path}Smarty/smarty-dir/assets/images/mega-menu/premi.jpg" class="img-fluid blur-up lazyload" alt="">
                                         <div class="top-banner-content small-section">
-                                            <h4>premi</h4>
-                                            <h5>ADC Store si impegna a fornire premi di qualità per soddisfare le esigenze di tutti i suoi clienti.
+                                            <h2>Catalogo premi</h2>
+                                            <h5>ADC-Store premia la tua fedeltà!
                                             </h5>
-                                            <p>A tavola ci si incontra, si chiacchiera, ci si rilassa, si ride… talvolta ci si punzecchia, ma il buon cibo, soprattutto se acquistato su ADC Store, fa da paciere. E’ capace di restituire il buonumore persino al termine di una giornata faticosa.
-                                            (Antonino Cannavacciuolo)</p>
+                                            <p>Scegli fra i tanti premi da noi offerti quello che più ti piace e acquistalo subito con i punti che hai accumulato con i tuoi ordini su ADC-Store!</p>
                                         </div>
                                     </div>
                                     <div class="collection-product-wrapper">
@@ -507,7 +175,7 @@
                                                         </div>
                                                         <div class="product-page-per-view">
                                                             <select>
-                                                                <option value="High to low">24 Pemi Per Pagina
+                                                                <option value="High to low">24 Premi Per Pagina
                                                                 </option>
                                                                 <option value="Low to High">50 Premi Per Pagina
                                                                 </option>
@@ -571,7 +239,6 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
                 </div>
             </div>
         </div>
@@ -581,8 +248,6 @@
 
     <!-- footer start -->
     <footer class="footer-light">
-        <div class="light-layout">
-        </div>
         <section class="section-b-space light-layout">
             <div class="container">
                 <div class="row footer-theme partition-f">
@@ -592,31 +257,58 @@
                         </div>
                         <div class="footer-contant">
                             <div class="footer-logo"><img src="{$path}Smarty/smarty-dir/assets/images/icon/logo.png" alt=""></div>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,</p>
+                            <p>ADC-Store è la tua catena di supermercati di fiducia in Italia, grazie a un modello originale d’impresa. Noi poniamo al centro i nostri clienti, sempre. </p> <br>
+                            <p style="color: #0a0100">Seguici sulle nostre pagine social per non perderti nuove offerte!</p>
                             <div class="footer-social">
                                 <ul>
-                                    <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-rss" aria-hidden="true"></i></a></li>
+                                    <li><a href=""><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                                    <li><a href=""><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
+                                    <li><a href=""><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                                    <li><a href=""><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                                    <li><a href=""><i class="fa fa-rss" aria-hidden="true"></i></a></li>
                                 </ul>
                             </div>
                         </div>
                     </div>
-
+                    <div class="col offset-xl-1">
+                        <div class="sub-title">
+                            <div class="footer-title">
+                                <h4>Il tuo ADC-Store</h4>
+                            </div>
+                            <div class="footer-contant">
+                                <ul>
+                                    <li><a href="{$path}GestioneSchermate/apriProfilo">Il tuo profilo</a></li>
+                                    <li><a href="{$path}GestioneCarrello/recuperaCarrello">Il tuo carrello ADC-Store</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
                     <div class="col">
                         <div class="sub-title">
                             <div class="footer-title">
-                                <h4>store information</h4>
+                                <h4>Scopri di più</h4>
+                            </div>
+                            <div class="footer-contant">
+                                <ul>
+                                    <li>
+                                        <a href="{$path}GestioneSchermate/chiSiamo">Chi siamo</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="sub-title">
+                            <div class="footer-title">
+                                <h4>informationi</h4>
                             </div>
                             <div class="footer-contant">
                                 <ul class="contact-list">
-                                    <li><i class="fa fa-map-marker"></i>Multikart Demo Store, Demo store India 345-659
+                                    <li><i class="fa fa-map-marker"></i>ADC Store
                                     </li>
-                                    <li><i class="fa fa-phone"></i>Call Us: 123-456-7898</li>
-                                    <li><i class="fa fa-envelope-o"></i>Email Us: Support@Fiot.com</li>
-                                    <li><i class="fa fa-fax"></i>Fax: 123456</li>
+                                    <li><i class="fa fa-phone"></i>Chiamaci: 3314166000</li>
+                                    <li><i class="fa fa-envelope-o"></i>Scrivici: ADCStore@gmail.com</li>
+                                    <li><i class="fa fa-fax"></i>Fax: 1234567890</li>
                                 </ul>
                             </div>
                         </div>
@@ -629,27 +321,26 @@
                 <div class="row">
                     <div class="col-xl-6 col-md-6 col-sm-12">
                         <div class="footer-end">
-                            <p><i class="fa fa-copyright" aria-hidden="true"></i> 2017-18 themeforest powered by pixelstrap
-                            </p>
+                            <p><i class="fa fa-copyright" aria-hidden="true"></i> 2020-21 Progetto di Programmazione Web</p>
                         </div>
                     </div>
                     <div class="col-xl-6 col-md-6 col-sm-12">
                         <div class="payment-card-bottom">
                             <ul>
                                 <li>
-                                    <a href="#"><img src="{$path}Smarty/smarty-dir/assets/images/icon/visa.png" alt=""></a>
+                                    <a href=""><img src="{$path}Smarty/smarty-dir/assets/images/icon/visa.png" alt=""></a>
                                 </li>
                                 <li>
-                                    <a href="#"><img src="{$path}Smarty/smarty-dir/assets/images/icon/mastercard.png" alt=""></a>
+                                    <a href=""><img src="{$path}Smarty/smarty-dir/assets/images/icon/mastercard.png" alt=""></a>
                                 </li>
                                 <li>
-                                    <a href="#"><img src="{$path}Smarty/smarty-dir/assets/images/icon/paypal.png" alt=""></a>
+                                    <a href=""><img src="{$path}Smarty/smarty-dir/assets/images/icon/paypal.png" alt=""></a>
                                 </li>
                                 <li>
-                                    <a href="#"><img src="{$path}Smarty/smarty-dir/assets/images/icon/american-express.png" alt=""></a>
+                                    <a href=""><img src="{$path}Smarty/smarty-dir/assets/images/icon/american-express.png" alt=""></a>
                                 </li>
                                 <li>
-                                    <a href="#"><img src="{$path}Smarty/smarty-dir/assets/images/icon/discover.png" alt=""></a>
+                                    <a href=""><img src="{$path}Smarty/smarty-dir/assets/images/icon/discover.png" alt=""></a>
                                 </li>
                             </ul>
                         </div>
@@ -659,7 +350,6 @@
         </div>
     </footer>
     <!-- footer end -->
-
 
     <!-- Quick-view modal popup start-->
     <div class="modal fade bd-example-modal-lg theme-modal" id="quick-view" tabindex="-1" role="dialog" aria-hidden="true">

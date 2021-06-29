@@ -447,7 +447,7 @@
                 <div class="col-sm-6">
                     <nav aria-label="breadcrumb" class="theme-breadcrumb">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="hom.html">home</a></li>
+                            <li class="breadcrumb-item"><a href="{$path}GestioneSchermate/showHome">home</a></li>
                             <li class="breadcrumb-item active" aria-current="page">premi</li>
                         </ol>
                     </nav>
@@ -467,17 +467,16 @@
                         
                         
                     </div>
-                    <div class="collection-content col">
                         <div class="page-main-content">
                             <div class="row">
                                 <div class="col-sm-12">
                                     <div class="top-banner-wrapper">
-                                        <a href="#"><img src="{$path}Smarty/smarty-dir/assets/images/mega-menu/2.jpg" class="img-fluid blur-up lazyload" alt=""></a>
+                                        <a href="#"><img src="{$path}Smarty/smarty-dir/assets/images/mega-menu/premi.jpg" class="img-fluid blur-up lazyload" alt=""></a>
                                         <div class="top-banner-content small-section">
                                             <h4>premi</h4>
-                                            <h5>ADC Store si impegna a fornire premi di qualità per soddisfare le esigenze di tutti i suoi clienti.
+                                            <h5>ADC-Store si impegna a fornire premi di qualità per soddisfare le esigenze di tutti i suoi clienti.
                                             </h5>
-                                            <p>A tavola ci si incontra, si chiacchiera, ci si rilassa, si ride… talvolta ci si punzecchia, ma il buon cibo, soprattutto se acquistato su ADC Store, fa da paciere. E’ capace di restituire il buonumore persino al termine di una giornata faticosa.
+                                            <p>A tavola ci si incontra, si chiacchiera, ci si rilassa, si ride… talvolta ci si punzecchia, ma il buon cibo, soprattutto se acquistato su ADC-Store, fa da paciere. E’ capace di restituire il buonumore persino al termine di una giornata faticosa.
                                             (Antonino Cannavacciuolo)</p>
                                         </div>
                                     </div>
@@ -575,7 +574,6 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
                 </div>
             </div>
         </div>

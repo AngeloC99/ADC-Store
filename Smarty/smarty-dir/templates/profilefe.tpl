@@ -40,61 +40,63 @@
 <body>
 
 
-    <!-- header start -->
-    <header>
+<!-- header start -->
+<header>
+    <div class="mobile-fix-option"></div>
 
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-12">
-                    <div class="main-menu">
-                        <div class="menu-left">
-                            <div class="navbar">
-                            
-                            <div class="brand-logo"><a href="{$path}GestioneSchermate/recuperaHome"><img src="{$path}Smarty/smarty-dir/assets/images/icon/logo.png"
-                                        class="img-fluid blur-up lazyload" alt=""></a></div>
-                        </div>
-                           <div class="menu-right pull-right">
-                                <div>
-                                    <nav>
-                                        <div class="toggle-nav"><i class="fa fa-bars sidebar-bar"></i></div>
-                                        <ul class="sm pixelstrap sm-horizontal">
-                                            <li>
-                                                <div class="mobile-back text-right">Back<i
-                                                        class="fa fa-angle-right pl-2" aria-hidden="true"></i></div>
-                                            </li>
-                                            <li>
-                                                <a href="{$path}GestioneSchermate/recuperaGestioneCarrelliSalvati">Carrelli preferiti</a>
-                                            </li>
-                                            <li>
-                                                <a href="{$path}GestioneBuoni/recuperaBuoni">Buoni sconto</a>
-                                            </li>
-                                            <li>
-                                                <a href="{$path}GestioneSchermate/recuperaFormPunti">Regala punti</a>
-                                            </li>
-                                            <li>
-                                                <a href="{$path}GestioneSchermate/recuperaGestioneIndirizzi">Indirizzi</a>
-                                            </li>
-                                            <li>
-                                                <a href="{$path}GestioneSchermate/recuperaGestioneCarte">Carte di credito</a>
-                                            </li>
-                                            <li>
-                                                <a href="{$path}GestioneSchermate/recuperaHomeUtente">Home</a>
-                                            </li> 
-                                            <li>
-                                                <a href="{$path}GestioneProdotti/recuperaProdotti">Prodotti</a>
-                                            </li>
-                                            <li>
-                                                <a href="{$path}GestionePunti/recuperaPremi">Premi</a>
-                                            </li>                                                                                                                                   
-                                        </ul>
-                                    </nav>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="main-menu">
+
+                    <div class="brand-logo">
+                        <a href="{$path}GestioneSchermate/recuperaHome"> <img src="{$path}Smarty/smarty-dir/assets/images/icon/logo.png"
+                                                                              class="img-fluid blur-up lazyload" alt=""></a>
+                    </div>
+
+                    <div class="menu-right pull-right">
+                        <div>
+                            <nav id="main-nav">
+                                <div class="toggle-nav">
+                                    <i class="fa fa-bars sidebar-bar"></i>
                                 </div>
-                            </div>                        
+                                <!-- Horizontal menu -->
+                                <ul id="main-menu" class="sm pixelstrap sm-horizontal">
+                                    <li>
+                                        <div class="mobile-back text-right">Back<i class="fa fa-angle-right pl-2"
+                                                                                   aria-hidden="true"></i></div>
+                                    </li>
+                                    <li>
+                                        <a href="{$path}GestioneSchermate/recuperaHome">Home</a>
+                                    </li>
+                                    <li>
+                                        <a href="{$path}GestioneProdotti/recuperaProdotti">Prodotti</a>
+                                    </li>
+                                    <li>
+                                        <a href="{$path}GestionePunti/recuperaPremi">Premi</a>
+                                    </li>
+                                    <li><a href="">Account</a>
+                                        <ul>
+                                            <li><a href="{$path}GestioneSchermate/apriProfilo" data-lng="en">Il mio profilo ADC-Store</a></li>
+                                            <li><a href="{$path}GestioneSchermate/recuperaGestioneCarrello" data-lng="en">Carrello della spesa</a></li>
+                                            <li><a href="{$path}GestioneUtenti/logout" data-lng="en">Logout</a></li>
+                                        </ul>
+
+                                    </li>
+                                    <li>
+                                        <a href="{$path}GestioneSchermate/chiSiamo">Chi siamo</a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+
+                    </div>
                 </div>
             </div>
         </div>
-    </header>
-    <!-- header end -->
+    </div>
+</header>
+<!-- header end -->
 
 
     <!-- breadcrumb start -->
@@ -103,14 +105,14 @@
             <div class="row">
                 <div class="col-sm-6">
                     <div class="page-title">
-                        <h2>profilo</h2>
+                        <h2>Il tuo profilo ADC-Store</h2>
                     </div>
                 </div>
 
                 <div class="col-sm-6">
                     <nav aria-label="breadcrumb" class="theme-breadcrumb">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a >Home</a></li>
+                            <li class="breadcrumb-item"><a href="{$path}GestioneSchermate/recuperaHome">Home</a></li>
                             <li class="breadcrumb-item active" aria-current="page">profilo</li>
                         </ol>
                     </nav>
@@ -147,10 +149,21 @@
                                 <h2>{$punti}</h2>
                             </div>
                         </div>
-
-
-
-
+                    <br><br>
+                    <br><br>
+                    <div class="row cart-buttons">
+                        <div class="col-6"><a href="{$path}GestioneBuoni/recuperaBuoni" class="btn btn-solid">Buoni sconto</a></div>
+                        <div class="col-6"><a href="{$path}GestioneSchermate/recuperaFormPunti" class="btn btn-solid">Regala punti</a></div>
+                    </div>
+                    <br><br>
+                    <div class="row cart-buttons">
+                        <div class="col-6"><a href="{$path}GestioneSchermate/recuperaGestioneCarte" class="btn btn-solid">Carte di credito</a></div>
+                        <div class="col-6"><a href="{$path}GestioneSchermate/recuperaGestioneIndirizzi" class="btn btn-solid">Indirizzi</a></div>
+                    </div>
+                    <br><br>
+                    <div class="row cart-buttons">
+                        <div class="col-6"><a href="{$path}GestioneSchermate/recuperaGestioneCarrelliSalvati" class="btn btn-solid">Carrelli preferiti</a></div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -166,85 +179,114 @@
     <!-- Section ends -->
 
 
-    <!-- footer start -->
-    <footer class="footer-light">
-        <div class="light-layout">
-            <div class="container">
-                <section class="small-section border-section border-top-0">
-                    <div class="row">
-                        <div class="col-lg-6">
-                        </div>
+<!-- footer start -->
+<footer class="footer-light">
+    <section class="section-b-space light-layout">
+        <div class="container">
+            <div class="row footer-theme partition-f">
+                <div class="col-lg-4 col-md-6">
+                    <div class="footer-title footer-mobile-title">
+                        <h4>about</h4>
                     </div>
-                </section>
-            </div>
-        </div>
-        <section class="section-b-space light-layout">
-            <div class="container">
-                <div class="row footer-theme partition-f">
-                    <div class="col-lg-4 col-md-6">
-                        <div class="footer-title footer-mobile-title">
-                            <h4>about</h4>
-                        </div>
-                        <div class="footer-contant">
-                            <div class="footer-logo"><img src="{$path}Smarty/smarty-dir/assets/images/icon/logo.png" alt=""></div>
-                            <p>ADC Store da sempre garanzia di qualità.</p>
-                            <div class="footer-social">
-                                <ul>
-                                    <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-rss" aria-hidden="true"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="sub-title">
-                            <div class="footer-title">
-                                <h4>Informazioni generali: </h4>
-                            </div>
-                            <div class="footer-contant">
-                                <ul class="contact-list">
-                                    <li><i class="fa fa-map-marker"></i>ADC Store - Via Marruvio 88 (Avezzano, AQ)
-                                    </li>
-                                    <li><i class="fa fa-phone"></i>Call Us: (+39)3310000000</li>
-                                    <li><i class="fa fa-envelope-o"></i>Email Us: adcstore2021@gmail.com</li>
-                                    <li><i class="fa fa-fax"></i>Fax: 123456</li>
-                                </ul>
-                            </div>
+                    <div class="footer-contant">
+                        <div class="footer-logo"><img src="{$path}Smarty/smarty-dir/assets/images/icon/logo.png" alt=""></div>
+                        <p>ADC-Store è la tua catena di supermercati di fiducia in Italia, grazie a un modello originale d’impresa. Noi poniamo al centro i nostri clienti, sempre. </p> <br>
+                        <p style="color: #0a0100">Seguici sulle nostre pagine social per non perderti nuove offerte!</p>
+                        <div class="footer-social">
+                            <ul>
+                                <li><a href=""><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                                <li><a href=""><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
+                                <li><a href=""><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                                <li><a href=""><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                                <li><a href=""><i class="fa fa-rss" aria-hidden="true"></i></a></li>
+                            </ul>
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
-        <div class="sub-footer">
-            <div class="container">
-                <div class="row">
-                    <div class="col-xl-6 col-md-6 col-sm-12">
-                        <div class="footer-end">
-                            <p><i class="fa fa-copyright" aria-hidden="true"></i> 2020-21 Progetto di Programmazione Web</p>
+                <div class="col offset-xl-1">
+                    <div class="sub-title">
+                        <div class="footer-title">
+                            <h4>Il tuo ADC-Store</h4>
+                        </div>
+                        <div class="footer-contant">
+                            <ul>
+                                <li><a href="{$path}GestioneSchermate/apriProfilo">Il tuo profilo</a></li>
+                                <li><a href="{$path}GestioneCarrello/recuperaCarrello">Il tuo carrello ADC-Store</a></li>
+                            </ul>
                         </div>
                     </div>
-                    <div class="col-xl-6 col-md-6 col-sm-12">
-                        <div class="payment-card-bottom">
+                </div>
+                <div class="col">
+                    <div class="sub-title">
+                        <div class="footer-title">
+                            <h4>Scopri di più</h4>
+                        </div>
+                        <div class="footer-contant">
                             <ul>
-                                <li><a href="#"><img src="{$path}Smarty/smarty-dir/assets/images/icon/visa.png" alt=""></a></li>
-                                <li><a href="#"><img src="{$path}Smarty/smarty-dir/assets/images/icon/mastercard.png" alt=""></a></li>
-                                <li><a href="#"><img src="{$path}Smarty/smarty-dir/assets/images/icon/paypal.png" alt=""></a></li>
-                                <li><a href="#"><img src="{$path}Smarty/smarty-dir/assets/images/icon/american-express.png" alt=""></a></li>
-                                <li><a href="#"><img src="{$path}Smarty/smarty-dir/assets/images/icon/discover.png" alt=""></a></li>
+                                <li>
+                                    <a href="{$path}GestioneSchermate/chiSiamo">Chi siamo</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="sub-title">
+                        <div class="footer-title">
+                            <h4>informationi</h4>
+                        </div>
+                        <div class="footer-contant">
+                            <ul class="contact-list">
+                                <li><i class="fa fa-map-marker"></i>ADC Store
+                                </li>
+                                <li><i class="fa fa-phone"></i>Chiamaci: 3314166000</li>
+                                <li><i class="fa fa-envelope-o"></i>Scrivici: ADCStore@gmail.com</li>
+                                <li><i class="fa fa-fax"></i>Fax: 1234567890</li>
                             </ul>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </footer>
-    <!-- footer end -->
+    </section>
+    <div class="sub-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-6 col-md-6 col-sm-12">
+                    <div class="footer-end">
+                        <p><i class="fa fa-copyright" aria-hidden="true"></i> 2020-21 Progetto di Programmazione Web</p>
+                    </div>
+                </div>
+                <div class="col-xl-6 col-md-6 col-sm-12">
+                    <div class="payment-card-bottom">
+                        <ul>
+                            <li>
+                                <a href=""><img src="{$path}Smarty/smarty-dir/assets/images/icon/visa.png" alt=""></a>
+                            </li>
+                            <li>
+                                <a href=""><img src="{$path}Smarty/smarty-dir/assets/images/icon/mastercard.png" alt=""></a>
+                            </li>
+                            <li>
+                                <a href=""><img src="{$path}Smarty/smarty-dir/assets/images/icon/paypal.png" alt=""></a>
+                            </li>
+                            <li>
+                                <a href=""><img src="{$path}Smarty/smarty-dir/assets/images/icon/american-express.png" alt=""></a>
+                            </li>
+                            <li>
+                                <a href=""><img src="{$path}Smarty/smarty-dir/assets/images/icon/discover.png" alt=""></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- footer end -->
 
 
-    <!-- theme setting -->
+
+<!-- theme setting -->
     <a href="javascript:void(0)" onclick="openSetting()">
         <div class="setting-sidebar" id="setting-icon">
             <div>
