@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-06-29 18:39:19
-  from 'C:\Users\david\public_html\ADC-Store\Smarty\smarty-dir\templates\prize-page(accordian)Admin.tpl' */
+/* Smarty version 3.1.39, created on 2021-06-29 18:16:12
+  from 'C:\Users\david\public_html\ADC-Store\Smarty\smarty-dir\templates\404.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_60db4cb7ca2d72_22417738',
+  'unifunc' => 'content_60db474c985499_26251222',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    '0b45cf7aa0859ae2658ecbb18bd0e56f7ef17f44' => 
+    'eabf0479ff192d89d696ed08dd64b039930ea898' => 
     array (
-      0 => 'C:\\Users\\david\\public_html\\ADC-Store\\Smarty\\smarty-dir\\templates\\prize-page(accordian)Admin.tpl',
-      1 => 1624984693,
+      0 => 'C:\\Users\\david\\public_html\\ADC-Store\\Smarty\\smarty-dir\\templates\\404.tpl',
+      1 => 1624979764,
       2 => 'file',
     ),
   ),
@@ -20,22 +20,22 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_60db4cb7ca2d72_22417738 (Smarty_Internal_Template $_smarty_tpl) {
+function content_60db474c985499_26251222 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="description" content="multikart">
-    <meta name="keywords" content="multikart">
-    <meta name="author" content="multikart">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="ADCStore">
+    <meta name="keywords" content="ADCStore">
+    <meta name="author" content="ADCStore">
     <link rel="icon" href="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
-Smarty/smarty-dir/assets/images/favicon/1.png" type="image/x-icon">
+Smarty/smarty-dir/assets/images/favicon/1.png" type="image/x-icon" />
     <link rel="shortcut icon" href="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
-Smarty/smarty-dir/assets/images/favicon/1.png" type="image/x-icon">
-    <title>Dettagli premio</title>
+Smarty/smarty-dir/assets/images/favicon/1.png" type="image/x-icon" />
+    <title>ADC-Store - Errore 401</title>
 
     <!--Google font-->
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet">
@@ -66,179 +66,44 @@ Smarty/smarty-dir/assets/css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
 Smarty/smarty-dir/assets/css/color1.css" media="screen" id="color">
 
+
 </head>
 
 <body>
 
-    <!-- loader start -->
-    <div class="loader_skeleton">
-        <header>
-            <div class="top-header d-none d-sm-block">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <div class="header-contact">
-                                <ul>
-                                    <li><i class="fa fa-phone" aria-hidden="true"></i>Call Us: 123 - 456 - 7890</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-lg-6 text-right">
-                            <ul class="header-dropdown">
-                                <li class="mobile-wishlist"><a href="#"><i class="fa fa-heart" aria-hidden="true"></i></a>
-                                </li>
-                                <li class="onhover-dropdown mobile-account">
-                                    <i class="fa fa-user" aria-hidden="true"></i>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-12">
-                        <div class="main-menu">
-                            <div class="menu-left">
-                                <div class="navbar">
-                                    <a href="javascript:void(0)">
-                                        <div class="bar-style"><i class="fa fa-bars sidebar-bar" aria-hidden="true"></i>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="brand-logo">
-                                    <a href="index.html"><img src="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
-Smarty/smarty-dir/assets/images/icon/logo.png"
-                                            class="img-fluid blur-up lazyload" alt=""></a>
-                                </div>
-                            </div>
-                            <div class="menu-right pull-right">
-                                <div>
-                                    <nav>
-                                        <div class="toggle-nav"><i class="fa fa-bars sidebar-bar"></i></div>
-                                </div>
-                                <div>
-                                    <div class="icon-nav d-none d-sm-block">
-                                        <ul>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </header>
-        <div class="breadcrumb-section">
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-6">
-                        <div class="page-title">
-                            <h2>product</h2>
-                        </div>
-                    </div>
-                    <div class="col-sm-6">
-                        <nav aria-label="breadcrumb" class="theme-breadcrumb">
-                            <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                                <li class="breadcrumb-item active" aria-current="page">premi</li>
-                            </ol>
-                        </nav>
+<!-- header start -->
+<header class="header-2">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="main-menu border-section border-top-0">
+                    <div class="brand-logo layout2-logo">
+                        <a href=""><img src="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+Smarty/smarty-dir/assets/images/icon/logo.png" class="img-fluid blur-up lazyload"
+                                        alt=""></a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- loader end -->
+</header>
+<!-- header end -->
 
 
-    <!-- header start -->
-    <header>
-        <div class="mobile-fix-option"></div>
-        <div class="top-header">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-6">
-                        <div class="header-contact">
-                            <ul>
-                                <li>Benvenuti in ADC Store</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 text-right">
-                        <ul class="header-dropdown">
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-12">
-                    <div class="main-menu">
-                        <div class="menu-left">
-
-                        </div>
-                        <div class="menu-right pull-right">
-                            <div>
-                                <nav id="main-nav">
-                                    <div class="toggle-nav">
-                                        <i class="fa fa-bars sidebar-bar"></i>
-                                    </div>
-                                    <!-- Horizontal menu -->
-                                    <ul id="main-menu" class="sm pixelstrap sm-horizontal">
-                                        <li>
-                                            <div class="mobile-back text-right">Back<i class="fa fa-angle-right pl-2"
-                                                    aria-hidden="true"></i></div>
-                                            <a href="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
-GestioneSchermate/recuperaHomeAdmin">Home</a>
-                                        </li>
-                                        <li>
-                                            <a href="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
-GestioneSchermate/apriProfilo">profilo</a>
-                                        </li>
-                                        <li>
-                                            <a href="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
-GestioneProdotti/recuperaProdotti">prodotti</a>
-                                        </li>
-                                        <li ><a href="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
-GestionePunti/recuperaPremi">premi</a>
-                                        <li >    
-                                    </ul>
-                                </nav>
-                            </div>
-                            <div>
-                                <div class="icon-nav">
-                                    <ul>
-                                        <li class="onhover-div mobile-search">
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
-    <!-- header end -->
-
-
-    <!-- breadcrumb start -->
+<!-- breadcrumb start -->
     <div class="breadcrumb-section">
         <div class="container">
             <div class="row">
                 <div class="col-sm-6">
                     <div class="page-title">
-                        <h2>dettagli premio</h2>
+                        <h2>404 page</h2>
                     </div>
                 </div>
                 <div class="col-sm-6">
                     <nav aria-label="breadcrumb" class="theme-breadcrumb">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="home.html">Home</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Premi</li>
+                            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">404 page</li>
                         </ol>
                     </nav>
                 </div>
@@ -249,102 +114,51 @@ GestionePunti/recuperaPremi">premi</a>
 
 
     <!-- section start -->
-    <section>
-        <div class="collection-wrapper">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-4">
-                        <div class="product-slick">
-                            <div><img src="data:<?php echo $_smarty_tpl->tpl_vars['mime']->value;?>
-;base64,<?php echo $_smarty_tpl->tpl_vars['dati']->value;?>
-" width="150" height="250" alt=""
-                                    class="img-fluid blur-up lazyload image_zoom_cls-0"></div>
-
-                        </div>
-
-                    </div>
-                        <div class="col-lg-4">
-                            <h2><?php echo $_smarty_tpl->tpl_vars['nome']->value;?>
-</h2>
-                            <h5 style="color: #5a6268">ID Premio: <?php echo $_smarty_tpl->tpl_vars['id']->value;?>
-</h5>
-
-                            <div class="product-icon mb-3">
-                                <div class="row product-accordion">
-                                    <div class="col-sm-12">
-                                        <br>
-                                        <h5 style="color: #5a6268"><b>Marca</b>: <?php echo $_smarty_tpl->tpl_vars['marca']->value;?>
-</h5>
-                                        <h5 style="color: #5a6268"><b>Disponibili</b>: <?php echo $_smarty_tpl->tpl_vars['quantita']->value;?>
- unità</h5>
-                                        <br>
-                                        <h3 style="color: #0a0100">Descrizione premio</h3>
-                                        <p><?php echo $_smarty_tpl->tpl_vars['descrizione']->value;?>
-</p>
-                                    </div>
-                                </div>                                    
-                            </div>
-                        </div>
-                        <div class="col-lg-4">
-                            <div class="product-right product-form-box">
-                                <h3>Punti necessari: <?php echo $_smarty_tpl->tpl_vars['punti']->value;?>
- punti</h3>
-
-                                <form method="post" action="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
-GestioneCarrello/aggiungiAlCarrello">
-                                    <div class="product-description border-product">
-                                        <h6 class="product-title">Quantità:</h6>
-                                        <div class="qty-box">
-                                            <input type="number" name="quantita" class="form-control input-number" value="1" min="1" max="<?php echo $_smarty_tpl->tpl_vars['quantita']->value;?>
-">
-                                        </div>
-                                    </div>
-
-
-                                    <h5>Registrati subito per acquistare su ADC-store!</h5>
-                                    <div ><a href="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
-GestioneUtenti/recuperaCreazioneAccount" class="btn btn-solid">Registrati</a><div>
-                                </form>
-                            </div>
-                        </div>                        
+    <section class="p-0">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="error-section">
+                        <h1>404</h1>
+                        <h2>page not found</h2>
+                        <h3>OOOPS! Non siamo riusciti a trovare questo prodotto.</h3>
+                        <a href="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+GestioneProdotti/recuperaProdotti" class="btn btn-solid">Ritorna alla lista dei prodotti</a>
                     </div>
                 </div>
             </div>
+        </div>
     </section>
     <!-- Section ends -->
 
 
-    <!-- product-tab starts -->
-
-
-
-<!-- footer start -->
-<footer class="footer-light">
-    <section class="section-b-space light-layout">
-        <div class="container">
-            <div class="row footer-theme partition-f">
-                <div class="col-lg-4 col-md-6">
-                    <div class="footer-title footer-mobile-title">
-                        <h4>about</h4>
-                    </div>
-                    <div class="footer-contant">
-                        <div class="footer-logo"><img src="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+    <!-- footer start -->
+    <footer class="footer-light">
+        <section class="section-b-space light-layout">
+            <div class="container">
+                <div class="row footer-theme partition-f">
+                    <div class="col-lg-4 col-md-6">
+                        <div class="footer-title footer-mobile-title">
+                            <h4>about</h4>
+                        </div>
+                        <div class="footer-contant">
+                            <div class="footer-logo"><img src="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
 Smarty/smarty-dir/assets/images/icon/logo.png" alt=""></div>
-                        <p>ADC-Store è la tua catena di supermercati di fiducia in Italia, grazie a un modello originale d’impresa. Noi poniamo al centro i nostri clienti, sempre. </p> <br>
-                        <p style="color: #0a0100">Seguici sulle nostre pagine social per non perderti nuove offerte!</p>
-                        <div class="footer-social">
-                            <ul>
-                                <li><a href=""><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                                <li><a href=""><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
-                                <li><a href=""><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                                <li><a href=""><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-                                <li><a href=""><i class="fa fa-rss" aria-hidden="true"></i></a></li>
-                            </ul>
+                            <p>ADC-Store è la tua catena di supermercati di fiducia in Italia, grazie a un modello originale d’impresa. Noi poniamo al centro i nostri clienti, sempre. </p> <br>
+                            <p style="color: #0a0100">Seguici sulle nostre pagine social per non perderti nuove offerte!</p>
+                            <div class="footer-social">
+                                <ul>
+                                    <li><a href=""><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                                    <li><a href=""><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
+                                    <li><a href=""><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                                    <li><a href=""><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                                    <li><a href=""><i class="fa fa-rss" aria-hidden="true"></i></a></li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col offset-xl-1">
-                    <div class="sub-title">
+                    <div class="col offset-xl-1">
+                        <div class="sub-title">
                             <div class="footer-title">
                                 <h4>Entra in ADC-Store</h4>
                             </div>
@@ -356,82 +170,91 @@ GestioneSchermate/recuperaLogin">Accedi al tuo account</a></li>
 GestioneUtenti/recuperaCreazioneAccount">Crea un account</a></li>
                                 </ul>
                             </div>
-
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="sub-title">
+                            <div class="footer-title">
+                                <h4>Scopri di più</h4>
+                            </div>
+                            <div class="footer-contant">
+                                <ul>
+                                    <li>
+                                        <a href="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+GestioneSchermate/chiSiamo">Chi siamo</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="sub-title">
+                            <div class="footer-title">
+                                <h4>informationi</h4>
+                            </div>
+                            <div class="footer-contant">
+                                <ul class="contact-list">
+                                    <li><i class="fa fa-map-marker"></i>ADC Store
+                                    </li>
+                                    <li><i class="fa fa-phone"></i>Chiamaci: 3314166000</li>
+                                    <li><i class="fa fa-envelope-o"></i>Scrivici: ADCStore@gmail.com</li>
+                                    <li><i class="fa fa-fax"></i>Fax: 1234567890</li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="col">
-                    <div class="sub-title">
-                        <div class="footer-title">
-                            <h4>Scopri di più</h4>
+            </div>
+        </section>
+        <div class="sub-footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-6 col-md-6 col-sm-12">
+                        <div class="footer-end">
+                            <p><i class="fa fa-copyright" aria-hidden="true"></i> 2020-21 Progetto di Programmazione Web</p>
                         </div>
-                        <div class="footer-contant">
+                    </div>
+                    <div class="col-xl-6 col-md-6 col-sm-12">
+                        <div class="payment-card-bottom">
                             <ul>
                                 <li>
-                                    <a href="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
-GestioneSchermate/chiSiamo">Chi siamo</a>
+                                    <a href=""><img src="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+Smarty/smarty-dir/assets/images/icon/visa.png" alt=""></a>
                                 </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="sub-title">
-                        <div class="footer-title">
-                            <h4>informazioni</h4>
-                        </div>
-                        <div class="footer-contant">
-                            <ul class="contact-list">
-                                <li><i class="fa fa-map-marker"></i>ADC Store
+                                <li>
+                                    <a href=""><img src="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+Smarty/smarty-dir/assets/images/icon/mastercard.png" alt=""></a>
                                 </li>
-                                <li><i class="fa fa-phone"></i>Chiamaci: 3314166000</li>
-                                <li><i class="fa fa-envelope-o"></i>Scrivici: ADCStore@gmail.com</li>
-                                <li><i class="fa fa-fax"></i>Fax: 1234567890</li>
+                                <li>
+                                    <a href=""><img src="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+Smarty/smarty-dir/assets/images/icon/paypal.png" alt=""></a>
+                                </li>
+                                <li>
+                                    <a href=""><img src="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+Smarty/smarty-dir/assets/images/icon/american-express.png" alt=""></a>
+                                </li>
+                                <li>
+                                    <a href=""><img src="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+Smarty/smarty-dir/assets/images/icon/discover.png" alt=""></a>
+                                </li>
                             </ul>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
-    <div class="sub-footer">
-        <div class="container">
-            <div class="row">
-                <div class="col-xl-6 col-md-6 col-sm-12">
-                    <div class="footer-end">
-                        <p><i class="fa fa-copyright" aria-hidden="true"></i> 2020-21 Progetto di Programmazione Web</p>
-                    </div>
-                </div>
-                <div class="col-xl-6 col-md-6 col-sm-12">
-                    <div class="payment-card-bottom">
-                        <ul>
-                            <li>
-                                <a href=""><img src="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
-Smarty/smarty-dir/assets/images/icon/visa.png" alt=""></a>
-                            </li>
-                            <li>
-                                <a href=""><img src="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
-Smarty/smarty-dir/assets/images/icon/mastercard.png" alt=""></a>
-                            </li>
-                            <li>
-                                <a href=""><img src="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
-Smarty/smarty-dir/assets/images/icon/paypal.png" alt=""></a>
-                            </li>
-                            <li>
-                                <a href=""><img src="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
-Smarty/smarty-dir/assets/images/icon/american-express.png" alt=""></a>
-                            </li>
-                            <li>
-                                <a href=""><img src="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
-Smarty/smarty-dir/assets/images/icon/discover.png" alt=""></a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+    </footer>
+    <!-- footer end -->
+
+
+    <!-- tap to top -->
+    <div class="tap-top">
+        <div>
+            <i class="fa fa-angle-double-up"></i>
         </div>
     </div>
-</footer>
-<!-- footer end -->
+    <!-- tap to top End -->
+
 
     <!-- theme setting -->
     <a href="javascript:void(0)" onclick="openSetting()">
@@ -1148,60 +971,6 @@ Smarty/smarty-dir/assets/images/icon/shopify.png"
     <!-- theme setting -->
 
 
-    <!-- Add to cart modal popup start-->
-    <div class="modal fade bd-example-modal-lg theme-modal cart-modal" id="addtocart" tabindex="-1" role="dialog"
-        aria-hidden="true">
-        <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-body modal1">
-                    <div class="container-fluid p-0">
-                        <div class="row">
-                            <div class="col-12">
-                                <div class="modal-bg addtocart">
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                    <div class="media">
-                                        <div class="media-body align-self-center text-center">
-                                            <a href="#">
-                                                <h6>
-                                                    <i class="fa fa-check"></i>Il prodotto
-                                                    <span>è stato aggiunto</span>
-                                                    <span>correttamente al carrello.</span>
-                                                </h6>
-                                            </a>
-                                            <div class="buttons">
-                                                <a href="cart.html" class="view-cart btn btn-solid">Vai al Carrello</a>
-                                                <a href="order.html" class="checkout btn btn-solid">Check out</a>
-                                                <a href="category-page(infinite-scroll).tpl" class="continue btn btn-solid">Continua lo shopping</a>
-                                            </div>
-
-                                            <div class="upsell_payment">
-                                                <img src="data:<?php echo $_smarty_tpl->tpl_vars['prod']->value['mime'];?>
-;base64,<?php echo $_smarty_tpl->tpl_vars['prod']->value['dati'];?>
-" width="150" height="250" alt="">
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Add to cart modal popup end-->
-
-
-    <!-- tap to top start -->
-    <div class="tap-top">
-        <div><i class="fa fa-angle-double-up"></i></div>
-    </div>
-    <!-- tap to top end -->
-
-
     <!-- latest jquery-->
     <?php echo '<script'; ?>
  src="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
@@ -1244,12 +1013,6 @@ Smarty/smarty-dir/assets/js/bootstrap.js"><?php echo '</script'; ?>
 Smarty/smarty-dir/assets/js/bootstrap-notify.min.js"><?php echo '</script'; ?>
 >
 
-    <!-- Zoom js-->
-    <?php echo '<script'; ?>
- src="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
-Smarty/smarty-dir/assets/js/jquery.elevatezoom.js"><?php echo '</script'; ?>
->
-
     <!-- Theme js-->
     <?php echo '<script'; ?>
  src="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
@@ -1265,12 +1028,9 @@ Smarty/smarty-dir/assets/js/script.js"><?php echo '</script'; ?>
         function closeSearch() {
             document.getElementById("search-overlay").style.display = "none";
         }
-
-        function funzione(){
-            alert("Il premio verrà inviato al suo indirizzo predefinito!")
-        }
     <?php echo '</script'; ?>
 >
+
 </body>
 
 </html><?php }

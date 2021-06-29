@@ -82,9 +82,6 @@
                                         </ul>
                                     </li>
                                     <li>
-                                        <a href="loginbe.html">Area Riservata</a>
-                                    </li>
-                                    <li>
                                         <a href="{$path}GestioneSchermate/chiSiamo">Chi siamo</a>
                                     </li>
                                 </ul>
@@ -311,9 +308,7 @@
                                             </ul>
                                         
                                 </li>
-                                <li>
-                                    <a href="loginbe.html">Area Riservata</a>
-                                </li>
+
                                 <li>
                                     <a href="{$path}GestioneSchermate/chiSiamo">Chi siamo</a>
                                 </li>

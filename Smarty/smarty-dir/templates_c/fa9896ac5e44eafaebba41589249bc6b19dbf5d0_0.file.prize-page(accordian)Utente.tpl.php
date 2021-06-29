@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-06-29 15:45:34
+/* Smarty version 3.1.39, created on 2021-06-29 19:00:29
   from 'C:\Users\david\public_html\ADC-Store\Smarty\smarty-dir\templates\prize-page(accordian)Utente.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_60db23feeea8b9_61467518',
+  'unifunc' => 'content_60db51ad284ba3_24206935',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'fa9896ac5e44eafaebba41589249bc6b19dbf5d0' => 
     array (
       0 => 'C:\\Users\\david\\public_html\\ADC-Store\\Smarty\\smarty-dir\\templates\\prize-page(accordian)Utente.tpl',
-      1 => 1624974333,
+      1 => 1624985980,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_60db23feeea8b9_61467518 (Smarty_Internal_Template $_smarty_tpl) {
+function content_60db51ad284ba3_24206935 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en">
 
@@ -257,60 +257,30 @@ GestionePunti/recuperaPremi">premi</a>
                         <div class="product-slick">
                             <div><img src="data:<?php echo $_smarty_tpl->tpl_vars['mime']->value;?>
 ;base64,<?php echo $_smarty_tpl->tpl_vars['dati']->value;?>
-" width="150" height="250" alt=""
-                                    class="img-fluid blur-up lazyload image_zoom_cls-0"></div>
+" class="flex" alt=""
+                                    class="img-fluid blur-up lazyload image_zoom_cls-0">
+                            </div>
 
                         </div>
 
                     </div>
-                        <div class="product-right product-description-box">
-                            <h2><?php echo $_smarty_tpl->tpl_vars['nome']->value;?>
+                    <div class="col-lg-4">
+                        <h2><?php echo $_smarty_tpl->tpl_vars['nome']->value;?>
 </h2>
-
-                            <div class="product-icon mb-3">
-                                <form class="d-inline-block">
-                                    <div class="row product-accordion">
-                                        <div class="col-sm-12">
-                                            <div class="accordion theme-accordion" id="accordionExample">
-
-                                                </div>
-                                </form>
-                            </div>
-                        </div>
-
+                        <h5 style="color: #5a6268">ID Premio: <?php echo $_smarty_tpl->tpl_vars['id']->value;?>
+</h5>
+                        <div class="product-icon mb-3">
                             <div class="row product-accordion">
                                 <div class="col-sm-12">
-                                    <div class="accordion theme-accordion" id="accordionExample">
-
-
-                                        <div class="card">
-                                            <div class="card-header" id="headingOne">
-                                                <h5 class="mb-0"><button class="btn btn-link" type="button"
-                                                        data-toggle="collapse" data-target="#collapseTwo"
-                                                        aria-expanded="true" aria-controls="collapseTwo">Decrizione premio</button></h5>
-                                            </div>
-                                            <div id="collapseTwo" class="collapse show" aria-labelledby="headingOne"
-                                                data-parent="#accordionExample">
-                                                <div class="card-body">
-                                                    <p><?php echo $_smarty_tpl->tpl_vars['descrizione']->value;?>
+                                    <br>
+                                    <h5 style="color: #5a6268"><b>Marca</b>: <?php echo $_smarty_tpl->tpl_vars['marca']->value;?>
+</h5>
+                                    <h5 style="color: #5a6268"><b>Disponibili</b>: <?php echo $_smarty_tpl->tpl_vars['quantita']->value;?>
+ unità</h5>
+                                    <br>
+                                    <h3 style="color: #0a0100">Descrizione premio</h3>
+                                    <p><?php echo $_smarty_tpl->tpl_vars['descrizione']->value;?>
 </p>
-                                                    <div class="single-product-tables detail-section">
-                                                        <table>
-                                                            <tbody>
-                                                                <tr>
-                                                                    <td>Marca: </td>
-                                                                    <td><?php echo $_smarty_tpl->tpl_vars['marca']->value;?>
-</td>
-                                                                </tr>
-
-                                                            </tbody>
-                                                        </table>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -541,25 +511,34 @@ GestionePunti/acquistaPremio/<?php echo $_smarty_tpl->tpl_vars['id']->value;?>
                 document.dati.submit();
             }*/
 
-            if ( <?php echo $_smarty_tpl->tpl_vars['puntiutente']->value;?>
+            if ( <?php echo $_smarty_tpl->tpl_vars['quantita']->value;?>
+ == 0){
+                alert("Il premio non è al momento disponibile!")
+            }
+            
+            else{
+
+                if ( quantita == 0 ){
+                    alert("Inserisci una quantità valida!")
+                }
+
+                else if ( <?php echo $_smarty_tpl->tpl_vars['puntiutente']->value;?>
  >= <?php echo $_smarty_tpl->tpl_vars['punti']->value;?>
- *
-            quantita
-        )
-            {
-                alert("Il premio le verrà inviato entro una settimana!");
-                document.dati.action = "<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+ * quantita )
+                {
+                    alert("Il premio le verrà inviato entro una settimana!");
+                    document.dati.action = "<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
 GestionePunti/acquistaPremio/<?php echo $_smarty_tpl->tpl_vars['id']->value;?>
 ";
-                document.dati.submit();
-            }
+                    document.dati.submit();
+                }
 
-        else
-            {
-                alert("Non hai punti a sufficienza!");
+                else {
+                    alert("Non hai punti a sufficienza!");
 
+                }
             }
-        }
+        }    
     <?php echo '</script'; ?>
 >
 </body>

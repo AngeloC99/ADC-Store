@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-06-28 09:24:21
+/* Smarty version 3.1.39, created on 2021-06-29 17:32:26
   from 'C:\Users\david\public_html\ADC-Store\Smarty\smarty-dir\templates\home.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_60d979257c98c9_61404119',
+  'unifunc' => 'content_60db3d0a3259b4_66590647',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '7a380b4d204d80bf8315e4b07bf3332f7912f014' => 
     array (
       0 => 'C:\\Users\\david\\public_html\\ADC-Store\\Smarty\\smarty-dir\\templates\\home.tpl',
-      1 => 1624864988,
+      1 => 1624980745,
       2 => 'file',
     ),
   ),
@@ -20,9 +20,9 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_60d979257c98c9_61404119 (Smarty_Internal_Template $_smarty_tpl) {
+function content_60db3d0a3259b4_66590647 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -79,7 +79,7 @@ Smarty/smarty-dir/assets/css/color1.css" media="screen" id="color">
                     <div class="col-sm-12">
                         <div class="main-menu border-section border-top-0">
                             <div class="brand-logo layout2-logo">
-                                <a href="#"><img src="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+                                <a href=""><img src="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
 Smarty/smarty-dir/assets/images/icon/logo.png" class="img-fluid blur-up lazyload"
                                         alt=""></a>
                             </div>
@@ -109,18 +109,17 @@ Smarty/smarty-dir/assets/images/icon/logo.png" class="img-fluid blur-up lazyload
                                         <a href="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
 GestioneProdotti/recuperaProdotti">Prodotti</a>
                                     </li>
-                                    <li><a href="#">Account</a>
+                                    <li><a href="#">Clienti</a>
                                         <ul>
                                             <li><a href="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
-GestioneSchermate/recuperaLogin" data-lng="en">Login</a></li>
-                                            <li><a href="#" data-lng="en">Logout</a></li>
+GestioneSchermate/recuperaLogin">Accedi</a></li>
+                                            <li><a href="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+GestioneUtenti/recuperaCreazioneAccount">Registrazione</a></li>
                                         </ul>
                                     </li>
                                     <li>
-                                        <a href="loginbe.html">Area Riservata</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Su di noi</a>
+                                        <a href="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+GestioneSchermate/chiSiamo">Chi siamo</a>
                                     </li>
                                 </ul>
                             </nav>
@@ -309,7 +308,7 @@ GestioneSchermate/recuperaLogin" data-lng="en">Login</a></li>
                     <div class="main-menu border-section border-top-0">
                         
                         <div class="brand-logo layout2-logo">
-                            <a href="#"><img src="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+                            <a href=""><img src="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
 Smarty/smarty-dir/assets/images/icon/logo.png" class="img-fluid blur-up lazyload"
                                     alt=""></a>
                         </div>
@@ -341,19 +340,19 @@ Smarty/smarty-dir/assets/images/icon/logo.png" class="img-fluid blur-up lazyload
 GestioneProdotti/recuperaProdotti">Prodotti</a>
                                     
                                 </li>
-                                <li><a href="#">Account</a>
+                                <li><a href="">Clienti</a>
                                             <ul>
                                                 <li><a href="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
-GestioneSchermate/recuperaLogin" data-lng="en">Login</a></li>
-                                                <li><a href="#" data-lng="en">Logout</a></li>
+GestioneSchermate/recuperaLogin">Accedi</a></li>
+                                                <li><a href="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+GestioneUtenti/recuperaCreazioneAccount">Registrazione</a></li>
                                             </ul>
                                         
                                 </li>
+
                                 <li>
-                                    <a href="loginbe.html">Area Riservata</a>
-                                </li>
-                                <li>
-                                    <a href="#">Su di noi</a>
+                                    <a href="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+GestioneSchermate/chiSiamo">Chi siamo</a>
                                 </li>
                             </ul>
                         </nav>
@@ -497,15 +496,15 @@ Smarty/smarty-dir/assets/images/home-banner/sup.jpg" alt="" class="bg-img blur-u
                         <div class="footer-contant">
                             <div class="footer-logo"><img src="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
 Smarty/smarty-dir/assets/images/icon/logo.png" alt=""></div>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                                ut labore et dolore magna aliqua. Ut enim ad minim veniam,</p>
+                            <p>ADC-Store è la tua catena di supermercati di fiducia in Italia, grazie a un modello originale d’impresa. Noi poniamo al centro i nostri clienti, sempre. </p> <br>
+                            <p style="color: #0a0100">Seguici sulle nostre pagine social per non perderti nuove offerte!</p>
                             <div class="footer-social">
                                 <ul>
-                                    <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-rss" aria-hidden="true"></i></a></li>
+                                    <li><a href=""><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                                    <li><a href=""><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
+                                    <li><a href=""><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                                    <li><a href=""><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                                    <li><a href=""><i class="fa fa-rss" aria-hidden="true"></i></a></li>
                                 </ul>
                             </div>
                         </div>
@@ -513,15 +512,14 @@ Smarty/smarty-dir/assets/images/icon/logo.png" alt=""></div>
                     <div class="col offset-xl-1">
                         <div class="sub-title">
                             <div class="footer-title">
-                                <h4>my account</h4>
+                                <h4>Entra in ADC-Store</h4>
                             </div>
                             <div class="footer-contant">
                                 <ul>
-                                    <li><a href="#">mens</a></li>
-                                    <li><a href="#">womens</a></li>
-                                    <li><a href="#">clothing</a></li>
-                                    <li><a href="#">accessories</a></li>
-                                    <li><a href="#">featured</a></li>
+                                    <li><a href="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+GestioneSchermate/recuperaLogin">Accedi al tuo account</a></li>
+                                    <li><a href="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+GestioneUtenti/recuperaCreazioneAccount">Crea un account</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -529,15 +527,14 @@ Smarty/smarty-dir/assets/images/icon/logo.png" alt=""></div>
                     <div class="col">
                         <div class="sub-title">
                             <div class="footer-title">
-                                <h4>why we choose</h4>
+                                <h4>Scopri di più</h4>
                             </div>
                             <div class="footer-contant">
                                 <ul>
-                                    <li><a href="#">shipping & return</a></li>
-                                    <li><a href="#">secure shopping</a></li>
-                                    <li><a href="#">gallary</a></li>
-                                    <li><a href="#">affiliates</a></li>
-                                    <li><a href="#">contacts</a></li>
+                                    <li>
+                                        <a href="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+GestioneSchermate/chiSiamo">Chi siamo</a>
+                                    </li>
                                 </ul>
                             </div>
                         </div>
@@ -545,7 +542,7 @@ Smarty/smarty-dir/assets/images/icon/logo.png" alt=""></div>
                     <div class="col">
                         <div class="sub-title">
                             <div class="footer-title">
-                                <h4>store information</h4>
+                                <h4>informationi</h4>
                             </div>
                             <div class="footer-contant">
                                 <ul class="contact-list">
@@ -553,7 +550,7 @@ Smarty/smarty-dir/assets/images/icon/logo.png" alt=""></div>
                                     </li>
                                     <li><i class="fa fa-phone"></i>Chiamaci: 3314166000</li>
                                     <li><i class="fa fa-envelope-o"></i>Scrivici: ADCStore@gmail.com</li>
-                                    <li><i class="fa fa-fax"></i>Fax: 123456</li>
+                                    <li><i class="fa fa-fax"></i>Fax: 1234567890</li>
                                 </ul>
                             </div>
                         </div>
@@ -573,23 +570,23 @@ Smarty/smarty-dir/assets/images/icon/logo.png" alt=""></div>
                         <div class="payment-card-bottom">
                             <ul>
                                 <li>
-                                    <a href="#"><img src="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+                                    <a href=""><img src="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
 Smarty/smarty-dir/assets/images/icon/visa.png" alt=""></a>
                                 </li>
                                 <li>
-                                    <a href="#"><img src="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+                                    <a href=""><img src="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
 Smarty/smarty-dir/assets/images/icon/mastercard.png" alt=""></a>
                                 </li>
                                 <li>
-                                    <a href="#"><img src="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+                                    <a href=""><img src="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
 Smarty/smarty-dir/assets/images/icon/paypal.png" alt=""></a>
                                 </li>
                                 <li>
-                                    <a href="#"><img src="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+                                    <a href=""><img src="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
 Smarty/smarty-dir/assets/images/icon/american-express.png" alt=""></a>
                                 </li>
                                 <li>
-                                    <a href="#"><img src="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+                                    <a href=""><img src="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
 Smarty/smarty-dir/assets/images/icon/discover.png" alt=""></a>
                                 </li>
                             </ul>

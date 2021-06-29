@@ -78,25 +78,35 @@ class CGestionePunti
      */
     public static function selezionaPremio(string $id) {
 
-        $gs = CGestioneSessioni::getInstance();
-        if ($gs->isLoggedUser()){
-            $pm=FPersistentManager::getInstance();
-            $premio=$pm->load('FPremio',$id);
-            $v=new VGestionePunti();
-            $v->mostraDettagliPremioUser($premio);
+        $pm = FPersistentManager::getInstance();
+
+        if ($pm->exist("FPremio", $id)) {
+
+            $gs = CGestioneSessioni::getInstance();
+            if ( $gs->isLoggedUser()){
+                $pm=FPersistentManager::getInstance();
+                $premio=$pm->load('FPremio',$id);
+                $v=new VGestionePunti();
+                $v->mostraDettagliPremioUser($premio);
+            }
+
+            else if ( $gs->isLoggedAdmin()){
+                $pm=FPersistentManager::getInstance();
+                $premio=$pm->load('FPremio',$id);
+                $v=new VGestionePunti();
+                $v->mostraDettagliPremioAdmin($premio);
+
+            }
+
+            else{
+                header("Location: ".$GLOBALS['path']."GestioneSchermate/recupera401");
+            }    
+        }            
+
+        else {
+        CGestioneSchermate::recupera404();
         }
-
-        else if ($gs->isLoggedAdmin()){
-            $pm=FPersistentManager::getInstance();
-            $premio=$pm->load('FPremio',$id);
-            $v=new VGestionePunti();
-            $v->mostraDettagliPremioAdmin($premio);
-        }        
-
-        else{
-            header("Location: ".$GLOBALS['path']."GestioneSchermate/recupera401");
-        }    
-    }
+    }    
 
     /**
      * @param EPremio $premio

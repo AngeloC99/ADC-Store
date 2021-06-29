@@ -539,7 +539,7 @@
                                                         <div class="img-wrapper">
                                                             <div class="front">
                                                                 <a href="product-page(accordian).tpl">
-                                                                	<img src="data:{$prize.mime};base64,{$prize.dati}" width="100" height="100"/>
+                                                                	<img src="data:{$prize.mime};base64,{$prize.dati}" class="flex" />
                                                                 </a>
                                                             </div>
                                                             <div class="cart-info cart-wrap">

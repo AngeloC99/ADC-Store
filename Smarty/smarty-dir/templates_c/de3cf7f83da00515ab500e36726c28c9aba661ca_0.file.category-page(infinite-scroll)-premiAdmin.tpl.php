@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-06-29 12:37:53
+/* Smarty version 3.1.39, created on 2021-06-29 17:37:57
   from 'C:\Users\david\public_html\ADC-Store\Smarty\smarty-dir\templates\category-page(infinite-scroll)-premiAdmin.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_60daf8019a0569_73120674',
+  'unifunc' => 'content_60db3e557e2c92_04072745',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'de3cf7f83da00515ab500e36726c28c9aba661ca' => 
     array (
       0 => 'C:\\Users\\david\\public_html\\ADC-Store\\Smarty\\smarty-dir\\templates\\category-page(infinite-scroll)-premiAdmin.tpl',
-      1 => 1624912309,
+      1 => 1624979764,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_60daf8019a0569_73120674 (Smarty_Internal_Template $_smarty_tpl) {
+function content_60db3e557e2c92_04072745 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en">
 
@@ -488,7 +488,8 @@ GestioneSchermate/apriProfilo">Profilo</a>
                 <div class="col-sm-6">
                     <nav aria-label="breadcrumb" class="theme-breadcrumb">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="hom.html">home</a></li>
+                            <li class="breadcrumb-item"><a href="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+GestioneSchermate/showHome">home</a></li>
                             <li class="breadcrumb-item active" aria-current="page">premi</li>
                         </ol>
                     </nav>
@@ -508,18 +509,17 @@ GestioneSchermate/apriProfilo">Profilo</a>
                         
                         
                     </div>
-                    <div class="collection-content col">
                         <div class="page-main-content">
                             <div class="row">
                                 <div class="col-sm-12">
                                     <div class="top-banner-wrapper">
                                         <a href="#"><img src="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
-Smarty/smarty-dir/assets/images/mega-menu/2.jpg" class="img-fluid blur-up lazyload" alt=""></a>
+Smarty/smarty-dir/assets/images/mega-menu/premi.jpg" class="img-fluid blur-up lazyload" alt=""></a>
                                         <div class="top-banner-content small-section">
                                             <h4>premi</h4>
-                                            <h5>ADC Store si impegna a fornire premi di qualità per soddisfare le esigenze di tutti i suoi clienti.
+                                            <h5>ADC-Store si impegna a fornire premi di qualità per soddisfare le esigenze di tutti i suoi clienti.
                                             </h5>
-                                            <p>A tavola ci si incontra, si chiacchiera, ci si rilassa, si ride… talvolta ci si punzecchia, ma il buon cibo, soprattutto se acquistato su ADC Store, fa da paciere. E’ capace di restituire il buonumore persino al termine di una giornata faticosa.
+                                            <p>A tavola ci si incontra, si chiacchiera, ci si rilassa, si ride… talvolta ci si punzecchia, ma il buon cibo, soprattutto se acquistato su ADC-Store, fa da paciere. E’ capace di restituire il buonumore persino al termine di una giornata faticosa.
                                             (Antonino Cannavacciuolo)</p>
                                         </div>
                                     </div>
@@ -636,7 +636,6 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                                 </div>
                             </div>
                         </div>
-                    </div>
                 </div>
             </div>
         </div>

@@ -50,7 +50,6 @@ class VGestionePunti
         $this->smarty->assign('mime', $premio->getImmagine()->getFormato());
         $this->smarty->assign('dati', $premio->getImmagine()->getByte());
         $this->smarty->assign('puntiutente', $gs->caricaUtente()->getPunti());
-        //$this->smarty->assign('indirizzopred', $gs->caricaUtente()->getIndirizzoPredefinito());
 
 
         $this->smarty->assign("path", $GLOBALS["path"]);

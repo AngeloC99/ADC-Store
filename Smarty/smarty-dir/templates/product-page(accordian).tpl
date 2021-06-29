@@ -159,7 +159,7 @@
                         <div class="product-right product-form-box">
                             <h3>Prezzo: € {$prod.prezzo}</h3>
 
-                            <form method="post" action="{$path}GestioneCarrello/aggiungiAlCarrello">
+                            <form method="post" name="dati">
                                 <div class="product-description border-product">
                                     <h6 class="product-title">Quantità:</h6>
                                     <div class="qty-box">
@@ -168,7 +168,8 @@
                                     </div>
                                 </div>
                                 {if $loggato}
-                                    <div class="product-buttons"><input type="submit" value="Aggiungi al carrello" class="btn btn-solid"/></div>
+                                    <div class="product-buttons">
+                                        <button type="submit" onclick="Funzione()" class="btn btn-solid">Aggiungi al carrello</button>
                                 {else}
                                     <h5>Registrati subito per acquistare su ADC-store!</h5>
                                     <div ><a href="{$path}GestioneUtenti/recuperaCreazioneAccount" class="btn btn-solid">Registrati</a></div>
@@ -1107,6 +1108,24 @@
         function closeSearch() {
             document.getElementById("search-overlay").style.display = "none";
         }
+
+        function Funzione(){
+
+            if ( {$prod.quantita} == 0){
+                alert("Il prodotto non è al momento disponibile!");
+            }
+            else if ( quantita == 0 ) {
+                alert("Inserisci una quantità valida!");
+
+            }
+
+            else{
+                document.dati.action = "{$path}GestioneCarrello/aggiungiAlCarrello";
+                document.dati.submit();
+            }
+        }
+
+
     </script>
 </body>
 

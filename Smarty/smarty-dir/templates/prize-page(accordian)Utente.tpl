@@ -218,57 +218,25 @@
                 <div class="row">
                     <div class="col-lg-4">
                         <div class="product-slick">
-                            <div><img src="data:{$mime};base64,{$dati}" width="150" height="250" alt=""
-                                    class="img-fluid blur-up lazyload image_zoom_cls-0"></div>
+                            <div><img src="data:{$mime};base64,{$dati}" class="flex" alt=""
+                                    class="img-fluid blur-up lazyload image_zoom_cls-0">
+                            </div>
 
                         </div>
 
                     </div>
-                        <div class="product-right product-description-box">
-                            <h2>{$nome}</h2>
-
-                            <div class="product-icon mb-3">
-                                <form class="d-inline-block">
-                                    <div class="row product-accordion">
-                                        <div class="col-sm-12">
-                                            <div class="accordion theme-accordion" id="accordionExample">
-
-                                                </div>
-                                </form>
-                            </div>
-                        </div>
-
+                    <div class="col-lg-4">
+                        <h2>{$nome}</h2>
+                        <h5 style="color: #5a6268">ID Premio: {$id}</h5>
+                        <div class="product-icon mb-3">
                             <div class="row product-accordion">
                                 <div class="col-sm-12">
-                                    <div class="accordion theme-accordion" id="accordionExample">
-
-
-                                        <div class="card">
-                                            <div class="card-header" id="headingOne">
-                                                <h5 class="mb-0"><button class="btn btn-link" type="button"
-                                                        data-toggle="collapse" data-target="#collapseTwo"
-                                                        aria-expanded="true" aria-controls="collapseTwo">Decrizione premio</button></h5>
-                                            </div>
-                                            <div id="collapseTwo" class="collapse show" aria-labelledby="headingOne"
-                                                data-parent="#accordionExample">
-                                                <div class="card-body">
-                                                    <p>{$descrizione}</p>
-                                                    <div class="single-product-tables detail-section">
-                                                        <table>
-                                                            <tbody>
-                                                                <tr>
-                                                                    <td>Marca: </td>
-                                                                    <td>{$marca}</td>
-                                                                </tr>
-
-                                                            </tbody>
-                                                        </table>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                    </div>
+                                    <br>
+                                    <h5 style="color: #5a6268"><b>Marca</b>: {$marca}</h5>
+                                    <h5 style="color: #5a6268"><b>Disponibili</b>: {$quantita} unità</h5>
+                                    <br>
+                                    <h3 style="color: #0a0100">Descrizione premio</h3>
+                                    <p>{$descrizione}</p>
                                 </div>
                             </div>
                         </div>
@@ -451,21 +419,29 @@
                 document.dati.submit();
             }*/
 
-            if ( {$puntiutente} >= {$punti} *
-            quantita
-        )
-            {
-                alert("Il premio le verrà inviato entro una settimana!");
-                document.dati.action = "{$path}GestionePunti/acquistaPremio/{$id}";
-                document.dati.submit();
+            if ( {$quantita} == 0){
+                alert("Il premio non è al momento disponibile!")
             }
+            
+            else{
 
-        else
-            {
-                alert("Non hai punti a sufficienza!");
+                if ( quantita == 0 ){
+                    alert("Inserisci una quantità valida!")
+                }
 
+                else if ( {$puntiutente} >= {$punti} * quantita )
+                {
+                    alert("Il premio le verrà inviato entro una settimana!");
+                    document.dati.action = "{$path}GestionePunti/acquistaPremio/{$id}";
+                    document.dati.submit();
+                }
+
+                else {
+                    alert("Non hai punti a sufficienza!");
+
+                }
             }
-        }
+        }    
     </script>
 </body>
 
