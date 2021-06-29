@@ -84,7 +84,7 @@
                     </li>
                     <li><a class="sidebar-header" href=""><i data-feather="tag"></i><span>Buoni Sconto</span><i class="fa fa-angle-right pull-right"></i></a>
                         <ul class="sidebar-submenu">
-                            <li><a href="{$path}GestioneBuoni/inviaBuono"><i class="fa fa-circle"></i>Regala Buono</a></li>
+                            <li><a href="{$path}GestioneBuoni/recuperaCreazioneBuono"><i class="fa fa-circle"></i>Regala Buono</a></li>
                         </ul>
                     </li>
 

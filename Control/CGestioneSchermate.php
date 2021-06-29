@@ -29,6 +29,12 @@ class CGestioneSchermate
         $v->mostraLogin();
     }
 
+    public static function recuperaLoginAdmin() {
+        $v = new VGestioneUtenti();
+        $v->mostraLoginAdmin();
+
+        }
+
     public static function recuperaHome() {
         $gs=CGestioneSessioni::getInstance();
         if($gs->isLoggedUser()){

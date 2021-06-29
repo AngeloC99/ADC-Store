@@ -79,17 +79,9 @@ class CGestioneUtenti
     {
         $pm = FPersistentManager::getInstance();
         $gs = CGestioneSessioni::getInstance();
-        if ($pm->exist("FAmministratore", $email)) {
-            $admin = $pm->load("FAmministratore", $email);
-            if (password_verify($password, $admin->getPassword())) {
-                $gs->salvaUtente($admin);
-                header("Location: " . $GLOBALS['path'] . "GestioneSchermate/recuperaHome");
-            } else {
-                header("Location: " . $GLOBALS['path'] . "GestioneSchermate/recuperaLogin");
-            }
-        } else if ($pm->exist("FUtenteReg", $email)) {
+        if ($pm->exist("FUtenteReg", $email)) {
             $utente = $pm->load("FUtenteReg", $email);
-            if (password_verify($password, $utente->getPassword())) { //QUESTO CHECK NON VA...risolvere con gli altri
+            if (password_verify($password, $utente->getPassword())) {
                 $gs->salvaUtente($utente);
                 $gs->salvaCarrello(new ECarrello());
                 header("Location: ".$GLOBALS['path'] ."GestioneSchermate/recuperaHome");
@@ -102,11 +94,38 @@ class CGestioneUtenti
         }
     }
 
+    public static function loginAdmin()
+    {
+        $email = $_POST["email"];
+        $password = $_POST["password"];
+        self::verificaLoginAdmin($email, $password);
+    }
+
+    public static function verificaLoginAdmin($email, $password)
+    {
+        $pm = FPersistentManager::getInstance();
+        $gs = CGestioneSessioni::getInstance();
+        if ($pm->exist("FAmministratore", $email)) {
+            $admin = $pm->load("FAmministratore", $email);
+            if (password_verify($password, $admin->getPassword())) {
+                $gs->salvaUtente($admin);
+                header("Location: " . $GLOBALS['path'] . "GestioneSchermate/recuperaHome");
+            } else {
+                header("Location: " . $GLOBALS['path'] . "GestioneSchermate/recuperaLoginAdmin");
+            }
+        }
+        else {
+            header("Location: ".$GLOBALS['path']."GestioneSchermate/showHome");
+        }
+    }
+
+
+
 
     public static function logout(){
         $gs = CGestioneSessioni::getInstance();
         $gs->distruggiSessione();
-        header("Location: ".$GLOBALS['path']."GestioneSchermate/recuperaLogin");
+        header("Location: ".$GLOBALS['path']."GestioneSchermate/showHome");
     }
 
     public static function recuperaCreazioneAccount(){

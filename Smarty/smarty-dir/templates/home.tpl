@@ -81,6 +81,7 @@
                                             <li><a href="{$path}GestioneUtenti/recuperaCreazioneAccount">Registrazione</a></li>
                                         </ul>
                                     </li>
+                                    <li><a href="{$path}GestioneSchermate/recuperaLoginAdmin">Area Riservata</a>
                                     <li>
                                         <a href="{$path}GestioneSchermate/chiSiamo">Chi siamo</a>
                                     </li>
@@ -307,6 +308,10 @@
                                                 <li><a href="{$path}GestioneUtenti/recuperaCreazioneAccount">Registrazione</a></li>
                                             </ul>
                                         
+                                </li>
+                                <li>
+                                    <a href="{$path}GestioneSchermate/recuperaLoginAdmin">Area Riservata</a>
+
                                 </li>
 
                                 <li>

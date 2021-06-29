@@ -30,6 +30,11 @@ class VGestioneUtenti {
         $this->smarty->display('loginfe.tpl');
     }
 
+    public function mostraLoginAdmin() {
+        $this->smarty->assign("path", $GLOBALS["path"]);
+        $this->smarty->display('loginbe.tpl');
+    }
+
     public function mostraHomeUtente() {
         $gs = CGestioneSessioni::getInstance();
         $this->smarty->assign("nome", $gs->caricaUtente()->getNome());
