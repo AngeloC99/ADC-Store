@@ -80,14 +80,6 @@
                         </ul>
 
                     </li>
-                    </li>
-                    <li><a class="sidebar-header" href="#"><i data-feather="box"></i> <span>Premi</span><i class="fa fa-angle-right pull-right"></i></a>
-                        <ul class="sidebar-submenu">
-                            <li><a href="{$path}GestionePunti/recuperaPremi"><i class="fa fa-circle"></i>Lista Premi</a></li>
-                            <li><a href="{$path}GestioneSchermate/recuperaAggiungiPremi"><i class="fa fa-circle"></i>Aggiungi un premio</a></li>
-
-                        </ul>
-                    </li>                    
                     <li><a class="sidebar-header" href=""><i data-feather="dollar-sign"></i><span>Clienti</span><i class="fa fa-angle-right pull-right"></i></a>
                         <ul class="sidebar-submenu">
                             <li><a href="{$path}GestioneUtenti/recuperaClienti"><i class="fa fa-circle"></i>Lista Clienti</a></li>
@@ -147,14 +139,14 @@
                     <div class="card-body">
                         <ul class="nav nav-tabs tab-coupon" id="myTab" role="tablist">
                         </ul>
-                        <form class="needs-validation add-product-form" action="{$path}GestioneBuoni/inviaBuono" method="post">
+                        <form class="needs-validation" novalidate="" action="{$path}GestioneBuoni/inviaBuono" method="post">
                             <div class="tab-content" id="myTabContent">
                                 <div class="tab-pane fade active show" id="general" role="tabpanel" aria-labelledby="general-tab">
                                     <div class="row">
                                         <div class="col-sm-12">
                                             <div class="form-group row">
                                                 <label for="validationCustom1" class="col-xl-3 col-md-4">Codice Buono</label>
-                                                <input class="form-control col-md-7" id="cod" type="text" value="" name="codice" readonly="readonly" required="">
+                                                <input class="form-control col-md-7" id="cod" type="text" value="" name="codice" readonly="readonly">
                                                 <input type="button"
                                                        name="genera"
                                                        id="genCod"
@@ -163,11 +155,11 @@
                                             </div>
                                             <div class="form-group row">
                                                 <label class="col-xl-3 col-md-4"><span>*</span>Email destinatario</label>
-                                                <input class="form-control col-md-7" id="validationCustom1" type="Email" name="email" required="">
+                                                <input class="form-control col-md-7" id="validationCustom1" type="text" name="email">
                                             </div>
                                             <div class="form-group row">
                                                 <label class="col-xl-3 col-md-4"><span>*</span>Ammontare</label>
-                                                <input class="form-control col-md-7" id="validationCustom1" type="text" name="ammontare" required="">
+                                                <input class="form-control col-md-7" id="validationCustom1" type="text" name="ammontare">
                                             </div>
                                             <div class="form-group row">
                                                 <label class="col-xl-3 col-md-4"><span>*</span>Tipo di importo</label>
@@ -246,8 +238,37 @@
 <!--script admin-->
 <script src="{$path}Smarty/smarty-dir/assets/js/admin-script.js"></script>
 
+<!--function genera per il codice del buono-->
+<script>
+    function Funzione2(){
+        var chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXTZabcdefghiklmnopqrstuvwxyz";
+        var string_length = 13;
+        var randomstring = '';
+        for (var x=0;x<string_length;x++) {
+            var letterOrNumber = Math.floor(Math.random() * 2);
+            if (letterOrNumber == 0) {
+                var newNum = Math.floor(Math.random() * 9);
+                randomstring += newNum;
+            } else {
+                var rnum = Math.floor(Math.random() * chars.length);
+                randomstring += chars.substring(rnum,rnum+1);
+            }
+
+        }
+        document.getElementById("cod").value='BS'+randomstring;
+    }
+</script>
+
+<script>
+    function Funzione1() {
+        alert("Inoltro del buono in corso, premere ok per proseguire...");
+    }
+</script>
+
 </body>
 </html>
+
+
 
 
 
