@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-06-29 17:18:09
+/* Smarty version 3.1.39, created on 2021-06-29 22:20:27
   from 'C:\Users\david\public_html\ADC-Store\Smarty\smarty-dir\templates\category-page(infinite-scroll).tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_60db39b13047f6_04591783',
+  'unifunc' => 'content_60db808b9162f1_92705682',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '91ccfd1df376168d50448c0eb8151e90ebaa636e' => 
     array (
       0 => 'C:\\Users\\david\\public_html\\ADC-Store\\Smarty\\smarty-dir\\templates\\category-page(infinite-scroll).tpl',
-      1 => 1624979764,
+      1 => 1624997048,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_60db39b13047f6_04591783 (Smarty_Internal_Template $_smarty_tpl) {
+function content_60db808b9162f1_92705682 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en">
 
@@ -109,6 +109,15 @@ GestioneSchermate/recuperaHome">Home</a>
                                         <a href="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
 GestioneProdotti/recuperaProdotti">Prodotti</a>
                                     </li>
+                                    <li>
+                                        <a href="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+GestionePunti/recuperaPremi">Premi</a>
+                                    </li>
+                                    <li>
+                                        <a href="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+GestioneBuoni/recuperaCreazioneBuono">Regala Buono</a>
+                                    </li>
+
                                     <?php if ($_smarty_tpl->tpl_vars['loggato']->value) {?>
                                         <li>
                                             <a href="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
@@ -391,7 +400,7 @@ GestioneSchermate/chiSiamo">Chi siamo</a>
                     <div class="col">
                         <div class="sub-title">
                             <div class="footer-title">
-                                <h4>informationi</h4>
+                                <h4>informazioni</h4>
                             </div>
                             <div class="footer-contant">
                                 <ul class="contact-list">

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-06-29 17:32:26
+/* Smarty version 3.1.39, created on 2021-06-29 22:14:50
   from 'C:\Users\david\public_html\ADC-Store\Smarty\smarty-dir\templates\home.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_60db3d0a3259b4_66590647',
+  'unifunc' => 'content_60db7f3a907726_11147292',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '7a380b4d204d80bf8315e4b07bf3332f7912f014' => 
     array (
       0 => 'C:\\Users\\david\\public_html\\ADC-Store\\Smarty\\smarty-dir\\templates\\home.tpl',
-      1 => 1624980745,
+      1 => 1624997048,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_60db3d0a3259b4_66590647 (Smarty_Internal_Template $_smarty_tpl) {
+function content_60db7f3a907726_11147292 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/html">
 
@@ -117,6 +117,8 @@ GestioneSchermate/recuperaLogin">Accedi</a></li>
 GestioneUtenti/recuperaCreazioneAccount">Registrazione</a></li>
                                         </ul>
                                     </li>
+                                    <li><a href="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+GestioneSchermate/recuperaLoginAdmin">Area Riservata</a>
                                     <li>
                                         <a href="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
 GestioneSchermate/chiSiamo">Chi siamo</a>
@@ -348,6 +350,11 @@ GestioneSchermate/recuperaLogin">Accedi</a></li>
 GestioneUtenti/recuperaCreazioneAccount">Registrazione</a></li>
                                             </ul>
                                         
+                                </li>
+                                <li>
+                                    <a href="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+GestioneSchermate/recuperaLoginAdmin">Area Riservata</a>
+
                                 </li>
 
                                 <li>

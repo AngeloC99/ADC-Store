@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-06-29 18:49:44
+/* Smarty version 3.1.39, created on 2021-06-30 00:08:54
   from 'C:\Users\david\public_html\ADC-Store\Smarty\smarty-dir\templates\profilefe.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_60db4f28c150f2_10406182',
+  'unifunc' => 'content_60db99f61a8693_21951074',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'dfbf06b8cefa1263966fdef6a6872ff5a4b09e5c' => 
     array (
       0 => 'C:\\Users\\david\\public_html\\ADC-Store\\Smarty\\smarty-dir\\templates\\profilefe.tpl',
-      1 => 1624979764,
+      1 => 1625004518,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_60db4f28c150f2_10406182 (Smarty_Internal_Template $_smarty_tpl) {
+function content_60db99f61a8693_21951074 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en">
 
@@ -99,7 +99,7 @@ Smarty/smarty-dir/assets/images/icon/logo.png"
                                     <li>
                                         <div class="mobile-back text-right">Back<i class="fa fa-angle-right pl-2"
                                                                                    aria-hidden="true"></i></div>
-                                    </li>
+                                   </li>
                                     <li>
                                         <a href="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
 GestioneSchermate/recuperaHome">Home</a>
@@ -121,7 +121,6 @@ GestioneSchermate/recuperaGestioneCarrello" data-lng="en">Carrello della spesa</
                                             <li><a href="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
 GestioneUtenti/logout" data-lng="en">Logout</a></li>
                                         </ul>
-
                                     </li>
                                     <li>
                                         <a href="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>

@@ -65,7 +65,7 @@
                                     <li>
                                         <div class="mobile-back text-right">Back<i class="fa fa-angle-right pl-2"
                                                                                    aria-hidden="true"></i></div>
-                                    </li>
+                                   </li>
                                     <li>
                                         <a href="{$path}GestioneSchermate/recuperaHome">Home</a>
                                     </li>
@@ -81,7 +81,6 @@
                                             <li><a href="{$path}GestioneSchermate/recuperaGestioneCarrello" data-lng="en">Carrello della spesa</a></li>
                                             <li><a href="{$path}GestioneUtenti/logout" data-lng="en">Logout</a></li>
                                         </ul>
-
                                     </li>
                                     <li>
                                         <a href="{$path}GestioneSchermate/chiSiamo">Chi siamo</a>

@@ -20,10 +20,10 @@ class VGestionePunti
         return $this->smarty->fetch('email-punti.tpl');
     }
 
-    public function mostraFormPunti(){
+    public function mostraFormPunti($utente,$utenti){
 
-        $gs = CGestioneSessioni::getInstance();
-        $this->smarty->assign("puntimax", $gs->caricaUtente()->getPunti());        
+        $this->smarty->assign("utenti", $utenti);
+        $this->smarty->assign("puntimax", $utente->getPunti());
         $this->smarty->assign("path", $GLOBALS["path"]);
         $this->smarty->display('regalapunti.tpl');
     }

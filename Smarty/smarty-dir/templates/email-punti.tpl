@@ -117,17 +117,7 @@
         style="background-color: #fff; -webkit-box-shadow: 0px 0px 14px -4px rgba(0, 0, 0, 0.2705882353);box-shadow: 0px 0px 14px -4px rgba(0, 0, 0, 0.2705882353);">
         <tbody>
             <tr>
-                <td>
-                    <table align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
-                        <tr class="header">
-                            <td align="left" valign="top">
-                                <img src="../assets/images/email-temp/logo.png" class="main-logo">
-                            </td>
-                 
-                        </tr>
-                    </table>
-                  
-                </td>
+
                 <th width="60%" style="background-color: #ff9933;padding: 30px;">
                     <table align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
                         <tr>
@@ -161,29 +151,7 @@
                 <div>
                     <h4 class="title" style="margin:0"></h4>
                 </div>
-                <table border="0" cellpadding="0" cellspacing="0" class="footer-social-icon" align="center"
-                    class="text-center" style="margin-top:20px;">
-                    <tr>
-                        <td>
-                            <a href="#"><img src="../assets/images/email-temp/facebook.png" alt=""></a>
-                        </td>
-                        <td>
-                            <a href="#"><img src="../assets/images/email-temp/youtube.png" alt=""></a>
-                        </td>
-                        <td>
-                            <a href="#"><img src="../assets/images/email-temp/twitter.png" alt=""></a>
-                        </td>
-                        <td>
-                            <a href="#"><img src="../assets/images/email-temp/gplus.png" alt=""></a>
-                        </td>
-                        <td>
-                            <a href="#"><img src="../assets/images/email-temp/linkedin.png" alt=""></a>
-                        </td>
-                        <td>
-                            <a href="#"><img src="../assets/images/email-temp/pinterest.png" alt=""></a>
-                        </td>
-                    </tr>
-                </table>
+
 
                  <div style="border-top: 1px solid #ddd; margin: 20px auto 0;"></div>
                 <table border="0" cellpadding="0" cellspacing="0" width="100%" style="margin: 20px auto 0;">

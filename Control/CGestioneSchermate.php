@@ -51,8 +51,17 @@ class CGestioneSchermate
     }
 
     public static function recuperaFormPunti() {
+        $pm = FPersistentManager::getInstance();
+        $gs = CGestioneSessioni::getInstance();
+        $utente = $pm->load('FUtenteReg', $gs->caricaUtente()->getEmail());
+        $utenti = $pm->prelevaUtenti();
+        foreach($utenti as $email=>$user){
+            $users[]=$user->getEmail();
+
+        }
+
         $v = new VGestionePunti();
-        $v->mostraFormPunti();
+        $v->mostraFormPunti($utente, $users);
     }
 
     public static function recuperaGestioneCarte() {

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-06-26 19:08:24
+/* Smarty version 3.1.39, created on 2021-06-29 22:13:04
   from 'C:\Users\david\public_html\ADC-Store\Smarty\smarty-dir\templates\email-punti.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_60d75f089a5791_96300452',
+  'unifunc' => 'content_60db7ed05af335_75478379',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '5775b011611ac44a5d2118732ab9ff360d588469' => 
     array (
       0 => 'C:\\Users\\david\\public_html\\ADC-Store\\Smarty\\smarty-dir\\templates\\email-punti.tpl',
-      1 => 1624711977,
+      1 => 1624997577,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_60d75f089a5791_96300452 (Smarty_Internal_Template $_smarty_tpl) {
+function content_60db7ed05af335_75478379 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en">
 
@@ -140,17 +140,7 @@ function content_60d75f089a5791_96300452 (Smarty_Internal_Template $_smarty_tpl)
         style="background-color: #fff; -webkit-box-shadow: 0px 0px 14px -4px rgba(0, 0, 0, 0.2705882353);box-shadow: 0px 0px 14px -4px rgba(0, 0, 0, 0.2705882353);">
         <tbody>
             <tr>
-                <td>
-                    <table align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
-                        <tr class="header">
-                            <td align="left" valign="top">
-                                <img src="../assets/images/email-temp/logo.png" class="main-logo">
-                            </td>
-                 
-                        </tr>
-                    </table>
-                  
-                </td>
+
                 <th width="60%" style="background-color: #ff9933;padding: 30px;">
                     <table align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
                         <tr>
@@ -188,29 +178,7 @@ function content_60d75f089a5791_96300452 (Smarty_Internal_Template $_smarty_tpl)
                 <div>
                     <h4 class="title" style="margin:0"></h4>
                 </div>
-                <table border="0" cellpadding="0" cellspacing="0" class="footer-social-icon" align="center"
-                    class="text-center" style="margin-top:20px;">
-                    <tr>
-                        <td>
-                            <a href="#"><img src="../assets/images/email-temp/facebook.png" alt=""></a>
-                        </td>
-                        <td>
-                            <a href="#"><img src="../assets/images/email-temp/youtube.png" alt=""></a>
-                        </td>
-                        <td>
-                            <a href="#"><img src="../assets/images/email-temp/twitter.png" alt=""></a>
-                        </td>
-                        <td>
-                            <a href="#"><img src="../assets/images/email-temp/gplus.png" alt=""></a>
-                        </td>
-                        <td>
-                            <a href="#"><img src="../assets/images/email-temp/linkedin.png" alt=""></a>
-                        </td>
-                        <td>
-                            <a href="#"><img src="../assets/images/email-temp/pinterest.png" alt=""></a>
-                        </td>
-                    </tr>
-                </table>
+
 
                  <div style="border-top: 1px solid #ddd; margin: 20px auto 0;"></div>
                 <table border="0" cellpadding="0" cellspacing="0" width="100%" style="margin: 20px auto 0;">

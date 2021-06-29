@@ -83,6 +83,7 @@
                                             <li><a href="{$path}GestioneSchermate/recuperaGestioneCarrello" data-lng="en">Carrello della spesa</a></li>
                                             <li><a href="{$path}GestioneUtenti/logout" data-lng="en">Logout</a></li>
                                         </ul>
+
                                     </li>
                                     <li>
                                         <a href="{$path}GestioneSchermate/chiSiamo">Chi siamo</a>
@@ -108,22 +109,7 @@
                     <div class="page-title">
                         <h2>regala dei punti</h2>
                     </div>
-                </div>
-                                    <ul id="main-menu" class="sm pixelstrap sm-horizontal">
-                                        <li>
-                                            <div class="mobile-back text-right">Back<i class="fa fa-angle-right pl-2"
-                                                    aria-hidden="true"></i></div>
-                                            <a href="{$path}GestioneSchermate/recuperaHomeAdmin">Home</a>
-                                        </li>
-                                        <li>
-                                            <a href="{$path}GestioneSchermate/apriProfilo">profilo</a>
-                                        </li>
-                                        <li>
-                                            <a href="{$path}GestioneProdotti/recuperaProdotti">prodotti</a>
-                                        </li>
-                                        <li ><a href="{$path}GestionePunti/recuperaPremi">premi</a>
-                                        <li >    
-                                    </ul>                
+                </div>               
                 <div class="col-sm-6">
                     <nav aria-label="breadcrumb" class="theme-breadcrumb">
                         <ol class="breadcrumb">
@@ -176,127 +162,109 @@
 
 
 <!-- footer start -->
-<footer class="footer-light">
-    <section class="section-b-space light-layout">
-        <div class="container">
-            <div class="row footer-theme partition-f">
-                <div class="col-lg-4 col-md-6">
-                    <div class="footer-title footer-mobile-title">
-                        <h4>about</h4>
+    <footer class="footer-light">
+        <section class="section-b-space light-layout">
+            <div class="container">
+                <div class="row footer-theme partition-f">
+                    <div class="col-lg-4 col-md-6">
+                        <div class="footer-title footer-mobile-title">
+                            <h4>about</h4>
+                        </div>
+                        <div class="footer-contant">
+                            <div class="footer-logo"><img src="{$path}Smarty/smarty-dir/assets/images/icon/logo.png" alt=""></div>
+                            <p>ADC-Store è la tua catena di supermercati di fiducia in Italia, grazie a un modello originale d’impresa. Noi poniamo al centro i nostri clienti, sempre. </p> <br>
+                            <p style="color: #0a0100">Seguici sulle nostre pagine social per non perderti nuove offerte!</p>
+                            <div class="footer-social">
+                                <ul>
+                                    <li><a href=""><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                                    <li><a href=""><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
+                                    <li><a href=""><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                                    <li><a href=""><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                                    <li><a href=""><i class="fa fa-rss" aria-hidden="true"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
-
-
+                    <div class="col offset-xl-1">
+                        <div class="sub-title">
+                                <div class="footer-title">
+                                    <h4>Il tuo ADC-Store</h4>
+                                </div>
+                                <div class="footer-contant">
+                                    <ul>
+                                        <li><a href="{$path}GestioneSchermate/apriProfilo">Il tuo profilo</a></li>
+                                        <li><a href="{$path}GestioneCarrello/recuperaCarrello">Il tuo carrello ADC-Store</a></li>
+                                    </ul>
+                                </div>
+                        </div>
+                    </div>
                     <div class="col">
-                        <div style="padding: 50" class="sub-title">
+                        <div class="sub-title">
                             <div class="footer-title">
-                                <h4>Informazioni store</h4>
+                                <h4>Scopri di più</h4>
+                            </div>
+                            <div class="footer-contant">
+                                <ul>
+                                    <li>
+                                        <a href="{$path}GestioneSchermate/chiSiamo">Chi siamo</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="sub-title">
+                            <div class="footer-title">
+                                <h4>informazioni</h4>
                             </div>
                             <div class="footer-contant">
                                 <ul class="contact-list">
-                                    <li><i class="fa fa-map-marker"></i>ADC Store, Avezzano(AQ)
+                                    <li><i class="fa fa-map-marker"></i>ADC Store
                                     </li>
-                                    <li><i class="fa fa-phone"></i>Call Us: 123-456-7898</li>
-                                    <li><i class="fa fa-envelope-o"></i>Email Us: adcstore2021@gmail.com</li>
-                                    <li><i class="fa fa-fax"></i>Fax: 123456</li>
+                                    <li><i class="fa fa-phone"></i>Chiamaci: 3314166000</li>
+                                    <li><i class="fa fa-envelope-o"></i>Scrivici: ADCStore@gmail.com</li>
+                                    <li><i class="fa fa-fax"></i>Fax: 1234567890</li>
                                 </ul>
                             </div>
-
-                    <div class="footer-contant">
-                        <div class="footer-logo"><img src="{$path}Smarty/smarty-dir/assets/images/icon/logo.png" alt=""></div>
-                        <p>ADC-Store è la tua catena di supermercati di fiducia in Italia, grazie a un modello originale d’impresa. Noi poniamo al centro i nostri clienti, sempre. </p> <br>
-                        <p style="color: #0a0100">Seguici sulle nostre pagine social per non perderti nuove offerte!</p>
-                        <div class="footer-social">
-                            <ul>
-                                <li><a href=""><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                                <li><a href=""><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
-                                <li><a href=""><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                                <li><a href=""><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-                                <li><a href=""><i class="fa fa-rss" aria-hidden="true"></i></a></li>
-                            </ul>
-
                         </div>
                     </div>
                 </div>
-                <div class="col offset-xl-1">
-                    <div class="sub-title">
-                        <div class="footer-title">
-                            <h4>Il tuo ADC-Store</h4>
-                        </div>
-                        <div class="footer-contant">
-                            <ul>
-                                <li><a href="{$path}GestioneSchermate/apriProfilo">Il tuo profilo</a></li>
-                                <li><a href="{$path}GestioneCarrello/recuperaCarrello">Il tuo carrello ADC-Store</a></li>
-                            </ul>
+            </div>
+        </section>
+        <div class="sub-footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-6 col-md-6 col-sm-12">
+                        <div class="footer-end">
+                            <p><i class="fa fa-copyright" aria-hidden="true"></i> 2020-21 Progetto di Programmazione Web</p>
                         </div>
                     </div>
-                </div>
-                <div class="col">
-                    <div class="sub-title">
-                        <div class="footer-title">
-                            <h4>Scopri di più</h4>
-                        </div>
-                        <div class="footer-contant">
+                    <div class="col-xl-6 col-md-6 col-sm-12">
+                        <div class="payment-card-bottom">
                             <ul>
                                 <li>
-                                    <a href="{$path}GestioneSchermate/chiSiamo">Chi siamo</a>
+                                    <a href=""><img src="{$path}Smarty/smarty-dir/assets/images/icon/visa.png" alt=""></a>
                                 </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="sub-title">
-                        <div class="footer-title">
-                            <h4>informationi</h4>
-                        </div>
-                        <div class="footer-contant">
-                            <ul class="contact-list">
-                                <li><i class="fa fa-map-marker"></i>ADC Store
+                                <li>
+                                    <a href=""><img src="{$path}Smarty/smarty-dir/assets/images/icon/mastercard.png" alt=""></a>
                                 </li>
-                                <li><i class="fa fa-phone"></i>Chiamaci: 3314166000</li>
-                                <li><i class="fa fa-envelope-o"></i>Scrivici: ADCStore@gmail.com</li>
-                                <li><i class="fa fa-fax"></i>Fax: 1234567890</li>
+                                <li>
+                                    <a href=""><img src="{$path}Smarty/smarty-dir/assets/images/icon/paypal.png" alt=""></a>
+                                </li>
+                                <li>
+                                    <a href=""><img src="{$path}Smarty/smarty-dir/assets/images/icon/american-express.png" alt=""></a>
+                                </li>
+                                <li>
+                                    <a href=""><img src="{$path}Smarty/smarty-dir/assets/images/icon/discover.png" alt=""></a>
+                                </li>
                             </ul>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
-    <div class="sub-footer">
-        <div class="container">
-            <div class="row">
-                <div class="col-xl-6 col-md-6 col-sm-12">
-                    <div class="footer-end">
-                        <p><i class="fa fa-copyright" aria-hidden="true"></i> 2020-21 Progetto di Programmazione Web</p>
-                    </div>
-                </div>
-                <div class="col-xl-6 col-md-6 col-sm-12">
-                    <div class="payment-card-bottom">
-                        <ul>
-                            <li>
-                                <a href=""><img src="{$path}Smarty/smarty-dir/assets/images/icon/visa.png" alt=""></a>
-                            </li>
-                            <li>
-                                <a href=""><img src="{$path}Smarty/smarty-dir/assets/images/icon/mastercard.png" alt=""></a>
-                            </li>
-                            <li>
-                                <a href=""><img src="{$path}Smarty/smarty-dir/assets/images/icon/paypal.png" alt=""></a>
-                            </li>
-                            <li>
-                                <a href=""><img src="{$path}Smarty/smarty-dir/assets/images/icon/american-express.png" alt=""></a>
-                            </li>
-                            <li>
-                                <a href=""><img src="{$path}Smarty/smarty-dir/assets/images/icon/discover.png" alt=""></a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</footer>
-<!-- footer end -->
+    </footer>
+    <!-- footer end -->
 
 
 
@@ -340,17 +308,25 @@
             document.getElementById("search-overlay").style.display = "none";
         }
 
-        function funzione() {
+        function funzione(){
             var email = document.dati.emaildest.value;
-            var punti = document.dati.punti.value;            
+            var punti = document.dati.punti.value;
+            var bool = false;
+
+           /* for ( var key in {$utenti}){
+                if ( email == {$utenti}[key] ){
+                    bool = true;
+                }
+            }*/
+
             if ( {$puntimax} == 0) {
                 alert("Non hai punti a sufficienza!")
 
-            }    
+            }
 
-            else if ( (email == "") || (email == "undefined")){
+            else if ( (email == "") || (email == "undefined") || !(email.includes("@"))){
                 alert( "Inserisci un destinatario valido")
-                
+
             }
 
             else if ( (punti == 0) || (punti > {$puntimax})){
@@ -358,15 +334,13 @@
                 alert("Inserisci una quantità di punti valida!");
             }
 
-            else { 
+            else {
                 alert("I punti sono stati inviati correttamente!");
                 document.dati.action = "{$path}GestionePunti/regalarePunti";
                 document.dati.submit();
-            }    
-
-
-
-        } 
+            }
+        }
+ 
         
 
     </script>
