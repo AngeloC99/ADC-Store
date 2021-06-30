@@ -19,47 +19,59 @@ class CFrontController
         $method = $_SERVER['REQUEST_METHOD'];
 
 
-        if ($path === "/~david/ADC-Store/" || $path === "/ADC-Store/" || $path === "/ADC-Store/index.php") {
+        //if ($path === "/~david/ADC-Store/" || $path === "/ADC-Store/" || $path === "/ADC-Store/index.php") {
 
-        //if ($path === "/~rommy/ADC-Store/" || $path === "/ADC-Store/" || $path === "/ADC-Store/index.php") {
 
-            CGestioneSchermate::showHome();
-        } else {
-            $gs=CGestioneSessioni::getInstance();
-            $res = explode("/", $path);
+        {
+            if ($path === "/~rommy/ADC-Store/" || $path === "/ADC-Store/" || $path === "/ADC-Store/index.php") {
+                CGestioneSchermate::showHome();
+            } else {
+                error_reporting(E_ERROR | E_PARSE);
+                setcookie("cookie_test", "cookie_value", time()+3600);
+                if ($_COOKIE["cookie_test"] == "cookie_value") //i cookie sono abilitati
+                {$gs=CGestioneSessioni::getInstance();
+                $res = explode("/", $path);
 
-            array_shift($res);
-            array_shift($res);
-            array_shift($res);            
+                array_shift($res);
+                array_shift($res);
+                array_shift($res);
 
-            if ($res[0] != '') {
+                if ($res[0] != '') {
 
-                $controller = "C" . $res[0];
-                $dir = 'Control';
-                $eledir = scandir($dir);
+                    $controller = "C" . $res[0];
+                    $dir = 'Control';
+                    $eledir = scandir($dir);
 
-                if(in_array($controller . ".php", $eledir)){
-                    if(isset($res[1])){
-                        $function = $res[1];
-                        if (method_exists($controller, $function)){
+                    if(in_array($controller . ".php", $eledir)){
+                        if(isset($res[1])){
+                            $function = $res[1];
+                            if (method_exists($controller, $function)){
 
-                            $param = array();
-                            for ($i = 2; $i < count($res); $i++) {
-                                $param[] = $res[$i];
+                                $param = array();
+                                for ($i = 2; $i < count($res); $i++) {
+                                    $param[] = $res[$i];
+                                }
+                                $num = count($param);
+                                if ($num == 0) $controller::$function();
+                                else if ($num == 1) $controller::$function($param[0]);
+                                else if ($num == 2) $controller::$function($param[0], $param[1]);
                             }
-                            $num = count($param);
-                            if ($num == 0) $controller::$function();
-                            else if ($num == 1) $controller::$function($param[0]);
-                            else if ($num == 2) $controller::$function($param[0], $param[1]);
                         }
                     }
+                }else{
+                    $controller = "CGestioneSchermate";
+                    $function = "showHome";
+                    $controller::$function();
                 }
-            }else{
-                $controller = "CGestioneSchermate";
-                $function = "showHome";
-                $controller::$function();
+
             }
+            else{
+                CGestioneSchermate::showCookie();
+
+            }}
 
         }
+
+
     }
 }

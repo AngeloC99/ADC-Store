@@ -119,7 +119,6 @@ class FCarrello
             $stmt1 = $pdo->prepare("DELETE FROM Contiene WHERE idcarrello = :idcarrello");
             $ris1 = $stmt1->execute([':idcarrello' => $id]);
             $pdo->commit();
-
             return $ris AND $ris1;
 
         } catch(PDOException $e) {
@@ -190,7 +189,6 @@ class FCarrello
                 ':idprodotto' => $idprod,
                 ':quantitaNelCarrello' => $quantita));
         }
-
         return $ris;
     }
 

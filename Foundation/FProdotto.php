@@ -40,10 +40,12 @@ class FProdotto
         $rows=$stmt->fetchAll(PDO::FETCH_ASSOC);
         $idImm=$rows[0]['idImmagine'];
         $pdo->beginTransaction();
+        $pdo->exec('LOCK TABLES Prodotto, Immagine');
         $stmt=$pdo->prepare("DELETE FROM Prodotto WHERE id=:id");
         $ris=$stmt->execute([":id" => $key]);
         $ris2=FImmagine::delete($idImm);
         $pdo->commit();
+        $pdo->exec('UNLOCK TABLES');
         return $ris && $ris2;
         }
         catch (PDOException $e){
@@ -121,10 +123,12 @@ class FProdotto
         try{
         $pdo=FConnectionDB::connect();
         $pdo->beginTransaction();
+        $pdo->exec('LOCK TABLES Prodotto, Immagine');
         $stmt1 = $pdo->prepare("UPDATE Prodotto SET nome = :nome, descrizione = :des, tipologia = :tip, quantita = :quant, marca = :marca, prezzo = :prezzo WHERE id=:id");
         $ris1 = $stmt1->execute([':nome'=>$obj1->getNome(), ':des'=>$obj1->getDescrizione(),':tip'=>$obj1->getTipologia(),':quant'=>$obj1->getQuantita(),':marca'=>$obj1->getMarca(),':prezzo'=>$obj1->getPrezzo(),':id'=>$obj1->getId()]);
         $ris2 = FImmagine::update($obj1->getImmagine());
         $pdo->commit();
+        $pdo->exec('UNLOCK TABLES');
         return $ris1 && $ris2;
         }
         catch (PDOException $e){

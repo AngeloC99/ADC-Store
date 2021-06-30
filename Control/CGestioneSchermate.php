@@ -7,6 +7,10 @@ class CGestioneSchermate
         $v = new VGestioneSchermate();
         $v->showHome();
     }
+    public static function showCookie() {
+        $v=new VGestioneSchermate();
+        $v->mostraCookie();
+    }
 
     public static function apriProfilo(){
         $pm = FPersistentManager::getInstance();

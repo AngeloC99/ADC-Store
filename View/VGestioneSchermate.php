@@ -31,4 +31,9 @@ class VGestioneSchermate
         $this->smarty->display('404.tpl');
     }
 
+    public function mostraCookie(){
+        $this->smarty->assign("path", $GLOBALS["path"]);
+        $this->smarty->display('cookieTest.tpl');
+    }
+
 }
