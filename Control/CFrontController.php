@@ -18,18 +18,24 @@ class CFrontController
         ini_set('session.gc_maxlifetime',3600);
         $method = $_SERVER['REQUEST_METHOD'];
 
+        error_reporting(E_ERROR | E_PARSE);
 
-        //if ($path === "/~david/ADC-Store/" || $path === "/ADC-Store/" || $path === "/ADC-Store/index.php") {
+        setcookie("cookie_test", "cookie_value", time()+3600);
+        if ($_COOKIE["cookie_test"] == "cookie_value") {
+            $cookie = true;//i cookie sono abilitati
+        }
+        else {
+            $cookie = false;
+        }
 
 
-        {
+        if($cookie==true) {
             if ($path === "/~rommy/ADC-Store/" || $path === "/ADC-Store/" || $path === "/ADC-Store/index.php") {
                 CGestioneSchermate::showHome();
             } else {
                 error_reporting(E_ERROR | E_PARSE);
-                setcookie("cookie_test", "cookie_value", time()+3600);
-                if ($_COOKIE["cookie_test"] == "cookie_value") //i cookie sono abilitati
-                {$gs=CGestioneSessioni::getInstance();
+
+                $gs = CGestioneSessioni::getInstance();
                 $res = explode("/", $path);
 
                 array_shift($res);
@@ -42,10 +48,10 @@ class CFrontController
                     $dir = 'Control';
                     $eledir = scandir($dir);
 
-                    if(in_array($controller . ".php", $eledir)){
-                        if(isset($res[1])){
+                    if (in_array($controller . ".php", $eledir)) {
+                        if (isset($res[1])) {
                             $function = $res[1];
-                            if (method_exists($controller, $function)){
+                            if (method_exists($controller, $function)) {
 
                                 $param = array();
                                 for ($i = 2; $i < count($res); $i++) {
@@ -58,20 +64,22 @@ class CFrontController
                             }
                         }
                     }
-                }else{
+                } else {
                     $controller = "CGestioneSchermate";
                     $function = "showHome";
                     $controller::$function();
                 }
-
             }
-            else{
-                CGestioneSchermate::showCookie();
-
-            }}
-
         }
 
 
-    }
+        else{
+            CGestioneSchermate::showCookie();
+
+            }}
+
+
+
+
+
 }
