@@ -127,7 +127,7 @@ class CGestionePunti
             $prize->setQuantita($prize->getQuantita() - $_POST['quantita']);
             $pm->update($user);
             $pm->update($prize);
-            $gs->salvaUtenteNoCookie($user);
+            $gs->salvaUtente($user);
 
             self::recuperaPremi();
         }
@@ -160,7 +160,7 @@ class CGestionePunti
             $receiver->setPunti($receiver->getPunti() + $_POST['punti']);
             $pm->update($receiver);
             $pm->update($sender);
-            $gs->salvaUtenteNoCookie($sender);
+            $gs->salvaUtente($sender);
 
             $mail = new PHPMailer(true);
             try{

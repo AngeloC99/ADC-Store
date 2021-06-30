@@ -192,7 +192,7 @@ class CGestioneCarrello
             $pm->store($ordine);
             $pm->update($carta);
             $pm->update($utente);
-            $gs->salvaUtenteNoCookie($utente);
+            $gs->salvaUtente($utente);
 
             foreach ($carrello->getProdotti() as $idProdotto => $quantita) {
                 $prodotto = $pm->load("FProdotto", $idProdotto);

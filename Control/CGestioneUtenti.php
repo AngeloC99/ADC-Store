@@ -82,7 +82,7 @@ class CGestioneUtenti
         if ($pm->exist("FUtenteReg", $email)) {
             $utente = $pm->load("FUtenteReg", $email);
             if (password_verify($password, $utente->getPassword())) {
-                $gs->salvaUtenteNoCookie($utente);
+                $gs->salvaUtente($utente);
                 $gs->salvaCarrello(new ECarrello());
                 header("Location: ".$GLOBALS['path'] ."GestioneSchermate/recuperaHome");
             } else {
