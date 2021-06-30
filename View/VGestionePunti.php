@@ -57,9 +57,9 @@ class VGestionePunti
      * Metodo che permette di mostrare la schermata relativa all'aggiunta di un premio.
      * @throws SmartyException
      */
-    public function mostraAggiungiPremi(){
+    public function mostraAggiungiPremi($admin){
         $this->smarty->assign("path", $GLOBALS["path"]);
-        $this->smarty->assign("nomeadmin", $gs->caricaUtente()->getNome());        
+        $this->smarty->assign("nomeadmin", $admin->getNome());
         $this->smarty->display('aggiungi-premi.tpl');
     }
 

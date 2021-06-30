@@ -42,11 +42,9 @@ class VGestioneBuoni
      * @throws SmartyException
      */
     public function datiBsEmail($buonoSconto){
-        echo $buonoSconto->isPercentuale();
         $this->smarty->assign('path', $GLOBALS["path"]);
         $this->smarty->assign('codice',$buonoSconto->getCodice());
         $val="-".$buonoSconto->getAmmontare();
-        echo $buonoSconto->isPercentuale();
         if ($buonoSconto->isPercentuale()==true){
             $this->smarty->assign('valore',$val."%");
         }
@@ -55,8 +53,7 @@ class VGestioneBuoni
         }
         $this->smarty->assign('scadenza',$buonoSconto->getScadenza()->format('d-m-Y'));
         $this->smarty->assign('messaggio',$buonoSconto->getMessaggio());
-        return $this->smarty->fetch('email-temp.tpl'); //da risolvere ancora
-        //$this->smarty->display('email-temp.tpl'); //ok funziona
+        return $this->smarty->fetch('email-temp.tpl');
 
     }
 

@@ -24,5 +24,11 @@ function myautoload($class_name) {
             break;
     }
 }
+function autoload_mailer(){
+    include_once 'PHPMailer-master\src\PHPMailer.php';
+    include_once 'PHPMailer-master\src\Exception.php';
+    include_once 'PHPMailer-master\src\SMTP.php';
+}
 
 spl_autoload_register("myautoload");
+spl_autoload_register("autoload_mailer");

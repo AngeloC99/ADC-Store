@@ -1,17 +1,17 @@
 <?php
 
 
+/**
+ * CFrontController gestisce i vari reindirizzamenti all'interno del sito.
+ * Class CFrontController
+ */
 class CFrontController
 {
-    /**
-     * Funzione che permette di visualizzare una pagina 401 Unauthorised, con relativa intestazione HTTP, se l'utente tenta di accedere ad una pagina per la quale non è autorizzato.
-     */
-    public static function unauthorized() {
-        header("HTTP/1.1 401 Unauthorized");
-        header("Location: ".$GLOBALS['path'] ."GestioneSchermate/recupera401");
-        die;
-    }
 
+    /**
+     * Metodo che viene richiamato ogni volta che viene effettuata una richiesta all'interno del sito. Si occupa di richiamare i vari controllori necessari per l'esecuzione della richiesta effettuata (con eventuali parametri).
+     * @param string $path
+     */
     public static function run(string $path)
     {
         ini_set('session.gc_probability', 10);
@@ -20,13 +20,13 @@ class CFrontController
 
         error_reporting(E_ERROR | E_PARSE);
 
-        if ($path === "/~david/ADC-Store/" || $path === "/ADC-Store/" || $path === "/ADC-Store/index.php") {
+        if ($path === "/~rommy/ADC-Store/" || $path === "/ADC-Store/" || $path === "/ADC-Store/index.php") {
             setcookie("cookie_test", "cookie_value", time() + 3600);
             CGestioneSchermate::showHome();
         } else {
             error_reporting(E_ERROR | E_PARSE);
             if ($_COOKIE["cookie_test"] == "cookie_value") {
-                $cookie = true;//i cookie sono abilitati
+                $cookie = true;
             } else {
                 $cookie = false;
             }
@@ -68,7 +68,7 @@ class CFrontController
                     $function = "showHome";
                     $controller::$function();
                 }
-            } //setcookie("cookie_test", "cookie_value", time()-3600);
+            }
 
             else {
                 CGestioneSchermate::showCookie();

@@ -64,4 +64,12 @@ class VGestioneSchermate
         $this->smarty->display('cookieTest.tpl');
     }
 
+    /**
+     * Metodo che permette di recuperare la schermata di errore nella registrazione (email già registrata).
+     * @throws SmartyException
+     */
+    public function mostraErroreReg(){
+        $this->smarty->assign("path", $GLOBALS["path"]);
+        $this->smarty->display('ErroreReg.tpl');
+    }
 }

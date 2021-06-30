@@ -13,6 +13,8 @@ class CGestioneUtenti
      */
     public static function recuperaClienti()
     {
+        $gs=CGestioneSessioni::getInstance();
+        if($gs->isLoggedAdmin()){
         $pm = FPersistentManager::getInstance();
         $clientirec = $pm->prelevaUtenti();
         $clienti = array();
@@ -25,7 +27,10 @@ class CGestioneUtenti
             $clienti[] = $el;
         }
         $v = new VGestioneUtenti();
-        $v->mostraClienti($clienti);
+        $v->mostraClienti($clienti);}
+        else{
+            CGestioneSchermate::recupera401();
+        }
 
     }
 
@@ -38,11 +43,17 @@ class CGestioneUtenti
      */
     public static function registra()
     {
-        $utente = new EUtenteReg($_POST['nome'], $_POST['cognome'], $_POST['email'], $_POST['password']);
         $pm = FPersistentManager::getInstance();
+        if(!$pm->exist('FUtenteReg',$_POST['email'])){
+        $utente = new EUtenteReg($_POST['nome'], $_POST['cognome'], $_POST['email'], $_POST['password']);
         $pm->store($utente);
         $v=new VGestioneUtenti();
-        $v->mostraLogin();
+        $v->mostraLogin();}
+        else{
+            $v=new VGestioneSchermate();
+            $v->mostraErroreReg();
+        }
+
     }
 
 
@@ -115,8 +126,12 @@ class CGestioneUtenti
      */
     public static function logout(){
         $gs = CGestioneSessioni::getInstance();
+        if ($gs->isLoggedAdmin() || $gs->isLoggedUser()){
         $gs->distruggiSessione();
-        header("Location: ".$GLOBALS['path']."GestioneSchermate/showHome");
+        header("Location: ".$GLOBALS['path']."GestioneSchermate/showHome");}
+        else{
+            CGestioneSchermate::recupera401();
+        }
     }
 
     /**
@@ -125,7 +140,6 @@ class CGestioneUtenti
     public static function recuperaCreazioneAccount(){
         $v=new VGestioneUtenti();
         $v->mostraCreazioneAccount();
-
     }
 
 

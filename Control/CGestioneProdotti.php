@@ -45,7 +45,7 @@ class CGestioneProdotti
             $v->mostraAggiuntaProdotto($utente);
         }
         else{
-            header("Location: ".$GLOBALS['path']."GestioneSchermate/recupera401");
+            CGestioneSchermate::recupera401();
 
         }
     }
@@ -175,7 +175,7 @@ class CGestioneProdotti
             header("Location: ".$GLOBALS['path']."GestioneProdotti/recuperaDettagli/".$_POST['idProdotto']);
         }
         else {
-            header("Location: ".$GLOBALS['path']."GestioneSchermate/recupera401");
+            CGestioneSchermate::recupera401();
         }
     }
 

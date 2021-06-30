@@ -82,15 +82,20 @@ class CGestioneSchermate
     public static function recuperaFormPunti() {
         $pm = FPersistentManager::getInstance();
         $gs = CGestioneSessioni::getInstance();
-        $utente = $pm->load('FUtenteReg', $gs->caricaUtente()->getEmail());
-        $utenti = $pm->prelevaUtenti();
-        foreach($utenti as $email=>$user){
-            $users[]=$user->getEmail();
+        if($gs->isLoggedUser()) {
+            $utente = $pm->load('FUtenteReg', $gs->caricaUtente()->getEmail());
+            $utenti = $pm->prelevaUtenti();
+            foreach ($utenti as $email => $user) {
+                $users[] = $user->getEmail();
 
+            }
+
+            $v = new VGestionePunti();
+            $v->mostraFormPunti($utente, $users);
         }
-
-        $v = new VGestionePunti();
-        $v->mostraFormPunti($utente, $users);
+        else{
+            CGestioneSchermate::recupera401();
+        }
     }
 
     /**
@@ -122,28 +127,16 @@ class CGestioneSchermate
     }
 
     /**
-     *
-     */
-    public static function recuperaHomeUtente() {
-        $v = new VGestioneUtenti();
-        $v->mostraHomeUtente();
-    }
-
-    /**
-     *
-     */
-    public static function recuperaHomeAdmin() {
-        $v = new VGestioneUtenti();
-        $v->mostraHomeAdmin();
-    }
-
-
-    /**
      * Metodo che richiama la schermata relativa all'aggiunta di un premio
      */
     public static function recuperaAggiungiPremi() {
+        $gs=CGestioneSessioni::getInstance();
+        if ($gs->isLoggedAdmin()){
         $v = new VGestionePunti();
-        $v->mostraAggiungiPremi();
+        $v->mostraAggiungiPremi();}
+        else{
+            CGestioneSchermate::recupera401();
+        }
     }
 
     /**

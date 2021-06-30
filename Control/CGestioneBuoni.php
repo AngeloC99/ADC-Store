@@ -2,10 +2,6 @@
 
 use PHPMailer\PHPMailer\PHPMailer;
 
-require('C:\Users\rommy\public_html\ADC-Store\PHPMailer-master\src\PHPMailer.php');
-require('C:\Users\rommy\public_html\ADC-Store\PHPMailer-master\src\Exception.php');
-require('C:\Users\rommy\public_html\ADC-Store\PHPMailer-master\src\SMTP.php');
-
 /**
  * CGestioneBuoni è la classe che si occupa della gestione dei buoni sconto, permettendo la comunicazione
  * fra le classi View, Entity e Foundation ad essi legate.
@@ -60,11 +56,16 @@ class CGestioneBuoni
      */
     public static function inviaBuono(){
         $gs=CGestioneSessioni::getInstance();
+        $utente=$gs->caricaUtente();
         if ($gs->isLoggedAdmin()){
             $admin=$gs->caricaUtente();
-        $buono=$admin->preparaBuono($_POST['percentuale'],$_POST['ammontare'],$_POST['email']);
+            if($_POST['percentuale']=='Percentuale'){
+                $buono=$admin->preparaBuono(true,$_POST['ammontare'],$_POST['email']);}
+            else{
+                $buono=$admin->preparaBuono(false,$_POST['ammontare'],$_POST['email']);}
         $buono->setCodice($_POST['codice']);
         $mail = new PHPMailer();
+        $mail->CharSet = 'UTF-8';
         $mail->IsSMTP(); // enable SMTP
         $mail->SMTPDebug = 0;
         $mail->SMTPOptions = array(
@@ -88,7 +89,7 @@ class CGestioneBuoni
         $mail->Body = $v->datiBsEmail($buono);
         $pm=FPersistentManager::getInstance();
         $pm->store($buono,$_POST['email']);
-        $v->mostraCreazioneBuono();
+        $v->mostraCreazioneBuono($utente->getNome());
         if(!$mail->Send()) {
             return false;
         } else {
@@ -106,9 +107,13 @@ class CGestioneBuoni
      */
     public static function recuperaCreazioneBuono(){
         $gs = CGestioneSessioni::getInstance();
-        $nome = $gs->caricaUtente()->getNome();
-        $v=new VGestioneBuoni();
-        $v->mostraCreazioneBuono($nome);
+        if ($gs->isLoggedAdmin()){
+            $nome = $gs->caricaUtente()->getNome();
+            $v=new VGestioneBuoni();
+            $v->mostraCreazioneBuono($nome);}
+        else{
+            CGestioneSchermate::recupera401();
+        }
     }
 
 

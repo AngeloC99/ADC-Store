@@ -1,11 +1,6 @@
 <?php
 
 use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\SMTP;
-require('C:\Users\david\public_html\ADC-Store\PHPMailer-master\src\PHPMailer.php');
-require('C:\Users\david\public_html\ADC-Store\PHPMailer-master\src\Exception.php');
-require('C:\Users\david\public_html\ADC-Store\PHPMailer-master\src\SMTP.php');
-
 
 /**
  * Classe Controller per gestire premi e punti
@@ -66,8 +61,7 @@ class CGestionePunti
         }        
 
         else{
-
-            header("Location: ".$GLOBALS['path']."GestioneSchermate/recupera401");
+            CGestioneSchermate::recupera401();
         }
     }
 
@@ -108,8 +102,8 @@ class CGestionePunti
             }
 
             else{
-                header("Location: ".$GLOBALS['path']."GestioneSchermate/recupera401");
-            }    
+                CGestioneSchermate::recupera401();
+            }
         }            
 
         else {
@@ -127,7 +121,6 @@ class CGestionePunti
 
         $pm = FPersistentManager::getInstance();
         $gs = CGestioneSessioni::getInstance();
-        //$user = $pm->load('FUtenteReg', $utente->getEmail());
         if ($gs->isLoggedUser()) {
             $user = $gs->caricaUtente();
             $prize = $pm->load('FPremio', $id);
@@ -137,13 +130,12 @@ class CGestionePunti
             $pm->update($user);
             $pm->update($prize);
             $gs->salvaUtente($user);
-
             self::recuperaPremi();
         }
 
         else{
-                header("Location: " . $GLOBALS['path'] . "GestioneSchermate/recupera401");
-            }
+            CGestioneSchermate::recupera401();
+        }
     }
 
     /**
@@ -159,7 +151,7 @@ class CGestionePunti
             header("Location: ".$GLOBALS['path']."GestionePunti/selezionaPremio/".$_POST['idPremio']);
         }
         else {
-            header("Location: ".$GLOBALS['path']."GestioneSchermate/recupera401");
+            CGestioneSchermate::recupera401();
         }
     }
 
@@ -184,6 +176,7 @@ class CGestionePunti
 
             $mail = new PHPMailer(true);
             try{
+                $mail->CharSet = 'UTF-8';
                 $mail->IsSMTP(); // enable SMTP
                 $mail->SMTPDebug = 0;
                 $mail->SMTPOptions = array(
@@ -219,8 +212,7 @@ class CGestionePunti
             }  
         }
         else{
-            header("Location: ".$GLOBALS['path']."GestioneSchermate/recupera401");
-
+            CGestioneSchermate::recupera401();
         }            
 
     }
@@ -259,14 +251,12 @@ class CGestionePunti
         }
 
         else{
-            header("Location: ".$GLOBALS['path']."GestioneSchermate/recupera401");
-
+            CGestioneSchermate::recupera401();
         }        
 
     }
 
     public static function recuperaAggiungiPremio() {
-
         $gs=CGestioneSessioni::getInstance();
         if ($gs->isLoggedAdmin()){
             $admin=$gs->caricaUtente();
@@ -274,8 +264,7 @@ class CGestionePunti
             $v->mostraAggiungiPremi($admin);
         }
         else{
-            header("Location: ".$GLOBALS['path']."GestioneSchermate/recupera401");
-
+            CGestioneSchermate::recupera401();
         }
     }     
 

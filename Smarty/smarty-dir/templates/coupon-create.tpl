@@ -139,39 +139,40 @@
                     <div class="card-body">
                         <ul class="nav nav-tabs tab-coupon" id="myTab" role="tablist">
                         </ul>
-                        <form class="needs-validation" novalidate="" action="{$path}GestioneBuoni/inviaBuono" method="post">
+                        <form class="needs-validation" action="{$path}GestioneBuoni/inviaBuono" method="post">
                             <div class="tab-content" id="myTabContent">
                                 <div class="tab-pane fade active show" id="general" role="tabpanel" aria-labelledby="general-tab">
                                     <div class="row">
                                         <div class="col-sm-12">
-                                            <div class="form-group row">
-                                                <label for="validationCustom1" class="col-xl-3 col-md-4">Codice Buono</label>
-                                                <input class="form-control col-md-7" id="cod" type="text" value="" name="codice" readonly="readonly">
+                                            <div class="form-group mb-3 row">
+                                                <label for="validationCustom01" class="col-xl-3 col-sm-4 mb-0">Codice :</label>
+                                                <input class="form-control col-md-7" id="cod" type="text" value="" name="codice" readonly="readonly" required>
                                                 <input type="button"
                                                        name="genera"
                                                        id="genCod"
                                                        value="Genera codice"
-                                                       onclick="Funzione2()"/> </td>
+                                                       onclick="Funzione2()"/>
                                             </div>
-                                            <div class="form-group row">
-                                                <label class="col-xl-3 col-md-4"><span>*</span>Email destinatario</label>
-                                                <input class="form-control col-md-7" id="validationCustom1" type="text" name="email">
+                                            <div class="form-group mb-3 row">
+                                                <label for="validationCustom01" class="col-xl-3 col-sm-4 mb-0">Email destinatario :</label>
+                                                <input class="form-control col-xl-8 col-sm-7" id="validationCustom01" type="email" name='email' required="">
+                                                <div class="valid-feedback">Ok!</div>
                                             </div>
-                                            <div class="form-group row">
-                                                <label class="col-xl-3 col-md-4"><span>*</span>Ammontare</label>
-                                                <input class="form-control col-md-7" id="validationCustom1" type="text" name="ammontare">
+                                            <div class="form-group mb-3 row">
+                                                <label for="validationCustom01" class="col-xl-3 col-sm-4 mb-0">Ammontare :</label>
+                                                <input class="form-control col-xl-8 col-sm-7" id="validationCustom01" type="number" name='ammontare' required="" min="1">
+                                                <div class="valid-feedback">Ok!</div>
                                             </div>
-                                            <div class="form-group row">
-                                                <label class="col-xl-3 col-md-4"><span>*</span>Tipo di importo</label>
-                                                <select class="custom-select col-md-7" required="" name="percentuale">
-                                                    <option value="">--Select--</option>
-                                                    <option value="true">Percentuale</option>
-                                                    <option value="false">Assoluto</option>
+                                            <div class="form-group mb-3 row">
+                                                <label for="validationCustom01" class="col-xl-3 col-sm-4 mb-0">Tipo di importo :</label>
+                                                <select class="form-control col-xl-8 col-sm-7" required name="percentuale">
+                                                    <option>Percentuale</option>
+                                                    <option>Assoluto</option>
                                                 </select>
                                             </div>
                                             <div class="form-group row">
                                                 <label class="col-xl-3 col-md-4">Extra</label>
-                                                <textarea name="mex">Lascia qui un tuo messaggio... </textarea>
+                                                <textarea name="mex" placeholder="Lascia qui il tuo messaggio..."> </textarea>
                                             </div>
                                         </div>
                                     </div>
@@ -179,7 +180,7 @@
                                 </div>
                             </div>
                             <div class="pull-right">
-                                <button type="submit" class="btn btn-solid" href="{$path}GestioneBuoni/recuperaCreazioneBuono" >INVIA</button>
+                                <button type="submit" class="btn btn-primary" href="{$path}GestioneBuoni/recuperaCreazioneBuono" >INVIA</button>
                             </div>
                         </form>
                     </div>
