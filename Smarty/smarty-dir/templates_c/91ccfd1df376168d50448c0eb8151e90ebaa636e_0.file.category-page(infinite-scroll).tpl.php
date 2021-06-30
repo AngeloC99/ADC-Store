@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-06-30 11:32:31
+/* Smarty version 3.1.39, created on 2021-06-30 18:32:16
   from 'C:\Users\david\public_html\ADC-Store\Smarty\smarty-dir\templates\category-page(infinite-scroll).tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_60dc3a2fccfdf4_25151281',
+  'unifunc' => 'content_60dc9c90db1e43_63577036',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '91ccfd1df376168d50448c0eb8151e90ebaa636e' => 
     array (
       0 => 'C:\\Users\\david\\public_html\\ADC-Store\\Smarty\\smarty-dir\\templates\\category-page(infinite-scroll).tpl',
-      1 => 1625045234,
+      1 => 1625070729,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_60dc3a2fccfdf4_25151281 (Smarty_Internal_Template $_smarty_tpl) {
+function content_60dc9c90db1e43_63577036 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en">
 
@@ -179,6 +179,38 @@ GestioneBuoni/recuperaCreazioneBuono" data-lng="en">Regala Buono</a></li>
                                             </ul>
                                         </li>
                                     <?php }?>
+                                    <li class="onhover-div mobile-search">
+                                        <div><img src="../assets/images/icon/search.png" onclick="openSearch()" class="img-fluid blur-up lazyload" alt="">
+                                            <i class="ti-search" onclick="openSearch()"></i></div>
+                                        <div id="search-overlay" class="search-overlay">
+                                            <div>
+                                                <span class="closebtn" onclick="closeSearch()" title="Close Overlay">×</span>
+                                                <div class="overlay-content">
+                                                    <div class="container">
+                                                        <div class="row">
+                                                            <div class="col-xl-12">
+                                                                <form method="post" action="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+GestioneProdotti/recuperaProdotto">
+                                                                    <h3>Ricerca per:</h3>
+                                                                    <div>
+                                                                        <h5>Tipologia <input type="radio" id="contactChoice1"
+                                                                                             name="selection" value="tipologia" checked/></h5>
+                                                                        <h5>Nome <input type="radio" id="contactChoice1"
+                                                                                        name="selection" value="nome"/></h5>
+                                                                    </div>
+                                                                    <div class="form-group">
+                                                                        <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Cerca un prodotto" name="ricerca">
+                                                                    </div>
+
+                                                                </form>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+
                                 </ul>
                             </nav>
                         </div>
@@ -660,13 +692,7 @@ Smarty/smarty-dir/assets/images/pro3/1.jpg" alt="" class="img-fluid blur-up lazy
 
 
     <!-- theme setting -->
-    <a href="javascript:void(0)" onclick="openSetting()">
-        <div class="setting-sidebar" id="setting-icon">
-            <div>
-                <i class="fa fa-cog" aria-hidden="true"></i>
-            </div>
-        </div>
-    </a>
+
     <div id="setting_box" class="setting-box">
         <a href="javascript:void(0)" class="overlay" onclick="closeSetting()"></a>
         <div class="setting_box_body">

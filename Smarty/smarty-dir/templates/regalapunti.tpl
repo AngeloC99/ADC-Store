@@ -131,7 +131,7 @@
                     <h3>regala dei punti</h3>
 
                     <div class="theme-card">
-                        <form class="theme-form" method="post" name="dati">
+                        <form class="theme-form" method="post" name="dati" action="{$path}GestionePunti/regalarePunti">
                             <div class="form-row">
                                 <div class="col-md-6">
                                     <label for="email">A chi vuoi regalare i punti?</label>
@@ -140,7 +140,7 @@
                                 </div>
                                 <div class="col-md-6">
                                     <label for="review">Quanti punti vuoi regalare?</label>
-                                    <input type="number" min ="1" class="form-control" id="lname" placeholder="Inserisci I Punti - max: {$puntimax}" name="punti"
+                                    <input type="number" class="form-control" id="lname" placeholder="Inserisci I Punti - max: {$puntimax}" name="punti"
                                         required min="1" max="{$puntimax}">
                                 </div>
                             </div>
@@ -149,7 +149,7 @@
                                     <label for="email">Vuoi lasciare un messaggio?</label>
                                     <input type="text" class="form-control" id="email" placeholder="Messaggio" name="Messaggio">
                                 </div>
-                                <button type="submit" onclick="funzione()" class="btn btn-solid">invia</button>
+                                <button type="submit" class="btn btn-solid">invia</button>
                             </div>
                         </form>
                     </div>
@@ -307,40 +307,7 @@
             document.getElementById("search-overlay").style.display = "none";
         }
 
-        function funzione(){
-            var email = document.dati.emaildest.value;
-            var punti = document.dati.punti.value;
-            var bool = false;
 
-
-
-           /* for ( var key in {$utenti}){
-                if ( email == {$utenti}[key] ){
-                    bool = true;
-                }
-            }*/
-
-            if ( {$puntimax} == 0) {
-                alert("Non hai punti a sufficienza!")
-
-            }
-
-            else if ( (email == "") || (email == "undefined") || !(email.includes("@"))){
-                alert( "Inserisci un destinatario valido")
-
-            }
-
-            else if ( (punti == 0) || (punti > {$puntimax})){
-
-                alert("Inserisci una quantità di punti valida!");
-            }
-
-            else {
-                alert("I punti sono stati inviati correttamente!");
-                document.dati.action = "{$path}GestionePunti/regalarePunti";
-                document.dati.submit();
-            }
-        }
  
         
 

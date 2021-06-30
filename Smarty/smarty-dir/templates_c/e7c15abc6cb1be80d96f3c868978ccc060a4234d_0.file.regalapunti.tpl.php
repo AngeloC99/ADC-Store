@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-06-30 12:22:13
+/* Smarty version 3.1.39, created on 2021-06-30 18:06:27
   from 'C:\Users\david\public_html\ADC-Store\Smarty\smarty-dir\templates\regalapunti.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_60dc45d56a8073_40230164',
+  'unifunc' => 'content_60dc9683627f84_73668369',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'e7c15abc6cb1be80d96f3c868978ccc060a4234d' => 
     array (
       0 => 'C:\\Users\\david\\public_html\\ADC-Store\\Smarty\\smarty-dir\\templates\\regalapunti.tpl',
-      1 => 1625048530,
+      1 => 1625069164,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_60dc45d56a8073_40230164 (Smarty_Internal_Template $_smarty_tpl) {
+function content_60dc9683627f84_73668369 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en">
 
@@ -174,7 +174,8 @@ GestioneSchermate/recuperaHome">Home</a></li>
                     <h3>regala dei punti</h3>
 
                     <div class="theme-card">
-                        <form class="theme-form" method="post" name="dati">
+                        <form class="theme-form" method="post" name="dati" action="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+GestionePunti/regalarePunti">
                             <div class="form-row">
                                 <div class="col-md-6">
                                     <label for="email">A chi vuoi regalare i punti?</label>
@@ -183,7 +184,7 @@ GestioneSchermate/recuperaHome">Home</a></li>
                                 </div>
                                 <div class="col-md-6">
                                     <label for="review">Quanti punti vuoi regalare?</label>
-                                    <input type="number" min ="1" class="form-control" id="lname" placeholder="Inserisci I Punti - max: <?php echo $_smarty_tpl->tpl_vars['puntimax']->value;?>
+                                    <input type="number" class="form-control" id="lname" placeholder="Inserisci I Punti - max: <?php echo $_smarty_tpl->tpl_vars['puntimax']->value;?>
 " name="punti"
                                         required min="1" max="<?php echo $_smarty_tpl->tpl_vars['puntimax']->value;?>
 ">
@@ -194,7 +195,7 @@ GestioneSchermate/recuperaHome">Home</a></li>
                                     <label for="email">Vuoi lasciare un messaggio?</label>
                                     <input type="text" class="form-control" id="email" placeholder="Messaggio" name="Messaggio">
                                 </div>
-                                <button type="submit" onclick="funzione()" class="btn btn-solid">invia</button>
+                                <button type="submit" class="btn btn-solid">invia</button>
                             </div>
                         </form>
                     </div>
@@ -392,31 +393,14 @@ Smarty/smarty-dir/assets/js/script.js"><?php echo '</script'; ?>
             var bool = false;
 
 
-
-           /* for ( var key in <?php echo $_smarty_tpl->tpl_vars['utenti']->value;?>
-){
-                if ( email == <?php echo $_smarty_tpl->tpl_vars['utenti']->value;?>
-[key] ){
-                    bool = true;
-                }
-            }*/
-
             if ( <?php echo $_smarty_tpl->tpl_vars['puntimax']->value;?>
  == 0) {
                 alert("Non hai punti a sufficienza!")
 
             }
 
-            else if ( (email == "") || (email == "undefined") || !(email.includes("@"))){
-                alert( "Inserisci un destinatario valido")
 
-            }
 
-            else if ( (punti == 0) || (punti > <?php echo $_smarty_tpl->tpl_vars['puntimax']->value;?>
-)){
-
-                alert("Inserisci una quantità di punti valida!");
-            }
 
             else {
                 alert("I punti sono stati inviati correttamente!");

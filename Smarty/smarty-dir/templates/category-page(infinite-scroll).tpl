@@ -127,6 +127,37 @@
                                             </ul>
                                         </li>
                                     {/if}
+                                    <li class="onhover-div mobile-search">
+                                        <div><img src="../assets/images/icon/search.png" onclick="openSearch()" class="img-fluid blur-up lazyload" alt="">
+                                            <i class="ti-search" onclick="openSearch()"></i></div>
+                                        <div id="search-overlay" class="search-overlay">
+                                            <div>
+                                                <span class="closebtn" onclick="closeSearch()" title="Close Overlay">×</span>
+                                                <div class="overlay-content">
+                                                    <div class="container">
+                                                        <div class="row">
+                                                            <div class="col-xl-12">
+                                                                <form method="post" action="{$path}GestioneProdotti/recuperaProdotto">
+                                                                    <h3>Ricerca per:</h3>
+                                                                    <div>
+                                                                        <h5>Tipologia <input type="radio" id="contactChoice1"
+                                                                                             name="selection" value="tipologia" checked/></h5>
+                                                                        <h5>Nome <input type="radio" id="contactChoice1"
+                                                                                        name="selection" value="nome"/></h5>
+                                                                    </div>
+                                                                    <div class="form-group">
+                                                                        <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Cerca un prodotto" name="ricerca">
+                                                                    </div>
+
+                                                                </form>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+
                                 </ul>
                             </nav>
                         </div>
@@ -563,13 +594,7 @@
 
 
     <!-- theme setting -->
-    <a href="javascript:void(0)" onclick="openSetting()">
-        <div class="setting-sidebar" id="setting-icon">
-            <div>
-                <i class="fa fa-cog" aria-hidden="true"></i>
-            </div>
-        </div>
-    </a>
+
     <div id="setting_box" class="setting-box">
         <a href="javascript:void(0)" class="overlay" onclick="closeSetting()"></a>
         <div class="setting_box_body">

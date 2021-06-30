@@ -2,9 +2,9 @@
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
-require('C:\Users\angel\public_html\ADC-Store\PHPMailer-master\src\PHPMailer.php');
-require('C:\Users\angel\public_html\ADC-Store\PHPMailer-master\src\Exception.php');
-require('C:\Users\angel\public_html\ADC-Store\PHPMailer-master\src\SMTP.php');
+require('C:\Users\david\public_html\ADC-Store\PHPMailer-master\src\PHPMailer.php');
+require('C:\Users\david\public_html\ADC-Store\PHPMailer-master\src\Exception.php');
+require('C:\Users\david\public_html\ADC-Store\PHPMailer-master\src\SMTP.php');
 
 
 /**
@@ -172,6 +172,8 @@ class CGestionePunti
         $gs=CGestioneSessioni::getInstance();
         $pm = FPersistentManager::getInstance();
         if ($gs->isLoggedUser()){
+            if ( $pm->exist("FUtenteReg",$_POST["emaildest"]) ){
+
             $sender = $gs->caricaUtente();
             $receiver = $pm->load("FUtenteReg", $_POST['emaildest']);
             $sender->setPunti($sender->getPunti() - $_POST['punti']);
@@ -210,7 +212,11 @@ class CGestionePunti
             } catch (Exception $e) {
                 echo 'Message could not be sent.';
                 echo 'Mailer Error: ' . $mail->ErrorInfo;
-                }   
+                }
+            } 
+            else{
+                header("Location: ".$GLOBALS['path']."GestioneSchermate/recuperaFormPunti");
+            }  
         }
         else{
             header("Location: ".$GLOBALS['path']."GestioneSchermate/recupera401");
