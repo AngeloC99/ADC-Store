@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-06-29 17:20:40
+/* Smarty version 3.1.39, created on 2021-06-30 12:19:32
   from 'C:\Users\david\public_html\ADC-Store\Smarty\smarty-dir\templates\homeUtente.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_60db3a48c9f339_51420559',
+  'unifunc' => 'content_60dc4534841a86_20978314',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'a901a9d2694ac006358b662b128389d63a6a4fe4' => 
     array (
       0 => 'C:\\Users\\david\\public_html\\ADC-Store\\Smarty\\smarty-dir\\templates\\homeUtente.tpl',
-      1 => 1624979764,
+      1 => 1625045234,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_60db3a48c9f339_51420559 (Smarty_Internal_Template $_smarty_tpl) {
+function content_60dc4534841a86_20978314 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en">
 
@@ -291,7 +291,7 @@ Smarty/smarty-dir/assets/images/icon/logo.png" class="img-fluid blur-up lazyload
                     <div class="main-menu border-section border-top-0">
                         
                         <div class="brand-logo layout2-logo">
-                            <a href="#"><img src="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+                            <a href=""><img src="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
 Smarty/smarty-dir/assets/images/icon/logo.png" class="img-fluid blur-up lazyload"
                                     alt=""></a>
                         </div>
@@ -531,7 +531,7 @@ GestioneSchermate/chiSiamo">Chi siamo</a>
                     <div class="col">
                         <div class="sub-title">
                             <div class="footer-title">
-                                <h4>informationi</h4>
+                                <h4>informazioni</h4>
                             </div>
                             <div class="footer-contant">
                                 <ul class="contact-list">

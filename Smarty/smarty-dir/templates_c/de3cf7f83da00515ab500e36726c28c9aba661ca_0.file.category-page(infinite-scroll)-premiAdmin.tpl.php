@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-06-29 17:37:57
+/* Smarty version 3.1.39, created on 2021-06-30 00:14:07
   from 'C:\Users\david\public_html\ADC-Store\Smarty\smarty-dir\templates\category-page(infinite-scroll)-premiAdmin.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_60db3e557e2c92_04072745',
+  'unifunc' => 'content_60db9b2ff07d05_87633913',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'de3cf7f83da00515ab500e36726c28c9aba661ca' => 
     array (
       0 => 'C:\\Users\\david\\public_html\\ADC-Store\\Smarty\\smarty-dir\\templates\\category-page(infinite-scroll)-premiAdmin.tpl',
-      1 => 1624979764,
+      1 => 1624985964,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_60db3e557e2c92_04072745 (Smarty_Internal_Template $_smarty_tpl) {
+function content_60db9b2ff07d05_87633913 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en">
 
@@ -593,7 +593,7 @@ $_smarty_tpl->tpl_vars['prize']->do_else = false;
                                                                 <a href="product-page(accordian).tpl">
                                                                 	<img src="data:<?php echo $_smarty_tpl->tpl_vars['prize']->value['mime'];?>
 ;base64,<?php echo $_smarty_tpl->tpl_vars['prize']->value['dati'];?>
-" width="100" height="100"/>
+" class="flex" />
                                                                 </a>
                                                             </div>
                                                             <div class="cart-info cart-wrap">

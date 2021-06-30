@@ -77,13 +77,12 @@
                                     <li>
                                         <a href="{$path}GestionePunti/recuperaPremi">Premi</a>
                                     </li>
-                                    <li><a href="">Account</a>
+                                    <li><a href="{$path}GestioneSchermate/apriProfilo">Profilo</a>
                                         <ul>
                                             <li><a href="{$path}GestioneSchermate/apriProfilo" data-lng="en">Il mio profilo ADC-Store</a></li>
                                             <li><a href="{$path}GestioneSchermate/recuperaGestioneCarrello" data-lng="en">Carrello della spesa</a></li>
                                             <li><a href="{$path}GestioneUtenti/logout" data-lng="en">Logout</a></li>
                                         </ul>
-
                                     </li>
                                     <li>
                                         <a href="{$path}GestioneSchermate/chiSiamo">Chi siamo</a>
@@ -312,6 +311,8 @@
             var email = document.dati.emaildest.value;
             var punti = document.dati.punti.value;
             var bool = false;
+
+
 
            /* for ( var key in {$utenti}){
                 if ( email == {$utenti}[key] ){

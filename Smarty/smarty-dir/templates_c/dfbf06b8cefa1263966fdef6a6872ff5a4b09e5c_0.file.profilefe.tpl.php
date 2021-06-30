@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-06-30 00:08:54
+/* Smarty version 3.1.39, created on 2021-06-30 12:19:42
   from 'C:\Users\david\public_html\ADC-Store\Smarty\smarty-dir\templates\profilefe.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_60db99f61a8693_21951074',
+  'unifunc' => 'content_60dc453ed45a03_97088596',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'dfbf06b8cefa1263966fdef6a6872ff5a4b09e5c' => 
     array (
       0 => 'C:\\Users\\david\\public_html\\ADC-Store\\Smarty\\smarty-dir\\templates\\profilefe.tpl',
-      1 => 1625004518,
+      1 => 1625045234,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_60db99f61a8693_21951074 (Smarty_Internal_Template $_smarty_tpl) {
+function content_60dc453ed45a03_97088596 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en">
 
@@ -287,7 +287,7 @@ GestioneSchermate/chiSiamo">Chi siamo</a>
                 <div class="col">
                     <div class="sub-title">
                         <div class="footer-title">
-                            <h4>informationi</h4>
+                            <h4>informazioni</h4>
                         </div>
                         <div class="footer-contant">
                             <ul class="contact-list">

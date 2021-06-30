@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-06-30 00:09:14
+/* Smarty version 3.1.39, created on 2021-06-30 12:22:13
   from 'C:\Users\david\public_html\ADC-Store\Smarty\smarty-dir\templates\regalapunti.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_60db9a0a023d74_75679621',
+  'unifunc' => 'content_60dc45d56a8073_40230164',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'e7c15abc6cb1be80d96f3c868978ccc060a4234d' => 
     array (
       0 => 'C:\\Users\\david\\public_html\\ADC-Store\\Smarty\\smarty-dir\\templates\\regalapunti.tpl',
-      1 => 1625004551,
+      1 => 1625048530,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_60db9a0a023d74_75679621 (Smarty_Internal_Template $_smarty_tpl) {
+function content_60dc45d56a8073_40230164 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en">
 
@@ -114,7 +114,8 @@ GestioneProdotti/recuperaProdotti">Prodotti</a>
                                         <a href="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
 GestionePunti/recuperaPremi">Premi</a>
                                     </li>
-                                    <li><a href="">Account</a>
+                                    <li><a href="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
+GestioneSchermate/apriProfilo">Profilo</a>
                                         <ul>
                                             <li><a href="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
 GestioneSchermate/apriProfilo" data-lng="en">Il mio profilo ADC-Store</a></li>
@@ -123,7 +124,6 @@ GestioneSchermate/recuperaGestioneCarrello" data-lng="en">Carrello della spesa</
                                             <li><a href="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
 GestioneUtenti/logout" data-lng="en">Logout</a></li>
                                         </ul>
-
                                     </li>
                                     <li>
                                         <a href="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
@@ -390,6 +390,8 @@ Smarty/smarty-dir/assets/js/script.js"><?php echo '</script'; ?>
             var email = document.dati.emaildest.value;
             var punti = document.dati.punti.value;
             var bool = false;
+
+
 
            /* for ( var key in <?php echo $_smarty_tpl->tpl_vars['utenti']->value;?>
 ){
