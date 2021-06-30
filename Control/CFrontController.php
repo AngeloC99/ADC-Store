@@ -15,25 +15,23 @@ class CFrontController
     public static function run(string $path)
     {
         ini_set('session.gc_probability', 10);
-        ini_set('session.gc_maxlifetime',3600);
+        ini_set('session.gc_maxlifetime', 3600);
         $method = $_SERVER['REQUEST_METHOD'];
 
         error_reporting(E_ERROR | E_PARSE);
 
-        setcookie("cookie_test", "cookie_value", time()+3600);
-        if ($_COOKIE["cookie_test"] == "cookie_value") {
-            $cookie = true;//i cookie sono abilitati
-        }
-        else {
-            $cookie = false;
-        }
-
-
-        if($cookie==true) {
-            if ($path === "/~david/ADC-Store/" || $path === "/ADC-Store/" || $path === "/ADC-Store/index.php") {
-                CGestioneSchermate::showHome();
+        if ($path === "/~david/ADC-Store/" || $path === "/ADC-Store/" || $path === "/ADC-Store/index.php") {
+            setcookie("cookie_test", "cookie_value", time() + 3600);
+            CGestioneSchermate::showHome();
+        } else {
+            error_reporting(E_ERROR | E_PARSE);
+            if ($_COOKIE["cookie_test"] == "cookie_value") {
+                $cookie = true;//i cookie sono abilitati
             } else {
-                error_reporting(E_ERROR | E_PARSE);
+                $cookie = false;
+            }
+
+            if ($cookie == true) {
 
                 $gs = CGestioneSessioni::getInstance();
                 $res = explode("/", $path);
@@ -64,24 +62,18 @@ class CFrontController
                             }
                         }
                     }
+
                 } else {
                     $controller = "CGestioneSchermate";
                     $function = "showHome";
                     $controller::$function();
                 }
+            } //setcookie("cookie_test", "cookie_value", time()-3600);
+
+            else {
+                CGestioneSchermate::showCookie();
+
             }
-            setcookie("cookie_test", "cookie_value", time()-3600);
-
         }
-
-
-        else{
-            CGestioneSchermate::showCookie();
-
-            }}
-
-
-
-
-
-}
+    }
+}   
