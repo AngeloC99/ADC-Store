@@ -88,7 +88,7 @@
                     <div class="error-section">
                         <h2>Cookie non autorizzati</h2>
                         <h3>Attenzione! Affinchè il sito funzioni correttamente è necessario abilitare i cookie sul browser in uso.</h3>
-                        <h3>Si prega di ricaricare la pagina una volta abilitati i cookie.</h3>
+                        <h3>Si prega di abilitare i cookie e di riavviare il sito.</h3>
                     </div>
                 </div>
             </div>
