@@ -20,11 +20,6 @@ class ECarrello
      */
     private string $nome;
     /**
-     * Valore booleano che indica se il carrello in questione è quello di default.
-     * @var bool
-     */
-    private bool $default;
-    /**
      * Lista di prodotti (tramite gli id) inseriti nel carrello, con le rispettive quantità come valori.
      * @var array
      */
@@ -41,7 +36,6 @@ class ECarrello
     public function __construct() {
         $this->id = uniqid('Car');
         $this->nome = "";
-        $this->default = false;
         $this->prodotti = array();
         $this->prezzoTot = 0.0;
     }
@@ -60,14 +54,6 @@ class ECarrello
      */
     public function getNome(): string {
         return $this->nome;
-    }
-
-    /**
-     * Restituisce l'informazione sul fatto che il carrello sia o meno quello di default.
-     * @return bool
-     */
-    public function isDefault(): bool {
-        return $this->default;
     }
 
     /**
@@ -92,14 +78,6 @@ class ECarrello
      */
     public function setNome(string $nome): void {
         $this->nome = $nome;
-    }
-
-    /**
-     * Imposta il carrello come quello di default.
-     * @param bool $default
-     */
-    public function setDefault(bool $default): void {
-        $this->default = $default;
     }
 
     /**

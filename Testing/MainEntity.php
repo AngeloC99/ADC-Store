@@ -27,7 +27,6 @@ $prod1 = new EProdotto("Latte","Centrale di Roma","Latte intero", 200, $imm, 1.5
 $prod2 = new EProdotto("Petto di pollo","Amadori","Pollo di alta qualità", 50, $imm, 3.50, "Carne");
 $prod3 = new EProdotto("Yogurt","Muller","Yogurt alla vaniglia", 80, $imm, 0.70, "Yogurt");
 $carrello = new ECarrello();
-$carrello->setDefault(true);
 $carrello->aggiungiProdotto($prod1, 5);
 $carrello->aggiungiProdotto($prod2, 1);
 $carrello->aggiungiProdotto($prod3, 4);
