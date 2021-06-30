@@ -61,46 +61,6 @@ class CGestioneSessioni
     }
 
     /**
-     * Metodo che salva in sessione l'id di un prodotto.
-     * @param $id
-     */
-    public function salvaProdId($id) {
-        $this->iniziaSessione();
-        $_SESSION["ProdId"] = $id;
-    }
-
-    /**
-     * Metodo che ritorna l'id del prodotto salvato in sessione.
-     * @return int
-     */
-    public function caricaProdId() {
-        $this->iniziaSessione();
-        $id = $_SESSION["ProdId"];
-        unset($_SESSION["ProdId"]);
-        return $id;
-    }
-
-    /**
-     * Metodo che salva in sessione l'id di premio.
-     * @param $id
-     */
-    public function salvaPremId($id) {
-        $this->iniziaSessione();
-        $_SESSION["PremId"] = $id;
-    }
-
-    /**
-     * Metodo che ritorna l'id del premio salvato in sessione.
-     * @return int
-     */
-    public function caricaPremId() {
-        $this->iniziaSessione();
-        $id = $_SESSION["PremId"];
-        unset($_SESSION["PremId"]);
-        return $id;
-    }    
-
-    /**
      * Metodo che si occupa di distruggere i dati relativi alla sessione in atto, compreso il cookie PHPSESSID.
      * @return bool
      */

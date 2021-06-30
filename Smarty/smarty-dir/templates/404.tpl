@@ -69,7 +69,7 @@
                 <div class="col-sm-6">
                     <nav aria-label="breadcrumb" class="theme-breadcrumb">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                            <li class="breadcrumb-item"><a href="{$path}GestioneSchermate/showHome">Home</a></li>
                             <li class="breadcrumb-item active" aria-current="page">404 page</li>
                         </ol>
                     </nav>
