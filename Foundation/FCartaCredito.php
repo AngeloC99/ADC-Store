@@ -72,7 +72,7 @@ class FCartaCredito
      */
     public static function update(ECartaCredito $carta): bool {
         $pdo = FConnectionDB::connect();
-        $pdo->exec('LOCK TABLES CartaCredito');
+        $pdo->exec('LOCK TABLE CartaCredito WRITE');
         $stmt = $pdo->prepare("UPDATE CartaCredito SET titolare = :titolare, circuito = :circuito, 
                             cvv = :cvv, ammontare = :ammontare, scadenza = :scadenza WHERE numero = :numero");
         $ris = $stmt->execute(array(

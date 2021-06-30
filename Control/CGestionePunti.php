@@ -86,8 +86,17 @@ class CGestionePunti
             if ( $gs->isLoggedUser()){
                 $pm=FPersistentManager::getInstance();
                 $premio=$pm->load('FPremio',$id);
+                $indirizzi = $pm->prelevaIndirizziUtente($gs->caricaUtente()->getEmail());
+                $arrIndirizzi = array();
+                foreach ($indirizzi as $indirizzo) {
+                    $tmp = array(
+                        'indirizzo' => $indirizzo,
+                        'identificativo' => str_replace(" ", "_", $indirizzo->getVia()).":".$indirizzo->getNumero().":".$indirizzo->getCap(),
+                    );
+                    $arrIndirizzi[] = $tmp;
+                }
                 $v=new VGestionePunti();
-                $v->mostraDettagliPremioUser($premio);
+                $v->mostraDettagliPremioUser($premio, $arrIndirizzi);
             }
 
             else if ( $gs->isLoggedAdmin()){
@@ -127,7 +136,7 @@ class CGestionePunti
             $prize->setQuantita($prize->getQuantita() - $_POST['quantita']);
             $pm->update($user);
             $pm->update($prize);
-            $gs->salvaUtenteNoCookie($user);
+            $gs->salvaUtente($user);
 
             self::recuperaPremi();
         }
@@ -160,7 +169,7 @@ class CGestionePunti
             $receiver->setPunti($receiver->getPunti() + $_POST['punti']);
             $pm->update($receiver);
             $pm->update($sender);
-            $gs->salvaUtenteNoCookie($sender);
+            $gs->salvaUtente($sender);
 
             $mail = new PHPMailer(true);
             try{

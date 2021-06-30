@@ -167,7 +167,7 @@ class CGestioneCarrello
                 );
                 $arrProdotti[] = $tmp;
             }
-            $utente = $gs->caricaUtente();
+            $utente = $pm->load("FUtenteReg", $gs->caricaUtente()->getEmail());
             $carta = $pm->load("FCartaCredito", $_POST['carta']);
             $indArray = explode(":", $_POST['indirizzo']);
             $via = str_replace("_", " ", $indArray[0]);
@@ -192,6 +192,7 @@ class CGestioneCarrello
             $pm->store($ordine);
             $pm->update($carta);
             $pm->update($utente);
+            $gs->salvaUtente($utente);
 
             foreach ($carrello->getProdotti() as $idProdotto => $quantita) {
                 $prodotto = $pm->load("FProdotto", $idProdotto);

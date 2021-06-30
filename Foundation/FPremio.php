@@ -42,8 +42,8 @@ class FPremio
         $stmt->execute(["id" => $key]);
         $rows=$stmt->fetchAll(PDO::FETCH_ASSOC);
         $idImm=$rows[0]['idImmagine'];
+        $pdo->exec('LOCK TABLES Premio, Immagine WRITE');
         $pdo->beginTransaction();
-        $pdo->exec('LOCK TABLES Premio, Immagine');
         $ris2=FImmagine::delete($idImm);
         $stmt2=$pdo->prepare("DELETE FROM Premio WHERE id=:id");
         $ris=$stmt2->execute([":id" => $key]);

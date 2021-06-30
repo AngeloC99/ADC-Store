@@ -5,12 +5,12 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="description" content="multikart">
-    <meta name="keywords" content="multikart">
-    <meta name="author" content="multikart">
+    <meta name="description" content="ADCStore">
+    <meta name="keywords" content="ADCStore">
+    <meta name="author" content="ADCStore">
     <link rel="icon" href="{$path}Smarty/smarty-dir/assets/images/favicon/1.png" type="image/x-icon">
-    <link rel="shortcut icon" href="{$path}Smarty/smarty-dir/assets/images/favicon/1.png" type="image/x-icon">
-    <title>Lista premi</title>
+    <link rel="shortcut icon" href="{$path}Smarty/smarty-dir/assets/images/dashboard/favicon.png" type="image/x-icon">
+    <title>ADC-Store - Lista premi</title>
 
     <!--Google font-->
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet">
@@ -143,11 +143,10 @@
                                     <div class="top-banner-wrapper">
                                         <a href="#"><img src="{$path}Smarty/smarty-dir/assets/images/mega-menu/premi.jpg" class="img-fluid blur-up lazyload" alt=""></a>
                                         <div class="top-banner-content small-section">
-                                            <h4>premi</h4>
-                                            <h5>ADC-Store si impegna a fornire premi di qualità per soddisfare le esigenze di tutti i suoi clienti.
+                                            <h2>Catalogo premi</h2>
+                                            <h5>Gestione dei premi ADC-Store
                                             </h5>
-                                            <p>A tavola ci si incontra, si chiacchiera, ci si rilassa, si ride… talvolta ci si punzecchia, ma il buon cibo, soprattutto se acquistato su ADC-Store, fa da paciere. E’ capace di restituire il buonumore persino al termine di una giornata faticosa.
-                                            (Antonino Cannavacciuolo)</p>
+                                            <p>Visualizza i premi attualmente offerti ai nostri clienti</p>
                                         </div>
                                     </div>
                                     <div class="collection-product-wrapper">
