@@ -39,8 +39,8 @@ class FProdotto
         $stmt->execute([":id" => $key]);
         $rows=$stmt->fetchAll(PDO::FETCH_ASSOC);
         $idImm=$rows[0]['idImmagine'];
+        $pdo->exec('LOCK TABLES Prodotto WRITE, Immagine WRITE');
         $pdo->beginTransaction();
-        $pdo->exec('LOCK TABLES Prodotto, Immagine');
         $stmt=$pdo->prepare("DELETE FROM Prodotto WHERE id=:id");
         $ris=$stmt->execute([":id" => $key]);
         $ris2=FImmagine::delete($idImm);
@@ -122,8 +122,8 @@ class FProdotto
     public static function update($obj1) : bool{
         try{
         $pdo=FConnectionDB::connect();
+        $pdo->exec('LOCK TABLES Prodotto WRITE, Immagine WRITE');
         $pdo->beginTransaction();
-        $pdo->exec('LOCK TABLES Prodotto, Immagine');
         $stmt1 = $pdo->prepare("UPDATE Prodotto SET nome = :nome, descrizione = :des, tipologia = :tip, quantita = :quant, marca = :marca, prezzo = :prezzo WHERE id=:id");
         $ris1 = $stmt1->execute([':nome'=>$obj1->getNome(), ':des'=>$obj1->getDescrizione(),':tip'=>$obj1->getTipologia(),':quant'=>$obj1->getQuantita(),':marca'=>$obj1->getMarca(),':prezzo'=>$obj1->getPrezzo(),':id'=>$obj1->getId()]);
         $ris2 = FImmagine::update($obj1->getImmagine());

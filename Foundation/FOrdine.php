@@ -64,7 +64,7 @@ class FOrdine
      */
     public static function store(EOrdine $ordine): bool {
         $pdo = FConnectionDB::connect();
-        $pdo->exec('LOCK TABLES Prodotto');
+        $pdo->exec('LOCK TABLE Ordine WRITE');
         $query = "INSERT INTO Ordine VALUES(:id, :dataacquisto, :prezzototale, :idcarrello, :viaConsegna, :numerocivicoConsegna, :capConsegna)";
         $stmt = $pdo->prepare($query);
         $ris = $stmt->execute(array(
