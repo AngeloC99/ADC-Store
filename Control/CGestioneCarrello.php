@@ -189,8 +189,6 @@ class CGestioneCarrello
             $carta->setAmmontare($carta->getAmmontare() - $ordine->getPrezzoTotale());
             $utente->setPunti($utente->getPunti() + ((int) $ordine->getPrezzoTotale()));          //aggiunge un punto per ogni euro speso
 
-            //CGestioneCarrello::mailOrdine($ordine, $nome, $cognome, $_POST['email'], $carrello, $arrProdotti);
-
             $pm->store($ordine);
             $pm->update($carta);
             $pm->update($utente);
@@ -205,6 +203,7 @@ class CGestioneCarrello
 
             $v = new VGestioneCarrello();
             $v->mostraOrdine($ordine, $nome, $cognome, $telefono, $arrProdotti);
+            CGestioneCarrello::mailOrdine($ordine, $nome, $cognome, $_POST['email'], $carrello, $arrProdotti);
         }
         else {
             header("Location: ".$GLOBALS['path']."GestioneSchermate/recupera401");

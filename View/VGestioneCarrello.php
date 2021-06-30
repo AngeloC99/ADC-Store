@@ -96,7 +96,7 @@ class VGestioneCarrello {
         $this->smarty->assign('prodotti', $arrProdotti);
         $this->smarty->assign('idOrdine',$ordine->getId());
         $this->smarty->assign('prezzoCarrello',$carrello->getPrezzoTot());
-        $this->smarty->assign('dataOrdine',$ordine->getDataAcquisto()->format('d-m-y'));
+        $this->smarty->assign('dataOrdine',$ordine->getDataAcquisto()->sub(new DateInterval('P10D'))->format('d-m-y'));
         $this->smarty->assign('dataConsegna',$ordine->getDataAcquisto()->add(new DateInterval('P10D'))
                                                             ->format('d-m-y'));
         $this->smarty->assign('indirizzo', $ordine->getIndirizzo());
