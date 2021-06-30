@@ -9,7 +9,7 @@
     <meta name="keywords" content="ADCStore">
     <meta name="author" content="ADCStore">
     <link rel="icon" href="{$path}Smarty/smarty-dir/assets/images/favicon/1.png" type="image/x-icon">
-    <link rel="shortcut icon" href="{$path}Smarty/smarty-dir/assets/images/favicon/1.png" type="image/x-icon">
+    <link rel="shortcut icon" href="{$path}Smarty/smarty-dir/assets/images/dashboard/favicon.png" type="image/x-icon">
     <title>ADC-Store - Dettagli Prodotto</title>
 
     <!--Google font-->
@@ -59,37 +59,35 @@
                                 </div>
                                 <!-- Horizontal menu -->
                                 <ul id="main-menu" class="sm pixelstrap sm-horizontal">
-                                    <li>
-                                        <div class="mobile-back text-right">Back<i class="fa fa-angle-right pl-2"
-                                                                                   aria-hidden="true"></i></div>
+                                    <li><a href="">Prodotti</a>
+                                        <ul>
+                                            <li><a href="{$path}GestioneProdotti/recuperaProdotti" data-lng="en">Lista Prodotti</a></li>
+                                            <li><a href="{$path}GestioneProdotti/recuperaAggiungiProdotto" data-lng="en">Aggiungi Prodotto</a></li>
+                                        </ul>
+
                                     </li>
-                                    <li>
-                                        <a href="{$path}GestioneSchermate/recuperaHome">Home</a>
+                                    <li><a href="">Premi</a>
+                                        <ul>
+                                            <li><a href="{$path}GestionePunti/recuperaPremi" data-lng="en">Lista Premi</a></li>
+                                            <li><a href="{$path}GestionePunti/recuperaAggiungiPremio" data-lng="en">Aggiungi Premio</a></li>
+                                        </ul>
                                     </li>
-                                    <li>
-                                        <a href="{$path}GestioneProdotti/recuperaProdotti">Prodotti</a>
+                                    <li><a href="">Profilo</a>
+                                        <ul>
+                                            <li><a href="{$path}GestioneSchermate/apriProfilo" data-lng="en">Il mio profilo ADC-Store</a></li>
+                                            <li><a href="{$path}GestioneUtenti/logout" data-lng="en">Logout</a></li>
+                                        </ul>
+
                                     </li>
-                                    {if $loggato}
-                                        <li>
-                                            <a href="{$path}GestionePunti/recuperaPremi">Premi</a>
-                                        </li>
-                                        <li><a href="">Account</a>
-                                            <ul>
-                                                <li><a href="{$path}GestioneSchermate/apriProfilo" data-lng="en">Il mio profilo ADC-Store</a></li>
-                                                <li><a href="{$path}GestioneSchermate/recuperaGestioneCarrello" data-lng="en">Carrello della spesa</a></li>
-                                                <li><a href="{$path}GestioneUtenti/logout" data-lng="en">Logout</a></li>
-                                            </ul>
-                                        </li>
-                                    {else}
-                                        <li><a href="#">Clienti</a>
-                                            <ul>
-                                                <li><a href="{$path}GestioneSchermate/recuperaLogin">Accedi</a></li>
-                                                <li><a href="{$path}GestioneUtenti/recuperaCreazioneAccount">Registrazione</a></li>
-                                            </ul>
-                                        </li>
-                                    {/if}
-                                    <li>
-                                        <a href="{$path}GestioneSchermate/chiSiamo">Chi siamo</a>
+                                    <li><a href="">Clienti</a>
+                                        <ul>
+                                            <li><a href="{$path}GestioneUtenti/recuperaClienti" data-lng="en">Lista Clienti</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="">Buoni Sconto</a>
+                                        <ul>
+                                            <li><a href="{$path}GestioneBuoni/recuperaCreazioneBuono" data-lng="en">Regala Buono</a></li>
+                                        </ul>
                                     </li>
                                 </ul>
                             </nav>
@@ -158,26 +156,18 @@
                     <div class="col-lg-4">
                         <div class="product-right product-form-box">
                             <h3>Prezzo: € {$prod.prezzo}</h3>
-
                             <form method="post" name="dati">
                                 <div class="product-description border-product">
-                                    <h6 class="product-title">Quantità:</h6>
+                                    <h6 class="product-title">Quantità da rifornire:</h6>
                                     <div class="qty-box">
                                         <input type="hidden" name="idProdotto" value="{$prod.id}">
-                                        <input type="number" name="quantita" class="form-control input-number" value="1" min="1" max="{$prod.quantita}">
+                                        <input type="number" name="quantita" class="form-control input-number" value="1" min="1">
                                     </div>
                                 </div>
-                                {if $loggato}
-                                    <div class="product-buttons">
-                                        <button type="submit" onclick="Funzione()" class="btn btn-solid">Aggiungi al carrello</button>
-                                    </div>
-                                {else}
-                                    <h5>Registrati subito per acquistare su ADC-store!</h5>
-                                    <div ><a href="{$path}GestioneUtenti/recuperaCreazioneAccount" class="btn btn-solid">Registrati</a></div>
-                                {/if}
-
+                                <div class="product-buttons">
+                                    <button type="submit" onclick="Aggiungi()" class="btn btn-solid">Aggiungi</button>
+                                </div>
                             </form>
-
                         </div>
                     </div>
                 </div>
@@ -204,7 +194,7 @@
                     <div class="footer-contant">
                         <div class="footer-logo"><img src="{$path}Smarty/smarty-dir/assets/images/icon/logo.png" alt=""></div>
                         <p>ADC-Store è la tua catena di supermercati di fiducia in Italia, grazie a un modello originale d’impresa. Noi poniamo al centro i nostri clienti, sempre. </p> <br>
-                        <p style="color: #0a0100">Seguici sulle nostre pagine social per non perderti nuove offerte!</p>
+                        <p style="color: #0a0100">Gestisci le nostre pagine social!</p>
                         <div class="footer-social">
                             <ul>
                                 <li><a href=""><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
@@ -218,40 +208,28 @@
                 </div>
                 <div class="col offset-xl-1">
                     <div class="sub-title">
-                        {if $loggato}
-                            <div class="footer-title">
-                                <h4>Il tuo ADC-Store</h4>
-                            </div>
-                            <div class="footer-contant">
-                                <ul>
-                                    <li><a href="{$path}GestioneSchermate/apriProfilo">Il tuo profilo</a></li>
-                                    <li><a href="{$path}GestioneCarrello/recuperaCarrello">Il tuo carrello ADC-Store</a></li>
-                                </ul>
-                            </div>
-                        {else}
-                            <div class="footer-title">
-                                <h4>Entra in ADC-Store</h4>
-                            </div>
-                            <div class="footer-contant">
-                                <ul>
-                                    <li><a href="{$path}GestioneSchermate/recuperaLogin">Accedi al tuo account</a></li>
-                                    <li><a href="{$path}GestioneUtenti/recuperaCreazioneAccount">Crea un account</a></li>
-                                </ul>
-                            </div>
-                        {/if}
-
+                        <div class="footer-title">
+                            <h4>Gestione Clienti</h4>
+                        </div>
+                        <div class="footer-contant">
+                            <ul>
+                                <li><a href="{$path}GestioneUtenti/recuperaClienti" data-lng="en">Lista Clienti</a></li>
+                                <li><a href="{$path}GestioneBuoni/recuperaCreazioneBuono" data-lng="en">Regala Buono</a></li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
                 <div class="col">
                     <div class="sub-title">
                         <div class="footer-title">
-                            <h4>Scopri di più</h4>
+                            <h4>Gestione contenuti</h4>
                         </div>
                         <div class="footer-contant">
                             <ul>
-                                <li>
-                                    <a href="{$path}GestioneSchermate/chiSiamo">Chi siamo</a>
-                                </li>
+                                <li><a href="{$path}GestioneProdotti/recuperaProdotti" data-lng="en">Lista Prodotti</a></li>
+                                <li><a href="{$path}GestioneProdotti/recuperaAggiungiProdotto" data-lng="en">Aggiungi Prodotto</a></li>
+                                <li><a href="{$path}GestionePunti/recuperaPremi" data-lng="en">Lista Premi</a></li>
+                                <li><a href="{$path}GestionePunti/recuperaAggiungiPremio" data-lng="en">Aggiungi Premio</a></li>
                             </ul>
                         </div>
                     </div>
@@ -1110,23 +1088,10 @@
             document.getElementById("search-overlay").style.display = "none";
         }
 
-        function Funzione(){
-
-            var quantita = document.dati.quantita.value;
-
-            if ( {$prod.quantita} == 0){
-                alert("Il prodotto non è al momento disponibile!");
-            }
-
-            else if ( quantita == 0 ){
-                alert("Inserisci una quantità valida!");
-            }
-
-            else{
-                alert("Il prodotto è stato correttamente aggiunto al carrello.");
-                document.dati.action = "{$path}GestioneCarrello/aggiungiAlCarrello";
-                document.dati.submit();
-            }
+        function Aggiungi(){
+            alert("La quantità disponibile è stato correttamente aggiornata!");
+            document.dati.action = "{$path}GestioneProdotti/aggiornaQuantitaProdotto";
+            document.dati.submit();
         }
 
 

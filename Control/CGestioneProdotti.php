@@ -114,6 +114,7 @@ class CGestioneProdotti
 
     public static function recuperaDettagli(string $id){
         $pm=FPersistentManager::getInstance();
+        $gs = CGestioneSessioni::getInstance();
         if ($pm->exist("FProdotto", $id)) {
             $prodotto = $pm->load('FProdotto',$id);
             $prod=array(
@@ -127,7 +128,12 @@ class CGestioneProdotti
                 'mime'=>$prodotto->getImmagine()->getFormato(),
                 'dati'=>$prodotto->getImmagine()->getByte());
             $v = new VGestioneProdotto();
-            $v->mostraDettagli($prod);
+            if ($gs->isLoggedAdmin()){
+                $v->mostraDettagliProdAdmin($prod);
+            }
+            else {
+                $v->mostraDettagli($prod);
+            }
         }
         else {
             CGestioneSchermate::recupera404();
@@ -179,7 +185,18 @@ class CGestioneProdotti
 
     }
 
-
-
+    public static function aggiornaQuantitaProdotto() {
+        $gs = CGestioneSessioni::getInstance();
+        $pm = FPersistentManager::getInstance();
+        if($gs->isLoggedAdmin()){
+            $prodotto = $pm->load("FProdotto", $_POST['idProdotto']);
+            $prodotto->setQuantita($prodotto->getQuantita() + $_POST['quantita']);
+            $pm->update($prodotto);
+            header("Location: ".$GLOBALS['path']."GestioneProdotti/recuperaDettagli/".$_POST['idProdotto']);
+        }
+        else {
+            header("Location: ".$GLOBALS['path']."GestioneSchermate/recupera401");
+        }
+    }
 
 }

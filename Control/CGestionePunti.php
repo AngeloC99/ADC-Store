@@ -2,9 +2,9 @@
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
-require('C:\Users\david\public_html\ADC-Store\PHPMailer-master\src\PHPMailer.php');
-require('C:\Users\david\public_html\ADC-Store\PHPMailer-master\src\Exception.php');
-require('C:\Users\david\public_html\ADC-Store\PHPMailer-master\src\SMTP.php');
+require('C:\Users\angel\public_html\ADC-Store\PHPMailer-master\src\PHPMailer.php');
+require('C:\Users\angel\public_html\ADC-Store\PHPMailer-master\src\Exception.php');
+require('C:\Users\angel\public_html\ADC-Store\PHPMailer-master\src\SMTP.php');
 
 
 /**
@@ -123,7 +123,7 @@ class CGestionePunti
      * @param int $quantita
      * @param EUtenteReg $utente
      */
-    public static function acquistaPremio(string $id){ //Si deve recuperare l'utente
+    public static function acquistaPremio(string $id){
 
         $pm = FPersistentManager::getInstance();
         $gs = CGestioneSessioni::getInstance();
@@ -144,15 +144,24 @@ class CGestionePunti
         else{
                 header("Location: " . $GLOBALS['path'] . "GestioneSchermate/recupera401");
             }
+    }
+
+    /**
+     * Metodo richiamato dall'admin per aggiornare la quantità di un premio
+     */
+    public static function aggiornaQuantitaPremio() {
+        $gs = CGestioneSessioni::getInstance();
+        $pm = FPersistentManager::getInstance();
+        if($gs->isLoggedAdmin()){
+            $premio = $pm->load("FPremio", $_POST['idPremio']);
+            $premio->setQuantita($premio->getQuantita() + $_POST['quantita']);
+            $pm->update($premio);
+            header("Location: ".$GLOBALS['path']."GestionePunti/selezionaPremio/".$_POST['idPremio']);
         }
-        
-
-        //$v = new VGestioneSchermate();
-        //$v->showHome();
-        //Gestire eccezioni se utente non ha abbastanza punti o se non c'è quantità a sufficienza di prodotti
-        //Alla conferma appare un alert e il premio viene spedito all'indirizzo predefinito dell'utente
-
-
+        else {
+            header("Location: ".$GLOBALS['path']."GestioneSchermate/recupera401");
+        }
+    }
 
     /**
      * Metodo da usare quando un utente A vuole regalare parte dei suoi punti ad un utente B
@@ -212,12 +221,6 @@ class CGestionePunti
 
     /**
      * Metodo che usa l'amministratore per aaggiungere nel database un nuovo premio
-     * @param string $nome
-     * @param string $mar
-     * @param string $des
-     * @param int $qua
-     * @param EImmagine $imm
-     * @param int $punti
      */
     public static function aggiungiPremio(): void{
 

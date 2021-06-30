@@ -29,4 +29,9 @@ class VGestioneProdotto {
         $this->smarty->assign('prod',$prod);
         $this->smarty->display('product-page(accordian).tpl');
     }
+    public function mostraDettagliProdAdmin($prod){
+        $this->smarty->assign("path", $GLOBALS["path"]);
+        $this->smarty->assign('prod',$prod);
+        $this->smarty->display('product-page(accordianAdmin).tpl');
+    }
 }
