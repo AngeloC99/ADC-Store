@@ -16,7 +16,8 @@ class VGestioneProdotto {
     }
     public function mostraProdotti($prodotti){
         $gs = CGestioneSessioni::getInstance();
-        $this->smarty->assign("loggato", $gs->isLoggedUser());
+        $this->smarty->assign("loggatoUser", $gs->isLoggedUser());
+        $this->smarty->assign("loggatoAdmin", $gs->isLoggedAdmin());
         $this->smarty->assign("path", $GLOBALS["path"]);
         $this->smarty->assign('prodotti',$prodotti);
         $this->smarty->display('category-page(infinite-scroll).tpl');

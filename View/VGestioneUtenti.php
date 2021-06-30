@@ -44,6 +44,9 @@ class VGestioneUtenti {
     }
 
     public function mostraHomeAdmin() {
+        $gs = CGestioneSessioni::getInstance();
+        $this->smarty->assign("nome", $gs->caricaUtente()->getNome());
+        $this->smarty->assign("cognome", $gs->caricaUtente()->getCognome());
         $this->smarty->assign("path", $GLOBALS["path"]);
         $this->smarty->display('homeAdmin.tpl');
     }

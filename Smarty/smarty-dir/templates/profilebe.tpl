@@ -57,7 +57,7 @@
                 <div class="sidebar-user text-center">
                     <div><img class="img-60 rounded-circle blur-up lazyloaded" src="{$path}Smarty/smarty-dir/assets/images/dashboard/man.png" alt="#">
                     </div>
-                    <h6 class="mt-3 f-14">Bentornato {$nome}</h6>
+                    <h6 class="mt-3 f-14">{$nome}</h6>
                     <p>Area Amministratore</p>
                 </div>
                 <ul class="sidebar-menu">
@@ -253,10 +253,7 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-6 footer-copyright">
-                        <p class="mb-0">Copyright 2019 © Multikart All rights reserved.</p>
-                    </div>
-                    <div class="col-md-6">
-                        <p class="pull-right mb-0">Hand crafted & made with<i class="fa fa-heart"></i></p>
+                        <p class="mb-0">2020-21 Progetto di Programmazione Web</p>
                     </div>
                 </div>
             </div>

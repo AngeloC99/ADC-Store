@@ -10,7 +10,7 @@
     <meta name="author" content="pixelstrap">
     <link rel="icon" href="{$path}Smarty/smarty-dir/assets/images/dashboard/favicon.png" type="image/x-icon">
     <link rel="shortcut icon" href="{$path}Smarty/smarty-dir/assets/images/dashboard/favicon.png" type="image/x-icon">
-    <title>ADC-Store Aggiungi Premio</title>
+    <title>ADC-Store - Aggiungi Premio</title>
 
     <!-- Google font-->
     <link href="https://fonts.googleapis.com/css?family=Work+Sans:100,200,300,400,500,600,700,800,900" rel="stylesheet">
@@ -67,7 +67,7 @@
                 <div class="sidebar-user text-center">
                     <div><img class="img-60 rounded-circle blur-up lazyloaded" src="{$path}Smarty/smarty-dir/assets/images/dashboard/man.png" alt="#">
                     </div>
-                    <h6 class="mt-3 f-14">Bentornato {$nomeadmin}</h6>
+                    <h6 class="mt-3 f-14">{$nomeadmin}</h6>
                     <p>Area Amministratore.</p>
                 </div>
                 <ul class="sidebar-menu">
@@ -209,7 +209,17 @@
             <!-- Container-fluid Ends-->
 
         </div>
-
+        <!-- footer start-->
+        <footer class="footer">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-6 footer-copyright">
+                        <p class="mb-0">2020-21 Progetto di Programmazione Web</p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- footer end-->
 
     </div>
 

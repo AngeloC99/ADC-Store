@@ -2,9 +2,9 @@
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
-require('C:\Users\david\public_html\ADC-Store\PHPMailer-master\src\PHPMailer.php');
-require('C:\Users\david\public_html\ADC-Store\PHPMailer-master\src\Exception.php');
-require('C:\Users\david\public_html\ADC-Store\PHPMailer-master\src\SMTP.php');
+require('C:\Users\angel\public_html\ADC-Store\PHPMailer-master\src\PHPMailer.php');
+require('C:\Users\angel\public_html\ADC-Store\PHPMailer-master\src\Exception.php');
+require('C:\Users\angel\public_html\ADC-Store\PHPMailer-master\src\SMTP.php');
 
 /**
  * CGestioneCarrello è la classe che si occupa della gestione dei carrelli e degli ordini, permettendo la comunicazione
@@ -189,7 +189,7 @@ class CGestioneCarrello
             $carta->setAmmontare($carta->getAmmontare() - $ordine->getPrezzoTotale());
             $utente->setPunti($utente->getPunti() + ((int) $ordine->getPrezzoTotale()));          //aggiunge un punto per ogni euro speso
 
-            CGestioneCarrello::mailOrdine($ordine, $nome, $cognome, $_POST['email'], $carrello, $arrProdotti);
+            //CGestioneCarrello::mailOrdine($ordine, $nome, $cognome, $_POST['email'], $carrello, $arrProdotti);
 
             $pm->store($ordine);
             $pm->update($carta);

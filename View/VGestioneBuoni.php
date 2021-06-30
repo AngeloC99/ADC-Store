@@ -34,7 +34,8 @@ class VGestioneBuoni
 
     }
 
-    public function mostraCreazioneBuono(){
+    public function mostraCreazioneBuono(string $nome){
+        $this->smarty->assign('nome', $nome);
         $this->smarty->assign('path', $GLOBALS["path"]);
         $this->smarty->display('coupon-create.tpl');
     }

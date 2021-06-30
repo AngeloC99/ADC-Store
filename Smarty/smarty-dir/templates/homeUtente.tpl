@@ -258,7 +258,7 @@
                     <div class="main-menu border-section border-top-0">
                         
                         <div class="brand-logo layout2-logo">
-                            <a href="#"><img src="{$path}Smarty/smarty-dir/assets/images/icon/logo.png" class="img-fluid blur-up lazyload"
+                            <a href=""><img src="{$path}Smarty/smarty-dir/assets/images/icon/logo.png" class="img-fluid blur-up lazyload"
                                     alt=""></a>
                         </div>
                         <div class="menu-right pull-right">
@@ -483,7 +483,7 @@
                     <div class="col">
                         <div class="sub-title">
                             <div class="footer-title">
-                                <h4>informationi</h4>
+                                <h4>informazioni</h4>
                             </div>
                             <div class="footer-contant">
                                 <ul class="contact-list">

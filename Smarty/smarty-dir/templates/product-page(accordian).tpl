@@ -258,7 +258,7 @@
                 <div class="col">
                     <div class="sub-title">
                         <div class="footer-title">
-                            <h4>informationi</h4>
+                            <h4>informazioni</h4>
                         </div>
                         <div class="footer-contant">
                             <ul class="contact-list">
@@ -1122,7 +1122,7 @@
             }
 
             else{
-                alert("prodotto aggiunto correttamente al carrello.");
+                alert("Il prodotto è stato correttamente aggiunto al carrello.");
                 document.dati.action = "{$path}GestioneCarrello/aggiungiAlCarrello";
                 document.dati.submit();
             }

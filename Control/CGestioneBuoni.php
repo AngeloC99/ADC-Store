@@ -2,9 +2,9 @@
 
 use PHPMailer\PHPMailer\PHPMailer;
 
-require('C:\Users\rommy\public_html\ADC-Store\PHPMailer-master\src\PHPMailer.php');
-require('C:\Users\rommy\public_html\ADC-Store\PHPMailer-master\src\Exception.php');
-require('C:\Users\rommy\public_html\ADC-Store\PHPMailer-master\src\SMTP.php');
+require('C:\Users\angel\public_html\ADC-Store\PHPMailer-master\src\PHPMailer.php');
+require('C:\Users\angel\public_html\ADC-Store\PHPMailer-master\src\Exception.php');
+require('C:\Users\angel\public_html\ADC-Store\PHPMailer-master\src\SMTP.php');
 
 class CGestioneBuoni
 {
@@ -86,8 +86,10 @@ class CGestioneBuoni
 
     }
     public static function recuperaCreazioneBuono(){
+        $gs = CGestioneSessioni::getInstance();
+        $nome = $gs->caricaUtente()->getNome();
         $v=new VGestioneBuoni();
-        $v->mostraCreazioneBuono();
+        $v->mostraCreazioneBuono($nome);
     }
 
 

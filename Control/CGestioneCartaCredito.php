@@ -48,7 +48,7 @@ class CGestioneCartaCredito
         $pm = FPersistentManager::getInstance();
         $gs = CGestioneSessioni::getInstance();
         if($gs->isLoggedUser()){
-            $carta = new ECartaCredito($_POST['titolare'], $_POST['numero'], $_POST['circuito'], new DateTime($_POST['scadenza']),
+            $carta = new ECartaCredito(ucwords($_POST['titolare']), $_POST['numero'], ucwords($_POST['circuito']), new DateTime($_POST['scadenza']),
                 $_POST['cvv'], $_POST['ammontare']);
             $pm->salvaCartaUtente($carta, $gs->caricaUtente()->getEmail());
 
