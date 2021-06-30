@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-06-29 18:39:19
+/* Smarty version 3.1.39, created on 2021-06-30 00:14:54
   from 'C:\Users\david\public_html\ADC-Store\Smarty\smarty-dir\templates\prize-page(accordian)Admin.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_60db4cb7ca2d72_22417738',
+  'unifunc' => 'content_60db9b5e8cc219_35781219',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '0b45cf7aa0859ae2658ecbb18bd0e56f7ef17f44' => 
     array (
       0 => 'C:\\Users\\david\\public_html\\ADC-Store\\Smarty\\smarty-dir\\templates\\prize-page(accordian)Admin.tpl',
-      1 => 1624984693,
+      1 => 1624985971,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_60db4cb7ca2d72_22417738 (Smarty_Internal_Template $_smarty_tpl) {
+function content_60db9b5e8cc219_35781219 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en">
 
@@ -257,7 +257,8 @@ GestionePunti/recuperaPremi">premi</a>
                         <div class="product-slick">
                             <div><img src="data:<?php echo $_smarty_tpl->tpl_vars['mime']->value;?>
 ;base64,<?php echo $_smarty_tpl->tpl_vars['dati']->value;?>
-" width="150" height="250" alt=""
+"
+                            class="flex" alt=""
                                     class="img-fluid blur-up lazyload image_zoom_cls-0"></div>
 
                         </div>

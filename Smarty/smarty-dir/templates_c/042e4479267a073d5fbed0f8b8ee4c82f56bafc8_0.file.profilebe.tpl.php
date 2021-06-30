@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-06-28 20:07:02
+/* Smarty version 3.1.39, created on 2021-06-30 00:14:13
   from 'C:\Users\david\public_html\ADC-Store\Smarty\smarty-dir\templates\profilebe.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_60da0fc6b96d66_67621614',
+  'unifunc' => 'content_60db9b3579d732_63673485',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '042e4479267a073d5fbed0f8b8ee4c82f56bafc8' => 
     array (
       0 => 'C:\\Users\\david\\public_html\\ADC-Store\\Smarty\\smarty-dir\\templates\\profilebe.tpl',
-      1 => 1624903046,
+      1 => 1624997048,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_60da0fc6b96d66_67621614 (Smarty_Internal_Template $_smarty_tpl) {
+function content_60db9b3579d732_63673485 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
@@ -123,7 +123,7 @@ GestioneUtenti/recuperaClienti"><i class="fa fa-circle"></i>Lista Clienti</a></l
                     <li><a class="sidebar-header" href=""><i data-feather="tag"></i><span>Buoni Sconto</span><i class="fa fa-angle-right pull-right"></i></a>
                         <ul class="sidebar-submenu">
                             <li><a href="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
-GestioneBuoni/inviaBuono"><i class="fa fa-circle"></i>Regala Buono</a></li>
+GestioneBuoni/recuperaCreazioneBuono"><i class="fa fa-circle"></i>Regala Buono</a></li>
                         </ul>
                     </li>
 
