@@ -70,15 +70,11 @@
                                     <li>
                                         <a href="{$path}GestioneProdotti/recuperaProdotti">Prodotti</a>
                                     </li>
+                                    <li><a href="{$path}GestioneSchermate/apriProfilo">Profilo</a>
+
+                                    </li>
                                     <li>
                                         <a href="{$path}GestionePunti/recuperaPremi">Premi</a>
-                                    </li>
-                                    <li><a href="">Account</a>
-                                        <ul>
-                                            <li><a href="{$path}GestioneSchermate/apriProfilo" data-lng="en">Il mio profilo ADC-Store</a></li>
-                                            <li><a href="{$path}GestioneSchermate/recuperaGestioneCarrello" data-lng="en">Carrello della spesa</a></li>
-                                            <li><a href="{$path}GestioneUtenti/logout" data-lng="en">Logout</a></li>
-                                        </ul>
                                     </li>
                                     <li>
                                         <a href="{$path}GestioneSchermate/chiSiamo">Chi siamo</a>

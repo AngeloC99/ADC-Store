@@ -211,13 +211,6 @@
                                                                 	<img src="data:{$prize.mime};base64,{$prize.dati}" class="flex" />
                                                                 </a>
                                                             </div>
-                                                            <div class="cart-info cart-wrap">
-                                                                <button data-toggle="modal" data-target="#addtocart" title="Add to cart"><i
-                                                                        class="ti-shopping-cart"></i></button> <a href="javascript:void(0)" title="Add to Wishlist"><i
-                                                                        class="ti-heart" aria-hidden="true"></i></a> <a href="#" data-toggle="modal" data-target="#quick-view" title="Quick View"><i
-                                                                        class="ti-search" aria-hidden="true"></i></a> <a href="compare.html" title="Compare"><i
-                                                                        class="ti-reload" aria-hidden="true"></i></a>
-                                                            </div>
                                                         </div>
                                                         <div class="product-detail">
                                                             <div>
