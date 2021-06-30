@@ -86,8 +86,17 @@ class CGestionePunti
             if ( $gs->isLoggedUser()){
                 $pm=FPersistentManager::getInstance();
                 $premio=$pm->load('FPremio',$id);
+                $indirizzi = $pm->prelevaIndirizziUtente($gs->caricaUtente()->getEmail());
+                $arrIndirizzi = array();
+                foreach ($indirizzi as $indirizzo) {
+                    $tmp = array(
+                        'indirizzo' => $indirizzo,
+                        'identificativo' => str_replace(" ", "_", $indirizzo->getVia()).":".$indirizzo->getNumero().":".$indirizzo->getCap(),
+                    );
+                    $arrIndirizzi[] = $tmp;
+                }
                 $v=new VGestionePunti();
-                $v->mostraDettagliPremioUser($premio);
+                $v->mostraDettagliPremioUser($premio, $arrIndirizzi);
             }
 
             else if ( $gs->isLoggedAdmin()){

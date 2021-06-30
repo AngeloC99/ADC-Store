@@ -36,11 +36,12 @@ class VGestionePunti
         $this->smarty->display('aggiungi-premi.tpl');
     }
 
-    public function mostraDettagliPremioUser($premio){
+    public function mostraDettagliPremioUser($premio, $arrIndirizzi){
 
         $gs = CGestioneSessioni::getInstance();
         $user = $gs->caricaUtente();
 
+        $this->smarty->assign('indirizzi', $arrIndirizzi);
         $this->smarty->assign('nome', $premio->getNome());
         $this->smarty->assign('descrizione', $premio->getDescrizione());
         $this->smarty->assign('marca', $premio->getMarca());

@@ -5,12 +5,12 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="description" content="multikart">
-    <meta name="keywords" content="multikart">
-    <meta name="author" content="multikart">
+    <meta name="description" content="ADCStore">
+    <meta name="keywords" content="ADCStore">
+    <meta name="author" content="ADCStore">
     <link rel="icon" href="{$path}Smarty/smarty-dir/assets/images/favicon/1.png" type="image/x-icon">
     <link rel="shortcut icon" href="{$path}Smarty/smarty-dir/assets/images/favicon/1.png" type="image/x-icon">
-    <title>Dettagli premio</title>
+    <title>ADC-Store - Dettagli premio</title>
 
     <!--Google font-->
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet">
@@ -38,154 +38,62 @@
 
 <body>
 
-    <!-- loader start -->
-    <div class="loader_skeleton">
-        <header>
-            <div class="top-header d-none d-sm-block">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <div class="header-contact">
-                                <ul>
-                                    <li><i class="fa fa-phone" aria-hidden="true"></i>Call Us: 123 - 456 - 7890</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-lg-6 text-right">
-                            <ul class="header-dropdown">
-                                <li class="mobile-wishlist"><a href="#"><i class="fa fa-heart" aria-hidden="true"></i></a>
-                                </li>
-                                <li class="onhover-dropdown mobile-account">
-                                    <i class="fa fa-user" aria-hidden="true"></i>
-                                </li>
-                            </ul>
-                        </div>
+<!-- header start -->
+<header>
+    <div class="mobile-fix-option"></div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="main-menu">
+
+                    <div class="brand-logo">
+                        <a href="{$path}GestioneSchermate/recuperaHome"> <img src="{$path}Smarty/smarty-dir/assets/images/icon/logo.png"
+                                                                              class="img-fluid blur-up lazyload" alt=""></a>
                     </div>
-                </div>
-            </div>
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-12">
-                        <div class="main-menu">
-                            <div class="menu-left">
-                                <div class="navbar">
-                                    <a href="javascript:void(0)">
-                                        <div class="bar-style"><i class="fa fa-bars sidebar-bar" aria-hidden="true"></i>
-                                        </div>
-                                    </a>
+
+                    <div class="menu-right pull-right">
+                        <div>
+                            <nav id="main-nav">
+                                <div class="toggle-nav">
+                                    <i class="fa fa-bars sidebar-bar"></i>
                                 </div>
-                                <div class="brand-logo">
-                                    <a href="index.html"><img src="{$path}Smarty/smarty-dir/assets/images/icon/logo.png"
-                                            class="img-fluid blur-up lazyload" alt=""></a>
-                                </div>
-                            </div>
-                            <div class="menu-right pull-right">
-                                <div>
-                                    <nav>
-                                        <div class="toggle-nav"><i class="fa fa-bars sidebar-bar"></i></div>
-                                </div>
-                                <div>
-                                    <div class="icon-nav d-none d-sm-block">
+                                <!-- Horizontal menu -->
+                                <ul id="main-menu" class="sm pixelstrap sm-horizontal">
+                                    <li>
+                                        <div class="mobile-back text-right">Back<i class="fa fa-angle-right pl-2"
+                                                                                   aria-hidden="true"></i></div>
+                                    </li>
+                                    <li>
+                                        <a href="{$path}GestioneSchermate/recuperaHome">Home</a>
+                                    </li>
+                                    <li>
+                                        <a href="{$path}GestioneProdotti/recuperaProdotti">Prodotti</a>
+                                    </li>
+                                    <li>
+                                        <a href="{$path}GestionePunti/recuperaPremi">Premi</a>
+                                    </li>
+                                    <li><a href="">Account</a>
                                         <ul>
+                                            <li><a href="{$path}GestioneSchermate/apriProfilo" data-lng="en">Il mio profilo ADC-Store</a></li>
+                                            <li><a href="{$path}GestioneSchermate/recuperaGestioneCarrello" data-lng="en">Carrello della spesa</a></li>
+                                            <li><a href="{$path}GestioneUtenti/logout" data-lng="en">Logout</a></li>
                                         </ul>
-                                    </div>
-                                </div>
-                            </div>
+                                    </li>
+                                    <li>
+                                        <a href="{$path}GestioneSchermate/chiSiamo">Chi siamo</a>
+                                    </li>
+                                </ul>
+                            </nav>
                         </div>
-                    </div>
-                </div>
-            </div>
-        </header>
-        <div class="breadcrumb-section">
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-6">
-                        <div class="page-title">
-                            <h2>product</h2>
-                        </div>
-                    </div>
-                    <div class="col-sm-6">
-                        <nav aria-label="breadcrumb" class="theme-breadcrumb">
-                            <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                                <li class="breadcrumb-item active" aria-current="page">product</li>
-                            </ol>
-                        </nav>
+
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- loader end -->
-
-
-    <!-- header start -->
-    <header>
-        <div class="mobile-fix-option"></div>
-        <div class="top-header">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-6">
-                        <div class="header-contact">
-                            <ul>
-                                <li>Benvenuti in ADC Store</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 text-right">
-                        <ul class="header-dropdown">
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-12">
-                    <div class="main-menu">
-                        <div class="menu-left">
-
-                        </div>
-                        <div class="menu-right pull-right">
-                            <div>
-                                <nav id="main-nav">
-                                    <div class="toggle-nav">
-                                        <i class="fa fa-bars sidebar-bar"></i>
-                                    </div>
-                                    <!-- Horizontal menu -->
-                                    <ul id="main-menu" class="sm pixelstrap sm-horizontal">
-                                        <li>
-                                            <div class="mobile-back text-right">Back<i class="fa fa-angle-right pl-2"
-                                                    aria-hidden="true"></i></div>
-                                            <a href="{$path}GestioneSchermate/recuperaHomeUtente">Home</a>
-                                        </li>
-                                        <li>
-                                            <a href="{$path}GestioneSchermate/apriProfilo">profilo</a>
-                                        </li>
-                                        <li>
-                                            <a href="{$path}GestioneProdotti/recuperaProdotti">prodotti</a>
-                                        </li>
-                                        <li ><a href="{$path}GestionePunti/recuperaPremi">premi</a>
-                                        <li >    
-                                    </ul>
-                                </nav>
-                            </div>
-                            <div>
-                                <div class="icon-nav">
-                                    <ul>
-                                        <li class="onhover-div mobile-search">
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
-    <!-- header end -->
+</header>
+<!-- header end -->
 
 
     <!-- breadcrumb start -->
@@ -200,7 +108,7 @@
                 <div class="col-sm-6">
                     <nav aria-label="breadcrumb" class="theme-breadcrumb">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="home.html">Home</a></li>
+                            <li class="breadcrumb-item"><a href="{$path}GestioneSchermate/recuperaHome">Home</a></li>
                             <li class="breadcrumb-item active" aria-current="page">Premi</li>
                         </ol>
                     </nav>
@@ -251,11 +159,17 @@
                                 
                                     <h6 class="product-title">Quantità:</h6>
                                     <div class="qty-box">
-
                                         <input type="number" name="quantita" class="form-control input-number" value="1" min="1" max="{$quantita}">
-
                                     </div>
-                                
+
+                                    <h6 class="product-title">Indirizzo di spedizione:</h6>
+                                    <div class="field-label">
+                                        <select name="indirizzo">
+                                            {section name=ind loop=$indirizzi}
+                                                <option value="{$indirizzi[ind].identificativo}">{$indirizzi[ind].indirizzo}</option>
+                                            {/section}
+                                        </select>
+                                    </div>
                                 </div>
                                 <div class="product-buttons">
                                     <button type="submit" onclick="Funzione()" class="btn btn-solid">acquista</button>
@@ -274,49 +188,115 @@
 
 
 
-    <!-- footer start -->
-    <footer class="footer-light">
-
-
-        <div class="sub-footer">
-            <div class="container">
-                <div class="row">
-                    <div class="col-xl-6 col-md-6 col-sm-12">
-                        <div class="footer-end">
-                            <p><i class="fa fa-copyright" aria-hidden="true"></i> 2020-21 Progetto di Programmazione Web</p>
+<!-- footer start -->
+<footer class="footer-light">
+    <section class="section-b-space light-layout">
+        <div class="container">
+            <div class="row footer-theme partition-f">
+                <div class="col-lg-4 col-md-6">
+                    <div class="footer-title footer-mobile-title">
+                        <h4>about</h4>
+                    </div>
+                    <div class="footer-contant">
+                        <div class="footer-logo"><img src="{$path}Smarty/smarty-dir/assets/images/icon/logo.png" alt=""></div>
+                        <p>ADC-Store è la tua catena di supermercati di fiducia in Italia, grazie a un modello originale d’impresa. Noi poniamo al centro i nostri clienti, sempre. </p> <br>
+                        <p style="color: #0a0100">Seguici sulle nostre pagine social per non perderti nuove offerte!</p>
+                        <div class="footer-social">
+                            <ul>
+                                <li><a href=""><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                                <li><a href=""><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
+                                <li><a href=""><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                                <li><a href=""><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                                <li><a href=""><i class="fa fa-rss" aria-hidden="true"></i></a></li>
+                            </ul>
                         </div>
                     </div>
-                    <div class="col-xl-6 col-md-6 col-sm-12">
-                        <div class="payment-card-bottom">
+                </div>
+                <div class="col offset-xl-1">
+                    <div class="sub-title">
+                            <div class="footer-title">
+                                <h4>Il tuo ADC-Store</h4>
+                            </div>
+                            <div class="footer-contant">
+                                <ul>
+                                    <li><a href="{$path}GestioneSchermate/apriProfilo">Il tuo profilo</a></li>
+                                    <li><a href="{$path}GestioneCarrello/recuperaCarrello">Il tuo carrello ADC-Store</a></li>
+                                </ul>
+                            </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="sub-title">
+                        <div class="footer-title">
+                            <h4>Scopri di più</h4>
+                        </div>
+                        <div class="footer-contant">
                             <ul>
                                 <li>
-                                    <a href="#"><img src="{$path}Smarty/smarty-dir/assets/images/icon/visa.png" alt=""></a>
+                                    <a href="{$path}GestioneSchermate/chiSiamo">Chi siamo</a>
                                 </li>
-                                <li>
-                                    <a href="#"><img src="{$path}Smarty/smarty-dir/assets/images/icon/mastercard.png" alt=""></a>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="sub-title">
+                        <div class="footer-title">
+                            <h4>informazioni</h4>
+                        </div>
+                        <div class="footer-contant">
+                            <ul class="contact-list">
+                                <li><i class="fa fa-map-marker"></i>ADC Store
                                 </li>
-                                <li>
-                                    <a href="#"><img src="{$path}Smarty/smarty-dir/assets/images/icon/paypal.png" alt=""></a>
-                                </li>
-                                <li>
-                                    <a href="#"><img src="{$path}Smarty/smarty-dir/assets/images/icon/american-express.png" alt=""></a>
-                                </li>
-                                <li>
-                                    <a href="#"><img src="{$path}Smarty/smarty-dir/assets/images/icon/discover.png" alt=""></a>
-                                </li>
+                                <li><i class="fa fa-phone"></i>Chiamaci: 3314166000</li>
+                                <li><i class="fa fa-envelope-o"></i>Scrivici: ADCStore@gmail.com</li>
+                                <li><i class="fa fa-fax"></i>Fax: 1234567890</li>
                             </ul>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </footer>
-    <!-- footer end -->
+    </section>
+    <div class="sub-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-6 col-md-6 col-sm-12">
+                    <div class="footer-end">
+                        <p><i class="fa fa-copyright" aria-hidden="true"></i> 2020-21 Progetto di Programmazione Web</p>
+                    </div>
+                </div>
+                <div class="col-xl-6 col-md-6 col-sm-12">
+                    <div class="payment-card-bottom">
+                        <ul>
+                            <li>
+                                <a href=""><img src="{$path}Smarty/smarty-dir/assets/images/icon/visa.png" alt=""></a>
+                            </li>
+                            <li>
+                                <a href=""><img src="{$path}Smarty/smarty-dir/assets/images/icon/mastercard.png" alt=""></a>
+                            </li>
+                            <li>
+                                <a href=""><img src="{$path}Smarty/smarty-dir/assets/images/icon/paypal.png" alt=""></a>
+                            </li>
+                            <li>
+                                <a href=""><img src="{$path}Smarty/smarty-dir/assets/images/icon/american-express.png" alt=""></a>
+                            </li>
+                            <li>
+                                <a href=""><img src="{$path}Smarty/smarty-dir/assets/images/icon/discover.png" alt=""></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- footer end -->
 
 
 
 
-    <!-- Add to cart modal popup start-->
+<!-- Add to cart modal popup start-->
     <div class="modal fade bd-example-modal-lg theme-modal cart-modal" id="addtocart" tabindex="-1" role="dialog"
         aria-hidden="true">
         <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
@@ -431,7 +411,7 @@
 
                 else if ( {$puntiutente} >= {$punti} * quantita )
                 {
-                    alert("Il premio le verrà inviato entro una settimana!");
+                    alert("Il premio le verrà inviato all'indirizzo selezionato entro una settimana!");
                     document.dati.action = "{$path}GestionePunti/acquistaPremio/{$id}";
                     document.dati.submit();
                 }
