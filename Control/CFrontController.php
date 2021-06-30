@@ -30,7 +30,10 @@ class CFrontController
 
 
         if($cookie==true) {
-            if ($path === "/~rommy/ADC-Store/" || $path === "/ADC-Store/" || $path === "/ADC-Store/index.php") {
+
+            setcookie("cookie_test", "cookie_value", time()-3600);
+
+            if ($path === "/~david/ADC-Store/" || $path === "/ADC-Store/" || $path === "/ADC-Store/index.php") {
                 CGestioneSchermate::showHome();
             } else {
                 error_reporting(E_ERROR | E_PARSE);
