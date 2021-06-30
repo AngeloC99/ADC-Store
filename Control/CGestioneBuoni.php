@@ -2,13 +2,23 @@
 
 use PHPMailer\PHPMailer\PHPMailer;
 
-require('C:\Users\angel\public_html\ADC-Store\PHPMailer-master\src\PHPMailer.php');
-require('C:\Users\angel\public_html\ADC-Store\PHPMailer-master\src\Exception.php');
-require('C:\Users\angel\public_html\ADC-Store\PHPMailer-master\src\SMTP.php');
+require('C:\Users\rommy\public_html\ADC-Store\PHPMailer-master\src\PHPMailer.php');
+require('C:\Users\rommy\public_html\ADC-Store\PHPMailer-master\src\Exception.php');
+require('C:\Users\rommy\public_html\ADC-Store\PHPMailer-master\src\SMTP.php');
 
+/**
+ * CGestioneBuoni è la classe che si occupa della gestione dei buoni sconto, permettendo la comunicazione
+ * fra le classi View, Entity e Foundation ad essi legate.
+ * Class CGestioneBuoni
+ * @access public
+ * @package Controller
+ */
 class CGestioneBuoni
 {
 
+    /**
+     * Metodo che permette di recuperare la lista dei buoni di un utente inviata poi alla view corrispondente.
+     */
     public static function recuperaBuoni(){
         $gs=CGestioneSessioni::getInstance();
         if ($gs->isLoggedUser()) {
@@ -43,6 +53,11 @@ class CGestioneBuoni
 
     }
 
+    /**
+     * Metodo che permette di inviare (tramite PHPMailer) un buono, creato dall'admin con apposito form, ad uno specifico utente.
+     * @return bool
+     * @throws \PHPMailer\PHPMailer\Exception
+     */
     public static function inviaBuono(){
         $gs=CGestioneSessioni::getInstance();
         if ($gs->isLoggedAdmin()){
@@ -85,6 +100,10 @@ class CGestioneBuoni
         }
 
     }
+
+    /**
+     * Metodo che permette di recuperare la View associata alla creazione del buono.
+     */
     public static function recuperaCreazioneBuono(){
         $gs = CGestioneSessioni::getInstance();
         $nome = $gs->caricaUtente()->getNome();

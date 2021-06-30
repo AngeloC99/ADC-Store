@@ -11,12 +11,6 @@ class CGestioneUtenti
      * Recupera tutti gli utenti presenti del database
      * @return array
      */
-    public static function recuperaClientiInattivi(){
-
-        $pm = FPersistentManager::getInstance();
-        return $pm->prelevaUtentiInattivi();
-    }
-
     public static function recuperaClienti()
     {
         $pm = FPersistentManager::getInstance();
@@ -36,26 +30,13 @@ class CGestioneUtenti
     }
 
     /**
-     * Seleziona il cliente referenziato dalla mail che viene passata
-     * @param string $email
-     */
-    public static function selezionaCliente(string $email)
-    {
-
-        $pm = FPersistentManager::getInstance();
-        return $pm->load("FUtenteReg", $email);
-    }
-
-
-
-    /**
-     * Crea e salva nel database un nuovo utente che vuole registrarsi
+     * Crea e salva nel database un nuovo utente dopo compilazione dell'apposito form di registrazione.
      * @param string $nome
      * @param string $cognome
      * @param string $email
      * @param string $password
      */
-    public static function registra(): void
+    public static function registra()
     {
         $utente = new EUtenteReg($_POST['nome'], $_POST['cognome'], $_POST['email'], $_POST['password']);
         $pm = FPersistentManager::getInstance();
@@ -66,7 +47,7 @@ class CGestioneUtenti
 
 
     /**
-     * Metodo che gestisce il login secondo le credenziali che vengono passate
+     * Metodo che gestisce il login utente
      */
     public static function login()
     {
@@ -75,6 +56,9 @@ class CGestioneUtenti
         self::verificaLogin($email, $password);
     }
 
+    /**
+     * Metodo che gestisce il login utente (controllo credenziali)
+     */
     public static function verificaLogin($email, $password)
     {
         $pm = FPersistentManager::getInstance();
@@ -94,6 +78,9 @@ class CGestioneUtenti
         }
     }
 
+    /**
+     * Metodo che gestisce il login dell'admin
+     */
     public static function loginAdmin()
     {
         $email = $_POST["email"];
@@ -101,6 +88,9 @@ class CGestioneUtenti
         self::verificaLoginAdmin($email, $password);
     }
 
+    /**
+     * Metodo che gestisce il login admin (controllo credenziali)
+     */
     public static function verificaLoginAdmin($email, $password)
     {
         $pm = FPersistentManager::getInstance();
@@ -120,14 +110,18 @@ class CGestioneUtenti
     }
 
 
-
-
+    /**
+     * Metodo che gestisce il logout (sia di un utente che di un admin)
+     */
     public static function logout(){
         $gs = CGestioneSessioni::getInstance();
         $gs->distruggiSessione();
         header("Location: ".$GLOBALS['path']."GestioneSchermate/showHome");
     }
 
+    /**
+     * Metodo che permette di recuperare la schermata per la creazione di un account (form registrazione).
+     */
     public static function recuperaCreazioneAccount(){
         $v=new VGestioneUtenti();
         $v->mostraCreazioneAccount();

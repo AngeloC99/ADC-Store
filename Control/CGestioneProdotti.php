@@ -1,12 +1,15 @@
 <?php
 
 /**
- * Classe controller per la gestione dei prodotti
+ * Classe controller per la gestione dei prodotti.
  * Class CGestioneProdotti
  */
 class CGestioneProdotti
 {
 
+    /**
+     * Metodo che permette di recuperare la lista dei prodotti presenti nel db e di inoltrarli alla View relativa.
+     */
     public static function recuperaProdotti(){
         $pm=FPersistentManager::getInstance();
         $prodottirec=$pm->prelevaProdotti();
@@ -32,34 +35,8 @@ class CGestioneProdotti
     }
 
     /**
-     * Modifica la quantità di un prodotto nel database
-     * @param string $id
-     * @param int $q
+     * Metodo che permette di recuperare la View relativa all'aggiunta di un prodotto
      */
-    public static function modificaQuantita(string $id, int $q): void {
-
-        $pm = FPersistentManager::getInstance();
-        $prod = $pm->load('FProdotto',$id);
-        $prod->setQuantita($q);
-
-        $pm->update($prod);
-
-    }
-
-    /**
-     * Modifica il prezzo di un prodotto presente nel database
-     * @param string $id
-     * @param float $p
-     */
-    public static function modificaPrezzo(string $id, float $p): void {
-
-        $pm = FPersistentManager::getInstance();
-        $prod = $pm->load('FProdotto',$id);
-        $prod->setPrezzo($p);
-
-        $pm->update($prod);
-
-    }
     public static function recuperaAggiungiProdotto(){
         $gs=CGestioneSessioni::getInstance();
         if ($gs->isLoggedAdmin()){
@@ -86,32 +63,29 @@ class CGestioneProdotti
     public static function aggiungiProdotto(){
         $gs=CGestioneSessioni::getInstance();
         if ($gs->isLoggedAdmin()) {
+            $utente=$gs->caricaUtente();
             if ((!isset($_FILES["image"])) || ($_FILES["image"]["error"] != UPLOAD_ERR_OK)) {
                 echo "Errore nell'invio del file. Riprova!";
             }
-            // Connessione e selezione del database
             $pm = FPersistentManager::getInstance();
-            // Recupero delle informazioni sul file inviato
-
             $file = base64_encode((file_get_contents($_FILES["image"]['tmp_name'])));
-
-
-            //$nome_file_temporaneo = $_FILES["file_inviato"]["image"];
             $nome_file_vero = $_FILES["image"]["name"];
             $tipo_file = $_FILES["image"]["type"];
-            //$dati_file = file_get_contents($nome_file_temporaneo);
-            //$dati_file = addslashes($dati_file);
             $imm = new EImmagine($nome_file_vero, $tipo_file, $file);
             $prodotto = new EProdotto($_POST['nome'], $_POST['marca'], $_POST['descrizione'], $_POST['quantita'], $imm, $_POST['prezzo'], $_POST['tipologia']);
             $pm->store($prodotto);
             $v = new VGestioneProdotto();
-            $v->mostraAggiuntaProdotto();
+            $v->mostraAggiuntaProdotto($utente);
         }
         else{
             CGestioneSchermate::recupera401();
         }
     }
 
+    /**
+     * Metodo che permette di recuperare il prodotto dal db a partire dall'id fornito per recuperarne i dettagli, poi inoltrati all'apposita view.
+     * @param string $id
+     */
     public static function recuperaDettagli(string $id){
         $pm=FPersistentManager::getInstance();
         $gs = CGestioneSessioni::getInstance();
@@ -140,6 +114,9 @@ class CGestioneProdotti
         }
     }
 
+    /**
+     * Metodo che permette di recuperare dal db la lista dei prodotti aventi come tipologia/nome quella/o specificata/o nell'apposito form. Tali prodotti vengono poi visualizzati grazie al richiamo dell'apposita View.
+     */
     public static function recuperaProdotto(){
         $pm=FPersistentManager::getInstance();
         if($_POST['selection']=='tipologia'){
@@ -185,6 +162,9 @@ class CGestioneProdotti
 
     }
 
+    /**
+     * Metodo che permette di aggiornare la quantità di un prodotto nel db grazie ai dati ricevuti dalla view dopo la compilazione dell'apposito form.
+     */
     public static function aggiornaQuantitaProdotto() {
         $gs = CGestioneSessioni::getInstance();
         $pm = FPersistentManager::getInstance();
