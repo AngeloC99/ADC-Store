@@ -42,7 +42,7 @@ class CGestioneIndirizzi
     }
 
     /**
-     * Passa i dati inseriti dall'utente al package Foundation per salvare un nuovo indirizzo predefinito ad esso
+     * Passa i dati inseriti dall'utente al package Foundation per salvare un nuovo indirizzo ad esso
      * associato. Se non si hanno i privilegi, si viene reindirizzati ad una pagina di errore.
      */
     public static function aggiungiIndirizzo(): void {
@@ -50,7 +50,7 @@ class CGestioneIndirizzi
         $gs = CGestioneSessioni::getInstance();
         if($gs->isLoggedUser()){
             $indirizzo = new EIndirizzo(ucwords($_POST['via']),$_POST['numero'],ucwords($_POST['comune']),
-                strtoupper($_POST['provincia']),$_POST['cap'],false);
+                strtoupper($_POST['provincia']),$_POST['cap']);
             $pm->salvaIndirizzoUtente($indirizzo, $gs->caricaUtente()->getEmail());
 
             header("Location: ".$GLOBALS['path']."GestioneIndirizzi/recuperaIndirizzi");

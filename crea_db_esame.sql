@@ -3,7 +3,7 @@ CREATE DATABASE progettodiesame;
 USE progettodiesame;
 
 CREATE TABLE Amministratore (
-    email VARCHAR(30) NOT NULL,
+    email VARCHAR(40) NOT NULL,
     nome VARCHAR(15) NOT NULL,
     cognome VARCHAR(20) NOT NULL,
     password VARCHAR(255) NOT NULL,
@@ -21,10 +21,10 @@ CREATE TABLE Immagine(
 CREATE TABLE Premio(
 	id CHAR(16) NOT NULL,
 	punti INT NOT NULL,
-	nome VARCHAR(15) NOT NULL,
-	descrizione VARCHAR(100) NOT NULL,
+	nome VARCHAR(30) NOT NULL,
+	descrizione VARCHAR(300) NOT NULL,
 	quantita INT NOT NULL,
-	marca VARCHAR(15) NOT NULL,
+	marca VARCHAR(20) NOT NULL,
     idImmagine CHAR(16) NOT NULL,
     PRIMARY KEY (id),
     INDEX (punti),
@@ -48,13 +48,12 @@ CREATE TABLE Indirizzo(
 	cap CHAR(5) NOT NULL,
 	comune VARCHAR(25) NOT NULL,
 	provincia CHAR(2) NOT NULL,
-	predefinito BOOLEAN,
 	PRIMARY KEY (via,numerocivico,cap)
 );
 
 
 CREATE TABLE UtenteReg(
-    email VARCHAR(30) NOT NULL,
+    email VARCHAR(40) NOT NULL,
     nome VARCHAR(15) NOT NULL,
     cognome VARCHAR(20) NOT NULL,
     password VARCHAR(255) NOT NULL,
@@ -64,7 +63,7 @@ CREATE TABLE UtenteReg(
 
 
 CREATE TABLE UtenteSalvaIndirizzo(
-	mailutente VARCHAR(30) NOT NULL,
+	mailutente VARCHAR(40) NOT NULL,
 	via VARCHAR(25) NOT NULL,
 	numerocivico INT NOT NULL,
 	cap CHAR(5) NOT NULL,
@@ -77,7 +76,7 @@ CREATE TABLE UtenteSalvaIndirizzo(
 
 
 CREATE TABLE UtenteUsaCarta(
-    mailutente VARCHAR(30) NOT NULL,
+    mailutente VARCHAR(40) NOT NULL,
     numerocarta CHAR(19) NOT NULL,
 	PRIMARY KEY (mailutente,numerocarta),
 	FOREIGN KEY (mailutente) REFERENCES UtenteReg(email)
@@ -88,8 +87,8 @@ CREATE TABLE UtenteUsaCarta(
 
 CREATE TABLE Carrello(
     id CHAR(16) NOT NULL,
-    nome VARCHAR(15) NOT NULL,
-    mailutente VARCHAR(30) NOT NULL,
+    nome VARCHAR(30) NOT NULL,
+    mailutente VARCHAR(40) NOT NULL,
 	PRIMARY KEY (id),
 	FOREIGN KEY (mailutente) REFERENCES UtenteReg(email)
 	ON UPDATE CASCADE ON DELETE CASCADE
@@ -101,18 +100,18 @@ CREATE TABLE BuonoSconto(
     ammontare INT NOT NULL,
     percentuale BOOLEAN NOT NULL,
     scadenza DATE NOT NULL,
-    mailutente VARCHAR(30) NOT NULL,
+    mailutente VARCHAR(40) NOT NULL,
 	PRIMARY KEY (codice),
 	FOREIGN KEY (mailutente) REFERENCES UtenteReg(email)
 );
 
 CREATE TABLE Prodotto(
     id CHAR(16) NOT NULL,
-    nome VARCHAR(15) NOT NULL,
-    descrizione VARCHAR(100) NOT NULL,
+    nome VARCHAR(30) NOT NULL,
+    descrizione VARCHAR(300) NOT NULL,
     tipologia VARCHAR(20) NOT NULL,
     quantita INT NOT NULL,
-    marca VARCHAR(15) NOT NULL,
+    marca VARCHAR(20) NOT NULL,
     prezzo FLOAT NOT NULL,
     idImmagine CHAR(16) NOT NULL,
     PRIMARY KEY (id),
@@ -136,7 +135,7 @@ CREATE TABLE Contiene(
 CREATE TABLE Ordine(
     id CHAR(16) NOT NULL,
     dataacquisto DATE NOT NULL,
-    prezzototale INT NOT NULL,
+    prezzototale FLOAT NOT NULL,
     idcarrello CHAR(16) NOT NULL,
     viaConsegna VARCHAR(25) NOT NULL,
     numerocivicoConsegna INT NOT NULL,

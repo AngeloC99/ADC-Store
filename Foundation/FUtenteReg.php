@@ -230,8 +230,7 @@ class FUtenteReg
                 $row['numerocivico'],
                 $row['comune'],
                 $row['provincia'],
-                $row['cap'],
-                $row['predefinito']);
+                $row['cap']);
             $indirizzi[] = $ind;
         }
         return $indirizzi;

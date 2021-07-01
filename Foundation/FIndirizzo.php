@@ -47,8 +47,7 @@ class FIndirizzo
         $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
         $com = $rows[0]['comune'];
         $prov = $rows[0]['provincia'];
-        $pred = $rows[0]['predefinito'];
-        $indirizzo = new EIndirizzo($via, $numerocivico, $com, $prov, $cap, $pred);
+        $indirizzo = new EIndirizzo($via, $numerocivico, $com, $prov, $cap);
         return $indirizzo;
     }
 
@@ -59,16 +58,14 @@ class FIndirizzo
      */
     public static function store(EIndirizzo $indirizzo): bool {
         $pdo = FConnectionDB::connect();
-        $query = "INSERT INTO Indirizzo VALUES(:via, :numero, :cap, :comune, :provincia, :predefinito)";
+        $query = "INSERT INTO Indirizzo VALUES(:via, :numero, :cap, :comune, :provincia)";
         $stmt = $pdo->prepare($query);
         $ris = $stmt->execute(array(
             ':via' => $indirizzo->getVia(),
             ':numero' => $indirizzo->getNumero(),
             ':cap' => $indirizzo->getCap(),
             ':comune' => $indirizzo->getComune(),
-            ':provincia' => $indirizzo->getProvincia(),
-            ':predefinito' => $indirizzo->isPredefinito()));
-
+            ':provincia' => $indirizzo->getProvincia()));
         return $ris;
     }
 
@@ -80,14 +77,13 @@ class FIndirizzo
      */
     public static function update(EIndirizzo $indirizzo): bool {
         $pdo = FConnectionDB::connect();
-        $stmt = $pdo->prepare("UPDATE Indirizzo SET cap=:cap, comune = :comune, provincia = :provincia, predefinito = :predefinito WHERE via=:via AND numerocivico=:numero");
+        $stmt = $pdo->prepare("UPDATE Indirizzo SET cap=:cap, comune = :comune, provincia = :provincia WHERE via=:via AND numerocivico=:numero");
         $ris = $stmt->execute(array(
             ':via' => $indirizzo->getVia(),
             ':numero' => $indirizzo->getNumero(),
             ':comune' => $indirizzo->getComune(),
             ':provincia' => $indirizzo->getProvincia(),
-            ':cap' => $indirizzo->getCap(),
-            ':predefinito' => $indirizzo->isPredefinito()));
+            ':cap' => $indirizzo->getCap()));
 
         return $ris;
     }
