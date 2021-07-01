@@ -21,7 +21,6 @@ class FAmministratore
         $stmt->execute([":email" => $email]);
         $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-        //FConnectionDB::closeConnection();
 
         if(count($rows)==0){
             return false;

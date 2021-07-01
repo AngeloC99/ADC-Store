@@ -123,6 +123,7 @@ class FPremio
     {
         try{
         $pdo=FConnectionDB::connect();
+        $pdo->exec('LOCK TABLES Premio WRITE');
         $pdo->beginTransaction();
         $stmt = $pdo->prepare("UPDATE Premio SET punti = :p, nome = :n, descrizione = :d, quantita = :q, marca = :m, idImmagine = :idImm WHERE id= :id");
         $ris1 = $stmt->execute(array(
@@ -135,6 +136,8 @@ class FPremio
             ":id" => $obj->getId()));
         $ris2 = FImmagine::update($obj->getImmagine());
         $pdo->commit();
+        $pdo->exec('UNLOCK TABLES');
+
         return $ris1 && $ris2;
         }
         catch (PDOException $e){

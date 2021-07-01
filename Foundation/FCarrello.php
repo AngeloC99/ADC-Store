@@ -90,11 +90,13 @@ class FCarrello
     public static function update($carrello): bool {
         try {
             $pdo = FConnectionDB::connect();
+            $pdo->exec('LOCK TABLES Prodotto WRITE');
             $pdo->beginTransaction();
             $stmt = $pdo->prepare("UPDATE Carrello SET nome = :nome WHERE id = :id");
             $ris = $stmt->execute([':nome' => $carrello->getNome(), ':id' => $carrello->getId()]);
             self::salvaProdottiNelCarrello($carrello, $pdo);
             $pdo->commit();
+            $pdo->exec('UNLOCK TABLES');
 
             return $ris;
 
@@ -183,6 +185,8 @@ class FCarrello
      * @return void
      */
     private static function salvaProdottiNelCarrello(ECarrello $carrello, PDO $pdo): bool {
+
+
         $stmt = $pdo->prepare("INSERT INTO Contiene VALUES (:idcarrello, :idprodotto, :quantitaNelCarrello)");
         foreach ($carrello->getProdotti() as $idprod => $quantita) {
             $ris = $stmt->execute(array(':idcarrello' => $carrello->getId(),
