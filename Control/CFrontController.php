@@ -23,7 +23,7 @@ class CFrontController
         $gs = CGestioneSessioni::getInstance();
 
         if ($gs->isLoggedUser() || $gs->isLoggedAdmin()) {
-            if ($path === "/~david/ADC-Store/" || $path === "/ADC-Store/" || $path === "/ADC-Store/index.php") {
+            if ($path === "/ADC-Store/" || $path === "/ADC-Store/index.php") {
                 setcookie("cookie_test", "cookie_value", time() + 3600);
                 CGestioneSchermate::recuperaHome();
 

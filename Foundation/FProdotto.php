@@ -207,6 +207,12 @@ class FProdotto
             $pdo->rollBack();
         }
     }
+
+    /**
+     * Recupera tutti i dati (filtrati mediante il nome) contenuti nella tabella Prodotto, per fornirli ricorsivamente al costruttore di EProdotto , per poter poi restituire tutte le istanze corrispondenti alla ricerca effettuata.
+     * @param string $nome
+     * @return array
+     */
     public static function prelevaPerNome(string $nome) : array {
         try{
             $pdo = FConnectionDB::connect();
@@ -235,7 +241,5 @@ class FProdotto
             $pdo->rollBack();
         }
     }
-
-
 
 }

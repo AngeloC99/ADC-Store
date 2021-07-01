@@ -17,7 +17,7 @@ class EUtenteReg extends EPersona
      * Array che contiene tutte le carte di credito inserite dall'utente
      * @var array
      */
-    private array $carteSalvate = array(ECartaCredito::class);
+    private array $carteSalvate;
 
     /**
      * Array che contiene tutti i carrelli salvati dall'utente

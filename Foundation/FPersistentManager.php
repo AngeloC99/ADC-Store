@@ -102,14 +102,6 @@ class FPersistentManager
     }
 
     /**
-     * Preleva tutti gli utenti che non effettuano ordini da più di un mese.
-     * @return array
-     */
-    public function prelevaUtentiInattivi() : array {
-        return FOrdine::recuperaUtentiInattivi();
-    }
-
-    /**
      * Salva un'indirizzo fornito da un utente nel database.
      * @param EIndirizzo $indirizzo
      * @param string $mailutente
@@ -200,36 +192,11 @@ class FPersistentManager
     }
 
     /**
-     * Preleva tutte le n-uple della tabella CartaCredito e risveglia in RAM le istanze di ECartaCredito corrispondenti.
-     * @return array
-     */
-    public function prelevaCarte() : array {
-        return FCartaCredito::prelevaCarte();
-    }
-
-    /**
-     * Preleva tutte le n-uple della tabella Indirizzo e risveglia in RAM le istanze di EIndirizzo corrispondenti.
-     * @return array
-     */
-    public function prelevaIndirizzi() : array {
-        return FIndirizzo::prelevaIndirizzi();
-    }
-
-    /**
      * Preleva tutte le n-uple della tabella BuonoSconto e risveglia in RAM le istanze di EBuonoSconto corrispondenti.
      * @return array
      */
     public function prelevaBuoni(string $email): array{
         return FUtenteReg::prelevaBuoni($email);
-    }
-
-    /**
-     * Preleva tutte le n-uple della tabella Premio (aventi prezzo in punti minore o uguale del valore passato come parametro) e risveglia in RAM le istanze di EPremio corrispondenti.
-     * @param int $punti
-     * @return array
-     */
-    public function prelevaPremiFiltrati(int $punti): array {
-        return FPremio::prelevaPerPunti($punti);
     }
 
     /**
@@ -271,8 +238,8 @@ class FPersistentManager
      * @param string $key
      * @return bool
      */
-    public function rimuoviBuoniScaduti(string $key): bool{
-        return FBuonoSconto::deleteBuoniScaduti($key);
+    public function rimuoviBuonoScaduto(string $key): bool{
+        return FBuonoSconto::deleteBuonoScaduto($key);
     }
 }
 

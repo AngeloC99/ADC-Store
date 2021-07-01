@@ -79,6 +79,10 @@ class CGestioneUtenti
             if (password_verify($password, $utente->getPassword())) {
                 $gs->salvaUtente($utente);
                 $gs->salvaCarrello(new ECarrello());
+                $buoni = $pm->prelevaBuoni($utente->getEmail());
+                foreach ($buoni as $buono) {
+                    $pm->rimuoviBuonoScaduto($buono->getCodice());
+                }
                 header("Location: ".$GLOBALS['path'] ."GestioneSchermate/recuperaHome");
             } else {
                 header("Location: ".$GLOBALS['path'] ."GestioneSchermate/recuperaLogin");

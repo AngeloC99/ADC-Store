@@ -99,25 +99,4 @@ class FCartaCredito
         return $ris;
     }
 
-    /**
-     * Restituisce tutte le istanze di ECartaCredito presenti nell'apposita tabella del database.
-     * @return array
-     */
-    public static function prelevaCarte(): array {
-        $pdo = FConnectionDB::connect();
-        $stmt = $pdo->prepare("SELECT * FROM CartaCredito");
-        $stmt->execute();
-        $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        $carte = array();
-        foreach ($rows as $row) {
-            $carta = new ECartaCredito($row['titolare'],
-                $row['numero'],
-                $row['circuito'],
-                new DateTime($row['scadenza']),
-                $row['cvv'],
-                $row['ammontare']);
-            $carte[$row['numero']] = $carta;
-        }
-        return $carte;
-    }
 }
