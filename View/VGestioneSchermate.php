@@ -3,6 +3,8 @@
 /**
  * VGestioneSchermate gestisce la visualizzazione delle singole schermate (senza passaggio di dati da Controller a View e viceversa)
  * Class VGestioneSchermate
+ * @access public
+ * @package View
  */
 class VGestioneSchermate
 {

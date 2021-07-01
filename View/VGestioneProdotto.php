@@ -3,6 +3,8 @@
 /**
  * VGestioneProdotto si occupa di riempire con i dati ricevuti dallo strato Control (o di inoltrare dati compilati tramite form allo strato Control) le varie viste associate ai prodotti.
  * Class VGestioneProdotto
+ * @access public
+ * @package View
  */
 class VGestioneProdotto {
 

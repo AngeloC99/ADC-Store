@@ -52,13 +52,6 @@ class CGestioneProdotti
 
     /**
      * Metodo che serve all'amministratore per aggiungere un prodotto nel database
-     * @param string $n
-     * @param string $m
-     * @param string $d
-     * @param int $q
-     * @param EImmagine $f
-     * @param float $p
-     * @param string $t
      */
     public static function aggiungiProdotto(){
         $gs=CGestioneSessioni::getInstance();
