@@ -144,39 +144,6 @@ class FPremio
     }
 
     /**
-     * Recupera e restituisce tutte le istanze di EPremio aventi un prezzo in punti minore o uguale ai punti forniti, ovvero quelli dell'utente (filtraggio di premi effettivamente acquistabili dall'utente)
-     * @param int $p
-     * @return array
-     */
-    public static function prelevaPerPunti(int $p): array{
-        try{
-            $pdo=FConnectionDB::connect();
-            $pdo->beginTransaction();
-            $immagini=FImmagine::prelevaImmagini();
-            $stmt = $pdo->prepare("SELECT * FROM Premio WHERE punti <= :punti");
-            $stmt->execute([":punti"=>$p]);
-            $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
-            $premi = array();
-            foreach ($rows as $row) {
-                    $premio=new EPremio($row['nome'],
-                    $row['marca'],
-                    $row['descrizione'],
-                    $row['quantita'],
-                    $immagini[$row['idImmagine']],
-                    $row['punti']);
-                $premio->setId($row['id']);
-                $premi[$row['id']]=$premio;
-            }
-            $pdo->commit();
-            return $premi;
-        }
-        catch (PDOException $e){
-            print("ATTENTION ERROR: ") . $e->getMessage();
-            $pdo->rollBack();
-        }
-    }
-
-    /**
      * Recupera tutti i dati contenuti nella tabella Premio, per fornirli ricorsivamente al costruttore di EPremio , per poter restituire poi tutte le istanze corrispondenti.
      * @return array
      */

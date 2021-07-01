@@ -23,7 +23,6 @@ class FOrdine
         else { return true; }
     }
 
-
     /**
      * Carica in RAM l'istanza di EOrdine che possiede la chiave primaria fornita.
      * @param string $id
@@ -100,54 +99,6 @@ class FOrdine
             ':id' => $ordine->getId()));
 
         return $ris;
-    }
-
-    /**
-     * Risveglia in RAM la lista degli utenti meno attivi, ovvero quelli che hanno effettuato l'ultimo ordine più di
-     * un mese fa.
-     * @return array
-     */
-    public static function recuperaUtentiInattivi(): array{
-        try {
-        $pdo = FConnectionDB::connect();
-        $pdo->beginTransaction();
-        //recupera tutti gli ordini effettuati meno di un mese fa
-        $stmt = $pdo->prepare("SELECT * FROM Ordine WHERE dataacquisto <= :data");
-        $stmt2 = $pdo->prepare("SELECT * FROM Ordine WHERE dataacquisto > :data");
-        $datarif = new DateTime('-1 month');
-        $stmt->execute([':data'=>$datarif->format('Y-m-d')]);
-        $stmt2->execute([':data'=>$datarif->format('Y-m-d')]);
-        $rows = $stmt->fetchAll(PDO::FETCH_ASSOC); //ordini precedenti alla data di riferimento
-        $rows2 = $stmt2->fetchAll(PDO::FETCH_ASSOC); //ordini successivi
-        $old=array();
-        $new=array();
-        foreach ($rows as $row){
-            $stmt3 = $pdo->prepare("SELECT * FROM Carrello WHERE id = :id");
-            $stmt3->execute([':id'=>$row['idcarrello']]);
-            $carrelli=$stmt3->fetchAll(PDO::FETCH_ASSOC);
-            $utente=FUtenteReg::load($carrelli[0]['mailutente']);
-            $old[]=$utente;
-        }
-        foreach ($rows2 as $row){
-            $stmt3 = $pdo->prepare("SELECT * FROM Carrello WHERE id = :id");
-            $stmt3->execute([':id'=>$row['idcarrello']]);
-            $carrelli=$stmt3->fetchAll(PDO::FETCH_ASSOC);
-            $utente=FUtenteReg::load($carrelli[0]['mailutente']);
-            $new[]=$utente;
-            }
-        $utenti=array();
-        foreach ($old as $us){
-            if (in_array($us,$new)==false){
-                $utenti[$us->getEmail()]=$us;
-            }
-        }
-        $pdo->commit();
-        }
-        catch (PDOException $e){
-            print("ATTENTION ERROR: ") . $e->getMessage();
-            $pdo->rollBack();
-        }
-        return $utenti;
     }
 
     /**

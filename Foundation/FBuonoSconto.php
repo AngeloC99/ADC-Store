@@ -97,7 +97,7 @@ class FBuonoSconto
      * Cancella un'istanza di EBuonoSconto dal database se la data di scadenza risulta uguale a quella odierna, e restituisce un booleano che indica l'esito dell'operazione.
      * @return array
      */
-    public static function deleteBuoniScaduti(string $key): bool{
+    public static function deleteBuonoScaduto(string $key): bool{
         $pdo=FConnectionDB::connect();
         $stmt=$pdo->prepare("SELECT * FROM BuonoSconto WHERE codice= :cod");
         $stmt->execute([":cod" => $key]);

@@ -110,27 +110,4 @@ class FIndirizzo
         return $ris;
     }
 
-    /**
-     * Restituisce tutte le istanze di EIndirizzo presenti nell'apposita tabella del database.
-     * @return array
-     */
-    public static function prelevaIndirizzi(): array {
-        $pdo = FConnectionDB::connect();
-        $stmt = $pdo->prepare("SELECT * FROM Indirizzo");
-        $stmt->execute();
-        $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-        FConnectionDB::closeConnection();
-        $indirizzi = array();
-        foreach ($rows as $row) {
-            $ind = new EIndirizzo($row['via'],
-                $row['numerocivico'],
-                $row['comune'],
-                $row['provincia'],
-                $row['cap'],
-                $row['predefinito']);
-            $indirizzi[] = $ind;
-        }
-        return $indirizzi;
-    }
 }
