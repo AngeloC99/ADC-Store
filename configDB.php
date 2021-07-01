@@ -1,6 +1,6 @@
 <?php
 $hostname="127.0.0.1";
-$dbname="progettodiesame";
+$dbname="ADC_Store";
 $user="root";
 $pass="pippo";
 

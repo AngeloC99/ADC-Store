@@ -1,6 +1,6 @@
-DROP DATABASE IF EXISTS progettodiesame;
-CREATE DATABASE progettodiesame;
-USE progettodiesame;
+DROP DATABASE IF EXISTS ADC_Store;
+CREATE DATABASE ADC_Store;
+USE ADC_Store;
 
 CREATE TABLE Amministratore (
     email VARCHAR(40) NOT NULL,
