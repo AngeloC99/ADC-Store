@@ -35,9 +35,9 @@ $pm->store($utente1);
 $pm->store($utente2);
 $pm->store($utente3);
 
-$indirizzo = new EIndirizzo("Via Roma", 169, "Avezzano", "Aq", "67054", true);
-$ind = new EIndirizzo("Via Strampelli", 144, "Rieti", "Ri", "02100", true);
-$ind1 = new EIndirizzo("Via Milano", 1, "Roma", "Rm", "00118", false);
+$indirizzo = new EIndirizzo("Via Roma", 169, "Avezzano", "Aq", "67054");
+$ind = new EIndirizzo("Via Strampelli", 144, "Rieti", "Ri", "02100");
+$ind1 = new EIndirizzo("Via Milano", 1, "Roma", "Rm", "00118");
 $pm->salvaIndirizzoUtente($indirizzo, "adarossi@gmail.com");
 $pm->salvaIndirizzoUtente($ind, "adarossi@gmail.com");
 $pm->salvaIndirizzoUtente($ind1, "angusyoung@gmail.com");
