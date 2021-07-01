@@ -133,7 +133,7 @@ class EOrdine
      * @param EBuonoSconto $buonoSconto
      */
     public function applicaBuono(EBuonoSconto $buonoSconto): void {
-        if ($this->prezzoTotale <= $buonoSconto->getAmmontare()) {
+        if (($this->prezzoTotale <= $buonoSconto->getAmmontare()) && (!$buonoSconto->isPercentuale())) {
             $this->prezzoTotale = 0;
         }
         else {
