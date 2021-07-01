@@ -34,11 +34,7 @@ class EIndirizzo
      * @var string
      */
     private string $cap;
-    /**
-     * Valore che indica se l'indirizzo in questione è stato impostato come predefinito dall'utente.
-     * @var bool
-     */
-    private bool $predefinito;
+
 
     /**
      * Costruttore della classe EIndirizzo.
@@ -47,17 +43,14 @@ class EIndirizzo
      * @param string $comune
      * @param string $provincia
      * @param string $cap
-     * @param bool $predefinito
      */
 
-    public function __construct(string $via, int $numero, string $comune, string $provincia, string $cap, bool $predefinito) {
-
+    public function __construct(string $via, int $numero, string $comune, string $provincia, string $cap) {
         $this->via = $via;
         $this->numerocivico = $numero;
         $this->comune = $comune;
         $this->provincia = $provincia;
         $this->cap = $cap;
-        $this->predefinito = $predefinito;
     }
 
     /**
@@ -138,22 +131,6 @@ class EIndirizzo
      */
     public function setCap(string $cap): void {
         $this->cap = $cap;
-    }
-
-    /**
-     * Indica se l'indirizzo in analisi è quello predefinito.
-     * @return bool
-     */
-    public function isPredefinito(): bool {
-        return $this->predefinito;
-    }
-
-    /**
-     * Imposta l'indirizzo come predefinito.
-     * @param bool $predefinito
-     */
-    public function setPredefinito(bool $predefinito): void {
-        $this->predefinito = $predefinito;
     }
 
     /**

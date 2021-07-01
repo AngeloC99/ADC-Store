@@ -383,17 +383,6 @@
         function Funzione() {
 
             var quantita = document.dati.quantita.value;
-            /*
-                        if( ({$puntiutente} >= {$punti} * quantita) && ({$indirizzopred} != null) ){
-                alert("Il premio verrà inviato al suo indirizzo predefinito: {$indirizzopred} entro una settimana!");
-                document.dati.action = "{$path}GestionePunti/acquistaPremio/{$id}";
-                document.dati.submit();
-            }
-            else if( ({$puntiutente} >= {$punti} * quantita) && ({$indirizzopred} == null) ){
-                alert("Il premio le verrà inviato entro una settimana!");
-                document.dati.action = "{$path}GestionePunti/acquistaPremio/{$id}";
-                document.dati.submit();
-            }*/
 
             if ( {$quantita} == 0){
                 alert("Il premio non è al momento disponibile!")
