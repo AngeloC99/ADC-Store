@@ -610,13 +610,6 @@
 
 
     <!-- theme setting -->
-    <a href="javascript:void(0)" onclick="openSetting()">
-        <div class="setting-sidebar" id="setting-icon">
-            <div>
-                <i class="fa fa-cog" aria-hidden="true"></i>
-            </div>
-        </div>
-    </a>
     <div id="setting_box" class="setting-box">
         <a href="javascript:void(0)" class="overlay" onclick="closeSetting()"></a>
         <div class="setting_box_body">
