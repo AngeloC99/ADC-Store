@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 01, 2021 at 08:09 PM
+-- Generation Time: Jul 01, 2021 at 08:21 PM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 8.0.2
 
@@ -20,10 +20,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `adc_store`
 --
-
-DROP DATABASE IF EXISTS ADC_Store;
-CREATE DATABASE ADC_Store;
-USE ADC_Store;
 
 -- --------------------------------------------------------
 
@@ -74,7 +70,11 @@ INSERT INTO `buonosconto` (`codice`, `ammontare`, `percentuale`, `scadenza`, `ma
 ('BS60de01452e8e8', 5, 0, '2021-08-01', 'davidmarcus35@gmail.com'),
 ('BS60de01452e8ea', 25, 1, '2021-08-01', 'davidmarcus35@gmail.com'),
 ('BS60de01452e8ed', 10, 0, '2021-08-01', 'davidmarcus35@gmail.com'),
-('BS60de01452e8ef', 5, 0, '2021-08-01', 'davidmarcus35@gmail.com');
+('BS60de01452e8ef', 5, 0, '2021-08-01', 'davidmarcus35@gmail.com'),
+('BS60de079229b60', 5, 0, '2021-08-01', 'romanochiara229@gmail.com'),
+('BS60de079229b6b', 25, 1, '2021-08-01', 'romanochiara229@gmail.com'),
+('BS60de079229b72', 10, 0, '2021-08-01', 'romanochiara229@gmail.com'),
+('BS60de079229b75', 5, 0, '2021-08-01', 'romanochiara229@gmail.com');
 
 -- --------------------------------------------------------
 
