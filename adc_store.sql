@@ -20,6 +20,9 @@ SET time_zone = "+00:00";
 --
 -- Database: `adc_store`
 --
+DROP DATABASE IF EXISTS ADC_Store;
+CREATE DATABASE ADC_Store;
+USE ADC_Store;
 
 -- --------------------------------------------------------
 
