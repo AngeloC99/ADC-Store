@@ -84,14 +84,9 @@ class CGestioneSchermate
         $gs = CGestioneSessioni::getInstance();
         if($gs->isLoggedUser()) {
             $utente = $pm->load('FUtenteReg', $gs->caricaUtente()->getEmail());
-            $utenti = $pm->prelevaUtenti();
-            foreach ($utenti as $email => $user) {
-                $users[] = $user->getEmail();
-
-            }
 
             $v = new VGestionePunti();
-            $v->mostraFormPunti($utente, $users);
+            $v->mostraFormPunti($utente);
         }
         else{
             CGestioneSchermate::recupera401();

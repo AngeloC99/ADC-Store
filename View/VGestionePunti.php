@@ -1,34 +1,15 @@
 <?php
-//require_once 'StartSmarty.php';
+require_once 'StartSmarty.php';
 
-/**
- * VGestionePunti si occupa di riempire con i dati ricevuti dallo strato Control (o di inoltrare dati compilati tramite form allo strato Control) le varie viste che coinvolgono il meccanismo dei punti.
- * Class VGestionePunti
- */
 class VGestionePunti
 {
-    /**
-     * @var Smarty
-     */
     private $smarty;
 
-    /**
-     * VGestionePunti constructor.
-     */
     public function __construct()
     {
         $this->smarty=StartSmarty::configuration();
     }
 
-    /**
-     * Metodo che recupera la schermata dell'email poi inviata tramite Controller.
-     * @param int $punti
-     * @param string $nome
-     * @param string $cognome
-     * @param string $messaggio
-     * @return false|string
-     * @throws SmartyException
-     */
     public function datiPuntiEmail(int $punti, string $nome, string $cognome, string $messaggio){
 
         $this->smarty->assign('punti', $punti);
@@ -39,36 +20,22 @@ class VGestionePunti
         return $this->smarty->fetch('email-punti.tpl');
     }
 
-    /**
-     * Metodo per mostrare la schermata relativa all'inoltro dei punti.
-     * @param $utente
-     * @param $utenti
-     * @throws SmartyException
-     */
-    public function mostraFormPunti($utente, $utenti){
+    public function mostraFormPunti($utente){
 
-        $this->smarty->assign("utenti", $utenti);
+        $this->smarty->assign("utenti");
         $this->smarty->assign("puntimax", $utente->getPunti());
         $this->smarty->assign("path", $GLOBALS["path"]);
         $this->smarty->display('regalapunti.tpl');
     }
 
-    /**
-     * Metodo che permette di mostrare la schermata relativa all'aggiunta di un premio.
-     * @throws SmartyException
-     */
-    public function mostraAggiungiPremi($admin){
+    public function mostraAggiungiPremi(){
+
+        $gs = CGestioneSessioni::getInstance();
         $this->smarty->assign("path", $GLOBALS["path"]);
-        $this->smarty->assign("nomeadmin", $admin->getNome());
+        $this->smarty->assign("nomeadmin", $gs->caricaUtente()->getNome());        
         $this->smarty->display('aggiungi-premi.tpl');
     }
 
-    /**
-     * Metodo che permette di mostrare la schermata dei dettagli del premio per l'utente.
-     * @param $premio
-     * @param $arrIndirizzi
-     * @throws SmartyException
-     */
     public function mostraDettagliPremioUser($premio, $arrIndirizzi){
 
         $gs = CGestioneSessioni::getInstance();
@@ -91,11 +58,6 @@ class VGestionePunti
 
     }
 
-    /**
-     * Metodo che permette di mostrare la schermata dei dettagli del premio per l'admin.
-     * @param $premio
-     * @throws SmartyException
-     */
     public function mostraDettagliPremioAdmin($premio){
 
         $this->smarty->assign('nome', $premio->getNome());
@@ -111,13 +73,8 @@ class VGestionePunti
         $this->smarty->assign("path", $GLOBALS["path"]);
         $this->smarty->display('prize-page(accordian)Admin.tpl');
 
-    }
+    }    
 
-    /**
-     * Metodo per mostrare la schermata con la lista dei premi lato utente.
-     * @param $premi
-     * @throws SmartyException
-     */
     public function mostraPremiUtente($premi){
 
         $this->smarty->assign("premi", $premi);
@@ -126,11 +83,6 @@ class VGestionePunti
 
     }
 
-    /**
-     * Metodo per mostrare la schermata con la lista dei premi lato admin.
-     * @param $premi
-     * @throws SmartyException
-     */
     public function mostraPremiAdmin($premi){
 
         $this->smarty->assign("premi", $premi);
