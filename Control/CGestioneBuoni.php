@@ -55,6 +55,7 @@ class CGestioneBuoni
      * @throws \PHPMailer\PHPMailer\Exception
      */
     public static function inviaBuono(){
+
         $gs=CGestioneSessioni::getInstance();
         $utente=$gs->caricaUtente();
         if ($gs->isLoggedAdmin()){
@@ -64,37 +65,39 @@ class CGestioneBuoni
             else{
                 $buono=$admin->preparaBuono(false,$_POST['ammontare'],$_POST['email']);}
         $buono->setCodice($_POST['codice']);
-        $mail = new PHPMailer();
-        $mail->CharSet = 'UTF-8';
-        $mail->IsSMTP(); // enable SMTP
-        $mail->SMTPDebug = 0;
-        $mail->SMTPOptions = array(
-            'ssl' => array(
-                'verify_peer' => false,
-                'verify_peer_name' => false,
-                'allow_self_signed' => true
-            )
-        );
-        $mail->SMTPAuth = true;
-        $mail->Host = "smtp.gmail.com";
-        $mail->Port = 587;
-        $mail->IsHTML(true);
-        $mail->Username = 'adcstore2021@gmail.com';  //qui va email dell'admin
-        $mail->Password = 'plutopluto';  //qui va pw account gmail dell'admin
-        $mail->SetFrom('adcstore2021@gmail.com');
-        $mail->Subject = "ADC Store - BUONO SCONTO";
-        $mail->AddAddress($_POST['email']);
-        //setta i valori del buono nell'email ...ancora da risolvere per l'immagine
-        $v=new VGestioneBuoni();
-        $mail->Body = $v->datiBsEmail($buono);
-        $pm=FPersistentManager::getInstance();
-        $pm->store($buono,$_POST['email']);
-        $v->mostraCreazioneBuono($utente->getNome());
-        if(!$mail->Send()) {
-            return false;
-        } else {
-            return true;
-        }
+
+        try {
+            $mail = new PHPMailer();
+            $mail->CharSet = 'UTF-8';
+            $mail->IsSMTP(); // enable SMTP
+            $mail->SMTPDebug = 0;
+            $mail->SMTPOptions = array(
+                'ssl' => array(
+                    'verify_peer' => false,
+                    'verify_peer_name' => false,
+                    'allow_self_signed' => true
+                )
+            );
+            $mail->SMTPAuth = true;
+            $mail->Host = "smtp.gmail.com";
+            $mail->Port = 587;
+            $mail->IsHTML(true);
+            $mail->Username = 'adcstore2021@gmail.com';  //qui va email dell'admin
+            $mail->Password = 'plutopluto';  //qui va pw account gmail dell'admin
+            $mail->SetFrom('adcstore2021@gmail.com');
+            $mail->Subject = "ADC Store - BUONO SCONTO";
+            $mail->AddAddress($_POST['email']);
+            //setta i valori del buono nell'email ...ancora da risolvere per l'immagine
+            $v = new VGestioneBuoni();
+            $mail->Body = $v->datiBsEmail($buono);
+            $pm = FPersistentManager::getInstance();
+            $pm->store($buono, $_POST['email']);
+            $v->mostraCreazioneBuono($utente->getNome());
+            $mail->send();
+        } catch (Exception $e) {
+            echo 'Message could not be sent.';
+            echo 'Mailer Error: ' . $mail->ErrorInfo;
+            }
         }
         else{
             CGestioneSchermate::recupera401();
