@@ -17,25 +17,25 @@ class EUtenteReg extends EPersona
      * Array che contiene tutte le carte di credito inserite dall'utente
      * @var array
      */
-    private array $carteSalvate = array(ECartaCredito::class);
+    private array $carteSalvate;
 
     /**
      * Array che contiene tutti i carrelli salvati dall'utente
      * @var array
      */
-    private array $carrelliSalvati = array(ECarrello::class);
+    private array $carrelliSalvati;
 
     /**
      * Array che contiene tutti i buoni sconto posseduti dall'utente
      * @var array
      */
-    private array $buoniSconto = array(EBuonoSconto::class);
+    private array $buoniSconto;
 
     /**
      * Array che contiene tutti gli indirizzi salvati dall'utene
      * @var array
      */
-    private array $indirizzi = array(EIndirizzo::class);
+    private array $indirizzi;
 
 
     /**
