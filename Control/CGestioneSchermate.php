@@ -76,6 +76,7 @@ class CGestioneSchermate
         }
     }
 
+
     /**
      *Metodo che permettte di recuperare la form per regalare punti a qualcuno.
      */

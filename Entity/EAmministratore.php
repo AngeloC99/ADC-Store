@@ -30,18 +30,13 @@ class EAmministratore extends EPersona
     }
 
     /**
-     * Metodo che crea un buono e lo assegna ad un utente
+     * Metodo che crea un buono
      * @param int $ammontare
      * @param EUtenteReg $utente
      * @param string $messaggio
      */
     public function preparaBuono(bool $percentuale,int $ammontare, string $messaggio){ //tolto utente come parametro
         $buono = new EBuonoSconto($percentuale,$ammontare, $messaggio);
-        //$array = $utente->getBuoniSconto();
-        //$codice = $buono->getCodice();
-        //$array[$codice] = $buono;
-        //$utente->setBuoniSconto($array);
-        //DA COMPLETARE CON EMAIL ECC
         return $buono;
 
     }
@@ -58,7 +53,7 @@ class EAmministratore extends EPersona
      */
     public function aggiungiProdotto(string $nome, string $tipologia, string $descrizione, int $quantita, int $prezzo, string $marca, EImmagine $immagine){
         $product = new EProdotto($nome, $marca, $descrizione, $quantita, $immagine, $prezzo, $tipologia);
-        //Richiamo a classe Foundation
+
     }
 
     /**
@@ -72,7 +67,7 @@ class EAmministratore extends EPersona
      */
     public function aggiungiPremio(string $nome, string $descrizione, int $quantita, int $punti, string $marca, EImmagine $immagine){
         $premio = new EPremio($nome, $marca, $descrizione, $quantita, $immagine, $punti);
-        //Richiamo a classe Foundation
+
     }
 
     /**

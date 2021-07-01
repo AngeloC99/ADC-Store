@@ -69,7 +69,7 @@
                 <div class="col-sm-6">
                     <nav aria-label="breadcrumb" class="theme-breadcrumb">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="{$path}GestioneSchermate/showHome">Home</a></li>
+                            <li class="breadcrumb-item"><a href="{$path}BackHome">Home</a></li>
                             <li class="breadcrumb-item active" aria-current="page">Cookie</li>
                         </ol>
                     </nav>

@@ -1,7 +1,8 @@
 <?php
 
 /**
- * La classe UtenteReg è una sottoclasse della classe Persona
+ * Classe EUtenteReg, sottoclasse di EPersona
+ * Class EUtenteReg
  */
 
 class EUtenteReg extends EPersona
@@ -13,7 +14,7 @@ class EUtenteReg extends EPersona
     private string $punti;
 
     /**
-     * Array che contiene tutte le carte di credito inserire dall'utente
+     * Array che contiene tutte le carte di credito inserite dall'utente
      * @var array
      */
     private array $carteSalvate = array(ECartaCredito::class);
@@ -38,6 +39,7 @@ class EUtenteReg extends EPersona
 
 
     /**
+     * Costruttore di un Utente
      * @param string $nome
      * @param string $cognome
      * @param string $email
@@ -54,6 +56,7 @@ class EUtenteReg extends EPersona
     }
 
     /**
+     * Metodo che restituisce i punti di un utente
      * @return int
      */
     public function getPunti(): int
@@ -62,6 +65,7 @@ class EUtenteReg extends EPersona
     }
 
     /**
+     * Metodo che setta i punti di un utente
      * @param string $punti
      */
     public function setPunti(int $punti): void
@@ -94,23 +98,6 @@ class EUtenteReg extends EPersona
         $this->carteSalvate[$number] = $carta;
     }
 
-    /**
-     * Metodo per poter regalare dei punti ad un altro utente
-     * @param int $puntidaregalare
-     * @param EUtenteReg $utente
-     * @param string $messaggio
-     */
-    public function regalarePunti(int $puntidaregalare, EUtenteReg $utente, string $messaggio): void{
-        if ($this->punti < $puntidaregalare){
-            print("Impossibile"); //GESTIRE ECCEZIONE
-
-        }
-        else{
-            $this->punti = $this->punti - $puntidaregalare;
-            $puntiNuovi = $utente->getPunti() + $puntidaregalare;
-            $utente->setPunti($puntiNuovi);
-        }
-    }
 
     /**
      * Metodo per poter salvare un nuovo carrello

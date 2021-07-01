@@ -2,7 +2,7 @@
 
 
 /**
- * La classe EPremio modella i premi inseriti dall'amministratore e acquistabili dagli utenti registarti mediante punti,in determinati periodi dell'anno.
+ * La classe EPremio modella i premi inseriti dall'amministratore e acquistabili dagli utenti registarti mediante punti.
  * Questa classe estende la classe EArticolo.
  */
 class EPremio extends EArticolo

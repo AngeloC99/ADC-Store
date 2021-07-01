@@ -19,7 +19,7 @@ class EPersona
     private string $cognome;
 
     /**
-     * L'email che una persona sceglie per registrarsi sullìapp
+     * L'email che una persona sceglie per registrarsi sull' app
      * @var string
      */
     private string $email;
