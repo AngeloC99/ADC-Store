@@ -20,17 +20,9 @@ class EAmministratore extends EPersona
         parent::__construct($nome, $cognome, $email, $password);
     }
 
-    /**
-     * Metodo per modificare il prezzo di un prodotto
-     * @param EProdotto $prodotto
-     * @param int $prezzo
-     */
-    public function modificaPrezzo(EProdotto $prodotto, int $prezzo){
-        $prodotto->setPrezzo($prezzo);
-    }
 
     /**
-     * Metodo che crea un buono
+     * Metodo che crea un buono e lo assegna ad un utente
      * @param int $ammontare
      * @param EUtenteReg $utente
      * @param string $messaggio
@@ -41,43 +33,7 @@ class EAmministratore extends EPersona
 
     }
 
-    /**
-     * Metodo per aggiungere un nuovo prodotto
-     * @param string $nome
-     * @param string $tipologia
-     * @param string $descrizione
-     * @param int $quantita
-     * @param int $prezzo
-     * @param string $marca
-     * @param EImmagine $immagine
-     */
-    public function aggiungiProdotto(string $nome, string $tipologia, string $descrizione, int $quantita, int $prezzo, string $marca, EImmagine $immagine){
-        $product = new EProdotto($nome, $marca, $descrizione, $quantita, $immagine, $prezzo, $tipologia);
 
-    }
-
-    /**
-     * Metodo per aggiungere un nuovo premio
-     * @param string $nome
-     * @param string $descrizione
-     * @param int $quantita
-     * @param int $punti
-     * @param string $marca
-     * @param EImmagine $immagine
-     */
-    public function aggiungiPremio(string $nome, string $descrizione, int $quantita, int $punti, string $marca, EImmagine $immagine){
-        $premio = new EPremio($nome, $marca, $descrizione, $quantita, $immagine, $punti);
-
-    }
-
-    /**
-     * Metodo che serve a modificare la quantità di un articolo
-     * @param EArticolo $articolo
-     * @param int $quantita
-     */
-    public function modificaQuantita(EArticolo $articolo, int $quantita, ){
-        $articolo->setQuantita($quantita);
-    }
 
 
 }

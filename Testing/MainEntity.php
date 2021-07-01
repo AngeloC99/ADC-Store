@@ -17,8 +17,7 @@ $carta1->setAmmontare(200.10);
 print "\nNuovo ammontare: $".$carta1->getAmmontare();
 
 // Testing EIndirizzo
-$utente->setIndirizzoPredefinito("Via Roma", 147, "Rieti", "Rieti", "02100", true);
-print_r($utente->getIndirizzoPredefinito());
+
 
 // Testing EProdotto ed ECarrello
 $imm = new EImmagine("https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.carrefour.it%2Fon%2Fdemandware.static%2F-%2FSites-carrefour-master-catalog-IT%2Fdefault%2Fdw11998463%2Flarge%2FLATTEFRESCOAQCENROMAML500-0000080662594-1.png&f=1&nofb=1");
@@ -48,7 +47,6 @@ print("\n");
 $ordine = new EOrdine($carrello,$indirizzo);
 print("Prezzo totale dell'ordine: ".$ordine->getPrezzoTotale());
 print("\n");
-$utente2->ConfermaOrdine($ordine,$carta);
 print("\n");
 print("Nuovo ammontare: ".$carta->getAmmontare());
 print("\n");
