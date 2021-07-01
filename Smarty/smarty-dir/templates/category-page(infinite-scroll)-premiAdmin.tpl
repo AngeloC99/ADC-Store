@@ -208,7 +208,7 @@
                                                         <div class="img-wrapper">
                                                             <div class="front">
                                                                 <a href="product-page(accordian).tpl">
-                                                                	<img src="data:{$prize.mime};base64,{$prize.dati}" class="flex" />
+                                                                    <img class="flex" src="data:{$prize.mime};charset=utf-8;base64,{$prize.dati}"/>
                                                                 </a>
                                                             </div>
                                                         </div>

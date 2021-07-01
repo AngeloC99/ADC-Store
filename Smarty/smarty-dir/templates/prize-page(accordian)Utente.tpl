@@ -122,8 +122,8 @@
                 <div class="row">
                     <div class="col-lg-4">
                         <div class="product-slick">
-                            <div><img src="data:{$mime};base64,{$dati}" class="flex" alt=""
-                                    class="img-fluid blur-up lazyload image_zoom_cls-0">
+                            <div><img src="data:{$mime};base64,{$dati}" width="150" height="250" alt=""
+                                      class="img-fluid blur-up lazyload image_zoom_cls-0">
                             </div>
 
                         </div>

@@ -274,7 +274,6 @@
                                                         <div class="img-wrapper">
                                                             <div class="front">
                                                                 	<img class="flex" src="data:{$prod.formato};charset=utf-8;base64,{$prod.dati}" width="200" height="300"/>
-                                                                </a>
                                                             </div>
                                                         </div>
                                                         <div class="product-detail">

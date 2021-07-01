@@ -221,11 +221,13 @@
                                         </div>
                                     </div>
                                     <div class="col-xl-7">
-                                        <form class="needs-validation add-product-form" novalidate="" name="upload" enctype="multipart/form-data" method="post" action="{$path}GestioneProdotti/aggiungiProdotto">
+                                        <form name="dati" class="needs-validation add-product-form" novalidate="" enctype="multipart/form-data" method="post">
                                             <div class="form">
                                                 <div class="form-group mb-3 row">
                                                     <label for="validationCustom01" class="col-xl-3 col-sm-4 mb-0">Seleziona immagine :</label>
-                                                    <input type="file" name="image" id="image">
+                                                    <input type="file" name="image" id="image" required="">
+                                                    <div class="valid-feedback">Ok!</div>
+
                                                 </div>
                                                 <div class="form-group mb-3 row">
                                                     <label for="validationCustom01" class="col-xl-3 col-sm-4 mb-0">Nome prodotto :</label>
@@ -238,12 +240,26 @@
                                                     <div class="valid-feedback">Ok!</div>
                                                 </div>
                                                 <div class="form-group mb-3 row">
-                                                    <label for="validationCustom02" class="col-xl-3 col-sm-4 mb-0">Prezzo (in €) :</label>
-                                                    <input class="form-control col-xl-8 col-sm-7" id="validationCustom02" type="text" name='prezzo' required="">
+                                                    <label for="validationCustom02" class="col-xl-3 col-sm-4 mb-0">Prezzo(in €) :</label>
+                                                    <input class="form-control col-xl-8 col-sm-7" id="validationCustom02" type="number" min="1" name='prezzo' required="">
                                                     <div class="valid-feedback">Ok!</div>
                                                 </div>
                                             </div>
                                             <div class="form">
+                                                <div class="form-group row">
+                                                    <label class="col-xl-3 col-sm-4 mb-0">Quantità :</label>
+                                                    <fieldset class="qty-box col-xl-9 col-xl-8 col-sm-7 pl-0">
+                                                        <div class="input-group">
+                                                            <input class="touchspin" type="number" min="1" name='quantita' value="1" required ="">
+                                                        </div>
+                                                    </fieldset>
+                                                </div>
+                                                <div class="form-group row">
+                                                    <label class="col-xl-3 col-sm-4">Aggiungi una descrizione :</label>
+                                                    <div class="col-xl-8 col-sm-7 pl-0 description-sm">
+                                                        <textarea name="descrizione" cols="60" rows="5"> </textarea>
+                                                    </div>
+                                                </div>
                                                 <div class="form-group row">
                                                     <label for="exampleFormControlSelect1" class="col-xl-3 col-sm-4 mb-0">Tipologia :</label>
                                                     <select class="form-control digits col-xl-8 col-sm-7" id="exampleFormControlSelect1" name='tipologia'>
@@ -260,24 +276,10 @@
                                                         <option>Cura della casa</option>
                                                     </select>
                                                 </div>
-                                                <div class="form-group row">
-                                                    <label class="col-xl-3 col-sm-4 mb-0">Quantità :</label>
-                                                    <fieldset class="qty-box col-xl-9 col-xl-8 col-sm-7 pl-0">
-                                                        <div class="input-group">
-                                                            <input class="touchspin" type="number" min='1' name='quantita' value="1">
-                                                        </div>
-                                                    </fieldset>
-                                                </div>
-                                                <div class="form-group row">
-                                                    <label class="col-xl-3 col-sm-4">Aggiungi una descrizione :</label>
-                                                    <div class="col-xl-8 col-sm-7 pl-0 description-sm">
-                                                        <textarea name="descrizione"> </textarea>
-                                                    </div>
-                                                </div>
                                             </div>
                                             <div class="offset-xl-3 offset-sm-4">
-                                                <button type="submit" class="btn btn-primary" href="{$path}GestioneProdotti/recuperaAggiungiProdotto" onclick="Funzione1()">Aggiungi</button>
-                                                <a href="{$path}GestioneProdotti/recuperaAggiungiProdotto" class="btn btn-light">Annulla</a>
+                                                <button type="submit" onclick="funzione()" class="btn btn-primary">aggiungi</button>
+                                                <a href="{$path}GestionePunti/recuperaAggiungiPremio" class="btn btn-light">Annulla</a>
                                             </div>
                                         </form>
                                     </div>
@@ -331,6 +333,24 @@
     <!--script admin-->
     <script src="{$path}Smarty/smarty-dir/assets/js/admin-script.js"></script>
 
+    <script>
+        function funzione() {
+            var nomeprodotto = document.dati.nome.value;
+            var marca = document.dati.marca.value;
+            var prezzo = document.dati.prezzo.value;
+            var quantita = document.dati.quantita.value;
+            var imm = document.getElementById("image");
+            var nomefile = imm.value;
+            if ( (nomeprodotto == "") || (marca == "") || (nomefile == "") || (prezzo == 0) || (quantita == 0) || (typeof imm == "undefined") || (typeof imm == null)){
+                alert("compila bene i campi!");
+            }
+            else {
+                alert( "Il prodotto è stato aggiunto correttamente!");
+                document.dati.action = "{$path}GestioneProdotti/aggiungiProdotto";
+                document.dati.submit();
+            }
+        }
+    </script>
 </body>
 </html>
 

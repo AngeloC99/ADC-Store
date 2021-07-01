@@ -238,7 +238,7 @@ class CGestionePunti
             $tipo_file = $_FILES["file_inviato"]["type"];
             // Leggo il contenuto del file
 
-            $dati_file = file_get_contents($nome_file_temporaneo);
+            $dati_file = base64_encode(file_get_contents($nome_file_temporaneo));
             $dati_file = addslashes($dati_file);
             $imm=new EImmagine($nome_file_vero,$tipo_file,$dati_file);
 
