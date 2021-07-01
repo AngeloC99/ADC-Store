@@ -102,6 +102,30 @@ class EBuonoSconto
 
 
     /**
+     * Restituisce il buono in formato stringa.
+     * @return string
+     */
+    public function __toString(): string
+    {
+        $s='Codice: '.$this->codice;
+        if($this->percentuale==false){
+            $s=$s."\n".'Valore: '."-".$this->ammontare."€";
+        }
+        else{
+            $s=$s."\n".'Valore: '."-".$this->ammontare."%";
+        }
+        $s=$s."\n"."Scade il: ".$this->scadenza->format('d-m-Y');
+        if($this->messaggio=="")
+        {
+            return $s;
+        }
+        else{
+            $s=$s."\n"."MESSAGGIO: ".$this->messaggio;
+            return $s;
+        }
+    }
+
+    /**
      * @param DateTime $scadenza
      */
     public function setScadenza(DateTime $scadenza): void
