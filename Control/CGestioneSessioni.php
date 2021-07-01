@@ -37,16 +37,9 @@ class CGestioneSessioni
     private function iniziaSessione(){
         if (session_status() == PHP_SESSION_NONE) {
             session_start();
-            self::setCookieTest();
         }
     }
 
-    /**
-     *Metodo che serve a settare un cookie di test all'interno di una sessione
-     */
-    private function setCookieTest(){
-        $_SESSION["cookie_test"] = "cookie_value";
-    }
 
     /**
      * Metodo che salva il carrello in sessione.

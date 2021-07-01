@@ -14,6 +14,7 @@ class CFrontController
      */
     public static function run(string $path)
     {
+
         ini_set('session.gc_probability', 10);
         ini_set('session.gc_maxlifetime', 3600);
         $method = $_SERVER['REQUEST_METHOD'];
@@ -77,6 +78,7 @@ class CFrontController
                 }
             }
         } else {
+
             if ($path === "/~david/ADC-Store/" || $path === "/ADC-Store/" || $path === "/ADC-Store/index.php" || $path === "/~david/ADC-Store/BackHome") {
                 setcookie("cookie_test", "cookie_value", time() + 3600);
                 CGestioneSchermate::showHome();
