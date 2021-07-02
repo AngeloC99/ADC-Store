@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-06-29 21:25:08
+/* Smarty version 3.1.39, created on 2021-07-02 13:46:54
   from 'C:\Users\david\public_html\ADC-Store\Smarty\smarty-dir\templates\cart.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_60db7394a04811_99623689',
+  'unifunc' => 'content_60defcaed548b4_76885272',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '923c49c7a96ae0ac23968e2f08143631ad87ccba' => 
     array (
       0 => 'C:\\Users\\david\\public_html\\ADC-Store\\Smarty\\smarty-dir\\templates\\cart.tpl',
-      1 => 1624979764,
+      1 => 1625226413,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_60db7394a04811_99623689 (Smarty_Internal_Template $_smarty_tpl) {
+function content_60defcaed548b4_76885272 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en">
 
@@ -191,9 +191,9 @@ for ($__section_prod_0_iteration = 1, $_smarty_tpl->tpl_vars['__smarty_section_p
                                     <form method="post" action="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
 GestioneCarrello/modificaQuantita">
                                         <td>
-                                            <img src="data:<?php echo $_smarty_tpl->tpl_vars['prodotti']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_prod']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_prod']->value['index'] : null)]['mime'];?>
+                                            <img class="flex" src="data:<?php echo $_smarty_tpl->tpl_vars['prodotti']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_prod']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_prod']->value['index'] : null)]['mime'];?>
 ;base64,<?php echo $_smarty_tpl->tpl_vars['prodotti']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_prod']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_prod']->value['index'] : null)]['image'];?>
-" width="100" height="100"/>
+"/>
                                         </td>
                                         <td><a href="<?php echo $_smarty_tpl->tpl_vars['path']->value;?>
 GestioneProdotti/recuperaDettagli/<?php echo $_smarty_tpl->tpl_vars['prodotti']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_prod']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_prod']->value['index'] : null)]['id'];?>
@@ -354,7 +354,7 @@ GestioneSchermate/chiSiamo">Chi siamo</a>
                         <div class="col">
                             <div class="sub-title">
                                 <div class="footer-title">
-                                    <h4>informationi</h4>
+                                    <h4>informazioni</h4>
                                 </div>
                                 <div class="footer-contant">
                                     <ul class="contact-list">
