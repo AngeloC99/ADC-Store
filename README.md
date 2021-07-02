@@ -37,27 +37,31 @@ L'applicazione nasce dalla necessità della catena di supermercati di digitalizz
 - Interfaccia: *responsive*
 
 ## Istruzioni d'installazione
-- Decomprimere la cartella ADC-Store ed inserirlo all'interno della directory htdocs o public_html.
-- Verificare che i diritti di accesso alla cartella siano impostati per garantire i privilegi di scrittura a tutti gli utenti del sistema.
-- Creare un database vuoto chiamandolo *"progettodiesame"*.
-	- Per Windows, inserire il file *"crea_db_esame.sql"* nella directory C:\xampp\mysql\bin.
-	- Per iOS, accedere alla directory dove è presente il file *"crea_db_esame.sql"* tramite terminale e digitare: /Applications/XAMPP/bin/mysql -u root -p < crea_db_esame.sql
-	- Per Linux, accedere alla directory dove è presente il file *"crea_db_esame.sql"* tramite terminale e digitare: sudo /opt/lampp/bin/mysql -u root -p -f < crea_db_esame.sql
-
-OPPURE
-- Creare un database vuoto chiamandolo *"progettodiesame"*.
-- Inserire nel file *"configDB.php"* le proprie credenziali di accesso al database ed eseguire lo script per l'inizializzazione di tale database da riga di comando:
+- Decomprimere la cartella ADC-Store ed inserirlo all'interno della directory htdocs.
+- Verificare che i diritti di accesso alla cartella siano impostati per garantire i privilegi di scrittura a tutti gli utenti del sistema. 
+  In ambiente LINUX: spostare la cartella in /opt/lampp/htdocs. Inoltre abilitare i permessi di lettura su tutta la cartella ADC-Store scrivendo i seguenti comandi sul terminale:
   ```
-  $ mysql -h localhost -u root -p -f < crea_db_esame.sql
+  $ sudo chmod 777 /opt/lampp/htdocs/ADC-Store
   ```
+- Creare un database vuoto chiamandolo *"adc_store"*. 
+- Inserire nel file *"configDB.php"* le proprie credenziali di accesso al database.
+- Da riga di comando, portarsi sulla directory dove è presente il file *"adc_store.sql"* ed eseguire lo script per l'inizializzazione ed il popolamento del database:
+	- in Windows:
+	  ```
+	  $ /xampp/mysql/bin/mysql -h localhost -u root -p -f < adc_store.sql
+	  ```
+	- in MacOS:
+	  ```
+	  $ /Applications/XAMPP/bin/mysql -u root -p -f < adc_store.sql
+	  ```
+	- in Linux:
+	  ```
+	  $ sudo /opt/lampp/bin/mysql -u root -p -f < adc_store.sql
+	  ```
 - Controllare l'abilitazione dei cookie sul proprio browser. Se non dovessero essere attivi, si verrà reindirizzati ad una pagina di errore.
-- Successivamente sempre da riga di comando, eseguire il file 'popolaDB.sql' per popolare il database:
-  ```
-  $ mysql -h localhost -u root -p -f < popolaDB.sql
-  ```
 - Per usufruire delle potenzialità dell'admin, si fornisce un account amministratore con le seguenti credenziali:
-  - email: admin@gmail.com
-  - password: admin
+  - email: serafino.admin@gmail.com
+  - password: secret
 - La registrazione di nuovi admin non è consentita nel sito per simulare un maggiore realismo nell'applicazione. Per inserirne di nuovi, si consiglia di farlo dall'apposita console di gestione fornita da PHPMyAdmin, eseguendo una INSERT adeguata e passando la password cifrata tramite la funzione PHP password_hash().
 - Goditi l'esperienza d'acquisto su **ADC-Store**!
 
