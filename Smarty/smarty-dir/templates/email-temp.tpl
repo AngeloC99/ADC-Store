@@ -155,7 +155,7 @@
                 <table border="0" cellpadding="0" cellspacing="0" width="100%" style="margin: 20px auto 0;">
                     <tr>
                         <td>
-                            <a href="#" style="font-size:13px">Visita il sito www.adcstore.it (quando sarà pronto!)</a>
+                            <a href="#" style="font-size:13px">Visita il sito https://adcstore.altervista.org </a>
                         </td>
                     </tr>
                     

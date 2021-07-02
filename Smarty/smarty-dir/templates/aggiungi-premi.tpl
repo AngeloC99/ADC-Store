@@ -71,7 +71,7 @@
                     <p>Area Amministratore.</p>
                 </div>
                 <ul class="sidebar-menu">
-                    <li><a class="sidebar-header" href="{$path}GestioneSchermate/recuperaHomeAdmin"><i data-feather="home"></i><span>Home</span></a></li>
+                    <li><a class="sidebar-header" href="{$path}GestioneSchermate/recuperaHome"><i data-feather="home"></i><span>Home</span></a></li>
                     <li><a class="sidebar-header" href="#"><i data-feather="box"></i> <span>Prodotti</span><i class="fa fa-angle-right pull-right"></i></a>
                         <ul class="sidebar-submenu">
                             <li><a href="{$path}GestioneProdotti/recuperaProdotti"><i class="fa fa-circle"></i>Lista Prodotti</a></li>
@@ -125,7 +125,7 @@
                         </div>
                         <div class="col-lg-6">
                             <ol class="breadcrumb pull-right">
-                                <li class="breadcrumb-item"><a href="home.html"><i data-feather="home"></i></a></li>
+                                <li class="breadcrumb-item"><a href="{$path}GestioneSchermate/recuperaHome"><i data-feather="home"></i></a></li>
                                 <li class="breadcrumb-item">Premi</li>
                                 <li class="breadcrumb-item active">Aggiungi un premio</li>
                             </ol>
