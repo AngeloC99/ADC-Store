@@ -68,7 +68,7 @@ class CFrontController
                 }
             }
         } else {
-            if ($path === "/ADC-Store/index.php" || $path === "/ADC-Store/BackHome") {
+            if ($path === "/ADC-Store/" || $path === "/ADC-Store/index.php" || $path === "/ADC-Store/BackHome") {
                 setcookie("cookie_test", "cookie_value", time() + 3600);
                 CGestioneSchermate::showHome();
             } else {
