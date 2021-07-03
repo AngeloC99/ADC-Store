@@ -4,7 +4,7 @@ require_once "configDB.php";
 require('StartSmarty.php');
 
 
-$GLOBALS["path"] = "/~david/ADC-Store/";
+$GLOBALS["path"] = "/~".get_current_user()."/ADC-Store/";
 
 $fcontroller = new CFrontController();
 $fcontroller->run($_SERVER['REQUEST_URI']);
