@@ -23,17 +23,15 @@ class EAmministratore extends EPersona
 
     /**
      * Metodo che crea un buono e lo assegna ad un utente
+     * @param bool $percentuale
      * @param int $ammontare
-     * @param EUtenteReg $utente
      * @param string $messaggio
+     * @return EBuonoSconto
      */
-    public function preparaBuono(bool $percentuale,int $ammontare, string $messaggio){ //tolto utente come parametro
+    public function preparaBuono(bool $percentuale,int $ammontare, string $messaggio){
         $buono = new EBuonoSconto($percentuale,$ammontare, $messaggio);
         return $buono;
 
     }
-
-
-
 
 }

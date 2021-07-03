@@ -142,7 +142,7 @@
                                 <tr>
                                     <form method="post" action="{$path}GestioneCarrello/modificaQuantita">
                                         <td>
-                                            <img class="flex" src="data:{$prodotti[prod].mime};base64,{$prodotti[prod].image}"/>
+                                            <img class="flex" height="150" width="100" src="data:{$prodotti[prod].mime};base64,{$prodotti[prod].image}"/>
                                         </td>
                                         <td><a href="{$path}GestioneProdotti/recuperaDettagli/{$prodotti[prod].id}">{$prodotti[prod].nome}</a>
                                         </td>

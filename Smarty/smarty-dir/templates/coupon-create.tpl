@@ -171,8 +171,8 @@
                                                 </select>
                                             </div>
                                             <div class="form-group row">
-                                                <label class="col-xl-3 col-md-4">Extra</label>
-                                                <textarea name="mex" placeholder="Lascia qui il tuo messaggio..."> </textarea>
+                                                <label class="col-xl-3 col-md-4">Messaggio(opzionale) : </label>
+                                                <input class="form-control col-xl-8 col-sm-7" id="validationCustom01" type="text" name="messaggio" placeholder="Lascia qui il tuo messaggio...">
                                             </div>
                                         </div>
                                     </div>

@@ -52,7 +52,6 @@ class CGestioneBuoni
     /**
      * Metodo che permette di inviare (tramite PHPMailer) un buono, creato dall'admin con apposito form, ad uno specifico utente.
      * @return bool
-     * @throws \PHPMailer\PHPMailer\Exception
      */
     public static function inviaBuono(){
 
@@ -61,9 +60,9 @@ class CGestioneBuoni
         if ($gs->isLoggedAdmin()){
             $admin=$gs->caricaUtente();
             if($_POST['percentuale']=='Percentuale'){
-                $buono=$admin->preparaBuono(true,$_POST['ammontare'],$_POST['email']);}
+                $buono=$admin->preparaBuono(true,$_POST['ammontare'],$_POST['messaggio']);}
             else{
-                $buono=$admin->preparaBuono(false,$_POST['ammontare'],$_POST['email']);}
+                $buono=$admin->preparaBuono(false,$_POST['ammontare'],$_POST['messaggio']);}
         $buono->setCodice($_POST['codice']);
 
         try {
