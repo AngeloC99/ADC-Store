@@ -24,6 +24,7 @@ class CFrontController
             if ($path === "/ADC-Store/" || $path === "/ADC-Store/index.php") {
                 setcookie("cookie_test", "cookie_value", time() + 3600);
                 CGestioneSchermate::recuperaHome();
+
             } else {
                 error_reporting(E_ERROR | E_PARSE);
                 if ($_COOKIE["cookie_test"] == "cookie_value" || isset($_SESSION["cookie_test"])) {
@@ -31,6 +32,7 @@ class CFrontController
                 } else {
                     $cookie = false;
                 }
+
                 if ($cookie == true) {
                     $gs = CGestioneSessioni::getInstance();
                     $res = explode("/", $path);
@@ -43,6 +45,7 @@ class CFrontController
                         $controller = "C" . $res[0];
                         $dir = 'Control';
                         $eledir = scandir($dir);
+
                         if (in_array($controller . ".php", $eledir)) {
                             if (isset($res[1])) {
                                 $function = $res[1];
@@ -68,7 +71,8 @@ class CFrontController
                 }
             }
         } else {
-            if ($path === "/ADC-Store/" || $path === "/ADC-Store/index.php" || $path === "/ADC-Store/BackHome") {
+
+            if ($path === "/~rommy/ADC-Store/" || $path === "/ADC-Store/" || $path === "/ADC-Store/index.php" || $path === "/~rommy/ADC-Store/BackHome") {
                 setcookie("cookie_test", "cookie_value", time() + 3600);
                 CGestioneSchermate::showHome();
             } else {
@@ -78,7 +82,6 @@ class CFrontController
                 } else {
                     $cookie = false;
                 }
-
                 if ($cookie == true) {
                     $gs = CGestioneSessioni::getInstance();
                     $res = explode("/", $path);
@@ -91,13 +94,11 @@ class CFrontController
                         $controller = "C" . $res[0];
                         $dir = 'Control';
                         $eledir = scandir($dir);
+
                         if (in_array($controller . ".php", $eledir)) {
                             if (isset($res[1])) {
                                 $function = $res[1];
                                 if (method_exists($controller, $function)) {
-
-
-
                                     $param = array();
                                     for ($i = 2; $i < count($res); $i++) {
                                         $param[] = $res[$i];
