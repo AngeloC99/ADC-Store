@@ -245,9 +245,10 @@ class CGestionePunti
 
             $premio = new EPremio($_POST['nome'],$_POST['marca'],$_POST['descrizione'],$_POST['quantita'],$imm,$_POST['punti']);
             $pm->store($premio);
-            $admin = $gs->caricaUtente();
-            $v = new VGestionePunti();
-            $v->mostraAggiungiPremi($admin);
+            //$admin = $gs->caricaUtente();
+            //$v = new VGestionePunti();
+            //$v->mostraAggiungiPremi();
+            self::recuperaAggiungiPremio();
         }
 
         else{
@@ -259,9 +260,9 @@ class CGestionePunti
     public static function recuperaAggiungiPremio() {
         $gs=CGestioneSessioni::getInstance();
         if ($gs->isLoggedAdmin()){
-            $admin=$gs->caricaUtente();
+            //$admin=$gs->caricaUtente();
             $v = new VGestionePunti();
-            $v->mostraAggiungiPremi($admin);
+            $v->mostraAggiungiPremi();
         }
         else{
             CGestioneSchermate::recupera401();
