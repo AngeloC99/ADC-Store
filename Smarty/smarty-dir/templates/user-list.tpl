@@ -130,7 +130,7 @@
                         </div>
                         <div class="col-lg-6">
                             <ol class="breadcrumb pull-right">
-                                <li class="breadcrumb-item"><a href="index.html"><i data-feather="home"></i></a></li>
+                                <li class="breadcrumb-item"><a href="{$path}GestioneSchermate/recuperaHome"><i data-feather="home"></i></a></li>
                                 <li class="breadcrumb-item">Clienti</li>
                                 <li class="breadcrumb-item active">Lista clienti</li>
                             </ol>
