@@ -151,7 +151,7 @@
                                     <div class="form-group col-md-12 col-sm-12 col-xs-12">
                                         <div class="field-label">
                                             <label for="indirizzo" style="color: #0a0100">Indirizzo di spedizione
-                                                <select name="indirizzo">
+                                                <select name="indirizzo" required="">
                                                     {section name=ind loop=$indirizzi}
                                                         <option value="{$indirizzi[ind].identificativo}">{$indirizzi[ind].indirizzo}</option>
                                                     {/section}
@@ -162,7 +162,7 @@
                                     <div class="form-group col-md-12 col-sm-12 col-xs-12">
                                         <div class="field-label">
                                             <label for="carta" style="color: #0a0100">Modalità di pagamento
-                                                <select name="carta">
+                                                <select name="carta" required="">
                                                     {section name=carta loop=$carte}
                                                         <option value="{$carte[carta].numero}">{$carte[carta].carta}</option>
                                                     {/section}

@@ -119,4 +119,13 @@ class VGestioneCarrello {
 
         $this->smarty->display('carrelliPreferiti.tpl');
     }
+
+    /**
+     * Metodo che mostra una schermata di errore in caso di impossibilità di effettuare l'ordine.
+     * @throws SmartyException
+     */
+    public function mostraOrdineFallito() {
+        $this->smarty->assign('path', $GLOBALS["path"]);
+        $this->smarty->display('order-failed.tpl');
+    }
 }

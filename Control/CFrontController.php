@@ -16,7 +16,6 @@ class CFrontController
     {
         ini_set('session.gc_probability', 10);
         ini_set('session.gc_maxlifetime', 3600);
-        $method = $_SERVER['REQUEST_METHOD'];
         error_reporting(E_ERROR | E_PARSE);
         $gs = CGestioneSessioni::getInstance();
         if ($gs->isLoggedUser() || $gs->isLoggedAdmin()) {

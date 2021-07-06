@@ -182,26 +182,23 @@ class CGestioneCarrello
                 $pm->delete("FBuonoSconto", $_POST['buono']);
             }
 
-            $carta->setAmmontare($carta->getAmmontare() - $ordine->getPrezzoTotale());
-            $utente->setPunti($utente->getPunti() + ((int) $ordine->getPrezzoTotale()));          //aggiunge un punto per ogni euro speso
-
-            $pm->store($ordine);
-            $pm->update($carta);
-            $pm->update($utente);
-            $gs->salvaUtente($utente);
-
-            foreach ($carrello->getProdotti() as $idProdotto => $quantita) {
-                $prodotto = $pm->load("FProdotto", $idProdotto);
-                $prodotto->setQuantita($prodotto->getQuantita() - $quantita);
-                $pm->update($prodotto);
+            $ris=$pm->store($ordine);
+            if($ris){
+                $carta->setAmmontare($carta->getAmmontare() - $ordine->getPrezzoTotale());
+                $utente->setPunti($utente->getPunti() + ((int) $ordine->getPrezzoTotale()));
+                $pm->update($carta);
+                $pm->update($utente);
+                $gs->salvaUtente($utente);
+                $gs->salvaCarrello(new ECarrello());      // Avvia un nuovo carrello vuoto in sessione
+                $v = new VGestioneCarrello();
+                $v->mostraOrdine($ordine, $nome, $cognome, $telefono, $arrProdotti);
+                self::mailOrdine($ordine, $nome, $cognome, $_POST['email'], $carrello, $arrProdotti);
             }
-
-            $gs->salvaCarrello(new ECarrello());      // Avvia un nuovo carrello vuoto in sessione
-
-            $v = new VGestioneCarrello();
-            $v->mostraOrdine($ordine, $nome, $cognome, $telefono, $arrProdotti);
-            CGestioneCarrello::mailOrdine($ordine, $nome, $cognome, $_POST['email'], $carrello, $arrProdotti);
-        }
+            else{
+                $v = new VGestioneCarrello();
+                $v->mostraOrdineFallito();
+            }
+           }
         else {
             header("Location: ".$GLOBALS['path']."GestioneSchermate/recupera401");
         }
