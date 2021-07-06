@@ -14,17 +14,13 @@ class FOrdine
      * @param string $id
      * @return bool
      */
-    public static function exist(string $id): bool
-    {
+    public static function exist(string $id): bool {
         $pdo = FConnectionDB::connect();
         $stmt = $pdo->prepare("SELECT * FROM Ordine WHERE id = :id");
         $stmt->execute([':id' => $id]);
         $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        if (count($rows) == 0) {
-            return false;
-        } else {
-            return true;
-        }
+        if (count($rows) == 0) { return false; }
+        else { return true; }
     }
 
     /**
@@ -33,8 +29,7 @@ class FOrdine
      * @return EOrdine
      * @throws Exception
      */
-    public static function load(string $id): EOrdine
-    {
+    public static function load(string $id) : EOrdine {
         try {
             $pdo = FConnectionDB::connect();
             $pdo->beginTransaction();
@@ -55,7 +50,7 @@ class FOrdine
             $pdo->commit();
             return $ris;
 
-        } catch (PDOException $e) {
+        } catch(PDOException $e) {
             print("ATTENTION ERROR: ") . $e->getMessage();
             $pdo->rollBack();
         }
@@ -66,14 +61,13 @@ class FOrdine
      * @param EOrdine $ordine
      * @return bool
      */
-    public static function store(EOrdine $ordine): bool
-    {
+    public static function store(EOrdine $ordine): bool {
         $pdo = FConnectionDB::connect();
-        $pdo->exec('LOCK TABLES Ordine WRITE, Prodotto WRITE');
+        $pdo->exec('LOCK TABLES Ordine WRITE, Prodotto WRITE, Immagine WRITE');
         $carrello = $ordine->getCarrello();
         $ris=false;
         if (self::validaAcquisto($carrello) == true) {
-            self::aggiornaQuantita();
+            self::aggiornaQuantita($carrello);
             $query = "INSERT INTO Ordine VALUES(:id, :dataacquisto, :prezzototale, :idcarrello, :viaConsegna, :numerocivicoConsegna, :capConsegna)";
             $stmt = $pdo->prepare($query);
             $ris = $stmt->execute(array(
@@ -95,9 +89,7 @@ class FOrdine
      * @param EOrdine $ordine
      * @return bool
      */
-    public
-    static function update(EOrdine $ordine): bool
-    {
+    public static function update(EOrdine $ordine): bool {
         $pdo = FConnectionDB::connect();
         $stmt = $pdo->prepare("UPDATE Ordine SET dataacquisto = :dataacquisto, prezzototale= :prezzototale, 
                         idcarrello = :idcarrello, viaConsegna = :viaConsegna, numerocivicoConsegna = :numerocivicoConsegna,
@@ -119,9 +111,7 @@ class FOrdine
      * @param string $id
      * @return bool
      */
-    public
-    static function delete(string $id): bool
-    {
+    public static function delete(string $id): bool {
         $pdo = FConnectionDB::connect();
         $stmt = $pdo->prepare("DELETE FROM Ordine WHERE id = :id");
         $ris = $stmt->execute([':id' => $id]);
@@ -145,6 +135,7 @@ class FOrdine
                 break;
             }
         }
+        return $ris;
     }
 
     /**
@@ -160,7 +151,6 @@ class FOrdine
         }
     }
 }
-
 
 
 
