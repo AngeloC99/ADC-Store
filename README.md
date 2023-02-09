@@ -1,7 +1,5 @@
 # ADC-Store
 
-Progetto d'esame per il corso di **Programmazione per il Web** 2020-21 (Ingegneria dell’Informazione, Università degli Studi dell’Aquila).
-
 ## Il progetto
 
 ![main](READMEimages/main.jpg)
